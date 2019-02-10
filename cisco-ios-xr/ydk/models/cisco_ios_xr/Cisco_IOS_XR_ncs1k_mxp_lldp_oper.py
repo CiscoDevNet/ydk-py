@@ -51,6 +51,8 @@ class LldpSnoopData(Entity):
     	Ethernet controller snoop data
     	**type**\:  :py:class:`EthernetControllerNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames>`
     
+    	**config**\: False
+    
     
 
     """
@@ -88,6 +90,8 @@ class LldpSnoopData(Entity):
         
         	port Name
         	**type**\: list of  		 :py:class:`EthernetControllerName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName>`
+        
+        	**config**\: False
         
         
 
@@ -127,25 +131,35 @@ class LldpSnoopData(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: network_addresses
             
             	Management Addresses
             	**type**\:  :py:class:`NetworkAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses>`
+            
+            	**config**\: False
             
             .. attribute:: source_mac
             
             	Mac address of the neighbor
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: chassis_id
             
             	Chassis id
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: port_id_detail
             
             	Outgoing port identifier
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: hold_time
             
@@ -154,30 +168,42 @@ class LldpSnoopData(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: port_description
             
             	Port Description
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: system_name
             
             	System Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: system_description
             
             	System Description
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: system_capabilities
             
             	System Capabilities
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: enabled_capabilities
             
             	Enabled Capabilities
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: lldp_neighbor
             
@@ -186,10 +212,14 @@ class LldpSnoopData(Entity):
             
             	**length:** 0..40
             
+            	**config**\: False
+            
             .. attribute:: drop_enabled
             
             	LLDP Packet Drop Enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rx_lldp_pkts
             
@@ -197,6 +227,8 @@ class LldpSnoopData(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -263,6 +295,8 @@ class LldpSnoopData(Entity):
                 	lldp addr entry
                 	**type**\: list of  		 :py:class:`LldpAddrEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -298,6 +332,8 @@ class LldpSnoopData(Entity):
                     	Network layer address
                     	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry.Address>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ma_subtype
                     
                     	MA sub type
@@ -305,12 +341,16 @@ class LldpSnoopData(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: if_num
                     
                     	Interface num
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -354,6 +394,8 @@ class LldpSnoopData(Entity):
                         	AddressType
                         	**type**\:  :py:class:`LldpL3AddrProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper.LldpL3AddrProtocol>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
@@ -361,12 +403,16 @@ class LldpSnoopData(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -398,7 +444,14 @@ class LldpSnoopData(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = LldpSnoopData()
         return self._top_entity
+
+
 

@@ -28,6 +28,8 @@ class CISCOUBEMIB(Entity):
     	
     	**type**\:  :py:class:`CiscoUbeMIBObjects <ydk.models.cisco_ios_xe.CISCO_UBE_MIB.CISCOUBEMIB.CiscoUbeMIBObjects>`
     
+    	**config**\: False
+    
     
 
     """
@@ -66,10 +68,14 @@ class CISCOUBEMIB(Entity):
         	This object represents, whether the Cisco Unified Border Element (CUBE) is enabled  on the device or not.  The value 'true' means that the CUBE feature  is enabled on the device.  The value 'false' means that the CUBE feature  is disabled
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: cubeversion
         
         	This object represents the version of Cisco Unified Border Element on the device
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: cubetotalsessionallowed
         
@@ -77,6 +83,8 @@ class CISCOUBEMIB(Entity):
         	**type**\: int
         
         	**range:** 0..999999
+        
+        	**config**\: False
         
         	**units**\: session
         
@@ -111,7 +119,10 @@ class CISCOUBEMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOUBEMIB.CiscoUbeMIBObjects, ['cubeenabled', 'cubeversion', 'cubetotalsessionallowed'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CISCOUBEMIB()
         return self._top_entity
+
+
 

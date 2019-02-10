@@ -87,135 +87,189 @@ class CISCODOCSEXTMIB(Entity):
     	
     	**type**\:  :py:class:`CdxCmtsCmCpeObjects <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmCpeObjects>`
     
+    	**config**\: False
+    
     .. attribute:: cdxwbresilobjects
     
     	
     	**type**\:  :py:class:`CdxWBResilObjects <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxWBResilObjects>`
+    
+    	**config**\: False
     
     .. attribute:: cdxcmtsdocsislbobjects
     
     	
     	**type**\:  :py:class:`CdxCmtsDocsisLBObjects <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsDocsisLBObjects>`
     
+    	**config**\: False
+    
     .. attribute:: cdxqosctrluptable
     
     	For each upstream interface, this table maintains a number  of objects related to Quality of Service scheduler which uses these attributes to control cable modem registration. 
     	**type**\:  :py:class:`CdxQosCtrlUpTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxQosCtrlUpTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdxqosifratelimittable
     
     	This table describes the attributes of rate limiting for  schedulers in cable upstream and downstream interfaces that  support Quality of Service.  The rate limiting process is  to ensure the Quality of Service and fairness. 
     	**type**\:  :py:class:`CdxQosIfRateLimitTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxQosIfRateLimitTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdxcmtsserviceexttable
     
     	The list contains the additional attributes of a single Service ID that provided by docsIfCmtsServiceEntry. 
     	**type**\:  :py:class:`CdxCmtsServiceExtTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsServiceExtTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdxupinfoelemstatstable
     
     	The table contains the attributes of a particular  Information Element type for each instance of the MAC  scheduler. It is indexed by upstream ifIndex. An Entry exists for each ifEntry with ifType of docsCableUpstream(129) Since each upstream has an instance of a MAC Scheduler so  this table has the per MAC scheduler slot information on a per Information Element basis. 
     	**type**\:  :py:class:`CdxUpInfoElemStatsTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxUpInfoElemStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdxbwqueuetable
     
     	This table describes the attributes of queues   in cable interfaces schedulers that support  Quality of Service
     	**type**\:  :py:class:`CdxBWQueueTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxBWQueueTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdxcmcpetable
     
     	This table contains information about cable modems (CM) or  Customer Premises Equipments (CPE). 
     	**type**\:  :py:class:`CdxCmCpeTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmCpeTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdxcmtscmstatusexttable
     
     	The list contains the additional CM status information. 
     	**type**\:  :py:class:`CdxCmtsCmStatusExtTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmStatusExtTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdxcmtsmacexttable
     
     	This table contains the additions attributes of a CMTS MAC interface that provided by docsIfCmtsMacTable. 
     	**type**\:  :py:class:`CdxCmtsMacExtTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsMacExtTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdxcmtscmchovertable
     
     	A table of CMTS operation entries to instruct cable modems to move to a new downstream and/or upstream channel.   An entry in this table is an operation that has been  initiated from CMTS to generates downstream frequency and/or  upstream channel override fields in the RNG\-RSP message sent  to a cable modem.  A RNG\-RSP message is sent to a cable  modem during initial maintenance opportunity.   This operation causes the uBR to place an entry for the cable  modem specified into the override request queue.  The link is  then broken by deleting the modem from its polling list.  When  the modem attempts initial ranging, the override request  causes downstream frequency and upstream channel override  fields to be inserted into the RNG\-RSP message.  
     	**type**\:  :py:class:`CdxCmtsCmChOverTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmChOverTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdxcmtscmtable
     
     	This table contains attributes or configurable parameters  for cable modems from a CMTS. 
     	**type**\:  :py:class:`CdxCmtsCmTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdxcmtscmstatusdmictable
     
     	This table contains the list of modems which failed the CMTS Dynamic Message Integrity Check (DMIC). The modems are  either Marked\: The modems failed the DMIC check but were still          allowed to come online. Locked\: The modems failed the DMIC check and hence were          allowed to come online with a restrictive QoS          profile as defined in  cdxCmtsCmDMICLockQos. Rejected\: The modems failed the DMIC check and hence           were not allowed to come online. Another objective of the objects in this table is to clear the lock on the modems
     	**type**\:  :py:class:`CdxCmtsCmStatusDMICTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmStatusDMICTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdxcmtocpetable
     
     	This table contains information about CPE connects behind cable modem. It will return IP address and IP address type of each CPE connect to a CM.  It is not intended to walk the whole table. An application would need to query this table based on the specific indices. Otherwise, it will impact the CMTS performance due to the  huge size of this table.  The agent creates/destroys/modifies an entry whenever there is a CPE connect to a cable modem or disconnect from a cable modem
     	**type**\:  :py:class:`CdxCmToCpeTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmToCpeTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdxcpetocmtable
     
     	This table contains information about cable modems with CPE connects to.  It is not intended to walk the whole table. An application would need to query this table base on the specific index. Otherwise, it will impact the CMTS performance due to the huge size of this table.  The agent creates/destroys/modifies an entry whenever there is update for the cable modem that CPE connects to
     	**type**\:  :py:class:`CdxCpeToCmTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCpeToCmTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdxcpeipprefixtable
     
     	The table contains a list CPE's IP Prefix management information
     	**type**\:  :py:class:`CdxCpeIpPrefixTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCpeIpPrefixTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdxifupstreamchannelexttable
     
     	This table contains upstream channel attributes for   automated Spectrum management, in addition to the ones provided by docsIfUpstreamChannelEntry. It also contains upstream channel attributes to count  the number of active,registered and total number of cable  modems on this upstream. 
     	**type**\:  :py:class:`CdxIfUpstreamChannelExtTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxIfUpstreamChannelExtTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdxwbresilcmtable
     
     	This table contains information about partial service cable modems (CM), including both downstream and upstream partial service modems
     	**type**\:  :py:class:`CdxWBResilCmTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxWBResilCmTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdxrftoprimarychannelmappingtable
     
     	This table contains information of the mapping of the physical RF channels to the primary RF channels
     	**type**\:  :py:class:`CdxRFtoPrimaryChannelMappingTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxRFtoPrimaryChannelMappingTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdxprimarychanneltorfmappingtable
     
     	This table contains information of the mapping of the primary RF channels to the physical RF channels
     	**type**\:  :py:class:`CdxPrimaryChanneltoRFMappingTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxPrimaryChanneltoRFMappingTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdxcmtsmtccmtable
     
     	This table contains CM management information of Transmit Channel Set(TCS) in the system
     	**type**\:  :py:class:`CdxCmtsMtcCmTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsMtcCmTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdxcmtsuscbsflowtable
     
     	This table contains the Upstream Channel Bonding Service Flow management information
     	**type**\:  :py:class:`CdxCmtsUscbSflowTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsUscbSflowTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdxrpdgs7ktable
     
     	The cdxRPDGS7KTable contains the attributes of GS7K.  An Entry exists for each instance.  It is indexed by GS7K's MacAddress
     	**type**\:  :py:class:`CdxRPDGS7KTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxRPDGS7KTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdxbundleiphelpertable
     
     	A list of cable helper entries on Bundle/Sub\-Bundle interface
     	**type**\:  :py:class:`CdxBundleIpHelperTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxBundleIpHelperTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdxbundleipv6dhcprelaytable
     
     	Ipv6 dhcp relay configurations on Bundle/Sub\-Bundle interface
     	**type**\:  :py:class:`CdxBundleIPv6DHCPRelayTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxBundleIPv6DHCPRelayTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdxbundleipv6dhcprelaydesttable
     
     	 A list of IPv6 DHCP relay destination entries on Cable Bundle/Sub\-Bundle interfaces
     	**type**\:  :py:class:`CdxBundleIPv6DHCPRelayDestTable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxBundleIPv6DHCPRelayDestTable>`
+    
+    	**config**\: False
     
     
 
@@ -361,6 +415,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	**range:** 1..86400
         
+        	**config**\: False
+        
         	**units**\: minutes
         
         
@@ -391,6 +447,7 @@ class CISCODOCSEXTMIB(Entity):
             self._perform_setattr(CISCODOCSEXTMIB.CdxCmtsCmCpeObjects, ['cdxcmtscmchovertimeexpiration'], name, value)
 
 
+
     class CdxWBResilObjects(Entity):
         """
         
@@ -402,6 +459,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	**range:** 1..65535
         
+        	**config**\: False
+        
         	**units**\: Second
         
         .. attribute:: cdxwbresilrfchangetriggerpercentage
@@ -410,6 +469,8 @@ class CISCODOCSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..100
+        
+        	**config**\: False
         
         	**units**\: Percentage
         
@@ -420,15 +481,21 @@ class CISCODOCSEXTMIB(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: cdxwbresilrfchangetriggermovesecondary
         
         	This object specifies whether the secondary service flows are allowed to be moved and created on the narrowband interface
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: cdxwbresilnotificationenable
         
         	An indication of whether the cdxWBResilRFDown, cdxWBResilRFUp,  cdxWBResilCMPartialServiceNotif, cdxWBResilCMFullServiceNotif,  cdxWBResilEvent, cdxWBResilUsFullServiceNotif and cdxWBResilUsPartialServiceNotif are enabled
         	**type**\:  :py:class:`CdxWBResilNotificationEnable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxWBResilObjects.CdxWBResilNotificationEnable>`
+        
+        	**config**\: False
         
         .. attribute:: cdxwbresilnotificationsinterval
         
@@ -436,6 +503,8 @@ class CISCODOCSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..86400
+        
+        	**config**\: False
         
         	**units**\: Second
         
@@ -477,6 +546,7 @@ class CISCODOCSEXTMIB(Entity):
             self._perform_setattr(CISCODOCSEXTMIB.CdxWBResilObjects, ['cdxwbresilrfchangedampentime', 'cdxwbresilrfchangetriggerpercentage', 'cdxwbresilrfchangetriggercount', 'cdxwbresilrfchangetriggermovesecondary', 'cdxwbresilnotificationenable', 'cdxwbresilnotificationsinterval'], name, value)
 
 
+
     class CdxCmtsDocsisLBObjects(Entity):
         """
         
@@ -486,25 +556,35 @@ class CISCODOCSEXTMIB(Entity):
         	This is a cisco private object. Setting this object to true(1) enables d2.0 loadbalancing on CMTS and allows user to further config other options for d3.0 loadbalancing(cdxCmtsD30LBEnable, cdxCmtsD30LBUpstreamEnable cdxCmtsD30LBStaticEnable  		and cdxCmtsD30LBDynEnable).  Setting it to false(2) disables all oad balancing operations
         	**type**\:  :py:class:`CdxCmtsDocsisLBEnable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsDocsisLBObjects.CdxCmtsDocsisLBEnable>`
         
+        	**config**\: False
+        
         .. attribute:: cdxcmtsd30lbenable
         
         	Setting this object to true(1) enables d3.0 static loadbalancing on CMTS and allows user to further config other objects for d3.0 loadbalancing(cdxCmtsD30LBUpstreamEnable and cdxCmtsD30LBStaticEnable and cdxCmtsD30LBDynEnable) . Setting it to false(2) disables d3.0 loadbalancing
         	**type**\:  :py:class:`CdxCmtsD30LBEnable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsDocsisLBObjects.CdxCmtsD30LBEnable>`
+        
+        	**config**\: False
         
         .. attribute:: cdxcmtsd30lbupstreamenable
         
         	Setting this object to true(1) enables upstream loadbalancing in docsis 3.0 static loadbalancing. Default is false(2).Only if docsis\-enable and docsis30\-enable set to true can this object take effect
         	**type**\:  :py:class:`CdxCmtsD30LBUpstreamEnable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsDocsisLBObjects.CdxCmtsD30LBUpstreamEnable>`
         
+        	**config**\: False
+        
         .. attribute:: cdxcmtsd30lbstaticenable
         
         	Setting this to true(1) enables autonomous D30 LB to move wideband modems if LB group is not in a balancing state.Default is false(2). Only if docsis\-enable and docsis30\-enable is set to true can this object set to true(1)
         	**type**\:  :py:class:`CdxCmtsD30LBStaticEnable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsDocsisLBObjects.CdxCmtsD30LBStaticEnable>`
         
+        	**config**\: False
+        
         .. attribute:: cdxcmtsd30lbdynenable
         
         	Setting this to true(1) enables autonomous D30 LB to move wideband modems if LB group is not in a balancing state.Default is false(2). Only if docsis\-enable and docsis30\-enable is set to true can this object set to true(1)
         	**type**\:  :py:class:`CdxCmtsD30LBDynEnable <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsDocsisLBObjects.CdxCmtsD30LBDynEnable>`
+        
+        	**config**\: False
         
         
 
@@ -667,6 +747,7 @@ class CISCODOCSEXTMIB(Entity):
 
 
 
+
     class CdxQosCtrlUpTable(Entity):
         """
         For each upstream interface, this table maintains a number 
@@ -677,6 +758,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	A list of attributes for each upstream MAC scheduler  that supports Quality of Service.  Entries in this table exist for each ifEntry with ifType of docsCableUpstream(129). 
         	**type**\: list of  		 :py:class:`CdxQosCtrlUpEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxQosCtrlUpTable.CdxQosCtrlUpEntry>`
+        
+        	**config**\: False
         
         
 
@@ -720,10 +803,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxqosctrlupadmissionctrl
             
             	The admission control status for minimum guaranteed upstream  bandwidth scheduling service requests for this upstream.  When this object is set to 'true', if there is a new modem  with minimum guaranteed upstream bandwidth scheduling service in its QoS class requesting to be supported in this upstream, the upstream scheduler will check the virtual reserved  bandwidth remaining capacity before giving admission to this  new modem. If there is not enough reserved upstream bandwidth to serve the modem's minimum guaranteed bandwidth, the  registration request will be rejected.    This object is set to 'false' to disable admission control. That is, there will be no checking for bandwidth capacity and the upstream interface scheduler just admits modem registration requests.   This object is not meant for Unsolicited Grant Service(UGS)  scheduling service as admission control is a requirement in  this case. 
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cdxqosctrlupmaxrsvdbwpercent
             
@@ -731,6 +818,8 @@ class CISCODOCSEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 10..1000
+            
+            	**config**\: False
             
             	**units**\: percent
             
@@ -741,12 +830,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxqosctrlupreservedbw
             
             	The current total reserved bandwidth in bits per second of  this upstream interface.  It is the sum of all cable modems' minimum guaranteed bandwidth in bits per second currently  supported on this upstream. 
             	**type**\: int
             
             	**range:** 0..102400000
+            
+            	**config**\: False
             
             	**units**\: bits/second
             
@@ -756,6 +849,8 @@ class CISCODOCSEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..102400000
+            
+            	**config**\: False
             
             	**units**\: bits/second
             
@@ -797,6 +892,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxQosCtrlUpTable.CdxQosCtrlUpEntry, ['ifindex', 'cdxqosctrlupadmissionctrl', 'cdxqosctrlupmaxrsvdbwpercent', 'cdxqosctrlupadmissionrejects', 'cdxqosctrlupreservedbw', 'cdxqosctrlupmaxvirtualbw'], name, value)
 
 
+
+
     class CdxQosIfRateLimitTable(Entity):
         """
         This table describes the attributes of rate limiting for 
@@ -808,6 +905,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	List of the rate limiting attributes for cable upstream and  downstream interfaces schedulers that support Quality of  Service. Entries in this table exist for each ifEntry with  ifType of docsCableUpstream(129) and docsCableDownstream(128)
         	**type**\: list of  		 :py:class:`CdxQosIfRateLimitEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxQosIfRateLimitTable.CdxQosIfRateLimitEntry>`
+        
+        	**config**\: False
         
         
 
@@ -852,10 +951,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxqosifratelimitalgm
             
             	To ensure fairness, the CMTS will throttle the rate for bandwidth  request (upstream)/packet sent (downstream) at which CMTS issues  grants(upstream) or allow packet to be send(downstream) such that  the flow never gets more than its provisioned peak rate in bps.   There are two directions for every Service Id (Sid) traffic\:  downstream and upstream. Each direction is called a service flow  here and assigned one token bucket with chosen algorithm.   The enumerations for the rate limiting algorithm are\:  noRateLimit(1)\: The rate limiting is disabled. No rate limiting.  oneSecBurst(2)\: Bursty 1 second token bucket algorithm.  carLike(3)    \: Average token usage (CAR\-like) algorithm   wtExPacketDiscard(4) \: Weighted excess packet discard algorithm.  shaping(5)\: token bucket algorithm with shaping  Upstream supports the following\:    No rate limiting (1),    Bursty 1 second token bucket algorithm(2),    Average token usage (CAR\-like) algorithm(3),   Token bucket algorithm with shaping(5).  Downstream supports the following\:   No rate limiting (1),    Bursty 1 second token bucket algorithm(2),   Average token usage (CAR\-like) algorithm(3),   Weighted excess packet discard algorithm(4), and   Token bucket algorithm with shaping(5).  Token bucket algorithm with shaping is the default algorithm for upstream if CMTS is in DOCSIS 1.0 mode or DOCSIS 1.1 mode.   Bursty 1 second token bucket algorithm is the  default algorithm for downstream if the CMTS is in DOCSIS 1.0 mode. If it is in DOCSIS 1.1 mode the default algorithm for downstream is  Token bucket algorithm with shaping .  Each algorithm is described as below\:   No rate limiting\:      The rate limiting process is disabled and no checking      against the maximum bandwidth allowed.     Bursty 1 second token bucket rate limiting algorithm\:      In this algorithm, at the start of every 1 second interval,      a service flow's token usage is reset to 0, and every time      the modem for that service flow sends a request (upstream) /      packet (downstream) the upstream/downstream bandwidth      token usage is incremented by the size of the      request/packet sent. As long as the service flow's bandwidth      token usage is less than the maximum bandwidth in bits      per second (peak rate limit) its QoS service class      allows, the request/packets will not be restricted.      Once the service flow has sent more than its peak rate in the      one second interval, it is prevented from sending more      data by rejecting request (upstream) or dropping      packets (downstream). This is expected to slow down     the higher layer sources. The token usage counter gets      reset to 0 after the 1 second interval has elapsed. The      modem for that service flow is free to send more data up to the      peak rate limit in the new 1 second interval that follows.      Average token usage (Cisco CAR like) algorithm\:      This algorithm maintains a continuous average of the      burst token usage of a service flow. There is no sudden      refilling of tokens every 1 second interval. Every time a      request/packet is to be handled, the scheduler tries to see      how much time has elapsed since last transmission, and      computes the number of tokens accumulated by this service flow      at its QoS class peak rate. If burst usage of the service flow      is less than tokens accumulated, the burst usage is reset to 0      and request/packet is forwarded. If the service flow has      accumulated fewer tokens than its burst usage, the burst usage      shows an outstanding balance usage after decrementing by the      tokens accumulated. In such cases, the request/packet is still      forwarded, provided the service flow's outstanding usage does      not exceed peak rate limit of its QoS class. If outstanding      burst usage exceeds the peak rate of the class, the service      flow is given some token credit up to a certain maximum credit      limit and the request/packet is forwarded. The request/packet      is dropped when outstanding usage exceeds peak rate and maximum      credit has been used up by this service flow. This algorithm      tracks long term average bandwidth usage of the service flow      and controls this average usage at the peak rate limit.    Weighted excess packet discard algorithm\:     This rate limiting algorithm is only available as an option      for downstream rate limiting. The algorithm is to maintain an      weighted exponential moving average of the loss rate of a      service flow over time. The loss rate, expressed in packets,      represents the number of packets that can be sent from this      service flow in a one second interval before a packet will      be dropped. At every one second interval, the loss rate gets      updated using the ratio between the flow peak rate (in bps)      in its QoS profile and the service flow actual usage (in bps).      If the service flow begins to send more than its peak rate      continuously, the number of packets it can send in an one      second interval before experiencing a drop will slowly keep      reducing until cable modem for that service flow slows down      as indicated by actual usage less or equal to the peak rate.     Token bucket algorithm with shaping\:      If there is no QoS class peak rate limit, forward the       request/packet without delay. If there is a QoS peak rate       limit, every time a request/packet is to be handled, the       scheduler determines the number of bandwidth tokens that this       service flow has accumulated over the elapsed time at its       QoS class peak rate and increments the tokens counter of the       service flow accordingly.  The scheduler limits the token       count to the maximum transmit burst (token bucket depth).        If token count is greater than the number of tokens required       to handle current request/packet, decrement token count by       size of request/packet and forwards the request/packet       without delay.  If token count is less than the size of       request/packet, compute the shaping delay time after       which the deficit number of tokens would be available. If       shaping delay time is less than the maximum shaping delay,       decrement tokens count by size of request/packet and       forward this request/packet with the shaping delay in the       shaping delay queue. When the delay time expires, the       request/packet is forwarded. If shaping delay time is       greater than the maximum shaping delay that the subsequent       shaper can handle, the request/packet is dropped. Users can      use cdxQosIfRateLimitShpMaxDelay to configure the the maximum       shaping delay and cdxQosIfRateLimitShpGranularity to       configure the shaping granularity.  
             	**type**\:  :py:class:`CdxQosIfRateLimitAlgm <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxQosIfRateLimitTable.CdxQosIfRateLimitEntry.CdxQosIfRateLimitAlgm>`
+            
+            	**config**\: False
             
             .. attribute:: cdxqosifratelimitexpwt
             
@@ -864,15 +967,21 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 1..4
             
+            	**config**\: False
+            
             .. attribute:: cdxqosifratelimitshpmaxdelay
             
             	The maximum shaping delay in milliseconds. That is, the maximum  amount time of buffering the CMTS will allow for any rate exceeded  flow.  If the max buffering delay is large, the grants/packets of  the flow will be buffered for a longer period of time even though  the flow is rate exceeded. This means fewer chances of drops for such rate exceeded flow. However, too large a max shaping delay  can result is quick drainage of packet buffers at the CMTS, since  several packets will be in the shaping (delay) queue waiting for  their proper transmission time. Another important point to be noted  is that delaying a flows packets (especially TCP flows) for  extended periods of time is useless, since the higher protocol  layers may assume a packet loss after a certain amount of time.  The maximum shaping delay is only applied to rate limit algorithm\:  Token bucket algorithm with shaping.  If the rate limit  algorithm is not Token bucket algorithm with shaping, the  value is always na(1) which is not applicable.  If the token count is less than the size of request/packet, CMTS  computes the shaping delay time after which the deficit number of  tokens would be available. If the shaping delay time is greater  than the maximum shaping delay, the request/packet will be dropped.    The enumerations for maximum shaping delay are\:   na(1)\: maximum shaping delay is not applied to the current           rate limit algorithm  msec128(2)\: maximum shaping delay is 128 milliseconds    msec256(3)\: maximum shaping delay is 256 milliseconds   msec512(4)\: maximum shaping delay is 512 milliseconds  msec1024(5)\: maximum shaping delay is 1024 milliseconds   The downstream maximum shaping delay is configurable and the default value is msec128(2). Whenever the downstream rate  limit algorithm is changed to Token bucket algorithm with  shaping from other rate limit algorithm, the value will  be reset to the default value.   The upstream maximum shaping delay is not configurable and it  is read\-only value.  
             	**type**\:  :py:class:`CdxQosIfRateLimitShpMaxDelay <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxQosIfRateLimitTable.CdxQosIfRateLimitEntry.CdxQosIfRateLimitShpMaxDelay>`
             
+            	**config**\: False
+            
             .. attribute:: cdxqosifratelimitshpgranularity
             
             	The width in milliseconds of each element in shaping  delay queue, that is, the shaping granularity.  The shaping granularity is only applied to rate limit algorithm\: Token bucket algorithm with shaping. It  controls how accurately the algorithm quantizes the shaping  delay for a rate exceeded flow. If granularity is large, several  shaping delay values will all be quantized to the same element  in the queue resulting in less accurate rate shaping for the flows  in bits/sec. On the other hand, choosing too small granularity  causes more memory to be used for the shaper block, and also  can cost a bit more in runtime overhead.  If the rate limit algorithm is not Token bucket algorithm with  shaping, the value is always na(1) which is not applicable.  The enumerations for shaping granularity are\:   na(1)\: shaping granularity is not applied to the current           rate limit algorithm    msec1(2)\: shaping granularity in 1 milliseconds     msec2(3)\: shaping granularity in 2 milliseconds     msec4(4)\: shaping granularity in 4 milliseconds     msec8(5)\: shaping granularity in 8 milliseconds    msec16(6)\: shaping granularity in 16 milliseconds    The downstream shaping granularity is configurable and the default value is msec4(4). Whenever the downstream rate limit  algorithm is changed to Token bucket algorithm with shaping  from other rate limit algorithm, the value will be reset to the  default value.   The upstream shaping granularity is not configurable and  it is read\-only value.  
             	**type**\:  :py:class:`CdxQosIfRateLimitShpGranularity <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxQosIfRateLimitTable.CdxQosIfRateLimitEntry.CdxQosIfRateLimitShpGranularity>`
+            
+            	**config**\: False
             
             
 
@@ -1351,6 +1460,8 @@ class CISCODOCSEXTMIB(Entity):
 
 
 
+
+
     class CdxCmtsServiceExtTable(Entity):
         """
         The list contains the additional attributes of a single Service
@@ -1360,6 +1471,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	Additional objects for docsIfCmtsServiceTable entry including  downstream traffic statistics and excess counts against the  Quality of Service limits for each Service ID. From DOCSIS 1.1 onwards statistics are maintained for each  Service Flow(instead of the Service ID) in the DOCS\-QOS\-MIB  in docsQosServiceFlowStatsTable objects. For Cable modems not running in DOCSIS 1.0 mode, the objects   cdxIfCmtsServiceOutOctets and cdxIfCmtsServiceOutPackets will only support primary service flow. 
         	**type**\: list of  		 :py:class:`CdxCmtsServiceExtEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsServiceExtTable.CdxCmtsServiceExtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1409,6 +1522,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: docsifcmtsserviceid  (key)
             
             	
@@ -1418,12 +1533,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`docsifcmtsserviceid <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsServiceTable.DocsIfCmtsServiceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxifcmtsserviceoutoctets
             
             	The cumulative number of Packet Data octets sent for this  Service ID. 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxifcmtsserviceoutpackets
             
@@ -1432,12 +1551,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxqosmaxupbwexcessrequests
             
             	The number of upstream bandwidth requests which exceeds the maximum upstream bandwidth allowed for a service defined  in the Quality of Service profile associated with this Sid.  The request which exceeds the maximum upstream bandwidth  allowed will be rejected by the upstream's rate limiting  process using one of the rate limiting algorithm.   Note that the value of this counter cannot be directly used  to know the number of upstream packets that got dropped at  the cable modem.  A single upstream packet drop of a modem  can result in up to 16 increments in this counter, since the  modem keeps retrying and keeps getting bandwidth request  drops at CMTS if it has consumed its peak rate.  
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxqosmaxdownbwexcesspackets
             
@@ -1446,12 +1569,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxifcmtsservicehcinoctets
             
             	The cumulative number of Packet Data octets received on this Service ID. The count does not include the size of the Cable MAC header. This object is a 64\-bit version of docsIfCmtsServiceInOctets
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: cdxifcmtsservicehcinpackets
             
@@ -1460,6 +1587,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cdxifcmtsservicehcoutoctets
             
             	The cumulative number of Packet Data octets sent for this Service ID. This object is a 64\-bit version of cdxIfCmtsServiceOutOctets
@@ -1467,12 +1596,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cdxifcmtsservicehcoutpackets
             
             	The cumulative number of Packet Data packets sent for this Service ID. This object is a 64\-bit version of cdxIfCmtsServiceOutPackets
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -1520,6 +1653,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxCmtsServiceExtTable.CdxCmtsServiceExtEntry, ['ifindex', 'docsifcmtsserviceid', 'cdxifcmtsserviceoutoctets', 'cdxifcmtsserviceoutpackets', 'cdxqosmaxupbwexcessrequests', 'cdxqosmaxdownbwexcesspackets', 'cdxifcmtsservicehcinoctets', 'cdxifcmtsservicehcinpackets', 'cdxifcmtsservicehcoutoctets', 'cdxifcmtsservicehcoutpackets'], name, value)
 
 
+
+
     class CdxUpInfoElemStatsTable(Entity):
         """
         The table contains the attributes of a particular 
@@ -1534,6 +1669,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	The list of statistics for a type of Information Element(IE) which defines the allowed usage for a range of upstream mini slots. One entry exists for each Information Element (IE) in a upstream which ifType is docsCableUpstream (12)
         	**type**\: list of  		 :py:class:`CdxUpInfoElemStatsEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxUpInfoElemStatsTable.CdxUpInfoElemStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1578,10 +1715,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxupinfoelemstatsnamecode  (key)
             
             	This entry describes the Information Element (IE) type. Enumerations are \: reqIE(1)          \: Request Information Element,                     The request Information Element provides                     an upstream interval in which a CM can                     request the CMTS for bandwidth on the                      upstream channel. reqOrDataIE(2)    \: Request/Data Information Element,                     The Request/data Information Element                      provides an upstream interval in which                      request may be made by the CM to the                      CMTS for bandwidth or short data                      packets may be transmitted on the                     upstream channel. initMtnIE(3)      \: Initial Maintenance Information Element,                     The Initial Maintenance Information                      Element provides an interval in which                      new stations may join the network. stnMtnIE(4)       \: Station Maintenance Information Element,                     The Station Maintenance Information                      Element provides an interval in which                      stations are expected to perform some                      aspect of routine network maintenance ,                      such as ranging or power adjustment. shortGrantIE(5)   \: Short Data Grant Information Element,                     Short data grant Information Element                     provides the CM an opportunity to                      transmit one or more upstream PDU's.                     Short data grants are used with                      intervals equal to or less than the                      maximum burst size for the usage                      specified in the Upstream Channel                      Descriptor. longGrantIE(6)    \: Long Data Grant Information Element,                     The long data grant Information Element                     also provides the CM an opportunity to                     transmit one or more upstream PDU's.                     All long data grant Information Elements                     must have a larger number of mini\-slots                     than that defined for a short data grant                     Information Element profile defined in                     the Upstream Channel Descriptor. 
             	**type**\:  :py:class:`CdxUpInfoElemStatsNameCode <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxUpInfoElemStatsTable.CdxUpInfoElemStatsEntry.CdxUpInfoElemStatsNameCode>`
+            
+            	**config**\: False
             
             .. attribute:: cdxupinfoelemstatsietype
             
@@ -1589,6 +1730,8 @@ class CISCODOCSEXTMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             
 
@@ -1737,6 +1880,8 @@ class CISCODOCSEXTMIB(Entity):
 
 
 
+
+
     class CdxBWQueueTable(Entity):
         """
         This table describes the attributes of queues  
@@ -1747,6 +1892,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	The list of queue attributes in cable upstream and downstream interfaces schedulers that supports Quality of Service.  Entries in this table exist for each ifEntry with ifType of  docsCableUpstream(129) and docsCableDownstream(128). 
         	**type**\: list of  		 :py:class:`CdxBWQueueEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxBWQueueTable.CdxBWQueueEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1791,10 +1938,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxbwqueuenamecode  (key)
             
             	The name code for the queue.  cirQ \:CIR queue. The queue is for Committed Information Rate        (CIR) type of service which serves Service IDs which       have minimum guaranteed rate in its QoS profile.       It is applicable if CMTS is running is either of        DOCSIS 1.0 or 1.1 modes.For DOCSIS 1.1 it has        priority 8.                   tbeQ \:TBE Queue.The queue is for TIERED BEST EFFORT type        service which serves Service IDs which does not have        minimum guaranteed rate in its QoS profile. It is        only applicable if CMTS is running in DOCSIS 1.0       mode.  p0BEGrantQ\-p7BEGrantQ \: BEST EFFORT Queue       The queues p0BEGrantQ to P7BEGrantQ are for TIERED        BEST EFFORT type service which serves Service IDs        which do not have minimum guaranteed rate specified       in the QoS parameters. P0 has lowest priority and P7       has highest.Best Effort type is purely handled with        prioritization in FIFO's and hence demands more        number of queues. These queues are applicable only if       CMTS is running under mode DOCSIS 1.1.                               rngPollQ \: RngPoll queue.       The queue is for the ranging SID's.It has the highest       priority. This queue information is only provided if       CMTS is running under mode DOCSIS 1.1. 
             	**type**\:  :py:class:`CdxBWQueueNameCode <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxBWQueueTable.CdxBWQueueEntry.CdxBWQueueNameCode>`
+            
+            	**config**\: False
             
             .. attribute:: cdxbwqueueorder
             
@@ -1803,6 +1954,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..10
             
+            	**config**\: False
+            
             .. attribute:: cdxbwqueuenumservedbeforeyield
             
             	The maximum number of requests/packets the scheduler can  serve before yielding to another queue. The value 0 means all  requests must be served before yielding to another queue. The  range is 0\-50 for DOCSIS 1.0 and for DOCSIS 1.1 it is 0\-64. 
@@ -1810,10 +1963,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: cdxbwqueuetype
             
             	The queuing type which decides the position of a request/packet within the queue.   unknown \: queue type unknown.    other   \: not fifo, and not priority.   fifo    \: first in first out.   priority\: each bandwidth request has a priority and the              position of the request within the queue depends              on its priority.   For DOCSIS1.1 all the priority queues are fifo queues. 
             	**type**\:  :py:class:`CdxBWQueueType <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxBWQueueTable.CdxBWQueueEntry.CdxBWQueueType>`
+            
+            	**config**\: False
             
             .. attribute:: cdxbwqueuemaxdepth
             
@@ -1822,6 +1979,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: cdxbwqueuedepth
             
             	The current number of requests/packets in the queue. The range is 0\-50 for DOCSIS1.0 and for DOCSIS1.1 it is 0\-64. 
@@ -1829,12 +1988,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: cdxbwqueuediscards
             
             	The number of requests/packets discarded because of queue overflow (queue depth > queue maximum depth). 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2020,6 +2183,8 @@ class CISCODOCSEXTMIB(Entity):
 
 
 
+
+
     class CdxCmCpeTable(Entity):
         """
         This table contains information about cable modems (CM) or 
@@ -2029,6 +2194,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	The list contains information for a cable modem (CM) or a Customer Premises Equipment (CPE). An entry exist for  each cable modem supported by CMTS and each Customer Premises  Equipment connected to a cable modem supported by CMTS. 
         	**type**\: list of  		 :py:class:`CdxCmCpeEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmCpeTable.CdxCmCpeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2071,10 +2238,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: cdxcmcpetype
             
             	Indicate this entry is for cable modem or Customer Premises  Equipment.  The enumerations are\:   cm(1)\: cable modem  cpe(2)\: Customer Premises Equipment 
             	**type**\:  :py:class:`CdxCmCpeType <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmCpeTable.CdxCmCpeEntry.CdxCmCpeType>`
+            
+            	**config**\: False
             
             .. attribute:: cdxcmcpeipaddress
             
@@ -2083,12 +2254,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: cdxcmcpeifindex
             
             	The CMTS cable MAC interface index (ifType of  docsCableMaclayer(127)) that cable modem or Customer Premises  Equipment connects to.    Use cdxCmCpeIfIndex and cdxCmCpeCmtsServiceId to identify an  entry in docsIfCmtsServiceTable.  
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cdxcmcpecmtsserviceid
             
@@ -2097,6 +2272,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 1..16383
             
+            	**config**\: False
+            
             .. attribute:: cdxcmcpecmstatusindex
             
             	Pointer to an entry in docsIfCmtsCmStatusTable identifying  status of the CM (which the CPE connects to.) 
@@ -2104,20 +2281,28 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdxcmcpeaccessgroup
             
             	ASCII text to identify the Access Group for a CM or CPE.  Access Group is to filter the upstream traffic for that CM or CPE.  
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cdxcmcperesetnow
             
             	Setting this object to true(1) causes the device to  reset.  Reading this object always returns false(2).  For cdxCmCpeType value cm(1),  CMTS removes the  CM from the Station Maintenance List and would cause  the CM to reset its interface.  For cdxCmCpeType value cpe(2), CMTS removes the  CPE's MAC address from the internal address table.   It then rediscovers and associates the CPE with the  correct CM during the next DHCP lease cycle.  By resetting  the CPE, the user can replace an existing CPE or change  its network interface card (NIC)
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cdxcmcpedeletenow
             
             	Setting this object to true(1) causes the CM/CPE to be deleted.  Reading this object always returns false(2).  For cdxCmCpeType value cm(1),  CMTS delete CM from  its interface.  For cdxCmCpeType value cpe(2), CMTS delete CPE from  its associated CM
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -2186,6 +2371,8 @@ class CISCODOCSEXTMIB(Entity):
 
 
 
+
+
     class CdxCmtsCmStatusExtTable(Entity):
         """
         The list contains the additional CM status information. 
@@ -2194,6 +2381,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	Additional objects for docsIfCmtsCmStatusTable entry. 
         	**type**\: list of  		 :py:class:`CdxCmtsCmStatusExtEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmStatusExtTable.CdxCmtsCmStatusExtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2235,10 +2424,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`docsifcmtscmstatusindex <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmstatusvalue
             
             	Current Cable Modem connectivity state. The object extends  states in docsIfCmtsCmStatusValue in more details.   The enumerations are\: offline(1)                \: modem considered offline. others(2)                 \: states is in                              docsIfCmtsCmStatusValue. initRangingRcvd(3)        \: modem sent initial ranging. initDhcpReqRcvd(4)        \: dhcp request received. onlineNetAccessDisabled(5)\: modem registered, but network                                 access for the CM is disabled. onlineKekAssigned(6)      \: modem registered, BPI enabled                             and KEK assigned. onlineTekAssigned(7)      \: modem registered, BPI enabled                             and TEK assigned. rejectBadMic(8)           \: modem did attempt to register but                             registration was refused due to                             bad mic. rejectBadCos(9)           \: modem did attempt to register but                             registration was refused due to                             bad COS. kekRejected(10)           \: KEK modem key assignment rejected. tekRejected(11)           \: TEK modem key assignment rejected. online(12)                \: modem registered, enabled for data. initTftpPacketRcvd(13)    \: tftp packet received and option                             file transfer started.  initTodRquestRcvd(14)     \: Time of the Day (TOD) request                              received. reset(15)                 \: modem is resetting. rangingInProgress(16)     \: initial ranging is in progress. \-\-            rangingCompleted(17)      \: initial ranging is completed. (deprecated) dhcpGotIpAddr(18)         \: modem has got an IP address                              from the DHCP server. rejStaleConfig(19)        \: modem did attempt to register                             but registration was refused                             due to stale Config. rejIpSpoof(20)            \: modem did attempt to register but                             registration was refused due to IP                             Spoof. rejClassFail(21)          \: modem did attempt to register but                             registration was refused due to                              Class failure. rejRegNack(22)            \: modem did attempt to register but                             no acknowledgement was                              received. bpiKekExpired(23)         \: KEK modem key assignment expired. bpiTekExpired(24)         \: TEK modem key assignment expired. shutdown(25)              \: modem is in shutdown state. channelChgInitRangingRcvd(26)  \: modem sent initial ranging                                   during channel change. channelChgRangingInProgress(27) \: initial ranging is in                                   progress during channel                                   change.  This cdxCmtsCmStatusValue could return initRangingRcvd(3) or rangingInProgress(16) when the docsIfCmtsCmStatusValue is ranging(2).  This cdxCmtsCmStatusValue will return others(2) when the docsIfCmtsCmStatusValue states is either rangingAborted(3), rangingComplete(4), and ipComplete(5).  This cdxCmtsCmStatusValue could return online(12), or onlineNetAccessDisabled(5) for CM with BPI disabled, or onlineNetAccessDisabled(5) or onlineTekAssigned(7) for CM with BPI enabled, when the docsIfCmtsCmStatusValue is registrationComplete(6).  This cdxCmtsCmStatusValue could return either rejectBadMic(8), rejectBadCos(9) rejStaleConfig(19) or rejRegNack(22) when the docsIfCmtsCmStatusValue is accessDenied(7) for possible reasons of cable modem registration abort.  This cdxCmtsCmStatusValue could return either onlineKekAssigned(6), kekRejected(10), tekRejected(11), or online(12) for the CM with BPI enabled when the docsIfCmtsCmStatusValue is registeredBPIInitializing(9).    FOR DOCSIS 1.0 \-\-\-\-\-\-\-\-\-\-\-\-\-\- The ranging, rangingAborted, rangingComplete, and ipComplete  states in docsIfCmtsCmStatusValue is others in this object since this object is extension of docsIfCmtsCmStatusValue.   The registrationComplete state in docsIfCmtsCmStatusValue  could be online, onlineNetAccessDisabled, onlineKekAssigned, or  onlineTekAssigned in this object.    The accessDenied state in docsIfCmtsCmStatusValue could be  rejectBadMic, rejectBadCos in this object for the possible reasons of cable modem registration abort.  The states 15 to 25 are not applicable.  FOR DOCSIS 1.1 \-\-\-\-\-\-\-\-\-\-\-\-\-\-               The registrationComplete state in docsIfCmtsCmStatusValue  could be online, onlineNetAccessDisabled,  onlineBpiKekAssigned,or onlineBpiTekAssigned in this  object.    The accessDenied state in docsIfCmtsCmStatusValue could be  rejMicFail, rejStaleConfig, rejIpSpoof, rejClassFail,  rejRegNack in this object for the possible reasons of cable modem registration abort.  The CMTS only reports states it is able to detect. States Online(2) and  rejectBadCos(9) are not applicable for  DOCSIS1.1 modems. 
             	**type**\:  :py:class:`CdxCmtsCmStatusValue <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmStatusExtTable.CdxCmtsCmStatusExtEntry.CdxCmtsCmStatusValue>`
+            
+            	**config**\: False
             
             .. attribute:: cdxifcmtscmstatusonlinetimes
             
@@ -2247,12 +2440,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxifcmtscmstatuspercentonline
             
             	The percentage of time that the modem stays 'online' over  the time period from the modem's first ranging message  received by CMTS until now.   The value for this object is 100 times bigger than the real  percentage value. For example, 32.15% will be value 3215.  The modem is considered as 'online' when the value for  cdxCmtsCmStatusValue is any of the values\: online(5),  onlineNetAccessDisabled(6), onlineKekAssigned(7), and  onlineTekAssigned(8), and the modem is considered as  'offline' for other values for cdxCmtsCmStatusValue.  
             	**type**\: int
             
             	**range:** 0..10000
+            
+            	**config**\: False
             
             .. attribute:: cdxifcmtscmstatusminonlinetime
             
@@ -2261,12 +2458,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdxifcmtscmstatusavgonlinetime
             
             	The average period of time the modem stayed 'online' over the time period from the modem's first ranging message  received by CMTS until now.  The modem is considered as 'online' when the value for  cdxCmtsCmStatusValue is any of the values\: online(5),  onlineNetAccessDisabled(6), onlineKekAssigned(7), and  onlineTekAssigned(8), and the modem is considered as  'offline' for other values for cdxCmtsCmStatusValue.  
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cdxifcmtscmstatusmaxonlinetime
             
@@ -2275,12 +2476,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdxifcmtscmstatusminofflinetime
             
             	The minimum period of time modem stayed 'offline' over the time period from the modem's first ranging message  received by CMTS until now.  The modem is considered as 'online' when the value for  cdxCmtsCmStatusValue is any of the values\: online(5),  onlineNetAccessDisabled(6), onlineKekAssigned(7), and  onlineTekAssigned(8), and the modem is considered as  'offline' for other values for cdxCmtsCmStatusValue.  
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cdxifcmtscmstatusavgofflinetime
             
@@ -2289,12 +2494,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdxifcmtscmstatusmaxofflinetime
             
             	The maximum period of time the modem stayed 'offline' over the time period from the modem's first ranging message  received by CMTS until now.  The modem is considered as 'online' when the value for  cdxCmtsCmStatusValue is any of the values\: online(5),  onlineNetAccessDisabled(6), onlineKekAssigned(7), and  onlineTekAssigned(8), and the modem is considered as  'offline' for other values for cdxCmtsCmStatusValue.  
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cdxifcmtscmstatusdynsidcount
             
@@ -2303,10 +2512,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..16383
             
+            	**config**\: False
+            
             .. attribute:: cdxifcmtscmstatusaddlinfo
             
             	This object indicates additional attributes regarding the CM. 1. noisyPlant indicates that the CM connection is noisy. 2. modemPowerMaxOut indicates that the modem has reached its maximum power level.  A bit of of this object is set to 1 if the condition indicated by the bit is satisfied.  Note that BITS are encoded most significant bit first. 
             	**type**\:  :py:class:`CdxIfCmtsCmStatusAddlInfo <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmStatusExtTable.CdxCmtsCmStatusExtEntry.CdxIfCmtsCmStatusAddlInfo>`
+            
+            	**config**\: False
             
             .. attribute:: cdxifcmtscmstatusonlinetimesnum
             
@@ -2315,12 +2528,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxifcmtscmstatuslastresettime
             
             	The last cable modem connectivity statistics reset time. If the value of  this object is '0', then the cable modem connectivity statistics had not been reset
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2687,6 +2904,8 @@ class CISCODOCSEXTMIB(Entity):
 
 
 
+
+
     class CdxCmtsMacExtTable(Entity):
         """
         This table contains the additions attributes of a CMTS MAC
@@ -2696,6 +2915,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	Additional objects for docsIfCmtsMacTable entry including the cable modem notification enable/disable and the interval  of cable modem notification sent by the CMTS for a cable modem that the Mac interface supports. An entry in this table exists  for each ifEntry with an ifType of docsCableMaclayer(127). Additional objects added to determine the number of  active/registered/total cable modems on this cable mac  interface since boot. Also, it contains the object to set the Dynamic Message Integrity Check (DMIC) which users  can configure how cable modems are handled if CMs fail  the DMIC
         	**type**\: list of  		 :py:class:`CdxCmtsMacExtEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsMacExtTable.CdxCmtsMacExtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2747,10 +2968,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmonofftrapenable
             
             	An indication of whether the cdxCmtsCmOnOffNotification  is enabled. The default value is false(2). 
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtscmonofftrapinterval
             
@@ -2758,6 +2983,8 @@ class CISCODOCSEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..86400
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -2768,12 +2995,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** \-1..255
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmtotal
             
             	The total count of cable modems on this cable mac interface since boot
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtscmactive
             
@@ -2782,6 +3013,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmregistered
             
             	The count of cable modems that are registered and online  on this cable mac interface. Registered cable modems are  those with one of the following values.  registrationComplete(6) of docsIfCmtsCmStatusValue OR  either of online(12), kekRejected(10),  onlineKekAssigned(6),tekRejected(11), onlineTekAssigned(7) of cdxCmtsCmStatusValue
@@ -2789,10 +3022,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmdmicmode
             
             	The Dynamic Shared Secret feature can operate in three  different modes, depending on what action should be taken  for cable modems that fail the CMTS MIC verification check\: notConfigured(1)\: It indicates that the DMIC is not                    configured for this cable interface. mark(2)\: By default, the Dynamic Shared Secret feature           is enabled on all cable interfaces using the           mark option. In this mode, the CMTS allows           cable modems to come online even if they fail           the CMTS MIC validity check. However, for          this modem cdxCmtsCmStatusDMICMode will          be labeled as marked. lock(3)\: When the lock option is used, the CMTS assigns           a restrictive QoS configuration to CMs that           fail the MIC validity check twice in a row. A           particular QoS profile to be used for locked           cable modems can be specified by setting           cdxCmtsCmDMICLockQos.          If a customer resets their CM, the CM will           reregister but still uses the restricted QoS           profile. A locked CM continues with the           restricted QoS profile until it goes offline           and remains offline for at least 24 hours, at           which point it is allowed to reregister with a           valid DOCSIS configuration file. A system           operator can manually clear the lock on a CM by           setting cdxCmtsCmStatusDMICUnLock object. reject(4)\:  In the reject mode, the CMTS refuses to allow              CMs to come online if they fail the CMTS MIC              validity check
             	**type**\:  :py:class:`CdxCmtsCmDMICMode <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsMacExtTable.CdxCmtsMacExtEntry.CdxCmtsCmDMICMode>`
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtscmdmiclockqos
             
@@ -2800,6 +3037,8 @@ class CISCODOCSEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..16383
+            
+            	**config**\: False
             
             
 
@@ -2928,6 +3167,8 @@ class CISCODOCSEXTMIB(Entity):
 
 
 
+
+
     class CdxCmtsCmChOverTable(Entity):
         """
         A table of CMTS operation entries to instruct cable modems
@@ -2950,6 +3191,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	A CMTS operation entry to instruct a cable modem to move to a new downstream and/or upstream channel.  A CMTS operator can use this to initiate an operation in CMTS to instruct a cable modem to move to a new downstream, or upstream channel or both.   Each entry consists of the mac address of the cable modem to be moved, a new downstream frequency, a new upstream channel  id etc..  More than one entries could have for a cable modem, so there is a time stamp for each entry to show the time when this operation is initiated.   A management station wishing to create an entry should first generate a pseudo\-random serial number to be used as the index to this sparse table.  The station should then create the associated instance of the row status object. It must also, either in the same or in successive PDUs, create the associated instance of the command and parameter objects. It should also modify the default values for any of the parameter objects if the defaults are not appropriate.  Once the appropriate instances of all the command objects have been created, either by an explicit SNMP set request or by default, the row status should be set to active to initiate the operation. Note that this entire procedure may be initiated via a single set request which specifies a row status  of createAndGo as well as specifies valid values for the non\-defaulted parameter objects.  Once an operation has been activated, it cannot be stopped. That is, it will run until either the CMTS has generated  downstream frequency and/or upstream channel override fields  in the RNG\-RSP message sent to a cable modem or time out.  In either case, the operation is completed.  Once the operation is completed, the real result of the  operation to the cable modem cannot be known from this table. The result of the cable modem's downstream frequency and the  upstream channel id can be checked from other MIB tables.   For example, docsIfCmtsServiceTable from DOCS\-IF\-MIB can be  used to check whether the cable modem's downstream frequency and upstream channel id are changed.  Please note that even the CMTS has generated downstream frequency and/or upstream  channel override fields in the RNG\-RSP message sent to a  cable modems, if the cable modem cannot lock the instructed  downstream frequency or no upstream channel id could be used,  it may reconnect back to the original downstream frequency and upstream channel id.   Once the operation completes, the management station should retrieve the values of the cdxCmtsCmChOverState  objects of interest, and should then delete the entry.   In order to prevent old entries from clogging the table,  entries will be aged out, but an entry will never be deleted  within 15 minutes of completing. 
         	**type**\: list of  		 :py:class:`CdxCmtsCmChOverEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmChOverTable.CdxCmtsCmChOverEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3045,6 +3288,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmchovermacaddress
             
             	The mac address of the cable modem that the CMTS instructs to move to a new downstream and/or upstream channel.    This column must be set to a valid Mac address currently in the CMTS in order for this entry's row status to be set to active successfully
@@ -3052,12 +3297,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmchoverdownfrequency
             
             	The new downstream frequency which the cable modem is  instructed to move to.  The value 0 is to ask the CMTS not to override the downstream frequency. 
             	**type**\: int
             
             	**range:** 0..1000000000
+            
+            	**config**\: False
             
             	**units**\: hertz
             
@@ -3068,10 +3317,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** \-1..255
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmchovertraponcompletion
             
             	Specifies whether or not a cdxCmtsCmChOverNotification  should be issued on completion of the operation.  If such a  notification is desired, it is the responsibility of the  management entity to ensure that the SNMP administrative model  is configured in such a way as to allow the notification to be  delivered. 
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtscmchoveropinitiatedtime
             
@@ -3080,15 +3333,21 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmchoverstate
             
             	The status of the specified channel override operation. The enumerations are\:   messageSent(1)\: the CMTS has sent a RNG\-RSP message                with channel override to the cable modem.    commandNotActive(2)\: the command is not in active mode                        due to this entry's row status is not                        in active yet.   noOpNeed(3)\: The downstream frequency and the upstream                 channel Id in this entry are the same as                 original ones when this entry's row status                is set to active, so CMTS does not need to                 do any operation.     modemNotFound(4)\: The modem is not found in the CMTS                     at the time when the command becomes                     active.   waitToSendMessage(5)\: specified the operation is active                         and CMTS is waiting to send                         a RNG\-RSP message with channel                          override to the cable modem.   timeOut(6)\: specified the operation is timed out.               That is, the CMTS cannot send a RNG\-RSP message                with channel override to the cable modem within                the time specified in the object of                cdxCmtsCmChOverTimeExpiration.                The possible reason is that the cable modem               does not repeat the initial ranging.      The possible state change diagram is as below\:     [commandNotActive \->] waitToSendMessage \->         messageSent or timeOut.     [commandNotActive \->] noOpNeeded or modemNotFound. 
             	**type**\:  :py:class:`CdxCmtsCmChOverState <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmChOverTable.CdxCmtsCmChOverEntry.CdxCmtsCmChOverState>`
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmchoverrowstatus
             
             	The status of this table entry.    This value for cdxCmtsCmChOverMacAddress must be valid Mac  address currently in the CMTS in order for the row  status to be set to active successfully.      Once the row status becomes active and state becomes  waitToSendMessage, the entry cannot not be changed except  to delete the entry by setting the row status to destroy(6)  and since the operation cannot be stopped, the destroy(6)  will just cause the SNMP agent to hide the entry from  application and the SNMP agent will delete the entry  right after the operation is completed. 
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -3223,6 +3482,8 @@ class CISCODOCSEXTMIB(Entity):
 
 
 
+
+
     class CdxCmtsCmTable(Entity):
         """
         This table contains attributes or configurable parameters 
@@ -3232,6 +3493,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	The list contains a cable modem's attributes or  configurable parameters from a CMTS. 
         	**type**\: list of  		 :py:class:`CdxCmtsCmEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmTable.CdxCmtsCmEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3274,12 +3537,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`docsifcmtscmstatusindex <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmmaxcpenumber
             
             	The maximum number of permitted CPEs connecting to the modem.   The value \-1 means to use the default value of maximum  hosts per modem in the CMTS cable interface which the modem  connects to and the value is defined in  cdxCmtsCmDefaultMaxCpes in the cdxCmtsMacExtTable.   The value 0 means no maximum limit.  Setting the value will not affect the already connected CPEs to the modem. 
             	**type**\: int
             
             	**range:** \-1..255
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtscmcurrcpenumber
             
@@ -3288,12 +3555,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmqosprofile
             
             	The index in docsIfQosProfileTable describing the quality of service attributes associated with this particular modem's primary SID.   When trying to change the value, if the new value is not  a valid index in the docsIfQosProfileTable, the modem will  retain the old docsIfQosProfileTable entry. If no associated  docsIfQosProfileTable entry exists for this modem,  this object returns a value of zero on read.  This object has meaning only for DOCSIS1.0 cable modems. For cable modems in DOCSIS1.1 or above mode, this object will  report 0 and cannot be changed to any other values since  there is no QoS profile associated with cable modems in  DOCSIS1.1 or above mode
             	**type**\: int
             
             	**range:** 0..16383
+            
+            	**config**\: False
             
             
 
@@ -3329,6 +3600,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxCmtsCmTable.CdxCmtsCmEntry, ['docsifcmtscmstatusindex', 'cdxcmtscmmaxcpenumber', 'cdxcmtscmcurrcpenumber', 'cdxcmtscmqosprofile'], name, value)
 
 
+
+
     class CdxCmtsCmStatusDMICTable(Entity):
         """
         This table contains the list of modems which failed the CMTS
@@ -3348,6 +3621,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	Additional DMIC objects for docsIfCmtsCmStatusTable  entry. 
         	**type**\: list of  		 :py:class:`CdxCmtsCmStatusDMICEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmStatusDMICTable.CdxCmtsCmStatusDMICEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3390,15 +3665,21 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`docsifcmtscmstatusindex <ydk.models.cisco_ios_xe.DOCS_IF_MIB.DOCSIFMIB.DocsIfCmtsCmStatusTable.DocsIfCmtsCmStatusEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmstatusdmicmode
             
             	This shows all the cable modems that are online or offline and that had failed the Dynamic CMTS MIC verification check. The state is mentioned as follows\: mark(1)\: The modem was allowed to come online. lock(2)\: The modem was allowed to come online but with            a restrictive QoS profile as defined by             cdxCmtsCmDMICLockQos. reject(3)\: The modem was not allowed to come online
             	**type**\:  :py:class:`CdxCmtsCmStatusDMICMode <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsCmStatusDMICTable.CdxCmtsCmStatusDMICEntry.CdxCmtsCmStatusDMICMode>`
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtscmstatusdmicunlock
             
             	When set to TRUE, it forces the cable modems to  reinitialize, and the cable modems must re\-register with a valid DOCSIS configuration file before being allowed online. Otherwise, the cable modem is locked  in its current restricted QoS profile and cannot  reregister with a different profile until it has  been offline for at least 24 hours. If cdxCmtsCmStatusDMICUnLock is set to TRUE, and re\-init succeeds, that modem row is removed from the cdxCmtsCmStatusDMICTable. And if re\-init again fails, the row remains in that table, possibly with a new value for cdxCmtsCmStatusDMICMode When polled, it will always return FALSE
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -3467,6 +3748,8 @@ class CISCODOCSEXTMIB(Entity):
 
 
 
+
+
     class CdxCmToCpeTable(Entity):
         """
         This table contains information about CPE connects behind
@@ -3486,6 +3769,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	Represents an entry in the table. Each entry is created if there is CPE connects to a cable modem.  The indices uniquely identify a CPE. It is never the intent for an application to perform a SNMP Get operation against a table of this nature, rather it is the intent to merely enumberate mappings.   An application would determine the CPEs behind all cable modems by performing a SNMP GetNext starting with the variable bindings\: \- cdxCmToCpeInetAddressType.0 \- cdxCmToCpeInetAddress.0  It will return the IP address type and value tuple corresponding to the CPE with lowest IP address behind the cable modem with the lowest MAC address. An application can perform a SNMP GetNext operation with the following variable bindings\: \- cdxCmToCpeInetAddressType.x.y.z \- cdxCmToCpeInetAddress.x.y.z where x is MAC address of cable modem, and y.z is IP address type and value tuple of the reported CPE. An application can repeat this process until it has traversed the entire table.  If the application only wants to know the CPEs behind a given cable modem, it can perform a SNMP GetNext opertaion with the following\: \- cdxCmToCpeInetAddressType.x \- cdxCmToCpeInetAddress.x where x is MAC address of cable modem
         	**type**\: list of  		 :py:class:`CdxCmToCpeEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmToCpeTable.CdxCmToCpeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3556,10 +3841,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtocpeinetaddresstype  (key)
             
             	The type of Internet address of the cdxCmToCpeInetAddress
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtocpeinetaddress  (key)
             
@@ -3567,6 +3856,8 @@ class CISCODOCSEXTMIB(Entity):
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -3600,6 +3891,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxCmToCpeTable.CdxCmToCpeEntry, ['cdxcmtocpecmmacaddress', 'cdxcmtocpeinetaddresstype', 'cdxcmtocpeinetaddress'], name, value)
 
 
+
+
     class CdxCpeToCmTable(Entity):
         """
         This table contains information about cable modems with CPE
@@ -3617,6 +3910,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	An entry in cdxCpeToCmTable. Each entry contains information on the MAC address, IP Address, and status index for the  cable modem with a specific CPE connects to. Each entry is created if there is any cable modem with CPE connects to. Entries are ordered by cdxCpeToCmCpeMacAddress
         	**type**\: list of  		 :py:class:`CdxCpeToCmEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCpeToCmTable.CdxCpeToCmEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3660,6 +3955,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: cdxcpetocmmacaddress
             
             	This object identifies the MAC address of the cable modem
@@ -3667,10 +3964,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: cdxcpetocminetaddresstype
             
             	The type of Internet address of the cdxCpeToCmInetAddress object
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cdxcpetocminetaddress
             
@@ -3679,12 +3980,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cdxcpetocmstatusindex
             
             	An entry in docsIfCmtsCmStatusTable identifying status index of the cable modem which the CPE connects to
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -3722,6 +4027,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxCpeToCmTable.CdxCpeToCmEntry, ['cdxcpetocmcpemacaddress', 'cdxcpetocmmacaddress', 'cdxcpetocminetaddresstype', 'cdxcpetocminetaddress', 'cdxcpetocmstatusindex'], name, value)
 
 
+
+
     class CdxCpeIpPrefixTable(Entity):
         """
         The table contains a list CPE's IP Prefix management
@@ -3731,6 +4038,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	An entry contains information of CM's MAC, CPE's IP prefix type, CPE's IP prefix address, CPE's IP prefix length and CPE's MAC address. An entry is created if CPE is associated with a prefix
         	**type**\: list of  		 :py:class:`CdxCpeIpPrefixEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCpeIpPrefixTable.CdxCpeIpPrefixEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3773,10 +4082,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: cdxcpeipprefixtype  (key)
             
             	This object indicates the IP prefix type of the CPE. This is the type of cdxCpeIpPrefixAddress object
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cdxcpeipprefixaddress  (key)
             
@@ -3785,12 +4098,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**length:** 1..96
             
+            	**config**\: False
+            
             .. attribute:: cdxcpeipprefixlen  (key)
             
             	This object indicates the IP prefix length of the CPE. This is the length of cdxCpeIpPrefixAddress object
             	**type**\: int
             
             	**range:** 0..2040
+            
+            	**config**\: False
             
             .. attribute:: cdxcpeipprefixcpemacaddress
             
@@ -3799,10 +4116,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: cdxcpeipprefixcpetype
             
             	This object indicates the type of CPE. Device Type\: B \- CM Bridge, R \- CM Router IP Assignment Method\: D \- DHCP the format looks like 'R/D'
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -3842,6 +4163,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxCpeIpPrefixTable.CdxCpeIpPrefixEntry, ['cdxcpeipprefixcmmacaddress', 'cdxcpeipprefixtype', 'cdxcpeipprefixaddress', 'cdxcpeipprefixlen', 'cdxcpeipprefixcpemacaddress', 'cdxcpeipprefixcpetype'], name, value)
 
 
+
+
     class CdxIfUpstreamChannelExtTable(Entity):
         """
         This table contains upstream channel attributes for  
@@ -3855,6 +4178,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	Additional objects for docsIfUpstreamChannelEntry,including  the secondary upstream channel modulation profile,the  lower bound for the channel width and the number of active, registered and total number of cable modems on this  upstream channel. 
         	**type**\: list of  		 :py:class:`CdxIfUpstreamChannelExtEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxIfUpstreamChannelExtTable.CdxIfUpstreamChannelExtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3900,12 +4225,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxifupchannelwidth
             
             	The lower bound for the bandwidth of this upstream channel.  The bandwidth specified by docsIfUpChannelWidth is used as the upper bound of the upstream channel. The two objects, docsIfUpChannelWidth and cdxIfUpChannelWidth, in  conjunction, define the upstream channel width range to be used for the automated spectrum management.  This object returns 0 if the channel width is undefined  or unknown.  For those upstreams in the linecards which do not have the automated spectrum management feature, this channel width is undefined and always has value 0. 
             	**type**\: int
             
             	**range:** 0..16000000
+            
+            	**config**\: False
             
             	**units**\: hertz
             
@@ -3916,12 +4245,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxifupchannelcmtotal
             
             	The total count of cable modems on this upstream channel since boot
             	**type**\: int
             
             	**range:** 0..8191
+            
+            	**config**\: False
             
             .. attribute:: cdxifupchannelcmactive
             
@@ -3930,12 +4263,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..8191
             
+            	**config**\: False
+            
             .. attribute:: cdxifupchannelcmregistered
             
             	The count of cable modems that are registered and online on this upstream. Registered cable modems are those with one of the following values\: registrationComplete(6) of docsIfCmtsCmStatusValue OR online(12), kekRejected(10), onlineKekAssigned(6), tekRejected(11),onlineTekAssigned(7) of  cdxCmtsCmStatusValue
             	**type**\: int
             
             	**range:** 0..8191
+            
+            	**config**\: False
             
             .. attribute:: cdxifupchannelinputpowerlevel
             
@@ -3944,12 +4281,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** \-100..250
             
+            	**config**\: False
+            
             .. attribute:: cdxifupchannelavgutil
             
             	The average percentage of upstream channel utilization.  This item indicates the running average of percent channel utilization in CMTS upstream Mac scheduler. 
             	**type**\: int
             
             	**range:** 0..100
+            
+            	**config**\: False
             
             	**units**\: percent
             
@@ -3960,6 +4301,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..100
             
+            	**config**\: False
+            
             	**units**\: percent
             
             .. attribute:: cdxifupchannelrangeslots
@@ -3968,6 +4311,8 @@ class CISCODOCSEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..100
+            
+            	**config**\: False
             
             	**units**\: percent
             
@@ -3978,12 +4323,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxifupchannelmaxugslastonehour
             
             	This object indicates the maximum number of  Unsolicited Grant Service (UGS) allocated on a given upstream in the last one hour. This would be used for the user to evaluate traffic load at any given time of the day.  The Unsolicited Grant Service (UGS) is designed to support real\-time service flows that generate fixed size data packets on a periodic basis. 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxifupchannelminugslastonehour
             
@@ -3992,12 +4341,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxifupchannelavgugslastonehour
             
             	This object indicates the average number of  Unsolicited Grant Service (UGS) allocated on a given upstream in the last one hour. This would be used for the user to evaluate traffic load at any given time of the day.  The Unsolicited Grant Service (UGS) is designed to support real\-time service flows that generate fixed size data packets on a periodic basis. 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxifupchannelmaxugslastfivemins
             
@@ -4006,6 +4359,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxifupchannelminugslastfivemins
             
             	This object indicates the minimum number of  Unsolicited Grant Service (UGS) allocated on a given upstream in the last five minutes. This would  be used for the user to evaluate traffic load at any given time of the day.  The Unsolicited Grant Service (UGS) is designed to support real\-time service flows that generate fixed size data packets on a periodic basis. 
@@ -4013,12 +4368,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxifupchannelavgugslastfivemins
             
             	This object indicates the average number of  Unsolicited Grant Service (UGS) allocated on a given upstream in the last five minutes. This would  be used for the user to evaluate traffic load at any given time of the day.  The Unsolicited Grant Service (UGS) is designed to support real\-time service flows that generate fixed size data packets on a periodic basis. 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -4080,6 +4439,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxIfUpstreamChannelExtTable.CdxIfUpstreamChannelExtEntry, ['ifindex', 'cdxifupchannelwidth', 'cdxifupchannelmodulationprofile', 'cdxifupchannelcmtotal', 'cdxifupchannelcmactive', 'cdxifupchannelcmregistered', 'cdxifupchannelinputpowerlevel', 'cdxifupchannelavgutil', 'cdxifupchannelavgcontslots', 'cdxifupchannelrangeslots', 'cdxifupchannelnumactiveugs', 'cdxifupchannelmaxugslastonehour', 'cdxifupchannelminugslastonehour', 'cdxifupchannelavgugslastonehour', 'cdxifupchannelmaxugslastfivemins', 'cdxifupchannelminugslastfivemins', 'cdxifupchannelavgugslastfivemins'], name, value)
 
 
+
+
     class CdxWBResilCmTable(Entity):
         """
         This table contains information about partial service cable
@@ -4090,6 +4451,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	The list contains information for a partial service cable modem (CM).  Provided the following information for a partial service cable modem\: How many downstream channels in total; How many upstream channels in total; How many active downstream channels; How many active upstream channels; Which downstream channels are in partial service mode; Which upstream channels are in partial service mode;
         	**type**\: list of  		 :py:class:`CdxWBResilCmEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxWBResilCmTable.CdxWBResilCmEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4139,12 +4502,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxwbresilcmmacaddr
             
             	This attribute represents the MAC address of the CM. If the CM has multiple MAC addresses, this is the MAC address associated with the MAC Domain interface
             	**type**\: str
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            
+            	**config**\: False
             
             .. attribute:: cdxwbresilcmtotaldsnum
             
@@ -4153,12 +4520,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxwbresilcmtotalusnum
             
             	Total upstream channel number of the CM
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxwbresilcmcurrentdsnum
             
@@ -4167,6 +4538,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxwbresilcmcurrentusnum
             
             	Current active upstream channel number, it's the total upstream channel minus upstream partial service channel number
@@ -4174,15 +4547,21 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxwbresilcmimpaireddschindex
             
             	Impaired downstream channel index list. The index in list is rf channel ifIndex. If there's no downstream channel impaired, return empty. The output looks like\: '137000 137001 137002'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cdxwbresilcmimpaireduschindex
             
             	Impaired upstream channel index list. The index in list is upstream channel ifIndex. If there's no upstream channel impaired, return empty. The output looks like\: '196408 196409 196410'
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -4226,6 +4605,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxWBResilCmTable.CdxWBResilCmEntry, ['cdxwbresilcmindex', 'cdxwbresilcmmacaddr', 'cdxwbresilcmtotaldsnum', 'cdxwbresilcmtotalusnum', 'cdxwbresilcmcurrentdsnum', 'cdxwbresilcmcurrentusnum', 'cdxwbresilcmimpaireddschindex', 'cdxwbresilcmimpaireduschindex'], name, value)
 
 
+
+
     class CdxRFtoPrimaryChannelMappingTable(Entity):
         """
         This table contains information of the mapping of
@@ -4235,6 +4616,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	An Entry provides the association between the physical RF channels and the primary RF Channels
         	**type**\: list of  		 :py:class:`CdxRFtoPrimaryChannelMappingEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxRFtoPrimaryChannelMappingTable.CdxRFtoPrimaryChannelMappingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4277,12 +4660,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxprimarychannelifindex
             
             	The ifIndex of the primary channel interface
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -4314,6 +4701,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxRFtoPrimaryChannelMappingTable.CdxRFtoPrimaryChannelMappingEntry, ['ifindex', 'cdxprimarychannelifindex'], name, value)
 
 
+
+
     class CdxPrimaryChanneltoRFMappingTable(Entity):
         """
         This table contains information of the mapping of
@@ -4323,6 +4712,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	An Entry provides the association between the primary RF channels and the physical RF Channels
         	**type**\: list of  		 :py:class:`CdxPrimaryChanneltoRFMappingEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxPrimaryChanneltoRFMappingTable.CdxPrimaryChanneltoRFMappingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4365,12 +4756,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxphysicalrfifindex
             
             	The ifIndex of the physical RF channel interface
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -4402,6 +4797,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxPrimaryChanneltoRFMappingTable.CdxPrimaryChanneltoRFMappingEntry, ['ifindex', 'cdxphysicalrfifindex'], name, value)
 
 
+
+
     class CdxCmtsMtcCmTable(Entity):
         """
         This table contains CM management information of Transmit
@@ -4411,6 +4808,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	An entry provides the CM statistics and management information of a specific TCS. The interface populated in this table is of ifType = docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`CdxCmtsMtcCmEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsMtcCmTable.CdxCmtsMtcCmEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4454,12 +4853,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsmtctcsid  (key)
             
             	This object indicates the Id of the Transmit Channel Set
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtsmtccmtotal
             
@@ -4468,12 +4871,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsmtccmoperational
             
             	This object indicates the number of operational cable modems which uses this TCS in the MAC domain
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtsmtccmregistered
             
@@ -4482,12 +4889,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsmtccmunregistered
             
             	This object indicates the number of unregistered cable modem which use this TCS in the MAC domain
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtsmtccmoffline
             
@@ -4496,6 +4907,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsmtccmwideband
             
             	This object indicates the number of operational cable modems which are in wideband state and use this TCS in the MAC domain
@@ -4503,10 +4916,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsmtcupstreambondgrp
             
             	This object specifies the upstream channel bonding group
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -4552,6 +4969,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxCmtsMtcCmTable.CdxCmtsMtcCmEntry, ['ifindex', 'cdxcmtsmtctcsid', 'cdxcmtsmtccmtotal', 'cdxcmtsmtccmoperational', 'cdxcmtsmtccmregistered', 'cdxcmtsmtccmunregistered', 'cdxcmtsmtccmoffline', 'cdxcmtsmtccmwideband', 'cdxcmtsmtcupstreambondgrp'], name, value)
 
 
+
+
     class CdxCmtsUscbSflowTable(Entity):
         """
         This table contains the Upstream Channel Bonding
@@ -4561,6 +4980,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	A entry contains the Service Flow statistics for a specific Upstream Channel Bonding group. The interface populated in this table is of ifType = docsCableMaclayer(127)
         	**type**\: list of  		 :py:class:`CdxCmtsUscbSflowEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxCmtsUscbSflowTable.CdxCmtsUscbSflowEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4604,12 +5025,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsusbondinggrpid  (key)
             
             	This object indicates upstream bonding group identifier within the MAC Domain
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtsuscbsftotal
             
@@ -4618,12 +5043,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsuscbsfpri
             
             	This object indicates the total number of  primary service flows which use this upstream channel bonding group
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtsuscbstaticsfbe
             
@@ -4632,12 +5061,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsuscbstaticsfugs
             
             	This object indicates the number of static UGS service flows which use this upstream channel bonding group
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtsuscbstaticsfugsad
             
@@ -4646,12 +5079,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsuscbstaticsfrtps
             
             	This object indicates the number of static RTPS service flows which use this upstream channel bonding group
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtsuscbstaticsfnrtps
             
@@ -4660,12 +5097,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsuscbdynsfbe
             
             	This object indicates the number of dynamic BE service flows which use this upstream channel bonding group
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtsuscbdynsfugs
             
@@ -4674,12 +5115,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsuscbdynsfugsad
             
             	This object indicates the number of dynamic UGS\-Ad service flows which use this upstream channel bonding group
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdxcmtsuscbdynsfrtps
             
@@ -4688,6 +5133,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsuscbdynsfnrtps
             
             	This object indicates the number of dynamic NRTPS service flows which use this upstream channel bonding group
@@ -4695,10 +5142,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdxcmtsuscbdescr
             
             	This object indicates the description of upstream channel bonding group
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -4756,6 +5207,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxCmtsUscbSflowTable.CdxCmtsUscbSflowEntry, ['ifindex', 'cdxcmtsusbondinggrpid', 'cdxcmtsuscbsftotal', 'cdxcmtsuscbsfpri', 'cdxcmtsuscbstaticsfbe', 'cdxcmtsuscbstaticsfugs', 'cdxcmtsuscbstaticsfugsad', 'cdxcmtsuscbstaticsfrtps', 'cdxcmtsuscbstaticsfnrtps', 'cdxcmtsuscbdynsfbe', 'cdxcmtsuscbdynsfugs', 'cdxcmtsuscbdynsfugsad', 'cdxcmtsuscbdynsfrtps', 'cdxcmtsuscbdynsfnrtps', 'cdxcmtsuscbdescr'], name, value)
 
 
+
+
     class CdxRPDGS7KTable(Entity):
         """
         The cdxRPDGS7KTable contains the attributes of GS7K. 
@@ -4766,6 +5219,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	The list of statistics for all the sensor,  such as volatage, the state of TriSwitch
         	**type**\: list of  		 :py:class:`CdxRPDGS7KEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxRPDGS7KTable.CdxRPDGS7KEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4806,12 +5261,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: cdxrpdgs7kps1p24v
             
             	This is the Object of RPDGS7KPS1p24v
             	**type**\: int
             
             	**range:** 0..3000
+            
+            	**config**\: False
             
             	**units**\: 0.01VDC
             
@@ -4822,6 +5281,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..1000
             
+            	**config**\: False
+            
             	**units**\: 0.01VDC
             
             .. attribute:: cdxrpdgs7kps1p5v
@@ -4830,6 +5291,8 @@ class CISCODOCSEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..625
+            
+            	**config**\: False
             
             	**units**\: 0.01VDC
             
@@ -4840,6 +5303,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..800
             
+            	**config**\: False
+            
             	**units**\: 0.01VDC
             
             .. attribute:: cdxrpdgs7kps1ac
@@ -4848,6 +5313,8 @@ class CISCODOCSEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 300..2000
+            
+            	**config**\: False
             
             	**units**\: 0.1VAC
             
@@ -4858,6 +5325,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..3000
             
+            	**config**\: False
+            
             	**units**\: 0.01VDC
             
             .. attribute:: cdxrpdgs7kps2p8v
@@ -4866,6 +5335,8 @@ class CISCODOCSEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..1000
+            
+            	**config**\: False
             
             	**units**\: 0.01VDC
             
@@ -4876,6 +5347,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..625
             
+            	**config**\: False
+            
             	**units**\: 0.01VDC
             
             .. attribute:: cdxrpdgs7kps2n6v
@@ -4884,6 +5357,8 @@ class CISCODOCSEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..800
+            
+            	**config**\: False
             
             	**units**\: 0.01VDC
             
@@ -4894,6 +5369,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 300..2000
             
+            	**config**\: False
+            
             	**units**\: 0.1VAC
             
             .. attribute:: cdxrpdgs7ktx1optpower
@@ -4902,6 +5379,8 @@ class CISCODOCSEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..300
+            
+            	**config**\: False
             
             	**units**\: 0.01mW
             
@@ -4912,6 +5391,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..300
             
+            	**config**\: False
+            
             	**units**\: 0.01mW
             
             .. attribute:: cdxrpdgs7ktriswitch
@@ -4919,10 +5400,14 @@ class CISCODOCSEXTMIB(Entity):
             	This is the Object of RPDGS7K TriSwitch, The relationship which the number indicates is    low(1) for \-6dB high(2) for 0dB pad(3) for off
             	**type**\:  :py:class:`CdxRPDGS7KTriSwitch <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxRPDGS7KTable.CdxRPDGS7KEntry.CdxRPDGS7KTriSwitch>`
             
+            	**config**\: False
+            
             .. attribute:: cdxrpdgs7ktamp
             
             	This is the Object of RPDGS7K Tamp
             	**type**\:  :py:class:`CdxRPDGS7KTamp <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxRPDGS7KTable.CdxRPDGS7KEntry.CdxRPDGS7KTamp>`
+            
+            	**config**\: False
             
             
 
@@ -5026,6 +5511,8 @@ class CISCODOCSEXTMIB(Entity):
 
 
 
+
+
     class CdxBundleIpHelperTable(Entity):
         """
         A list of cable helper entries on Bundle/Sub\-Bundle interface.
@@ -5034,6 +5521,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	The conceptual row of cdxBundleIpHelperEntry. An instance exists for Cable Bundle/Sub\-Bundle Interface
         	**type**\: list of  		 :py:class:`CdxBundleIpHelperEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxBundleIpHelperTable.CdxBundleIpHelperEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5076,6 +5565,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxbundlehelperaddr  (key)
             
             	Cable helper IP address
@@ -5083,10 +5574,14 @@ class CISCODOCSEXTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cdxbundlehelpertype
             
             	This object describes which kind of device will be associated to a cable helper. The entity may support more than one device  class. For example, the entity supports both host and mta. Therefore, bit 1 and bit 3 are set to 1 for this object. If  all bits are cleared, the entity supports all device types. Note that BITS are encoded most significant bit first
             	**type**\:  :py:class:`CdxBundleHelperType <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxBundleIpHelperTable.CdxBundleIpHelperEntry.CdxBundleHelperType>`
+            
+            	**config**\: False
             
             
 
@@ -5120,6 +5615,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxBundleIpHelperTable.CdxBundleIpHelperEntry, ['ifindex', 'cdxbundlehelperaddr', 'cdxbundlehelpertype'], name, value)
 
 
+
+
     class CdxBundleIPv6DHCPRelayTable(Entity):
         """
         Ipv6 dhcp relay configurations on Bundle/Sub\-Bundle interface.
@@ -5128,6 +5625,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	The conceptual row of cdxBundleIPv6DHCPRelayTable. An instance exist for the Bundle/Sub\-Bundle interface
         	**type**\: list of  		 :py:class:`CdxBundleIPv6DHCPRelayEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxBundleIPv6DHCPRelayTable.CdxBundleIPv6DHCPRelayEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5170,20 +5669,28 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxbundleipv6dhcprelayinsertvssoption
             
             	Insert VSS option in Relay\-Forward Messages
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cdxbundleipv6dhcprelaytrusttorelayreply
             
             	Interface is trusted to process relay\-replies
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cdxbundleipv6dhdprelaysourceifname
             
             	Source interface name for IPv6 DHCP relayed messages
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -5219,6 +5726,8 @@ class CISCODOCSEXTMIB(Entity):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxBundleIPv6DHCPRelayTable.CdxBundleIPv6DHCPRelayEntry, ['ifindex', 'cdxbundleipv6dhcprelayinsertvssoption', 'cdxbundleipv6dhcprelaytrusttorelayreply', 'cdxbundleipv6dhdprelaysourceifname'], name, value)
 
 
+
+
     class CdxBundleIPv6DHCPRelayDestTable(Entity):
         """
          A list of IPv6 DHCP relay destination entries
@@ -5228,6 +5737,8 @@ class CISCODOCSEXTMIB(Entity):
         
         	The conceptual row of cdxBundleIPv6DHCPRelayDestTable. An instance exists for the Cable Bundle/Sub\-Bundle interface
         	**type**\: list of  		 :py:class:`CdxBundleIPv6DHCPRelayDestEntry <ydk.models.cisco_ios_xe.CISCO_DOCS_EXT_MIB.CISCODOCSEXTMIB.CdxBundleIPv6DHCPRelayDestTable.CdxBundleIPv6DHCPRelayDestEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5270,12 +5781,16 @@ class CISCODOCSEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdxbundleipv6dhcprelaydestoutifvrfindex  (key)
             
             	The vrf identifier that the cdxBundleIPv6DHCPRelayDestOutIfIndex belongs to, it is assigned to each VRF and is used to uniquely identify it, if it is zero, means in global vrf
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: cdxbundleipv6dhcprelaydestaddr  (key)
             
@@ -5284,6 +5799,8 @@ class CISCODOCSEXTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cdxbundleipv6dhcprelaydestoutifindex  (key)
             
             	The snmp ifIndex of the IPv6 DHCP relay destination output interface. If the ifIndex is 0, it means there is no output interface specified
@@ -5291,15 +5808,21 @@ class CISCODOCSEXTMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cdxbundleipv6dhcprelaydestsourceaddress
             
             	IPv6 DHCP relay destination source address
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cdxbundleipv6dhcprelaydestlinkaddress
             
             	IPv6 DHCP relay destination link address
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -5338,7 +5861,11 @@ class CISCODOCSEXTMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODOCSEXTMIB.CdxBundleIPv6DHCPRelayDestTable.CdxBundleIPv6DHCPRelayDestEntry, ['ifindex', 'cdxbundleipv6dhcprelaydestoutifvrfindex', 'cdxbundleipv6dhcprelaydestaddr', 'cdxbundleipv6dhcprelaydestoutifindex', 'cdxbundleipv6dhcprelaydestsourceaddress', 'cdxbundleipv6dhcprelaydestlinkaddress'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCODOCSEXTMIB()
         return self._top_entity
+
+
 

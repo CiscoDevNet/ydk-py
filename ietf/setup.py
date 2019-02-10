@@ -14,11 +14,11 @@
 # limitations under the License.
 # ------------------------------------------------------------------
 
-
-"""Setup for YDK
-
-
 """
+Setup for YDK model bundle
+ydk-models-ietf
+"""
+
 from os import path
 from setuptools import setup, find_packages
 
@@ -27,17 +27,16 @@ HERE = path.abspath(path.dirname(__file__))
 INSTALL_REQUIREMENTS = ['ydk>=0.7.3']
 
 NMSP_PKG_NAME = "ydk-models-ietf"
-NMSP_PKG_VERSION = "0.1.5-post2"
+NMSP_PKG_VERSION = "0.1.5.post2"
 NMSP_PKG_DEPENDENCIES = []
 
 
-if NMSP_PKG_DEPENDENCIES != "$DEPENDENCY$":
+if len(NMSP_PKG_DEPENDENCIES) > 0:
     INSTALL_REQUIREMENTS.extend(NMSP_PKG_DEPENDENCIES)
 
 NMSP_PACKAGES = ['ydk', 'ydk.models']
 YDK_PACKAGES = find_packages(exclude=['contrib', 'docs*', 'tests*',
                                       'ncclient', 'samples'])
-
 
 DESCRIPTION = "YDK bundle for IETF models"
 LONG_DESCRIPTION = "This YANG Development Kit (YDK) bundle provides APIs for IETF YANG models. YDK facilitates the use of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles.  This YDK bundle for IETF models uses the YDK core package.  You can find the SDK documentation at http://ydk.cisco.com/py/docs  You can find more details on YDK at http://ydk.io"

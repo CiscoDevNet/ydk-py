@@ -182,30 +182,42 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
     	This table has the reporting statistics of various RADIUS messages for RADIUS servers with which the client (SBC) shares a secret. Each entry in this table is identified by a  value of csbRadiusStatsEntIndex. The other indices of this table are csbCallStatsInstanceIndex defined in  csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
     	**type**\:  :py:class:`CsbRadiusStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: csbrfbillrealmstatstable
     
     	This table describes the Rf billing statistics information which monitors the messages sent per\-realm by Rf billing  manager(SBC). SBC sends Rf billing data using Diameter as a transport protocol. Rf billing uses only ACR and ACA Diameter messages for the transport of billing data. The Accounting\-Record\-Type AVP on the ACR message labels the type  of the accounting request. The following types are used by Rf billing. 1.   For session\-based charging, the types Start (session begins), Interim (session is modified) and Stop (session ends) are used. 2.   For event\-based charging, the type Event is used when a chargeable event occurs outside the scope of a session.  Each row of this table is identified by a value of csbRfBillRealmStatsIndex and csbRfBillRealmStatsRealmName. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and  csbCallStatsServiceIndex defined in csbCallStatsTable
     	**type**\:  :py:class:`CsbRfBillRealmStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: csbsipmthdcurrentstatstable
     
     	This table reports count of SIP request and various SIP responses  for each SIP method on a SIP adjacency in a given interval. Each entry in this table represents a SIP method, its incoming and outgoing count, individual incoming and outgoing  count of various SIP responses for this method on a SIP adjacency in a given interval. To understand the meaning of  interval please refer <Periodic Statistics> section in  description of ciscoSbcStatsMIB.   This table is indexed on csbSIPMthdCurrentStatsAdjName, csbSIPMthdCurrentStatsMethod and  csbSIPMthdCurrentStatsInterval. The other indices of this table are csbCallStatsInstanceIndex defined in  csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
     	**type**\:  :py:class:`CsbSIPMthdCurrentStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: csbsipmthdhistorystatstable
     
     	This table provide historical count of SIP request and various SIP responses for each SIP method on a SIP adjacency in various interval length defined by the csbSIPMthdHistoryStatsInterval object. Each entry in this table represents a SIP method, its incoming and outgoing count, individual incoming and outgoing  count of various SIP responses for this method on a SIP adjacency in a given interval. The possible values of interval will be previous 5 minutes, previous 15 minutes, previous 1 hour and previous day. To understand the meaning of interval please refer <Periodic Statistics> description of ciscoSbcStatsMIB. This table is indexed on csbSIPMthdHistoryStatsAdjName, csbSIPMthdHistoryStatsMethod and  csbSIPMthdHistoryStatsInterval. The other indices of this table are csbCallStatsInstanceIndex defined in  csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
     	**type**\:  :py:class:`CsbSIPMthdHistoryStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: csbsipmthdrccurrentstatstable
     
     	This table reports SIP method request and response code statistics for each method and response code combination on given SIP adjacency in a given interval. To understand the  meaning of interval please refer <Periodic Statistics> section in description of ciscoSbcStatsMIB. An exact lookup will return a row only  if \- 1) detailed response code statistics are turned on in SBC 2) response code  messages sent or received is non zero for     given SIP adjacency, method and interval. Also an inexact lookup will only return rows for messages with non\-zero counts, to protect the user from large numbers of rows  for response codes which have not been received or sent
     	**type**\:  :py:class:`CsbSIPMthdRCCurrentStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: csbsipmthdrchistorystatstable
     
     	This table reports historical data for SIP method request and response code statistics for each method and response code  combination in a given past interval. The possible values of  interval will be previous 5 minutes, previous 15 minutes,  previous 1 hour and previous day. To understand the  meaning of interval please refer <Periodic Statistics> section in description of ciscoSbcStatsMIB. An exact lookup will return a row only  if \- 1) detailed response code statistics are turned on in SBC 2) response code  messages sent or received is non zero for     given SIP adjacency, method and interval. Also an inexact lookup will only return rows for messages with non\-zero counts, to protect the user from large numbers of rows for response codes which have not been received or sent
     	**type**\:  :py:class:`CsbSIPMthdRCHistoryStatsTable <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable>`
+    
+    	**config**\: False
     
     
 
@@ -271,6 +283,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         	A conceptual row in the csbRadiusStatsTable. There is an entry in this table for each RADIUS server, as identified by a  value of csbRadiusStatsEntIndex. The other indices of this  table are csbCallStatsInstanceIndex defined in  csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
         	**type**\: list of  		 :py:class:`CsbRadiusStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable.CsbRadiusStatsEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -316,6 +330,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsserviceindex  (key)
             
             	
@@ -325,6 +341,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbradiusstatsentindex  (key)
             
             	This object indicates the index of the RADIUS client entity that this server is configured on. This index is assigned  arbitrarily by the engine and is not saved over reboots
@@ -332,20 +350,28 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbradiusstatsclientname
             
             	This object indicates the client name of the RADIUS client to which that these statistics apply
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csbradiusstatsclienttype
             
             	This object indicates the type(authentication or accounting) of the RADIUS clients configured on SBC
             	**type**\:  :py:class:`CiscoSbcRadiusClientType <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CiscoSbcRadiusClientType>`
             
+            	**config**\: False
+            
             .. attribute:: csbradiusstatssrvrname
             
             	This object indicates the server name of the RADIUS server to which that these statistics apply
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csbradiusstatsacsreqs
             
@@ -353,6 +379,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -363,6 +391,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: csbradiusstatsacsaccpts
@@ -372,12 +402,16 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: csbradiusstatsacsrejects
             
             	This object indicates the number of RADIUS Access\-Reject packets (valid or invalid) received from this server
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -388,6 +422,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: csbradiusstatsactreqs
@@ -396,6 +432,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -406,6 +444,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: csbradiusstatsactrsps
@@ -414,6 +454,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -424,6 +466,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: csbradiusstatsbadauths
@@ -432,6 +476,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -442,6 +488,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: csbradiusstatstimeouts
@@ -450,6 +498,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -460,6 +510,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: csbradiusstatsdropped
@@ -468,6 +520,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -537,6 +591,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable.CsbRadiusStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbradiusstatsentindex', 'csbradiusstatsclientname', 'csbradiusstatsclienttype', 'csbradiusstatssrvrname', 'csbradiusstatsacsreqs', 'csbradiusstatsacsrtrns', 'csbradiusstatsacsaccpts', 'csbradiusstatsacsrejects', 'csbradiusstatsacschalls', 'csbradiusstatsactreqs', 'csbradiusstatsactretrans', 'csbradiusstatsactrsps', 'csbradiusstatsmalformedrsps', 'csbradiusstatsbadauths', 'csbradiusstatspending', 'csbradiusstatstimeouts', 'csbradiusstatsunknowntype', 'csbradiusstatsdropped'], name, value)
 
 
+
+
     class CsbRfBillRealmStatsTable(Entity):
         """
         This table describes the Rf billing statistics information
@@ -563,6 +619,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         
         	A conceptual row in the csbRfBillRealmStatsTable. There is an entry in this table for each realm, as identified by a  value of csbRfBillRealmStatsIndex and  csbRfBillRealmStatsRealmName. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
         	**type**\: list of  		 :py:class:`CsbRfBillRealmStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable.CsbRfBillRealmStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -610,6 +668,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsserviceindex  (key)
             
             	
@@ -619,6 +679,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbrfbillrealmstatsindex  (key)
             
             	This object indicates the billing method instance index. The range of valid values for this field is 0 \- 31
@@ -626,10 +688,14 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..31
             
+            	**config**\: False
+            
             .. attribute:: csbrfbillrealmstatsrealmname  (key)
             
             	This object indicates the realm for which these statistics are collected. The length of this object is zero when value is not assigned to it
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csbrfbillrealmstatstotalstartacrs
             
@@ -637,6 +703,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: ACRs
             
@@ -647,6 +715,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: ACRs
             
             .. attribute:: csbrfbillrealmstatstotalstopacrs
@@ -655,6 +725,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: ACRs
             
@@ -665,6 +737,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: ACRs
             
             .. attribute:: csbrfbillrealmstatssuccstartacrs
@@ -673,6 +747,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: ACRs
             
@@ -683,6 +759,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: ACRs
             
             .. attribute:: csbrfbillrealmstatssuccstopacrs
@@ -691,6 +769,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: ACRs
             
@@ -701,6 +781,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: ACRs
             
             .. attribute:: csbrfbillrealmstatsfailstartacrs
@@ -709,6 +791,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: ACRs
             
@@ -719,6 +803,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: ACRs
             
             .. attribute:: csbrfbillrealmstatsfailstopacrs
@@ -728,6 +814,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: ACRs
             
             .. attribute:: csbrfbillrealmstatsfaileventacrs
@@ -736,6 +824,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: ACRs
             
@@ -797,6 +887,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable.CsbRfBillRealmStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbrfbillrealmstatsindex', 'csbrfbillrealmstatsrealmname', 'csbrfbillrealmstatstotalstartacrs', 'csbrfbillrealmstatstotalinterimacrs', 'csbrfbillrealmstatstotalstopacrs', 'csbrfbillrealmstatstotaleventacrs', 'csbrfbillrealmstatssuccstartacrs', 'csbrfbillrealmstatssuccinterimacrs', 'csbrfbillrealmstatssuccstopacrs', 'csbrfbillrealmstatssucceventacrs', 'csbrfbillrealmstatsfailstartacrs', 'csbrfbillrealmstatsfailinterimacrs', 'csbrfbillrealmstatsfailstopacrs', 'csbrfbillrealmstatsfaileventacrs'], name, value)
 
 
+
+
     class CsbSIPMthdCurrentStatsTable(Entity):
         """
         This table reports count of SIP request and various SIP
@@ -818,6 +910,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         
         	A conceptual row in the csbSIPMthdCurrentStatsTable. Each row describes a SIP method and various responses count for this method on a given SIP adjacency and given interval. This table is indexed on csbSIPMthdCurrentStatsAdjName, csbSIPMthdCurrentStatsMethod and  csbSIPMthdCurrentStatsInterval. The other indices of this table are csbCallStatsInstanceIndex defined in  csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
         	**type**\: list of  		 :py:class:`CsbSIPMthdCurrentStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable.CsbSIPMthdCurrentStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -867,6 +961,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsserviceindex  (key)
             
             	
@@ -876,25 +972,35 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdcurrentstatsadjname  (key)
             
             	This object indicates the name of the SIP adjacency for which stats related with SIP request and all kind of corresponding SIP responses are reported. The object acts as an index of the table
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csbsipmthdcurrentstatsmethod  (key)
             
             	This object indicates the SIP method Request. The object acts as an index of the table
             	**type**\:  :py:class:`CiscoSbcSIPMethod <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CiscoSbcSIPMethod>`
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdcurrentstatsinterval  (key)
             
             	This object indicates the interval for which the periodic statistics information is to be displayed. The interval values can be 5 minutes, 15 minutes, 1 hour , 1 Day. This  object acts as an index for the table
             	**type**\:  :py:class:`CiscoSbcPeriodicStatsInterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscoSbcPeriodicStatsInterval>`
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdcurrentstatsmethodname
             
             	This object indicates the text representation of the SIP method request. E.g. INVITE, ACK, BYE etc
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csbsipmthdcurrentstatsreqin
             
@@ -902,6 +1008,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: requests
             
@@ -912,6 +1020,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: requests
             
             .. attribute:: csbsipmthdcurrentstatsresp1xxin
@@ -920,6 +1030,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -930,6 +1042,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: responses
             
             .. attribute:: csbsipmthdcurrentstatsresp2xxin
@@ -938,6 +1052,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -948,6 +1064,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: responses
             
             .. attribute:: csbsipmthdcurrentstatsresp3xxin
@@ -956,6 +1074,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -966,6 +1086,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: responses
             
             .. attribute:: csbsipmthdcurrentstatsresp4xxin
@@ -974,6 +1096,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -984,6 +1108,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: responses
             
             .. attribute:: csbsipmthdcurrentstatsresp5xxin
@@ -992,6 +1118,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -1002,6 +1130,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: responses
             
             .. attribute:: csbsipmthdcurrentstatsresp6xxin
@@ -1011,6 +1141,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: responses
             
             .. attribute:: csbsipmthdcurrentstatsresp6xxout
@@ -1019,6 +1151,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -1088,6 +1222,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable.CsbSIPMthdCurrentStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdcurrentstatsadjname', 'csbsipmthdcurrentstatsmethod', 'csbsipmthdcurrentstatsinterval', 'csbsipmthdcurrentstatsmethodname', 'csbsipmthdcurrentstatsreqin', 'csbsipmthdcurrentstatsreqout', 'csbsipmthdcurrentstatsresp1xxin', 'csbsipmthdcurrentstatsresp1xxout', 'csbsipmthdcurrentstatsresp2xxin', 'csbsipmthdcurrentstatsresp2xxout', 'csbsipmthdcurrentstatsresp3xxin', 'csbsipmthdcurrentstatsresp3xxout', 'csbsipmthdcurrentstatsresp4xxin', 'csbsipmthdcurrentstatsresp4xxout', 'csbsipmthdcurrentstatsresp5xxin', 'csbsipmthdcurrentstatsresp5xxout', 'csbsipmthdcurrentstatsresp6xxin', 'csbsipmthdcurrentstatsresp6xxout'], name, value)
 
 
+
+
     class CsbSIPMthdHistoryStatsTable(Entity):
         """
         This table provide historical count of SIP request and various
@@ -1111,6 +1247,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         
         	A conceptual row in the csbSIPMthdHistoryStatsTable. The entries in this table are updated as interval completes in the csbSIPMthdCurrentStatsTable table and the data is  moved from that table to this one. This table is indexed on csbSIPMthdHistoryStatsAdjName, csbSIPMthdHistoryStatsMethod and csbSIPMthdHistoryStatsInterval. The other indices of this  table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
         	**type**\: list of  		 :py:class:`CsbSIPMthdHistoryStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable.CsbSIPMthdHistoryStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1161,6 +1299,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsserviceindex  (key)
             
             	
@@ -1170,25 +1310,35 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdhistorystatsadjname  (key)
             
             	This object indicates the name of the SIP adjacency for which stats related with SIP request and all kind of corresponding SIP responses are reported. The object acts as an index of the table
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csbsipmthdhistorystatsmethod  (key)
             
             	This object indicates the SIP method Request. The object acts as an index of the table
             	**type**\:  :py:class:`CiscoSbcSIPMethod <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CiscoSbcSIPMethod>`
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdhistorystatsinterval  (key)
             
             	This object indicates the interval for which the historical statistics information is to be displayed. The interval values can be previous 5 minutes, previous 15 minutes,  previous 1 hour and previous 1 Day. This object acts as an  index for the table
             	**type**\:  :py:class:`CiscoSbcPeriodicStatsInterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscoSbcPeriodicStatsInterval>`
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdhistorystatsmethodname
             
             	This object indicates the text representation of the SIP method request. E.g. INVITE, ACK, BYE etc
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csbsipmthdhistorystatsreqin
             
@@ -1196,6 +1346,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: requests
             
@@ -1206,6 +1358,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: requests
             
             .. attribute:: csbsipmthdhistorystatsresp1xxin
@@ -1214,6 +1368,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -1224,6 +1380,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: responses
             
             .. attribute:: csbsipmthdhistorystatsresp2xxin
@@ -1232,6 +1390,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -1242,6 +1402,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: responses
             
             .. attribute:: csbsipmthdhistorystatsresp3xxin
@@ -1250,6 +1412,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -1260,6 +1424,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: responses
             
             .. attribute:: csbsipmthdhistorystatsresp4xxin
@@ -1268,6 +1434,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -1278,6 +1446,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: responses
             
             .. attribute:: csbsipmthdhistorystatsresp5xxin
@@ -1286,6 +1456,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -1296,6 +1468,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: responses
             
             .. attribute:: csbsipmthdhistorystatsresp6xxin
@@ -1305,6 +1479,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: responses
             
             .. attribute:: csbsipmthdhistorystatsresp6xxout
@@ -1313,6 +1489,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -1382,6 +1560,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable.CsbSIPMthdHistoryStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdhistorystatsadjname', 'csbsipmthdhistorystatsmethod', 'csbsipmthdhistorystatsinterval', 'csbsipmthdhistorystatsmethodname', 'csbsipmthdhistorystatsreqin', 'csbsipmthdhistorystatsreqout', 'csbsipmthdhistorystatsresp1xxin', 'csbsipmthdhistorystatsresp1xxout', 'csbsipmthdhistorystatsresp2xxin', 'csbsipmthdhistorystatsresp2xxout', 'csbsipmthdhistorystatsresp3xxin', 'csbsipmthdhistorystatsresp3xxout', 'csbsipmthdhistorystatsresp4xxin', 'csbsipmthdhistorystatsresp4xxout', 'csbsipmthdhistorystatsresp5xxin', 'csbsipmthdhistorystatsresp5xxout', 'csbsipmthdhistorystatsresp6xxin', 'csbsipmthdhistorystatsresp6xxout'], name, value)
 
 
+
+
     class CsbSIPMthdRCCurrentStatsTable(Entity):
         """
         This table reports SIP method request and response code
@@ -1401,6 +1581,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         
         	A conceptual row in the csbSIPMthdRCCurrentStatsTable. Each entry in this table represents a method and response code combination. Each entry in this table is identified by a value of csbSIPMthdRCCurrentStatsAdjName, csbSIPMthdRCCurrentStatsMethod, csbSIPMthdRCCurrentStatsRespCode and csbSIPMthdRCCurrentStatsInterval. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
         	**type**\: list of  		 :py:class:`CsbSIPMthdRCCurrentStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable.CsbSIPMthdRCCurrentStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1451,6 +1633,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsserviceindex  (key)
             
             	
@@ -1460,15 +1644,21 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdrccurrentstatsadjname  (key)
             
             	This identifies the name of the adjacency for which statistics are reported. This object acts as an index for the table
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdrccurrentstatsmethod  (key)
             
             	This object indicates the SIP method request. This object acts as an index for the table
             	**type**\:  :py:class:`CiscoSbcSIPMethod <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CiscoSbcSIPMethod>`
+            
+            	**config**\: False
             
             .. attribute:: csbsipmthdrccurrentstatsrespcode  (key)
             
@@ -1477,15 +1667,21 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdrccurrentstatsinterval  (key)
             
             	This object identifies the interval for which the periodic statistics information is to be displayed. The interval values can be 5 min, 15 mins, 1 hour , 1 Day. This object acts as an index for the table
             	**type**\:  :py:class:`CiscoSbcPeriodicStatsInterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscoSbcPeriodicStatsInterval>`
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdrccurrentstatsmethodname
             
             	This object indicates the text representation of the SIP method request. E.g. INVITE, ACK, BYE etc
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csbsipmthdrccurrentstatsrespin
             
@@ -1493,6 +1689,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -1502,6 +1700,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -1549,6 +1749,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable.CsbSIPMthdRCCurrentStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdrccurrentstatsadjname', 'csbsipmthdrccurrentstatsmethod', 'csbsipmthdrccurrentstatsrespcode', 'csbsipmthdrccurrentstatsinterval', 'csbsipmthdrccurrentstatsmethodname', 'csbsipmthdrccurrentstatsrespin', 'csbsipmthdrccurrentstatsrespout'], name, value)
 
 
+
+
     class CsbSIPMthdRCHistoryStatsTable(Entity):
         """
         This table reports historical data for SIP method request and
@@ -1570,6 +1772,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         
         	A conceptual row in the csbSIPMthdRCHistoryStatsTable. The entries in this table are updated as interval completes in the csbSIPMthdRCCurrentStatsTable table and the data is  moved from that table to this one. Each entry in this table  is identified by a value of csbSIPMthdRCHistoryStatsAdjName,  csbSIPMthdRCHistoryStatsMethod, csbSIPMthdRCHistoryStatsRespCode and csbSIPMthdRCHistoryStatsInterval. The other indices of this table are csbCallStatsInstanceIndex defined in csbCallStatsInstanceTable and csbCallStatsServiceIndex defined in csbCallStatsTable
         	**type**\: list of  		 :py:class:`CsbSIPMthdRCHistoryStatsEntry <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable.CsbSIPMthdRCHistoryStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1621,6 +1825,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsinstanceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsInstanceTable.CsbCallStatsInstanceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbcallstatsserviceindex  (key)
             
             	
@@ -1630,15 +1836,21 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**refers to**\:  :py:class:`csbcallstatsserviceindex <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CISCOSESSBORDERCTRLRCALLSTATSMIB.CsbCallStatsTable.CsbCallStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdrchistorystatsadjname  (key)
             
             	This identifies the name of the adjacency for which statistics are reported. This object acts as an index for the table
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdrchistorystatsmethod  (key)
             
             	This object indicates the SIP method request. This object acts as an index for the table
             	**type**\:  :py:class:`CiscoSbcSIPMethod <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CiscoSbcSIPMethod>`
+            
+            	**config**\: False
             
             .. attribute:: csbsipmthdrchistorystatsrespcode  (key)
             
@@ -1647,15 +1859,21 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdrchistorystatsinterval  (key)
             
             	This object identifies the interval for which the periodic statistics information is to be displayed. The interval values can be previous 5 min, previous 15 mins, previous 1  hour , previous 1 Day. This object acts as an index for the table
             	**type**\:  :py:class:`CiscoSbcPeriodicStatsInterval <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB.CiscoSbcPeriodicStatsInterval>`
             
+            	**config**\: False
+            
             .. attribute:: csbsipmthdrchistorystatsmethodname
             
             	This object indicates the text representation of the SIP method request. E.g. INVITE, ACK, BYE etc
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csbsipmthdrchistorystatsrespin
             
@@ -1663,6 +1881,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -1672,6 +1892,8 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: responses
             
@@ -1718,7 +1940,11 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable.CsbSIPMthdRCHistoryStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdrchistorystatsadjname', 'csbsipmthdrchistorystatsmethod', 'csbsipmthdrchistorystatsrespcode', 'csbsipmthdrchistorystatsinterval', 'csbsipmthdrchistorystatsmethodname', 'csbsipmthdrchistorystatsrespin', 'csbsipmthdrchistorystatsrespout'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOSESSBORDERCTRLRSTATSMIB()
         return self._top_entity
+
+
 

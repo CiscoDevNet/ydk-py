@@ -129,6 +129,8 @@ class EsAcl(Entity):
     	Out Of Resources, Limits to the resources allocatable
     	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active>`
     
+    	**config**\: False
+    
     
 
     """
@@ -168,20 +170,28 @@ class EsAcl(Entity):
         	Out Of Resources, Limits to the resources allocatable
         	**type**\:  :py:class:`Oor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor>`
         
+        	**config**\: False
+        
         .. attribute:: list
         
         	List containing ACLs
         	**type**\:  :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List>`
+        
+        	**config**\: False
         
         .. attribute:: oor_acls
         
         	Resource occupation details for ACLs
         	**type**\:  :py:class:`OorAcls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.OorAcls>`
         
+        	**config**\: False
+        
         .. attribute:: usages
         
         	Table of Usage statistics of ACLs at different nodes
         	**type**\:  :py:class:`Usages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Usages>`
+        
+        	**config**\: False
         
         
 
@@ -234,6 +244,8 @@ class EsAcl(Entity):
             	Resource Limits pertaining to ACLs only
             	**type**\:  :py:class:`AclSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary>`
             
+            	**config**\: False
+            
             
 
             """
@@ -271,6 +283,8 @@ class EsAcl(Entity):
                 
                 	Details containing the resource limits of the ACLs
                 	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Oor.AclSummary.Details>`
+                
+                	**config**\: False
                 
                 
 
@@ -313,12 +327,16 @@ class EsAcl(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: current_configured_ac_es
                     
                     	Current configured aces
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: maximum_configurable_ac_ls
                     
@@ -327,12 +345,16 @@ class EsAcl(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: maximum_configurable_ac_es
                     
                     	max configurable aces
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -368,6 +390,9 @@ class EsAcl(Entity):
                         self._perform_setattr(EsAcl.Active.Oor.AclSummary.Details, ['current_configured_ac_ls', 'current_configured_ac_es', 'maximum_configurable_ac_ls', 'maximum_configurable_ac_es'], name, value)
 
 
+
+
+
         class List(Entity):
             """
             List containing ACLs
@@ -376,6 +401,8 @@ class EsAcl(Entity):
             
             	ACL class displaying Usage and Entries
             	**type**\:  :py:class:`Acls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls>`
+            
+            	**config**\: False
             
             
 
@@ -415,6 +442,8 @@ class EsAcl(Entity):
                 	Name of the Access List
                 	**type**\: list of  		 :py:class:`Acl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -453,10 +482,14 @@ class EsAcl(Entity):
                     
                     	**length:** 1..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: acl_sequence_numbers
                     
                     	Table of all the SequenceNumbers per ACL
                     	**type**\:  :py:class:`AclSequenceNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl.AclSequenceNumbers>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -499,6 +532,8 @@ class EsAcl(Entity):
                         	Sequence Number of an ACL entry
                         	**type**\: list of  		 :py:class:`AclSequenceNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -536,10 +571,14 @@ class EsAcl(Entity):
                             
                             	**range:** 1..2147483646
                             
+                            	**config**\: False
+                            
                             .. attribute:: ace_type
                             
                             	ACE type (acl, remark)
                             	**type**\:  :py:class:`AclAce1_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclAce1_>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ace_sequence_number
                             
@@ -548,6 +587,8 @@ class EsAcl(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: hits
                             
                             	ACE hit number
@@ -555,10 +596,14 @@ class EsAcl(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: grant
                             
                             	Grant value permit/deny 
                             	**type**\:  :py:class:`AclAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.AclAction>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: source_address
                             
@@ -567,12 +612,16 @@ class EsAcl(Entity):
                             
                             	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
                             
+                            	**config**\: False
+                            
                             .. attribute:: source_wild_card_bits
                             
                             	Source wild card bits
                             	**type**\: str
                             
                             	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                            
+                            	**config**\: False
                             
                             .. attribute:: destination_address
                             
@@ -581,12 +630,16 @@ class EsAcl(Entity):
                             
                             	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
                             
+                            	**config**\: False
+                            
                             .. attribute:: destination_wild_card_bits
                             
                             	Destination wild card bits
                             	**type**\: str
                             
                             	**pattern:** [a\-fA\-F0\-9]{4}(\\.[a\-fA\-F0\-9]{4}){2}
+                            
+                            	**config**\: False
                             
                             .. attribute:: ether_type_number
                             
@@ -595,12 +648,16 @@ class EsAcl(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: vlan1
                             
                             	VLAN ID/range lower limit
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: vlan2
                             
@@ -609,12 +666,16 @@ class EsAcl(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: cos
                             
                             	COS value
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: dei
                             
@@ -623,12 +684,16 @@ class EsAcl(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: inner_header_vlan1
                             
                             	Inner header VLAN ID/range lower limit
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: inner_header_vlan2
                             
@@ -637,12 +702,16 @@ class EsAcl(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: inner_header_cos
                             
                             	Inner header COS value
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: inner_header_dei
                             
@@ -651,10 +720,14 @@ class EsAcl(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: capture
                             
                             	Capture option, TRUE if enabled
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: log_option
                             
@@ -663,20 +736,28 @@ class EsAcl(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: remark
                             
                             	Remark string
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: acl_name
                             
                             	Acl Name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_string
                             
                             	Sequence Sring
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -749,6 +830,11 @@ class EsAcl(Entity):
                                 self._perform_setattr(EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber, ['sequence_number', 'ace_type', 'ace_sequence_number', 'hits', 'grant', 'source_address', 'source_wild_card_bits', 'destination_address', 'destination_wild_card_bits', 'ether_type_number', 'vlan1', 'vlan2', 'cos', 'dei', 'inner_header_vlan1', 'inner_header_vlan2', 'inner_header_cos', 'inner_header_dei', 'capture', 'log_option', 'remark', 'acl_name', 'sequence_string'], name, value)
 
 
+
+
+
+
+
         class OorAcls(Entity):
             """
             Resource occupation details for ACLs
@@ -757,6 +843,8 @@ class EsAcl(Entity):
             
             	Resource occupation details for a particular ACL
             	**type**\: list of  		 :py:class:`OorAcl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.OorAcls.OorAcl>`
+            
+            	**config**\: False
             
             
 
@@ -797,12 +885,16 @@ class EsAcl(Entity):
                 
                 	**length:** 1..64
                 
+                	**config**\: False
+                
                 .. attribute:: current_configured_ac_ls
                 
                 	Current configured acls
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: current_configured_ac_es
                 
@@ -811,6 +903,8 @@ class EsAcl(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: maximum_configurable_ac_ls
                 
                 	max configurable acls
@@ -818,12 +912,16 @@ class EsAcl(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: maximum_configurable_ac_es
                 
                 	max configurable aces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -861,6 +959,8 @@ class EsAcl(Entity):
                     self._perform_setattr(EsAcl.Active.OorAcls.OorAcl, ['name', 'current_configured_ac_ls', 'current_configured_ac_es', 'maximum_configurable_ac_ls', 'maximum_configurable_ac_es'], name, value)
 
 
+
+
         class Usages(Entity):
             """
             Table of Usage statistics of ACLs at different
@@ -870,6 +970,8 @@ class EsAcl(Entity):
             
             	Usage statistics of an ACL at a node
             	**type**\: list of  		 :py:class:`Usage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper.EsAcl.Active.Usages.Usage>`
+            
+            	**config**\: False
             
             
 
@@ -909,10 +1011,14 @@ class EsAcl(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: application_id
                 
                 	Application ID
                 	**type**\:  :py:class:`AclUsageAppIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes.AclUsageAppIdEnum>`
+                
+                	**config**\: False
                 
                 .. attribute:: name
                 
@@ -921,12 +1027,16 @@ class EsAcl(Entity):
                 
                 	**length:** 1..64
                 
+                	**config**\: False
+                
                 .. attribute:: usage_details
                 
                 	Usage Statistics Details
                 	**type**\: str
                 
                 	**mandatory**\: True
+                
+                	**config**\: False
                 
                 
 
@@ -961,7 +1071,12 @@ class EsAcl(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(EsAcl.Active.Usages.Usage, ['location', 'application_id', 'name', 'usage_details'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = EsAcl()
         return self._top_entity
+
+
 

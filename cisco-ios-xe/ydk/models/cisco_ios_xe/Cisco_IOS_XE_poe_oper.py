@@ -94,6 +94,8 @@ class PoeOperData(Entity):
     	List of POE interfaces, keyed by interface name
     	**type**\: list of  		 :py:class:`PoePort <ydk.models.cisco_ios_xe.Cisco_IOS_XE_poe_oper.PoeOperData.PoePort>`
     
+    	**config**\: False
+    
     
 
     """
@@ -130,10 +132,14 @@ class PoeOperData(Entity):
         	Name of the POE interface
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: poe_intf_enabled
         
         	POE interface admin state
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: power_used
         
@@ -142,10 +148,14 @@ class PoeOperData(Entity):
         
         	**range:** \-92233720368547758.08..92233720368547758.07
         
+        	**config**\: False
+        
         .. attribute:: pd_class
         
         	Class of the PD device
         	**type**\:  :py:class:`IlpowerPdClass <ydk.models.cisco_ios_xe.Cisco_IOS_XE_poe_oper.IlpowerPdClass>`
+        
+        	**config**\: False
         
         
 
@@ -180,7 +190,10 @@ class PoeOperData(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(PoeOperData.PoePort, ['intf_name', 'poe_intf_enabled', 'power_used', 'pd_class'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = PoeOperData()
         return self._top_entity
+
+
 

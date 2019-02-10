@@ -30,6 +30,8 @@ class Ipv6Io(Entity):
     	Node\-specific IPv6 IO operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class Ipv6Io(Entity):
         
         	IPv6 network operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -107,10 +111,14 @@ class Ipv6Io(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: statistics
             
             	Statistical IPv6 network operational data for a node
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics>`
+            
+            	**config**\: False
             
             
 
@@ -154,6 +162,8 @@ class Ipv6Io(Entity):
                 	Traffic statistics for a node
                 	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics.Traffic>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -191,15 +201,21 @@ class Ipv6Io(Entity):
                     	IPv6 Statistics
                     	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: icmp
                     
                     	ICMP Statistics
                     	**type**\:  :py:class:`Icmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_node_discovery
                     
                     	IPv6 Node Discovery Statistics
                     	**type**\:  :py:class:`Ipv6NodeDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_oper.Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -248,12 +264,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_destination_packets
                         
                         	Local Destination Packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: format_errors
                         
@@ -262,12 +282,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: truncated_packets
                         
                         	Truncated Packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hop_count_exceeded_packets
                         
@@ -276,12 +300,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_source_address_packets
                         
                         	Bad Source Address Packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_header_packets
                         
@@ -290,12 +318,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unknown_option_type_packets
                         
                         	Unknown Option Type Packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: unknown_protocol_packets
                         
@@ -304,12 +336,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: fragments
                         
                         	Fragments
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: reassembled_packets
                         
@@ -318,12 +354,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reassembly_timeouts
                         
                         	Reassembly Timeouts
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: reassembly_failures
                         
@@ -332,12 +372,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reassembly_maximum_drops
                         
                         	Reassembly Reach Maximum Drop
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generated_packets
                         
@@ -346,12 +390,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: forwarded_packets
                         
                         	Packets Forwarded
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: source_routed_packets
                         
@@ -360,12 +408,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: fragmented_packets
                         
                         	Packets Fragmented
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: fragment_count
                         
@@ -374,12 +426,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: fragment_failures
                         
                         	Fragment Failures
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: no_route_packets
                         
@@ -388,12 +444,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: too_big_packets
                         
                         	Packet Too Big
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_multicast_packets
                         
@@ -402,12 +462,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sent_multicast_packets
                         
                         	Multicast Out
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: miscellaneous_drops
                         
@@ -416,12 +480,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: lisp_v4_encap_packets
                         
                         	Lisp IPv4 Encapped packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: lisp_v4_decap_packets
                         
@@ -430,12 +498,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: lisp_v6_encap_packets
                         
                         	Lisp IPv6 Encapped packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: lisp_v6_decap_packets
                         
@@ -444,6 +516,8 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: lisp_encap_errors
                         
                         	Lisp Encap errors
@@ -451,12 +525,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: lisp_decap_errors
                         
                         	Lisp Decap errors
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -545,6 +623,7 @@ class Ipv6Io(Entity):
                             self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6, [u'total_packets', u'local_destination_packets', u'format_errors', u'truncated_packets', u'hop_count_exceeded_packets', u'bad_source_address_packets', u'bad_header_packets', u'unknown_option_type_packets', u'unknown_protocol_packets', u'fragments', u'reassembled_packets', u'reassembly_timeouts', u'reassembly_failures', u'reassembly_maximum_drops', u'generated_packets', u'forwarded_packets', u'source_routed_packets', u'fragmented_packets', u'fragment_count', u'fragment_failures', u'no_route_packets', u'too_big_packets', u'received_multicast_packets', u'sent_multicast_packets', u'miscellaneous_drops', u'lisp_v4_encap_packets', u'lisp_v4_decap_packets', u'lisp_v6_encap_packets', u'lisp_v6_decap_packets', u'lisp_encap_errors', u'lisp_decap_errors'], name, value)
 
 
+
                     class Icmp(Entity):
                         """
                         ICMP Statistics
@@ -556,12 +635,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: too_short_error_messages
                         
                         	ICMP Too Short Errors
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: checksum_error_messages
                         
@@ -570,12 +653,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unknown_error_type_messages
                         
                         	ICMP Unknown Error
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: output_messages
                         
@@ -584,12 +671,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sent_rate_limited_packets
                         
                         	ICMP Sent Packets Ratelimited
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_unreachable_routing_messages
                         
@@ -598,12 +689,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sent_unreachable_admin_messages
                         
                         	ICMP Admin Unreachable Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_unreachable_neighbor_messages
                         
@@ -612,12 +707,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sent_unreachable_address_messages
                         
                         	ICMP Addr Unreachable Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_unreachable_port_messages
                         
@@ -626,12 +725,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_unreachable_routing_messages
                         
                         	ICMP Route Unreachable Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_unreachable_admin_messages
                         
@@ -640,12 +743,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_unreachable_neighbor_messages
                         
                         	ICMP Host Unreachable Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_unreachable_address_messages
                         
@@ -654,12 +761,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_unreachable_port_messages
                         
                         	ICMP Port Unreachable Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_hop_count_expired_messages
                         
@@ -668,12 +779,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sent_reassembly_timeouts
                         
                         	ICMP Reassembly Timeouts
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_hop_count_expired_messages
                         
@@ -682,12 +797,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_reassembly_timeouts
                         
                         	ICMP Reassembly Timeouts
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_too_big_messages
                         
@@ -696,12 +815,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_too_big_messages
                         
                         	ICMP Too Big Messages Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_parameter_error_messages
                         
@@ -710,12 +833,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sent_parameter_header_messages
                         
                         	ICMP Parameter Next Header Messages Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_parameter_option_messages
                         
@@ -724,12 +851,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_parameter_error_messages
                         
                         	ICMP Parameter Error Messages Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_parameter_header_messages
                         
@@ -738,12 +869,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_parameter_option_messages
                         
                         	ICMP Parameter Option Problem Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_echo_request_messages
                         
@@ -752,12 +887,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sent_echo_reply_messages
                         
                         	ICMP Echo Reply Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_echo_request_messages
                         
@@ -766,12 +905,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_echo_reply_messages
                         
                         	ICMP Echo Reply Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_unknown_timeout_messages
                         
@@ -780,12 +923,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_unknown_timeout_messages
                         
                         	ICMP Unknown Timeout Messages Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_parameter_unknown_type_messages
                         
@@ -794,12 +941,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_parameter_unknown_type_messages
                         
                         	ICMP Parameter Unknown Type Messages Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_unreachable_unknown_type_messages
                         
@@ -808,12 +959,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_unreachable_unknown_type_messages
                         
                         	ICMP Unreachable Unknown Messages Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -916,6 +1071,7 @@ class Ipv6Io(Entity):
                             self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp, [u'total_messages', u'too_short_error_messages', u'checksum_error_messages', u'unknown_error_type_messages', u'output_messages', u'sent_rate_limited_packets', u'sent_unreachable_routing_messages', u'sent_unreachable_admin_messages', u'sent_unreachable_neighbor_messages', u'sent_unreachable_address_messages', u'sent_unreachable_port_messages', u'received_unreachable_routing_messages', u'received_unreachable_admin_messages', u'received_unreachable_neighbor_messages', u'received_unreachable_address_messages', u'received_unreachable_port_messages', u'sent_hop_count_expired_messages', u'sent_reassembly_timeouts', u'received_hop_count_expired_messages', u'received_reassembly_timeouts', u'sent_too_big_messages', u'received_too_big_messages', u'sent_parameter_error_messages', u'sent_parameter_header_messages', u'sent_parameter_option_messages', u'received_parameter_error_messages', u'received_parameter_header_messages', u'received_parameter_option_messages', u'sent_echo_request_messages', u'sent_echo_reply_messages', u'received_echo_request_messages', u'received_echo_reply_messages', u'sent_unknown_timeout_messages', u'received_unknown_timeout_messages', u'sent_parameter_unknown_type_messages', u'received_parameter_unknown_type_messages', u'sent_unreachable_unknown_type_messages', u'received_unreachable_unknown_type_messages'], name, value)
 
 
+
                     class Ipv6NodeDiscovery(Entity):
                         """
                         IPv6 Node Discovery Statistics
@@ -927,12 +1083,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sent_router_advertisement_messages
                         
                         	ICMP Router Advertisements Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_neighbor_solicitation_messages
                         
@@ -941,12 +1101,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sent_neighbor_advertisement_messages
                         
                         	ICMP Neighbor Advertisements Sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sent_redirect_messages
                         
@@ -955,12 +1119,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_router_solicitation_messages
                         
                         	ICMP Router Solicitations Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_router_advertisement_messages
                         
@@ -969,12 +1137,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_neighbor_solicitation_messages
                         
                         	ICMP Neighbor Solicitations Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_neighbor_advertisement_messages
                         
@@ -983,12 +1155,16 @@ class Ipv6Io(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_redirect_messages
                         
                         	ICMP Redirect Received
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1034,7 +1210,14 @@ class Ipv6Io(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery, [u'sent_router_solicitation_messages', u'sent_router_advertisement_messages', u'sent_neighbor_solicitation_messages', u'sent_neighbor_advertisement_messages', u'sent_redirect_messages', u'received_router_solicitation_messages', u'received_router_advertisement_messages', u'received_neighbor_solicitation_messages', u'received_neighbor_advertisement_messages', u'received_redirect_messages'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Ipv6Io()
         return self._top_entity
+
+
 

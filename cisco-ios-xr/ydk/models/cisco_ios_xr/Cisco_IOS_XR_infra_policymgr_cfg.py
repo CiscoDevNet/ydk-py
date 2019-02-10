@@ -1139,6 +1139,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4, ['address', 'netmask'], name, value)
 
 
+
                 class DestinationAddressIpv6(Entity):
                     """
                     Match destination IPv6 address.
@@ -1184,6 +1185,7 @@ class PolicyManager(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6, ['address', 'prefix_length'], name, value)
+
 
 
                 class SourceAddressIpv4(Entity):
@@ -1233,6 +1235,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4, ['address', 'netmask'], name, value)
 
 
+
                 class SourceAddressIpv6(Entity):
                     """
                     Match source IPv6 address.
@@ -1278,6 +1281,7 @@ class PolicyManager(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6, ['address', 'prefix_length'], name, value)
+
 
 
                 class DhcpClientId(Entity):
@@ -1327,6 +1331,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientId, ['value', 'flag'], name, value)
 
 
+
                 class DhcpClientIdRegex(Entity):
                     """
                     Match dhcp client id regex.
@@ -1372,6 +1377,7 @@ class PolicyManager(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DhcpClientIdRegex, ['value', 'flag'], name, value)
+
 
 
                 class DomainName(Entity):
@@ -1421,6 +1427,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DomainName, ['name', 'format'], name, value)
 
 
+
                 class DomainNameRegex(Entity):
                     """
                     Match domain name.
@@ -1466,6 +1473,7 @@ class PolicyManager(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex, ['regex', 'format'], name, value)
+
 
 
                 class Flow(Entity):
@@ -1557,6 +1565,9 @@ class PolicyManager(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache, ['idle_timeout'], name, value)
+
+
+
 
 
             class MatchNot(Entity):
@@ -2201,6 +2212,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4, ['address', 'netmask'], name, value)
 
 
+
                 class DestinationAddressIpv6(Entity):
                     """
                     Match destination IPv6 address.
@@ -2246,6 +2258,7 @@ class PolicyManager(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6, ['address', 'prefix_length'], name, value)
+
 
 
                 class SourceAddressIpv4(Entity):
@@ -2295,6 +2308,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4, ['address', 'netmask'], name, value)
 
 
+
                 class SourceAddressIpv6(Entity):
                     """
                     Match source IPv6 address.
@@ -2340,6 +2354,7 @@ class PolicyManager(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6, ['address', 'prefix_length'], name, value)
+
 
 
                 class DhcpClientId(Entity):
@@ -2389,6 +2404,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientId, ['value', 'flag'], name, value)
 
 
+
                 class DhcpClientIdRegex(Entity):
                     """
                     Match dhcp client id regex.
@@ -2434,6 +2450,7 @@ class PolicyManager(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DhcpClientIdRegex, ['value', 'flag'], name, value)
+
 
 
                 class DomainName(Entity):
@@ -2483,6 +2500,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName, ['name', 'format'], name, value)
 
 
+
                 class DomainNameRegex(Entity):
                     """
                     Match domain name.
@@ -2530,6 +2548,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex, ['regex', 'format'], name, value)
 
 
+
                 class Flow(Entity):
                     """
                     Match flow.
@@ -2566,6 +2585,10 @@ class PolicyManager(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.ClassMaps.ClassMap.MatchNot.Flow, ['flow_tag'], name, value)
+
+
+
+
 
 
     class PolicyMaps(Entity):
@@ -2944,6 +2967,7 @@ class PolicyManager(Entity):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate, ['name', 'aaa_list'], name, value)
 
 
+
                         class Authenticate(Entity):
                             """
                             Authentication related configuration.
@@ -2978,6 +3002,7 @@ class PolicyManager(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate, ['aaa_list'], name, value)
+
 
 
                         class Authorize(Entity):
@@ -3044,6 +3069,7 @@ class PolicyManager(Entity):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize, ['aaa_list', 'format', 'identifier', 'password'], name, value)
 
 
+
                         class DeactivateDynamicTemplate(Entity):
                             """
                             Deactivate dynamic templates.
@@ -3090,6 +3116,7 @@ class PolicyManager(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate, ['name', 'aaa_list'], name, value)
+
 
 
                         class SetTimer(Entity):
@@ -3147,6 +3174,7 @@ class PolicyManager(Entity):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer, ['timer_name', 'timer_value'], name, value)
 
 
+
                         class StopTimer(Entity):
                             """
                             Disable timer before it expires.
@@ -3181,6 +3209,10 @@ class PolicyManager(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer, ['timer_name'], name, value)
+
+
+
+
 
 
             class PolicyMapRule(Entity):
@@ -3538,6 +3570,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate, ['value', 'unit'], name, value)
 
 
+
                     class Burst(Entity):
                         """
                         Burst size configuration.
@@ -3583,6 +3616,8 @@ class PolicyManager(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst, ['value', 'units'], name, value)
+
+
 
 
                 class MinBandwidth(Entity):
@@ -3632,6 +3667,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth, ['value', 'unit'], name, value)
 
 
+
                 class BandwidthRemaining(Entity):
                     """
                     Policy action bandwidth remaining queue.
@@ -3679,6 +3715,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining, ['value', 'unit'], name, value)
 
 
+
                 class QueueLimit(Entity):
                     """
                     Policy action queue limit.
@@ -3724,6 +3761,7 @@ class PolicyManager(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit, ['value', 'unit'], name, value)
+
 
 
                 class Pfc(Entity):
@@ -3836,6 +3874,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize, ['value', 'unit'], name, value)
 
 
+
                     class PfcPauseThreshold(Entity):
                         """
                         
@@ -3883,6 +3922,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold, ['value', 'unit'], name, value)
 
 
+
                     class PfcResumeThreshold(Entity):
                         """
                         
@@ -3928,6 +3968,8 @@ class PolicyManager(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold, ['value', 'unit'], name, value)
+
+
 
 
                 class RandomDetect(Entity):
@@ -4062,6 +4104,7 @@ class PolicyManager(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect, ['threshold_min_value', 'threshold_min_units', 'threshold_max_value', 'threshold_max_units', 'cos', 'discard_class', 'dscp', 'mpls_exp', 'precedence', 'dei', 'ecn'], name, value)
+
 
 
                 class Set(Entity):
@@ -4267,6 +4310,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set, ['dscp', 'qos_group', 'traffic_class', 'discard_class', 'forward_class', 'df', 'cos', 'inner_cos', 'precedence', 'precedence_tunnel', 'mpls_experimental_top_most', 'mpls_experimental_imposition', 'srp_priority', 'fr_de', 'dei', 'dei_imposition', 'source_address', 'destination_address'], name, value)
 
 
+
                 class Police(Entity):
                     """
                     Configures traffic policing action.
@@ -4405,6 +4449,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate, ['value', 'units'], name, value)
 
 
+
                     class PeakRate(Entity):
                         """
                         Peak rate configuration.
@@ -4450,6 +4495,7 @@ class PolicyManager(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate, ['value', 'units'], name, value)
+
 
 
                     class Burst(Entity):
@@ -4499,6 +4545,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst, ['value', 'units'], name, value)
 
 
+
                     class PeakBurst(Entity):
                         """
                         Peak burst configuration.
@@ -4544,6 +4591,7 @@ class PolicyManager(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst, ['value', 'units'], name, value)
+
 
 
                     class ConformAction(Entity):
@@ -4802,6 +4850,8 @@ class PolicyManager(Entity):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set, ['dscp', 'qos_group', 'traffic_class', 'discard_class', 'forward_class', 'df', 'cos', 'inner_cos', 'precedence', 'precedence_tunnel', 'mpls_experimental_top_most', 'mpls_experimental_imposition', 'srp_priority', 'fr_de', 'dei', 'dei_imposition', 'source_address', 'destination_address'], name, value)
 
 
+
+
                     class ExceedAction(Entity):
                         """
                         Configures the action to take on packets that exceed 
@@ -5056,6 +5106,8 @@ class PolicyManager(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set, ['dscp', 'qos_group', 'traffic_class', 'discard_class', 'forward_class', 'df', 'cos', 'inner_cos', 'precedence', 'precedence_tunnel', 'mpls_experimental_top_most', 'mpls_experimental_imposition', 'srp_priority', 'fr_de', 'dei', 'dei_imposition', 'source_address', 'destination_address'], name, value)
+
+
 
 
                     class ViolateAction(Entity):
@@ -5314,6 +5366,9 @@ class PolicyManager(Entity):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set, ['dscp', 'qos_group', 'traffic_class', 'discard_class', 'forward_class', 'df', 'cos', 'inner_cos', 'precedence', 'precedence_tunnel', 'mpls_experimental_top_most', 'mpls_experimental_imposition', 'srp_priority', 'fr_de', 'dei', 'dei_imposition', 'source_address', 'destination_address'], name, value)
 
 
+
+
+
                 class ServicePolicy(Entity):
                     """
                     Configure a child service policy.
@@ -5359,6 +5414,7 @@ class PolicyManager(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy, ['policy_name', 'type'], name, value)
+
 
 
                 class CacLocal(Entity):
@@ -5470,6 +5526,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate, ['value', 'units'], name, value)
 
 
+
                     class FlowRate(Entity):
                         """
                         The rate allocated per flow.
@@ -5515,6 +5572,8 @@ class PolicyManager(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate, ['value', 'units'], name, value)
+
+
 
 
                 class FlowParams(Entity):
@@ -5584,6 +5643,7 @@ class PolicyManager(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams, ['max_flow', 'interval_duration', 'history', 'timeout'], name, value)
+
 
 
                 class MetricsIpcbr(Entity):
@@ -5694,6 +5754,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate, ['layer3', 'packet', 'media'], name, value)
 
 
+
                     class MediaPacket(Entity):
                         """
                         Media\-packet structure.
@@ -5743,6 +5804,8 @@ class PolicyManager(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket, ['size', 'count_in_layer3'], name, value)
+
+
 
 
                 class React(Entity):
@@ -5886,6 +5949,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action, ['syslog', 'snmp'], name, value)
 
 
+
                     class Alarm(Entity):
                         """
                         Alaram settings.
@@ -5989,6 +6053,8 @@ class PolicyManager(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type, ['discrete', 'group_count', 'group_percent'], name, value)
+
+
 
 
                     class Threshold(Entity):
@@ -6101,6 +6167,7 @@ class PolicyManager(Entity):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue, ['greater_than', 'greater_than_equal', 'less_than', 'less_than_equal', 'range'], name, value)
 
 
+
                         class TriggerType(Entity):
                             """
                             Alarm trigger type settings.
@@ -6144,6 +6211,9 @@ class PolicyManager(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType, ['immediate', 'average'], name, value)
+
+
+
 
 
                 class PbrRedirect(Entity):
@@ -6246,6 +6316,7 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv4, ['ipv4_next_hop', 'vrf'], name, value)
 
 
+
                     class Ipv6(Entity):
                         """
                         Policy action redirect IPv6
@@ -6289,6 +6360,7 @@ class PolicyManager(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.Ipv6, ['ipv6_next_hop', 'vrf'], name, value)
+
 
 
                     class NextHop(Entity):
@@ -6429,6 +6501,10 @@ class PolicyManager(Entity):
                                     self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrRedirect.NextHop.RouteTarget.Ipv4Address, ['address', 'netmask'], name, value)
 
 
+
+
+
+
                 class PbrForward(Entity):
                     """
                     Policy action PBR forward.
@@ -6535,6 +6611,8 @@ class PolicyManager(Entity):
                             self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop, ['vrf', 'ipv4_address', 'ipv6_address'], name, value)
 
 
+
+
                 class ServiceFunctionPath(Entity):
                     """
                     Policy action service function path.
@@ -6596,6 +6674,7 @@ class PolicyManager(Entity):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath, ['path_id', 'index', 'metadata'], name, value)
 
 
+
                 class HttpEnrichment(Entity):
                     """
                     HTTP Enrichment action
@@ -6652,7 +6731,13 @@ class PolicyManager(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.HttpEnrichment, ['subscribermac', 'subscriberip', 'hostname', 'bngidentifierinterface'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = PolicyManager()
         return self._top_entity
+
+
 

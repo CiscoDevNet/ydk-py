@@ -90,6 +90,8 @@ class Watchdog(Entity):
     	List of nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -127,6 +129,8 @@ class Watchdog(Entity):
         
         	Node ID
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -166,20 +170,28 @@ class Watchdog(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: threshold_memory
             
             	Threshold memory
             	**type**\:  :py:class:`ThresholdMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.ThresholdMemory>`
+            
+            	**config**\: False
             
             .. attribute:: memory_state
             
             	Memory state
             	**type**\:  :py:class:`MemoryState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.MemoryState>`
             
+            	**config**\: False
+            
             .. attribute:: overload_state
             
             	Display overload control state
             	**type**\:  :py:class:`OverloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.OverloadState>`
+            
+            	**config**\: False
             
             
 
@@ -230,10 +242,14 @@ class Watchdog(Entity):
                 	System default memory
                 	**type**\:  :py:class:`Default <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.ThresholdMemory.Default>`
                 
+                	**config**\: False
+                
                 .. attribute:: configured
                 
                 	Memory configured by user
                 	**type**\:  :py:class:`Configured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.ThresholdMemory.Configured>`
+                
+                	**config**\: False
                 
                 
 
@@ -276,10 +292,14 @@ class Watchdog(Entity):
                     	Configured memory
                     	**type**\:  :py:class:`ConfiguredMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: memory
                     
                     	Memory Information
                     	**type**\:  :py:class:`Memory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.ThresholdMemory.Default.Memory>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -324,6 +344,8 @@ class Watchdog(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: byte
                         
                         .. attribute:: severe
@@ -333,6 +355,8 @@ class Watchdog(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: byte
                         
                         .. attribute:: critical
@@ -341,6 +365,8 @@ class Watchdog(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -375,6 +401,7 @@ class Watchdog(Entity):
                             self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory, [u'minor', u'severe', u'critical'], name, value)
 
 
+
                     class Memory(Entity):
                         """
                         Memory Information
@@ -386,6 +413,8 @@ class Watchdog(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: byte
                         
                         .. attribute:: free_memory
@@ -395,12 +424,16 @@ class Watchdog(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         	**units**\: byte
                         
                         .. attribute:: memory_state
                         
                         	State of memory
                         	**type**\:  :py:class:`MemoryState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.MemoryState>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -433,6 +466,8 @@ class Watchdog(Entity):
                             self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.Memory, [u'physical_memory', u'free_memory', u'memory_state'], name, value)
 
 
+
+
                 class Configured(Entity):
                     """
                     Memory configured by user
@@ -444,6 +479,8 @@ class Watchdog(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: byte
                     
                     .. attribute:: severe
@@ -453,6 +490,8 @@ class Watchdog(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: byte
                     
                     .. attribute:: critical
@@ -461,6 +500,8 @@ class Watchdog(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -495,6 +536,8 @@ class Watchdog(Entity):
                         self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Configured, [u'minor', u'severe', u'critical'], name, value)
 
 
+
+
             class MemoryState(Entity):
                 """
                 Memory state
@@ -506,6 +549,8 @@ class Watchdog(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: free_memory
@@ -515,12 +560,16 @@ class Watchdog(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: memory_state
                 
                 	State of memory
                 	**type**\:  :py:class:`MemoryState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.MemoryState>`
+                
+                	**config**\: False
                 
                 
 
@@ -553,6 +602,7 @@ class Watchdog(Entity):
                     self._perform_setattr(Watchdog.Nodes.Node.MemoryState, [u'physical_memory', u'free_memory', u'memory_state'], name, value)
 
 
+
             class OverloadState(Entity):
                 """
                 Display overload control state
@@ -562,10 +612,14 @@ class Watchdog(Entity):
                 	Current throttle information
                 	**type**\:  :py:class:`CurrentThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.OverloadState.CurrentThrottle>`
                 
+                	**config**\: False
+                
                 .. attribute:: overload_control_notification
                 
                 	State of overload control notification
                 	**type**\:  :py:class:`OverloadCtrlNotif <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.OverloadCtrlNotif>`
+                
+                	**config**\: False
                 
                 .. attribute:: default_wdsysmon_throttle
                 
@@ -574,6 +628,8 @@ class Watchdog(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: configured_wdsysmon_throttle
                 
                 	Configured resmon throttle
@@ -581,10 +637,14 @@ class Watchdog(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: last_throttle
                 
                 	Last throttle information
                 	**type**\: list of  		 :py:class:`LastThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.OverloadState.LastThrottle>`
+                
+                	**config**\: False
                 
                 
 
@@ -634,6 +694,8 @@ class Watchdog(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: start_time
@@ -642,6 +704,8 @@ class Watchdog(Entity):
                     	**type**\: str
                     
                     	**length:** 0..25
+                    
+                    	**config**\: False
                     
                     
 
@@ -672,6 +736,7 @@ class Watchdog(Entity):
                         self._perform_setattr(Watchdog.Nodes.Node.OverloadState.CurrentThrottle, [u'throttle_duration', u'start_time'], name, value)
 
 
+
                 class LastThrottle(Entity):
                     """
                     Last throttle information
@@ -683,6 +748,8 @@ class Watchdog(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: start_time
@@ -692,12 +759,16 @@ class Watchdog(Entity):
                     
                     	**length:** 0..25
                     
+                    	**config**\: False
+                    
                     .. attribute:: stop_time
                     
                     	Last throttle stop time in format \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
                     	**type**\: str
                     
                     	**length:** 0..25
+                    
+                    	**config**\: False
                     
                     
 
@@ -729,7 +800,13 @@ class Watchdog(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Watchdog.Nodes.Node.OverloadState.LastThrottle, [u'throttle_duration', u'start_time', u'stop_time'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Watchdog()
         return self._top_entity
+
+
 

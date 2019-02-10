@@ -275,6 +275,7 @@ class Dhcpv6(Entity):
             self._perform_setattr(Dhcpv6.Database, ['proxy', 'server', 'relay', 'full_write_interval', 'incremental_write_interval'], name, value)
 
 
+
     class Profiles(Entity):
         """
         Table of Profile
@@ -572,6 +573,8 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Relay.HelperAddresses.HelperAddress, ['vrf_name', 'helper_address', 'enable', 'src_intf_name'], name, value)
 
 
+
+
                 class Option(Entity):
                     """
                     Specify relay option configuration
@@ -608,6 +611,8 @@ class Dhcpv6(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Relay.Option, ['remote_id'], name, value)
+
+
 
 
             class Base(Entity):
@@ -754,6 +759,8 @@ class Dhcpv6(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Default.Profile_, ['profile_name', 'server_mode', 'proxy_mode'], name, value)
+
+
 
 
                 class Match(Entity):
@@ -923,6 +930,11 @@ class Dhcpv6(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass.Profile_, ['profile_name', 'server_mode', 'proxy_mode'], name, value)
+
+
+
+
+
 
 
             class Proxy(Entity):
@@ -1138,6 +1150,8 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
 
 
+
+
                 class Relay(Entity):
                     """
                     Specify relay configuration
@@ -1279,6 +1293,9 @@ class Dhcpv6(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId, ['insert'], name, value)
+
+
+
 
 
                 class Vrfs(Entity):
@@ -1452,6 +1469,10 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress, ['helper_address', 'out_interface', 'any_out_interface'], name, value)
 
 
+
+
+
+
                 class Authentication(Entity):
                     """
                     Authentication username format
@@ -1486,6 +1507,7 @@ class Dhcpv6(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Authentication, ['username'], name, value)
+
 
 
                 class Classes(Entity):
@@ -1667,6 +1689,10 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses.HelperAddress, ['vrf_name', 'helper_address'], name, value)
 
 
+
+
+
+
                 class Sessions(Entity):
                     """
                     Change sessions configuration
@@ -1800,6 +1826,10 @@ class Dhcpv6(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Sessions.Mac.Throttle, ['limit', 'request', 'block'], name, value)
+
+
+
+
 
 
             class Server(Entity):
@@ -2102,6 +2132,9 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle, ['limit', 'request', 'block'], name, value)
 
 
+
+
+
                 class DnsServers(Entity):
                     """
                     DNS servers
@@ -2144,6 +2177,7 @@ class Dhcpv6(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Server.DnsServers, ['dns_server'], name, value)
+
 
 
                 class Classes(Entity):
@@ -2317,6 +2351,7 @@ class Dhcpv6(Entity):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Classes.Class.DnsServers, ['dns_server'], name, value)
 
 
+
                         class Lease(Entity):
                             """
                             lease
@@ -2384,6 +2419,9 @@ class Dhcpv6(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Classes.Class.Lease, ['infinite', 'days', 'hours', 'minutes'], name, value)
+
+
+
 
 
                 class Lease(Entity):
@@ -2455,6 +2493,7 @@ class Dhcpv6(Entity):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Lease, ['days', 'hours', 'minutes', 'infinite'], name, value)
 
 
+
                 class Dhcpv6duid(Entity):
                     """
                     Client DUID
@@ -2491,6 +2530,7 @@ class Dhcpv6(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Dhcpv6duid, ['allowed_type'], name, value)
+
 
 
                 class AaaServer(Entity):
@@ -2564,6 +2604,8 @@ class Dhcpv6(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Server.AaaServer.Dhcpv6Option, ['force_insert'], name, value)
+
+
 
 
                 class Options(Entity):
@@ -2757,6 +2799,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Options.Option.EnterpriseId.HexEnterpriseId, ['action'], name, value)
 
 
+
                             class DefaultEnterpriseId(Entity):
                                 """
                                 defaut action for enterprise number
@@ -2791,6 +2834,8 @@ class Dhcpv6(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Options.Option.EnterpriseId.DefaultEnterpriseId, ['action'], name, value)
+
+
 
 
                         class VendorClass(Entity):
@@ -2875,6 +2920,7 @@ class Dhcpv6(Entity):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Options.Option.VendorClass.StrVendorClass, ['action'], name, value)
 
 
+
                             class DefaultVendorClass(Entity):
                                 """
                                 default action for enterprise number
@@ -2909,6 +2955,10 @@ class Dhcpv6(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Options.Option.VendorClass.DefaultVendorClass, ['action'], name, value)
+
+
+
+
 
 
                 class Dhcpv6Options(Entity):
@@ -2991,6 +3041,11 @@ class Dhcpv6(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Dhcpv6Options.VendorOptions, ['type', 'vendor_options'], name, value)
+
+
+
+
+
 
 
     class Interfaces(Entity):
@@ -3151,6 +3206,7 @@ class Dhcpv6(Entity):
                     self._perform_setattr(Dhcpv6.Interfaces.Interface.Pppoe, ['profile'], name, value)
 
 
+
             class Proxy(Entity):
                 """
                 Assign a proxy profile to interface
@@ -3187,6 +3243,7 @@ class Dhcpv6(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Interfaces.Interface.Proxy, ['profile'], name, value)
+
 
 
             class Base(Entity):
@@ -3227,6 +3284,7 @@ class Dhcpv6(Entity):
                     self._perform_setattr(Dhcpv6.Interfaces.Interface.Base, ['profile'], name, value)
 
 
+
             class Server(Entity):
                 """
                 Assign a server profile to interface
@@ -3263,6 +3321,7 @@ class Dhcpv6(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Interfaces.Interface.Server, ['profile'], name, value)
+
 
 
             class Relay(Entity):
@@ -3302,7 +3361,12 @@ class Dhcpv6(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Interfaces.Interface.Relay, ['profile'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Dhcpv6()
         return self._top_entity
+
+
 

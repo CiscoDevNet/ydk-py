@@ -351,10 +351,14 @@ class OspfOperData(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: ospfv2_instance
     
     	The OSPF instance
     	**type**\: list of  		 :py:class:`Ospfv2Instance <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance>`
+    
+    	**config**\: False
     
     
 
@@ -395,10 +399,14 @@ class OspfOperData(Entity):
         	OSPF operation mode
         	**type**\:  :py:class:`OspfOperationMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperationMode>`
         
+        	**config**\: False
+        
         .. attribute:: ospf_instance
         
         	OSPF routing protocol instance
         	**type**\: list of  		 :py:class:`OspfInstance <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance>`
+        
+        	**config**\: False
         
         
 
@@ -442,6 +450,8 @@ class OspfOperData(Entity):
             	Address\-family of the instance
             	**type**\:  :py:class:`AddressFamily <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.AddressFamily>`
             
+            	**config**\: False
+            
             .. attribute:: router_id  (key)
             
             	Defined in RFC 2328. A 32\-bit number that uniquely identifies the router
@@ -449,20 +459,28 @@ class OspfOperData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ospf_area
             
             	List of ospf areas
             	**type**\: list of  		 :py:class:`OspfArea <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea>`
+            
+            	**config**\: False
             
             .. attribute:: link_scope_lsas
             
             	List OSPF link scope LSA
             	**type**\: list of  		 :py:class:`LinkScopeLsas <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas>`
             
+            	**config**\: False
+            
             .. attribute:: multi_topology
             
             	OSPF multi\-topology interface augmentation
             	**type**\: list of  		 :py:class:`MultiTopology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.MultiTopology>`
+            
+            	**config**\: False
             
             .. attribute:: process_id
             
@@ -470,6 +488,8 @@ class OspfOperData(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             
 
@@ -518,15 +538,21 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ospf_interface
                 
                 	List of OSPF interfaces
                 	**type**\: list of  		 :py:class:`OspfInterface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface>`
                 
+                	**config**\: False
+                
                 .. attribute:: area_scope_lsa
                 
                 	List of OSPF area scope LSA
                 	**type**\: list of  		 :py:class:`AreaScopeLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa>`
+                
+                	**config**\: False
                 
                 
 
@@ -567,40 +593,56 @@ class OspfOperData(Entity):
                     	Interface name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: network_type
                     
                     	Network type
                     	**type**\:  :py:class:`OspfNetworkType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfNetworkType>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: passive
                     
                     	Enable/Disable passive
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: demand_circuit
                     
                     	Enable/Disable demand circuit
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: multi_area
                     
                     	Multi Area
                     	**type**\:  :py:class:`MultiArea <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.MultiArea>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: static_neighbor
                     
                     	Staticly configured neighbors
                     	**type**\: list of  		 :py:class:`StaticNeighbor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.StaticNeighbor>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: node_flag
                     
                     	Set prefix as a node representative prefix
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: fast_reroute
                     
                     	Fast reroute config
                     	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.FastReroute>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: cost
                     
@@ -609,12 +651,16 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: hello_interval
                     
                     	Time between hello packets
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: dead_interval
                     
@@ -623,12 +669,16 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: retransmit_interval
                     
                     	Time between retransmitting unacknowledged Link State Advertisements (LSAs)
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: transmit_delay
                     
@@ -637,45 +687,63 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: mtu_ignore
                     
                     	Enable/Disable ignoring of MTU in DBD packets
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: lls
                     
                     	Enable/Disable link\-local signaling (LLS) support
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_suppression
                     
                     	Suppress advertisement of the prefixes
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: bfd
                     
                     	Enable/disable bfd
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: ttl_security
                     
                     	TTL security
                     	**type**\:  :py:class:`TtlSecurity <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.TtlSecurity>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: enable
                     
                     	Enable/disable protocol on the interface
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: authentication
                     
                     	Authentication configuration
                     	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.Authentication>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Interface state
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: hello_timer
                     
@@ -684,12 +752,16 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: wait_timer
                     
                     	Wait timer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: dr
                     
@@ -704,6 +776,8 @@ class OspfOperData(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: bdr
                     
                     	Backup Designated Router
@@ -717,20 +791,28 @@ class OspfOperData(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ospf_neighbor
                     
                     	List of OSPF neighbors
                     	**type**\: list of  		 :py:class:`OspfNeighbor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.OspfNeighbor>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: intf_link_scope_lsas
                     
                     	List OSPF link scope LSAs
                     	**type**\: list of  		 :py:class:`IntfLinkScopeLsas <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: intf_multi_topology
                     
                     	OSPF interface topology
                     	**type**\: list of  		 :py:class:`IntfMultiTopology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfMultiTopology>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: priority
                     
@@ -738,6 +820,8 @@ class OspfOperData(Entity):
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -838,12 +922,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: cost
                         
                         	Interface cost for multi\-area
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -874,6 +962,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.MultiArea, ['multi_area_id', 'cost'], name, value)
 
 
+
                     class StaticNeighbor(Entity):
                         """
                         Staticly configured neighbors
@@ -891,6 +980,8 @@ class OspfOperData(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: cost
                         
                         	Neighbor cost
@@ -898,12 +989,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: poll_interval
                         
                         	Neighbor polling intervali in seconds
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         	**units**\: seconds
                         
@@ -938,6 +1033,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.StaticNeighbor, ['address', 'cost', 'poll_interval'], name, value)
 
 
+
                     class FastReroute(Entity):
                         """
                         Fast reroute config
@@ -947,15 +1043,21 @@ class OspfOperData(Entity):
                         	Prevent the interface to be used as backup
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: enabled
                         
                         	Activates LFA. This model assumes activation of per\-prefix LFA
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_lfa_enabled
                         
                         	Activates remote LFA
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -988,6 +1090,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.FastReroute, ['candidate_disabled', 'enabled', 'remote_lfa_enabled'], name, value)
 
 
+
                     class TtlSecurity(Entity):
                         """
                         TTL security
@@ -997,12 +1100,16 @@ class OspfOperData(Entity):
                         	Enable/Disable TTL security check
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: hops
                         
                         	Maximum number of hops that a OSPF packet may have traveled
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -1033,6 +1140,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.TtlSecurity, ['enabled', 'hops'], name, value)
 
 
+
                     class Authentication(Entity):
                         """
                         Authentication configuration
@@ -1042,20 +1150,28 @@ class OspfOperData(Entity):
                         	SA name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: key_chain
                         
                         	key\-chain name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: key_string
                         
                         	Key string in ASCII format
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: crypto_algorithm_val
                         
                         	Crypto algorithm
                         	**type**\:  :py:class:`CryptoAlgorithmVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.Authentication.CryptoAlgorithmVal>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: no_auth
                         
@@ -1063,6 +1179,8 @@ class OspfOperData(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1110,40 +1228,56 @@ class OspfOperData(Entity):
                             	HMAC\-SHA1\-12 algorithm
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: hmac_sha1_20
                             
                             	HMAC\-SHA1\-20 algorithm
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: md5
                             
                             	MD5 algorithm
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: sha_1
                             
                             	SHA\-1 algorithm
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: hmac_sha_1
                             
                             	HMAC\-SHA\-1 authentication algorithm
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: hmac_sha_256
                             
                             	HMAC\-SHA\-256 authentication algorithm
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: hmac_sha_384
                             
                             	HMAC\-SHA\-384 authentication algorithm
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: hmac_sha_512
                             
                             	HMAC\-SHA\-512 authentication algorithm
                             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1186,6 +1320,8 @@ class OspfOperData(Entity):
                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.Authentication.CryptoAlgorithmVal, ['hmac_sha1_12', 'hmac_sha1_20', 'md5', 'sha_1', 'hmac_sha_1', 'hmac_sha_256', 'hmac_sha_384', 'hmac_sha_512'], name, value)
 
 
+
+
                     class OspfNeighbor(Entity):
                         """
                         List of OSPF neighbors
@@ -1203,6 +1339,8 @@ class OspfOperData(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: address
                         
                         	Neighbor address
@@ -1215,6 +1353,8 @@ class OspfOperData(Entity):
                         		**type**\: str
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: dr
                         
@@ -1229,6 +1369,8 @@ class OspfOperData(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: bdr
                         
                         	Backup Designated Router
@@ -1242,15 +1384,21 @@ class OspfOperData(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	OSPF neighbor state
                         	**type**\:  :py:class:`NbrStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.NbrStateType>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: stats
                         
                         	Per\-neighbor statistics
                         	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.OspfNeighbor.Stats>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1302,12 +1450,16 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: nbr_retrans_qlen
                             
                             	The current length of the retransmission queue
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1338,6 +1490,8 @@ class OspfOperData(Entity):
                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.OspfNeighbor.Stats, ['nbr_event_count', 'nbr_retrans_qlen'], name, value)
 
 
+
+
                     class IntfLinkScopeLsas(Entity):
                         """
                         List OSPF link scope LSAs
@@ -1349,15 +1503,21 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: link_scope_lsa
                         
                         	List of OSPF link scope LSAs
                         	**type**\: list of  		 :py:class:`LinkScopeLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: area_scope_lsa
                         
                         	List OSPF area scope LSA databases
                         	**type**\: list of  		 :py:class:`AreaScopeLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1400,6 +1560,8 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: adv_router  (key)
                             
                             	Advertising router
@@ -1413,10 +1575,14 @@ class OspfOperData(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: decoded_completed
                             
                             	The OSPF LSA body is fully decoded
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: raw_data
                             
@@ -1425,6 +1591,8 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: version
                             
                             	Version
@@ -1432,55 +1600,77 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospfv2_lsa
                             
                             	OSPFv2 LSA
                             	**type**\:  :py:class:`Ospfv2Lsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ospfv2_link
                             
                             	OSPFv2 LSA link
                             	**type**\: list of  		 :py:class:`Ospfv2Link <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Link>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospfv2_topology
                             
                             	Summary LSA
                             	**type**\: list of  		 :py:class:`Ospfv2Topology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Topology>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ospfv2_external
                             
                             	External LSA
                             	**type**\: list of  		 :py:class:`Ospfv2External <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2External>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospfv2_unknown_tlv
                             
                             	OSPFv2 Unknown TLV
                             	**type**\: list of  		 :py:class:`Ospfv2UnknownTlv <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2UnknownTlv>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ospfv3_lsa_val
                             
                             	OSPFv3 LSA
                             	**type**\:  :py:class:`Ospfv3LsaVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospfv3_link
                             
                             	OSPFv3 links
                             	**type**\: list of  		 :py:class:`Ospfv3Link <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3Link>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ospfv3_prefix_list
                             
                             	OSPFv3 prefix\-list
                             	**type**\: list of  		 :py:class:`Ospfv3PrefixList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3PrefixList>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospfv3_ia_prefix
                             
                             	OSPFv3 intra\-area prefix\-list
                             	**type**\: list of  		 :py:class:`Ospfv3IaPrefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3IaPrefix>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: multi_topology
                             
                             	OSPF multi\-topology interface augmentation
                             	**type**\: list of  		 :py:class:`MultiTopology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.MultiTopology>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: router_address
                             
@@ -1495,15 +1685,21 @@ class OspfOperData(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: tlv
                             
                             	Link TLV
                             	**type**\:  :py:class:`Tlv <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Tlv>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: unknown_sub_tlv
                             
                             	OSPFv2 Unknown sub TLV
                             	**type**\: list of  		 :py:class:`UnknownSubTlv <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.UnknownSubTlv>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1573,10 +1769,14 @@ class OspfOperData(Entity):
                                 	Decoded OSPFv2 LSA header data
                                 	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.Header>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_body
                                 
                                 	Decoded OSPFv2 LSA body data
                                 	**type**\:  :py:class:`LsaBody <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1627,12 +1827,16 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: opaque_type
                                     
                                     	Opaque type
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: opaque_id
                                     
@@ -1641,12 +1845,16 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: age
                                     
                                     	LSA age
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: type
                                     
@@ -1655,6 +1863,8 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: adv_router
                                     
                                     	LSA advertising router
@@ -1662,15 +1872,21 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: seq_num
                                     
                                     	LSA sequence number
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: checksum
                                     
                                     	LSA checksum
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: length
                                     
@@ -1679,10 +1895,14 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: flag_options
                                     
                                     	LSA options
                                     	**type**\:  :py:class:`LsaFlagOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.LsaFlagOptions>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1729,6 +1949,7 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.Header, ['lsa_id', 'opaque_type', 'opaque_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length', 'flag_options'], name, value)
 
 
+
                                 class LsaBody(Entity):
                                     """
                                     Decoded OSPFv2 LSA body data
@@ -1740,10 +1961,14 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: network
                                     
                                     	Network details
                                     	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody.Network>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: summary_mask
                                     
@@ -1758,6 +1983,8 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: external_mask
                                     
                                     	External mask
@@ -1771,10 +1998,14 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: body_flag_options
                                     
                                     	LSA body flags
                                     	**type**\:  :py:class:`Ospfv2LsaBodyFlagsOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv2LsaBodyFlagsOptions>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1830,12 +2061,16 @@ class OspfOperData(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: attached_router
                                         
                                         	List of the routers attached to the network
                                         	**type**\: list of int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1866,6 +2101,9 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody.Network, ['network_mask', 'attached_router'], name, value)
 
 
+
+
+
                             class Ospfv2Link(Entity):
                                 """
                                 OSPFv2 LSA link
@@ -1877,12 +2115,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: link_data  (key)
                                 
                                 	Link data
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: type
                                 
@@ -1891,10 +2133,14 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ospfv2_topology
                                 
                                 	Topology specific information
                                 	**type**\: list of  		 :py:class:`Ospfv2Topology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Link.Ospfv2Topology>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1940,12 +2186,16 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: metric
                                     
                                     	Metric for the topology
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1976,6 +2226,8 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Link.Ospfv2Topology, ['mt_id', 'metric'], name, value)
 
 
+
+
                             class Ospfv2Topology(Entity):
                                 """
                                 Summary LSA
@@ -1987,12 +2239,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: metric
                                 
                                 	Metric for the topology
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2023,6 +2279,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2Topology, ['mt_id', 'metric'], name, value)
 
 
+
                             class Ospfv2External(Entity):
                                 """
                                 External LSA
@@ -2034,12 +2291,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: metric
                                 
                                 	Metric for the topology
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: forwarding_address
                                 
@@ -2054,12 +2315,16 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: external_route_tag
                                 
                                 	Route tag
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2094,6 +2359,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2External, ['mt_id', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
 
 
+
                             class Ospfv2UnknownTlv(Entity):
                                 """
                                 OSPFv2 Unknown TLV
@@ -2105,6 +2371,8 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: length
                                 
                                 	TLV length
@@ -2112,12 +2380,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: value
                                 
                                 	TLV value
                                 	**type**\: list of int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2150,6 +2422,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv2UnknownTlv, ['type', 'length', 'value'], name, value)
 
 
+
                             class Ospfv3LsaVal(Entity):
                                 """
                                 OSPFv3 LSA
@@ -2159,10 +2432,14 @@ class OspfOperData(Entity):
                                 	Decoded OSPFv3 LSA header
                                 	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_body
                                 
                                 	Decoded OSPFv3 LSA body
                                 	**type**\:  :py:class:`LsaBody <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2213,15 +2490,21 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_header
                                     
                                     	LSA header
                                     	**type**\:  :py:class:`LsaHeader <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header.LsaHeader>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_hdr_options
                                     
                                     	OSPFv3 LSA options
                                     	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2267,12 +2550,16 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: type
                                         
                                         	LSA type
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: adv_router
                                         
@@ -2281,15 +2568,21 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: seq_num
                                         
                                         	LSA sequence number
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: checksum
                                         
                                         	LSA checksum
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: length
                                         
@@ -2297,6 +2590,8 @@ class OspfOperData(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2335,6 +2630,8 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header.LsaHeader, ['age', 'type', 'adv_router', 'seq_num', 'checksum', 'length'], name, value)
 
 
+
+
                                 class LsaBody(Entity):
                                     """
                                     Decoded OSPFv3 LSA body
@@ -2344,45 +2641,63 @@ class OspfOperData(Entity):
                                     	OSPFv3 network
                                     	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Network>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: prefix
                                     
                                     	OSPFv3 inter area prefix
                                     	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Prefix>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ia_router
                                     
                                     	OSPFv3 inter area router
                                     	**type**\:  :py:class:`IaRouter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaRouter>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_external
                                     
                                     	OSPFv3 LSA external
                                     	**type**\:  :py:class:`LsaExternal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: nssa
                                     
                                     	OSPFv3 NSSA
                                     	**type**\:  :py:class:`Nssa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: link_data
                                     
                                     	OSPFv3 Link data
                                     	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LinkData>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ia_prefix
                                     
                                     	OSPFv3 Intra area prefixes
                                     	**type**\:  :py:class:`IaPrefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaPrefix>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_flag_options
                                     
                                     	LSA options
                                     	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_body_flags
                                     
                                     	LSA Body Flags
                                     	**type**\:  :py:class:`Ospfv3LsaBodyFlagOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaBodyFlagOptions>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2452,10 +2767,14 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: lsa_net_options
                                         
                                         	Network LSA options
                                         	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2486,6 +2805,7 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Network, ['attached_router', 'lsa_net_options'], name, value)
 
 
+
                                     class Prefix(Entity):
                                         """
                                         OSPFv3 inter area prefix
@@ -2497,15 +2817,21 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ia_prefix
                                         
                                         	Inter area Prefix
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ia_prefix_options
                                         
                                         	Inter area prefix options
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2538,6 +2864,7 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Prefix, ['metric', 'ia_prefix', 'ia_prefix_options'], name, value)
 
 
+
                                     class IaRouter(Entity):
                                         """
                                         OSPFv3 inter area router
@@ -2549,6 +2876,8 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: destination_router_id
                                         
                                         	Router ID of the router being described by the LSA
@@ -2556,10 +2885,14 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: lsa_ia_options
                                         
                                         	Inter area LSA options
                                         	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2592,6 +2925,7 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaRouter, ['metric', 'destination_router_id', 'lsa_ia_options'], name, value)
 
 
+
                                     class LsaExternal(Entity):
                                         """
                                         OSPFv3 LSA external
@@ -2603,10 +2937,14 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: flags
                                         
                                         	LSA Flags
                                         	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal.Flags>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: referenced_ls_type
                                         
@@ -2615,15 +2953,21 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: external_prefix
                                         
                                         	Prefix
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: external_prefix_options
                                         
                                         	Prefix options
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: forwarding_address
                                         
@@ -2638,6 +2982,8 @@ class OspfOperData(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: external_route_tag
                                         
                                         	Route tag
@@ -2645,12 +2991,16 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: referenced_link_state_id
                                         
                                         	Referenced Link State ID
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2704,6 +3054,8 @@ class OspfOperData(Entity):
                                             	When set, the metric specified is a Type 2 external metric
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -2731,6 +3083,8 @@ class OspfOperData(Entity):
                                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal.Flags, ['e_flag'], name, value)
 
 
+
+
                                     class Nssa(Entity):
                                         """
                                         OSPFv3 NSSA
@@ -2739,6 +3093,8 @@ class OspfOperData(Entity):
                                         
                                         	NSSA LSA
                                         	**type**\:  :py:class:`LsaNssaExternal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2779,10 +3135,14 @@ class OspfOperData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: flags
                                             
                                             	LSA Flags
                                             	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal.Flags>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: referenced_ls_type
                                             
@@ -2791,15 +3151,21 @@ class OspfOperData(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: external_prefix
                                             
                                             	Prefix
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: external_prefix_options
                                             
                                             	Prefix options
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: forwarding_address
                                             
@@ -2814,6 +3180,8 @@ class OspfOperData(Entity):
                                             
                                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: external_route_tag
                                             
                                             	Route tag
@@ -2821,12 +3189,16 @@ class OspfOperData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: referenced_link_state_id
                                             
                                             	Referenced Link State ID
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -2880,6 +3252,8 @@ class OspfOperData(Entity):
                                                 	When set, the metric specified is a Type 2 external metric
                                                 	**type**\: bool
                                                 
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -2907,6 +3281,9 @@ class OspfOperData(Entity):
                                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal.Flags, ['e_flag'], name, value)
 
 
+
+
+
                                     class LinkData(Entity):
                                         """
                                         OSPFv3 Link data
@@ -2917,6 +3294,8 @@ class OspfOperData(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: link_local_interface_address
                                         
@@ -2931,6 +3310,8 @@ class OspfOperData(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: num_of_prefixes
                                         
                                         	Number of prefixes
@@ -2938,10 +3319,14 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: lsa_id_options
                                         
                                         	Link data LSA options
                                         	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2976,6 +3361,7 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LinkData, ['rtr_priority', 'link_local_interface_address', 'num_of_prefixes', 'lsa_id_options'], name, value)
 
 
+
                                     class IaPrefix(Entity):
                                         """
                                         OSPFv3 Intra area prefixes
@@ -2987,12 +3373,16 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: referenced_link_state_id
                                         
                                         	Referenced Link State ID
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: referenced_adv_router
                                         
@@ -3007,12 +3397,16 @@ class OspfOperData(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: num_of_prefixes
                                         
                                         	Number of prefixes
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3047,6 +3441,9 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaPrefix, ['referenced_ls_type', 'referenced_link_state_id', 'referenced_adv_router', 'num_of_prefixes'], name, value)
 
 
+
+
+
                             class Ospfv3Link(Entity):
                                 """
                                 OSPFv3 links
@@ -3058,12 +3455,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: neighbor_interface_id  (key)
                                 
                                 	Neighbor interface ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: neighbor_router_id  (key)
                                 
@@ -3072,6 +3473,8 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	Link type
@@ -3079,12 +3482,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: metric
                                 
                                 	Metric
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3121,6 +3528,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
 
 
+
                             class Ospfv3PrefixList(Entity):
                                 """
                                 OSPFv3 prefix\-list
@@ -3130,10 +3538,14 @@ class OspfOperData(Entity):
                                 	Prefix
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prefix_options
                                 
                                 	Prefix options
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3164,6 +3576,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3PrefixList, ['prefix', 'prefix_options'], name, value)
 
 
+
                             class Ospfv3IaPrefix(Entity):
                                 """
                                 OSPFv3 intra\-area prefix\-list
@@ -3173,10 +3586,14 @@ class OspfOperData(Entity):
                                 	Prefix
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prefix_options
                                 
                                 	Prefix options
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3207,6 +3624,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Ospfv3IaPrefix, ['prefix', 'prefix_options'], name, value)
 
 
+
                             class MultiTopology(Entity):
                                 """
                                 OSPF multi\-topology interface augmentation
@@ -3215,6 +3633,8 @@ class OspfOperData(Entity):
                                 
                                 	One of the topology enabled on this interface
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3243,6 +3663,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.MultiTopology, ['name'], name, value)
 
 
+
                             class Tlv(Entity):
                                 """
                                 Link TLV
@@ -3254,12 +3675,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: link_id
                                 
                                 	Link ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: local_if_ipv4_addr
                                 
@@ -3274,6 +3699,8 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: local_remote_ipv4_addr
                                 
                                 	List of remote interface IPv4 addresses
@@ -3287,12 +3714,16 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: te_metric
                                 
                                 	TE metric
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: max_bandwidth
                                 
@@ -3301,12 +3732,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: max_reservable_bandwidth
                                 
                                 	Maximum reservable bandwidth
                                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: unreserved_bandwidth
                                 
@@ -3315,12 +3750,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: admin_group
                                 
                                 	Administrative group/Resource class/Color
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3365,6 +3804,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.Tlv, ['link_type', 'link_id', 'local_if_ipv4_addr', 'local_remote_ipv4_addr', 'te_metric', 'max_bandwidth', 'max_reservable_bandwidth', 'unreserved_bandwidth', 'admin_group'], name, value)
 
 
+
                             class UnknownSubTlv(Entity):
                                 """
                                 OSPFv2 Unknown sub TLV
@@ -3376,6 +3816,8 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: length
                                 
                                 	TLV length
@@ -3383,12 +3825,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: value
                                 
                                 	TLV value
                                 	**type**\: list of int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3421,6 +3867,8 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.LinkScopeLsa.UnknownSubTlv, ['type', 'length', 'value'], name, value)
 
 
+
+
                         class AreaScopeLsa(Entity):
                             """
                             List OSPF area scope LSA databases
@@ -3431,6 +3879,8 @@ class OspfOperData(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: adv_router  (key)
                             
@@ -3445,10 +3895,14 @@ class OspfOperData(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: decoded_completed
                             
                             	The OSPF LSA body is fully decoded
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: raw_data
                             
@@ -3457,45 +3911,63 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospfv2_lsa
                             
                             	OSPFv2 LSA
                             	**type**\:  :py:class:`Ospfv2Lsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ospfv2_link
                             
                             	Router LSA link
                             	**type**\: list of  		 :py:class:`Ospfv2Link <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Link>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospfv2_topology
                             
                             	Summary LSA
                             	**type**\: list of  		 :py:class:`Ospfv2Topology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Topology>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ospfv2_external
                             
                             	External LSA
                             	**type**\: list of  		 :py:class:`Ospfv2External <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2External>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospfv3_lsa
                             
                             	OSPFv3 LSA
                             	**type**\:  :py:class:`Ospfv3Lsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ospfv3_link
                             
                             	OSPFv3 links
                             	**type**\: list of  		 :py:class:`Ospfv3Link <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Link>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospfv3_prefix
                             
                             	OSPFv3 prefix\-list
                             	**type**\: list of  		 :py:class:`Ospfv3Prefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Prefix>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospfv3_ia_prefix
                             
                             	OSPFv3 intra\-area prefix\-list
                             	**type**\: list of  		 :py:class:`Ospfv3IaPrefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3IaPrefix>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3554,10 +4026,14 @@ class OspfOperData(Entity):
                                 	Decoded OSPFv2 LSA header data
                                 	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.Header>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_body
                                 
                                 	Decoded OSPFv2 LSA body data
                                 	**type**\:  :py:class:`LsaBody <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3608,12 +4084,16 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: opaque_type
                                     
                                     	Opaque type
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: opaque_id
                                     
@@ -3622,12 +4102,16 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: age
                                     
                                     	LSA age
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: type
                                     
@@ -3636,6 +4120,8 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: adv_router
                                     
                                     	LSA advertising router
@@ -3643,15 +4129,21 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: seq_num
                                     
                                     	LSA sequence number
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: checksum
                                     
                                     	LSA checksum
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: length
                                     
@@ -3660,10 +4152,14 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: flag_options
                                     
                                     	LSA options
                                     	**type**\:  :py:class:`LsaFlagOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.LsaFlagOptions>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3710,6 +4206,7 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.Header, ['lsa_id', 'opaque_type', 'opaque_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length', 'flag_options'], name, value)
 
 
+
                                 class LsaBody(Entity):
                                     """
                                     Decoded OSPFv2 LSA body data
@@ -3721,10 +4218,14 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: network
                                     
                                     	Network details
                                     	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody.Network>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: summary_mask
                                     
@@ -3739,6 +4240,8 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: external_mask
                                     
                                     	External mask
@@ -3752,10 +4255,14 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: body_flag_options
                                     
                                     	LSA body flags
                                     	**type**\:  :py:class:`Ospfv2LsaBodyFlagsOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv2LsaBodyFlagsOptions>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3811,12 +4318,16 @@ class OspfOperData(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: attached_router
                                         
                                         	List of the routers attached to the network
                                         	**type**\: list of int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3847,6 +4358,9 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody.Network, ['network_mask', 'attached_router'], name, value)
 
 
+
+
+
                             class Ospfv2Link(Entity):
                                 """
                                 Router LSA link
@@ -3858,12 +4372,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: link_data  (key)
                                 
                                 	Link data
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: type
                                 
@@ -3872,10 +4390,14 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ospfv2_topology
                                 
                                 	Topology specific information
                                 	**type**\: list of  		 :py:class:`Ospfv2Topology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Link.Ospfv2Topology>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3921,12 +4443,16 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: metric
                                     
                                     	Metric for the topology
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3957,6 +4483,8 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Link.Ospfv2Topology, ['mt_id', 'metric'], name, value)
 
 
+
+
                             class Ospfv2Topology(Entity):
                                 """
                                 Summary LSA
@@ -3968,12 +4496,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: metric
                                 
                                 	Metric for the topology
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4004,6 +4536,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2Topology, ['mt_id', 'metric'], name, value)
 
 
+
                             class Ospfv2External(Entity):
                                 """
                                 External LSA
@@ -4015,12 +4548,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: metric
                                 
                                 	Metric for the topology
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: forwarding_address
                                 
@@ -4035,12 +4572,16 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: external_route_tag
                                 
                                 	Route tag
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4075,6 +4616,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv2External, ['mt_id', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
 
 
+
                             class Ospfv3Lsa(Entity):
                                 """
                                 OSPFv3 LSA
@@ -4084,10 +4626,14 @@ class OspfOperData(Entity):
                                 	Decoded OSPFv3 LSA header
                                 	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_body
                                 
                                 	Decoded OSPFv3 LSA body
                                 	**type**\:  :py:class:`LsaBody <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4138,15 +4684,21 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_header
                                     
                                     	LSA header
                                     	**type**\:  :py:class:`LsaHeader <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header.LsaHeader>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_hdr_options
                                     
                                     	OSPFv3 LSA options
                                     	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4192,12 +4744,16 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: type
                                         
                                         	LSA type
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: adv_router
                                         
@@ -4206,15 +4762,21 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: seq_num
                                         
                                         	LSA sequence number
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: checksum
                                         
                                         	LSA checksum
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: length
                                         
@@ -4222,6 +4784,8 @@ class OspfOperData(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4260,6 +4824,8 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header.LsaHeader, ['age', 'type', 'adv_router', 'seq_num', 'checksum', 'length'], name, value)
 
 
+
+
                                 class LsaBody(Entity):
                                     """
                                     Decoded OSPFv3 LSA body
@@ -4269,45 +4835,63 @@ class OspfOperData(Entity):
                                     	OSPFv3 network
                                     	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Network>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: prefix
                                     
                                     	OSPFv3 inter area prefix
                                     	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Prefix>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ia_router
                                     
                                     	OSPFv3 inter area router
                                     	**type**\:  :py:class:`IaRouter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaRouter>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_external
                                     
                                     	OSPFv3 LSA external
                                     	**type**\:  :py:class:`LsaExternal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: nssa
                                     
                                     	OSPFv3 NSSA
                                     	**type**\:  :py:class:`Nssa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: link_data
                                     
                                     	OSPFv3 Link data
                                     	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LinkData>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ia_prefix
                                     
                                     	OSPFv3 Intra area prefixes
                                     	**type**\:  :py:class:`IaPrefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaPrefix>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_flag_options
                                     
                                     	LSA options
                                     	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_body_flags
                                     
                                     	LSA Body Flags
                                     	**type**\:  :py:class:`Ospfv3LsaBodyFlagOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaBodyFlagOptions>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4377,10 +4961,14 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: lsa_net_options
                                         
                                         	Network LSA options
                                         	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4411,6 +4999,7 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Network, ['attached_router', 'lsa_net_options'], name, value)
 
 
+
                                     class Prefix(Entity):
                                         """
                                         OSPFv3 inter area prefix
@@ -4422,15 +5011,21 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ia_prefix
                                         
                                         	Inter area Prefix
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ia_prefix_options
                                         
                                         	Inter area prefix options
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4463,6 +5058,7 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Prefix, ['metric', 'ia_prefix', 'ia_prefix_options'], name, value)
 
 
+
                                     class IaRouter(Entity):
                                         """
                                         OSPFv3 inter area router
@@ -4474,6 +5070,8 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: destination_router_id
                                         
                                         	Router ID of the router being described by the LSA
@@ -4481,10 +5079,14 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: lsa_ia_options
                                         
                                         	Inter area LSA options
                                         	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4517,6 +5119,7 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaRouter, ['metric', 'destination_router_id', 'lsa_ia_options'], name, value)
 
 
+
                                     class LsaExternal(Entity):
                                         """
                                         OSPFv3 LSA external
@@ -4528,10 +5131,14 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: flags
                                         
                                         	LSA Flags
                                         	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal.Flags>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: referenced_ls_type
                                         
@@ -4540,15 +5147,21 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: external_prefix
                                         
                                         	Prefix
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: external_prefix_options
                                         
                                         	Prefix options
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: forwarding_address
                                         
@@ -4563,6 +5176,8 @@ class OspfOperData(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: external_route_tag
                                         
                                         	Route tag
@@ -4570,12 +5185,16 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: referenced_link_state_id
                                         
                                         	Referenced Link State ID
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4629,6 +5248,8 @@ class OspfOperData(Entity):
                                             	When set, the metric specified is a Type 2 external metric
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -4656,6 +5277,8 @@ class OspfOperData(Entity):
                                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal.Flags, ['e_flag'], name, value)
 
 
+
+
                                     class Nssa(Entity):
                                         """
                                         OSPFv3 NSSA
@@ -4664,6 +5287,8 @@ class OspfOperData(Entity):
                                         
                                         	NSSA LSA
                                         	**type**\:  :py:class:`LsaNssaExternal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4704,10 +5329,14 @@ class OspfOperData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: flags
                                             
                                             	LSA Flags
                                             	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: referenced_ls_type
                                             
@@ -4716,15 +5345,21 @@ class OspfOperData(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: external_prefix
                                             
                                             	Prefix
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: external_prefix_options
                                             
                                             	Prefix options
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: forwarding_address
                                             
@@ -4739,6 +5374,8 @@ class OspfOperData(Entity):
                                             
                                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: external_route_tag
                                             
                                             	Route tag
@@ -4746,12 +5383,16 @@ class OspfOperData(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: referenced_link_state_id
                                             
                                             	Referenced Link State ID
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4805,6 +5446,8 @@ class OspfOperData(Entity):
                                                 	When set, the metric specified is a Type 2 external metric
                                                 	**type**\: bool
                                                 
+                                                	**config**\: False
+                                                
                                                 
 
                                                 """
@@ -4832,6 +5475,9 @@ class OspfOperData(Entity):
                                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags, ['e_flag'], name, value)
 
 
+
+
+
                                     class LinkData(Entity):
                                         """
                                         OSPFv3 Link data
@@ -4842,6 +5488,8 @@ class OspfOperData(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: link_local_interface_address
                                         
@@ -4856,6 +5504,8 @@ class OspfOperData(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: num_of_prefixes
                                         
                                         	Number of prefixes
@@ -4863,10 +5513,14 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: lsa_id_options
                                         
                                         	Link data LSA options
                                         	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4901,6 +5555,7 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LinkData, ['rtr_priority', 'link_local_interface_address', 'num_of_prefixes', 'lsa_id_options'], name, value)
 
 
+
                                     class IaPrefix(Entity):
                                         """
                                         OSPFv3 Intra area prefixes
@@ -4912,12 +5567,16 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: referenced_link_state_id
                                         
                                         	Referenced Link State ID
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: referenced_adv_router
                                         
@@ -4932,12 +5591,16 @@ class OspfOperData(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: num_of_prefixes
                                         
                                         	Number of prefixes
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4972,6 +5635,9 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaPrefix, ['referenced_ls_type', 'referenced_link_state_id', 'referenced_adv_router', 'num_of_prefixes'], name, value)
 
 
+
+
+
                             class Ospfv3Link(Entity):
                                 """
                                 OSPFv3 links
@@ -4983,12 +5649,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: neighbor_interface_id  (key)
                                 
                                 	Neighbor interface ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: neighbor_router_id  (key)
                                 
@@ -4997,6 +5667,8 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	Link type
@@ -5004,12 +5676,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: metric
                                 
                                 	Metric
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5046,6 +5722,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
 
 
+
                             class Ospfv3Prefix(Entity):
                                 """
                                 OSPFv3 prefix\-list
@@ -5055,10 +5732,14 @@ class OspfOperData(Entity):
                                 	Prefix
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prefix_options
                                 
                                 	Prefix options
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5089,6 +5770,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3Prefix, ['prefix', 'prefix_options'], name, value)
 
 
+
                             class Ospfv3IaPrefix(Entity):
                                 """
                                 OSPFv3 intra\-area prefix\-list
@@ -5098,10 +5780,14 @@ class OspfOperData(Entity):
                                 	Prefix
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prefix_options
                                 
                                 	Prefix options
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5132,6 +5818,9 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfLinkScopeLsas.AreaScopeLsa.Ospfv3IaPrefix, ['prefix', 'prefix_options'], name, value)
 
 
+
+
+
                     class IntfMultiTopology(Entity):
                         """
                         OSPF interface topology
@@ -5140,6 +5829,8 @@ class OspfOperData(Entity):
                         
                         	One of the topology enabled on this interface
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -5168,6 +5859,8 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.OspfInterface.IntfMultiTopology, ['name'], name, value)
 
 
+
+
                 class AreaScopeLsa(Entity):
                     """
                     List of OSPF area scope LSA
@@ -5179,10 +5872,14 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: area_scope_lsa
                     
                     	List of OSPF link scope LSAs
                     	**type**\: list of  		 :py:class:`AreaScopeLsa_ <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5224,6 +5921,8 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: adv_router  (key)
                         
                         	Advertising router
@@ -5237,10 +5936,14 @@ class OspfOperData(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: decoded_completed
                         
                         	The OSPF LSA body is fully decoded
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: raw_data
                         
@@ -5249,45 +5952,63 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospfv2_lsa
                         
                         	OSPFv2 LSA
                         	**type**\:  :py:class:`Ospfv2Lsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ospfv2_link
                         
                         	Router LSA link
                         	**type**\: list of  		 :py:class:`Ospfv2Link <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Link>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospfv2_topology
                         
                         	Summary LSA
                         	**type**\: list of  		 :py:class:`Ospfv2Topology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Topology>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ospfv2_external
                         
                         	External LSA
                         	**type**\: list of  		 :py:class:`Ospfv2External <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2External>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospfv3_lsa
                         
                         	OSPFv3 LSA
                         	**type**\:  :py:class:`Ospfv3Lsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ospfv3_link
                         
                         	OSPFv3 links
                         	**type**\: list of  		 :py:class:`Ospfv3Link <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Link>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospfv3_prefix
                         
                         	OSPFv3 prefix\-list
                         	**type**\: list of  		 :py:class:`Ospfv3Prefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Prefix>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospfv3_ia_prefix
                         
                         	OSPFv3 intra\-area prefix\-list
                         	**type**\: list of  		 :py:class:`Ospfv3IaPrefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3IaPrefix>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5346,10 +6067,14 @@ class OspfOperData(Entity):
                             	Decoded OSPFv2 LSA header data
                             	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.Header>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_body
                             
                             	Decoded OSPFv2 LSA body data
                             	**type**\:  :py:class:`LsaBody <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.LsaBody>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5400,12 +6125,16 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: opaque_type
                                 
                                 	Opaque type
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: opaque_id
                                 
@@ -5414,12 +6143,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: age
                                 
                                 	LSA age
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: type
                                 
@@ -5428,6 +6161,8 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: adv_router
                                 
                                 	LSA advertising router
@@ -5435,15 +6170,21 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: seq_num
                                 
                                 	LSA sequence number
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: checksum
                                 
                                 	LSA checksum
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: length
                                 
@@ -5452,10 +6193,14 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: flag_options
                                 
                                 	LSA options
                                 	**type**\:  :py:class:`LsaFlagOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.LsaFlagOptions>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5502,6 +6247,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.Header, ['lsa_id', 'opaque_type', 'opaque_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length', 'flag_options'], name, value)
 
 
+
                             class LsaBody(Entity):
                                 """
                                 Decoded OSPFv2 LSA body data
@@ -5513,10 +6259,14 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: network
                                 
                                 	Network details
                                 	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.LsaBody.Network>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: summary_mask
                                 
@@ -5531,6 +6281,8 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: external_mask
                                 
                                 	External mask
@@ -5544,10 +6296,14 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: body_flag_options
                                 
                                 	LSA body flags
                                 	**type**\:  :py:class:`Ospfv2LsaBodyFlagsOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv2LsaBodyFlagsOptions>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5603,12 +6359,16 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: attached_router
                                     
                                     	List of the routers attached to the network
                                     	**type**\: list of int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5639,6 +6399,9 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Lsa.LsaBody.Network, ['network_mask', 'attached_router'], name, value)
 
 
+
+
+
                         class Ospfv2Link(Entity):
                             """
                             Router LSA link
@@ -5650,12 +6413,16 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: link_data  (key)
                             
                             	Link data
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: type
                             
@@ -5664,10 +6431,14 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: ospfv2_topology
                             
                             	Topology specific information
                             	**type**\: list of  		 :py:class:`Ospfv2Topology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Link.Ospfv2Topology>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5713,12 +6484,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: metric
                                 
                                 	Metric for the topology
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5749,6 +6524,8 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Link.Ospfv2Topology, ['mt_id', 'metric'], name, value)
 
 
+
+
                         class Ospfv2Topology(Entity):
                             """
                             Summary LSA
@@ -5760,12 +6537,16 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: metric
                             
                             	Metric for the topology
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -5796,6 +6577,7 @@ class OspfOperData(Entity):
                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2Topology, ['mt_id', 'metric'], name, value)
 
 
+
                         class Ospfv2External(Entity):
                             """
                             External LSA
@@ -5807,12 +6589,16 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: metric
                             
                             	Metric for the topology
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: forwarding_address
                             
@@ -5827,12 +6613,16 @@ class OspfOperData(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: external_route_tag
                             
                             	Route tag
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -5867,6 +6657,7 @@ class OspfOperData(Entity):
                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv2External, ['mt_id', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
 
 
+
                         class Ospfv3Lsa(Entity):
                             """
                             OSPFv3 LSA
@@ -5876,10 +6667,14 @@ class OspfOperData(Entity):
                             	Decoded OSPFv3 LSA header
                             	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.Header>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_body
                             
                             	Decoded OSPFv3 LSA body
                             	**type**\:  :py:class:`LsaBody <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5930,15 +6725,21 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_header
                                 
                                 	LSA header
                                 	**type**\:  :py:class:`LsaHeader <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.Header.LsaHeader>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_hdr_options
                                 
                                 	OSPFv3 LSA options
                                 	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5984,12 +6785,16 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type
                                     
                                     	LSA type
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: adv_router
                                     
@@ -5998,15 +6803,21 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: seq_num
                                     
                                     	LSA sequence number
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: checksum
                                     
                                     	LSA checksum
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: length
                                     
@@ -6014,6 +6825,8 @@ class OspfOperData(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6052,6 +6865,8 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.Header.LsaHeader, ['age', 'type', 'adv_router', 'seq_num', 'checksum', 'length'], name, value)
 
 
+
+
                             class LsaBody(Entity):
                                 """
                                 Decoded OSPFv3 LSA body
@@ -6061,45 +6876,63 @@ class OspfOperData(Entity):
                                 	OSPFv3 network
                                 	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Network>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: prefix
                                 
                                 	OSPFv3 inter area prefix
                                 	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Prefix>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ia_router
                                 
                                 	OSPFv3 inter area router
                                 	**type**\:  :py:class:`IaRouter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.IaRouter>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_external
                                 
                                 	OSPFv3 LSA external
                                 	**type**\:  :py:class:`LsaExternal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LsaExternal>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: nssa
                                 
                                 	OSPFv3 NSSA
                                 	**type**\:  :py:class:`Nssa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: link_data
                                 
                                 	OSPFv3 Link data
                                 	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LinkData>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ia_prefix
                                 
                                 	OSPFv3 Intra area prefixes
                                 	**type**\:  :py:class:`IaPrefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.IaPrefix>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_flag_options
                                 
                                 	LSA options
                                 	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_body_flags
                                 
                                 	LSA Body Flags
                                 	**type**\:  :py:class:`Ospfv3LsaBodyFlagOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaBodyFlagOptions>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6169,10 +7002,14 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_net_options
                                     
                                     	Network LSA options
                                     	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6203,6 +7040,7 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Network, ['attached_router', 'lsa_net_options'], name, value)
 
 
+
                                 class Prefix(Entity):
                                     """
                                     OSPFv3 inter area prefix
@@ -6214,15 +7052,21 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ia_prefix
                                     
                                     	Inter area Prefix
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ia_prefix_options
                                     
                                     	Inter area prefix options
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6255,6 +7099,7 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Prefix, ['metric', 'ia_prefix', 'ia_prefix_options'], name, value)
 
 
+
                                 class IaRouter(Entity):
                                     """
                                     OSPFv3 inter area router
@@ -6266,6 +7111,8 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: destination_router_id
                                     
                                     	Router ID of the router being described by the LSA
@@ -6273,10 +7120,14 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_ia_options
                                     
                                     	Inter area LSA options
                                     	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6309,6 +7160,7 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.IaRouter, ['metric', 'destination_router_id', 'lsa_ia_options'], name, value)
 
 
+
                                 class LsaExternal(Entity):
                                     """
                                     OSPFv3 LSA external
@@ -6320,10 +7172,14 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: flags
                                     
                                     	LSA Flags
                                     	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LsaExternal.Flags>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: referenced_ls_type
                                     
@@ -6332,15 +7188,21 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: external_prefix
                                     
                                     	Prefix
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: external_prefix_options
                                     
                                     	Prefix options
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: forwarding_address
                                     
@@ -6355,6 +7217,8 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: external_route_tag
                                     
                                     	Route tag
@@ -6362,12 +7226,16 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: referenced_link_state_id
                                     
                                     	Referenced Link State ID
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6421,6 +7289,8 @@ class OspfOperData(Entity):
                                         	When set, the metric specified is a Type 2 external metric
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -6448,6 +7318,8 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LsaExternal.Flags, ['e_flag'], name, value)
 
 
+
+
                                 class Nssa(Entity):
                                     """
                                     OSPFv3 NSSA
@@ -6456,6 +7328,8 @@ class OspfOperData(Entity):
                                     
                                     	NSSA LSA
                                     	**type**\:  :py:class:`LsaNssaExternal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6496,10 +7370,14 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: flags
                                         
                                         	LSA Flags
                                         	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: referenced_ls_type
                                         
@@ -6508,15 +7386,21 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: external_prefix
                                         
                                         	Prefix
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: external_prefix_options
                                         
                                         	Prefix options
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: forwarding_address
                                         
@@ -6531,6 +7415,8 @@ class OspfOperData(Entity):
                                         
                                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: external_route_tag
                                         
                                         	Route tag
@@ -6538,12 +7424,16 @@ class OspfOperData(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: referenced_link_state_id
                                         
                                         	Referenced Link State ID
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6597,6 +7487,8 @@ class OspfOperData(Entity):
                                             	When set, the metric specified is a Type 2 external metric
                                             	**type**\: bool
                                             
+                                            	**config**\: False
+                                            
                                             
 
                                             """
@@ -6624,6 +7516,9 @@ class OspfOperData(Entity):
                                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags, ['e_flag'], name, value)
 
 
+
+
+
                                 class LinkData(Entity):
                                     """
                                     OSPFv3 Link data
@@ -6634,6 +7529,8 @@ class OspfOperData(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: link_local_interface_address
                                     
@@ -6648,6 +7545,8 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: num_of_prefixes
                                     
                                     	Number of prefixes
@@ -6655,10 +7554,14 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsa_id_options
                                     
                                     	Link data LSA options
                                     	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6693,6 +7596,7 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.LinkData, ['rtr_priority', 'link_local_interface_address', 'num_of_prefixes', 'lsa_id_options'], name, value)
 
 
+
                                 class IaPrefix(Entity):
                                     """
                                     OSPFv3 Intra area prefixes
@@ -6704,12 +7608,16 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: referenced_link_state_id
                                     
                                     	Referenced Link State ID
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: referenced_adv_router
                                     
@@ -6724,12 +7632,16 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: num_of_prefixes
                                     
                                     	Number of prefixes
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6764,6 +7676,9 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Lsa.LsaBody.IaPrefix, ['referenced_ls_type', 'referenced_link_state_id', 'referenced_adv_router', 'num_of_prefixes'], name, value)
 
 
+
+
+
                         class Ospfv3Link(Entity):
                             """
                             OSPFv3 links
@@ -6775,12 +7690,16 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: neighbor_interface_id  (key)
                             
                             	Neighbor interface ID
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: neighbor_router_id  (key)
                             
@@ -6789,6 +7708,8 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Link type
@@ -6796,12 +7717,16 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: metric
                             
                             	Metric
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -6838,6 +7763,7 @@ class OspfOperData(Entity):
                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
 
 
+
                         class Ospfv3Prefix(Entity):
                             """
                             OSPFv3 prefix\-list
@@ -6847,10 +7773,14 @@ class OspfOperData(Entity):
                             	Prefix
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_options
                             
                             	Prefix options
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -6881,6 +7811,7 @@ class OspfOperData(Entity):
                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3Prefix, ['prefix', 'prefix_options'], name, value)
 
 
+
                         class Ospfv3IaPrefix(Entity):
                             """
                             OSPFv3 intra\-area prefix\-list
@@ -6890,10 +7821,14 @@ class OspfOperData(Entity):
                             	Prefix
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_options
                             
                             	Prefix options
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -6924,6 +7859,10 @@ class OspfOperData(Entity):
                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.OspfArea.AreaScopeLsa.AreaScopeLsa_.Ospfv3IaPrefix, ['prefix', 'prefix_options'], name, value)
 
 
+
+
+
+
             class LinkScopeLsas(Entity):
                 """
                 List OSPF link scope LSA
@@ -6935,15 +7874,21 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: link_scope_lsa
                 
                 	List of OSPF link scope LSAs
                 	**type**\: list of  		 :py:class:`LinkScopeLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa>`
                 
+                	**config**\: False
+                
                 .. attribute:: area_scope_lsa
                 
                 	List OSPF area scope LSA databases
                 	**type**\: list of  		 :py:class:`AreaScopeLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa>`
+                
+                	**config**\: False
                 
                 
 
@@ -6986,6 +7931,8 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: adv_router  (key)
                     
                     	Advertising router
@@ -6999,10 +7946,14 @@ class OspfOperData(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: decoded_completed
                     
                     	The OSPF LSA body is fully decoded
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: raw_data
                     
@@ -7011,6 +7962,8 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: version
                     
                     	Version
@@ -7018,55 +7971,77 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ospfv2_lsa
                     
                     	OSPFv2 LSA
                     	**type**\:  :py:class:`Ospfv2Lsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ospfv2_link
                     
                     	OSPFv2 LSA link
                     	**type**\: list of  		 :py:class:`Ospfv2Link <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Link>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ospfv2_topology
                     
                     	Summary LSA
                     	**type**\: list of  		 :py:class:`Ospfv2Topology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Topology>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ospfv2_external
                     
                     	External LSA
                     	**type**\: list of  		 :py:class:`Ospfv2External <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2External>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ospfv2_unknown_tlv
                     
                     	OSPFv2 Unknown TLV
                     	**type**\: list of  		 :py:class:`Ospfv2UnknownTlv <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2UnknownTlv>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ospfv3_lsa_val
                     
                     	OSPFv3 LSA
                     	**type**\:  :py:class:`Ospfv3LsaVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ospfv3_link
                     
                     	OSPFv3 links
                     	**type**\: list of  		 :py:class:`Ospfv3Link <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3Link>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ospfv3_prefix_list
                     
                     	OSPFv3 prefix\-list
                     	**type**\: list of  		 :py:class:`Ospfv3PrefixList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3PrefixList>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ospfv3_ia_prefix
                     
                     	OSPFv3 intra\-area prefix\-list
                     	**type**\: list of  		 :py:class:`Ospfv3IaPrefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3IaPrefix>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: multi_topology
                     
                     	OSPF multi\-topology interface augmentation
                     	**type**\: list of  		 :py:class:`MultiTopology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.MultiTopology>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: router_address
                     
@@ -7081,15 +8056,21 @@ class OspfOperData(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: tlv
                     
                     	Link TLV
                     	**type**\:  :py:class:`Tlv <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Tlv>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: unknown_sub_tlv
                     
                     	OSPFv2 Unknown sub TLV
                     	**type**\: list of  		 :py:class:`UnknownSubTlv <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.UnknownSubTlv>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7159,10 +8140,14 @@ class OspfOperData(Entity):
                         	Decoded OSPFv2 LSA header data
                         	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.Header>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsa_body
                         
                         	Decoded OSPFv2 LSA body data
                         	**type**\:  :py:class:`LsaBody <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7213,12 +8198,16 @@ class OspfOperData(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: opaque_type
                             
                             	Opaque type
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: opaque_id
                             
@@ -7227,12 +8216,16 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: age
                             
                             	LSA age
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: type
                             
@@ -7241,6 +8234,8 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: adv_router
                             
                             	LSA advertising router
@@ -7248,15 +8243,21 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: seq_num
                             
                             	LSA sequence number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: checksum
                             
                             	LSA checksum
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: length
                             
@@ -7265,10 +8266,14 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: flag_options
                             
                             	LSA options
                             	**type**\:  :py:class:`LsaFlagOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.LsaFlagOptions>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7315,6 +8320,7 @@ class OspfOperData(Entity):
                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.Header, ['lsa_id', 'opaque_type', 'opaque_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length', 'flag_options'], name, value)
 
 
+
                         class LsaBody(Entity):
                             """
                             Decoded OSPFv2 LSA body data
@@ -7326,10 +8332,14 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: network
                             
                             	Network details
                             	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody.Network>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: summary_mask
                             
@@ -7344,6 +8354,8 @@ class OspfOperData(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: external_mask
                             
                             	External mask
@@ -7357,10 +8369,14 @@ class OspfOperData(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: body_flag_options
                             
                             	LSA body flags
                             	**type**\:  :py:class:`Ospfv2LsaBodyFlagsOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv2LsaBodyFlagsOptions>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7416,12 +8432,16 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: attached_router
                                 
                                 	List of the routers attached to the network
                                 	**type**\: list of int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7452,6 +8472,9 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Lsa.LsaBody.Network, ['network_mask', 'attached_router'], name, value)
 
 
+
+
+
                     class Ospfv2Link(Entity):
                         """
                         OSPFv2 LSA link
@@ -7463,12 +8486,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: link_data  (key)
                         
                         	Link data
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: type
                         
@@ -7477,10 +8504,14 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospfv2_topology
                         
                         	Topology specific information
                         	**type**\: list of  		 :py:class:`Ospfv2Topology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Link.Ospfv2Topology>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7526,12 +8557,16 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: metric
                             
                             	Metric for the topology
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -7562,6 +8597,8 @@ class OspfOperData(Entity):
                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Link.Ospfv2Topology, ['mt_id', 'metric'], name, value)
 
 
+
+
                     class Ospfv2Topology(Entity):
                         """
                         Summary LSA
@@ -7573,12 +8610,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: metric
                         
                         	Metric for the topology
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -7609,6 +8650,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2Topology, ['mt_id', 'metric'], name, value)
 
 
+
                     class Ospfv2External(Entity):
                         """
                         External LSA
@@ -7620,12 +8662,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: metric
                         
                         	Metric for the topology
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: forwarding_address
                         
@@ -7640,12 +8686,16 @@ class OspfOperData(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: external_route_tag
                         
                         	Route tag
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7680,6 +8730,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2External, ['mt_id', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
 
 
+
                     class Ospfv2UnknownTlv(Entity):
                         """
                         OSPFv2 Unknown TLV
@@ -7691,6 +8742,8 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: length
                         
                         	TLV length
@@ -7698,12 +8751,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: value
                         
                         	TLV value
                         	**type**\: list of int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -7736,6 +8793,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv2UnknownTlv, ['type', 'length', 'value'], name, value)
 
 
+
                     class Ospfv3LsaVal(Entity):
                         """
                         OSPFv3 LSA
@@ -7745,10 +8803,14 @@ class OspfOperData(Entity):
                         	Decoded OSPFv3 LSA header
                         	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsa_body
                         
                         	Decoded OSPFv3 LSA body
                         	**type**\:  :py:class:`LsaBody <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7799,15 +8861,21 @@ class OspfOperData(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_header
                             
                             	LSA header
                             	**type**\:  :py:class:`LsaHeader <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header.LsaHeader>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_hdr_options
                             
                             	OSPFv3 LSA options
                             	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7853,12 +8921,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	LSA type
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: adv_router
                                 
@@ -7867,15 +8939,21 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: seq_num
                                 
                                 	LSA sequence number
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: checksum
                                 
                                 	LSA checksum
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: length
                                 
@@ -7883,6 +8961,8 @@ class OspfOperData(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7921,6 +9001,8 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.Header.LsaHeader, ['age', 'type', 'adv_router', 'seq_num', 'checksum', 'length'], name, value)
 
 
+
+
                         class LsaBody(Entity):
                             """
                             Decoded OSPFv3 LSA body
@@ -7930,45 +9012,63 @@ class OspfOperData(Entity):
                             	OSPFv3 network
                             	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Network>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix
                             
                             	OSPFv3 inter area prefix
                             	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Prefix>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ia_router
                             
                             	OSPFv3 inter area router
                             	**type**\:  :py:class:`IaRouter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaRouter>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_external
                             
                             	OSPFv3 LSA external
                             	**type**\:  :py:class:`LsaExternal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: nssa
                             
                             	OSPFv3 NSSA
                             	**type**\:  :py:class:`Nssa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: link_data
                             
                             	OSPFv3 Link data
                             	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LinkData>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ia_prefix
                             
                             	OSPFv3 Intra area prefixes
                             	**type**\:  :py:class:`IaPrefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaPrefix>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_flag_options
                             
                             	LSA options
                             	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_body_flags
                             
                             	LSA Body Flags
                             	**type**\:  :py:class:`Ospfv3LsaBodyFlagOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaBodyFlagOptions>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -8038,10 +9138,14 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_net_options
                                 
                                 	Network LSA options
                                 	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8072,6 +9176,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Network, ['attached_router', 'lsa_net_options'], name, value)
 
 
+
                             class Prefix(Entity):
                                 """
                                 OSPFv3 inter area prefix
@@ -8083,15 +9188,21 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ia_prefix
                                 
                                 	Inter area Prefix
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ia_prefix_options
                                 
                                 	Inter area prefix options
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8124,6 +9235,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Prefix, ['metric', 'ia_prefix', 'ia_prefix_options'], name, value)
 
 
+
                             class IaRouter(Entity):
                                 """
                                 OSPFv3 inter area router
@@ -8135,6 +9247,8 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: destination_router_id
                                 
                                 	Router ID of the router being described by the LSA
@@ -8142,10 +9256,14 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_ia_options
                                 
                                 	Inter area LSA options
                                 	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8178,6 +9296,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaRouter, ['metric', 'destination_router_id', 'lsa_ia_options'], name, value)
 
 
+
                             class LsaExternal(Entity):
                                 """
                                 OSPFv3 LSA external
@@ -8189,10 +9308,14 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: flags
                                 
                                 	LSA Flags
                                 	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal.Flags>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: referenced_ls_type
                                 
@@ -8201,15 +9324,21 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: external_prefix
                                 
                                 	Prefix
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: external_prefix_options
                                 
                                 	Prefix options
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: forwarding_address
                                 
@@ -8224,6 +9353,8 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: external_route_tag
                                 
                                 	Route tag
@@ -8231,12 +9362,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: referenced_link_state_id
                                 
                                 	Referenced Link State ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8290,6 +9425,8 @@ class OspfOperData(Entity):
                                     	When set, the metric specified is a Type 2 external metric
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -8317,6 +9454,8 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LsaExternal.Flags, ['e_flag'], name, value)
 
 
+
+
                             class Nssa(Entity):
                                 """
                                 OSPFv3 NSSA
@@ -8325,6 +9464,8 @@ class OspfOperData(Entity):
                                 
                                 	NSSA LSA
                                 	**type**\:  :py:class:`LsaNssaExternal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8365,10 +9506,14 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: flags
                                     
                                     	LSA Flags
                                     	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal.Flags>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: referenced_ls_type
                                     
@@ -8377,15 +9522,21 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: external_prefix
                                     
                                     	Prefix
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: external_prefix_options
                                     
                                     	Prefix options
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: forwarding_address
                                     
@@ -8400,6 +9551,8 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: external_route_tag
                                     
                                     	Route tag
@@ -8407,12 +9560,16 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: referenced_link_state_id
                                     
                                     	Referenced Link State ID
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8466,6 +9623,8 @@ class OspfOperData(Entity):
                                         	When set, the metric specified is a Type 2 external metric
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -8493,6 +9652,9 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.Nssa.LsaNssaExternal.Flags, ['e_flag'], name, value)
 
 
+
+
+
                             class LinkData(Entity):
                                 """
                                 OSPFv3 Link data
@@ -8503,6 +9665,8 @@ class OspfOperData(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: link_local_interface_address
                                 
@@ -8517,6 +9681,8 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: num_of_prefixes
                                 
                                 	Number of prefixes
@@ -8524,10 +9690,14 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_id_options
                                 
                                 	Link data LSA options
                                 	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8562,6 +9732,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.LinkData, ['rtr_priority', 'link_local_interface_address', 'num_of_prefixes', 'lsa_id_options'], name, value)
 
 
+
                             class IaPrefix(Entity):
                                 """
                                 OSPFv3 Intra area prefixes
@@ -8573,12 +9744,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: referenced_link_state_id
                                 
                                 	Referenced Link State ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: referenced_adv_router
                                 
@@ -8593,12 +9768,16 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: num_of_prefixes
                                 
                                 	Number of prefixes
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8633,6 +9812,9 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3LsaVal.LsaBody.IaPrefix, ['referenced_ls_type', 'referenced_link_state_id', 'referenced_adv_router', 'num_of_prefixes'], name, value)
 
 
+
+
+
                     class Ospfv3Link(Entity):
                         """
                         OSPFv3 links
@@ -8644,12 +9826,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: neighbor_interface_id  (key)
                         
                         	Neighbor interface ID
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: neighbor_router_id  (key)
                         
@@ -8658,6 +9844,8 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Link type
@@ -8665,12 +9853,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: metric
                         
                         	Metric
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -8707,6 +9899,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
 
 
+
                     class Ospfv3PrefixList(Entity):
                         """
                         OSPFv3 prefix\-list
@@ -8716,10 +9909,14 @@ class OspfOperData(Entity):
                         	Prefix
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_options
                         
                         	Prefix options
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -8750,6 +9947,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3PrefixList, ['prefix', 'prefix_options'], name, value)
 
 
+
                     class Ospfv3IaPrefix(Entity):
                         """
                         OSPFv3 intra\-area prefix\-list
@@ -8759,10 +9957,14 @@ class OspfOperData(Entity):
                         	Prefix
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_options
                         
                         	Prefix options
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -8793,6 +9995,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Ospfv3IaPrefix, ['prefix', 'prefix_options'], name, value)
 
 
+
                     class MultiTopology(Entity):
                         """
                         OSPF multi\-topology interface augmentation
@@ -8801,6 +10004,8 @@ class OspfOperData(Entity):
                         
                         	One of the topology enabled on this interface
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -8829,6 +10034,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.MultiTopology, ['name'], name, value)
 
 
+
                     class Tlv(Entity):
                         """
                         Link TLV
@@ -8840,12 +10046,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: link_id
                         
                         	Link ID
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_if_ipv4_addr
                         
@@ -8860,6 +10070,8 @@ class OspfOperData(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_remote_ipv4_addr
                         
                         	List of remote interface IPv4 addresses
@@ -8873,12 +10085,16 @@ class OspfOperData(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: te_metric
                         
                         	TE metric
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: max_bandwidth
                         
@@ -8887,12 +10103,16 @@ class OspfOperData(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         .. attribute:: max_reservable_bandwidth
                         
                         	Maximum reservable bandwidth
                         	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
+                        
+                        	**config**\: False
                         
                         .. attribute:: unreserved_bandwidth
                         
@@ -8901,12 +10121,16 @@ class OspfOperData(Entity):
                         
                         	**range:** \-92233720368547758.08..92233720368547758.07
                         
+                        	**config**\: False
+                        
                         .. attribute:: admin_group
                         
                         	Administrative group/Resource class/Color
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8951,6 +10175,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.Tlv, ['link_type', 'link_id', 'local_if_ipv4_addr', 'local_remote_ipv4_addr', 'te_metric', 'max_bandwidth', 'max_reservable_bandwidth', 'unreserved_bandwidth', 'admin_group'], name, value)
 
 
+
                     class UnknownSubTlv(Entity):
                         """
                         OSPFv2 Unknown sub TLV
@@ -8962,6 +10187,8 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: length
                         
                         	TLV length
@@ -8969,12 +10196,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: value
                         
                         	TLV value
                         	**type**\: list of int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -9007,6 +10238,8 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.LinkScopeLsa.UnknownSubTlv, ['type', 'length', 'value'], name, value)
 
 
+
+
                 class AreaScopeLsa(Entity):
                     """
                     List OSPF area scope LSA databases
@@ -9017,6 +10250,8 @@ class OspfOperData(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: adv_router  (key)
                     
@@ -9031,10 +10266,14 @@ class OspfOperData(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: decoded_completed
                     
                     	The OSPF LSA body is fully decoded
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: raw_data
                     
@@ -9043,45 +10282,63 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: ospfv2_lsa
                     
                     	OSPFv2 LSA
                     	**type**\:  :py:class:`Ospfv2Lsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ospfv2_link
                     
                     	Router LSA link
                     	**type**\: list of  		 :py:class:`Ospfv2Link <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Link>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ospfv2_topology
                     
                     	Summary LSA
                     	**type**\: list of  		 :py:class:`Ospfv2Topology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Topology>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ospfv2_external
                     
                     	External LSA
                     	**type**\: list of  		 :py:class:`Ospfv2External <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2External>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ospfv3_lsa
                     
                     	OSPFv3 LSA
                     	**type**\:  :py:class:`Ospfv3Lsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ospfv3_link
                     
                     	OSPFv3 links
                     	**type**\: list of  		 :py:class:`Ospfv3Link <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Link>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ospfv3_prefix
                     
                     	OSPFv3 prefix\-list
                     	**type**\: list of  		 :py:class:`Ospfv3Prefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Prefix>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ospfv3_ia_prefix
                     
                     	OSPFv3 intra\-area prefix\-list
                     	**type**\: list of  		 :py:class:`Ospfv3IaPrefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3IaPrefix>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -9140,10 +10397,14 @@ class OspfOperData(Entity):
                         	Decoded OSPFv2 LSA header data
                         	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.Header>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsa_body
                         
                         	Decoded OSPFv2 LSA body data
                         	**type**\:  :py:class:`LsaBody <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9194,12 +10455,16 @@ class OspfOperData(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: opaque_type
                             
                             	Opaque type
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: opaque_id
                             
@@ -9208,12 +10473,16 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: age
                             
                             	LSA age
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: type
                             
@@ -9222,6 +10491,8 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: adv_router
                             
                             	LSA advertising router
@@ -9229,15 +10500,21 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: seq_num
                             
                             	LSA sequence number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: checksum
                             
                             	LSA checksum
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: length
                             
@@ -9246,10 +10523,14 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: flag_options
                             
                             	LSA options
                             	**type**\:  :py:class:`LsaFlagOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.LsaFlagOptions>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -9296,6 +10577,7 @@ class OspfOperData(Entity):
                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.Header, ['lsa_id', 'opaque_type', 'opaque_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length', 'flag_options'], name, value)
 
 
+
                         class LsaBody(Entity):
                             """
                             Decoded OSPFv2 LSA body data
@@ -9307,10 +10589,14 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: network
                             
                             	Network details
                             	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody.Network>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: summary_mask
                             
@@ -9325,6 +10611,8 @@ class OspfOperData(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: external_mask
                             
                             	External mask
@@ -9338,10 +10626,14 @@ class OspfOperData(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: body_flag_options
                             
                             	LSA body flags
                             	**type**\:  :py:class:`Ospfv2LsaBodyFlagsOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv2LsaBodyFlagsOptions>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -9397,12 +10689,16 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: attached_router
                                 
                                 	List of the routers attached to the network
                                 	**type**\: list of int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9433,6 +10729,9 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Lsa.LsaBody.Network, ['network_mask', 'attached_router'], name, value)
 
 
+
+
+
                     class Ospfv2Link(Entity):
                         """
                         Router LSA link
@@ -9444,12 +10743,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: link_data  (key)
                         
                         	Link data
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: type
                         
@@ -9458,10 +10761,14 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: ospfv2_topology
                         
                         	Topology specific information
                         	**type**\: list of  		 :py:class:`Ospfv2Topology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Link.Ospfv2Topology>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9507,12 +10814,16 @@ class OspfOperData(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: metric
                             
                             	Metric for the topology
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -9543,6 +10854,8 @@ class OspfOperData(Entity):
                                 self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Link.Ospfv2Topology, ['mt_id', 'metric'], name, value)
 
 
+
+
                     class Ospfv2Topology(Entity):
                         """
                         Summary LSA
@@ -9554,12 +10867,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: metric
                         
                         	Metric for the topology
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -9590,6 +10907,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2Topology, ['mt_id', 'metric'], name, value)
 
 
+
                     class Ospfv2External(Entity):
                         """
                         External LSA
@@ -9601,12 +10919,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: metric
                         
                         	Metric for the topology
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: forwarding_address
                         
@@ -9621,12 +10943,16 @@ class OspfOperData(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: external_route_tag
                         
                         	Route tag
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -9661,6 +10987,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv2External, ['mt_id', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
 
 
+
                     class Ospfv3Lsa(Entity):
                         """
                         OSPFv3 LSA
@@ -9670,10 +10997,14 @@ class OspfOperData(Entity):
                         	Decoded OSPFv3 LSA header
                         	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsa_body
                         
                         	Decoded OSPFv3 LSA body
                         	**type**\:  :py:class:`LsaBody <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9724,15 +11055,21 @@ class OspfOperData(Entity):
                             
                             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_header
                             
                             	LSA header
                             	**type**\:  :py:class:`LsaHeader <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header.LsaHeader>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_hdr_options
                             
                             	OSPFv3 LSA options
                             	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -9778,12 +11115,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	LSA type
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: adv_router
                                 
@@ -9792,15 +11133,21 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: seq_num
                                 
                                 	LSA sequence number
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: checksum
                                 
                                 	LSA checksum
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: length
                                 
@@ -9808,6 +11155,8 @@ class OspfOperData(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9846,6 +11195,8 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.Header.LsaHeader, ['age', 'type', 'adv_router', 'seq_num', 'checksum', 'length'], name, value)
 
 
+
+
                         class LsaBody(Entity):
                             """
                             Decoded OSPFv3 LSA body
@@ -9855,45 +11206,63 @@ class OspfOperData(Entity):
                             	OSPFv3 network
                             	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Network>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix
                             
                             	OSPFv3 inter area prefix
                             	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Prefix>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ia_router
                             
                             	OSPFv3 inter area router
                             	**type**\:  :py:class:`IaRouter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaRouter>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_external
                             
                             	OSPFv3 LSA external
                             	**type**\:  :py:class:`LsaExternal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: nssa
                             
                             	OSPFv3 NSSA
                             	**type**\:  :py:class:`Nssa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: link_data
                             
                             	OSPFv3 Link data
                             	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LinkData>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ia_prefix
                             
                             	OSPFv3 Intra area prefixes
                             	**type**\:  :py:class:`IaPrefix <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaPrefix>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_flag_options
                             
                             	LSA options
                             	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_body_flags
                             
                             	LSA Body Flags
                             	**type**\:  :py:class:`Ospfv3LsaBodyFlagOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaBodyFlagOptions>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -9963,10 +11332,14 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_net_options
                                 
                                 	Network LSA options
                                 	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9997,6 +11370,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Network, ['attached_router', 'lsa_net_options'], name, value)
 
 
+
                             class Prefix(Entity):
                                 """
                                 OSPFv3 inter area prefix
@@ -10008,15 +11382,21 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ia_prefix
                                 
                                 	Inter area Prefix
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ia_prefix_options
                                 
                                 	Inter area prefix options
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10049,6 +11429,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Prefix, ['metric', 'ia_prefix', 'ia_prefix_options'], name, value)
 
 
+
                             class IaRouter(Entity):
                                 """
                                 OSPFv3 inter area router
@@ -10060,6 +11441,8 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: destination_router_id
                                 
                                 	Router ID of the router being described by the LSA
@@ -10067,10 +11450,14 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_ia_options
                                 
                                 	Inter area LSA options
                                 	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10103,6 +11490,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaRouter, ['metric', 'destination_router_id', 'lsa_ia_options'], name, value)
 
 
+
                             class LsaExternal(Entity):
                                 """
                                 OSPFv3 LSA external
@@ -10114,10 +11502,14 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: flags
                                 
                                 	LSA Flags
                                 	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal.Flags>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: referenced_ls_type
                                 
@@ -10126,15 +11518,21 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: external_prefix
                                 
                                 	Prefix
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: external_prefix_options
                                 
                                 	Prefix options
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: forwarding_address
                                 
@@ -10149,6 +11547,8 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: external_route_tag
                                 
                                 	Route tag
@@ -10156,12 +11556,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: referenced_link_state_id
                                 
                                 	Referenced Link State ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10215,6 +11619,8 @@ class OspfOperData(Entity):
                                     	When set, the metric specified is a Type 2 external metric
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -10242,6 +11648,8 @@ class OspfOperData(Entity):
                                         self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LsaExternal.Flags, ['e_flag'], name, value)
 
 
+
+
                             class Nssa(Entity):
                                 """
                                 OSPFv3 NSSA
@@ -10250,6 +11658,8 @@ class OspfOperData(Entity):
                                 
                                 	NSSA LSA
                                 	**type**\:  :py:class:`LsaNssaExternal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10290,10 +11700,14 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: flags
                                     
                                     	LSA Flags
                                     	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: referenced_ls_type
                                     
@@ -10302,15 +11716,21 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: external_prefix
                                     
                                     	Prefix
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: external_prefix_options
                                     
                                     	Prefix options
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: forwarding_address
                                     
@@ -10325,6 +11745,8 @@ class OspfOperData(Entity):
                                     
                                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: external_route_tag
                                     
                                     	Route tag
@@ -10332,12 +11754,16 @@ class OspfOperData(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: referenced_link_state_id
                                     
                                     	Referenced Link State ID
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -10391,6 +11817,8 @@ class OspfOperData(Entity):
                                         	When set, the metric specified is a Type 2 external metric
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         
 
                                         """
@@ -10418,6 +11846,9 @@ class OspfOperData(Entity):
                                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.Nssa.LsaNssaExternal.Flags, ['e_flag'], name, value)
 
 
+
+
+
                             class LinkData(Entity):
                                 """
                                 OSPFv3 Link data
@@ -10428,6 +11859,8 @@ class OspfOperData(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: link_local_interface_address
                                 
@@ -10442,6 +11875,8 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: num_of_prefixes
                                 
                                 	Number of prefixes
@@ -10449,10 +11884,14 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_id_options
                                 
                                 	Link data LSA options
                                 	**type**\:  :py:class:`Ospfv3LsaOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv3LsaOptions>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10487,6 +11926,7 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.LinkData, ['rtr_priority', 'link_local_interface_address', 'num_of_prefixes', 'lsa_id_options'], name, value)
 
 
+
                             class IaPrefix(Entity):
                                 """
                                 OSPFv3 Intra area prefixes
@@ -10498,12 +11938,16 @@ class OspfOperData(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: referenced_link_state_id
                                 
                                 	Referenced Link State ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: referenced_adv_router
                                 
@@ -10518,12 +11962,16 @@ class OspfOperData(Entity):
                                 
                                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: num_of_prefixes
                                 
                                 	Number of prefixes
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10558,6 +12006,9 @@ class OspfOperData(Entity):
                                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Lsa.LsaBody.IaPrefix, ['referenced_ls_type', 'referenced_link_state_id', 'referenced_adv_router', 'num_of_prefixes'], name, value)
 
 
+
+
+
                     class Ospfv3Link(Entity):
                         """
                         OSPFv3 links
@@ -10569,12 +12020,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: neighbor_interface_id  (key)
                         
                         	Neighbor interface ID
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: neighbor_router_id  (key)
                         
@@ -10583,6 +12038,8 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Link type
@@ -10590,12 +12047,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: metric
                         
                         	Metric
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -10632,6 +12093,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
 
 
+
                     class Ospfv3Prefix(Entity):
                         """
                         OSPFv3 prefix\-list
@@ -10641,10 +12103,14 @@ class OspfOperData(Entity):
                         	Prefix
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_options
                         
                         	Prefix options
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -10675,6 +12141,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3Prefix, ['prefix', 'prefix_options'], name, value)
 
 
+
                     class Ospfv3IaPrefix(Entity):
                         """
                         OSPFv3 intra\-area prefix\-list
@@ -10684,10 +12151,14 @@ class OspfOperData(Entity):
                         	Prefix
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_options
                         
                         	Prefix options
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -10718,6 +12189,9 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.OspfState.OspfInstance.LinkScopeLsas.AreaScopeLsa.Ospfv3IaPrefix, ['prefix', 'prefix_options'], name, value)
 
 
+
+
+
             class MultiTopology(Entity):
                 """
                 OSPF multi\-topology interface augmentation
@@ -10726,6 +12200,8 @@ class OspfOperData(Entity):
                 
                 	One of the topology enabled on this interface
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -10754,6 +12230,9 @@ class OspfOperData(Entity):
                     self._perform_setattr(OspfOperData.OspfState.OspfInstance.MultiTopology, ['name'], name, value)
 
 
+
+
+
     class Ospfv2Instance(Entity):
         """
         The OSPF instance
@@ -10765,10 +12244,14 @@ class OspfOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: vrf_name
         
         	The name of the Virtual Routing and Forwarding instance that the OSPF instance is operating within
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: router_id
         
@@ -10777,15 +12260,21 @@ class OspfOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ospfv2_area
         
         	The OSPF area information
         	**type**\: list of  		 :py:class:`Ospfv2Area <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area>`
         
+        	**config**\: False
+        
         .. attribute:: ospfv2_lsdb_external
         
         	The external LSDB information
         	**type**\: list of  		 :py:class:`Ospfv2LsdbExternal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal>`
+        
+        	**config**\: False
         
         
 
@@ -10833,15 +12322,21 @@ class OspfOperData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ospfv2_lsdb_area
             
             	The OSPF Link State Database information for this area
             	**type**\: list of  		 :py:class:`Ospfv2LsdbArea <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea>`
             
+            	**config**\: False
+            
             .. attribute:: ospfv2_interface
             
             	A list of interfaces that belong to the area
             	**type**\: list of  		 :py:class:`Ospfv2Interface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2Interface>`
+            
+            	**config**\: False
             
             
 
@@ -10884,12 +12379,16 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: lsa_id  (key)
                 
                 	Link State Advertisement Identifer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: advertising_router  (key)
                 
@@ -10898,6 +12397,8 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsa_age
                 
                 	The age of the Link State Advertisement
@@ -10905,10 +12406,14 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: lsa_options
                 
                 	The options of the Link State Advertisement
                 	**type**\:  :py:class:`Ospfv2LsaFlagOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv2LsaFlagOptions>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsa_seq_number
                 
@@ -10917,12 +12422,16 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsa_checksum
                 
                 	The checksum of the Link State Advertisement
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: lsa_length
                 
@@ -10931,45 +12440,63 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: ospfv2_router_lsa_links
                 
                 	The router Link State Advertisement links
                 	**type**\: list of  		 :py:class:`Ospfv2RouterLsaLinks <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.Ospfv2RouterLsaLinks>`
+                
+                	**config**\: False
                 
                 .. attribute:: unsupported_lsa
                 
                 	The unsupported Link State Advertisements
                 	**type**\:  :py:class:`UnsupportedLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.UnsupportedLsa>`
                 
+                	**config**\: False
+                
                 .. attribute:: router_lsa
                 
                 	The router Link State Advertisements
                 	**type**\:  :py:class:`RouterLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.RouterLsa>`
+                
+                	**config**\: False
                 
                 .. attribute:: network_lsa
                 
                 	The network Link State Advertisements
                 	**type**\:  :py:class:`NetworkLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.NetworkLsa>`
                 
+                	**config**\: False
+                
                 .. attribute:: network_summary_lsa
                 
                 	The network summary Link State Advertisements
                 	**type**\:  :py:class:`NetworkSummaryLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.NetworkSummaryLsa>`
+                
+                	**config**\: False
                 
                 .. attribute:: router_summary_lsa
                 
                 	The router summary Link State Advertisements
                 	**type**\:  :py:class:`RouterSummaryLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.RouterSummaryLsa>`
                 
+                	**config**\: False
+                
                 .. attribute:: external_lsa
                 
                 	The external Link State Advertisements
                 	**type**\:  :py:class:`ExternalLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.ExternalLsa>`
                 
+                	**config**\: False
+                
                 .. attribute:: nssa_lsa
                 
                 	The Not So Stubby Area Link state advertisements
                 	**type**\:  :py:class:`NssaLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.NssaLsa>`
+                
+                	**config**\: False
                 
                 
 
@@ -11053,12 +12580,16 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: link_id  (key)
                     
                     	link Identifier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: link_data  (key)
                     
@@ -11067,10 +12598,14 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: link_topo
                     
                     	Link topology
                     	**type**\: list of  		 :py:class:`LinkTopo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.Ospfv2RouterLsaLinks.LinkTopo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -11116,12 +12651,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: topo_metric
                         
                         	Topology metric
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -11152,6 +12691,8 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.Ospfv2RouterLsaLinks.LinkTopo, ['mt_id', 'topo_metric'], name, value)
 
 
+
+
                 class UnsupportedLsa(Entity):
                     """
                     The unsupported Link State Advertisements
@@ -11162,6 +12703,8 @@ class OspfOperData(Entity):
                     	**type**\: list of int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -11190,6 +12733,7 @@ class OspfOperData(Entity):
                         self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.UnsupportedLsa, ['lsa_data'], name, value)
 
 
+
                 class RouterLsa(Entity):
                     """
                     The router Link State Advertisements
@@ -11199,12 +12743,16 @@ class OspfOperData(Entity):
                     	Router Link State Advertisement bits
                     	**type**\:  :py:class:`Ospfv2RouterLsaBits <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv2RouterLsaBits>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: router_lsa_number_links
                     
                     	Router Link State Advertisement number of links
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -11235,6 +12783,7 @@ class OspfOperData(Entity):
                         self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.RouterLsa, ['router_lsa_bits', 'router_lsa_number_links'], name, value)
 
 
+
                 class NetworkLsa(Entity):
                     """
                     The network Link State Advertisements
@@ -11246,12 +12795,16 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: network_attached_routers
                     
                     	Network attached routers
                     	**type**\: list of int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -11282,6 +12835,7 @@ class OspfOperData(Entity):
                         self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.NetworkLsa, ['network_lsa_mask', 'network_attached_routers'], name, value)
 
 
+
                 class NetworkSummaryLsa(Entity):
                     """
                     The network summary Link State Advertisements
@@ -11293,10 +12847,14 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: summary_topo
                     
                     	The summary topology
                     	**type**\: list of  		 :py:class:`SummaryTopo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.NetworkSummaryLsa.SummaryTopo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -11338,12 +12896,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: topo_metric
                         
                         	Topology Metric
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -11374,6 +12936,8 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.NetworkSummaryLsa.SummaryTopo, ['mt_id', 'topo_metric'], name, value)
 
 
+
+
                 class RouterSummaryLsa(Entity):
                     """
                     The router summary Link State Advertisements
@@ -11385,10 +12949,14 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: summary_topo
                     
                     	The summary topology
                     	**type**\: list of  		 :py:class:`SummaryTopo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.RouterSummaryLsa.SummaryTopo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -11430,12 +12998,16 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: topo_metric
                         
                         	Topology Metric
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -11466,6 +13038,8 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.RouterSummaryLsa.SummaryTopo, ['mt_id', 'topo_metric'], name, value)
 
 
+
+
                 class ExternalLsa(Entity):
                     """
                     The external Link State Advertisements
@@ -11477,10 +13051,14 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: external_topo
                     
                     	The external topology Link State Advertisement
                     	**type**\: list of  		 :py:class:`ExternalTopo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.ExternalLsa.ExternalTopo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -11522,10 +13100,14 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: topo_metric_type
                         
                         	The topoligy metric type associated with the  Link State Advertisement
                         	**type**\:  :py:class:`OspfExternalMetricType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfExternalMetricType>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: topo_metric
                         
@@ -11533,6 +13115,8 @@ class OspfOperData(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: topo_forwarding_address
                         
@@ -11547,12 +13131,16 @@ class OspfOperData(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: topo_route_tag
                         
                         	The topology route tag
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -11589,6 +13177,8 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.ExternalLsa.ExternalTopo, ['mt_id', 'topo_metric_type', 'topo_metric', 'topo_forwarding_address', 'topo_route_tag'], name, value)
 
 
+
+
                 class NssaLsa(Entity):
                     """
                     The Not So Stubby Area Link state advertisements
@@ -11600,10 +13190,14 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: external_topo
                     
                     	The external topology Link State Advertisement
                     	**type**\: list of  		 :py:class:`ExternalTopo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.NssaLsa.ExternalTopo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -11645,10 +13239,14 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: topo_metric_type
                         
                         	The topoligy metric type associated with the  Link State Advertisement
                         	**type**\:  :py:class:`OspfExternalMetricType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfExternalMetricType>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: topo_metric
                         
@@ -11656,6 +13254,8 @@ class OspfOperData(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: topo_forwarding_address
                         
@@ -11670,12 +13270,16 @@ class OspfOperData(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: topo_route_tag
                         
                         	The topology route tag
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -11712,6 +13316,9 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2LsdbArea.NssaLsa.ExternalTopo, ['mt_id', 'topo_metric_type', 'topo_metric', 'topo_forwarding_address', 'topo_route_tag'], name, value)
 
 
+
+
+
             class Ospfv2Interface(Entity):
                 """
                 A list of interfaces that belong to the area
@@ -11721,35 +13328,49 @@ class OspfOperData(Entity):
                 	Name of the interface
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: network_type
                 
                 	Network type
                 	**type**\:  :py:class:`OspfNetworkType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfNetworkType>`
+                
+                	**config**\: False
                 
                 .. attribute:: enable
                 
                 	If the interface is enabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: passive
                 
                 	If the interface is in passive mode
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: demand_circuit
                 
                 	If this is a demand circuit
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: mtu_ignore
                 
                 	If the MTU is being ignored
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_suppresion
                 
                 	If prefix suppression is enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: cost
                 
@@ -11758,12 +13379,16 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: hello_interval
                 
                 	The hello interval in seconds
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: dead_interval
                 
@@ -11772,12 +13397,16 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: retransmit_interval
                 
                 	The retransmit interval in seconds
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: transmit_delay
                 
@@ -11786,12 +13415,16 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: hello_timer
                 
                 	The current hello timer in seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: wait_timer
                 
@@ -11800,6 +13433,8 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: dr
                 
                 	The designated router identifier
@@ -11807,12 +13442,16 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bdr
                 
                 	The backup designated router identifier
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: dr_ip
                 
@@ -11827,6 +13466,8 @@ class OspfOperData(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: bdr_ip
                 
                 	The address of the backup designated router
@@ -11840,25 +13481,35 @@ class OspfOperData(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	The current state of the interface
                 	**type**\:  :py:class:`Ospfv2IntfState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv2IntfState>`
+                
+                	**config**\: False
                 
                 .. attribute:: ttl_security_val
                 
                 	The TTL security information
                 	**type**\:  :py:class:`TtlSecurityVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2Interface.TtlSecurityVal>`
                 
+                	**config**\: False
+                
                 .. attribute:: auth_val
                 
                 	The authentication information
                 	**type**\:  :py:class:`AuthVal <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2Interface.AuthVal>`
                 
+                	**config**\: False
+                
                 .. attribute:: ospfv2_neighbor
                 
                 	All the neighbors on the interface
                 	**type**\: list of  		 :py:class:`Ospfv2Neighbor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2Interface.Ospfv2Neighbor>`
+                
+                	**config**\: False
                 
                 
 
@@ -11942,12 +13593,16 @@ class OspfOperData(Entity):
                     	Indicates whether time to live security is enabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: hops
                     
                     	Number of hops for time to live security
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -11978,6 +13633,7 @@ class OspfOperData(Entity):
                         self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2Interface.TtlSecurityVal, ['enable', 'hops'], name, value)
 
 
+
                 class AuthVal(Entity):
                     """
                     The authentication information
@@ -11989,15 +13645,21 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: auth_key
                     
                     	Trailer key chain information
                     	**type**\:  :py:class:`AuthKey <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2Interface.AuthVal.AuthKey>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: key_chain
                     
                     	Trailer key information
                     	**type**\:  :py:class:`KeyChain <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2Interface.AuthVal.KeyChain>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -12045,6 +13707,8 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: key_string
                         
                         	The key string
@@ -12052,10 +13716,14 @@ class OspfOperData(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: crypto_algo
                         
                         	The algorithm in use
                         	**type**\:  :py:class:`Ospfv2CryptoAlgorithm <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv2CryptoAlgorithm>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -12088,6 +13756,7 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2Interface.AuthVal.AuthKey, ['key_id', 'key_string', 'crypto_algo'], name, value)
 
 
+
                     class KeyChain(Entity):
                         """
                         Trailer key information
@@ -12098,6 +13767,8 @@ class OspfOperData(Entity):
                         	**type**\: list of int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -12126,6 +13797,8 @@ class OspfOperData(Entity):
                             self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2Interface.AuthVal.KeyChain, ['key_chain'], name, value)
 
 
+
+
                 class Ospfv2Neighbor(Entity):
                     """
                     All the neighbors on the interface
@@ -12136,6 +13809,8 @@ class OspfOperData(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: address
                     
@@ -12150,6 +13825,8 @@ class OspfOperData(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: dr
                     
                     	The neighbor's Designated Router indentifier 
@@ -12157,12 +13834,16 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: bdr
                     
                     	The neighbor's Backup Designated Router identifier
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: dr_ip
                     
@@ -12177,6 +13858,8 @@ class OspfOperData(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: bdr_ip
                     
                     	The backup designated routers' IP address
@@ -12190,12 +13873,16 @@ class OspfOperData(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: event_count
                     
                     	A count of neighbor events
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: retrans_count
                     
@@ -12204,10 +13891,14 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	The current neighbor state
                     	**type**\:  :py:class:`NbrStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.NbrStateType>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: dead_timer
                     
@@ -12215,6 +13906,8 @@ class OspfOperData(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -12261,6 +13954,9 @@ class OspfOperData(Entity):
                         self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2Area.Ospfv2Interface.Ospfv2Neighbor, ['nbr_id', 'address', 'dr', 'bdr', 'dr_ip', 'bdr_ip', 'event_count', 'retrans_count', 'state', 'dead_timer'], name, value)
 
 
+
+
+
         class Ospfv2LsdbExternal(Entity):
             """
             The external LSDB information
@@ -12272,12 +13968,16 @@ class OspfOperData(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: lsa_id  (key)
             
             	Link State Advertisement Identifer
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: advertising_router  (key)
             
@@ -12286,6 +13986,8 @@ class OspfOperData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: lsa_age
             
             	The age of the Link State Advertisement
@@ -12293,10 +13995,14 @@ class OspfOperData(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: lsa_options
             
             	The options of the Link State Advertisement
             	**type**\:  :py:class:`Ospfv2LsaFlagOptions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv2LsaFlagOptions>`
+            
+            	**config**\: False
             
             .. attribute:: lsa_seq_number
             
@@ -12305,12 +14011,16 @@ class OspfOperData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: lsa_checksum
             
             	The checksum of the Link State Advertisement
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: lsa_length
             
@@ -12319,45 +14029,63 @@ class OspfOperData(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: ospfv2_router_lsa_links
             
             	The router Link State Advertisement links
             	**type**\: list of  		 :py:class:`Ospfv2RouterLsaLinks <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.Ospfv2RouterLsaLinks>`
+            
+            	**config**\: False
             
             .. attribute:: unsupported_lsa
             
             	The unsupported Link State Advertisements
             	**type**\:  :py:class:`UnsupportedLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.UnsupportedLsa>`
             
+            	**config**\: False
+            
             .. attribute:: router_lsa
             
             	The router Link State Advertisements
             	**type**\:  :py:class:`RouterLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.RouterLsa>`
+            
+            	**config**\: False
             
             .. attribute:: network_lsa
             
             	The network Link State Advertisements
             	**type**\:  :py:class:`NetworkLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.NetworkLsa>`
             
+            	**config**\: False
+            
             .. attribute:: network_summary_lsa
             
             	The network summary Link State Advertisements
             	**type**\:  :py:class:`NetworkSummaryLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.NetworkSummaryLsa>`
+            
+            	**config**\: False
             
             .. attribute:: router_summary_lsa
             
             	The router summary Link State Advertisements
             	**type**\:  :py:class:`RouterSummaryLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.RouterSummaryLsa>`
             
+            	**config**\: False
+            
             .. attribute:: external_lsa
             
             	The external Link State Advertisements
             	**type**\:  :py:class:`ExternalLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.ExternalLsa>`
             
+            	**config**\: False
+            
             .. attribute:: nssa_lsa
             
             	The Not So Stubby Area Link state advertisements
             	**type**\:  :py:class:`NssaLsa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.NssaLsa>`
+            
+            	**config**\: False
             
             
 
@@ -12441,12 +14169,16 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: link_id  (key)
                 
                 	link Identifier
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: link_data  (key)
                 
@@ -12455,10 +14187,14 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: link_topo
                 
                 	Link topology
                 	**type**\: list of  		 :py:class:`LinkTopo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.Ospfv2RouterLsaLinks.LinkTopo>`
+                
+                	**config**\: False
                 
                 
 
@@ -12504,12 +14240,16 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: topo_metric
                     
                     	Topology metric
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -12540,6 +14280,8 @@ class OspfOperData(Entity):
                         self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.Ospfv2RouterLsaLinks.LinkTopo, ['mt_id', 'topo_metric'], name, value)
 
 
+
+
             class UnsupportedLsa(Entity):
                 """
                 The unsupported Link State Advertisements
@@ -12550,6 +14292,8 @@ class OspfOperData(Entity):
                 	**type**\: list of int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -12578,6 +14322,7 @@ class OspfOperData(Entity):
                     self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.UnsupportedLsa, ['lsa_data'], name, value)
 
 
+
             class RouterLsa(Entity):
                 """
                 The router Link State Advertisements
@@ -12587,12 +14332,16 @@ class OspfOperData(Entity):
                 	Router Link State Advertisement bits
                 	**type**\:  :py:class:`Ospfv2RouterLsaBits <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.Ospfv2RouterLsaBits>`
                 
+                	**config**\: False
+                
                 .. attribute:: router_lsa_number_links
                 
                 	Router Link State Advertisement number of links
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -12623,6 +14372,7 @@ class OspfOperData(Entity):
                     self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.RouterLsa, ['router_lsa_bits', 'router_lsa_number_links'], name, value)
 
 
+
             class NetworkLsa(Entity):
                 """
                 The network Link State Advertisements
@@ -12634,12 +14384,16 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: network_attached_routers
                 
                 	Network attached routers
                 	**type**\: list of int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -12670,6 +14424,7 @@ class OspfOperData(Entity):
                     self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.NetworkLsa, ['network_lsa_mask', 'network_attached_routers'], name, value)
 
 
+
             class NetworkSummaryLsa(Entity):
                 """
                 The network summary Link State Advertisements
@@ -12681,10 +14436,14 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: summary_topo
                 
                 	The summary topology
                 	**type**\: list of  		 :py:class:`SummaryTopo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.NetworkSummaryLsa.SummaryTopo>`
+                
+                	**config**\: False
                 
                 
 
@@ -12726,12 +14485,16 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: topo_metric
                     
                     	Topology Metric
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -12762,6 +14525,8 @@ class OspfOperData(Entity):
                         self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.NetworkSummaryLsa.SummaryTopo, ['mt_id', 'topo_metric'], name, value)
 
 
+
+
             class RouterSummaryLsa(Entity):
                 """
                 The router summary Link State Advertisements
@@ -12773,10 +14538,14 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: summary_topo
                 
                 	The summary topology
                 	**type**\: list of  		 :py:class:`SummaryTopo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.RouterSummaryLsa.SummaryTopo>`
+                
+                	**config**\: False
                 
                 
 
@@ -12818,12 +14587,16 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: topo_metric
                     
                     	Topology Metric
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -12854,6 +14627,8 @@ class OspfOperData(Entity):
                         self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.RouterSummaryLsa.SummaryTopo, ['mt_id', 'topo_metric'], name, value)
 
 
+
+
             class ExternalLsa(Entity):
                 """
                 The external Link State Advertisements
@@ -12865,10 +14640,14 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: external_topo
                 
                 	The external topology Link State Advertisement
                 	**type**\: list of  		 :py:class:`ExternalTopo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.ExternalLsa.ExternalTopo>`
+                
+                	**config**\: False
                 
                 
 
@@ -12910,10 +14689,14 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: topo_metric_type
                     
                     	The topoligy metric type associated with the  Link State Advertisement
                     	**type**\:  :py:class:`OspfExternalMetricType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfExternalMetricType>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: topo_metric
                     
@@ -12921,6 +14704,8 @@ class OspfOperData(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: topo_forwarding_address
                     
@@ -12935,12 +14720,16 @@ class OspfOperData(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: topo_route_tag
                     
                     	The topology route tag
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -12977,6 +14766,8 @@ class OspfOperData(Entity):
                         self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.ExternalLsa.ExternalTopo, ['mt_id', 'topo_metric_type', 'topo_metric', 'topo_forwarding_address', 'topo_route_tag'], name, value)
 
 
+
+
             class NssaLsa(Entity):
                 """
                 The Not So Stubby Area Link state advertisements
@@ -12988,10 +14779,14 @@ class OspfOperData(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: external_topo
                 
                 	The external topology Link State Advertisement
                 	**type**\: list of  		 :py:class:`ExternalTopo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.NssaLsa.ExternalTopo>`
+                
+                	**config**\: False
                 
                 
 
@@ -13033,10 +14828,14 @@ class OspfOperData(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: topo_metric_type
                     
                     	The topoligy metric type associated with the  Link State Advertisement
                     	**type**\:  :py:class:`OspfExternalMetricType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ospf_oper.OspfExternalMetricType>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: topo_metric
                     
@@ -13044,6 +14843,8 @@ class OspfOperData(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: topo_forwarding_address
                     
@@ -13058,12 +14859,16 @@ class OspfOperData(Entity):
                     
                     			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: topo_route_tag
                     
                     	The topology route tag
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -13099,7 +14904,13 @@ class OspfOperData(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(OspfOperData.Ospfv2Instance.Ospfv2LsdbExternal.NssaLsa.ExternalTopo, ['mt_id', 'topo_metric_type', 'topo_metric', 'topo_forwarding_address', 'topo_route_tag'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = OspfOperData()
         return self._top_entity
+
+
 

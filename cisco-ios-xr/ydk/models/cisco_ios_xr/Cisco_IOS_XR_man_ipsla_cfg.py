@@ -653,6 +653,7 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.Common.HardwareTimestamp, ['disable'], name, value)
 
 
+
         class Authentication(Entity):
             """
             Authenticaion configuration
@@ -690,6 +691,8 @@ class Ipsla(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.Common.Authentication, ['key_chain'], name, value)
+
+
 
 
     class MplsLspMonitor(Entity):
@@ -979,6 +982,8 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace.ActionType, ['logging'], name, value)
 
 
+
+
                     class Timeout(Entity):
                         """
                         React on probe timeout
@@ -1070,6 +1075,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ActionType, ['logging'], name, value)
 
 
+
                         class ThresholdType(Entity):
                             """
                             Type of thresholding to perform on the monitored
@@ -1123,6 +1129,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
+
+
 
 
                     class LpdGroup(Entity):
@@ -1206,6 +1214,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup.ActionType, ['logging'], name, value)
+
+
 
 
                     class ConnectionLoss(Entity):
@@ -1300,6 +1310,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ActionType, ['logging'], name, value)
 
 
+
                         class ThresholdType(Entity):
                             """
                             Type of thresholding to perform on the monitored
@@ -1353,6 +1364,11 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
+
+
+
+
+
 
 
         class Schedules(Entity):
@@ -1547,6 +1563,9 @@ class Ipsla(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.MplsLspMonitor.Schedules.Schedule.StartTime, ['schedule_type', 'hour', 'minute', 'second', 'month', 'day', 'year'], name, value)
+
+
+
 
 
         class Definitions(Entity):
@@ -1889,6 +1908,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Reply, ['dscp_bits', 'mode'], name, value)
 
 
+
                         class Statistics(Entity):
                             """
                             Statistics collection aggregated over an hour
@@ -1929,6 +1949,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Statistics, ['hours'], name, value)
+
 
 
                         class Scan(Entity):
@@ -1982,6 +2003,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Scan, ['interval', 'delete_factor'], name, value)
+
+
 
 
                     class MplsLspPing(Entity):
@@ -2206,6 +2229,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.DataSize, ['request'], name, value)
 
 
+
                         class PathDiscover(Entity):
                             """
                             Path discover configuration
@@ -2335,6 +2359,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Session, ['timeout', 'limit'], name, value)
 
 
+
                             class Path(Entity):
                                 """
                                 Path parameters configuration
@@ -2438,6 +2463,8 @@ class Ipsla(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path.SecondaryFrequency, ['type', 'frequency'], name, value)
+
+
 
 
                             class Echo(Entity):
@@ -2566,6 +2593,9 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo.Multipath, ['bitmap_size'], name, value)
 
 
+
+
+
                         class Reply(Entity):
                             """
                             Echo reply options for the MPLS LSP operation
@@ -2615,6 +2645,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Reply, ['dscp_bits', 'mode'], name, value)
 
 
+
                         class Statistics(Entity):
                             """
                             Statistics collection aggregated over an hour
@@ -2655,6 +2686,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Statistics, ['hours'], name, value)
+
 
 
                         class Scan(Entity):
@@ -2708,6 +2740,12 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Scan, ['interval', 'delete_factor'], name, value)
+
+
+
+
+
+
 
 
     class Operation(Entity):
@@ -2978,6 +3016,9 @@ class Ipsla(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.Operation.Schedules.Schedule.StartTime, ['schedule_type', 'hour', 'minute', 'second', 'month', 'day', 'year'], name, value)
+
+
+
 
 
         class Reactions(Entity):
@@ -3293,6 +3334,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
 
 
+
                         class ActionType(Entity):
                             """
                             Type of action to be taken on threshold
@@ -3335,6 +3377,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ActionType, ['logging', 'trigger'], name, value)
+
 
 
                         class ThresholdType(Entity):
@@ -3390,6 +3433,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
+
+
 
 
                     class Timeout(Entity):
@@ -3490,6 +3535,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ActionType, ['logging', 'trigger'], name, value)
 
 
+
                         class ThresholdType(Entity):
                             """
                             Type of thresholding to perform on the monitored
@@ -3543,6 +3589,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
+
+
 
 
                     class JitterAverage(Entity):
@@ -3665,6 +3713,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
 
 
+
                         class ActionType(Entity):
                             """
                             Type of action to be taken on threshold
@@ -3707,6 +3756,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ActionType, ['logging', 'trigger'], name, value)
+
 
 
                         class ThresholdType(Entity):
@@ -3762,6 +3812,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
+
+
 
 
                     class VerifyError(Entity):
@@ -3862,6 +3914,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ActionType, ['logging', 'trigger'], name, value)
 
 
+
                         class ThresholdType(Entity):
                             """
                             Type of thresholding to perform on the monitored
@@ -3915,6 +3968,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
+
+
 
 
                     class Rtt(Entity):
@@ -4036,6 +4091,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
 
 
+
                         class ActionType(Entity):
                             """
                             Type of action to be taken on threshold
@@ -4078,6 +4134,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ActionType, ['logging', 'trigger'], name, value)
+
 
 
                         class ThresholdType(Entity):
@@ -4133,6 +4190,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
+
+
 
 
                     class PacketLossSd(Entity):
@@ -4255,6 +4314,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
 
 
+
                         class ActionType(Entity):
                             """
                             Type of action to be taken on threshold
@@ -4297,6 +4357,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ActionType, ['logging', 'trigger'], name, value)
+
 
 
                         class ThresholdType(Entity):
@@ -4352,6 +4413,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
+
+
 
 
                     class JitterAverageSd(Entity):
@@ -4474,6 +4537,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
 
 
+
                         class ActionType(Entity):
                             """
                             Type of action to be taken on threshold
@@ -4516,6 +4580,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ActionType, ['logging', 'trigger'], name, value)
+
 
 
                         class ThresholdType(Entity):
@@ -4571,6 +4636,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
+
+
 
 
                     class ConnectionLoss(Entity):
@@ -4672,6 +4739,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ActionType, ['logging', 'trigger'], name, value)
 
 
+
                         class ThresholdType(Entity):
                             """
                             Type of thresholding to perform on the monitored
@@ -4725,6 +4793,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
+
+
 
 
                     class PacketLossDs(Entity):
@@ -4847,6 +4917,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
 
 
+
                         class ActionType(Entity):
                             """
                             Type of action to be taken on threshold
@@ -4889,6 +4960,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ActionType, ['logging', 'trigger'], name, value)
+
 
 
                         class ThresholdType(Entity):
@@ -4944,6 +5016,11 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
+
+
+
+
+
 
 
         class ReactionTriggers(Entity):
@@ -5028,6 +5105,8 @@ class Ipsla(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.Operation.ReactionTriggers.ReactionTrigger, ['operation_id', 'triggered_op_id'], name, value)
+
+
 
 
         class Definitions(Entity):
@@ -5403,6 +5482,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.DataSize, ['request'], name, value)
 
 
+
                         class Statistics(Entity):
                             """
                             Statistics collection aggregated over an hour
@@ -5469,6 +5549,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
 
 
+
                         class History(Entity):
                             """
                             Configure the history parameters for this
@@ -5526,6 +5607,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.History, ['lives', 'history_filter', 'buckets'], name, value)
+
 
 
                         class EnhancedStats(Entity):
@@ -5612,6 +5694,9 @@ class Ipsla(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats.EnhancedStat, ['interval', 'buckets'], name, value)
+
+
+
 
 
                     class MplsLspPing(Entity):
@@ -5845,6 +5930,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.DataSize, ['request'], name, value)
 
 
+
                         class Reply(Entity):
                             """
                             Echo reply options for the MPLS LSP
@@ -5893,6 +5979,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Reply, ['mode', 'dscp_bits'], name, value)
+
 
 
                         class Target(Entity):
@@ -5988,6 +6075,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.TrafficEngineering, ['tunnel'], name, value)
 
 
+
                             class Ipv4(Entity):
                                 """
                                 Target specified as an IPv4 address
@@ -6078,6 +6166,8 @@ class Ipsla(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Ipv4.FecAddress, ['address', 'mask'], name, value)
+
+
 
 
                             class Pseudowire(Entity):
@@ -6172,6 +6262,9 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Pseudowire.TargetAddress, ['address', 'vc_id'], name, value)
 
 
+
+
+
                         class Statistics(Entity):
                             """
                             Statistics collection aggregated over an hour
@@ -6238,6 +6331,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
 
 
+
                         class History(Entity):
                             """
                             Configure the history parameters for this
@@ -6295,6 +6389,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.History, ['lives', 'history_filter', 'buckets'], name, value)
+
 
 
                         class EnhancedStats(Entity):
@@ -6381,6 +6476,9 @@ class Ipsla(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats.EnhancedStat, ['interval', 'buckets'], name, value)
+
+
+
 
 
                     class UdpEcho(Entity):
@@ -6599,6 +6697,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.DataSize, ['request'], name, value)
 
 
+
                         class Statistics(Entity):
                             """
                             Statistics collection aggregated over an hour
@@ -6665,6 +6764,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
 
 
+
                         class History(Entity):
                             """
                             Configure the history parameters for this
@@ -6722,6 +6822,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.History, ['lives', 'history_filter', 'buckets'], name, value)
+
 
 
                         class EnhancedStats(Entity):
@@ -6808,6 +6909,9 @@ class Ipsla(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats.EnhancedStat, ['interval', 'buckets'], name, value)
+
+
+
 
 
                     class MplsLspTrace(Entity):
@@ -7066,6 +7170,7 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.TrafficEngineering, ['tunnel'], name, value)
 
 
+
                             class Ipv4(Entity):
                                 """
                                 Target specified as an IPv4 address
@@ -7158,6 +7263,9 @@ class Ipsla(Entity):
                                         self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.Ipv4.FecAddress, ['address', 'mask'], name, value)
 
 
+
+
+
                         class Reply(Entity):
                             """
                             Echo reply options for the MPLS LSP
@@ -7206,6 +7314,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Reply, ['mode', 'dscp_bits'], name, value)
+
 
 
                         class Statistics(Entity):
@@ -7274,6 +7383,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
 
 
+
                         class History(Entity):
                             """
                             Configure the history parameters for this
@@ -7331,6 +7441,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.History, ['lives', 'history_filter', 'buckets'], name, value)
+
+
 
 
                     class UdpJitter(Entity):
@@ -7549,6 +7661,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.DataSize, ['request'], name, value)
 
 
+
                         class Packet(Entity):
                             """
                             Probe packet stream configuration
@@ -7601,6 +7714,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Packet, ['count', 'interval'], name, value)
+
 
 
                         class Statistics(Entity):
@@ -7667,6 +7781,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
+
 
 
                         class EnhancedStats(Entity):
@@ -7753,6 +7868,9 @@ class Ipsla(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats.EnhancedStat, ['interval', 'buckets'], name, value)
+
+
+
 
 
                     class IcmpPathEcho(Entity):
@@ -7967,6 +8085,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.History, ['samples', 'buckets', 'history_filter', 'lives'], name, value)
 
 
+
                         class DataSize(Entity):
                             """
                             Protocol data size in payload of probe
@@ -8008,6 +8127,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.DataSize, ['request'], name, value)
+
 
 
                         class Statistics(Entity):
@@ -8097,6 +8217,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.Statistics, ['paths', 'dist_interval', 'dist_count', 'hours', 'hops'], name, value)
+
 
 
                         class LsrPath(Entity):
@@ -8204,6 +8325,8 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.LsrPath, ['node1', 'node2', 'node3', 'node4', 'node5', 'node6', 'node7', 'node8'], name, value)
+
+
 
 
                     class IcmpPathJitter(Entity):
@@ -8382,6 +8505,7 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.DataSize, ['request'], name, value)
 
 
+
                         class Packet(Entity):
                             """
                             Probe packet stream configuration
@@ -8434,6 +8558,7 @@ class Ipsla(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.Packet, ['count', 'interval'], name, value)
+
 
 
                         class LsrPath(Entity):
@@ -8543,6 +8668,12 @@ class Ipsla(Entity):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.LsrPath, ['node1', 'node2', 'node3', 'node4', 'node5', 'node6', 'node7', 'node8'], name, value)
 
 
+
+
+
+
+
+
     class Responder(Entity):
         """
         Responder configuration
@@ -8631,6 +8762,7 @@ class Ipsla(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.Responder.Twamp, ['timeout'], name, value)
+
 
 
         class Type(Entity):
@@ -8867,6 +8999,13 @@ class Ipsla(Entity):
                                     self._perform_setattr(Ipsla.Responder.Type.Udp.Addresses.Address.Ports.Port, ['port'], name, value)
 
 
+
+
+
+
+
+
+
     class MplsDiscovery(Entity):
         """
         Provider Edge(PE) discovery configuration
@@ -8948,6 +9087,8 @@ class Ipsla(Entity):
                 self._perform_setattr(Ipsla.MplsDiscovery.Vpn, ['interval'], name, value)
 
 
+
+
     class ServerTwamp(Entity):
         """
         IPPM Server configuration
@@ -9001,7 +9142,10 @@ class Ipsla(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ipsla.ServerTwamp, ['inactivity_timer', 'port'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Ipsla()
         return self._top_entity
+
+
 

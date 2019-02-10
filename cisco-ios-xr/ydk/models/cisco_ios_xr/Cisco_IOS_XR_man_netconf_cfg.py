@@ -202,6 +202,8 @@ class NetconfYang(Entity):
                     self._perform_setattr(NetconfYang.Agent.Models.Openconfig, ['disabled'], name, value)
 
 
+
+
         class Ssh(Entity):
             """
             NETCONF YANG agent over SSH connection
@@ -237,6 +239,7 @@ class NetconfYang(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.Agent.Ssh, ['enable'], name, value)
+
 
 
         class Session(Entity):
@@ -301,7 +304,11 @@ class NetconfYang(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.Agent.Session, ['limit', 'absolute_timeout', 'idle_timeout'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = NetconfYang()
         return self._top_entity
+
+
 

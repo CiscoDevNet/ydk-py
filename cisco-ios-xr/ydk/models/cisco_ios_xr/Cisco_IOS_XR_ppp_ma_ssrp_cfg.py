@@ -156,7 +156,11 @@ class Ssrp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssrp.Profiles.Profile, ['name', 'max_hops', 'peer_ipv4_address'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Ssrp()
         return self._top_entity
+
+
 

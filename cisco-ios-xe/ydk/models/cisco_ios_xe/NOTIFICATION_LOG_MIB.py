@@ -23,25 +23,35 @@ class NOTIFICATIONLOGMIB(Entity):
     	
     	**type**\:  :py:class:`NlmConfig <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmConfig>`
     
+    	**config**\: False
+    
     .. attribute:: nlmstats
     
     	
     	**type**\:  :py:class:`NlmStats <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmStats>`
+    
+    	**config**\: False
     
     .. attribute:: nlmconfiglogtable
     
     	A table of logging control entries
     	**type**\:  :py:class:`NlmConfigLogTable <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmConfigLogTable>`
     
+    	**config**\: False
+    
     .. attribute:: nlmlogtable
     
     	A table of Notification log entries.  It is an implementation\-specific matter whether entries in this table are preserved across initializations of the management system.  In general one would expect that they are not.  Note that keeping entries across initializations of the management system leads to some confusion with counters and TimeStamps, since both of those are based on sysUpTime, which resets on management initialization.  In this situation, counters apply only after the reset and nlmLogTime for entries made before the reset MUST be set to 0
     	**type**\:  :py:class:`NlmLogTable <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmLogTable>`
     
+    	**config**\: False
+    
     .. attribute:: nlmlogvariabletable
     
     	A table of variables to go with Notification log entries
     	**type**\:  :py:class:`NlmLogVariableTable <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmLogVariableTable>`
+    
+    	**config**\: False
     
     
 
@@ -99,12 +109,16 @@ class NOTIFICATIONLOGMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: nlmconfigglobalageout
         
         	The number of minutes a Notification SHOULD be kept in a log before it is automatically removed.  If an application changes the value of nlmConfigGlobalAgeOut, Notifications older than the new time MAY be discarded to meet the new time.  A value of 0 means no age out.  Please be aware that contention between multiple managers trying to set this object to different values MAY affect the reliability and completeness of data seen by each manager
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: minutes
         
@@ -138,6 +152,7 @@ class NOTIFICATIONLOGMIB(Entity):
             self._perform_setattr(NOTIFICATIONLOGMIB.NlmConfig, ['nlmconfigglobalentrylimit', 'nlmconfigglobalageout'], name, value)
 
 
+
     class NlmStats(Entity):
         """
         
@@ -149,6 +164,8 @@ class NOTIFICATIONLOGMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: notifications
         
         .. attribute:: nlmstatsglobalnotificationsbumped
@@ -157,6 +174,8 @@ class NOTIFICATIONLOGMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: notifications
         
@@ -190,6 +209,7 @@ class NOTIFICATIONLOGMIB(Entity):
             self._perform_setattr(NOTIFICATIONLOGMIB.NlmStats, ['nlmstatsglobalnotificationslogged', 'nlmstatsglobalnotificationsbumped'], name, value)
 
 
+
     class NlmConfigLogTable(Entity):
         """
         A table of logging control entries.
@@ -198,6 +218,8 @@ class NOTIFICATIONLOGMIB(Entity):
         
         	A logging control entry.  Depending on the entry's storage type entries may be supplied by the system or created and deleted by applications using nlmConfigLogEntryStatus
         	**type**\: list of  		 :py:class:`NlmConfigLogEntry <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmConfigLogTable.NlmConfigLogEntry>`
+        
+        	**config**\: False
         
         
 
@@ -239,12 +261,16 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: nlmconfiglogfiltername
             
             	A value of snmpNotifyFilterProfileName as used as an index into the snmpNotifyFilterTable in the SNMP Notification MIB, specifying the locally or remotely originated Notifications to be filtered out and not logged in this log.  A zero\-length value or a name that does not identify an existing entry in snmpNotifyFilterTable indicate no Notifications are to be logged in this log
             	**type**\: str
             
             	**length:** 0..32
+            
+            	**config**\: False
             
             .. attribute:: nlmconfiglogentrylimit
             
@@ -253,25 +279,35 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: nlmconfiglogadminstatus
             
             	Control to enable or disable the log without otherwise disturbing the log's entry.  Please be aware that contention between multiple managers trying to set this object to different values MAY affect the reliability and completeness of data seen by each manager
             	**type**\:  :py:class:`NlmConfigLogAdminStatus <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmConfigLogTable.NlmConfigLogEntry.NlmConfigLogAdminStatus>`
+            
+            	**config**\: False
             
             .. attribute:: nlmconfiglogoperstatus
             
             	The operational status of this log\:  disabled  administratively disabled  operational    administratively enabled and working  noFilter  administratively enabled but either           nlmConfigLogFilterName is zero length           or does not name an existing entry in           snmpNotifyFilterTable
             	**type**\:  :py:class:`NlmConfigLogOperStatus <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmConfigLogTable.NlmConfigLogEntry.NlmConfigLogOperStatus>`
             
+            	**config**\: False
+            
             .. attribute:: nlmconfiglogstoragetype
             
             	The storage type of this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: nlmconfiglogentrystatus
             
             	Control for creating and deleting entries.  Entries may be modified while active.  For non\-null\-named logs, the managed system records the security credentials from the request that sets nlmConfigLogStatus to 'active' and uses that identity to apply access control to the objects in the Notification to decide if that Notification may be logged
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: nlmstatslognotificationslogged
             
@@ -279,6 +315,8 @@ class NOTIFICATIONLOGMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: notifications
             
@@ -288,6 +326,8 @@ class NOTIFICATIONLOGMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: notifications
             
@@ -393,6 +433,8 @@ class NOTIFICATIONLOGMIB(Entity):
 
 
 
+
+
     class NlmLogTable(Entity):
         """
         A table of Notification log entries.
@@ -412,6 +454,8 @@ class NOTIFICATIONLOGMIB(Entity):
         
         	A Notification log entry.  Entries appear in this table when Notifications occur and pass filtering by nlmConfigLogFilterName and access control.  They are removed to make way for new entries due to lack of resources or the values of nlmConfigGlobalEntryLimit, nlmConfigGlobalAgeOut, or nlmConfigLogEntryLimit.  If adding an entry would exceed nlmConfigGlobalEntryLimit or system resources in general, the oldest entry in any log SHOULD be removed to make room for the new one.  If adding an entry would exceed nlmConfigLogEntryLimit the oldest entry in that log SHOULD be removed to make room for the new one.  Before the managed system puts a locally\-generated Notification into a non\-null\-named log it assures that the creator of the log has access to the information in the Notification.  If not it does not log that Notification in that log
         	**type**\: list of  		 :py:class:`NlmLogEntry <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmLogTable.NlmLogEntry>`
+        
+        	**config**\: False
         
         
 
@@ -471,12 +515,16 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**refers to**\:  :py:class:`nlmlogname <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmConfigLogTable.NlmConfigLogEntry>`
             
+            	**config**\: False
+            
             .. attribute:: nlmlogindex  (key)
             
             	A monotonically increasing integer for the sole purpose of indexing entries within the named log.  When it reaches the maximum value, an extremely unlikely event, the agent wraps the value back to 1
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: nlmlogtime
             
@@ -485,10 +533,14 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: nlmlogdateandtime
             
             	The local date and time when the entry was logged, instantiated only by systems that have date and time capability
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: nlmlogengineid
             
@@ -497,12 +549,16 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**length:** 5..32
             
+            	**config**\: False
+            
             .. attribute:: nlmlogenginetaddress
             
             	The transport service address of the SNMP engine from which the Notification was received, formatted according to the corresponding value of nlmLogEngineTDomain. This is used to identify the source of an SNMPv1 trap, since an nlmLogEngineId cannot be extracted from the SNMPv1 trap pdu.  This object MUST always be instantiated, even if the log can contain Notifications from only one engine.  Please be aware that the nlmLogEngineTAddress may not uniquely identify the SNMP engine from which the Notification was received. For example, if an SNMP engine uses DHCP or NAT to obtain ip addresses, the address it uses may be shared with other network devices, and hence will not uniquely identify the SNMP engine
             	**type**\: str
             
             	**length:** 1..255
+            
+            	**config**\: False
             
             .. attribute:: nlmlogenginetdomain
             
@@ -511,6 +567,8 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: nlmlogcontextengineid
             
             	If the Notification was received in a protocol which has a contextEngineID element like SNMPv3, this object has that value. Otherwise its value is a zero\-length string
@@ -518,10 +576,14 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**length:** 5..32
             
+            	**config**\: False
+            
             .. attribute:: nlmlogcontextname
             
             	The name of the SNMP MIB context from which the Notification came. For SNMPv1 Traps this is the community string from the Trap
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: nlmlognotificationid
             
@@ -529,6 +591,8 @@ class NOTIFICATIONLOGMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             
 
@@ -576,6 +640,8 @@ class NOTIFICATIONLOGMIB(Entity):
                 self._perform_setattr(NOTIFICATIONLOGMIB.NlmLogTable.NlmLogEntry, ['nlmlogname', 'nlmlogindex', 'nlmlogtime', 'nlmlogdateandtime', 'nlmlogengineid', 'nlmlogenginetaddress', 'nlmlogenginetdomain', 'nlmlogcontextengineid', 'nlmlogcontextname', 'nlmlognotificationid'], name, value)
 
 
+
+
     class NlmLogVariableTable(Entity):
         """
         A table of variables to go with Notification log entries.
@@ -584,6 +650,8 @@ class NOTIFICATIONLOGMIB(Entity):
         
         	A Notification log entry variable.  Entries appear in this table when there are variables in the varbind list of a Notification in nlmLogTable
         	**type**\: list of  		 :py:class:`NlmLogVariableEntry <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmLogVariableTable.NlmLogVariableEntry>`
+        
+        	**config**\: False
         
         
 
@@ -628,6 +696,8 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**refers to**\:  :py:class:`nlmlogname <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmConfigLogTable.NlmConfigLogEntry>`
             
+            	**config**\: False
+            
             .. attribute:: nlmlogindex  (key)
             
             	
@@ -637,12 +707,16 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**refers to**\:  :py:class:`nlmlogindex <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmLogTable.NlmLogEntry>`
             
+            	**config**\: False
+            
             .. attribute:: nlmlogvariableindex  (key)
             
             	A monotonically increasing integer, starting at 1 for a given nlmLogIndex, for indexing variables within the logged Notification
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: nlmlogvariableid
             
@@ -651,10 +725,14 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: nlmlogvariablevaluetype
             
             	The type of the value.  One and only one of the value objects that follow must be instantiated, based on this type
             	**type**\:  :py:class:`NlmLogVariableValueType <ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB.NOTIFICATIONLOGMIB.NlmLogVariableTable.NlmLogVariableEntry.NlmLogVariableValueType>`
+            
+            	**config**\: False
             
             .. attribute:: nlmlogvariablecounter32val
             
@@ -663,12 +741,16 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: nlmlogvariableunsigned32val
             
             	The value when nlmLogVariableType is 'unsigned32'
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: nlmlogvariabletimeticksval
             
@@ -677,6 +759,8 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: nlmlogvariableinteger32val
             
             	The value when nlmLogVariableType is 'integer32'
@@ -684,10 +768,14 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: nlmlogvariableoctetstringval
             
             	The value when nlmLogVariableType is 'octetString'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: nlmlogvariableipaddressval
             
@@ -696,12 +784,16 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: nlmlogvariableoidval
             
             	The value when nlmLogVariableType is 'objectId'
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: nlmlogvariablecounter64val
             
@@ -710,10 +802,14 @@ class NOTIFICATIONLOGMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: nlmlogvariableopaqueval
             
             	The value when nlmLogVariableType is 'opaque'
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -815,7 +911,11 @@ class NOTIFICATIONLOGMIB(Entity):
                 opaque = Enum.YLeaf(9, "opaque")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = NOTIFICATIONLOGMIB()
         return self._top_entity
+
+
 

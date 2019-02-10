@@ -343,6 +343,7 @@ class Ptp(Entity):
                 self._perform_setattr(Ptp.Clock.Profile, ['clock_profile', 'telecom_clock_type'], name, value)
 
 
+
         class Identity(Entity):
             """
             Local clock identity
@@ -396,6 +397,8 @@ class Ptp(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ptp.Clock.Identity, ['clock_id_type', 'mac_address', 'eui'], name, value)
+
+
 
 
     class Profiles(Entity):
@@ -801,6 +804,7 @@ class Ptp(Entity):
                     self._perform_setattr(Ptp.Profiles.Profile.AnnounceInterval, ['time_type', 'time_period'], name, value)
 
 
+
             class Interop(Entity):
                 """
                 Table for interop configuration
@@ -1033,6 +1037,9 @@ class Ptp(Entity):
                                 self._perform_setattr(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings.ClockClassMapping, ['clock_class_from', 'clock_class_to'], name, value)
 
 
+
+
+
                 class IngressConversion(Entity):
                     """
                     Iteroperation configuration to be used on
@@ -1202,6 +1209,10 @@ class Ptp(Entity):
                                 self._perform_setattr(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings.ClockClassMapping, ['clock_class_from', 'clock_class_to'], name, value)
 
 
+
+
+
+
             class SourceIpv4Address(Entity):
                 """
                 Source IPv4 Address
@@ -1245,6 +1256,7 @@ class Ptp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.Profiles.Profile.SourceIpv4Address, ['enable', 'source_ip'], name, value)
+
 
 
             class Slaves(Entity):
@@ -1376,6 +1388,7 @@ class Ptp(Entity):
                             self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ethernet, ['slave_mac_address', 'non_negotiated'], name, value)
 
 
+
                     class Ipv4OrIpv6(Entity):
                         """
                         ipv4 or ipv6
@@ -1427,6 +1440,9 @@ class Ptp(Entity):
                             self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6, ['slave_ip_address', 'non_negotiated'], name, value)
 
 
+
+
+
             class SyncInterval(Entity):
                 """
                 Sync interval
@@ -1472,6 +1488,7 @@ class Ptp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.Profiles.Profile.SyncInterval, ['time_type', 'time_period'], name, value)
+
 
 
             class Masters(Entity):
@@ -1692,6 +1709,8 @@ class Ptp(Entity):
                                 self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry, ['magnitude', 'units'], name, value)
 
 
+
+
                     class Ipv4OrIpv6(Entity):
                         """
                         ipv4 or ipv6
@@ -1832,6 +1851,10 @@ class Ptp(Entity):
                                 self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, ['magnitude', 'units'], name, value)
 
 
+
+
+
+
             class Communication(Entity):
                 """
                 Communication model
@@ -1886,6 +1909,7 @@ class Ptp(Entity):
                     self._perform_setattr(Ptp.Profiles.Profile.Communication, ['model', 'target_address_set', 'target_address'], name, value)
 
 
+
             class DelayRequestMinimumInterval(Entity):
                 """
                 Minimum delay request interval
@@ -1933,6 +1957,7 @@ class Ptp(Entity):
                     self._perform_setattr(Ptp.Profiles.Profile.DelayRequestMinimumInterval, ['time_type', 'time_period'], name, value)
 
 
+
             class SourceIpv6Address(Entity):
                 """
                 Source IPv6 Address
@@ -1976,6 +2001,9 @@ class Ptp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.Profiles.Profile.SourceIpv6Address, ['enable', 'source_ipv6'], name, value)
+
+
+
 
 
     class UtcOffset(Entity):
@@ -2091,6 +2119,7 @@ class Ptp(Entity):
                 self._perform_setattr(Ptp.UtcOffset.LeapSecondFile, ['source_url', 'polling_frequency'], name, value)
 
 
+
         class ScheduledOffsets(Entity):
             """
             Table for scheduled UTC offset configuration
@@ -2179,6 +2208,9 @@ class Ptp(Entity):
                     self._perform_setattr(Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset, ['date', 'offset'], name, value)
 
 
+
+
+
     class Logging(Entity):
         """
         PTP logging configuration
@@ -2254,6 +2286,8 @@ class Ptp(Entity):
                 self._perform_setattr(Ptp.Logging.BestMasterClock, ['changes'], name, value)
 
 
+
+
     class UncalibratedClockClass2(Entity):
         """
         Clock class to be used while acquiring
@@ -2304,6 +2338,7 @@ class Ptp(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ptp.UncalibratedClockClass2, ['clock_class', 'unless_from_holdover'], name, value)
+
 
 
     class TransparentClock(Entity):
@@ -2420,6 +2455,9 @@ class Ptp(Entity):
                     self._perform_setattr(Ptp.TransparentClock.Domains.Domain, ['domain'], name, value)
 
 
+
+
+
     class VirtualPort(Entity):
         """
         PTP virtual port configuration
@@ -2510,7 +2548,10 @@ class Ptp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Ptp.VirtualPort, ['clock_accuracy', 'enable', 'priority2', 'local_priority', 'offset_scaled_log_variance', 'priority1', 'clock_class'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Ptp()
         return self._top_entity
+
+
 

@@ -101,6 +101,8 @@ class Services(Entity):
     	
     	**type**\: list of  		 :py:class:`AllLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.Services.AllLocations>`
     
+    	**config**\: False
+    
     
 
     """
@@ -137,10 +139,14 @@ class Services(Entity):
         	Node Location
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: services
         
         	
         	**type**\: list of  		 :py:class:`Services_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.Services.AllLocations.Services_>`
+        
+        	**config**\: False
         
         
 
@@ -181,15 +187,21 @@ class Services(Entity):
             	Name of the service
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: endpoint
             
             	endpoint info for a service in DS
             	**type**\: list of  		 :py:class:`Endpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.Services.AllLocations.Services_.Endpoint>`
             
+            	**config**\: False
+            
             .. attribute:: registrations
             
             	clients registered for a service in DS
             	**type**\: list of  		 :py:class:`Registrations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.Services.AllLocations.Services_.Registrations>`
+            
+            	**config**\: False
             
             
 
@@ -230,12 +242,16 @@ class Services(Entity):
                 	
                 	**type**\:  :py:class:`ServiceScope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.ServiceScope>`
                 
+                	**config**\: False
+                
                 .. attribute:: ip
                 
                 	
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: port
                 
@@ -244,20 +260,28 @@ class Services(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: role
                 
                 	
                 	**type**\:  :py:class:`ProcessRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.ProcessRole>`
+                
+                	**config**\: False
                 
                 .. attribute:: issu_role
                 
                 	
                 	**type**\:  :py:class:`ProcessIssuRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.ProcessIssuRole>`
                 
+                	**config**\: False
+                
                 .. attribute:: node
                 
                 	Ethernet address of the node hosting the endpoint
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -296,6 +320,7 @@ class Services(Entity):
                     self._perform_setattr(Services.AllLocations.Services_.Endpoint, ['scope', 'ip', 'port', 'role', 'issu_role', 'node'], name, value)
 
 
+
             class Registrations(Entity):
                 """
                 clients registered for a service in DS
@@ -305,12 +330,16 @@ class Services(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: pid
                 
                 	
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -340,9 +369,14 @@ class Services(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Services.AllLocations.Services_.Registrations, ['client', 'pid'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Services()
         return self._top_entity
+
+
 
 class ServicesStats(Entity):
     """
@@ -353,10 +387,14 @@ class ServicesStats(Entity):
     	
     	**type**\:  :py:class:`Ds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.ServicesStats.Ds>`
     
+    	**config**\: False
+    
     .. attribute:: all_locations
     
     	
     	**type**\: list of  		 :py:class:`AllLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.ServicesStats.AllLocations>`
+    
+    	**config**\: False
     
     
 
@@ -398,6 +436,8 @@ class ServicesStats(Entity):
         	show traceable processes
         	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.ServicesStats.Ds.Trace>`
         
+        	**config**\: False
+        
         
 
         """
@@ -434,10 +474,14 @@ class ServicesStats(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.ServicesStats.Ds.Trace.Location>`
+            
+            	**config**\: False
             
             
 
@@ -478,10 +522,14 @@ class ServicesStats(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: all_options
                 
                 	
                 	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.ServicesStats.Ds.Trace.Location.AllOptions>`
+                
+                	**config**\: False
                 
                 
 
@@ -521,10 +569,14 @@ class ServicesStats(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: trace_blocks
                     
                     	
                     	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -564,6 +616,8 @@ class ServicesStats(Entity):
                         	Trace output block
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -591,6 +645,11 @@ class ServicesStats(Entity):
                             self._perform_setattr(ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
+
+
+
+
+
     class AllLocations(Entity):
         """
         
@@ -600,10 +659,14 @@ class ServicesStats(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: stats
         
         	
         	**type**\: list of  		 :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds.ServicesStats.AllLocations.Stats>`
+        
+        	**config**\: False
         
         
 
@@ -644,12 +707,16 @@ class ServicesStats(Entity):
             	Name of the service
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: published
             
             	number of endpoints published for this service
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: deleted
             
@@ -658,12 +725,16 @@ class ServicesStats(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: modified
             
             	number of endpoints modified for this service
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: registered
             
@@ -672,12 +743,16 @@ class ServicesStats(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: unregistered
             
             	number of clients un\-registered for this service
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: notifications
             
@@ -686,6 +761,8 @@ class ServicesStats(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: remote_sent
             
             	number of remote service updates sent to remote nodes
@@ -693,12 +770,16 @@ class ServicesStats(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: remote_recv
             
             	number of remote service received from remote nodes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -742,7 +823,11 @@ class ServicesStats(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ServicesStats.AllLocations.Stats, ['name', 'published', 'deleted', 'modified', 'registered', 'unregistered', 'notifications', 'remote_sent', 'remote_recv'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ServicesStats()
         return self._top_entity
+
+
 

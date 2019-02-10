@@ -180,7 +180,12 @@ class Telnet(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Telnet.Vrfs.Vrf.Ipv4, ['dscp'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Telnet()
         return self._top_entity
+
+
 

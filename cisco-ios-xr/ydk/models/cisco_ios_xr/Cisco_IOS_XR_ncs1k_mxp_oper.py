@@ -141,10 +141,14 @@ class HwModule(Entity):
     	Slice information
     	**type**\:  :py:class:`SliceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds>`
     
+    	**config**\: False
+    
     .. attribute:: slice_all
     
     	Information for all slices
     	**type**\:  :py:class:`SliceAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll>`
+    
+    	**config**\: False
     
     
 
@@ -188,6 +192,8 @@ class HwModule(Entity):
         	Per slice num data
         	**type**\: list of  		 :py:class:`SliceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId>`
         
+        	**config**\: False
+        
         
 
         """
@@ -226,6 +232,8 @@ class HwModule(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: slice_id
             
             	SliceId
@@ -233,20 +241,28 @@ class HwModule(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: client_rate
             
             	ClientRate
             	**type**\:  :py:class:`ClientDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.ClientDataRate>`
+            
+            	**config**\: False
             
             .. attribute:: trunk_rate
             
             	TrunkRate
             	**type**\:  :py:class:`TrunkDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.TrunkDataRate>`
             
+            	**config**\: False
+            
             .. attribute:: hardware_status
             
             	HardwareStatus
             	**type**\:  :py:class:`HwModuleSliceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus>`
+            
+            	**config**\: False
             
             .. attribute:: dp_fpga_fw_type
             
@@ -255,12 +271,16 @@ class HwModule(Entity):
             
             	**length:** 0..10
             
+            	**config**\: False
+            
             .. attribute:: dp_fpga_fw_ver
             
             	DpFpgaFwVer
             	**type**\: str
             
             	**length:** 0..10
+            
+            	**config**\: False
             
             .. attribute:: need_upg
             
@@ -269,20 +289,28 @@ class HwModule(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: encryption_supported
             
             	EncryptionSupported
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: lldp_drop_status
             
             	LldpDropStatus
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: client_port
             
             	client port
             	**type**\: list of  		 :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.ClientPort>`
+            
+            	**config**\: False
             
             
 
@@ -343,6 +371,8 @@ class HwModule(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: if_index
                 
                 	IfIndex
@@ -350,10 +380,14 @@ class HwModule(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: trunk_port
                 
                 	trunk port
                 	**type**\: list of  		 :py:class:`TrunkPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.ClientPort.TrunkPort>`
+                
+                	**config**\: False
                 
                 
 
@@ -397,6 +431,8 @@ class HwModule(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: if_index
                     
                     	IfIndex
@@ -404,12 +440,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: percentage
                     
                     	Percentage
                     	**type**\: str
                     
                     	**length:** 0..8
+                    
+                    	**config**\: False
                     
                     
 
@@ -442,6 +482,10 @@ class HwModule(Entity):
                         self._perform_setattr(HwModule.SliceIds.SliceId.ClientPort.TrunkPort, [u'trunk_name', u'if_index', u'percentage'], name, value)
 
 
+
+
+
+
     class SliceAll(Entity):
         """
         Information for all slices
@@ -450,6 +494,8 @@ class HwModule(Entity):
         
         	slice info
         	**type**\: list of  		 :py:class:`SliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo>`
+        
+        	**config**\: False
         
         
 
@@ -489,20 +535,28 @@ class HwModule(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: client_rate
             
             	ClientRate
             	**type**\:  :py:class:`ClientDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.ClientDataRate>`
+            
+            	**config**\: False
             
             .. attribute:: trunk_rate
             
             	TrunkRate
             	**type**\:  :py:class:`TrunkDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.TrunkDataRate>`
             
+            	**config**\: False
+            
             .. attribute:: hardware_status
             
             	HardwareStatus
             	**type**\:  :py:class:`HwModuleSliceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus>`
+            
+            	**config**\: False
             
             .. attribute:: dp_fpga_fw_type
             
@@ -511,12 +565,16 @@ class HwModule(Entity):
             
             	**length:** 0..10
             
+            	**config**\: False
+            
             .. attribute:: dp_fpga_fw_ver
             
             	DpFpgaFwVer
             	**type**\: str
             
             	**length:** 0..10
+            
+            	**config**\: False
             
             .. attribute:: need_upg
             
@@ -525,20 +583,28 @@ class HwModule(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: encryption_supported
             
             	EncryptionSupported
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: lldp_drop_status
             
             	LldpDropStatus
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: client_port
             
             	client port
             	**type**\: list of  		 :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo.ClientPort>`
+            
+            	**config**\: False
             
             
 
@@ -597,6 +663,8 @@ class HwModule(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: if_index
                 
                 	IfIndex
@@ -604,10 +672,14 @@ class HwModule(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: trunk_port
                 
                 	trunk port
                 	**type**\: list of  		 :py:class:`TrunkPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort>`
+                
+                	**config**\: False
                 
                 
 
@@ -652,6 +724,8 @@ class HwModule(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: if_index
                     
                     	IfIndex
@@ -659,12 +733,16 @@ class HwModule(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: percentage
                     
                     	Percentage
                     	**type**\: str
                     
                     	**length:** 0..8
+                    
+                    	**config**\: False
                     
                     
 
@@ -697,7 +775,13 @@ class HwModule(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort, [u'trunk_name', u'if_index', u'percentage'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = HwModule()
         return self._top_entity
+
+
 

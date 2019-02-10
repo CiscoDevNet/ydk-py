@@ -411,6 +411,8 @@ class SessionRedundancy(Entity):
                         self._perform_setattr(SessionRedundancy.Groups.Group.Peer.Ipaddress, ['address_family', 'prefix_string'], name, value)
 
 
+
+
             class RevertiveTimer(Entity):
                 """
                 None
@@ -458,6 +460,7 @@ class SessionRedundancy(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SessionRedundancy.Groups.Group.RevertiveTimer, ['max_value', 'value'], name, value)
+
 
 
             class InterfaceList(Entity):
@@ -623,6 +626,8 @@ class SessionRedundancy(Entity):
                             self._perform_setattr(SessionRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, ['interface_name', 'sub_interface_range_start', 'sub_interface_range_end', 'interface_id_range_start', 'interface_id_range_end'], name, value)
 
 
+
+
                 class Interfaces(Entity):
                     """
                     Table of Interface
@@ -705,6 +710,9 @@ class SessionRedundancy(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
+
+
+
 
 
             class PoolList(Entity):
@@ -825,6 +833,11 @@ class SessionRedundancy(Entity):
                             self._perform_setattr(SessionRedundancy.Groups.Group.PoolList.PoolNames.PoolName, ['pool_name'], name, value)
 
 
+
+
+
+
+
     class RevertiveTimer(Entity):
         """
         None
@@ -874,7 +887,10 @@ class SessionRedundancy(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SessionRedundancy.RevertiveTimer, ['max_value', 'value'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = SessionRedundancy()
         return self._top_entity
+
+
 

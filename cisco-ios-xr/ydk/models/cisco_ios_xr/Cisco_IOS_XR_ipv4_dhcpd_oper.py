@@ -454,6 +454,8 @@ class DhcpClient(Entity):
     	DHCP client list of nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -491,6 +493,8 @@ class DhcpClient(Entity):
         
         	DHCP client particular node name
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -530,15 +534,21 @@ class DhcpClient(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: client_stats
             
             	IPv4 DHCP client statistics table
             	**type**\:  :py:class:`ClientStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node.ClientStats>`
             
+            	**config**\: False
+            
             .. attribute:: clients
             
             	IPv4 DHCP client table
             	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node.Clients>`
+            
+            	**config**\: False
             
             
 
@@ -585,6 +595,8 @@ class DhcpClient(Entity):
                 	DHCP client binding statistics
                 	**type**\: list of  		 :py:class:`ClientStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node.ClientStats.ClientStat>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -622,12 +634,16 @@ class DhcpClient(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name
                     
                     	Dhcp Client interface name
                     	**type**\: str
                     
                     	**length:** 0..65
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_events_received
                     
@@ -636,12 +652,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_create_event_received
                     
                     	Number of create client event received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_delete_event_received
                     
@@ -650,12 +670,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_reboot_event_received
                     
                     	Number of client rebooted event received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_reinit_event_received
                     
@@ -664,12 +688,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_packet_event_received
                     
                     	Number of packet event received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_init_timer_eventi
                     
@@ -678,12 +706,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_t1_timer_event
                     
                     	Number of T1 timer event
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_t2_timer_event
                     
@@ -692,12 +724,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_lease_timer_event
                     
                     	Number of Lease timer event
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_vbind_timer_event
                     
@@ -706,12 +742,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_discovers_sent_successfully
                     
                     	Number of discovers sent successfully
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_requests_sent_successfully
                     
@@ -720,12 +760,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_releases_sent_successfully
                     
                     	Number of releases sent successfully
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_renews_sent_successfully
                     
@@ -734,12 +778,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_rebinds_sent_successfully
                     
                     	Number of rebinds sent successfully
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_declines_sent_successfully
                     
@@ -748,12 +796,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_request_after_reboot_sent
                     
                     	Number of requests sent after reboot
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_valid_offers_received
                     
@@ -762,12 +814,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_valid_acks_received
                     
                     	Number of valid acks received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_valid_nacks_received
                     
@@ -776,12 +832,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_unicast_packet_sent_successfully
                     
                     	Number of unicast packet sent successfully
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_broadcast_packet_sent_success
                     
@@ -790,12 +850,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_init_timer_start
                     
                     	Number of init timer starts
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_init_timer_stop
                     
@@ -804,12 +868,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_t1_timer_start
                     
                     	Number of T1 timer starts
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_t1_timer_stop
                     
@@ -818,12 +886,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_t2_timer_start
                     
                     	Number of T2 timer starts
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_t2_timer_stop
                     
@@ -832,12 +904,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_lease_timer_start
                     
                     	Number of Lease timer starts
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_lease_timer_stop
                     
@@ -846,12 +922,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_vbind_timer_start
                     
                     	Number of vbind timer starts
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_vbind_timer_stop
                     
@@ -860,12 +940,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_invalid_events
                     
                     	Number of invalid events received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_discovers_failed
                     
@@ -874,12 +958,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_requests_failed
                     
                     	Number of request send failed
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_releases_failed
                     
@@ -888,12 +976,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_renews_failed
                     
                     	Number of renew send failed
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_rebinds_failed
                     
@@ -902,12 +994,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_declines_failed
                     
                     	Number of decline send failed
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_request_after_reboot_failed
                     
@@ -916,12 +1012,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_invalid_offers
                     
                     	Number of invalid offers received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_invalid_acks
                     
@@ -930,12 +1030,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_invalid_nacks
                     
                     	Number of invalid nacks received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_invalid_packets
                     
@@ -944,12 +1048,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_unicast_failed
                     
                     	Number of unicast packet send failed
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: num_broadcast_failed
                     
@@ -958,6 +1066,8 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_xid_mismatch
                     
                     	Number of XID mismatch packets received
@@ -965,12 +1075,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: num_vbind_failed
                     
                     	Number of socket vbind failed
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1099,6 +1213,8 @@ class DhcpClient(Entity):
                         self._perform_setattr(DhcpClient.Nodes.Node.ClientStats.ClientStat, ['client_ifhandle', u'interface_name', u'num_events_received', u'num_create_event_received', u'num_delete_event_received', u'num_reboot_event_received', u'num_reinit_event_received', u'num_packet_event_received', u'num_init_timer_eventi', u'num_t1_timer_event', u'num_t2_timer_event', u'num_lease_timer_event', u'num_vbind_timer_event', u'num_discovers_sent_successfully', u'num_requests_sent_successfully', u'num_releases_sent_successfully', u'num_renews_sent_successfully', u'num_rebinds_sent_successfully', u'num_declines_sent_successfully', u'num_request_after_reboot_sent', u'num_valid_offers_received', u'num_valid_acks_received', u'num_valid_nacks_received', u'num_unicast_packet_sent_successfully', u'num_broadcast_packet_sent_success', u'num_init_timer_start', u'num_init_timer_stop', u'num_t1_timer_start', u'num_t1_timer_stop', u'num_t2_timer_start', u'num_t2_timer_stop', u'num_lease_timer_start', u'num_lease_timer_stop', u'num_vbind_timer_start', u'num_vbind_timer_stop', u'num_invalid_events', u'num_discovers_failed', u'num_requests_failed', u'num_releases_failed', u'num_renews_failed', u'num_rebinds_failed', u'num_declines_failed', u'num_request_after_reboot_failed', u'num_invalid_offers', u'num_invalid_acks', u'num_invalid_nacks', u'num_invalid_packets', u'num_unicast_failed', u'num_broadcast_failed', u'num_xid_mismatch', u'num_vbind_failed'], name, value)
 
 
+
+
             class Clients(Entity):
                 """
                 IPv4 DHCP client table
@@ -1107,6 +1223,8 @@ class DhcpClient(Entity):
                 
                 	Single DHCP client binding
                 	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpClient.Nodes.Node.Clients.Client>`
+                
+                	**config**\: False
                 
                 
 
@@ -1145,12 +1263,16 @@ class DhcpClient(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name
                     
                     	Dhcp Client interface name
                     	**type**\: str
                     
                     	**length:** 0..65
+                    
+                    	**config**\: False
                     
                     .. attribute:: client_mac_address
                     
@@ -1159,6 +1281,8 @@ class DhcpClient(Entity):
                     
                     	**length:** 0..17
                     
+                    	**config**\: False
+                    
                     .. attribute:: client_id
                     
                     	Dhcp Client ID
@@ -1166,10 +1290,14 @@ class DhcpClient(Entity):
                     
                     	**length:** 0..256
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_client_state
                     
                     	Dhcp Client State
                     	**type**\:  :py:class:`DhcpcIpv4State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpcIpv4State>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_address
                     
@@ -1178,12 +1306,16 @@ class DhcpClient(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_subnet_mask
                     
                     	Dhcp Client IP Address mask
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_server_address
                     
@@ -1192,12 +1324,16 @@ class DhcpClient(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: next_hop_ipv4_address
                     
                     	Dhcp Client next hop IP Address
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_lease_time
                     
@@ -1206,12 +1342,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_renew_time
                     
                     	Dhcp Client Renew time
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_rebind_time
                     
@@ -1220,10 +1360,14 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_address_configured
                     
                     	Dhcp Client IPV4 address configured in interface
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -1275,9 +1419,15 @@ class DhcpClient(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(DhcpClient.Nodes.Node.Clients.Client, ['client_ifhandle', u'interface_name', u'client_mac_address', u'client_id', u'ipv4_client_state', u'ipv4_address', u'ipv4_subnet_mask', u'ipv4_server_address', u'next_hop_ipv4_address', u'ipv4_lease_time', u'ipv4_renew_time', u'ipv4_rebind_time', u'ipv4_address_configured'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = DhcpClient()
         return self._top_entity
+
+
 
 class Ipv4Dhcpd(Entity):
     """
@@ -1288,10 +1438,14 @@ class Ipv4Dhcpd(Entity):
     	DHCP Snoop operational data
     	**type**\:  :py:class:`Snoop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop>`
     
+    	**config**\: False
+    
     .. attribute:: nodes
     
     	IPv4 DHCPD operational data for a particular location
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -1335,25 +1489,35 @@ class Ipv4Dhcpd(Entity):
         	DHCP Snoop Bindings
         	**type**\:  :py:class:`Bindings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Bindings>`
         
+        	**config**\: False
+        
         .. attribute:: binding_statistics
         
         	DHCP snoop binding statistics
         	**type**\:  :py:class:`BindingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.BindingStatistics>`
+        
+        	**config**\: False
         
         .. attribute:: statistics_info
         
         	DHCP snoop statistics info
         	**type**\:  :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.StatisticsInfo>`
         
+        	**config**\: False
+        
         .. attribute:: profiles
         
         	DHCP Snoop Profile
         	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Profiles>`
         
+        	**config**\: False
+        
         .. attribute:: statistics
         
         	DHCP Snoop Statistics
         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Statistics>`
+        
+        	**config**\: False
         
         
 
@@ -1409,6 +1573,8 @@ class Ipv4Dhcpd(Entity):
             	DHCP Snoop binding
             	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Bindings.Binding>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1447,12 +1613,16 @@ class Ipv4Dhcpd(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: snoop_binding_ch_addr
                 
                 	DHCP client MAC address
                 	**type**\: str
                 
                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                
+                	**config**\: False
                 
                 .. attribute:: snoop_binding_ch_addr_len
                 
@@ -1461,12 +1631,16 @@ class Ipv4Dhcpd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: snoop_binding_i_addr
                 
                 	DHCP iaddr
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: snoop_binding_client_id
                 
@@ -1475,12 +1649,16 @@ class Ipv4Dhcpd(Entity):
                 
                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                 
+                	**config**\: False
+                
                 .. attribute:: snoop_binding_client_id_len
                 
                 	DHCP client id len
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: snoop_binding_state
                 
@@ -1489,12 +1667,16 @@ class Ipv4Dhcpd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: snoop_binding_lease
                 
                 	DHCP lease time
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: snoop_binding_lease_start_time
                 
@@ -1503,12 +1685,16 @@ class Ipv4Dhcpd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: snoop_binding_profile_name
                 
                 	DHCP profile name
                 	**type**\: str
                 
                 	**length:** 0..65
+                
+                	**config**\: False
                 
                 .. attribute:: snoop_bindng_interface_name
                 
@@ -1517,12 +1703,16 @@ class Ipv4Dhcpd(Entity):
                 
                 	**length:** 0..321
                 
+                	**config**\: False
+                
                 .. attribute:: snoop_binding_bridge_name
                 
                 	DHCP L2 bridge name
                 	**type**\: str
                 
                 	**length:** 0..74
+                
+                	**config**\: False
                 
                 
 
@@ -1574,6 +1764,8 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Snoop.Bindings.Binding, ['client_uid', u'snoop_binding_ch_addr', u'snoop_binding_ch_addr_len', u'snoop_binding_i_addr', u'snoop_binding_client_id', u'snoop_binding_client_id_len', u'snoop_binding_state', u'snoop_binding_lease', u'snoop_binding_lease_start_time', u'snoop_binding_profile_name', u'snoop_bindng_interface_name', u'snoop_binding_bridge_name'], name, value)
 
 
+
+
         class BindingStatistics(Entity):
             """
             DHCP snoop binding statistics
@@ -1585,12 +1777,16 @@ class Ipv4Dhcpd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: snoop_binding_timestamp
             
             	Snoop binding timestamp
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1622,6 +1818,7 @@ class Ipv4Dhcpd(Entity):
                 self._perform_setattr(Ipv4Dhcpd.Snoop.BindingStatistics, [u'snoop_binding_total', u'snoop_binding_timestamp'], name, value)
 
 
+
         class StatisticsInfo(Entity):
             """
             DHCP snoop statistics info
@@ -1632,6 +1829,8 @@ class Ipv4Dhcpd(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1661,6 +1860,7 @@ class Ipv4Dhcpd(Entity):
                 self._perform_setattr(Ipv4Dhcpd.Snoop.StatisticsInfo, [u'snoop_stats_timestamp'], name, value)
 
 
+
         class Profiles(Entity):
             """
             DHCP Snoop Profile
@@ -1669,6 +1869,8 @@ class Ipv4Dhcpd(Entity):
             
             	DHCP Snoop profile
             	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Profiles.Profile>`
+            
+            	**config**\: False
             
             
 
@@ -1708,12 +1910,16 @@ class Ipv4Dhcpd(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: snoop_profile_name
                 
                 	Profile Name
                 	**type**\: str
                 
                 	**length:** 0..65
+                
+                	**config**\: False
                 
                 .. attribute:: snoop_profile_uid
                 
@@ -1722,12 +1928,16 @@ class Ipv4Dhcpd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: snoop_profile_relay_info_option
                 
                 	Relay info option
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: snoop_profile_relay_info_allow_untrusted
                 
@@ -1736,6 +1946,8 @@ class Ipv4Dhcpd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: snoop_profile_relay_info_policy
                 
                 	Relay info policy
@@ -1743,12 +1955,16 @@ class Ipv4Dhcpd(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: snoop_profile_trusted
                 
                 	Trust
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -1790,6 +2006,8 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Snoop.Profiles.Profile, ['profile_name', u'snoop_profile_name', u'snoop_profile_uid', u'snoop_profile_relay_info_option', u'snoop_profile_relay_info_allow_untrusted', u'snoop_profile_relay_info_policy', u'snoop_profile_trusted'], name, value)
 
 
+
+
         class Statistics(Entity):
             """
             DHCP Snoop Statistics
@@ -1798,6 +2016,8 @@ class Ipv4Dhcpd(Entity):
             
             	DHCP Snoop bridge domain statistics
             	**type**\: list of  		 :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Statistics.Statistic>`
+            
+            	**config**\: False
             
             
 
@@ -1837,6 +2057,8 @@ class Ipv4Dhcpd(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: snoop_statistics_bridge_name
                 
                 	DHCP L2 bridge name
@@ -1844,12 +2066,16 @@ class Ipv4Dhcpd(Entity):
                 
                 	**length:** 0..74
                 
+                	**config**\: False
+                
                 .. attribute:: snoop_statistic
                 
                 	Public snoop statistics
                 	**type**\: list of int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -1883,6 +2109,9 @@ class Ipv4Dhcpd(Entity):
                     self._perform_setattr(Ipv4Dhcpd.Snoop.Statistics.Statistic, ['bridge_name', u'snoop_statistics_bridge_name', u'snoop_statistic'], name, value)
 
 
+
+
+
     class Nodes(Entity):
         """
         IPv4 DHCPD operational data for a particular
@@ -1892,6 +2121,8 @@ class Ipv4Dhcpd(Entity):
         
         	Location. For eg., 0/1/CPU0
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -1931,30 +2162,42 @@ class Ipv4Dhcpd(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: proxy
             
             	IPv4 DHCP proxy operational data
             	**type**\:  :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy>`
+            
+            	**config**\: False
             
             .. attribute:: interfaces
             
             	IPv4 DHCP proxy/server Interface
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Interfaces>`
             
+            	**config**\: False
+            
             .. attribute:: base
             
             	IPv4 DHCP base operational data
             	**type**\:  :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base>`
+            
+            	**config**\: False
             
             .. attribute:: server
             
             	IPv4 DHCP Server operational data
             	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server>`
             
+            	**config**\: False
+            
             .. attribute:: relay
             
             	IPv4 DHCPD Relay operational data
             	**type**\:  :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay>`
+            
+            	**config**\: False
             
             
 
@@ -2013,25 +2256,35 @@ class Ipv4Dhcpd(Entity):
                 	DHCP proxy stats info
                 	**type**\:  :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: vrfs
                 
                 	DHCP proxy list of VRF names
                 	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs>`
+                
+                	**config**\: False
                 
                 .. attribute:: profiles
                 
                 	IPv4 DHCP proxy profile
                 	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles>`
                 
+                	**config**\: False
+                
                 .. attribute:: statistics
                 
                 	DHCP proxy statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: binding
                 
                 	DHCP proxy bindings
                 	**type**\:  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding>`
+                
+                	**config**\: False
                 
                 
 
@@ -2088,6 +2341,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2115,6 +2370,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, [u'proxy_stats_timestamp'], name, value)
 
 
+
                 class Vrfs(Entity):
                     """
                     DHCP proxy list of VRF names
@@ -2123,6 +2379,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	IPv4 DHCP proxy VRF name
                     	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2161,10 +2419,14 @@ class Ipv4Dhcpd(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: statistics
                         
                         	IPv4 DHCP proxy statistics
                         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2206,70 +2468,98 @@ class Ipv4Dhcpd(Entity):
                             	DHCP discover packets
                             	**type**\:  :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: offer
                             
                             	DHCP offer packets
                             	**type**\:  :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: request
                             
                             	DHCP request packets
                             	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: decline
                             
                             	DHCP decline packets
                             	**type**\:  :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ack
                             
                             	DHCP ack packets
                             	**type**\:  :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: nak
                             
                             	DHCP nak packets
                             	**type**\:  :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: release
                             
                             	DHCP release packets
                             	**type**\:  :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: inform
                             
                             	DHCP inform packets
                             	**type**\:  :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: lease_query
                             
                             	DHCP lease query packets
                             	**type**\:  :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_not_assigned
                             
                             	DHCP lease not assigned
                             	**type**\:  :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: lease_unknown
                             
                             	DHCP lease unknown
                             	**type**\:  :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_active
                             
                             	DHCP lease active
                             	**type**\:  :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bootp_request
                             
                             	DHCP BOOTP request
                             	**type**\:  :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bootp_reply
                             
                             	DHCP BOOTP reply
                             	**type**\:  :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2362,6 +2652,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -2369,12 +2661,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2407,6 +2703,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Offer(Entity):
                                 """
                                 DHCP offer packets
@@ -2418,6 +2715,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -2425,12 +2724,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2463,6 +2766,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Request(Entity):
                                 """
                                 DHCP request packets
@@ -2474,6 +2778,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -2481,12 +2787,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2519,6 +2829,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Decline(Entity):
                                 """
                                 DHCP decline packets
@@ -2530,6 +2841,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -2537,12 +2850,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2575,6 +2892,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Ack(Entity):
                                 """
                                 DHCP ack packets
@@ -2586,6 +2904,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -2593,12 +2913,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2631,6 +2955,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Nak(Entity):
                                 """
                                 DHCP nak packets
@@ -2642,6 +2967,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -2649,12 +2976,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2687,6 +3018,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Release(Entity):
                                 """
                                 DHCP release packets
@@ -2698,6 +3030,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -2705,12 +3039,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2743,6 +3081,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Inform(Entity):
                                 """
                                 DHCP inform packets
@@ -2754,6 +3093,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -2761,12 +3102,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2799,6 +3144,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseQuery(Entity):
                                 """
                                 DHCP lease query packets
@@ -2810,6 +3156,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -2817,12 +3165,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2855,6 +3207,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseNotAssigned(Entity):
                                 """
                                 DHCP lease not assigned
@@ -2866,6 +3219,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -2873,12 +3228,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2911,6 +3270,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseUnknown(Entity):
                                 """
                                 DHCP lease unknown
@@ -2922,6 +3282,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -2929,12 +3291,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2967,6 +3333,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseActive(Entity):
                                 """
                                 DHCP lease active
@@ -2978,6 +3345,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -2985,12 +3354,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3023,6 +3396,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class BootpRequest(Entity):
                                 """
                                 DHCP BOOTP request
@@ -3034,6 +3408,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -3041,12 +3417,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3079,6 +3459,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class BootpReply(Entity):
                                 """
                                 DHCP BOOTP reply
@@ -3090,6 +3471,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -3097,12 +3480,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3135,6 +3522,10 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
+
+
+
                 class Profiles(Entity):
                     """
                     IPv4 DHCP proxy profile
@@ -3143,6 +3534,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	IPv4 DHCP proxy profile
                     	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3181,60 +3574,84 @@ class Ipv4Dhcpd(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_references
                         
                         	VRF references
                         	**type**\:  :py:class:`VrfReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_references
                         
                         	Interface references
                         	**type**\:  :py:class:`InterfaceReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_relay_option_enabled
                         
                         	Is true if relay option is enabled
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: relay_policy
                         
                         	Relay policy
                         	**type**\:  :py:class:`RelayInfoPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoPolicy>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_authenticate
                         
                         	Relay authenticate
                         	**type**\:  :py:class:`RelayInfoAuthenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoAuthenticate>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_relay_allow_untrusted_enabled
                         
                         	Is true if relay untrusted is enabled
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_relay_optionvpn_enabled
                         
                         	Is true if relay VPN enabled
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: relay_optionvpn_enabled_mode
                         
                         	Relay VPN RFC/Cisco mode
                         	**type**\:  :py:class:`RelayInfoVpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoVpnMode>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_relay_check
                         
                         	Is true if relay check enabled
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_move_allowed
                         
                         	Is true if dhcp subscriber is allowed to move
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: proxy_broadcast_flag_policy
                         
                         	Broadcast policy
                         	**type**\:  :py:class:`BroadcastFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BroadcastFlag>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: proxy_profile_client_lease_time
                         
@@ -3243,12 +3660,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: proxy_lease_limit_type
                         
                         	Lease limit type
                         	**type**\:  :py:class:`ProxyLeaseLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.ProxyLeaseLimit>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: proxy_lease_limit_count
                         
@@ -3257,12 +3678,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: profile_helper_address
                         
                         	Helper addresses
                         	**type**\: list of str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: vrf_name
                         
@@ -3271,12 +3696,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**length:** 0..33
                         
+                        	**config**\: False
+                        
                         .. attribute:: gi_addr
                         
                         	Gateway addresses
                         	**type**\: list of str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -3352,6 +3781,8 @@ class Ipv4Dhcpd(Entity):
                             	ipv4 dhcpd proxy vrf reference
                             	**type**\: list of  		 :py:class:`Ipv4DhcpdProxyVrfReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -3389,6 +3820,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**length:** 0..33
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -3416,6 +3849,8 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, [u'proxy_reference_vrf_name'], name, value)
 
 
+
+
                         class InterfaceReferences(Entity):
                             """
                             Interface references
@@ -3424,6 +3859,8 @@ class Ipv4Dhcpd(Entity):
                             
                             	ipv4 dhcpd proxy interface reference
                             	**type**\: list of  		 :py:class:`Ipv4DhcpdProxyInterfaceReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3462,6 +3899,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**length:** 0..65
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -3489,6 +3928,10 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, [u'proxy_reference_interface_name'], name, value)
 
 
+
+
+
+
                 class Statistics(Entity):
                     """
                     DHCP proxy statistics
@@ -3497,6 +3940,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	ipv4 dhcpd proxy stat
                     	**type**\: list of  		 :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3533,12 +3978,16 @@ class Ipv4Dhcpd(Entity):
                         	Proxy statistics
                         	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics_>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	DHCP L3 VRF name
                         	**type**\: str
                         
                         	**length:** 0..33
+                        
+                        	**config**\: False
                         
                         
 
@@ -3582,6 +4031,8 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
@@ -3589,12 +4040,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -3627,6 +4082,9 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
+
+
                 class Binding(Entity):
                     """
                     DHCP proxy bindings
@@ -3636,10 +4094,14 @@ class Ipv4Dhcpd(Entity):
                     	DHCP proxy client bindings
                     	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: summary
                     
                     	DHCP proxy binding summary
                     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3682,6 +4144,8 @@ class Ipv4Dhcpd(Entity):
                         	Single DHCP proxy binding
                         	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3719,6 +4183,8 @@ class Ipv4Dhcpd(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: client_id_xr
                             
                             	DHCP client identifier
@@ -3726,10 +4192,14 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..1275
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	DHCP client MAC address
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: vrf_name
                             
@@ -3738,12 +4208,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: server_vrf_name
                             
                             	DHCP server VRF name
                             	**type**\: str
                             
                             	**length:** 0..33
+                            
+                            	**config**\: False
                             
                             .. attribute:: ip_address
                             
@@ -3752,12 +4226,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: client_gi_addr
                             
                             	DHCP client GIADDR
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: to_server_gi_addr
                             
@@ -3766,12 +4244,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: server_ip_address
                             
                             	DHCP server IP address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: reply_server_ip_address
                             
@@ -3780,12 +4262,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_time
                             
                             	Lease time in seconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -3796,12 +4282,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: second
                             
                             .. attribute:: state
                             
                             	DHCP client state
                             	**type**\:  :py:class:`BagDhcpdProxyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdProxyState>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: interface_name
                             
@@ -3810,12 +4300,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: access_vrf_name
                             
                             	DHCP access interface VRF name
                             	**type**\: str
                             
                             	**length:** 0..33
+                            
+                            	**config**\: False
                             
                             .. attribute:: proxy_binding_outer_tag
                             
@@ -3824,12 +4318,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: proxy_binding_inner_tag
                             
                             	DHCP VLAN inner VLAN
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: profile_name
                             
@@ -3838,10 +4336,14 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..65
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_nak_next_renew
                             
                             	Is true if DHCP next renew from client will be NAK'd
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: subscriber_label
                             
@@ -3850,12 +4352,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: old_subscriber_label
                             
                             	DHCP old subscriber label
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: subscriber_interface_name
                             
@@ -3864,12 +4370,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_circuit_id
                             
                             	DHCP received circuit ID
                             	**type**\: str
                             
                             	**length:** 0..768
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_circuit_id
                             
@@ -3878,12 +4388,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..768
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_remote_id
                             
                             	DHCP received Remote ID
                             	**type**\: str
                             
                             	**length:** 0..768
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_remote_id
                             
@@ -3892,12 +4406,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..768
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_vsiso
                             
                             	DHCP received VSISO
                             	**type**\: str
                             
                             	**length:** 0..768
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_vsiso
                             
@@ -3906,15 +4424,21 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..768
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_auth_received
                             
                             	Is true if authentication is on received option82
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_mbl_subscriber
                             
                             	Is true if DHCP subscriber is Mobile
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: param_request
                             
@@ -3923,12 +4447,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..513
                             
+                            	**config**\: False
+                            
                             .. attribute:: param_response
                             
                             	DHCP saved options
                             	**type**\: str
                             
                             	**length:** 0..2051
+                            
+                            	**config**\: False
                             
                             .. attribute:: session_start_time
                             
@@ -3937,6 +4465,8 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: srg_state
                             
                             	DHCPV4 SRG state
@@ -3944,12 +4474,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: event_history
                             
                             	event history
                             	**type**\: list of int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -4046,6 +4580,8 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', u'client_id_xr', u'mac_address', u'vrf_name', u'server_vrf_name', u'ip_address', u'client_gi_addr', u'to_server_gi_addr', u'server_ip_address', u'reply_server_ip_address', u'lease_time', u'remaining_lease_time', u'state', u'interface_name', u'access_vrf_name', u'proxy_binding_outer_tag', u'proxy_binding_inner_tag', u'profile_name', u'is_nak_next_renew', u'subscriber_label', u'old_subscriber_label', u'subscriber_interface_name', u'rx_circuit_id', u'tx_circuit_id', u'rx_remote_id', u'tx_remote_id', u'rx_vsiso', u'tx_vsiso', u'is_auth_received', u'is_mbl_subscriber', u'param_request', u'param_response', u'session_start_time', u'srg_state', u'event_history'], name, value)
 
 
+
+
                     class Summary(Entity):
                         """
                         DHCP proxy binding summary
@@ -4057,12 +4593,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: initializing_clients
                         
                         	Number of clients in init state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: waiting_for_dpm_init
                         
@@ -4071,12 +4611,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: waiting_for_dpm_request
                         
                         	Number of clients in Request DPM wait state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: waiting_for_daps_init
                         
@@ -4085,12 +4629,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: selecting_clients
                         
                         	Number of clients in selecting state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: offer_sent_for_client
                         
@@ -4099,12 +4647,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: requesting_clients
                         
                         	Number of clients in requesting state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: request_waiting_for_dpm
                         
@@ -4113,12 +4665,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ack_waiting_for_dpm
                         
                         	Number of clients in Waiting for DPM with ACK
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bound_clients
                         
@@ -4127,12 +4683,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: renewing_clients
                         
                         	Number of clients in renewing state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: informing_clients
                         
@@ -4141,12 +4701,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reauthorizing_clients
                         
                         	Number of clients in reauth state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: waiting_for_dpm_disconnect
                         
@@ -4155,12 +4719,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: waiting_for_dpm_addr_change
                         
                         	Number of clients in Waiting for DPM after addr change
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: deleting_clients_d
                         
@@ -4169,6 +4737,8 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: disconnected_clients
                         
                         	Number of clients in disconnected state
@@ -4176,12 +4746,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: restarting_clients
                         
                         	Number of clients in restarting state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4246,6 +4820,9 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary, [u'clients', u'initializing_clients', u'waiting_for_dpm_init', u'waiting_for_dpm_request', u'waiting_for_daps_init', u'selecting_clients', u'offer_sent_for_client', u'requesting_clients', u'request_waiting_for_dpm', u'ack_waiting_for_dpm', u'bound_clients', u'renewing_clients', u'informing_clients', u'reauthorizing_clients', u'waiting_for_dpm_disconnect', u'waiting_for_dpm_addr_change', u'deleting_clients_d', u'disconnected_clients', u'restarting_clients'], name, value)
 
 
+
+
+
             class Interfaces(Entity):
                 """
                 IPv4 DHCP proxy/server Interface
@@ -4254,6 +4831,8 @@ class Ipv4Dhcpd(Entity):
                 
                 	IPv4 DHCP proxy/server interface info
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -4292,12 +4871,16 @@ class Ipv4Dhcpd(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: intf_ifhandle
                     
                     	Ifhandle of the interface
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: vrf_name
                     
@@ -4306,12 +4889,16 @@ class Ipv4Dhcpd(Entity):
                     
                     	**length:** 0..33
                     
+                    	**config**\: False
+                    
                     .. attribute:: intf_mode
                     
                     	Mode of interface
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: intf_is_ambiguous
                     
@@ -4320,12 +4907,16 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: intf_profile_name
                     
                     	Name of profile attached to the interface
                     	**type**\: str
                     
                     	**length:** 0..65
+                    
+                    	**config**\: False
                     
                     .. attribute:: intf_lease_limit_type
                     
@@ -4334,6 +4925,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: intf_lease_limit_count
                     
                     	Lease limit count on interface
@@ -4341,15 +4934,21 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: srg_role
                     
                     	DHCPv6 Interface SRG role
                     	**type**\:  :py:class:`BagDhcpdIntfSrgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdIntfSrgRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: mac_throttle
                     
                     	Mac Throttle Status
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -4396,6 +4995,8 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, ['interface_name', u'intf_ifhandle', u'vrf_name', u'intf_mode', u'intf_is_ambiguous', u'intf_profile_name', u'intf_lease_limit_type', u'intf_lease_limit_count', u'srg_role', u'mac_throttle'], name, value)
 
 
+
+
             class Base(Entity):
                 """
                 IPv4 DHCP base operational data
@@ -4405,25 +5006,35 @@ class Ipv4Dhcpd(Entity):
                 	DHCP base statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: issu_status
                 
                 	IPv4 DHCP ISSU status
                 	**type**\:  :py:class:`IssuStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.IssuStatus>`
+                
+                	**config**\: False
                 
                 .. attribute:: vrfs
                 
                 	DHCP base list of VRF names
                 	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs>`
                 
+                	**config**\: False
+                
                 .. attribute:: profiles
                 
                 	IPv4 DHCP Base profile
                 	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles>`
                 
+                	**config**\: False
+                
                 .. attribute:: database
                 
                 	IPv4 DHCP database
                 	**type**\:  :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Database>`
+                
+                	**config**\: False
                 
                 
 
@@ -4478,6 +5089,8 @@ class Ipv4Dhcpd(Entity):
                     	ipv4 dhcpd proxy stat
                     	**type**\: list of  		 :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -4513,12 +5126,16 @@ class Ipv4Dhcpd(Entity):
                         	Proxy statistics
                         	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics_>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	DHCP L3 VRF name
                         	**type**\: str
                         
                         	**length:** 0..33
+                        
+                        	**config**\: False
                         
                         
 
@@ -4562,6 +5179,8 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
@@ -4569,12 +5188,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -4607,6 +5230,9 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
+
+
                 class IssuStatus(Entity):
                     """
                     IPv4 DHCP ISSU status
@@ -4618,6 +5244,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: nanosecond
                     
                     .. attribute:: issu_sync_start_time
@@ -4626,6 +5254,8 @@ class Ipv4Dhcpd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -4636,6 +5266,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: nanosecond
                     
                     .. attribute:: big_bang_time
@@ -4644,6 +5276,8 @@ class Ipv4Dhcpd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -4654,6 +5288,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: nanosecond
                     
                     .. attribute:: role
@@ -4661,25 +5297,35 @@ class Ipv4Dhcpd(Entity):
                     	The current role of the DHCP process
                     	**type**\:  :py:class:`DhcpIssuRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuRole>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: phase
                     
                     	The current ISSU phase of the DHCP process
                     	**type**\:  :py:class:`DhcpIssuPhase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuPhase>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: version
                     
                     	The current version of the DHCP process in the context of an ISSU
                     	**type**\:  :py:class:`DhcpIssuVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuVersion>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: issu_ready_issu_mgr_connection
                     
                     	Whether or not DHCP is currently connected to ISSU Manager during the ISSU Load Phase
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: issu_ready_entries_replicate
                     
                     	Whether or not DHCP has received all replicated entries during the ISSU Load Phase
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -4726,6 +5372,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, [u'issu_sync_complete_time', u'issu_sync_start_time', u'issu_ready_time', u'big_bang_time', u'primary_role_time', u'role', u'phase', u'version', u'issu_ready_issu_mgr_connection', u'issu_ready_entries_replicate'], name, value)
 
 
+
                 class Vrfs(Entity):
                     """
                     DHCP base list of VRF names
@@ -4734,6 +5381,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	IPv4 DHCP base VRF name
                     	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4772,10 +5421,14 @@ class Ipv4Dhcpd(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: statistics
                         
                         	IPv4 DHCP base statistics
                         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4817,70 +5470,98 @@ class Ipv4Dhcpd(Entity):
                             	DHCP discover packets
                             	**type**\:  :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: offer
                             
                             	DHCP offer packets
                             	**type**\:  :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: request
                             
                             	DHCP request packets
                             	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: decline
                             
                             	DHCP decline packets
                             	**type**\:  :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ack
                             
                             	DHCP ack packets
                             	**type**\:  :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: nak
                             
                             	DHCP nak packets
                             	**type**\:  :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: release
                             
                             	DHCP release packets
                             	**type**\:  :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: inform
                             
                             	DHCP inform packets
                             	**type**\:  :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: lease_query
                             
                             	DHCP lease query packets
                             	**type**\:  :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_not_assigned
                             
                             	DHCP lease not assigned
                             	**type**\:  :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: lease_unknown
                             
                             	DHCP lease unknown
                             	**type**\:  :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_active
                             
                             	DHCP lease active
                             	**type**\:  :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bootp_request
                             
                             	DHCP BOOTP request
                             	**type**\:  :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bootp_reply
                             
                             	DHCP BOOTP reply
                             	**type**\:  :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4973,6 +5654,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -4980,12 +5663,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5018,6 +5705,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Offer(Entity):
                                 """
                                 DHCP offer packets
@@ -5029,6 +5717,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5036,12 +5726,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5074,6 +5768,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Request(Entity):
                                 """
                                 DHCP request packets
@@ -5085,6 +5780,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5092,12 +5789,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5130,6 +5831,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Decline(Entity):
                                 """
                                 DHCP decline packets
@@ -5141,6 +5843,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5148,12 +5852,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5186,6 +5894,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Ack(Entity):
                                 """
                                 DHCP ack packets
@@ -5197,6 +5906,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5204,12 +5915,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5242,6 +5957,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Nak(Entity):
                                 """
                                 DHCP nak packets
@@ -5253,6 +5969,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5260,12 +5978,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5298,6 +6020,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Release(Entity):
                                 """
                                 DHCP release packets
@@ -5309,6 +6032,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5316,12 +6041,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5354,6 +6083,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Inform(Entity):
                                 """
                                 DHCP inform packets
@@ -5365,6 +6095,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5372,12 +6104,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5410,6 +6146,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseQuery(Entity):
                                 """
                                 DHCP lease query packets
@@ -5421,6 +6158,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5428,12 +6167,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5466,6 +6209,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseNotAssigned(Entity):
                                 """
                                 DHCP lease not assigned
@@ -5477,6 +6221,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5484,12 +6230,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5522,6 +6272,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseUnknown(Entity):
                                 """
                                 DHCP lease unknown
@@ -5533,6 +6284,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5540,12 +6293,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5578,6 +6335,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseActive(Entity):
                                 """
                                 DHCP lease active
@@ -5589,6 +6347,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5596,12 +6356,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5634,6 +6398,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class BootpRequest(Entity):
                                 """
                                 DHCP BOOTP request
@@ -5645,6 +6410,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5652,12 +6419,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5690,6 +6461,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class BootpReply(Entity):
                                 """
                                 DHCP BOOTP reply
@@ -5701,6 +6473,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -5708,12 +6482,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5746,6 +6524,10 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
+
+
+
                 class Profiles(Entity):
                     """
                     IPv4 DHCP Base profile
@@ -5754,6 +6536,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	IPv4 DHCP base profile
                     	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5792,15 +6576,21 @@ class Ipv4Dhcpd(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_references
                         
                         	Interface references
                         	**type**\:  :py:class:`InterfaceReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: child_profile_info
                         
                         	child profile info
                         	**type**\:  :py:class:`ChildProfileInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: base_default_profile_name
                         
@@ -5809,6 +6599,8 @@ class Ipv4Dhcpd(Entity):
                         
                         	**length:** 0..65
                         
+                        	**config**\: False
+                        
                         .. attribute:: default_profile_mode
                         
                         	Default Profile mode
@@ -5816,10 +6608,14 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_authenticate
                         
                         	Relay authenticate
                         	**type**\:  :py:class:`RelayInfoAuthenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoAuthenticate>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: remote_id
                         
@@ -5828,6 +6624,8 @@ class Ipv4Dhcpd(Entity):
                         
                         	**length:** 0..768
                         
+                        	**config**\: False
+                        
                         .. attribute:: child_profile_count
                         
                         	Child profile count
@@ -5835,12 +6633,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: intf_ref_count
                         
                         	Interface reference count
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -5898,6 +6700,8 @@ class Ipv4Dhcpd(Entity):
                             	ipv4 dhcpd base interface reference
                             	**type**\: list of  		 :py:class:`Ipv4DhcpdBaseInterfaceReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -5935,6 +6739,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**length:** 0..65
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -5962,6 +6768,8 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, [u'base_reference_interface_name'], name, value)
 
 
+
+
                         class ChildProfileInfo(Entity):
                             """
                             child profile info
@@ -5970,6 +6778,8 @@ class Ipv4Dhcpd(Entity):
                             
                             	ipv4 dhcpd base child profile info
                             	**type**\: list of  		 :py:class:`Ipv4DhcpdBaseChildProfileInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6008,12 +6818,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**length:** 0..65
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: mode
                                 
                                 	Profile mode
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: matched_option_code
                                 
@@ -6022,6 +6836,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: matched_option_len
                                 
                                 	Matched option len
@@ -6029,12 +6845,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: option_data
                                 
                                 	Matched option data
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6071,6 +6891,10 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, [u'base_child_profile_name', u'mode', u'matched_option_code', u'matched_option_len', u'option_data'], name, value)
 
 
+
+
+
+
                 class Database(Entity):
                     """
                     IPv4 DHCP database
@@ -6080,6 +6904,8 @@ class Ipv4Dhcpd(Entity):
                     	Database feature configured
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: version
                     
                     	Current file version
@@ -6087,12 +6913,16 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: full_file_write_interval
                     
                     	Full file write interval in minutes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: minute
                     
@@ -6103,12 +6933,16 @@ class Ipv4Dhcpd(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_full_write_time
                     
                     	Last full write time since epoch
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: full_file_write_count
                     
@@ -6117,12 +6951,16 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: failed_full_file_write_count
                     
                     	Failed full file write count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: full_file_record_count
                     
@@ -6131,6 +6969,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_full_file_write_error_timestamp
                     
                     	Last full file write error timestamp since epoch
@@ -6138,12 +6978,16 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: incremental_file_write_interval
                     
                     	Incremental file write interval in minutes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: minute
                     
@@ -6154,12 +6998,16 @@ class Ipv4Dhcpd(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_incremental_write_time
                     
                     	Last incremental write time since epoch
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: incremental_file_write_count
                     
@@ -6168,12 +7016,16 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: failed_incremental_file_write_count
                     
                     	Failed incremental file write count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: incremental_file_record_count
                     
@@ -6182,12 +7034,16 @@ class Ipv4Dhcpd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_incremental_file_write_error_timestamp
                     
                     	Last incremental file write error timestamp since epoch
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -6246,6 +7102,8 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Database, [u'configured', u'version', u'full_file_write_interval', u'last_full_write_file_name', u'last_full_write_time', u'full_file_write_count', u'failed_full_file_write_count', u'full_file_record_count', u'last_full_file_write_error_timestamp', u'incremental_file_write_interval', u'last_incremental_write_file_name', u'last_incremental_write_time', u'incremental_file_write_count', u'failed_incremental_file_write_count', u'incremental_file_record_count', u'last_incremental_file_write_error_timestamp'], name, value)
 
 
+
+
             class Server(Entity):
                 """
                 IPv4 DHCP Server operational data
@@ -6255,25 +7113,35 @@ class Ipv4Dhcpd(Entity):
                 	IPv4 DHCP Server profile
                 	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Profiles>`
                 
+                	**config**\: False
+                
                 .. attribute:: statistics
                 
                 	DHCP Server statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Statistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: binding
                 
                 	DHCP server bindings
                 	**type**\:  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding>`
                 
+                	**config**\: False
+                
                 .. attribute:: statistics_info
                 
                 	DHCP proxy stats info
                 	**type**\:  :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: vrfs
                 
                 	DHCP Server list of VRF names
                 	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs>`
+                
+                	**config**\: False
                 
                 
 
@@ -6328,6 +7196,8 @@ class Ipv4Dhcpd(Entity):
                     	IPv4 DHCP server profile
                     	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -6365,6 +7235,8 @@ class Ipv4Dhcpd(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_profile_name_xr
                         
                         	Profile Name
@@ -6372,35 +7244,49 @@ class Ipv4Dhcpd(Entity):
                         
                         	**length:** 0..65
                         
+                        	**config**\: False
+                        
                         .. attribute:: secure_arp
                         
                         	Secure ARP
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: requested_address_check
                         
                         	Requested Address Check
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_id_check
                         
                         	Server ID Check
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: duplicate_mac_address_check
                         
                         	Duplicate MAC Address Check
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: duplicate_ip_address_check
                         
                         	Duplicate IP Address Check
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_move_allowed
                         
                         	Is true if dhcp subscriber is allowed to move
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: bcast_policy
                         
@@ -6409,12 +7295,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: giaddr_policy
                         
                         	Giaddr Policy
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: subnet_mask
                         
@@ -6423,12 +7313,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_pool_name
                         
                         	Pool Name
                         	**type**\: str
                         
                         	**length:** 0..65
+                        
+                        	**config**\: False
                         
                         .. attribute:: server_profile_lease
                         
@@ -6437,12 +7331,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_profile_netbios_node_type
                         
                         	Server netbios node type
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: server_bootfile_name
                         
@@ -6451,12 +7349,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**length:** 0..256
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_domain_name
                         
                         	Server Domain name
                         	**type**\: str
                         
                         	**length:** 0..256
+                        
+                        	**config**\: False
                         
                         .. attribute:: server_profileiedge_check
                         
@@ -6465,12 +7367,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_profile_server_dns_count
                         
                         	Server DNS Count
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: server_profiledefault_router_count
                         
@@ -6479,12 +7385,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_profile_netbios_name_svr_count
                         
                         	Server netbios svr count 
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: server_profile_time_svr_count
                         
@@ -6493,12 +7403,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: lease_limit_type
                         
                         	Lease Limit Type
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: lease_limit_count
                         
@@ -6507,12 +7421,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_profile_dns
                         
                         	Server DNS addresses
                         	**type**\: list of str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: server_profile_default_router
                         
@@ -6521,6 +7439,8 @@ class Ipv4Dhcpd(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_profile_netbious_name_server
                         
                         	Server netbios addresses
@@ -6528,12 +7448,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: server_profile_time_server
                         
                         	Server Time addresses
                         	**type**\: list of str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -6614,6 +7538,8 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile, ['server_profile_name', u'server_profile_name_xr', u'secure_arp', u'requested_address_check', u'server_id_check', u'duplicate_mac_address_check', u'duplicate_ip_address_check', u'is_move_allowed', u'bcast_policy', u'giaddr_policy', u'subnet_mask', u'server_pool_name', u'server_profile_lease', u'server_profile_netbios_node_type', u'server_bootfile_name', u'server_domain_name', u'server_profileiedge_check', u'server_profile_server_dns_count', u'server_profiledefault_router_count', u'server_profile_netbios_name_svr_count', u'server_profile_time_svr_count', u'lease_limit_type', u'lease_limit_count', u'server_profile_dns', u'server_profile_default_router', u'server_profile_netbious_name_server', u'server_profile_time_server'], name, value)
 
 
+
+
                 class Statistics(Entity):
                     """
                     DHCP Server statistics
@@ -6622,6 +7548,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	ipv4 dhcpd proxy stat
                     	**type**\: list of  		 :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -6658,12 +7586,16 @@ class Ipv4Dhcpd(Entity):
                         	Proxy statistics
                         	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics_>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	DHCP L3 VRF name
                         	**type**\: str
                         
                         	**length:** 0..33
+                        
+                        	**config**\: False
                         
                         
 
@@ -6707,6 +7639,8 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
@@ -6714,12 +7648,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -6752,6 +7690,9 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
+
+
                 class Binding(Entity):
                     """
                     DHCP server bindings
@@ -6761,10 +7702,14 @@ class Ipv4Dhcpd(Entity):
                     	DHCP server binding summary
                     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: clients
                     
                     	DHCP server client bindings
                     	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -6809,12 +7754,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: initializing_clients
                         
                         	Number of clients in init state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: waiting_for_dpm_init
                         
@@ -6823,12 +7772,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: waiting_for_dpm_request
                         
                         	Number of clients in Request DPM wait state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: waiting_for_daps_init
                         
@@ -6837,12 +7790,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: selecting_clients
                         
                         	Number of clients in selecting state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: offer_sent_for_client
                         
@@ -6851,12 +7808,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: requesting_clients
                         
                         	Number of clients in requesting state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: request_waiting_for_dpm
                         
@@ -6865,12 +7826,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ack_waiting_for_dpm
                         
                         	Number of clients in Waiting for DPM with ACK
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bound_clients
                         
@@ -6879,12 +7844,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: renewing_clients
                         
                         	Number of clients in renewing state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: informing_clients
                         
@@ -6893,12 +7862,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reauthorizing_clients
                         
                         	Number of clients in reauth state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: waiting_for_dpm_disconnect
                         
@@ -6907,12 +7880,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: waiting_for_dpm_addr_change
                         
                         	Number of clients in Waiting for DPM after addr change
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: deleting_clients_d
                         
@@ -6921,6 +7898,8 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: disconnected_clients
                         
                         	Number of clients in disconnected state
@@ -6928,12 +7907,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: restarting_clients
                         
                         	Number of clients in restarting state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6998,6 +7981,7 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, [u'clients', u'initializing_clients', u'waiting_for_dpm_init', u'waiting_for_dpm_request', u'waiting_for_daps_init', u'selecting_clients', u'offer_sent_for_client', u'requesting_clients', u'request_waiting_for_dpm', u'ack_waiting_for_dpm', u'bound_clients', u'renewing_clients', u'informing_clients', u'reauthorizing_clients', u'waiting_for_dpm_disconnect', u'waiting_for_dpm_addr_change', u'deleting_clients_d', u'disconnected_clients', u'restarting_clients'], name, value)
 
 
+
                     class Clients(Entity):
                         """
                         DHCP server client bindings
@@ -7006,6 +7990,8 @@ class Ipv4Dhcpd(Entity):
                         
                         	Single DHCP Server binding
                         	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7044,6 +8030,8 @@ class Ipv4Dhcpd(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: client_id_xr
                             
                             	DHCP client identifier
@@ -7051,10 +8039,14 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..1275
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_address
                             
                             	DHCP client MAC address
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: vrf_name
                             
@@ -7063,12 +8055,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..33
                             
+                            	**config**\: False
+                            
                             .. attribute:: server_vrf_name
                             
                             	DHCP server VRF name
                             	**type**\: str
                             
                             	**length:** 0..33
+                            
+                            	**config**\: False
                             
                             .. attribute:: ip_address
                             
@@ -7077,12 +8073,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: client_gi_addr
                             
                             	DHCP client GIADDR
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: to_server_gi_addr
                             
@@ -7091,12 +8091,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: server_ip_address
                             
                             	DHCP server IP address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: reply_server_ip_address
                             
@@ -7105,12 +8109,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_time
                             
                             	Lease time in seconds
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: second
                             
@@ -7121,12 +8129,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: second
                             
                             .. attribute:: state
                             
                             	DHCP client state
                             	**type**\:  :py:class:`BagDhcpdProxyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdProxyState>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: interface_name
                             
@@ -7135,12 +8147,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: access_vrf_name
                             
                             	DHCP access interface VRF name
                             	**type**\: str
                             
                             	**length:** 0..33
+                            
+                            	**config**\: False
                             
                             .. attribute:: proxy_binding_outer_tag
                             
@@ -7149,12 +8165,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: proxy_binding_inner_tag
                             
                             	DHCP VLAN inner VLAN
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: profile_name
                             
@@ -7163,10 +8183,14 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..65
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_nak_next_renew
                             
                             	Is true if DHCP next renew from client will be NAK'd
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: subscriber_label
                             
@@ -7175,12 +8199,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: old_subscriber_label
                             
                             	DHCP old subscriber label
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: subscriber_interface_name
                             
@@ -7189,12 +8217,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_circuit_id
                             
                             	DHCP received circuit ID
                             	**type**\: str
                             
                             	**length:** 0..768
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_circuit_id
                             
@@ -7203,12 +8235,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..768
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_remote_id
                             
                             	DHCP received Remote ID
                             	**type**\: str
                             
                             	**length:** 0..768
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_remote_id
                             
@@ -7217,12 +8253,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..768
                             
+                            	**config**\: False
+                            
                             .. attribute:: rx_vsiso
                             
                             	DHCP received VSISO
                             	**type**\: str
                             
                             	**length:** 0..768
+                            
+                            	**config**\: False
                             
                             .. attribute:: tx_vsiso
                             
@@ -7231,15 +8271,21 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..768
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_auth_received
                             
                             	Is true if authentication is on received option82
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_mbl_subscriber
                             
                             	Is true if DHCP subscriber is Mobile
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: param_request
                             
@@ -7248,12 +8294,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..513
                             
+                            	**config**\: False
+                            
                             .. attribute:: param_response
                             
                             	DHCP saved options
                             	**type**\: str
                             
                             	**length:** 0..2051
+                            
+                            	**config**\: False
                             
                             .. attribute:: session_start_time
                             
@@ -7262,6 +8312,8 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: srg_state
                             
                             	DHCPV4 SRG state
@@ -7269,12 +8321,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: event_history
                             
                             	event history
                             	**type**\: list of int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -7371,6 +8427,9 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, ['client_id', u'client_id_xr', u'mac_address', u'vrf_name', u'server_vrf_name', u'ip_address', u'client_gi_addr', u'to_server_gi_addr', u'server_ip_address', u'reply_server_ip_address', u'lease_time', u'remaining_lease_time', u'state', u'interface_name', u'access_vrf_name', u'proxy_binding_outer_tag', u'proxy_binding_inner_tag', u'profile_name', u'is_nak_next_renew', u'subscriber_label', u'old_subscriber_label', u'subscriber_interface_name', u'rx_circuit_id', u'tx_circuit_id', u'rx_remote_id', u'tx_remote_id', u'rx_vsiso', u'tx_vsiso', u'is_auth_received', u'is_mbl_subscriber', u'param_request', u'param_response', u'session_start_time', u'srg_state', u'event_history'], name, value)
 
 
+
+
+
                 class StatisticsInfo(Entity):
                     """
                     DHCP proxy stats info
@@ -7381,6 +8440,8 @@ class Ipv4Dhcpd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -7409,6 +8470,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo, [u'proxy_stats_timestamp'], name, value)
 
 
+
                 class Vrfs(Entity):
                     """
                     DHCP Server list of VRF names
@@ -7417,6 +8479,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	IPv4 DHCP server VRF name
                     	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7455,10 +8519,14 @@ class Ipv4Dhcpd(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: statistics
                         
                         	IPv4 DHCP server statistics
                         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7500,70 +8568,98 @@ class Ipv4Dhcpd(Entity):
                             	DHCP discover packets
                             	**type**\:  :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: offer
                             
                             	DHCP offer packets
                             	**type**\:  :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: request
                             
                             	DHCP request packets
                             	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: decline
                             
                             	DHCP decline packets
                             	**type**\:  :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ack
                             
                             	DHCP ack packets
                             	**type**\:  :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: nak
                             
                             	DHCP nak packets
                             	**type**\:  :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: release
                             
                             	DHCP release packets
                             	**type**\:  :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: inform
                             
                             	DHCP inform packets
                             	**type**\:  :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: lease_query
                             
                             	DHCP lease query packets
                             	**type**\:  :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_not_assigned
                             
                             	DHCP lease not assigned
                             	**type**\:  :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: lease_unknown
                             
                             	DHCP lease unknown
                             	**type**\:  :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_active
                             
                             	DHCP lease active
                             	**type**\:  :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bootp_request
                             
                             	DHCP BOOTP request
                             	**type**\:  :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bootp_reply
                             
                             	DHCP BOOTP reply
                             	**type**\:  :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7656,6 +8752,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -7663,12 +8761,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7701,6 +8803,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Offer(Entity):
                                 """
                                 DHCP offer packets
@@ -7712,6 +8815,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -7719,12 +8824,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7757,6 +8866,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Request(Entity):
                                 """
                                 DHCP request packets
@@ -7768,6 +8878,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -7775,12 +8887,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7813,6 +8929,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Decline(Entity):
                                 """
                                 DHCP decline packets
@@ -7824,6 +8941,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -7831,12 +8950,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7869,6 +8992,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Ack(Entity):
                                 """
                                 DHCP ack packets
@@ -7880,6 +9004,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -7887,12 +9013,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7925,6 +9055,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Nak(Entity):
                                 """
                                 DHCP nak packets
@@ -7936,6 +9067,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -7943,12 +9076,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7981,6 +9118,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Release(Entity):
                                 """
                                 DHCP release packets
@@ -7992,6 +9130,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -7999,12 +9139,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8037,6 +9181,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Inform(Entity):
                                 """
                                 DHCP inform packets
@@ -8048,6 +9193,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8055,12 +9202,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8093,6 +9244,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseQuery(Entity):
                                 """
                                 DHCP lease query packets
@@ -8104,6 +9256,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8111,12 +9265,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8149,6 +9307,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseNotAssigned(Entity):
                                 """
                                 DHCP lease not assigned
@@ -8160,6 +9319,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8167,12 +9328,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8205,6 +9370,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseUnknown(Entity):
                                 """
                                 DHCP lease unknown
@@ -8216,6 +9382,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8223,12 +9391,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8261,6 +9433,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseActive(Entity):
                                 """
                                 DHCP lease active
@@ -8272,6 +9445,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8279,12 +9454,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8317,6 +9496,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class BootpRequest(Entity):
                                 """
                                 DHCP BOOTP request
@@ -8328,6 +9508,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8335,12 +9517,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8373,6 +9559,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class BootpReply(Entity):
                                 """
                                 DHCP BOOTP reply
@@ -8384,6 +9571,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -8391,12 +9580,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8429,6 +9622,11 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
+
+
+
+
             class Relay(Entity):
                 """
                 IPv4 DHCPD Relay operational data
@@ -8438,20 +9636,28 @@ class Ipv4Dhcpd(Entity):
                 	DHCP Relay Profiles
                 	**type**\:  :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Profiles>`
                 
+                	**config**\: False
+                
                 .. attribute:: statistics_info
                 
                 	DHCP relay statistics info
                 	**type**\:  :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: statistics
                 
                 	DHCP Relay VRF statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: vrfs
                 
                 	DHCP relay list of VRF names
                 	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs>`
+                
+                	**config**\: False
                 
                 
 
@@ -8502,6 +9708,8 @@ class Ipv4Dhcpd(Entity):
                     	DHCP Relay profile
                     	**type**\: list of  		 :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -8539,12 +9747,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_profile_name
                         
                         	Profile Name
                         	**type**\: str
                         
                         	**length:** 0..65
+                        
+                        	**config**\: False
                         
                         .. attribute:: relay_profile_uid
                         
@@ -8553,12 +9765,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_profile_helper_count
                         
                         	Helper address count
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: relay_profile_relay_info_option
                         
@@ -8567,12 +9783,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_profile_relay_info_policy
                         
                         	Relay info policy
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: relay_profile_relay_info_allow_untrusted
                         
@@ -8581,6 +9801,8 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_profile_relay_info_optionvpn
                         
                         	Relay info option vpn
@@ -8588,10 +9810,14 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_profile_relay_info_optionvpn_mode
                         
                         	Relay info option vpn\-mode
                         	**type**\:  :py:class:`RelayInfoVpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoVpnMode>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: relay_profile_relay_info_check
                         
@@ -8600,12 +9826,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_profile_gi_addr_policy
                         
                         	GIADDR policy
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: relay_profile_broadcast_flag_policy
                         
@@ -8614,12 +9844,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_profile_mac_mismatch_action
                         
                         	Mac Mismatch Action
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: relay_profile_helper_address
                         
@@ -8628,6 +9862,8 @@ class Ipv4Dhcpd(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_profile_helper_vrf
                         
                         	Helper address vrfs
@@ -8635,12 +9871,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**length:** 0..33
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_profile_gi_addr
                         
                         	Gateway addresses
                         	**type**\: list of str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -8699,6 +9939,8 @@ class Ipv4Dhcpd(Entity):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, ['profile_name', u'relay_profile_name', u'relay_profile_uid', u'relay_profile_helper_count', u'relay_profile_relay_info_option', u'relay_profile_relay_info_policy', u'relay_profile_relay_info_allow_untrusted', u'relay_profile_relay_info_optionvpn', u'relay_profile_relay_info_optionvpn_mode', u'relay_profile_relay_info_check', u'relay_profile_gi_addr_policy', u'relay_profile_broadcast_flag_policy', u'relay_profile_mac_mismatch_action', u'relay_profile_helper_address', u'relay_profile_helper_vrf', u'relay_profile_gi_addr'], name, value)
 
 
+
+
                 class StatisticsInfo(Entity):
                     """
                     DHCP relay statistics info
@@ -8709,6 +9951,8 @@ class Ipv4Dhcpd(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -8737,6 +9981,7 @@ class Ipv4Dhcpd(Entity):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, [u'relay_stats_timestamp'], name, value)
 
 
+
                 class Statistics(Entity):
                     """
                     DHCP Relay VRF statistics
@@ -8745,6 +9990,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	ipv4 dhcpd relay stat
                     	**type**\: list of  		 :py:class:`Ipv4DhcpdRelayStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -8781,12 +10028,16 @@ class Ipv4Dhcpd(Entity):
                         	Public relay statistics
                         	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics_>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: relay_statistics_vrf_name
                         
                         	DHCP L3 VRF Name
                         	**type**\: str
                         
                         	**length:** 0..33
+                        
+                        	**config**\: False
                         
                         
 
@@ -8830,6 +10081,8 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
@@ -8837,12 +10090,16 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -8875,6 +10132,9 @@ class Ipv4Dhcpd(Entity):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
+
+
                 class Vrfs(Entity):
                     """
                     DHCP relay list of VRF names
@@ -8883,6 +10143,8 @@ class Ipv4Dhcpd(Entity):
                     
                     	IPv4 DHCP relay VRF name
                     	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -8921,10 +10183,14 @@ class Ipv4Dhcpd(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_statistics
                         
                         	IPv4 DHCP relay statistics
                         	**type**\:  :py:class:`VrfStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8966,70 +10232,98 @@ class Ipv4Dhcpd(Entity):
                             	DHCP discover packets
                             	**type**\:  :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: offer
                             
                             	DHCP offer packets
                             	**type**\:  :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: request
                             
                             	DHCP request packets
                             	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: decline
                             
                             	DHCP decline packets
                             	**type**\:  :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ack
                             
                             	DHCP ack packets
                             	**type**\:  :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: nak
                             
                             	DHCP nak packets
                             	**type**\:  :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: release
                             
                             	DHCP release packets
                             	**type**\:  :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: inform
                             
                             	DHCP inform packets
                             	**type**\:  :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: lease_query
                             
                             	DHCP lease query packets
                             	**type**\:  :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_not_assigned
                             
                             	DHCP lease not assigned
                             	**type**\:  :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: lease_unknown
                             
                             	DHCP lease unknown
                             	**type**\:  :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lease_active
                             
                             	DHCP lease active
                             	**type**\:  :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: bootp_request
                             
                             	DHCP BOOTP request
                             	**type**\:  :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bootp_reply
                             
                             	DHCP BOOTP reply
                             	**type**\:  :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -9122,6 +10416,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9129,12 +10425,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9167,6 +10467,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Offer(Entity):
                                 """
                                 DHCP offer packets
@@ -9178,6 +10479,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9185,12 +10488,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9223,6 +10530,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Request(Entity):
                                 """
                                 DHCP request packets
@@ -9234,6 +10542,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9241,12 +10551,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9279,6 +10593,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Decline(Entity):
                                 """
                                 DHCP decline packets
@@ -9290,6 +10605,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9297,12 +10614,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9335,6 +10656,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Ack(Entity):
                                 """
                                 DHCP ack packets
@@ -9346,6 +10668,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9353,12 +10677,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9391,6 +10719,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Nak(Entity):
                                 """
                                 DHCP nak packets
@@ -9402,6 +10731,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9409,12 +10740,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9447,6 +10782,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Release(Entity):
                                 """
                                 DHCP release packets
@@ -9458,6 +10794,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9465,12 +10803,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9503,6 +10845,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class Inform(Entity):
                                 """
                                 DHCP inform packets
@@ -9514,6 +10857,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9521,12 +10866,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9559,6 +10908,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseQuery(Entity):
                                 """
                                 DHCP lease query packets
@@ -9570,6 +10920,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9577,12 +10929,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9615,6 +10971,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseNotAssigned(Entity):
                                 """
                                 DHCP lease not assigned
@@ -9626,6 +10983,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9633,12 +10992,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9671,6 +11034,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseUnknown(Entity):
                                 """
                                 DHCP lease unknown
@@ -9682,6 +11046,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9689,12 +11055,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9727,6 +11097,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class LeaseActive(Entity):
                                 """
                                 DHCP lease active
@@ -9738,6 +11109,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9745,12 +11118,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9783,6 +11160,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class BootpRequest(Entity):
                                 """
                                 DHCP BOOTP request
@@ -9794,6 +11172,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9801,12 +11181,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9839,6 +11223,7 @@ class Ipv4Dhcpd(Entity):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
+
                             class BootpReply(Entity):
                                 """
                                 DHCP BOOTP reply
@@ -9850,6 +11235,8 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
@@ -9857,12 +11244,16 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9894,7 +11285,16 @@ class Ipv4Dhcpd(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Ipv4Dhcpd()
         return self._top_entity
+
+
 

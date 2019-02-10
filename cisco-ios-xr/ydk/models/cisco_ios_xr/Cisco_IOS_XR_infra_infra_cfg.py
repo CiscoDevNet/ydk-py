@@ -147,7 +147,10 @@ class Banners(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Banners.Banner, ['banner_name', 'banner_text'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Banners()
         return self._top_entity
+
+
 

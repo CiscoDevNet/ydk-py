@@ -31,6 +31,7 @@ class OPENCONFIGHARDWARECOMPONENT(Identity):
         super(OPENCONFIGHARDWARECOMPONENT, self).__init__(ns, pref, tag)
 
 
+
 class OPENCONFIGSOFTWARECOMPONENT(Identity):
     """
     Base identity for software\-related components in a managed
@@ -45,6 +46,7 @@ class OPENCONFIGSOFTWARECOMPONENT(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:OPENCONFIG_SOFTWARE_COMPONENT"):
         super(OPENCONFIGSOFTWARECOMPONENT, self).__init__(ns, pref, tag)
+
 
 
 class OPERATINGSYSTEM(OPENCONFIGSOFTWARECOMPONENT):
@@ -62,6 +64,7 @@ class OPERATINGSYSTEM(OPENCONFIGSOFTWARECOMPONENT):
         super(OPERATINGSYSTEM, self).__init__(ns, pref, tag)
 
 
+
 class LINECARD(OPENCONFIGHARDWARECOMPONENT):
     """
     Linecard component, typically inserted into a chassis slot
@@ -75,6 +78,7 @@ class LINECARD(OPENCONFIGHARDWARECOMPONENT):
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:LINECARD"):
         super(LINECARD, self).__init__(ns, pref, tag)
+
 
 
 class MODULE(OPENCONFIGHARDWARECOMPONENT):
@@ -92,6 +96,7 @@ class MODULE(OPENCONFIGHARDWARECOMPONENT):
         super(MODULE, self).__init__(ns, pref, tag)
 
 
+
 class CPU(OPENCONFIGHARDWARECOMPONENT):
     """
     Processing unit, e.g., a management processor
@@ -105,6 +110,7 @@ class CPU(OPENCONFIGHARDWARECOMPONENT):
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:CPU"):
         super(CPU, self).__init__(ns, pref, tag)
+
 
 
 class TRANSCEIVER(OPENCONFIGHARDWARECOMPONENT):
@@ -122,6 +128,7 @@ class TRANSCEIVER(OPENCONFIGHARDWARECOMPONENT):
         super(TRANSCEIVER, self).__init__(ns, pref, tag)
 
 
+
 class CHASSIS(OPENCONFIGHARDWARECOMPONENT):
     """
     Chassis component, typically with multiple slots / shelves
@@ -137,6 +144,7 @@ class CHASSIS(OPENCONFIGHARDWARECOMPONENT):
         super(CHASSIS, self).__init__(ns, pref, tag)
 
 
+
 class FAN(OPENCONFIGHARDWARECOMPONENT):
     """
     Cooling fan, or could be some other heat\-reduction component
@@ -150,6 +158,7 @@ class FAN(OPENCONFIGHARDWARECOMPONENT):
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:FAN"):
         super(FAN, self).__init__(ns, pref, tag)
+
 
 
 class BACKPLANE(OPENCONFIGHARDWARECOMPONENT):
@@ -168,6 +177,7 @@ class BACKPLANE(OPENCONFIGHARDWARECOMPONENT):
         super(BACKPLANE, self).__init__(ns, pref, tag)
 
 
+
 class SENSOR(OPENCONFIGHARDWARECOMPONENT):
     """
     Physical sensor, e.g., a temperature sensor in a chassis
@@ -181,6 +191,7 @@ class SENSOR(OPENCONFIGHARDWARECOMPONENT):
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:SENSOR"):
         super(SENSOR, self).__init__(ns, pref, tag)
+
 
 
 class PORT(OPENCONFIGHARDWARECOMPONENT):
@@ -199,6 +210,7 @@ class PORT(OPENCONFIGHARDWARECOMPONENT):
         super(PORT, self).__init__(ns, pref, tag)
 
 
+
 class POWERSUPPLY(OPENCONFIGHARDWARECOMPONENT):
     """
     Component that is supplying power to the device
@@ -212,5 +224,6 @@ class POWERSUPPLY(OPENCONFIGHARDWARECOMPONENT):
 
     def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:POWER_SUPPLY"):
         super(POWERSUPPLY, self).__init__(ns, pref, tag)
+
 
 

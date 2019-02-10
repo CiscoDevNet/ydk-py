@@ -189,6 +189,8 @@ class Pmipv6(Entity):
     	None
     	**type**\:  :py:class:`Lma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma>`
     
+    	**config**\: False
+    
     
 
     """
@@ -227,20 +229,28 @@ class Pmipv6(Entity):
         	None
         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics>`
         
+        	**config**\: False
+        
         .. attribute:: bindings
         
         	Table of Binding
         	**type**\:  :py:class:`Bindings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings>`
+        
+        	**config**\: False
         
         .. attribute:: heartbeats
         
         	Table of Heartbeat
         	**type**\:  :py:class:`Heartbeats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Heartbeats>`
         
+        	**config**\: False
+        
         .. attribute:: config_variables
         
         	Global Configuration Variables
         	**type**\:  :py:class:`ConfigVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables>`
+        
+        	**config**\: False
         
         
 
@@ -292,20 +302,28 @@ class Pmipv6(Entity):
             	Table of CustomerStatistics
             	**type**\:  :py:class:`CustomerStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics>`
             
+            	**config**\: False
+            
             .. attribute:: license
             
             	LMA License Statistics
             	**type**\:  :py:class:`License <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.License>`
+            
+            	**config**\: False
             
             .. attribute:: global_
             
             	Global Statistics
             	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global>`
             
+            	**config**\: False
+            
             .. attribute:: mag_statistics
             
             	Table of MAGStatistics
             	**type**\:  :py:class:`MagStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics>`
+            
+            	**config**\: False
             
             
 
@@ -357,6 +375,8 @@ class Pmipv6(Entity):
                 	Customer statistics
                 	**type**\: list of  		 :py:class:`CustomerStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -395,20 +415,28 @@ class Pmipv6(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: protocol_statistics
                     
                     	LMA Protocol Statistics
                     	**type**\:  :py:class:`ProtocolStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: accounting_statistics
                     
                     	LMA Accounting Statistics
                     	**type**\:  :py:class:`AccountingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: lma_identifier
                     
                     	LMA Identifier
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: bce_count
                     
@@ -417,12 +445,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: handoff_count
                     
                     	Count of Handoffs
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4_mnp_count
                     
@@ -431,12 +463,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_mnp_count
                     
                     	Count of IPv6 Mobile Node Prefixes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -481,7 +517,7 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic, ['customer_name', 'lma_identifier', 'bce_count', 'handoff_count', 'ipv4_mnp_count', 'ipv6_mnp_count'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic, ['customer_name', u'lma_identifier', u'bce_count', u'handoff_count', u'ipv4_mnp_count', u'ipv6_mnp_count'], name, value)
 
 
                     class ProtocolStatistics(Entity):
@@ -493,30 +529,42 @@ class Pmipv6(Entity):
                         	PBU Receive Statistics
                         	**type**\:  :py:class:`PbuReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pba_send_statistics
                         
                         	PBA Send Statistics
                         	**type**\:  :py:class:`PbaSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: pbri_send_statistics
                         
                         	PBRI Send Statistics
                         	**type**\:  :py:class:`PbriSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pbri_receive_statistics
                         
                         	PBRI Receive Statistics
                         	**type**\:  :py:class:`PbriReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: pbra_send_statistics
                         
                         	PBRA Send Statistics
                         	**type**\:  :py:class:`PbraSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pbra_receive_statistics
                         
                         	PBRA Receive Statistics
                         	**type**\:  :py:class:`PbraReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -577,12 +625,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbu_drop_count
                             
                             	Count of PBUs Dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -610,7 +662,8 @@ class Pmipv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics, ['pbu_count', 'pbu_drop_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbuReceiveStatistics, [u'pbu_count', u'pbu_drop_count'], name, value)
+
 
 
                         class PbaSendStatistics(Entity):
@@ -624,12 +677,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: pba_drop_count
                             
                             	Count of PBAs dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: accepted_count
                             
@@ -638,12 +695,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: unknown_count
                             
                             	Count of Status Code \- Last BA status code sent
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: unspecified_failure_count
                             
@@ -652,12 +713,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: admin_failure_count
                             
                             	Count of Status Code \- Administratively prohibited
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: resource_failure_count
                             
@@ -666,12 +731,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: home_reg_failure_count
                             
                             	Count of Status Code \- Home registration not supported
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: home_subnet_failure_count
                             
@@ -680,12 +749,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bad_sequence_failure_count
                             
                             	Count of Status Code \- Sequence number out of window
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: reg_type_failure_count
                             
@@ -694,12 +767,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: authen_failure_count
                             
                             	Count of Status Code \- Auth Fail
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: proxy_reg_not_enabled_count
                             
@@ -708,12 +785,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: not_lma_for_this_mn_count
                             
                             	Count of Status Code \- Not LMA for this Mobile Node
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_author_for_proxy_reg_count
                             
@@ -722,12 +803,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: no_author_for_hnp_count
                             
                             	Count of Status Code \- Not authorized for HNP
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: timestamp_mismatch_count
                             
@@ -736,12 +821,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: timestamp_lower_than_previous_accepted_count
                             
                             	Count of Status Code \- Timestamp lower than previous accepted
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: missing_hnp_opt_count
                             
@@ -750,12 +839,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: received_hnps_do_not_match_bce_hnps_count
                             
                             	Count of Status Code \- Recevied HNPs do not match with BCE
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: missing_mn_id_opt_count
                             
@@ -764,12 +857,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: missing_hi_opt_count
                             
                             	Count of Status Code \- Missing Handoff Indicator
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: missing_access_tech_type_opt_count
                             
@@ -778,12 +875,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: no_author_for_ipv4_mobility_count
                             
                             	Count of Status Code \- Not authorized for IPv4 mobility
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_author_for_ipv4_hoa_count
                             
@@ -792,12 +893,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: no_author_for_ipv6_mobility_count
                             
                             	Count of Status Code \- Not authorized for IPv6 mobility
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: multiple_ipv4_ho_a_not_supported_count
                             
@@ -806,12 +911,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: gre_key_opt_required_count
                             
                             	Count of Status Code \- GRE Key option is required
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -891,7 +1000,8 @@ class Pmipv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics, ['pba_count', 'pba_drop_count', 'accepted_count', 'unknown_count', 'unspecified_failure_count', 'admin_failure_count', 'resource_failure_count', 'home_reg_failure_count', 'home_subnet_failure_count', 'bad_sequence_failure_count', 'reg_type_failure_count', 'authen_failure_count', 'proxy_reg_not_enabled_count', 'not_lma_for_this_mn_count', 'no_author_for_proxy_reg_count', 'no_author_for_hnp_count', 'timestamp_mismatch_count', 'timestamp_lower_than_previous_accepted_count', 'missing_hnp_opt_count', 'received_hnps_do_not_match_bce_hnps_count', 'missing_mn_id_opt_count', 'missing_hi_opt_count', 'missing_access_tech_type_opt_count', 'no_author_for_ipv4_mobility_count', 'no_author_for_ipv4_hoa_count', 'no_author_for_ipv6_mobility_count', 'multiple_ipv4_ho_a_not_supported_count', 'gre_key_opt_required_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbaSendStatistics, [u'pba_count', u'pba_drop_count', u'accepted_count', u'unknown_count', u'unspecified_failure_count', u'admin_failure_count', u'resource_failure_count', u'home_reg_failure_count', u'home_subnet_failure_count', u'bad_sequence_failure_count', u'reg_type_failure_count', u'authen_failure_count', u'proxy_reg_not_enabled_count', u'not_lma_for_this_mn_count', u'no_author_for_proxy_reg_count', u'no_author_for_hnp_count', u'timestamp_mismatch_count', u'timestamp_lower_than_previous_accepted_count', u'missing_hnp_opt_count', u'received_hnps_do_not_match_bce_hnps_count', u'missing_mn_id_opt_count', u'missing_hi_opt_count', u'missing_access_tech_type_opt_count', u'no_author_for_ipv4_mobility_count', u'no_author_for_ipv4_hoa_count', u'no_author_for_ipv6_mobility_count', u'multiple_ipv4_ho_a_not_supported_count', u'gre_key_opt_required_count'], name, value)
+
 
 
                         class PbriSendStatistics(Entity):
@@ -905,12 +1015,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbri_drop_count
                             
                             	Count of PBRIs dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: unspecified_count
                             
@@ -919,12 +1033,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: admin_reason_count
                             
                             	Count of Revoc Trigger \- Administrative Reason
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mag_handover_same_att_count
                             
@@ -933,12 +1051,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mag_handover_different_att_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Different ATT
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mag_handover_unknown_count
                             
@@ -947,12 +1069,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: user_session_termination_count
                             
                             	Count of Revoc Trigger \- User Init Session Terminatation
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: network_session_termination_count
                             
@@ -961,12 +1087,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_of_sync_bce_state_count
                             
                             	Count of Revoc Trigger \- Possible Out\-of\-Sync BCE State
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: per_peer_policy_count
                             
@@ -975,12 +1105,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: revoking_mn_local_policy_count
                             
                             	Count of Revoc Trigger \- Revoking Mobility Node Local Policy
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1028,7 +1162,8 @@ class Pmipv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriSendStatistics, [u'pbri_count', u'pbri_drop_count', u'unspecified_count', u'admin_reason_count', u'mag_handover_same_att_count', u'mag_handover_different_att_count', u'mag_handover_unknown_count', u'user_session_termination_count', u'network_session_termination_count', u'out_of_sync_bce_state_count', u'per_peer_policy_count', u'revoking_mn_local_policy_count'], name, value)
+
 
 
                         class PbriReceiveStatistics(Entity):
@@ -1042,12 +1177,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbri_drop_count
                             
                             	Count of PBRIs dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: unspecified_count
                             
@@ -1056,12 +1195,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: admin_reason_count
                             
                             	Count of Revoc Trigger \- Administrative Reason
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mag_handover_same_att_count
                             
@@ -1070,12 +1213,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mag_handover_different_att_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Different ATT
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mag_handover_unknown_count
                             
@@ -1084,12 +1231,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: user_session_termination_count
                             
                             	Count of Revoc Trigger \- User Init Session Terminatation
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: network_session_termination_count
                             
@@ -1098,12 +1249,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_of_sync_bce_state_count
                             
                             	Count of Revoc Trigger \- Possible Out\-of\-Sync BCE State
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: per_peer_policy_count
                             
@@ -1112,12 +1267,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: revoking_mn_local_policy_count
                             
                             	Count of Revoc Trigger \- Revoking Mobility Node Local Policy
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1165,7 +1324,8 @@ class Pmipv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbriReceiveStatistics, [u'pbri_count', u'pbri_drop_count', u'unspecified_count', u'admin_reason_count', u'mag_handover_same_att_count', u'mag_handover_different_att_count', u'mag_handover_unknown_count', u'user_session_termination_count', u'network_session_termination_count', u'out_of_sync_bce_state_count', u'per_peer_policy_count', u'revoking_mn_local_policy_count'], name, value)
+
 
 
                         class PbraSendStatistics(Entity):
@@ -1179,12 +1339,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbra_drop_count
                             
                             	Count of PBRAs dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: success_count
                             
@@ -1193,12 +1357,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: partial_success_count
                             
                             	Count of Revoc Status \- Partial Success
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_binding_count
                             
@@ -1207,12 +1375,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: hoa_required_count
                             
                             	Count of Revoc Status \- IPv4 Home Address Option Required
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_author_for_global_revoc_count
                             
@@ -1221,12 +1393,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mn_identity_required_count
                             
                             	Count of Revoc Status \- Revoked Mobile Node Identity Required
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mn_attached_count
                             
@@ -1235,12 +1411,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: unknown_revoc_trigger_count
                             
                             	Count of Revoc Status \- Revocation Trigger NOT supported
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: revoc_function_not_supported_count
                             
@@ -1249,12 +1429,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbr_not_supported_count
                             
                             	Count of Revoc Status \- Proxy Binding Revocation NOT Supported
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1302,7 +1486,8 @@ class Pmipv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraSendStatistics, [u'pbra_count', u'pbra_drop_count', u'success_count', u'partial_success_count', u'no_binding_count', u'hoa_required_count', u'no_author_for_global_revoc_count', u'mn_identity_required_count', u'mn_attached_count', u'unknown_revoc_trigger_count', u'revoc_function_not_supported_count', u'pbr_not_supported_count'], name, value)
+
 
 
                         class PbraReceiveStatistics(Entity):
@@ -1316,12 +1501,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbra_drop_count
                             
                             	Count of PBRAs dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: success_count
                             
@@ -1330,12 +1519,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: partial_success_count
                             
                             	Count of Revoc Status \- Partial Success
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_binding_count
                             
@@ -1344,12 +1537,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: hoa_required_count
                             
                             	Count of Revoc Status \- IPv4 Home Address Option Required
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_author_for_global_revoc_count
                             
@@ -1358,12 +1555,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mn_identity_required_count
                             
                             	Count of Revoc Status \- Revoked Mobile Node Identity Required
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mn_attached_count
                             
@@ -1372,12 +1573,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: unknown_revoc_trigger_count
                             
                             	Count of Revoc Status \- Revocation Trigger NOT supported
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: revoc_function_not_supported_count
                             
@@ -1386,12 +1591,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbr_not_supported_count
                             
                             	Count of Revoc Status \- Proxy Binding Revocation NOT Supported
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1439,7 +1648,9 @@ class Pmipv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.ProtocolStatistics.PbraReceiveStatistics, [u'pbra_count', u'pbra_drop_count', u'success_count', u'partial_success_count', u'no_binding_count', u'hoa_required_count', u'no_author_for_global_revoc_count', u'mn_identity_required_count', u'mn_attached_count', u'unknown_revoc_trigger_count', u'revoc_function_not_supported_count', u'pbr_not_supported_count'], name, value)
+
+
 
 
                     class AccountingStatistics(Entity):
@@ -1453,6 +1664,8 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: accounting_update_sent_count
                         
                         	Count of Accounting Update Records Sent
@@ -1460,12 +1673,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: accounting_stop_sent_count
                         
                         	Count of Accounting Stop Records Sent
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -1495,7 +1712,10 @@ class Pmipv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics, ['accounting_start_sent_count', 'accounting_update_sent_count', 'accounting_stop_sent_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.CustomerStatistics.CustomerStatistic.AccountingStatistics, [u'accounting_start_sent_count', u'accounting_update_sent_count', u'accounting_stop_sent_count'], name, value)
+
+
+
 
 
             class License(Entity):
@@ -1507,12 +1727,16 @@ class Pmipv6(Entity):
                 	LMA Identifier
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: bce_count
                 
                 	Instantaneous Count of Bindings
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: peak_bce_count
                 
@@ -1521,12 +1745,16 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: peak_bce_count_reset_timestamp
                 
                 	Timestamp when the Peak Count of Bindings was reset
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1559,7 +1787,8 @@ class Pmipv6(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pmipv6.Lma.Statistics.License, ['lma_identifier', 'bce_count', 'peak_bce_count', 'peak_bce_count_reset_timestamp'], name, value)
+                    self._perform_setattr(Pmipv6.Lma.Statistics.License, [u'lma_identifier', u'bce_count', u'peak_bce_count', u'peak_bce_count_reset_timestamp'], name, value)
+
 
 
             class Global(Entity):
@@ -1571,20 +1800,28 @@ class Pmipv6(Entity):
                 	Packet Statistics
                 	**type**\:  :py:class:`PacketStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.PacketStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: protocol_statistics
                 
                 	LMA Protocol Statistics
                 	**type**\:  :py:class:`ProtocolStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: accounting_statistics
                 
                 	LMA Accounting Statistics
                 	**type**\:  :py:class:`AccountingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.AccountingStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: lma_identifier
                 
                 	LMA Identifier
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: bce_count
                 
@@ -1593,12 +1830,16 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: handoff_count
                 
                 	Count of Handoffs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: single_tenant_count
                 
@@ -1607,12 +1848,16 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: multi_tenant_count
                 
                 	Count of Multi Tenants
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1659,7 +1904,7 @@ class Pmipv6(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pmipv6.Lma.Statistics.Global, ['lma_identifier', 'bce_count', 'handoff_count', 'single_tenant_count', 'multi_tenant_count'], name, value)
+                    self._perform_setattr(Pmipv6.Lma.Statistics.Global, [u'lma_identifier', u'bce_count', u'handoff_count', u'single_tenant_count', u'multi_tenant_count'], name, value)
 
 
                 class PacketStatistics(Entity):
@@ -1673,12 +1918,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: send_drops
                     
                     	Drop count of sent packets
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: receive_drops
                     
@@ -1687,12 +1936,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: packets_received
                     
                     	Count of received packets
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: packets_sent
                     
@@ -1701,12 +1954,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: send_drops_ipv6
                     
                     	Drop count of IPv6 sent packets
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: receive_drops_ipv6
                     
@@ -1715,6 +1972,8 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: packets_received_ipv6
                     
                     	Count of IPv6 received packets
@@ -1722,12 +1981,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: packets_sent_ipv6
                     
                     	Count of IPv6 sent packets
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -1770,7 +2033,8 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Statistics.Global.PacketStatistics, ['checksum_errors', 'send_drops', 'receive_drops', 'packets_received', 'packets_sent', 'send_drops_ipv6', 'receive_drops_ipv6', 'packets_received_ipv6', 'packets_sent_ipv6'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Statistics.Global.PacketStatistics, [u'checksum_errors', u'send_drops', u'receive_drops', u'packets_received', u'packets_sent', u'send_drops_ipv6', u'receive_drops_ipv6', u'packets_received_ipv6', u'packets_sent_ipv6'], name, value)
+
 
 
                 class ProtocolStatistics(Entity):
@@ -1782,30 +2046,42 @@ class Pmipv6(Entity):
                     	PBU Receive Statistics
                     	**type**\:  :py:class:`PbuReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: pba_send_statistics
                     
                     	PBA Send Statistics
                     	**type**\:  :py:class:`PbaSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: pbri_send_statistics
                     
                     	PBRI Send Statistics
                     	**type**\:  :py:class:`PbriSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: pbri_receive_statistics
                     
                     	PBRI Receive Statistics
                     	**type**\:  :py:class:`PbriReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: pbra_send_statistics
                     
                     	PBRA Send Statistics
                     	**type**\:  :py:class:`PbraSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: pbra_receive_statistics
                     
                     	PBRA Receive Statistics
                     	**type**\:  :py:class:`PbraReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1867,12 +2143,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: pbu_drop_count
                         
                         	Count of PBUs Dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1901,7 +2181,8 @@ class Pmipv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics, ['pbu_count', 'pbu_drop_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbuReceiveStatistics, [u'pbu_count', u'pbu_drop_count'], name, value)
+
 
 
                     class PbaSendStatistics(Entity):
@@ -1915,12 +2196,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: pba_drop_count
                         
                         	Count of PBAs dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: accepted_count
                         
@@ -1929,12 +2214,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unknown_count
                         
                         	Count of Status Code \- Last BA status code sent
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: unspecified_failure_count
                         
@@ -1943,12 +2232,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: admin_failure_count
                         
                         	Count of Status Code \- Administratively prohibited
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: resource_failure_count
                         
@@ -1957,12 +2250,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: home_reg_failure_count
                         
                         	Count of Status Code \- Home registration not supported
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: home_subnet_failure_count
                         
@@ -1971,12 +2268,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_sequence_failure_count
                         
                         	Count of Status Code \- Sequence number out of window
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: reg_type_failure_count
                         
@@ -1985,12 +2286,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: authen_failure_count
                         
                         	Count of Status Code \- Auth Fail
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: proxy_reg_not_enabled_count
                         
@@ -1999,12 +2304,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: not_lma_for_this_mn_count
                         
                         	Count of Status Code \- Not LMA for this Mobile Node
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: no_author_for_proxy_reg_count
                         
@@ -2013,12 +2322,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: no_author_for_hnp_count
                         
                         	Count of Status Code \- Not authorized for HNP
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: timestamp_mismatch_count
                         
@@ -2027,12 +2340,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: timestamp_lower_than_previous_accepted_count
                         
                         	Count of Status Code \- Timestamp lower than previous accepted
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing_hnp_opt_count
                         
@@ -2041,12 +2358,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_hnps_do_not_match_bce_hnps_count
                         
                         	Count of Status Code \- Recevied HNPs do not match with BCE
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing_mn_id_opt_count
                         
@@ -2055,12 +2376,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: missing_hi_opt_count
                         
                         	Count of Status Code \- Missing Handoff Indicator
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing_access_tech_type_opt_count
                         
@@ -2069,12 +2394,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: no_author_for_ipv4_mobility_count
                         
                         	Count of Status Code \- Not authorized for IPv4 mobility
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: no_author_for_ipv4_hoa_count
                         
@@ -2083,12 +2412,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: no_author_for_ipv6_mobility_count
                         
                         	Count of Status Code \- Not authorized for IPv6 mobility
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: multiple_ipv4_ho_a_not_supported_count
                         
@@ -2097,12 +2430,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: gre_key_opt_required_count
                         
                         	Count of Status Code \- GRE Key option is required
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2183,7 +2520,8 @@ class Pmipv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics, ['pba_count', 'pba_drop_count', 'accepted_count', 'unknown_count', 'unspecified_failure_count', 'admin_failure_count', 'resource_failure_count', 'home_reg_failure_count', 'home_subnet_failure_count', 'bad_sequence_failure_count', 'reg_type_failure_count', 'authen_failure_count', 'proxy_reg_not_enabled_count', 'not_lma_for_this_mn_count', 'no_author_for_proxy_reg_count', 'no_author_for_hnp_count', 'timestamp_mismatch_count', 'timestamp_lower_than_previous_accepted_count', 'missing_hnp_opt_count', 'received_hnps_do_not_match_bce_hnps_count', 'missing_mn_id_opt_count', 'missing_hi_opt_count', 'missing_access_tech_type_opt_count', 'no_author_for_ipv4_mobility_count', 'no_author_for_ipv4_hoa_count', 'no_author_for_ipv6_mobility_count', 'multiple_ipv4_ho_a_not_supported_count', 'gre_key_opt_required_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbaSendStatistics, [u'pba_count', u'pba_drop_count', u'accepted_count', u'unknown_count', u'unspecified_failure_count', u'admin_failure_count', u'resource_failure_count', u'home_reg_failure_count', u'home_subnet_failure_count', u'bad_sequence_failure_count', u'reg_type_failure_count', u'authen_failure_count', u'proxy_reg_not_enabled_count', u'not_lma_for_this_mn_count', u'no_author_for_proxy_reg_count', u'no_author_for_hnp_count', u'timestamp_mismatch_count', u'timestamp_lower_than_previous_accepted_count', u'missing_hnp_opt_count', u'received_hnps_do_not_match_bce_hnps_count', u'missing_mn_id_opt_count', u'missing_hi_opt_count', u'missing_access_tech_type_opt_count', u'no_author_for_ipv4_mobility_count', u'no_author_for_ipv4_hoa_count', u'no_author_for_ipv6_mobility_count', u'multiple_ipv4_ho_a_not_supported_count', u'gre_key_opt_required_count'], name, value)
+
 
 
                     class PbriSendStatistics(Entity):
@@ -2197,12 +2535,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: pbri_drop_count
                         
                         	Count of PBRIs dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: unspecified_count
                         
@@ -2211,12 +2553,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: admin_reason_count
                         
                         	Count of Revoc Trigger \- Administrative Reason
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: mag_handover_same_att_count
                         
@@ -2225,12 +2571,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mag_handover_different_att_count
                         
                         	Count of Revoc Trigger \- Inter MAG Handover Different ATT
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: mag_handover_unknown_count
                         
@@ -2239,12 +2589,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: user_session_termination_count
                         
                         	Count of Revoc Trigger \- User Init Session Terminatation
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: network_session_termination_count
                         
@@ -2253,12 +2607,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_of_sync_bce_state_count
                         
                         	Count of Revoc Trigger \- Possible Out\-of\-Sync BCE State
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: per_peer_policy_count
                         
@@ -2267,12 +2625,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: revoking_mn_local_policy_count
                         
                         	Count of Revoc Trigger \- Revoking Mobility Node Local Policy
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2321,7 +2683,8 @@ class Pmipv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriSendStatistics, [u'pbri_count', u'pbri_drop_count', u'unspecified_count', u'admin_reason_count', u'mag_handover_same_att_count', u'mag_handover_different_att_count', u'mag_handover_unknown_count', u'user_session_termination_count', u'network_session_termination_count', u'out_of_sync_bce_state_count', u'per_peer_policy_count', u'revoking_mn_local_policy_count'], name, value)
+
 
 
                     class PbriReceiveStatistics(Entity):
@@ -2335,12 +2698,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: pbri_drop_count
                         
                         	Count of PBRIs dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: unspecified_count
                         
@@ -2349,12 +2716,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: admin_reason_count
                         
                         	Count of Revoc Trigger \- Administrative Reason
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: mag_handover_same_att_count
                         
@@ -2363,12 +2734,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mag_handover_different_att_count
                         
                         	Count of Revoc Trigger \- Inter MAG Handover Different ATT
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: mag_handover_unknown_count
                         
@@ -2377,12 +2752,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: user_session_termination_count
                         
                         	Count of Revoc Trigger \- User Init Session Terminatation
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: network_session_termination_count
                         
@@ -2391,12 +2770,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: out_of_sync_bce_state_count
                         
                         	Count of Revoc Trigger \- Possible Out\-of\-Sync BCE State
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: per_peer_policy_count
                         
@@ -2405,12 +2788,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: revoking_mn_local_policy_count
                         
                         	Count of Revoc Trigger \- Revoking Mobility Node Local Policy
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2459,7 +2846,8 @@ class Pmipv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbriReceiveStatistics, [u'pbri_count', u'pbri_drop_count', u'unspecified_count', u'admin_reason_count', u'mag_handover_same_att_count', u'mag_handover_different_att_count', u'mag_handover_unknown_count', u'user_session_termination_count', u'network_session_termination_count', u'out_of_sync_bce_state_count', u'per_peer_policy_count', u'revoking_mn_local_policy_count'], name, value)
+
 
 
                     class PbraSendStatistics(Entity):
@@ -2473,12 +2861,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: pbra_drop_count
                         
                         	Count of PBRAs dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: success_count
                         
@@ -2487,12 +2879,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: partial_success_count
                         
                         	Count of Revoc Status \- Partial Success
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: no_binding_count
                         
@@ -2501,12 +2897,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: hoa_required_count
                         
                         	Count of Revoc Status \- IPv4 Home Address Option Required
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: no_author_for_global_revoc_count
                         
@@ -2515,12 +2915,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mn_identity_required_count
                         
                         	Count of Revoc Status \- Revoked Mobile Node Identity Required
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: mn_attached_count
                         
@@ -2529,12 +2933,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unknown_revoc_trigger_count
                         
                         	Count of Revoc Status \- Revocation Trigger NOT supported
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: revoc_function_not_supported_count
                         
@@ -2543,12 +2951,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: pbr_not_supported_count
                         
                         	Count of Revoc Status \- Proxy Binding Revocation NOT Supported
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2597,7 +3009,8 @@ class Pmipv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraSendStatistics, [u'pbra_count', u'pbra_drop_count', u'success_count', u'partial_success_count', u'no_binding_count', u'hoa_required_count', u'no_author_for_global_revoc_count', u'mn_identity_required_count', u'mn_attached_count', u'unknown_revoc_trigger_count', u'revoc_function_not_supported_count', u'pbr_not_supported_count'], name, value)
+
 
 
                     class PbraReceiveStatistics(Entity):
@@ -2611,12 +3024,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: pbra_drop_count
                         
                         	Count of PBRAs dropped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: success_count
                         
@@ -2625,12 +3042,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: partial_success_count
                         
                         	Count of Revoc Status \- Partial Success
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: no_binding_count
                         
@@ -2639,12 +3060,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: hoa_required_count
                         
                         	Count of Revoc Status \- IPv4 Home Address Option Required
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: no_author_for_global_revoc_count
                         
@@ -2653,12 +3078,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mn_identity_required_count
                         
                         	Count of Revoc Status \- Revoked Mobile Node Identity Required
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: mn_attached_count
                         
@@ -2667,12 +3096,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unknown_revoc_trigger_count
                         
                         	Count of Revoc Status \- Revocation Trigger NOT supported
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: revoc_function_not_supported_count
                         
@@ -2681,12 +3114,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: pbr_not_supported_count
                         
                         	Count of Revoc Status \- Proxy Binding Revocation NOT Supported
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2735,7 +3172,9 @@ class Pmipv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.Statistics.Global.ProtocolStatistics.PbraReceiveStatistics, [u'pbra_count', u'pbra_drop_count', u'success_count', u'partial_success_count', u'no_binding_count', u'hoa_required_count', u'no_author_for_global_revoc_count', u'mn_identity_required_count', u'mn_attached_count', u'unknown_revoc_trigger_count', u'revoc_function_not_supported_count', u'pbr_not_supported_count'], name, value)
+
+
 
 
                 class AccountingStatistics(Entity):
@@ -2749,6 +3188,8 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: accounting_update_sent_count
                     
                     	Count of Accounting Update Records Sent
@@ -2756,12 +3197,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: accounting_stop_sent_count
                     
                     	Count of Accounting Stop Records Sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -2792,7 +3237,9 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Statistics.Global.AccountingStatistics, ['accounting_start_sent_count', 'accounting_update_sent_count', 'accounting_stop_sent_count'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Statistics.Global.AccountingStatistics, [u'accounting_start_sent_count', u'accounting_update_sent_count', u'accounting_stop_sent_count'], name, value)
+
+
 
 
             class MagStatistics(Entity):
@@ -2803,6 +3250,8 @@ class Pmipv6(Entity):
                 
                 	Peer MAG statistics
                 	**type**\: list of  		 :py:class:`MagStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic>`
+                
+                	**config**\: False
                 
                 
 
@@ -2842,15 +3291,21 @@ class Pmipv6(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: protocol_statistics
                     
                     	LMA Protocol Statistics
                     	**type**\:  :py:class:`ProtocolStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: lma_identifier
                     
                     	LMA Identifier
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2883,7 +3338,7 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic, ['mag_name', 'lma_identifier'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic, ['mag_name', u'lma_identifier'], name, value)
 
 
                     class ProtocolStatistics(Entity):
@@ -2895,30 +3350,42 @@ class Pmipv6(Entity):
                         	PBU Receive Statistics
                         	**type**\:  :py:class:`PbuReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pba_send_statistics
                         
                         	PBA Send Statistics
                         	**type**\:  :py:class:`PbaSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: pbri_send_statistics
                         
                         	PBRI Send Statistics
                         	**type**\:  :py:class:`PbriSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pbri_receive_statistics
                         
                         	PBRI Receive Statistics
                         	**type**\:  :py:class:`PbriReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: pbra_send_statistics
                         
                         	PBRA Send Statistics
                         	**type**\:  :py:class:`PbraSendStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: pbra_receive_statistics
                         
                         	PBRA Receive Statistics
                         	**type**\:  :py:class:`PbraReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2979,12 +3446,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbu_drop_count
                             
                             	Count of PBUs Dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3012,7 +3483,8 @@ class Pmipv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics, ['pbu_count', 'pbu_drop_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbuReceiveStatistics, [u'pbu_count', u'pbu_drop_count'], name, value)
+
 
 
                         class PbaSendStatistics(Entity):
@@ -3026,12 +3498,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: pba_drop_count
                             
                             	Count of PBAs dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: accepted_count
                             
@@ -3040,12 +3516,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: unknown_count
                             
                             	Count of Status Code \- Last BA status code sent
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: unspecified_failure_count
                             
@@ -3054,12 +3534,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: admin_failure_count
                             
                             	Count of Status Code \- Administratively prohibited
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: resource_failure_count
                             
@@ -3068,12 +3552,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: home_reg_failure_count
                             
                             	Count of Status Code \- Home registration not supported
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: home_subnet_failure_count
                             
@@ -3082,12 +3570,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bad_sequence_failure_count
                             
                             	Count of Status Code \- Sequence number out of window
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: reg_type_failure_count
                             
@@ -3096,12 +3588,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: authen_failure_count
                             
                             	Count of Status Code \- Auth Fail
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: proxy_reg_not_enabled_count
                             
@@ -3110,12 +3606,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: not_lma_for_this_mn_count
                             
                             	Count of Status Code \- Not LMA for this Mobile Node
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_author_for_proxy_reg_count
                             
@@ -3124,12 +3624,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: no_author_for_hnp_count
                             
                             	Count of Status Code \- Not authorized for HNP
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: timestamp_mismatch_count
                             
@@ -3138,12 +3642,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: timestamp_lower_than_previous_accepted_count
                             
                             	Count of Status Code \- Timestamp lower than previous accepted
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: missing_hnp_opt_count
                             
@@ -3152,12 +3660,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: received_hnps_do_not_match_bce_hnps_count
                             
                             	Count of Status Code \- Recevied HNPs do not match with BCE
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: missing_mn_id_opt_count
                             
@@ -3166,12 +3678,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: missing_hi_opt_count
                             
                             	Count of Status Code \- Missing Handoff Indicator
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: missing_access_tech_type_opt_count
                             
@@ -3180,12 +3696,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: no_author_for_ipv4_mobility_count
                             
                             	Count of Status Code \- Not authorized for IPv4 mobility
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_author_for_ipv4_hoa_count
                             
@@ -3194,12 +3714,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: no_author_for_ipv6_mobility_count
                             
                             	Count of Status Code \- Not authorized for IPv6 mobility
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: multiple_ipv4_ho_a_not_supported_count
                             
@@ -3208,12 +3732,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: gre_key_opt_required_count
                             
                             	Count of Status Code \- GRE Key option is required
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3293,7 +3821,8 @@ class Pmipv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics, ['pba_count', 'pba_drop_count', 'accepted_count', 'unknown_count', 'unspecified_failure_count', 'admin_failure_count', 'resource_failure_count', 'home_reg_failure_count', 'home_subnet_failure_count', 'bad_sequence_failure_count', 'reg_type_failure_count', 'authen_failure_count', 'proxy_reg_not_enabled_count', 'not_lma_for_this_mn_count', 'no_author_for_proxy_reg_count', 'no_author_for_hnp_count', 'timestamp_mismatch_count', 'timestamp_lower_than_previous_accepted_count', 'missing_hnp_opt_count', 'received_hnps_do_not_match_bce_hnps_count', 'missing_mn_id_opt_count', 'missing_hi_opt_count', 'missing_access_tech_type_opt_count', 'no_author_for_ipv4_mobility_count', 'no_author_for_ipv4_hoa_count', 'no_author_for_ipv6_mobility_count', 'multiple_ipv4_ho_a_not_supported_count', 'gre_key_opt_required_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbaSendStatistics, [u'pba_count', u'pba_drop_count', u'accepted_count', u'unknown_count', u'unspecified_failure_count', u'admin_failure_count', u'resource_failure_count', u'home_reg_failure_count', u'home_subnet_failure_count', u'bad_sequence_failure_count', u'reg_type_failure_count', u'authen_failure_count', u'proxy_reg_not_enabled_count', u'not_lma_for_this_mn_count', u'no_author_for_proxy_reg_count', u'no_author_for_hnp_count', u'timestamp_mismatch_count', u'timestamp_lower_than_previous_accepted_count', u'missing_hnp_opt_count', u'received_hnps_do_not_match_bce_hnps_count', u'missing_mn_id_opt_count', u'missing_hi_opt_count', u'missing_access_tech_type_opt_count', u'no_author_for_ipv4_mobility_count', u'no_author_for_ipv4_hoa_count', u'no_author_for_ipv6_mobility_count', u'multiple_ipv4_ho_a_not_supported_count', u'gre_key_opt_required_count'], name, value)
+
 
 
                         class PbriSendStatistics(Entity):
@@ -3307,12 +3836,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbri_drop_count
                             
                             	Count of PBRIs dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: unspecified_count
                             
@@ -3321,12 +3854,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: admin_reason_count
                             
                             	Count of Revoc Trigger \- Administrative Reason
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mag_handover_same_att_count
                             
@@ -3335,12 +3872,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mag_handover_different_att_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Different ATT
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mag_handover_unknown_count
                             
@@ -3349,12 +3890,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: user_session_termination_count
                             
                             	Count of Revoc Trigger \- User Init Session Terminatation
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: network_session_termination_count
                             
@@ -3363,12 +3908,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_of_sync_bce_state_count
                             
                             	Count of Revoc Trigger \- Possible Out\-of\-Sync BCE State
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: per_peer_policy_count
                             
@@ -3377,12 +3926,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: revoking_mn_local_policy_count
                             
                             	Count of Revoc Trigger \- Revoking Mobility Node Local Policy
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3430,7 +3983,8 @@ class Pmipv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriSendStatistics, [u'pbri_count', u'pbri_drop_count', u'unspecified_count', u'admin_reason_count', u'mag_handover_same_att_count', u'mag_handover_different_att_count', u'mag_handover_unknown_count', u'user_session_termination_count', u'network_session_termination_count', u'out_of_sync_bce_state_count', u'per_peer_policy_count', u'revoking_mn_local_policy_count'], name, value)
+
 
 
                         class PbriReceiveStatistics(Entity):
@@ -3444,12 +3998,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbri_drop_count
                             
                             	Count of PBRIs dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: unspecified_count
                             
@@ -3458,12 +4016,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: admin_reason_count
                             
                             	Count of Revoc Trigger \- Administrative Reason
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mag_handover_same_att_count
                             
@@ -3472,12 +4034,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mag_handover_different_att_count
                             
                             	Count of Revoc Trigger \- Inter MAG Handover Different ATT
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mag_handover_unknown_count
                             
@@ -3486,12 +4052,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: user_session_termination_count
                             
                             	Count of Revoc Trigger \- User Init Session Terminatation
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: network_session_termination_count
                             
@@ -3500,12 +4070,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: out_of_sync_bce_state_count
                             
                             	Count of Revoc Trigger \- Possible Out\-of\-Sync BCE State
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: per_peer_policy_count
                             
@@ -3514,12 +4088,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: revoking_mn_local_policy_count
                             
                             	Count of Revoc Trigger \- Revoking Mobility Node Local Policy
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3567,7 +4145,8 @@ class Pmipv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics, ['pbri_count', 'pbri_drop_count', 'unspecified_count', 'admin_reason_count', 'mag_handover_same_att_count', 'mag_handover_different_att_count', 'mag_handover_unknown_count', 'user_session_termination_count', 'network_session_termination_count', 'out_of_sync_bce_state_count', 'per_peer_policy_count', 'revoking_mn_local_policy_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbriReceiveStatistics, [u'pbri_count', u'pbri_drop_count', u'unspecified_count', u'admin_reason_count', u'mag_handover_same_att_count', u'mag_handover_different_att_count', u'mag_handover_unknown_count', u'user_session_termination_count', u'network_session_termination_count', u'out_of_sync_bce_state_count', u'per_peer_policy_count', u'revoking_mn_local_policy_count'], name, value)
+
 
 
                         class PbraSendStatistics(Entity):
@@ -3581,12 +4160,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbra_drop_count
                             
                             	Count of PBRAs dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: success_count
                             
@@ -3595,12 +4178,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: partial_success_count
                             
                             	Count of Revoc Status \- Partial Success
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_binding_count
                             
@@ -3609,12 +4196,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: hoa_required_count
                             
                             	Count of Revoc Status \- IPv4 Home Address Option Required
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_author_for_global_revoc_count
                             
@@ -3623,12 +4214,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mn_identity_required_count
                             
                             	Count of Revoc Status \- Revoked Mobile Node Identity Required
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mn_attached_count
                             
@@ -3637,12 +4232,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: unknown_revoc_trigger_count
                             
                             	Count of Revoc Status \- Revocation Trigger NOT supported
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: revoc_function_not_supported_count
                             
@@ -3651,12 +4250,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbr_not_supported_count
                             
                             	Count of Revoc Status \- Proxy Binding Revocation NOT Supported
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3704,7 +4307,8 @@ class Pmipv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraSendStatistics, [u'pbra_count', u'pbra_drop_count', u'success_count', u'partial_success_count', u'no_binding_count', u'hoa_required_count', u'no_author_for_global_revoc_count', u'mn_identity_required_count', u'mn_attached_count', u'unknown_revoc_trigger_count', u'revoc_function_not_supported_count', u'pbr_not_supported_count'], name, value)
+
 
 
                         class PbraReceiveStatistics(Entity):
@@ -3718,12 +4322,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbra_drop_count
                             
                             	Count of PBRAs dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: success_count
                             
@@ -3732,12 +4340,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: partial_success_count
                             
                             	Count of Revoc Status \- Partial Success
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_binding_count
                             
@@ -3746,12 +4358,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: hoa_required_count
                             
                             	Count of Revoc Status \- IPv4 Home Address Option Required
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: no_author_for_global_revoc_count
                             
@@ -3760,12 +4376,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mn_identity_required_count
                             
                             	Count of Revoc Status \- Revoked Mobile Node Identity Required
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mn_attached_count
                             
@@ -3774,12 +4394,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: unknown_revoc_trigger_count
                             
                             	Count of Revoc Status \- Revocation Trigger NOT supported
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: revoc_function_not_supported_count
                             
@@ -3788,12 +4412,16 @@ class Pmipv6(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: pbr_not_supported_count
                             
                             	Count of Revoc Status \- Proxy Binding Revocation NOT Supported
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3841,7 +4469,12 @@ class Pmipv6(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics, ['pbra_count', 'pbra_drop_count', 'success_count', 'partial_success_count', 'no_binding_count', 'hoa_required_count', 'no_author_for_global_revoc_count', 'mn_identity_required_count', 'mn_attached_count', 'unknown_revoc_trigger_count', 'revoc_function_not_supported_count', 'pbr_not_supported_count'], name, value)
+                                self._perform_setattr(Pmipv6.Lma.Statistics.MagStatistics.MagStatistic.ProtocolStatistics.PbraReceiveStatistics, [u'pbra_count', u'pbra_drop_count', u'success_count', u'partial_success_count', u'no_binding_count', u'hoa_required_count', u'no_author_for_global_revoc_count', u'mn_identity_required_count', u'mn_attached_count', u'unknown_revoc_trigger_count', u'revoc_function_not_supported_count', u'pbr_not_supported_count'], name, value)
+
+
+
+
+
 
 
         class Bindings(Entity):
@@ -3852,6 +4485,8 @@ class Pmipv6(Entity):
             
             	Binding Parameters
             	**type**\: list of  		 :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings.Binding>`
+            
+            	**config**\: False
             
             
 
@@ -3891,12 +4526,16 @@ class Pmipv6(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: nai_string
                 
                 	NAI String
                 	**type**\: str
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                	**config**\: False
                 
                 .. attribute:: imsi_string
                 
@@ -3905,6 +4544,8 @@ class Pmipv6(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: customer_name
                 
                 	Customer String
@@ -3912,45 +4553,63 @@ class Pmipv6(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: mnnai
                 
                 	Mobile Node Identifier
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: customer_name_xr
                 
                 	Customer name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: llid
                 
                 	Link Layer Identifier
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: peer_id
                 
                 	Peer Identifier
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: phyintf
                 
                 	Access Interface
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: tunnel
                 
                 	Tunnel Interface
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: apn
                 
                 	Access Point Network
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: att
                 
@@ -3959,12 +4618,16 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: hoa
                 
                 	MN HOA
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: dflt
                 
@@ -3973,12 +4636,16 @@ class Pmipv6(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: lifetime
                 
                 	Life Time of Binding
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: liferem
                 
@@ -3987,12 +4654,16 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: refresh
                 
                 	Refresh Time of Binding
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: refresh_rem
                 
@@ -4001,12 +4672,16 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_len
                 
                 	Prefix Length
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: num_hnps
                 
@@ -4015,12 +4690,16 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: num_coa
                 
                 	COA count
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: num_dmnp_v4
                 
@@ -4029,12 +4708,16 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: num_dmnp_v6
                 
                 	IPv6 DMNP count
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: hnps
                 
@@ -4043,10 +4726,14 @@ class Pmipv6(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: ignore_home_address
                 
                 	Ignore HoA/HNP
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: up_stream_grekey
                 
@@ -4055,12 +4742,16 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: down_stream_grekey
                 
                 	DownStream GRE Key
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: vrfid
                 
@@ -4069,20 +4760,28 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: coa
                 
                 	COA entries
                 	**type**\: list of  		 :py:class:`Coa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings.Binding.Coa>`
+                
+                	**config**\: False
                 
                 .. attribute:: dmnp_v4
                 
                 	IPv4 DMNP prefixes
                 	**type**\: list of  		 :py:class:`DmnpV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings.Binding.DmnpV4>`
                 
+                	**config**\: False
+                
                 .. attribute:: dmnp_v6
                 
                 	IPv6 DMNP prefixes
                 	**type**\: list of  		 :py:class:`DmnpV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Bindings.Binding.DmnpV6>`
+                
+                	**config**\: False
                 
                 
 
@@ -4169,7 +4868,7 @@ class Pmipv6(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pmipv6.Lma.Bindings.Binding, ['mag_name', 'nai_string', 'imsi_string', 'customer_name', 'mnnai', 'customer_name_xr', 'llid', 'peer_id', 'phyintf', 'tunnel', 'state', 'apn', 'att', 'hoa', 'dflt', 'lifetime', 'liferem', 'refresh', 'refresh_rem', 'prefix_len', 'num_hnps', 'num_coa', 'num_dmnp_v4', 'num_dmnp_v6', 'hnps', 'ignore_home_address', 'up_stream_grekey', 'down_stream_grekey', 'vrfid'], name, value)
+                    self._perform_setattr(Pmipv6.Lma.Bindings.Binding, ['mag_name', 'nai_string', 'imsi_string', 'customer_name', u'mnnai', u'customer_name_xr', u'llid', u'peer_id', u'phyintf', u'tunnel', u'state', u'apn', u'att', u'hoa', u'dflt', u'lifetime', u'liferem', u'refresh', u'refresh_rem', u'prefix_len', u'num_hnps', u'num_coa', u'num_dmnp_v4', u'num_dmnp_v6', u'hnps', u'ignore_home_address', u'up_stream_grekey', u'down_stream_grekey', u'vrfid'], name, value)
 
 
                 class Coa(Entity):
@@ -4181,60 +4880,84 @@ class Pmipv6(Entity):
                     	Link Layer Identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_name
                     
                     	Peer Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tunnel
                     
                     	Tunnel Interface
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: e_label
                     
                     	Egress Label
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: color
                     
                     	Label Color
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: roa_min_tf
                     
                     	Roaming Intf
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: pstate
                     
                     	COA STATE
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: msisdn
                     
                     	MSISDN
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: imsi
                     
                     	IMSI or IMSI NAI
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: cdma_nai
                     
                     	CDMA NAI
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: pgw_apn
                     
                     	Subscriber APN on PWG
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: pgw_trans_vrf
                     
                     	Subscriber Transport VRF on PGW
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: att
                     
@@ -4243,12 +4966,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: lifetime
                     
                     	Life Time of coa
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: lifetime_remaining
                     
@@ -4257,12 +4984,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: refresh
                     
                     	refresh Time of coa
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: refresh_rem
                     
@@ -4271,12 +5002,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dnkey
                     
                     	down key for coa tunnel
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: upkey
                     
@@ -4285,6 +5020,8 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: coa_v4
                     
                     	IPv4 CoA
@@ -4292,12 +5029,16 @@ class Pmipv6(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: coa_v6
                     
                     	IPv6 CoA
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -4364,7 +5105,8 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Bindings.Binding.Coa, ['llid', 'peer_name', 'tunnel', 'e_label', 'color', 'roa_min_tf', 'pstate', 'msisdn', 'imsi', 'cdma_nai', 'pgw_apn', 'pgw_trans_vrf', 'att', 'lifetime', 'lifetime_remaining', 'refresh', 'refresh_rem', 'dnkey', 'upkey', 'coa_v4', 'coa_v6'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Bindings.Binding.Coa, [u'llid', u'peer_name', u'tunnel', u'e_label', u'color', u'roa_min_tf', u'pstate', u'msisdn', u'imsi', u'cdma_nai', u'pgw_apn', u'pgw_trans_vrf', u'att', u'lifetime', u'lifetime_remaining', u'refresh', u'refresh_rem', u'dnkey', u'upkey', u'coa_v4', u'coa_v6'], name, value)
+
 
 
                 class DmnpV4(Entity):
@@ -4378,12 +5120,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix
                     
                     	IPv4 prefix
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -4412,7 +5158,8 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Bindings.Binding.DmnpV4, ['pfxlen', 'prefix'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Bindings.Binding.DmnpV4, [u'pfxlen', u'prefix'], name, value)
+
 
 
                 class DmnpV6(Entity):
@@ -4426,12 +5173,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix
                     
                     	IPv6 prefix
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -4460,7 +5211,10 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.Bindings.Binding.DmnpV6, ['pfxlen', 'prefix'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.Bindings.Binding.DmnpV6, [u'pfxlen', u'prefix'], name, value)
+
+
+
 
 
         class Heartbeats(Entity):
@@ -4471,6 +5225,8 @@ class Pmipv6(Entity):
             
             	Heartbeat information
             	**type**\: list of  		 :py:class:`Heartbeat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.Heartbeats.Heartbeat>`
+            
+            	**config**\: False
             
             
 
@@ -4516,15 +5272,21 @@ class Pmipv6(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: vrf
                 
                 	VRF Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: customer_name
                 
                 	Customer Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: source_port
                 
@@ -4533,12 +5295,16 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: destination_port
                 
                 	Destination Port
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: source_ipv4_address
                 
@@ -4547,12 +5313,16 @@ class Pmipv6(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: destination_ipv4_address
                 
                 	Destination IPv4 Address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: source_ipv6_address
                 
@@ -4561,6 +5331,8 @@ class Pmipv6(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: destination_ipv6_address
                 
                 	Destination IPv6 Address
@@ -4568,15 +5340,21 @@ class Pmipv6(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: status
                 
                 	Path Status
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ipv6_path
                 
                 	IPv6 Path
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -4623,7 +5401,9 @@ class Pmipv6(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pmipv6.Lma.Heartbeats.Heartbeat, ['peer_addr', 'vrf', 'customer_name', 'source_port', 'destination_port', 'source_ipv4_address', 'destination_ipv4_address', 'source_ipv6_address', 'destination_ipv6_address', 'status', 'ipv6_path'], name, value)
+                    self._perform_setattr(Pmipv6.Lma.Heartbeats.Heartbeat, ['peer_addr', u'vrf', u'customer_name', u'source_port', u'destination_port', u'source_ipv4_address', u'destination_ipv4_address', u'source_ipv6_address', u'destination_ipv6_address', u'status', u'ipv6_path'], name, value)
+
+
 
 
         class ConfigVariables(Entity):
@@ -4635,10 +5415,14 @@ class Pmipv6(Entity):
             	Table of CustomerVariables
             	**type**\:  :py:class:`CustomerVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.CustomerVariables>`
             
+            	**config**\: False
+            
             .. attribute:: global_variables
             
             	Global Configuration Variables
             	**type**\:  :py:class:`GlobalVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables>`
+            
+            	**config**\: False
             
             
 
@@ -4682,6 +5466,8 @@ class Pmipv6(Entity):
                 	Customer name string
                 	**type**\: list of  		 :py:class:`CustomerVariable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -4720,25 +5506,35 @@ class Pmipv6(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: mll_service
                     
                     	MLL service parameters
                     	**type**\:  :py:class:`MllService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: cust_name
                     
                     	Customer Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf_name
                     
                     	VRF Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: auth_option
                     
                     	Authentication Option
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -4775,7 +5571,7 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable, ['customer_name', 'cust_name', 'vrf_name', 'auth_option'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable, ['customer_name', u'cust_name', u'vrf_name', u'auth_option'], name, value)
 
 
                     class MllService(Entity):
@@ -4787,12 +5583,16 @@ class Pmipv6(Entity):
                         	Ignore Home Address
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: mnp_ipv4_lmn_max
                         
                         	Max IPv4 prefixes per LMN
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: mnp_ipv6_lmn_max
                         
@@ -4801,12 +5601,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: mnp_lmn_max
                         
                         	Max prefixes per LMN
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: mnp_ipv4_cust_max
                         
@@ -4815,12 +5619,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mnp_ipv6_cust_max
                         
                         	Max IPv6 prefixes per Customer
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: mnp_cust_max
                         
@@ -4829,6 +5637,8 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mnp_ipv4_cust_cur
                         
                         	Current IPv4 prefixes per Customer
@@ -4836,12 +5646,16 @@ class Pmipv6(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mnp_ipv6_cust_cur
                         
                         	Current IPv6 prefixes per Customer
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4883,7 +5697,10 @@ class Pmipv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService, ['ignore_hoa', 'mnp_ipv4_lmn_max', 'mnp_ipv6_lmn_max', 'mnp_lmn_max', 'mnp_ipv4_cust_max', 'mnp_ipv6_cust_max', 'mnp_cust_max', 'mnp_ipv4_cust_cur', 'mnp_ipv6_cust_cur'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.ConfigVariables.CustomerVariables.CustomerVariable.MllService, [u'ignore_hoa', u'mnp_ipv4_lmn_max', u'mnp_ipv6_lmn_max', u'mnp_lmn_max', u'mnp_ipv4_cust_max', u'mnp_ipv6_cust_max', u'mnp_cust_max', u'mnp_ipv4_cust_cur', u'mnp_ipv6_cust_cur'], name, value)
+
+
+
 
 
             class GlobalVariables(Entity):
@@ -4895,30 +5712,42 @@ class Pmipv6(Entity):
                 	Domain Parameters
                 	**type**\:  :py:class:`Parameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters>`
                 
+                	**config**\: False
+                
                 .. attribute:: mll_service
                 
                 	MLL service parameters
                 	**type**\:  :py:class:`MllService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService>`
+                
+                	**config**\: False
                 
                 .. attribute:: domain
                 
                 	Domain Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: selfid
                 
                 	Self ID
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: apn_name
                 
                 	APN Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: role
                 
                 	Role Type
                 	**type**\:  :py:class:`Pmipv6Role <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6Role>`
+                
+                	**config**\: False
                 
                 .. attribute:: count
                 
@@ -4927,12 +5756,16 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: peers
                 
                 	Number of Peers
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: customers
                 
@@ -4941,6 +5774,8 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: num_network
                 
                 	Number of Networks
@@ -4948,40 +5783,56 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: discover_mn
                 
                 	Discover MN Detachment
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: local_routing
                 
                 	Local Routing
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: aaa_accounting
                 
                 	AAA Accounting
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: default_mn
                 
                 	Default MN Enabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: apn
                 
                 	APN Present
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: learn_mag
                 
                 	Learn MAG
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: session_mgr
                 
                 	Session Manager
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: service
                 
@@ -4990,10 +5841,14 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: profile
                 
                 	Default MN Profile Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ddp
                 
@@ -5002,12 +5857,16 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ddt
                 
                 	Discover Detach Timeout
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ddr
                 
@@ -5016,25 +5875,35 @@ class Pmipv6(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: intf
                 
                 	MAG Access List
                 	**type**\: list of  		 :py:class:`Intf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf>`
+                
+                	**config**\: False
                 
                 .. attribute:: peer
                 
                 	Peer Parameters
                 	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer>`
                 
+                	**config**\: False
+                
                 .. attribute:: network
                 
                 	LMA Network Parameters
                 	**type**\: list of  		 :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Network>`
                 
+                	**config**\: False
+                
                 .. attribute:: cust
                 
                 	Customer parameters
                 	**type**\: list of  		 :py:class:`Cust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust>`
+                
+                	**config**\: False
                 
                 
 
@@ -5112,7 +5981,7 @@ class Pmipv6(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables, ['domain', 'selfid', 'apn_name', 'role', 'count', 'peers', 'customers', 'num_network', 'discover_mn', 'local_routing', 'aaa_accounting', 'default_mn', 'apn', 'learn_mag', 'session_mgr', 'service', 'profile', 'ddp', 'ddt', 'ddr'], name, value)
+                    self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables, [u'domain', u'selfid', u'apn_name', u'role', u'count', u'peers', u'customers', u'num_network', u'discover_mn', u'local_routing', u'aaa_accounting', u'default_mn', u'apn', u'learn_mag', u'session_mgr', u'service', u'profile', u'ddp', u'ddt', u'ddr'], name, value)
 
 
                 class Parameters(Entity):
@@ -5124,10 +5993,14 @@ class Pmipv6(Entity):
                     	Self Identifier
                     	**type**\:  :py:class:`SelfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: timestamp
                     
                     	Timestamp method in use
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: window
                     
@@ -5136,10 +6009,14 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: auth_option
                     
                     	Authentication Option
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: reg_time
                     
@@ -5148,12 +6025,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ref_time
                     
                     	BCE Refresh Time
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: retx
                     
@@ -5162,12 +6043,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: ret_max
                     
                     	Refresh Retransmit Max
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: bri_init
                     
@@ -5176,12 +6061,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: bri_retries
                     
                     	BRI Max Retries
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: bri_max
                     
@@ -5190,12 +6079,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: max_bindings
                     
                     	Allowed Max. Bindings
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: hnp
                     
@@ -5204,10 +6097,14 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: encap
                     
                     	Encapsulation Type
                     	**type**\:  :py:class:`Pmipv6Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6Encap>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: delete_time
                     
@@ -5216,12 +6113,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: create_time
                     
                     	BCE Create Wait Timer
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: up_grekey
                     
@@ -5230,12 +6131,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: down_grekey
                     
                     	Downstream GRE Key
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -5298,7 +6203,7 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters, ['timestamp', 'window', 'auth_option', 'reg_time', 'ref_time', 'retx', 'ret_max', 'bri_init', 'bri_retries', 'bri_max', 'max_bindings', 'hnp', 'encap', 'delete_time', 'create_time', 'up_grekey', 'down_grekey'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters, [u'timestamp', u'window', u'auth_option', u'reg_time', u'ref_time', u'retx', u'ret_max', u'bri_init', u'bri_retries', u'bri_max', u'max_bindings', u'hnp', u'encap', u'delete_time', u'create_time', u'up_grekey', u'down_grekey'], name, value)
 
 
                     class SelfId(Entity):
@@ -5310,10 +6215,14 @@ class Pmipv6(Entity):
                         	Identifier of PMIP Node
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: addr_type
                         
                         	IPV4 or IPV6 or Both
                         	**type**\:  :py:class:`Pmipv6Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6Addr>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: address
                         
@@ -5322,12 +6231,16 @@ class Pmipv6(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPV4 addrress of LMA/MAG
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -5360,7 +6273,9 @@ class Pmipv6(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId, ['entity_', 'addr_type', 'address', 'ipv4_address'], name, value)
+                            self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Parameters.SelfId, [u'entity_', u'addr_type', u'address', u'ipv4_address'], name, value)
+
+
 
 
                 class MllService(Entity):
@@ -5372,12 +6287,16 @@ class Pmipv6(Entity):
                     	Ignore Home Address
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: mnp_ipv4_lmn_max
                     
                     	Max IPv4 prefixes per LMN
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: mnp_ipv6_lmn_max
                     
@@ -5386,12 +6305,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: mnp_lmn_max
                     
                     	Max prefixes per LMN
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: mnp_ipv4_cust_max
                     
@@ -5400,12 +6323,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: mnp_ipv6_cust_max
                     
                     	Max IPv6 prefixes per Customer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: mnp_cust_max
                     
@@ -5414,6 +6341,8 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: mnp_ipv4_cust_cur
                     
                     	Current IPv4 prefixes per Customer
@@ -5421,12 +6350,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: mnp_ipv6_cust_cur
                     
                     	Current IPv6 prefixes per Customer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -5469,7 +6402,8 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService, ['ignore_hoa', 'mnp_ipv4_lmn_max', 'mnp_ipv6_lmn_max', 'mnp_lmn_max', 'mnp_ipv4_cust_max', 'mnp_ipv6_cust_max', 'mnp_cust_max', 'mnp_ipv4_cust_cur', 'mnp_ipv6_cust_cur'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.MllService, [u'ignore_hoa', u'mnp_ipv4_lmn_max', u'mnp_ipv6_lmn_max', u'mnp_lmn_max', u'mnp_ipv4_cust_max', u'mnp_ipv6_cust_max', u'mnp_cust_max', u'mnp_ipv4_cust_cur', u'mnp_ipv6_cust_cur'], name, value)
+
 
 
                 class Intf(Entity):
@@ -5481,15 +6415,21 @@ class Pmipv6(Entity):
                     	APN Present
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface
                     
                     	Access Interface Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: apn_name
                     
                     	APN Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -5520,7 +6460,8 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf, ['apn', 'interface', 'apn_name'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Intf, [u'apn', u'interface', u'apn_name'], name, value)
+
 
 
                 class Peer(Entity):
@@ -5532,35 +6473,49 @@ class Pmipv6(Entity):
                     	Peer Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf_name
                     
                     	VRF Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface
                     
                     	Peer static tunnel intf
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: encap
                     
                     	Encapsulation Type
                     	**type**\:  :py:class:`Pmipv6Encap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_oper.Pmipv6Encap>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: auth
                     
                     	Authentication Option
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf
                     
                     	VRF Present
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: statictunnel
                     
                     	Static tunnel Present
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -5599,7 +6554,8 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer, ['peer', 'vrf_name', 'interface', 'encap', 'auth', 'vrf', 'statictunnel'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Peer, [u'peer', u'vrf_name', u'interface', u'encap', u'auth', u'vrf', u'statictunnel'], name, value)
+
 
 
                 class Network(Entity):
@@ -5611,15 +6567,21 @@ class Pmipv6(Entity):
                     	IPV4 pool Present
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: v6pool
                     
                     	IPV6 pool Present
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: network
                     
                     	Network Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv4
                     
@@ -5628,12 +6590,16 @@ class Pmipv6(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6
                     
                     	IPv6 Address
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: v4pfx_len
                     
@@ -5642,6 +6608,8 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: v6pfx_len
                     
                     	v6 prefix len
@@ -5649,12 +6617,16 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: mrnet
                     
                     	num of mrnet
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -5695,7 +6667,8 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Network, ['v4pool', 'v6pool', 'network', 'ipv4', 'ipv6', 'v4pfx_len', 'v6pfx_len', 'mrnet'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Network, [u'v4pool', u'v6pool', u'network', u'ipv4', u'ipv6', u'v4pfx_len', u'v6pfx_len', u'mrnet'], name, value)
+
 
 
                 class Cust(Entity):
@@ -5707,25 +6680,35 @@ class Pmipv6(Entity):
                     	Customer Present
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf
                     
                     	Customer VRF Present
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: t_vrf
                     
                     	Transport VRF Present
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: auth_option
                     
                     	Authentication Option
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: heart_beat
                     
                     	HeartBeat Option
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: reg_time
                     
@@ -5734,20 +6717,28 @@ class Pmipv6(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: cust_name
                     
                     	CUSTOMER Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: vrf_name
                     
                     	VRF Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: t_vrf_name
                     
                     	Transport VRF Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -5790,9 +6781,15 @@ class Pmipv6(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust, ['cust', 'vrf', 't_vrf', 'auth_option', 'heart_beat', 'reg_time', 'cust_name', 'vrf_name', 't_vrf_name'], name, value)
+                        self._perform_setattr(Pmipv6.Lma.ConfigVariables.GlobalVariables.Cust, [u'cust', u'vrf', u't_vrf', u'auth_option', u'heart_beat', u'reg_time', u'cust_name', u'vrf_name', u't_vrf_name'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Pmipv6()
         return self._top_entity
+
+
 

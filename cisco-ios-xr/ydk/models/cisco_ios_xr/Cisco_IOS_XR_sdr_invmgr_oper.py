@@ -30,6 +30,8 @@ class SdrInventory(Entity):
     	RackTable
     	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class SdrInventory(Entity):
         
         	Rack name
         	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks.Rack>`
+        
+        	**config**\: False
         
         
 
@@ -106,10 +110,14 @@ class SdrInventory(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: slot
             
             	Slot name
             	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks.Rack.Slot>`
+            
+            	**config**\: False
             
             
 
@@ -152,10 +160,14 @@ class SdrInventory(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: card
                 
                 	Card
                 	**type**\: list of  		 :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks.Rack.Slot.Card>`
+                
+                	**config**\: False
                 
                 
 
@@ -197,10 +209,14 @@ class SdrInventory(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: attributes
                     
                     	Attributes
                     	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_oper.SdrInventory.Racks.Rack.Slot.Card.Attributes>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -242,12 +258,16 @@ class SdrInventory(Entity):
                         	Config State String
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: power
                         
                         	Power
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**default value**\: 0
                         
@@ -258,6 +278,8 @@ class SdrInventory(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**default value**\: 0
                         
                         .. attribute:: card_state
@@ -266,6 +288,8 @@ class SdrInventory(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**default value**\: 0
                         
@@ -276,6 +300,8 @@ class SdrInventory(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**default value**\: 0
                         
                         .. attribute:: card_admin_state
@@ -284,6 +310,8 @@ class SdrInventory(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**default value**\: 0
                         
@@ -294,6 +322,8 @@ class SdrInventory(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**default value**\: 0
                         
                         .. attribute:: card_type_string
@@ -301,10 +331,14 @@ class SdrInventory(Entity):
                         	Card Type String
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: node_name_string
                         
                         	Node Name String
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: pi_slot_number
                         
@@ -312,6 +346,8 @@ class SdrInventory(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**default value**\: 0
                         
@@ -322,6 +358,8 @@ class SdrInventory(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**default value**\: 0
                         
                         .. attribute:: ctype
@@ -331,6 +369,8 @@ class SdrInventory(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**default value**\: 0
                         
                         .. attribute:: card_state_string
@@ -338,12 +378,16 @@ class SdrInventory(Entity):
                         	Card State String
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: monitor
                         
                         	Monitor
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**default value**\: 0
                         
@@ -399,7 +443,14 @@ class SdrInventory(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(SdrInventory.Racks.Rack.Slot.Card.Attributes, ['config_state_string', 'power', 'config_state', 'card_state', 'vm_state', 'card_admin_state', 'card_type', 'card_type_string', 'node_name_string', 'pi_slot_number', 'shutdown', 'ctype', 'card_state_string', 'monitor'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = SdrInventory()
         return self._top_entity
+
+
 

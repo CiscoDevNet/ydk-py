@@ -28,6 +28,8 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
     	This table sparse augments the mplsXCTable of MPLS\-LSR\-STD\-MIB [RFC3813] to provide MPLS\-TP specific information about associated tunnel information
     	**type**\:  :py:class:`CmplsXCExtTable <ydk.models.cisco_ios_xe.CISCO_MPLS_LSR_EXT_STD_MIB.CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
         
         	An entry in this table extends the cross connect information represented by an entry in the mplsXCTable in MPLS\-LSR\-STD\-MIB [RFC3813] through a sparse augmentation.  An entry can be created by a network administrator via SNMP SET commands, or in response to signaling protocol events
         	**type**\: list of  		 :py:class:`CmplsXCExtEntry <ydk.models.cisco_ios_xe.CISCO_MPLS_LSR_EXT_STD_MIB.CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable.CmplsXCExtEntry>`
+        
+        	**config**\: False
         
         
 
@@ -113,6 +117,8 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsxcindex <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsxcinsegmentindex  (key)
             
             	
@@ -121,6 +127,8 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             	**length:** 1..24
             
             	**refers to**\:  :py:class:`mplsxcinsegmentindex <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry>`
+            
+            	**config**\: False
             
             .. attribute:: mplsxcoutsegmentindex  (key)
             
@@ -131,6 +139,8 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsxcoutsegmentindex <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cmplsxcexttunnelpointer
             
             	This object indicates the back pointer to the tunnel entry segment.  This object cannot be modified if mplsXCRowStatus for the corresponding entry in the mplsXCTable is active(1)
@@ -138,12 +148,16 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: cmplsxcoppositedirxcptr
             
             	This object indicates the pointer to the opposite direction XC entry.  This object cannot be modified if mplsXCRowStatus for the corresponding entry in the mplsXCTable is active(1)
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             
 
@@ -180,7 +194,11 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable.CmplsXCExtEntry, ['mplsxcindex', 'mplsxcinsegmentindex', 'mplsxcoutsegmentindex', 'cmplsxcexttunnelpointer', 'cmplsxcoppositedirxcptr'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOMPLSLSREXTSTDMIB()
         return self._top_entity
+
+
 

@@ -27,40 +27,56 @@ class BRIDGEMIB(Entity):
     	
     	**type**\:  :py:class:`Dot1dBase <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBase>`
     
+    	**config**\: False
+    
     .. attribute:: dot1dstp
     
     	
     	**type**\:  :py:class:`Dot1dStp <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStp>`
+    
+    	**config**\: False
     
     .. attribute:: dot1dtp
     
     	
     	**type**\:  :py:class:`Dot1dTp <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTp>`
     
+    	**config**\: False
+    
     .. attribute:: dot1dbaseporttable
     
     	A table that contains generic information about every port that is associated with this bridge.  Transparent, source\-route, and srt ports are included
     	**type**\:  :py:class:`Dot1dBasePortTable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable>`
+    
+    	**config**\: False
     
     .. attribute:: dot1dstpporttable
     
     	A table that contains port\-specific information for the Spanning Tree Protocol
     	**type**\:  :py:class:`Dot1dStpPortTable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStpPortTable>`
     
+    	**config**\: False
+    
     .. attribute:: dot1dtpfdbtable
     
     	A table that contains information about unicast entries for which the bridge has forwarding and/or filtering information.  This information is used by the transparent bridging function in determining how to propagate a received frame
     	**type**\:  :py:class:`Dot1dTpFdbTable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTpFdbTable>`
+    
+    	**config**\: False
     
     .. attribute:: dot1dtpporttable
     
     	A table that contains information about every port that is associated with this transparent bridge
     	**type**\:  :py:class:`Dot1dTpPortTable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTpPortTable>`
     
+    	**config**\: False
+    
     .. attribute:: dot1dstatictable
     
     	A table containing filtering information configured into the bridge by (local or network) management specifying the set of ports to which frames received from specific ports and containing specific destination addresses are allowed to be forwarded.  The value of zero in this table, as the port number from which frames with a specific destination address are received, is used to specify all ports for which there is no specific entry in this table for that particular destination address.  Entries are valid for unicast and for group/broadcast addresses
     	**type**\:  :py:class:`Dot1dStaticTable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStaticTable>`
+    
+    	**config**\: False
     
     
 
@@ -130,6 +146,8 @@ class BRIDGEMIB(Entity):
         
         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
         
+        	**config**\: False
+        
         .. attribute:: dot1dbasenumports
         
         	The number of ports controlled by this bridging entity
@@ -137,12 +155,16 @@ class BRIDGEMIB(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         	**units**\: ports
         
         .. attribute:: dot1dbasetype
         
         	Indicates what type of bridging this bridge can perform.  If a bridge is actually performing a certain type of bridging, this will be indicated by entries in the port table for the given type
         	**type**\:  :py:class:`Dot1dBaseType <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBase.Dot1dBaseType>`
+        
+        	**config**\: False
         
         
 
@@ -173,7 +195,7 @@ class BRIDGEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1dBase, [u'dot1dbasebridgeaddress', u'dot1dbasenumports', u'dot1dbasetype'], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dBase, ['dot1dbasebridgeaddress', 'dot1dbasenumports', 'dot1dbasetype'], name, value)
 
         class Dot1dBaseType(Enum):
             """
@@ -207,6 +229,7 @@ class BRIDGEMIB(Entity):
 
 
 
+
     class Dot1dStp(Entity):
         """
         
@@ -216,6 +239,8 @@ class BRIDGEMIB(Entity):
         	An indication of what version of the Spanning Tree Protocol is being run.  The value 'decLb100(2)' indicates the DEC LANbridge 100 Spanning Tree protocol. IEEE 802.1D implementations will return 'ieee8021d(3)'. If future versions of the IEEE Spanning Tree Protocol that are incompatible with the current version are released a new value will be defined
         	**type**\:  :py:class:`Dot1dStpProtocolSpecification <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStp.Dot1dStpProtocolSpecification>`
         
+        	**config**\: False
+        
         .. attribute:: dot1dstppriority
         
         	The value of the write\-able portion of the Bridge ID (i.e., the first two octets of the (8 octet long) Bridge ID).  The other (last) 6 octets of the Bridge ID are given by the value of dot1dBaseBridgeAddress. On bridges supporting IEEE 802.1t or IEEE 802.1w, permissible values are 0\-61440, in steps of 4096
@@ -223,12 +248,16 @@ class BRIDGEMIB(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: dot1dstptimesincetopologychange
         
         	The time (in hundredths of a second) since the last time a topology change was detected by the bridge entity. For RSTP, this reports the time since the tcWhile timer for any port on this Bridge was nonzero
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: centi-seconds
         
@@ -239,12 +268,16 @@ class BRIDGEMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: dot1dstpdesignatedroot
         
         	The bridge identifier of the root of the spanning tree, as determined by the Spanning Tree Protocol, as executed by this node.  This value is used as the Root Identifier parameter in all Configuration Bridge PDUs originated by this node
         	**type**\: str
         
         	**length:** 8
+        
+        	**config**\: False
         
         .. attribute:: dot1dstprootcost
         
@@ -253,6 +286,8 @@ class BRIDGEMIB(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: dot1dstprootport
         
         	The port number of the port that offers the lowest cost path from this bridge to the root bridge
@@ -260,12 +295,16 @@ class BRIDGEMIB(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: dot1dstpmaxage
         
         	The maximum age of Spanning Tree Protocol information learned from the network on any port before it is discarded, in units of hundredths of a second.  This is the actual value that this bridge is currently using
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         	**units**\: centi-seconds
         
@@ -276,6 +315,8 @@ class BRIDGEMIB(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         	**units**\: centi-seconds
         
         .. attribute:: dot1dstpholdtime
@@ -284,6 +325,8 @@ class BRIDGEMIB(Entity):
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         	**units**\: centi-seconds
         
@@ -294,6 +337,8 @@ class BRIDGEMIB(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         	**units**\: centi-seconds
         
         .. attribute:: dot1dstpbridgemaxage
@@ -302,6 +347,8 @@ class BRIDGEMIB(Entity):
         	**type**\: int
         
         	**range:** 600..4000
+        
+        	**config**\: False
         
         	**units**\: centi-seconds
         
@@ -312,6 +359,8 @@ class BRIDGEMIB(Entity):
         
         	**range:** 100..1000
         
+        	**config**\: False
+        
         	**units**\: centi-seconds
         
         .. attribute:: dot1dstpbridgeforwarddelay
@@ -320,6 +369,8 @@ class BRIDGEMIB(Entity):
         	**type**\: int
         
         	**range:** 400..3000
+        
+        	**config**\: False
         
         	**units**\: centi-seconds
         
@@ -374,7 +425,7 @@ class BRIDGEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1dStp, [u'dot1dstpprotocolspecification', u'dot1dstppriority', u'dot1dstptimesincetopologychange', u'dot1dstptopchanges', u'dot1dstpdesignatedroot', u'dot1dstprootcost', u'dot1dstprootport', u'dot1dstpmaxage', u'dot1dstphellotime', u'dot1dstpholdtime', u'dot1dstpforwarddelay', u'dot1dstpbridgemaxage', u'dot1dstpbridgehellotime', u'dot1dstpbridgeforwarddelay'], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dStp, ['dot1dstpprotocolspecification', 'dot1dstppriority', 'dot1dstptimesincetopologychange', 'dot1dstptopchanges', 'dot1dstpdesignatedroot', 'dot1dstprootcost', 'dot1dstprootport', 'dot1dstpmaxage', 'dot1dstphellotime', 'dot1dstpholdtime', 'dot1dstpforwarddelay', 'dot1dstpbridgemaxage', 'dot1dstpbridgehellotime', 'dot1dstpbridgeforwarddelay'], name, value)
 
         class Dot1dStpProtocolSpecification(Enum):
             """
@@ -410,6 +461,7 @@ class BRIDGEMIB(Entity):
 
 
 
+
     class Dot1dTp(Entity):
         """
         
@@ -421,12 +473,16 @@ class BRIDGEMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: dot1dtpagingtime
         
         	The timeout period in seconds for aging out dynamically\-learned forwarding information. 802.1D\-1998 recommends a default of 300 seconds
         	**type**\: int
         
         	**range:** 10..1000000
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -457,7 +513,8 @@ class BRIDGEMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BRIDGEMIB.Dot1dTp, [u'dot1dtplearnedentrydiscards', u'dot1dtpagingtime'], name, value)
+            self._perform_setattr(BRIDGEMIB.Dot1dTp, ['dot1dtplearnedentrydiscards', 'dot1dtpagingtime'], name, value)
+
 
 
     class Dot1dBasePortTable(Entity):
@@ -470,6 +527,8 @@ class BRIDGEMIB(Entity):
         
         	A list of information for each port of the bridge
         	**type**\: list of  		 :py:class:`Dot1dBasePortEntry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry>`
+        
+        	**config**\: False
         
         
 
@@ -509,12 +568,16 @@ class BRIDGEMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: dot1dbaseportifindex
             
             	The value of the instance of the ifIndex object, defined in IF\-MIB, for the interface corresponding to this port
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: dot1dbaseportcircuit
             
@@ -523,12 +586,16 @@ class BRIDGEMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: dot1dbaseportdelayexceededdiscards
             
             	The number of frames discarded by this port due to excessive transit delay through the bridge.  It is incremented by both transparent and source route bridges
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot1dbaseportmtuexceededdiscards
             
@@ -537,10 +604,14 @@ class BRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot1dportcapabilities
             
             	Indicates the parts of IEEE 802.1D and 802.1Q that are optional on a per\-port basis, that are implemented by this device, and that are manageable through this MIB.  dot1qDot1qTagging(0), \-\- supports 802.1Q VLAN tagging of                       \-\- frames and GVRP. dot1qConfigurableAcceptableFrameTypes(1),                       \-\- allows modified values of                       \-\- dot1qPortAcceptableFrameTypes. dot1qIngressFiltering(2)                       \-\- supports the discarding of any                       \-\- frame received on a Port whose                       \-\- VLAN classification does not                       \-\- include that Port in its Member                       \-\- set
             	**type**\:  :py:class:`Dot1dPortCapabilities <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry.Dot1dPortCapabilities>`
+            
+            	**config**\: False
             
             .. attribute:: dot1dportdefaultuserpriority
             
@@ -549,12 +620,16 @@ class BRIDGEMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: dot1dportnumtrafficclasses
             
             	The number of egress traffic classes supported on this port.  This object may optionally be read\-only.  The value of this object MUST be retained across reinitializations of the management system
             	**type**\: int
             
             	**range:** 1..8
+            
+            	**config**\: False
             
             .. attribute:: dot1dportgarpjointime
             
@@ -563,12 +638,16 @@ class BRIDGEMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dot1dportgarpleavetime
             
             	The GARP Leave time, in centiseconds.  The value of this object MUST be retained across reinitializations of the management system
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: dot1dportgarpleavealltime
             
@@ -577,10 +656,14 @@ class BRIDGEMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dot1dportgmrpstatus
             
             	The administrative state of GMRP operation on this port.  The value enabled(1) indicates that GMRP is enabled on this port in all VLANs as long as dot1dGmrpStatus is also enabled(1). A value of disabled(2) indicates that GMRP is disabled on this port in all VLANs\: any GMRP packets received will be silently discarded, and no GMRP registrations will be propagated from other ports.  Setting this to a value of enabled(1) will be stored by the agent but will only take effect on the GMRP protocol operation if dot1dGmrpStatus also indicates the value enabled(1).  This object affects all GMRP Applicant and Registrar state machines on this port.  A transition from disabled(2) to enabled(1) will cause a reset of all GMRP state machines on this port.  The value of this object MUST be retained across reinitializations of the management system
             	**type**\:  :py:class:`EnabledStatus <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.EnabledStatus>`
+            
+            	**config**\: False
             
             .. attribute:: dot1dportgmrpfailedregistrations
             
@@ -589,6 +672,8 @@ class BRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot1dportgmrplastpduorigin
             
             	The Source MAC Address of the last GMRP message received on this port
@@ -596,10 +681,14 @@ class BRIDGEMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: dot1dportrestrictedgroupregistration
             
             	The state of Restricted Group Registration on this port. If the value of this control is true(1), then creation of a new dynamic entry is permitted only if there is a Static Filtering Entry for the VLAN concerned, in which the Registrar Administrative Control value is Normal Registration.  The value of this object MUST be retained across reinitializations of the management system
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: dot1qpvid
             
@@ -608,20 +697,28 @@ class BRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot1qportacceptableframetypes
             
             	When this is admitOnlyVlanTagged(2), the device will discard untagged frames or Priority\-Tagged frames received on this port.  When admitAll(1), untagged frames or Priority\-Tagged frames received on this port will be accepted and assigned to a VID based on the PVID and VID Set for this port.  This control does not affect VLAN\-independent Bridge Protocol Data Unit (BPDU) frames, such as GVRP and Spanning Tree Protocol (STP).  It does affect VLAN\- dependent BPDU frames, such as GMRP.  The value of this object MUST be retained across reinitializations of the management system
             	**type**\:  :py:class:`Dot1qPortAcceptableFrameTypes <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry.Dot1qPortAcceptableFrameTypes>`
+            
+            	**config**\: False
             
             .. attribute:: dot1qportingressfiltering
             
             	When this is true(1), the device will discard incoming frames for VLANs that do not include this Port in its  Member set.  When false(2), the port will accept all incoming frames.  This control does not affect VLAN\-independent BPDU frames, such as GVRP and STP.  It does affect VLAN\- dependent BPDU frames, such as GMRP.  The value of this object MUST be retained across reinitializations of the management system
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: dot1qportgvrpstatus
             
             	The state of GVRP operation on this port.  The value enabled(1) indicates that GVRP is enabled on this port, as long as dot1qGvrpStatus is also enabled for this device.  When disabled(2) but dot1qGvrpStatus is still enabled for the device, GVRP is disabled on this port\: any GVRP packets received will be silently discarded, and no GVRP registrations will be propagated from other ports.  This object affects all GVRP Applicant and Registrar state machines on this port.  A transition from disabled(2) to enabled(1) will cause a reset of all GVRP state machines on this port.  The value of this object MUST be retained across reinitializations of the management system
             	**type**\:  :py:class:`EnabledStatus <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.EnabledStatus>`
+            
+            	**config**\: False
             
             .. attribute:: dot1qportgvrpfailedregistrations
             
@@ -630,6 +727,8 @@ class BRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot1qportgvrplastpduorigin
             
             	The Source MAC Address of the last GVRP message received on this port
@@ -637,10 +736,14 @@ class BRIDGEMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: dot1qportrestrictedvlanregistration
             
             	The state of Restricted VLAN Registration on this port. If the value of this control is true(1), then creation of a new dynamic VLAN entry is permitted only if there is a Static VLAN Registration Entry for the VLAN concerned, in which the Registrar Administrative Control value for this port is Normal Registration.  The value of this object MUST be retained across reinitializations of the management system
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -709,7 +812,7 @@ class BRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry, [u'dot1dbaseport', u'dot1dbaseportifindex', u'dot1dbaseportcircuit', u'dot1dbaseportdelayexceededdiscards', u'dot1dbaseportmtuexceededdiscards', u'dot1dportcapabilities', u'dot1dportdefaultuserpriority', u'dot1dportnumtrafficclasses', u'dot1dportgarpjointime', u'dot1dportgarpleavetime', u'dot1dportgarpleavealltime', u'dot1dportgmrpstatus', u'dot1dportgmrpfailedregistrations', u'dot1dportgmrplastpduorigin', u'dot1dportrestrictedgroupregistration', u'dot1qpvid', u'dot1qportacceptableframetypes', u'dot1qportingressfiltering', u'dot1qportgvrpstatus', u'dot1qportgvrpfailedregistrations', u'dot1qportgvrplastpduorigin', u'dot1qportrestrictedvlanregistration'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry, ['dot1dbaseport', 'dot1dbaseportifindex', 'dot1dbaseportcircuit', 'dot1dbaseportdelayexceededdiscards', 'dot1dbaseportmtuexceededdiscards', u'dot1dportcapabilities', u'dot1dportdefaultuserpriority', u'dot1dportnumtrafficclasses', u'dot1dportgarpjointime', u'dot1dportgarpleavetime', u'dot1dportgarpleavealltime', u'dot1dportgmrpstatus', u'dot1dportgmrpfailedregistrations', u'dot1dportgmrplastpduorigin', u'dot1dportrestrictedgroupregistration', 'dot1qpvid', 'dot1qportacceptableframetypes', 'dot1qportingressfiltering', 'dot1qportgvrpstatus', 'dot1qportgvrpfailedregistrations', 'dot1qportgvrplastpduorigin', 'dot1qportrestrictedvlanregistration'], name, value)
 
             class Dot1qPortAcceptableFrameTypes(Enum):
                 """
@@ -751,6 +854,8 @@ class BRIDGEMIB(Entity):
 
 
 
+
+
     class Dot1dStpPortTable(Entity):
         """
         A table that contains port\-specific information
@@ -760,6 +865,8 @@ class BRIDGEMIB(Entity):
         
         	A list of information maintained by every port about the Spanning Tree Protocol state for that port
         	**type**\: list of  		 :py:class:`Dot1dStpPortEntry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry>`
+        
+        	**config**\: False
         
         
 
@@ -800,6 +907,8 @@ class BRIDGEMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: dot1dstpportpriority
             
             	The value of the priority field that is contained in the first (in network byte order) octet of the (2 octet long) Port ID.  The other octet of the Port ID is given by the value of dot1dStpPort. On bridges supporting IEEE 802.1t or IEEE 802.1w, permissible values are 0\-240, in steps of 16
@@ -807,15 +916,21 @@ class BRIDGEMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: dot1dstpportstate
             
             	The port's current state, as defined by application of the Spanning Tree Protocol.  This state controls what action a port takes on reception of a frame.  If the bridge has detected a port that is malfunctioning, it will place that port into the broken(6) state.  For ports that are disabled (see dot1dStpPortEnable), this object will have a value of disabled(1)
             	**type**\:  :py:class:`Dot1dStpPortState <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry.Dot1dStpPortState>`
             
+            	**config**\: False
+            
             .. attribute:: dot1dstpportenable
             
             	The enabled/disabled status of the port
             	**type**\:  :py:class:`Dot1dStpPortEnable <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry.Dot1dStpPortEnable>`
+            
+            	**config**\: False
             
             .. attribute:: dot1dstpportpathcost
             
@@ -824,12 +939,16 @@ class BRIDGEMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: dot1dstpportdesignatedroot
             
             	The unique Bridge Identifier of the Bridge recorded as the Root in the Configuration BPDUs transmitted by the Designated Bridge for the segment to which the port is attached
             	**type**\: str
             
             	**length:** 8
+            
+            	**config**\: False
             
             .. attribute:: dot1dstpportdesignatedcost
             
@@ -838,12 +957,16 @@ class BRIDGEMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dot1dstpportdesignatedbridge
             
             	The Bridge Identifier of the bridge that this port considers to be the Designated Bridge for this port's segment
             	**type**\: str
             
             	**length:** 8
+            
+            	**config**\: False
             
             .. attribute:: dot1dstpportdesignatedport
             
@@ -852,12 +975,16 @@ class BRIDGEMIB(Entity):
             
             	**length:** 2
             
+            	**config**\: False
+            
             .. attribute:: dot1dstpportforwardtransitions
             
             	The number of times this port has transitioned from the Learning state to the Forwarding state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot1dstpportpathcost32
             
@@ -866,12 +993,16 @@ class BRIDGEMIB(Entity):
             
             	**range:** 1..200000000
             
+            	**config**\: False
+            
             .. attribute:: stpxlongstpportpathcost
             
             	The contribution of this port to the path cost (in 32 bits value) of paths towards the spanning tree root which include this port.  This object is used to configure the spanning tree port path cost in 32 bits value range when the stpxSpanningTreePathCostOperMode is long(2).  If the stpxSpanningTreePathCostOperMode is short(1), this  MIB object is not instantiated
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -920,7 +1051,7 @@ class BRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry, [u'dot1dstpport', u'dot1dstpportpriority', u'dot1dstpportstate', u'dot1dstpportenable', u'dot1dstpportpathcost', u'dot1dstpportdesignatedroot', u'dot1dstpportdesignatedcost', u'dot1dstpportdesignatedbridge', u'dot1dstpportdesignatedport', u'dot1dstpportforwardtransitions', u'dot1dstpportpathcost32', 'stpxlongstpportpathcost'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry, ['dot1dstpport', 'dot1dstpportpriority', 'dot1dstpportstate', 'dot1dstpportenable', 'dot1dstpportpathcost', 'dot1dstpportdesignatedroot', 'dot1dstpportdesignatedcost', 'dot1dstpportdesignatedbridge', 'dot1dstpportdesignatedport', 'dot1dstpportforwardtransitions', 'dot1dstpportpathcost32', 'stpxlongstpportpathcost'], name, value)
 
             class Dot1dStpPortEnable(Enum):
                 """
@@ -985,6 +1116,8 @@ class BRIDGEMIB(Entity):
 
 
 
+
+
     class Dot1dTpFdbTable(Entity):
         """
         A table that contains information about unicast
@@ -997,6 +1130,8 @@ class BRIDGEMIB(Entity):
         
         	Information about a specific unicast MAC address for which the bridge has some forwarding and/or filtering information
         	**type**\: list of  		 :py:class:`Dot1dTpFdbEntry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTpFdbTable.Dot1dTpFdbEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1038,6 +1173,8 @@ class BRIDGEMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: dot1dtpfdbport
             
             	Either the value '0', or the port number of the port on which a frame having a source address equal to the value of the corresponding instance of dot1dTpFdbAddress has been seen.  A value of '0' indicates that the port number has not been learned, but that the bridge does have some forwarding/filtering information about this address (e.g., in the dot1dStaticTable).  Implementors are encouraged to assign the port value to this object whenever it is learned, even for addresses for which the corresponding value of dot1dTpFdbStatus is not learned(3)
@@ -1045,10 +1182,14 @@ class BRIDGEMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dot1dtpfdbstatus
             
             	The status of this entry.  The meanings of the values are\:     other(1) \- none of the following.  This would         include the case where some other MIB object         (not the corresponding instance of         dot1dTpFdbPort, nor an entry in the         dot1dStaticTable) is being used to determine if         and how frames addressed to the value of the         corresponding instance of dot1dTpFdbAddress are         being forwarded.     invalid(2) \- this entry is no longer valid (e.g.,         it was learned but has since aged out), but has         not yet been flushed from the table.     learned(3) \- the value of the corresponding instance         of dot1dTpFdbPort was learned, and is being         used.     self(4) \- the value of the corresponding instance of         dot1dTpFdbAddress represents one of the bridge's         addresses.  The corresponding instance of         dot1dTpFdbPort indicates which of the bridge's         ports has this address.     mgmt(5) \- the value of the corresponding instance of         dot1dTpFdbAddress is also the value of an         existing instance of dot1dStaticAddress
             	**type**\:  :py:class:`Dot1dTpFdbStatus <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTpFdbTable.Dot1dTpFdbEntry.Dot1dTpFdbStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1079,7 +1220,7 @@ class BRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1dTpFdbTable.Dot1dTpFdbEntry, [u'dot1dtpfdbaddress', u'dot1dtpfdbport', u'dot1dtpfdbstatus'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dTpFdbTable.Dot1dTpFdbEntry, ['dot1dtpfdbaddress', 'dot1dtpfdbport', 'dot1dtpfdbstatus'], name, value)
 
             class Dot1dTpFdbStatus(Enum):
                 """
@@ -1157,6 +1298,8 @@ class BRIDGEMIB(Entity):
 
 
 
+
+
     class Dot1dTpPortTable(Entity):
         """
         A table that contains information about every port that
@@ -1166,6 +1309,8 @@ class BRIDGEMIB(Entity):
         
         	A list of information for each port of a transparent bridge
         	**type**\: list of  		 :py:class:`Dot1dTpPortEntry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTpPortTable.Dot1dTpPortEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1206,12 +1351,16 @@ class BRIDGEMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: dot1dtpportmaxinfo
             
             	The maximum size of the INFO (non\-MAC) field that  this port will receive or transmit
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -1222,6 +1371,8 @@ class BRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: frames
             
             .. attribute:: dot1dtpportoutframes
@@ -1231,6 +1382,8 @@ class BRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: frames
             
             .. attribute:: dot1dtpportindiscards
@@ -1239,6 +1392,8 @@ class BRIDGEMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: frames
             
@@ -1275,7 +1430,9 @@ class BRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1dTpPortTable.Dot1dTpPortEntry, [u'dot1dtpport', u'dot1dtpportmaxinfo', u'dot1dtpportinframes', u'dot1dtpportoutframes', u'dot1dtpportindiscards'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dTpPortTable.Dot1dTpPortEntry, ['dot1dtpport', 'dot1dtpportmaxinfo', 'dot1dtpportinframes', 'dot1dtpportoutframes', 'dot1dtpportindiscards'], name, value)
+
+
 
 
     class Dot1dStaticTable(Entity):
@@ -1296,6 +1453,8 @@ class BRIDGEMIB(Entity):
         
         	Filtering information configured into the bridge by (local or network) management specifying the set of ports to which frames received from a specific port and containing a specific destination address are allowed to be forwarded
         	**type**\: list of  		 :py:class:`Dot1dStaticEntry <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStaticTable.Dot1dStaticEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1339,12 +1498,16 @@ class BRIDGEMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: dot1dstaticreceiveport  (key)
             
             	Either the value '0', or the port number of the port from which a frame must be received in order for this entry's filtering information to apply.  A value of zero indicates that this entry applies on all ports of the bridge for which there is no other applicable entry
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: dot1dstaticallowedtogoto
             
@@ -1353,10 +1516,14 @@ class BRIDGEMIB(Entity):
             
             	**length:** 0..512
             
+            	**config**\: False
+            
             .. attribute:: dot1dstaticstatus
             
             	This object indicates the status of this entry. The default value is permanent(3).     other(1) \- this entry is currently in use but the         conditions under which it will remain so are         different from each of the following values.     invalid(2) \- writing this value to the object         removes the corresponding entry.     permanent(3) \- this entry is currently in use and         will remain so after the next reset of the         bridge.     deleteOnReset(4) \- this entry is currently in use         and will remain so until the next reset of the         bridge.     deleteOnTimeout(5) \- this entry is currently in use         and will remain so until it is aged out
             	**type**\:  :py:class:`Dot1dStaticStatus <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dStaticTable.Dot1dStaticEntry.Dot1dStaticStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1389,7 +1556,7 @@ class BRIDGEMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BRIDGEMIB.Dot1dStaticTable.Dot1dStaticEntry, [u'dot1dstaticaddress', u'dot1dstaticreceiveport', u'dot1dstaticallowedtogoto', u'dot1dstaticstatus'], name, value)
+                self._perform_setattr(BRIDGEMIB.Dot1dStaticTable.Dot1dStaticEntry, ['dot1dstaticaddress', 'dot1dstaticreceiveport', 'dot1dstaticallowedtogoto', 'dot1dstaticstatus'], name, value)
 
             class Dot1dStaticStatus(Enum):
                 """
@@ -1448,7 +1615,11 @@ class BRIDGEMIB(Entity):
                 deleteOnTimeout = Enum.YLeaf(5, "deleteOnTimeout")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = BRIDGEMIB()
         return self._top_entity
+
+
 

@@ -203,7 +203,11 @@ class BngPbr(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(BngPbr.HttpEnrichment.Parameters, ['arg1', 'arg2', 'arg3', 'arg4'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = BngPbr()
         return self._top_entity
+
+
 

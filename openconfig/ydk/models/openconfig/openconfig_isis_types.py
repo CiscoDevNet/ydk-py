@@ -206,6 +206,7 @@ class OVERLOADRESETTRIGGERTYPE(Identity):
         super(OVERLOADRESETTRIGGERTYPE, self).__init__(ns, pref, tag)
 
 
+
 class SAFITYPE(Identity):
     """
     Base identify type for SAFI
@@ -219,6 +220,7 @@ class SAFITYPE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:SAFI_TYPE"):
         super(SAFITYPE, self).__init__(ns, pref, tag)
+
 
 
 class MTTYPE(Identity):
@@ -236,6 +238,7 @@ class MTTYPE(Identity):
         super(MTTYPE, self).__init__(ns, pref, tag)
 
 
+
 class AFISAFITYPE(Identity):
     """
     Base identify type for AFI/SAFI
@@ -251,6 +254,7 @@ class AFISAFITYPE(Identity):
         super(AFISAFITYPE, self).__init__(ns, pref, tag)
 
 
+
 class AFITYPE(Identity):
     """
     Base identify type for AFI
@@ -264,6 +268,7 @@ class AFITYPE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:AFI_TYPE"):
         super(AFITYPE, self).__init__(ns, pref, tag)
+
 
 
 class WAITFORSYSTEM(OVERLOADRESETTRIGGERTYPE):
@@ -282,6 +287,7 @@ class WAITFORSYSTEM(OVERLOADRESETTRIGGERTYPE):
         super(WAITFORSYSTEM, self).__init__(ns, pref, tag)
 
 
+
 class IPV6UNICAST(AFISAFITYPE):
     """
     Base identify type for IPv6 unicast address family
@@ -295,6 +301,7 @@ class IPV6UNICAST(AFISAFITYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:IPV6_UNICAST"):
         super(IPV6UNICAST, self).__init__(ns, pref, tag)
+
 
 
 class UNICAST(SAFITYPE):
@@ -312,6 +319,7 @@ class UNICAST(SAFITYPE):
         super(UNICAST, self).__init__(ns, pref, tag)
 
 
+
 class MULTICAST(SAFITYPE):
     """
     Base identify type for IPv6 multicast address family
@@ -325,6 +333,7 @@ class MULTICAST(SAFITYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:MULTICAST"):
         super(MULTICAST, self).__init__(ns, pref, tag)
+
 
 
 class IPV4(AFITYPE):
@@ -342,6 +351,7 @@ class IPV4(AFITYPE):
         super(IPV4, self).__init__(ns, pref, tag)
 
 
+
 class IPV6(AFITYPE):
     """
     Base identify type for IPv6 address family
@@ -355,6 +365,7 @@ class IPV6(AFITYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:IPV6"):
         super(IPV6, self).__init__(ns, pref, tag)
+
 
 
 class IPV4MULTICAST(AFISAFITYPE):
@@ -372,6 +383,7 @@ class IPV4MULTICAST(AFISAFITYPE):
         super(IPV4MULTICAST, self).__init__(ns, pref, tag)
 
 
+
 class WAITFORBGP(OVERLOADRESETTRIGGERTYPE):
     """
     Base identity type for resetting Overload Bit when BGP has converged. 
@@ -385,6 +397,7 @@ class WAITFORBGP(OVERLOADRESETTRIGGERTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:WAIT_FOR_BGP"):
         super(WAITFORBGP, self).__init__(ns, pref, tag)
+
 
 
 class IPV6MULTICAST(AFISAFITYPE):
@@ -402,6 +415,7 @@ class IPV6MULTICAST(AFISAFITYPE):
         super(IPV6MULTICAST, self).__init__(ns, pref, tag)
 
 
+
 class IPV4UNICAST(AFISAFITYPE):
     """
     Base identify type for IPv4 Unicast address family
@@ -415,5 +429,6 @@ class IPV4UNICAST(AFISAFITYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-types", pref="openconfig-isis-types", tag="openconfig-isis-types:IPV4_UNICAST"):
         super(IPV4UNICAST, self).__init__(ns, pref, tag)
+
 
 

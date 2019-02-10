@@ -123,6 +123,8 @@ class Macsec(Entity):
     	MKA Data
     	**type**\:  :py:class:`Mka <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka>`
     
+    	**config**\: False
+    
     
 
     """
@@ -160,6 +162,8 @@ class Macsec(Entity):
         
         	MKA Data
         	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces>`
+        
+        	**config**\: False
         
         
 
@@ -199,6 +203,8 @@ class Macsec(Entity):
             	MKA Data for the Interface
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface>`
             
+            	**config**\: False
+            
             
 
             """
@@ -237,15 +243,21 @@ class Macsec(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: session
                 
                 	MKA Session Data
                 	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session>`
                 
+                	**config**\: False
+                
                 .. attribute:: info
                 
                 	MKA Interface Summary Data
                 	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Info>`
+                
+                	**config**\: False
                 
                 
 
@@ -292,15 +304,21 @@ class Macsec(Entity):
                     	Session summary
                     	**type**\:  :py:class:`SessionSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: vp
                     
                     	Virtual Pointer Info
                     	**type**\:  :py:class:`Vp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ca
                     
                     	CA List for a Session
                     	**type**\: list of  		 :py:class:`Ca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -345,25 +363,35 @@ class Macsec(Entity):
                         	VLAN Outer TAG
                         	**type**\:  :py:class:`OuterTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: inner_tag
                         
                         	VLAN Inner TAG
                         	**type**\:  :py:class:`InnerTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_name
                         
                         	macsec configured interface
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: inherited_policy
                         
                         	Is Inherited Policy
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: policy
                         
                         	Policy Name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: priority
                         
@@ -372,20 +400,28 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: my_mac
                         
                         	My MAC
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: delay_protection
                         
                         	Delay Protect
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: replay_protect
                         
                         	Replay Protect
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: window_size
                         
@@ -394,10 +430,14 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: include_icv_indicator
                         
                         	IncludeICVIndicator
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: confidentiality_offset
                         
@@ -406,12 +446,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: algo_agility
                         
                         	Alogorithm Agility
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: capability
                         
@@ -420,20 +464,28 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: mka_cipher_suite
                         
                         	MKA Cipher Suite
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: configured_mac_sec_cipher_suite
                         
                         	configured cipher suite
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_sec_desired
                         
                         	MACSec Desired
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -509,12 +561,16 @@ class Macsec(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: priority
                             
                             	Priority
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: cfi
                             
@@ -523,12 +579,16 @@ class Macsec(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: vlan_id
                             
                             	Vlan Id
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -563,6 +623,7 @@ class Macsec(Entity):
                                 self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag, [u'ether_type', u'priority', u'cfi', u'vlan_id'], name, value)
 
 
+
                         class InnerTag(Entity):
                             """
                             VLAN Inner TAG
@@ -574,12 +635,16 @@ class Macsec(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: priority
                             
                             	Priority
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: cfi
                             
@@ -588,12 +653,16 @@ class Macsec(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: vlan_id
                             
                             	Vlan Id
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -628,6 +697,8 @@ class Macsec(Entity):
                                 self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag, [u'ether_type', u'priority', u'cfi', u'vlan_id'], name, value)
 
 
+
+
                     class Vp(Entity):
                         """
                         Virtual Pointer Info
@@ -637,6 +708,8 @@ class Macsec(Entity):
                         	Local SCI(MAC)
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: virtual_port_id
                         
                         	Virtual Port ID
@@ -644,15 +717,21 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: latest_rx
                         
                         	Latest Rx status
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: latest_tx
                         
                         	Latest Tx status
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: latest_an
                         
@@ -661,10 +740,14 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: latest_ki
                         
                         	Latest SAK KI
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: latest_kn
                         
@@ -673,15 +756,21 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: old_rx
                         
                         	Old Rx status
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: old_tx
                         
                         	Old Tx status
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: old_an
                         
@@ -690,10 +779,14 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: old_ki
                         
                         	Old SAK KI
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: old_kn
                         
@@ -702,12 +795,16 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: wait_time
                         
                         	SAK Transmit Wait Time
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: retire_time
                         
@@ -716,10 +813,14 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: macsec_cipher_suite
                         
                         	SAK Cipher Suite
                         	**type**\:  :py:class:`MacsecCipherSuite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.MacsecCipherSuite>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ssci
                         
@@ -728,15 +829,21 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: time_to_sak_rekey
                         
                         	Next SAK Rekey time in Sec
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: fallback_keepalive
                         
                         	Fallback Keepalive
                         	**type**\: list of  		 :py:class:`FallbackKeepalive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -808,12 +915,16 @@ class Macsec(Entity):
                             	Peers Status
                             	**type**\:  :py:class:`PeersStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ckn
                             
                             	CKN
                             	**type**\: str
                             
                             	**length:** 0..65
+                            
+                            	**config**\: False
                             
                             .. attribute:: mi
                             
@@ -822,12 +933,16 @@ class Macsec(Entity):
                             
                             	**length:** 0..25
                             
+                            	**config**\: False
+                            
                             .. attribute:: mn
                             
                             	Message Number
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -875,6 +990,8 @@ class Macsec(Entity):
                                 
                                 	**length:** 0..128
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: peer_count
                                 
                                 	Peer Count
@@ -882,10 +999,14 @@ class Macsec(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: peer
                                 
                                 	Peer List
                                 	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -927,12 +1048,16 @@ class Macsec(Entity):
                                     	Peer Status Data
                                     	**type**\:  :py:class:`PeerData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: sci
                                     
                                     	Rx SCI
                                     	**type**\: str
                                     
                                     	**length:** 0..17
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -976,6 +1101,8 @@ class Macsec(Entity):
                                         
                                         	**length:** 0..25
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: icv_status
                                         
                                         	ICV Status
@@ -983,12 +1110,16 @@ class Macsec(Entity):
                                         
                                         	**length:** 0..10
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: icv_check_timestamp
                                         
                                         	ICV Check Timestamp
                                         	**type**\: str
                                         
                                         	**length:** 0..128
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1021,6 +1152,11 @@ class Macsec(Entity):
                                             self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Vp.FallbackKeepalive.PeersStatus.Peer.PeerData, [u'mi', u'icv_status', u'icv_check_timestamp'], name, value)
 
 
+
+
+
+
+
                     class Ca(Entity):
                         """
                         CA List for a Session
@@ -1030,10 +1166,14 @@ class Macsec(Entity):
                         	Peers Status
                         	**type**\:  :py:class:`PeersStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_key_server
                         
                         	Is Key Server
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: status
                         
@@ -1042,6 +1182,8 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: num_live_peers
                         
                         	Number of Live Peers
@@ -1049,15 +1191,21 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: first_ca
                         
                         	Is First CA
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: peer_sci
                         
                         	Peer SCI(MAC)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: num_live_peers_responded
                         
@@ -1066,15 +1214,21 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ckn
                         
                         	CKN
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: my_mi
                         
                         	Member Identifier
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: my_mn
                         
@@ -1083,40 +1237,56 @@ class Macsec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: authenticator
                         
                         	authenticator
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: status_description
                         
                         	Status Description
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: authentication_mode
                         
                         	CA Authentication Mode \:PRIMARY\-PSK/FALLBACK\-PSK/EAP
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: key_chain
                         
                         	Key Chain name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: live_peer
                         
                         	Live Peer List
                         	**type**\: list of  		 :py:class:`LivePeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: potential_peer
                         
                         	Potential Peer List
                         	**type**\: list of  		 :py:class:`PotentialPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: dormant_peer
                         
                         	Dormant Peer List
                         	**type**\: list of  		 :py:class:`DormantPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1188,6 +1358,8 @@ class Macsec(Entity):
                             
                             	**length:** 0..128
                             
+                            	**config**\: False
+                            
                             .. attribute:: peer_count
                             
                             	Peer Count
@@ -1195,10 +1367,14 @@ class Macsec(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: peer
                             
                             	Peer List
                             	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1240,12 +1416,16 @@ class Macsec(Entity):
                                 	Peer Status Data
                                 	**type**\:  :py:class:`PeerData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sci
                                 
                                 	Rx SCI
                                 	**type**\: str
                                 
                                 	**length:** 0..17
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1289,6 +1469,8 @@ class Macsec(Entity):
                                     
                                     	**length:** 0..25
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: icv_status
                                     
                                     	ICV Status
@@ -1296,12 +1478,16 @@ class Macsec(Entity):
                                     
                                     	**length:** 0..10
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: icv_check_timestamp
                                     
                                     	ICV Check Timestamp
                                     	**type**\: str
                                     
                                     	**length:** 0..128
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1334,6 +1520,9 @@ class Macsec(Entity):
                                         self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PeersStatus.Peer.PeerData, [u'mi', u'icv_status', u'icv_check_timestamp'], name, value)
 
 
+
+
+
                         class LivePeer(Entity):
                             """
                             Live Peer List
@@ -1343,10 +1532,14 @@ class Macsec(Entity):
                             	Member ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: sci
                             
                             	Rx SCI
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: mn
                             
@@ -1355,6 +1548,8 @@ class Macsec(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: priority
                             
                             	KS Priority
@@ -1362,12 +1557,16 @@ class Macsec(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ssci
                             
                             	Peer SSCI
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1404,6 +1603,7 @@ class Macsec(Entity):
                                 self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer, [u'mi', u'sci', u'mn', u'priority', u'ssci'], name, value)
 
 
+
                         class PotentialPeer(Entity):
                             """
                             Potential Peer List
@@ -1413,10 +1613,14 @@ class Macsec(Entity):
                             	Member ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: sci
                             
                             	Rx SCI
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: mn
                             
@@ -1425,6 +1629,8 @@ class Macsec(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: priority
                             
                             	KS Priority
@@ -1432,12 +1638,16 @@ class Macsec(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ssci
                             
                             	Peer SSCI
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1474,6 +1684,7 @@ class Macsec(Entity):
                                 self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer, [u'mi', u'sci', u'mn', u'priority', u'ssci'], name, value)
 
 
+
                         class DormantPeer(Entity):
                             """
                             Dormant Peer List
@@ -1483,10 +1694,14 @@ class Macsec(Entity):
                             	Member ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: sci
                             
                             	Rx SCI
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: mn
                             
@@ -1495,6 +1710,8 @@ class Macsec(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: priority
                             
                             	KS Priority
@@ -1502,12 +1719,16 @@ class Macsec(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: ssci
                             
                             	Peer SSCI
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1544,6 +1765,9 @@ class Macsec(Entity):
                                 self._perform_setattr(Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer, [u'mi', u'sci', u'mn', u'priority', u'ssci'], name, value)
 
 
+
+
+
                 class Info(Entity):
                     """
                     MKA Interface Summary Data
@@ -1552,6 +1776,8 @@ class Macsec(Entity):
                     
                     	MKA Interface Summary
                     	**type**\:  :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Info.InterfaceSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1590,50 +1816,70 @@ class Macsec(Entity):
                         	macsec configured interface
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: short_name
                         
                         	Short Name String
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: key_chain
                         
                         	Name  of the Key chain
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: policy
                         
                         	Policy name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: macsec_svc_port
                         
                         	Is macsec\-service port or not
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: macsec_svc_port_type
                         
                         	Macsec\-service Encryption / Decryption port
                         	**type**\:  :py:class:`MacsecServicePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.MacsecServicePort>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: svcport_short_name
                         
                         	Macsec Service paired port Short Name String
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: mka_mode
                         
                         	MKA authentication mode
                         	**type**\:  :py:class:`MkaAuthenticationMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.MkaAuthenticationMode>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: fallback_keychain
                         
                         	fallback Keychain name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: macsec_shutdown
                         
                         	MacsecShutdown
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1679,7 +1925,14 @@ class Macsec(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Macsec.Mka.Interfaces.Interface.Info.InterfaceSummary, [u'interface_name', u'short_name', u'key_chain', u'policy', u'macsec_svc_port', u'macsec_svc_port_type', u'svcport_short_name', u'mka_mode', u'fallback_keychain', u'macsec_shutdown'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Macsec()
         return self._top_entity
+
+
 

@@ -30,6 +30,8 @@ class MemorySummary(Entity):
     	List of nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_oper.MemorySummary.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class MemorySummary(Entity):
         
         	Name of nodes
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_oper.MemorySummary.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -106,15 +110,21 @@ class MemorySummary(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: summary
             
             	Memory summary information for a specific node
             	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_oper.MemorySummary.Nodes.Node.Summary>`
             
+            	**config**\: False
+            
             .. attribute:: detail
             
             	Detail Memory summary information for a specific node
             	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_oper.MemorySummary.Nodes.Node.Detail>`
+            
+            	**config**\: False
             
             
 
@@ -163,6 +173,8 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: ram_memory
@@ -171,6 +183,8 @@ class MemorySummary(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -181,6 +195,8 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: system_ram_memory
@@ -189,6 +205,8 @@ class MemorySummary(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -199,6 +217,8 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: image_memory
@@ -207,6 +227,8 @@ class MemorySummary(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -217,6 +239,8 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: reserved_memory
@@ -225,6 +249,8 @@ class MemorySummary(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -235,6 +261,8 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: flash_system
@@ -243,6 +271,8 @@ class MemorySummary(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -291,6 +321,7 @@ class MemorySummary(Entity):
                     self._perform_setattr(MemorySummary.Nodes.Node.Summary, [u'page_size', u'ram_memory', u'free_physical_memory', u'system_ram_memory', u'free_application_memory', u'image_memory', u'boot_ram_size', u'reserved_memory', u'io_memory', u'flash_system'], name, value)
 
 
+
             class Detail(Entity):
                 """
                 Detail Memory summary information for a
@@ -303,6 +334,8 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: ram_memory
@@ -311,6 +344,8 @@ class MemorySummary(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -321,6 +356,8 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: private_physical_memory
@@ -329,6 +366,8 @@ class MemorySummary(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -339,6 +378,8 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: free_application_memory
@@ -347,6 +388,8 @@ class MemorySummary(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -357,6 +400,8 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: boot_ram_size
@@ -365,6 +410,8 @@ class MemorySummary(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -375,6 +422,8 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: io_memory
@@ -383,6 +432,8 @@ class MemorySummary(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte
                 
@@ -393,6 +444,8 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte
                 
                 .. attribute:: total_shared_window
@@ -402,12 +455,16 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: allocated_memory
                 
                 	Allocated Memory Size
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: program_text
                 
@@ -416,12 +473,16 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: program_data
                 
                 	Program Data Size
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: program_stack
                 
@@ -430,6 +491,8 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: total_used
                 
                 	Total Used
@@ -437,10 +500,14 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: shared_window
                 
                 	Available Shared windows
                 	**type**\: list of  		 :py:class:`SharedWindow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_oper.MemorySummary.Nodes.Node.Detail.SharedWindow>`
+                
+                	**config**\: False
                 
                 
 
@@ -512,12 +579,16 @@ class MemorySummary(Entity):
                     	Name of shared window
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: window_size
                     
                     	Size of shared window
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -547,7 +618,13 @@ class MemorySummary(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(MemorySummary.Nodes.Node.Detail.SharedWindow, [u'shared_window', u'window_size'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = MemorySummary()
         return self._top_entity
+
+
 

@@ -30,6 +30,8 @@ class Grid(Entity):
     	Table of nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class Grid(Entity):
         
         	Operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -106,15 +110,21 @@ class Grid(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: client_xr
             
             	GRID Client Table
             	**type**\:  :py:class:`ClientXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.ClientXr>`
             
+            	**config**\: False
+            
             .. attribute:: clients
             
             	GRID Client Consistency Check
             	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.Clients>`
+            
+            	**config**\: False
             
             
 
@@ -161,6 +171,8 @@ class Grid(Entity):
                 	GRID Client Database
                 	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.ClientXr.Client>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -198,10 +210,14 @@ class Grid(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: client_data
                     
                     	Client information
                     	**type**\: list of  		 :py:class:`ClientData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.ClientXr.Client.ClientData>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -243,6 +259,8 @@ class Grid(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -270,6 +288,9 @@ class Grid(Entity):
                             self._perform_setattr(Grid.Nodes.Node.ClientXr.Client.ClientData, ['res_id'], name, value)
 
 
+
+
+
             class Clients(Entity):
                 """
                 GRID Client Consistency Check
@@ -278,6 +299,8 @@ class Grid(Entity):
                 
                 	GRID Client Consistency Check
                 	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.Clients.Client>`
+                
+                	**config**\: False
                 
                 
 
@@ -316,10 +339,14 @@ class Grid(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: client_data
                     
                     	Client information
                     	**type**\: list of  		 :py:class:`ClientData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper.Grid.Nodes.Node.Clients.Client.ClientData>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -361,6 +388,8 @@ class Grid(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -387,7 +416,14 @@ class Grid(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Grid.Nodes.Node.Clients.Client.ClientData, ['res_id'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Grid()
         return self._top_entity
+
+
 

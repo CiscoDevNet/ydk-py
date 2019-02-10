@@ -594,6 +594,8 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
 
 
+
+
                 class InheritableDefaults(Entity):
                     """
                     Inheritable defaults
@@ -698,6 +700,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
 
 
+
                 class Rpf(Entity):
                     """
                     Configure RPF options
@@ -734,6 +737,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Rpf, ['route_policy'], name, value)
+
 
 
                 class Maximum(Entity):
@@ -879,6 +883,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
 
 
+
                     class BsrGroupMappings(Entity):
                         """
                         Override default maximum and threshold for
@@ -932,6 +937,7 @@ class Pim(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
+
 
 
                     class RegisterStates(Entity):
@@ -989,6 +995,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
 
 
+
                     class RouteInterfaces(Entity):
                         """
                         Override default maximum for number of
@@ -1042,6 +1049,7 @@ class Pim(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
+
 
 
                     class BsrCandidateRpCache(Entity):
@@ -1099,6 +1107,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
 
 
+
                     class Routes(Entity):
                         """
                         Override default maximum for number of routes
@@ -1153,6 +1162,8 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
 
 
+
+
                 class SgExpiryTimer(Entity):
                     """
                     Configure expiry timer for S,G routes
@@ -1200,6 +1211,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
+
 
 
                 class RpfVectorEnable(Entity):
@@ -1264,6 +1276,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp', 'use_standard_encoding'], name, value)
 
 
+
                 class Ssm(Entity):
                     """
                     Configure IP Multicast SSM
@@ -1309,6 +1322,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Ssm, ['disable', 'range'], name, value)
+
 
 
                 class Injects(Entity):
@@ -1400,6 +1414,8 @@ class Pim(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Injects.Inject, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
+
+
 
 
                 class BidirRpAddresses(Entity):
@@ -1495,6 +1511,8 @@ class Pim(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+
+
 
 
                 class Bsr(Entity):
@@ -1615,6 +1633,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
 
 
+
                     class CandidateRps(Entity):
                         """
                         PIM RP configuration
@@ -1730,6 +1749,9 @@ class Pim(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
+
+
+
 
 
                 class Mofrr(Entity):
@@ -1911,6 +1933,8 @@ class Pim(Entity):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin, ['source', 'primary', 'backup', 'prefix_length'], name, value)
 
 
+
+
                     class CloneSources(Entity):
                         """
                         Clone multicast traffic
@@ -2012,6 +2036,9 @@ class Pim(Entity):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource, ['source', 'primary', 'backup', 'prefix_length'], name, value)
 
 
+
+
+
                 class Paths(Entity):
                     """
                     Inject PIM RPF Vector Proxy's
@@ -2103,6 +2130,8 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Paths.Path, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
 
 
+
+
                 class AllowRp(Entity):
                     """
                     Enable allow\-rp filtering for SM joins
@@ -2151,6 +2180,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
+
 
 
                 class Convergence(Entity):
@@ -2202,6 +2232,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
+
 
 
                 class Interfaces(Entity):
@@ -2452,6 +2483,7 @@ class Pim(Entity):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
 
 
+
                         class Bfd(Entity):
                             """
                             BFD configuration
@@ -2506,6 +2538,10 @@ class Pim(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
+
+
+
+
 
 
             class Ipv6(Entity):
@@ -2857,6 +2893,8 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
 
 
+
+
                 class InheritableDefaults(Entity):
                     """
                     Inheritable defaults
@@ -2961,6 +2999,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
 
 
+
                 class Rpf(Entity):
                     """
                     Configure RPF options
@@ -2997,6 +3036,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Rpf, ['route_policy'], name, value)
+
 
 
                 class Maximum(Entity):
@@ -3142,6 +3182,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
 
 
+
                     class BsrGroupMappings(Entity):
                         """
                         Override default maximum and threshold for
@@ -3195,6 +3236,7 @@ class Pim(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
+
 
 
                     class RegisterStates(Entity):
@@ -3252,6 +3294,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
 
 
+
                     class RouteInterfaces(Entity):
                         """
                         Override default maximum for number of
@@ -3305,6 +3348,7 @@ class Pim(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
+
 
 
                     class BsrCandidateRpCache(Entity):
@@ -3362,6 +3406,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
 
 
+
                     class Routes(Entity):
                         """
                         Override default maximum for number of routes
@@ -3416,6 +3461,8 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
 
 
+
+
                 class SgExpiryTimer(Entity):
                     """
                     Configure expiry timer for S,G routes
@@ -3463,6 +3510,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
+
 
 
                 class RpfVectorEnable(Entity):
@@ -3527,6 +3575,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp', 'use_standard_encoding'], name, value)
 
 
+
                 class Ssm(Entity):
                     """
                     Configure IP Multicast SSM
@@ -3572,6 +3621,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Ssm, ['disable', 'range'], name, value)
+
 
 
                 class BidirRpAddresses(Entity):
@@ -3667,6 +3717,8 @@ class Pim(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+
+
 
 
                 class Bsr(Entity):
@@ -3779,6 +3831,7 @@ class Pim(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
+
 
 
                     class CandidateRps(Entity):
@@ -3898,6 +3951,9 @@ class Pim(Entity):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
 
 
+
+
+
                 class AllowRp(Entity):
                     """
                     Enable allow\-rp filtering for SM joins
@@ -3946,6 +4002,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
+
 
 
                 class EmbeddedRpAddresses(Entity):
@@ -4038,6 +4095,8 @@ class Pim(Entity):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, ['rp_address', 'access_list_name'], name, value)
 
 
+
+
                 class Convergence(Entity):
                     """
                     Configure convergence parameters
@@ -4087,6 +4146,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
+
 
 
                 class Interfaces(Entity):
@@ -4337,6 +4397,7 @@ class Pim(Entity):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
 
 
+
                         class Bfd(Entity):
                             """
                             BFD configuration
@@ -4391,6 +4452,12 @@ class Pim(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
+
+
+
+
+
+
 
 
     class DefaultContext(Entity):
@@ -4954,6 +5021,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
 
 
+
                     class Bfd(Entity):
                         """
                         BFD configuration
@@ -5008,6 +5076,9 @@ class Pim(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
+
+
+
 
 
             class SparseModeRpAddresses(Entity):
@@ -5105,6 +5176,8 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+
+
 
 
             class InheritableDefaults(Entity):
@@ -5212,6 +5285,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
 
 
+
             class Rpf(Entity):
                 """
                 Configure RPF options
@@ -5249,6 +5323,7 @@ class Pim(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Rpf, ['route_policy'], name, value)
+
 
 
             class SgExpiryTimer(Entity):
@@ -5299,6 +5374,7 @@ class Pim(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
+
 
 
             class RpfVectorEnable(Entity):
@@ -5364,6 +5440,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp', 'use_standard_encoding'], name, value)
 
 
+
             class Nsf(Entity):
                 """
                 Configure Non\-stop forwarding (NSF) options
@@ -5403,6 +5480,7 @@ class Pim(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Nsf, ['lifetime'], name, value)
+
 
 
             class Maximum(Entity):
@@ -5633,6 +5711,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings, ['bsr_maximum_global_group_mappings', 'warning_threshold'], name, value)
 
 
+
                 class GlobalRoutes(Entity):
                     """
                     Override default maximum for number of routes
@@ -5686,6 +5765,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes, ['maximum_routes', 'warning_threshold'], name, value)
+
 
 
                 class GlobalGroupMappingsAutoRp(Entity):
@@ -5744,6 +5824,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp, ['maximum_global_group_ranges_auto_rp', 'threshold_global_group_ranges_auto_rp'], name, value)
 
 
+
                 class BsrGlobalCandidateRpCache(Entity):
                     """
                     Override default global maximum and threshold
@@ -5798,6 +5879,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache, ['bsr_maximum_global_candidate_rp_cache', 'warning_threshold'], name, value)
+
 
 
                 class GlobalRegisterStates(Entity):
@@ -5856,6 +5938,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
 
 
+
                 class GlobalRouteInterfaces(Entity):
                     """
                     Override default maximum for number of
@@ -5910,6 +5993,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
+
 
 
                 class GroupMappingsAutoRp(Entity):
@@ -5968,6 +6052,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
 
 
+
                 class BsrGroupMappings(Entity):
                     """
                     Override default maximum and threshold for
@@ -6022,6 +6107,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
+
 
 
                 class RegisterStates(Entity):
@@ -6080,6 +6166,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
 
 
+
                 class RouteInterfaces(Entity):
                     """
                     Override default maximum for number of
@@ -6134,6 +6221,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
+
 
 
                 class BsrCandidateRpCache(Entity):
@@ -6192,6 +6280,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
 
 
+
                 class Routes(Entity):
                     """
                     Override default maximum for number of routes
@@ -6247,6 +6336,8 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
 
 
+
+
             class Ssm(Entity):
                 """
                 Configure IP Multicast SSM
@@ -6293,6 +6384,7 @@ class Pim(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Ssm, ['disable', 'range'], name, value)
+
 
 
             class BidirRpAddresses(Entity):
@@ -6390,6 +6482,8 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+
+
 
 
             class Bsr(Entity):
@@ -6504,6 +6598,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
+
 
 
                 class CandidateRps(Entity):
@@ -6625,6 +6720,9 @@ class Pim(Entity):
                             self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
 
 
+
+
+
             class AllowRp(Entity):
                 """
                 Enable allow\-rp filtering for SM joins
@@ -6674,6 +6772,7 @@ class Pim(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
+
 
 
             class EmbeddedRpAddresses(Entity):
@@ -6768,6 +6867,8 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, ['rp_address', 'access_list_name'], name, value)
 
 
+
+
             class Convergence(Entity):
                 """
                 Configure convergence parameters
@@ -6818,6 +6919,8 @@ class Pim(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
+
+
 
 
         class Ipv4(Entity):
@@ -7168,6 +7271,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.RpfRedirect, ['route_policy'], name, value)
 
 
+
             class Interfaces(Entity):
                 """
                 Interface\-level Configuration
@@ -7426,6 +7530,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle, ['bundle_name', 'interface_bandwidth', 'threshold_bandwidth'], name, value)
 
 
+
                     class MaximumRoutes(Entity):
                         """
                         Maximum number of allowed routes for this
@@ -7488,6 +7593,7 @@ class Pim(Entity):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
 
 
+
                     class Bfd(Entity):
                         """
                         BFD configuration
@@ -7542,6 +7648,9 @@ class Pim(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
+
+
+
 
 
             class AutoRpCandidateRps(Entity):
@@ -7659,6 +7768,8 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp, ['interface_name', 'protocol_mode', 'ttl', 'access_list_name', 'announce_period'], name, value)
+
+
 
 
             class AutoRpMappingAgent(Entity):
@@ -7779,6 +7890,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters, ['interface_name', 'ttl', 'announce_period'], name, value)
 
 
+
                 class CacheLimit(Entity):
                     """
                     Mapping Agent cache size limit
@@ -7832,6 +7944,8 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit, ['maximum_cache_entry', 'threshold_cache_entry'], name, value)
+
+
 
 
             class SparseModeRpAddresses(Entity):
@@ -7929,6 +8043,8 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+
+
 
 
             class InheritableDefaults(Entity):
@@ -8036,6 +8152,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
 
 
+
             class Rpf(Entity):
                 """
                 Configure RPF options
@@ -8073,6 +8190,7 @@ class Pim(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Rpf, ['route_policy'], name, value)
+
 
 
             class SgExpiryTimer(Entity):
@@ -8123,6 +8241,7 @@ class Pim(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
+
 
 
             class RpfVectorEnable(Entity):
@@ -8188,6 +8307,7 @@ class Pim(Entity):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp', 'use_standard_encoding'], name, value)
 
 
+
             class Nsf(Entity):
                 """
                 Configure Non\-stop forwarding (NSF) options
@@ -8227,6 +8347,7 @@ class Pim(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Nsf, ['lifetime'], name, value)
+
 
 
             class Maximum(Entity):
@@ -8457,6 +8578,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings, ['bsr_maximum_global_group_mappings', 'warning_threshold'], name, value)
 
 
+
                 class GlobalRoutes(Entity):
                     """
                     Override default maximum for number of routes
@@ -8510,6 +8632,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes, ['maximum_routes', 'warning_threshold'], name, value)
+
 
 
                 class GlobalGroupMappingsAutoRp(Entity):
@@ -8568,6 +8691,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp, ['maximum_global_group_ranges_auto_rp', 'threshold_global_group_ranges_auto_rp'], name, value)
 
 
+
                 class BsrGlobalCandidateRpCache(Entity):
                     """
                     Override default global maximum and threshold
@@ -8622,6 +8746,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache, ['bsr_maximum_global_candidate_rp_cache', 'warning_threshold'], name, value)
+
 
 
                 class GlobalRegisterStates(Entity):
@@ -8680,6 +8805,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
 
 
+
                 class GlobalRouteInterfaces(Entity):
                     """
                     Override default maximum for number of
@@ -8734,6 +8860,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
+
 
 
                 class GroupMappingsAutoRp(Entity):
@@ -8792,6 +8919,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
 
 
+
                 class BsrGroupMappings(Entity):
                     """
                     Override default maximum and threshold for
@@ -8846,6 +8974,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
+
 
 
                 class RegisterStates(Entity):
@@ -8904,6 +9033,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
 
 
+
                 class RouteInterfaces(Entity):
                     """
                     Override default maximum for number of
@@ -8958,6 +9088,7 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
+
 
 
                 class BsrCandidateRpCache(Entity):
@@ -9016,6 +9147,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
 
 
+
                 class Routes(Entity):
                     """
                     Override default maximum for number of routes
@@ -9071,6 +9203,8 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
 
 
+
+
             class Ssm(Entity):
                 """
                 Configure IP Multicast SSM
@@ -9117,6 +9251,7 @@ class Pim(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Ssm, ['disable', 'range'], name, value)
+
 
 
             class Injects(Entity):
@@ -9210,6 +9345,8 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Injects.Inject, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
+
+
 
 
             class BidirRpAddresses(Entity):
@@ -9307,6 +9444,8 @@ class Pim(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
+
+
 
 
             class Bsr(Entity):
@@ -9429,6 +9568,7 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
 
 
+
                 class CandidateRps(Entity):
                     """
                     PIM RP configuration
@@ -9546,6 +9686,9 @@ class Pim(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
+
+
+
 
 
             class Mofrr(Entity):
@@ -9730,6 +9873,8 @@ class Pim(Entity):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin, ['source', 'primary', 'backup', 'prefix_length'], name, value)
 
 
+
+
                 class CloneSources(Entity):
                     """
                     Clone multicast traffic
@@ -9833,6 +9978,9 @@ class Pim(Entity):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource, ['source', 'primary', 'backup', 'prefix_length'], name, value)
 
 
+
+
+
             class Paths(Entity):
                 """
                 Inject PIM RPF Vector Proxy's
@@ -9926,6 +10074,8 @@ class Pim(Entity):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Paths.Path, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
 
 
+
+
             class AllowRp(Entity):
                 """
                 Enable allow\-rp filtering for SM joins
@@ -9975,6 +10125,7 @@ class Pim(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
+
 
 
             class Convergence(Entity):
@@ -10028,7 +10179,12 @@ class Pim(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Pim()
         return self._top_entity
+
+
 

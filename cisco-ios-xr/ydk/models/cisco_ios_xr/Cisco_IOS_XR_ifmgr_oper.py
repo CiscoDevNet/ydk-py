@@ -154,10 +154,14 @@ class InterfaceDampening(Entity):
     	The interface list for which dampening info is available
     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Interfaces>`
     
+    	**config**\: False
+    
     .. attribute:: nodes
     
     	The location of the interface(s) being queried
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -202,6 +206,8 @@ class InterfaceDampening(Entity):
         	The interface for which dampening info is being queried
         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Interfaces.Interface>`
         
+        	**config**\: False
+        
         
 
         """
@@ -241,10 +247,14 @@ class InterfaceDampening(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: if_dampening
             
             	Dampening info for the interface
             	**type**\:  :py:class:`IfDampening <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Interfaces.Interface.IfDampening>`
+            
+            	**config**\: False
             
             
 
@@ -287,12 +297,16 @@ class InterfaceDampening(Entity):
                 	Interface dampening
                 	**type**\:  :py:class:`InterfaceDampening_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_>`
                 
+                	**config**\: False
+                
                 .. attribute:: state_transition_count
                 
                 	The number of times the state has changed
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: last_state_transition_time
                 
@@ -301,10 +315,14 @@ class InterfaceDampening(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_dampening_enabled
                 
                 	Flag showing if dampening is enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: half_life
                 
@@ -312,6 +330,8 @@ class InterfaceDampening(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: minute
                 
@@ -322,6 +342,8 @@ class InterfaceDampening(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: suppress_threshold
                 
                 	Value of suppress threshold
@@ -329,12 +351,16 @@ class InterfaceDampening(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: maximum_suppress_time
                 
                 	Maximum suppress time in mins
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: minute
                 
@@ -345,10 +371,14 @@ class InterfaceDampening(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: capsulation
                 
                 	Dampening information for capsulations
                 	**type**\: list of  		 :py:class:`Capsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation>`
+                
+                	**config**\: False
                 
                 
 
@@ -408,10 +438,14 @@ class InterfaceDampening(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_suppressed_enabled
                     
                     	Flag showing if state is suppressed
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: seconds_remaining
                     
@@ -419,6 +453,8 @@ class InterfaceDampening(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -429,10 +465,14 @@ class InterfaceDampening(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Underlying state of the node
                     	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -469,6 +509,7 @@ class InterfaceDampening(Entity):
                         self._perform_setattr(InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
 
 
+
                 class Capsulation(Entity):
                     """
                     Dampening information for capsulations
@@ -478,10 +519,14 @@ class InterfaceDampening(Entity):
                     	Capsulation dampening
                     	**type**\:  :py:class:`CapsulationDampening <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: capsulation_number
                     
                     	Capsulation number
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -525,10 +570,14 @@ class InterfaceDampening(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_suppressed_enabled
                         
                         	Flag showing if state is suppressed
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: seconds_remaining
                         
@@ -536,6 +585,8 @@ class InterfaceDampening(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -546,10 +597,14 @@ class InterfaceDampening(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	Underlying state of the node
                         	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -586,6 +641,11 @@ class InterfaceDampening(Entity):
                             self._perform_setattr(InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
 
 
+
+
+
+
+
     class Nodes(Entity):
         """
         The location of the interface(s) being queried
@@ -594,6 +654,8 @@ class InterfaceDampening(Entity):
         
         	The location of the interface(s) being queried
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -633,10 +695,14 @@ class InterfaceDampening(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: show
             
             	Show details for the interfaces
             	**type**\:  :py:class:`Show <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show>`
+            
+            	**config**\: False
             
             
 
@@ -679,6 +745,8 @@ class InterfaceDampening(Entity):
                 	Dampening information of the interface(s) being queried
                 	**type**\:  :py:class:`Dampening <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -717,10 +785,14 @@ class InterfaceDampening(Entity):
                     	Interface handle for which dampening info queried
                     	**type**\:  :py:class:`IfHandles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: interfaces
                     
                     	Table of interfaces for which dampening info can be queried
                     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -764,6 +836,8 @@ class InterfaceDampening(Entity):
                         	Dampening info for the interface handle
                         	**type**\: list of  		 :py:class:`IfHandle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -801,10 +875,14 @@ class InterfaceDampening(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_dampening
                             
                             	Interface dampening
                             	**type**\:  :py:class:`InterfaceDampening_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: state_transition_count
                             
@@ -813,6 +891,8 @@ class InterfaceDampening(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: last_state_transition_time
                             
                             	The time elasped after the last state transition
@@ -820,10 +900,14 @@ class InterfaceDampening(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dampening_enabled
                             
                             	Flag showing if dampening is enabled
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: half_life
                             
@@ -831,6 +915,8 @@ class InterfaceDampening(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: minute
                             
@@ -841,6 +927,8 @@ class InterfaceDampening(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: suppress_threshold
                             
                             	Value of suppress threshold
@@ -848,12 +936,16 @@ class InterfaceDampening(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: maximum_suppress_time
                             
                             	Maximum suppress time in mins
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: minute
                             
@@ -864,10 +956,14 @@ class InterfaceDampening(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: capsulation
                             
                             	Dampening information for capsulations
                             	**type**\: list of  		 :py:class:`Capsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -929,10 +1025,14 @@ class InterfaceDampening(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_suppressed_enabled
                                 
                                 	Flag showing if state is suppressed
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: seconds_remaining
                                 
@@ -940,6 +1040,8 @@ class InterfaceDampening(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: second
                                 
@@ -950,10 +1052,14 @@ class InterfaceDampening(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: state
                                 
                                 	Underlying state of the node
                                 	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -990,6 +1096,7 @@ class InterfaceDampening(Entity):
                                     self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
 
 
+
                             class Capsulation(Entity):
                                 """
                                 Dampening information for capsulations
@@ -999,10 +1106,14 @@ class InterfaceDampening(Entity):
                                 	Capsulation dampening
                                 	**type**\:  :py:class:`CapsulationDampening <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: capsulation_number
                                 
                                 	Capsulation number
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1046,10 +1157,14 @@ class InterfaceDampening(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_suppressed_enabled
                                     
                                     	Flag showing if state is suppressed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: seconds_remaining
                                     
@@ -1057,6 +1172,8 @@ class InterfaceDampening(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: second
                                     
@@ -1067,10 +1184,14 @@ class InterfaceDampening(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: state
                                     
                                     	Underlying state of the node
                                     	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1107,6 +1228,10 @@ class InterfaceDampening(Entity):
                                         self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
 
 
+
+
+
+
                     class Interfaces(Entity):
                         """
                         Table of interfaces for which dampening info
@@ -1116,6 +1241,8 @@ class InterfaceDampening(Entity):
                         
                         	Dampening info for the interface
                         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1154,10 +1281,14 @@ class InterfaceDampening(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_dampening
                             
                             	Interface dampening
                             	**type**\:  :py:class:`InterfaceDampening_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: state_transition_count
                             
@@ -1166,6 +1297,8 @@ class InterfaceDampening(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: last_state_transition_time
                             
                             	The time elasped after the last state transition
@@ -1173,10 +1306,14 @@ class InterfaceDampening(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_dampening_enabled
                             
                             	Flag showing if dampening is enabled
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: half_life
                             
@@ -1184,6 +1321,8 @@ class InterfaceDampening(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: minute
                             
@@ -1194,6 +1333,8 @@ class InterfaceDampening(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: suppress_threshold
                             
                             	Value of suppress threshold
@@ -1201,12 +1342,16 @@ class InterfaceDampening(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: maximum_suppress_time
                             
                             	Maximum suppress time in mins
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: minute
                             
@@ -1217,10 +1362,14 @@ class InterfaceDampening(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: capsulation
                             
                             	Dampening information for capsulations
                             	**type**\: list of  		 :py:class:`Capsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1282,10 +1431,14 @@ class InterfaceDampening(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_suppressed_enabled
                                 
                                 	Flag showing if state is suppressed
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: seconds_remaining
                                 
@@ -1293,6 +1446,8 @@ class InterfaceDampening(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: second
                                 
@@ -1303,10 +1458,14 @@ class InterfaceDampening(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: state
                                 
                                 	Underlying state of the node
                                 	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1343,6 +1502,7 @@ class InterfaceDampening(Entity):
                                     self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
 
 
+
                             class Capsulation(Entity):
                                 """
                                 Dampening information for capsulations
@@ -1352,10 +1512,14 @@ class InterfaceDampening(Entity):
                                 	Capsulation dampening
                                 	**type**\:  :py:class:`CapsulationDampening <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: capsulation_number
                                 
                                 	Capsulation number
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1399,10 +1563,14 @@ class InterfaceDampening(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_suppressed_enabled
                                     
                                     	Flag showing if state is suppressed
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: seconds_remaining
                                     
@@ -1410,6 +1578,8 @@ class InterfaceDampening(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: second
                                     
@@ -1420,10 +1590,14 @@ class InterfaceDampening(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: state
                                     
                                     	Underlying state of the node
                                     	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1459,9 +1633,19 @@ class InterfaceDampening(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
 
+
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = InterfaceDampening()
         return self._top_entity
+
+
 
 class InterfaceProperties(Entity):
     """
@@ -1471,6 +1655,8 @@ class InterfaceProperties(Entity):
     
     	Operational data for interfaces
     	**type**\:  :py:class:`DataNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes>`
+    
+    	**config**\: False
     
     
 
@@ -1509,6 +1695,8 @@ class InterfaceProperties(Entity):
         
         	The location of a (D)RP in the same LR as the interface being queried
         	**type**\: list of  		 :py:class:`DataNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes.DataNode>`
+        
+        	**config**\: False
         
         
 
@@ -1549,20 +1737,28 @@ class InterfaceProperties(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: locationviews
             
             	Location\-specific view of interface operational data
             	**type**\:  :py:class:`Locationviews <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes.DataNode.Locationviews>`
+            
+            	**config**\: False
             
             .. attribute:: pq_node_locations
             
             	Partially qualified Location\-specific view of interface operational data
             	**type**\:  :py:class:`PqNodeLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes.DataNode.PqNodeLocations>`
             
+            	**config**\: False
+            
             .. attribute:: system_view
             
             	System\-wide view of interface operational data
             	**type**\:  :py:class:`SystemView <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes.DataNode.SystemView>`
+            
+            	**config**\: False
             
             
 
@@ -1614,6 +1810,8 @@ class InterfaceProperties(Entity):
                 	Operational data for all interfaces and controllers on a particular node
                 	**type**\: list of  		 :py:class:`Locationview <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1652,10 +1850,14 @@ class InterfaceProperties(Entity):
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
+                    	**config**\: False
+                    
                     .. attribute:: interfaces
                     
                     	Operational data for all interfaces and controllers
                     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1698,6 +1900,8 @@ class InterfaceProperties(Entity):
                         	The operational attributes for a particular interface
                         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces.Interface>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1736,12 +1940,16 @@ class InterfaceProperties(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface
                             
                             	Interface
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             .. attribute:: parent_interface
                             
@@ -1750,35 +1958,49 @@ class InterfaceProperties(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Interface type
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: state
                             
                             	Operational state
                             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: actual_state
                             
                             	Operational state with no translation of error disable or shutdown
                             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: line_state
                             
                             	Line protocol state
                             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: actual_line_state
                             
                             	Line protocol state with no translation of error disable or shutdown
                             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation
                             
                             	Interface encapsulation
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: encapsulation_type_string
                             
@@ -1787,12 +2009,16 @@ class InterfaceProperties(Entity):
                             
                             	**length:** 0..32
                             
+                            	**config**\: False
+                            
                             .. attribute:: mtu
                             
                             	MTU in bytes
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -1803,10 +2029,14 @@ class InterfaceProperties(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: l2_transport
                             
                             	L2 transport
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: bandwidth
                             
@@ -1814,6 +2044,8 @@ class InterfaceProperties(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1868,6 +2100,10 @@ class InterfaceProperties(Entity):
                                 self._perform_setattr(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces.Interface, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
 
 
+
+
+
+
             class PqNodeLocations(Entity):
                 """
                 Partially qualified Location\-specific view of
@@ -1877,6 +2113,8 @@ class InterfaceProperties(Entity):
                 
                 	Operational data for all interfaces and controllers on a particular pq\_node
                 	**type**\: list of  		 :py:class:`PqNodeLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation>`
+                
+                	**config**\: False
                 
                 
 
@@ -1916,10 +2154,14 @@ class InterfaceProperties(Entity):
                     
                     	**pattern:** ((([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))/){2}(([a\-zA\-Z0\-9\_]\*\\d+)\|(\\\*))
                     
+                    	**config**\: False
+                    
                     .. attribute:: interfaces
                     
                     	Operational data for all interfaces and controllers
                     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1962,6 +2204,8 @@ class InterfaceProperties(Entity):
                         	The operational attributes for a particular interface
                         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces.Interface>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2000,12 +2244,16 @@ class InterfaceProperties(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface
                             
                             	Interface
                             	**type**\: str
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                            
+                            	**config**\: False
                             
                             .. attribute:: parent_interface
                             
@@ -2014,35 +2262,49 @@ class InterfaceProperties(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Interface type
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: state
                             
                             	Operational state
                             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: actual_state
                             
                             	Operational state with no translation of error disable or shutdown
                             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: line_state
                             
                             	Line protocol state
                             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: actual_line_state
                             
                             	Line protocol state with no translation of error disable or shutdown
                             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: encapsulation
                             
                             	Interface encapsulation
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: encapsulation_type_string
                             
@@ -2051,12 +2313,16 @@ class InterfaceProperties(Entity):
                             
                             	**length:** 0..32
                             
+                            	**config**\: False
+                            
                             .. attribute:: mtu
                             
                             	MTU in bytes
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2067,10 +2333,14 @@ class InterfaceProperties(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: l2_transport
                             
                             	L2 transport
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: bandwidth
                             
@@ -2078,6 +2348,8 @@ class InterfaceProperties(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2132,6 +2404,10 @@ class InterfaceProperties(Entity):
                                 self._perform_setattr(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces.Interface, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
 
 
+
+
+
+
             class SystemView(Entity):
                 """
                 System\-wide view of interface operational data
@@ -2140,6 +2416,8 @@ class InterfaceProperties(Entity):
                 
                 	Operational data for all interfaces and controllers
                 	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces>`
+                
+                	**config**\: False
                 
                 
 
@@ -2179,6 +2457,8 @@ class InterfaceProperties(Entity):
                     	The operational attributes for a particular interface
                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces.Interface>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2217,12 +2497,16 @@ class InterfaceProperties(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface
                         
                         	Interface
                         	**type**\: str
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        	**config**\: False
                         
                         .. attribute:: parent_interface
                         
@@ -2231,35 +2515,49 @@ class InterfaceProperties(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Interface type
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: state
                         
                         	Operational state
                         	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: actual_state
                         
                         	Operational state with no translation of error disable or shutdown
                         	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: line_state
                         
                         	Line protocol state
                         	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: actual_line_state
                         
                         	Line protocol state with no translation of error disable or shutdown
                         	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper.ImStateEnum>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation
                         
                         	Interface encapsulation
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: encapsulation_type_string
                         
@@ -2268,12 +2566,16 @@ class InterfaceProperties(Entity):
                         
                         	**length:** 0..32
                         
+                        	**config**\: False
+                        
                         .. attribute:: mtu
                         
                         	MTU in bytes
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: byte
                         
@@ -2284,10 +2586,14 @@ class InterfaceProperties(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: l2_transport
                         
                         	L2 transport
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: bandwidth
                         
@@ -2295,6 +2601,8 @@ class InterfaceProperties(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2348,7 +2656,14 @@ class InterfaceProperties(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces.Interface, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = InterfaceProperties()
         return self._top_entity
+
+
 

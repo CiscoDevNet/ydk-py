@@ -124,9 +124,12 @@ class RollBackConfigurationLast(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RollBackConfigurationLast.Input, ['count', 'force', 'best_effort', 'label', 'comment'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RollBackConfigurationLast()
         return self._top_entity
+
+
 
 class RollBackConfigurationTo(Entity):
     """
@@ -233,9 +236,12 @@ class RollBackConfigurationTo(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RollBackConfigurationTo.Input, ['commit_id', 'force', 'best_effort', 'label', 'comment'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RollBackConfigurationTo()
         return self._top_entity
+
+
 
 class RollBackConfigurationToExclude(Entity):
     """
@@ -342,9 +348,12 @@ class RollBackConfigurationToExclude(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RollBackConfigurationToExclude.Input, ['commit_id', 'force', 'best_effort', 'label', 'comment'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RollBackConfigurationToExclude()
         return self._top_entity
+
+
 
 class RollBackConfiguration(Entity):
     """
@@ -451,7 +460,10 @@ class RollBackConfiguration(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(RollBackConfiguration.Input, ['commit_id', 'force', 'best_effort', 'label', 'comment'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = RollBackConfiguration()
         return self._top_entity
+
+
 

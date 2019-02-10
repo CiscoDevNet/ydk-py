@@ -177,6 +177,7 @@ class Parser(Entity):
             self._perform_setattr(Parser.Indentation, ['indentation_disable'], name, value)
 
 
+
     class Alias(Entity):
         """
         Alias for command mapping
@@ -317,6 +318,8 @@ class Parser(Entity):
                     self._perform_setattr(Parser.Alias.Execs.Exec, ['identifier', 'identifier_xr'], name, value)
 
 
+
+
         class Configurations(Entity):
             """
             Configuration command alias
@@ -399,6 +402,8 @@ class Parser(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Parser.Alias.Configurations.Configuration, ['identifier', 'identifier_xr'], name, value)
+
+
 
 
         class Alls(Entity):
@@ -485,6 +490,9 @@ class Parser(Entity):
                     self._perform_setattr(Parser.Alias.Alls.All, ['identifier', 'identifier_xr'], name, value)
 
 
+
+
+
     class History(Entity):
         """
         cli commands history
@@ -524,6 +532,7 @@ class Parser(Entity):
             self._perform_setattr(Parser.History, ['size'], name, value)
 
 
+
     class Interactive(Entity):
         """
         interactive mode
@@ -559,6 +568,7 @@ class Parser(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.Interactive, ['interactive_disable'], name, value)
+
 
 
     class CommitOptimized(Entity):
@@ -598,6 +608,7 @@ class Parser(Entity):
             self._perform_setattr(Parser.CommitOptimized, ['commit_optimized_enable'], name, value)
 
 
+
     class SysadminLoginBanner(Entity):
         """
         Configuration to disable sysadmin login banner
@@ -633,6 +644,7 @@ class Parser(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.SysadminLoginBanner, ['sysadmin_login_banner_disable'], name, value)
+
 
 
     class InterfaceDisplay(Entity):
@@ -672,6 +684,7 @@ class Parser(Entity):
             self._perform_setattr(Parser.InterfaceDisplay, ['slot_order'], name, value)
 
 
+
     class NetmaskFormat(Entity):
         """
         Ipv4 netmask\-format to be configured
@@ -707,6 +720,7 @@ class Parser(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.NetmaskFormat, ['bit_count'], name, value)
+
 
 
     class Configuration(Entity):
@@ -784,6 +798,8 @@ class Parser(Entity):
                 self._perform_setattr(Parser.Configuration.Disable, ['usergroup'], name, value)
 
 
+
+
     class SubmodeExit(Entity):
         """
         Exit submode when only '!' seen in interactive
@@ -821,7 +837,10 @@ class Parser(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.SubmodeExit, ['enable'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Parser()
         return self._top_entity
+
+
 

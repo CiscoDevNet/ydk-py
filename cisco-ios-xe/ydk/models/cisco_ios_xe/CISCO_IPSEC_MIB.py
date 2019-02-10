@@ -262,50 +262,70 @@ class CISCOIPSECMIB(Entity):
     	
     	**type**\:  :py:class:`CipsIsakmpGroup <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsIsakmpGroup>`
     
+    	**config**\: False
+    
     .. attribute:: cipsipsecglobals
     
     	
     	**type**\:  :py:class:`CipsIPsecGlobals <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsIPsecGlobals>`
+    
+    	**config**\: False
     
     .. attribute:: cipsipsecstatistics
     
     	
     	**type**\:  :py:class:`CipsIPsecStatistics <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsIPsecStatistics>`
     
+    	**config**\: False
+    
     .. attribute:: cipssyscapacitygroup
     
     	
     	**type**\:  :py:class:`CipsSysCapacityGroup <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsSysCapacityGroup>`
+    
+    	**config**\: False
     
     .. attribute:: cipstrapcntlgroup
     
     	
     	**type**\:  :py:class:`CipsTrapCntlGroup <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsTrapCntlGroup>`
     
+    	**config**\: False
+    
     .. attribute:: cipsisakmppolicytable
     
     	The table containing the list of all ISAKMP policy entries configured by the operator
     	**type**\:  :py:class:`CipsIsakmpPolicyTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsIsakmpPolicyTable>`
+    
+    	**config**\: False
     
     .. attribute:: cipsstaticcryptomapsettable
     
     	The table containing the list of all cryptomap sets that are fully specified and are not wild\-carded.  The operator may include different types of cryptomaps in such a set \- manual, CET, ISAKMP or dynamic
     	**type**\:  :py:class:`CipsStaticCryptomapSetTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsStaticCryptomapSetTable>`
     
+    	**config**\: False
+    
     .. attribute:: cipsdynamiccryptomapsettable
     
     	The table containing the list of all dynamic cryptomaps that use IKE, defined on   the managed entity
     	**type**\:  :py:class:`CipsDynamicCryptomapSetTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsDynamicCryptomapSetTable>`
+    
+    	**config**\: False
     
     .. attribute:: cipsstaticcryptomaptable
     
     	The table ilisting the member cryptomaps of the cryptomap sets that are configured on the managed entity
     	**type**\:  :py:class:`CipsStaticCryptomapTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsStaticCryptomapTable>`
     
+    	**config**\: False
+    
     .. attribute:: cipscryptomapsetiftable
     
     	The table lists the binding of cryptomap sets to the interfaces of the managed entity
     	**type**\:  :py:class:`CipsCryptomapSetIfTable <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsCryptomapSetIfTable>`
+    
+    	**config**\: False
     
     
 
@@ -381,10 +401,14 @@ class CISCOIPSECMIB(Entity):
         	The value of this object is TRUE if ISAKMP has been enabled on the managed entity. Otherise the value of this object is FALSE
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: cipsisakmpidentity
         
         	The value of this object is shows the type of identity used by the managed entity in ISAKMP negotiations with another peer
         	**type**\:  :py:class:`IkeIdentityType <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.IkeIdentityType>`
+        
+        	**config**\: False
         
         .. attribute:: cipsisakmpkeepaliveinterval
         
@@ -392,6 +416,8 @@ class CISCOIPSECMIB(Entity):
         	**type**\: int
         
         	**range:** 10..3600
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -401,6 +427,8 @@ class CISCOIPSECMIB(Entity):
         	**type**\: int
         
         	**range:** 0..2147483647
+        
+        	**config**\: False
         
         
 
@@ -436,6 +464,7 @@ class CISCOIPSECMIB(Entity):
             self._perform_setattr(CISCOIPSECMIB.CipsIsakmpGroup, ['cipsisakmpenabled', 'cipsisakmpidentity', 'cipsisakmpkeepaliveinterval', 'cipsnumisakmppolicies'], name, value)
 
 
+
     class CipsIPsecGlobals(Entity):
         """
         
@@ -447,6 +476,8 @@ class CISCOIPSECMIB(Entity):
         
         	**range:** 120..86400
         
+        	**config**\: False
+        
         	**units**\: Seconds
         
         .. attribute:: cipssalifesize
@@ -455,6 +486,8 @@ class CISCOIPSECMIB(Entity):
         	**type**\: int
         
         	**range:** 2560..536870912
+        
+        	**config**\: False
         
         	**units**\: KBytes
         
@@ -465,6 +498,8 @@ class CISCOIPSECMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         	**units**\: Integral Units
         
         .. attribute:: cipsnumcetcryptomapsets
@@ -473,6 +508,8 @@ class CISCOIPSECMIB(Entity):
         	**type**\: int
         
         	**range:** 0..2147483647
+        
+        	**config**\: False
         
         	**units**\: Integral Units
         
@@ -483,6 +520,8 @@ class CISCOIPSECMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         	**units**\: Integral Units
         
         .. attribute:: cipsnumtedcryptomapsets
@@ -491,6 +530,8 @@ class CISCOIPSECMIB(Entity):
         	**type**\: int
         
         	**range:** 0..2147483647
+        
+        	**config**\: False
         
         	**units**\: Integral Units
         
@@ -532,6 +573,7 @@ class CISCOIPSECMIB(Entity):
             self._perform_setattr(CISCOIPSECMIB.CipsIPsecGlobals, ['cipssalifetime', 'cipssalifesize', 'cipsnumstaticcryptomapsets', 'cipsnumcetcryptomapsets', 'cipsnumdynamiccryptomapsets', 'cipsnumtedcryptomapsets'], name, value)
 
 
+
     class CipsIPsecStatistics(Entity):
         """
         
@@ -543,6 +585,8 @@ class CISCOIPSECMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: Integral Units
         
         .. attribute:: cipsnumtedprobessent
@@ -552,6 +596,8 @@ class CISCOIPSECMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: Integral Units
         
         .. attribute:: cipsnumtedfailures
@@ -560,6 +606,8 @@ class CISCOIPSECMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: Integral Units
         
@@ -595,6 +643,7 @@ class CISCOIPSECMIB(Entity):
             self._perform_setattr(CISCOIPSECMIB.CipsIPsecStatistics, ['cipsnumtedprobesreceived', 'cipsnumtedprobessent', 'cipsnumtedfailures'], name, value)
 
 
+
     class CipsSysCapacityGroup(Entity):
         """
         
@@ -606,12 +655,16 @@ class CISCOIPSECMIB(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         	**units**\: Integral Units
         
         .. attribute:: cips3descapable
         
         	The value of this object is TRUE if the  managed entity has the hardware nad software  features to support 3DES encryption algorithm.  Not affected by any CLI operation
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -643,6 +696,7 @@ class CISCOIPSECMIB(Entity):
             self._perform_setattr(CISCOIPSECMIB.CipsSysCapacityGroup, ['cipsmaxsas', 'cips3descapable'], name, value)
 
 
+
     class CipsTrapCntlGroup(Entity):
         """
         
@@ -652,35 +706,49 @@ class CISCOIPSECMIB(Entity):
         	This object defines the administrative state of  sending the IOS IPsec ISAKMP Policy Add trap
         	**type**\:  :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
         
+        	**config**\: False
+        
         .. attribute:: cipscntlisakmppolicydeleted
         
         	This object defines the administrative state of  sending the IOS IPsec ISAKMP Policy Delete trap
         	**type**\:  :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
+        
+        	**config**\: False
         
         .. attribute:: cipscntlcryptomapadded
         
         	This object defines the administrative state of  sending the IOS IPsec Cryptomap Add trap
         	**type**\:  :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
         
+        	**config**\: False
+        
         .. attribute:: cipscntlcryptomapdeleted
         
         	This object defines the administrative state of  sending the IOS IPsec Cryptomap Delete trap
         	**type**\:  :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
+        
+        	**config**\: False
         
         .. attribute:: cipscntlcryptomapsetattached
         
         	This object defines the administrative state of  sending the IOS IPsec trap that is issued when a cryptomap set is attached to an interface
         	**type**\:  :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
         
+        	**config**\: False
+        
         .. attribute:: cipscntlcryptomapsetdetached
         
         	This object defines the administrative state of  sending the IOS IPsec trap that is issued when a cryptomap set is detached from an interface. to which it was earlier bound
         	**type**\:  :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
         
+        	**config**\: False
+        
         .. attribute:: cipscntltoomanysas
         
         	This object defines the administrative state of  sending the IOS IPsec trap that is issued when the number of SAs crosses the maximum number of SAs that may be supported on the managed entity
         	**type**\:  :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
+        
+        	**config**\: False
         
         
 
@@ -722,6 +790,7 @@ class CISCOIPSECMIB(Entity):
             self._perform_setattr(CISCOIPSECMIB.CipsTrapCntlGroup, ['cipscntlisakmppolicyadded', 'cipscntlisakmppolicydeleted', 'cipscntlcryptomapadded', 'cipscntlcryptomapdeleted', 'cipscntlcryptomapsetattached', 'cipscntlcryptomapsetdetached', 'cipscntltoomanysas'], name, value)
 
 
+
     class CipsIsakmpPolicyTable(Entity):
         """
         The table containing the list of all
@@ -731,6 +800,8 @@ class CISCOIPSECMIB(Entity):
         
         	Each entry contains the attributes  associated with a single ISAKMP Policy entry
         	**type**\: list of  		 :py:class:`CipsIsakmpPolicyEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsIsakmpPolicyTable.CipsIsakmpPolicyEntry>`
+        
+        	**config**\: False
         
         
 
@@ -772,25 +843,35 @@ class CISCOIPSECMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: cipsisakmppolencr
             
             	The encryption transform specified by this  ISAKMP policy specification. The Internet Key Exchange (IKE) tunnels setup using this policy item would use the specified encryption transform to protect the ISAKMP PDUs
             	**type**\:  :py:class:`EncryptAlgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.EncryptAlgo>`
+            
+            	**config**\: False
             
             .. attribute:: cipsisakmppolhash
             
             	The hash transform specified by this  ISAKMP policy specification. The IKE tunnels setup using this policy item would use the  specified hash transform to protect the ISAKMP PDUs
             	**type**\:  :py:class:`IkeHashAlgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.IkeHashAlgo>`
             
+            	**config**\: False
+            
             .. attribute:: cipsisakmppolauth
             
             	The peer authentication mthod specified by this ISAKMP policy specification. If this policy entity is selected for negotiation with a peer, the local entity would authenticate the peer using  the method specified by this object
             	**type**\:  :py:class:`IkeAuthMethod <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.IkeAuthMethod>`
             
+            	**config**\: False
+            
             .. attribute:: cipsisakmppolgroup
             
             	This object specifies the Oakley group used  for Diffie Hellman exchange in the Main Mode.  If this policy item is selected to negotiate Main Mode with an IKE peer, the local entity  chooses the group specified by this object to perform Diffie Hellman exchange with the peer
             	**type**\:  :py:class:`DiffHellmanGrp <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.DiffHellmanGrp>`
+            
+            	**config**\: False
             
             .. attribute:: cipsisakmppollifetime
             
@@ -798,6 +879,8 @@ class CISCOIPSECMIB(Entity):
             	**type**\: int
             
             	**range:** 60..86400
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -839,6 +922,8 @@ class CISCOIPSECMIB(Entity):
                 self._perform_setattr(CISCOIPSECMIB.CipsIsakmpPolicyTable.CipsIsakmpPolicyEntry, ['cipsisakmppolpriority', 'cipsisakmppolencr', 'cipsisakmppolhash', 'cipsisakmppolauth', 'cipsisakmppolgroup', 'cipsisakmppollifetime'], name, value)
 
 
+
+
     class CipsStaticCryptomapSetTable(Entity):
         """
         The table containing the list of all
@@ -853,6 +938,8 @@ class CISCOIPSECMIB(Entity):
         
         	Each entry contains the attributes  associated with a single static  cryptomap set
         	**type**\: list of  		 :py:class:`CipsStaticCryptomapSetEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsStaticCryptomapSetTable.CipsStaticCryptomapSetEntry>`
+        
+        	**config**\: False
         
         
 
@@ -892,12 +979,16 @@ class CISCOIPSECMIB(Entity):
             	The index of the static cryptomap table. The value  of the string is the name string assigned by the  operator in defining the cryptomap set
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cipsstaticcryptomapsetsize
             
             	The total number of cryptomap entries contained in this cryptomap set. 
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cipsstaticcryptomapsetnumisakmp
             
@@ -906,12 +997,16 @@ class CISCOIPSECMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cipsstaticcryptomapsetnummanual
             
             	The number of cryptomaps associated with this  cryptomap set that require the operator to manually setup the keys and SPIs
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cipsstaticcryptomapsetnumcet
             
@@ -920,12 +1015,16 @@ class CISCOIPSECMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cipsstaticcryptomapsetnumdynamic
             
             	The number of dynamic cryptomap templates linked to this cryptomap set
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cipsstaticcryptomapsetnumdisc
             
@@ -934,12 +1033,16 @@ class CISCOIPSECMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cipsstaticcryptomapsetnumsas
             
             	The number of and IPsec Security Associations that are active and were setup using this cryptomap.  
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -983,6 +1086,8 @@ class CISCOIPSECMIB(Entity):
                 self._perform_setattr(CISCOIPSECMIB.CipsStaticCryptomapSetTable.CipsStaticCryptomapSetEntry, ['cipsstaticcryptomapsetname', 'cipsstaticcryptomapsetsize', 'cipsstaticcryptomapsetnumisakmp', 'cipsstaticcryptomapsetnummanual', 'cipsstaticcryptomapsetnumcet', 'cipsstaticcryptomapsetnumdynamic', 'cipsstaticcryptomapsetnumdisc', 'cipsstaticcryptomapsetnumsas'], name, value)
 
 
+
+
     class CipsDynamicCryptomapSetTable(Entity):
         """
         The table containing the list of all dynamic
@@ -993,6 +1098,8 @@ class CISCOIPSECMIB(Entity):
         
         	Each entry contains the attributes associated with a single dynamic cryptomap template
         	**type**\: list of  		 :py:class:`CipsDynamicCryptomapSetEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsDynamicCryptomapSetTable.CipsDynamicCryptomapSetEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1031,6 +1138,8 @@ class CISCOIPSECMIB(Entity):
             	The index of the dynamic cryptomap table.  The value of the string is the one assigned  by the operator in defining the cryptomap set
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cipsdynamiccryptomapsetsize
             
             	The number of cryptomap entries in this cryptomap
@@ -1038,12 +1147,16 @@ class CISCOIPSECMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cipsdynamiccryptomapsetnumassoc
             
             	The number of static cryptomap sets with which this dynamic cryptomap is associated.  
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1077,6 +1190,8 @@ class CISCOIPSECMIB(Entity):
                 self._perform_setattr(CISCOIPSECMIB.CipsDynamicCryptomapSetTable.CipsDynamicCryptomapSetEntry, ['cipsdynamiccryptomapsetname', 'cipsdynamiccryptomapsetsize', 'cipsdynamiccryptomapsetnumassoc'], name, value)
 
 
+
+
     class CipsStaticCryptomapTable(Entity):
         """
         The table ilisting the member cryptomaps
@@ -1087,6 +1202,8 @@ class CISCOIPSECMIB(Entity):
         
         	Each entry contains the attributes  associated with a single static  (fully specified) cryptomap entry. This table does not include the members  of dynamic cryptomap sets that may be linked with the parent static cryptomap set
         	**type**\: list of  		 :py:class:`CipsStaticCryptomapEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsStaticCryptomapTable.CipsStaticCryptomapEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1131,6 +1248,8 @@ class CISCOIPSECMIB(Entity):
             
             	**refers to**\:  :py:class:`cipsstaticcryptomapsetname <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsStaticCryptomapSetTable.CipsStaticCryptomapSetEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cipsstaticcryptomappriority  (key)
             
             	The priority of the cryptomap entry in the  cryptomap set. This is the second index component of this table
@@ -1138,15 +1257,21 @@ class CISCOIPSECMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: cipsstaticcryptomaptype
             
             	The type of the cryptomap entry. This can be an ISAKMP cryptomap, CET or manual. Dynamic cryptomaps are not counted in this table
             	**type**\:  :py:class:`CryptomapType <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CryptomapType>`
             
+            	**config**\: False
+            
             .. attribute:: cipsstaticcryptomapdescr
             
             	The description string entered by the operatoir while creating this cryptomap. The string generally identifies a description and the purpose of this policy
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cipsstaticcryptomappeer
             
@@ -1155,6 +1280,8 @@ class CISCOIPSECMIB(Entity):
             
             	**length:** 4 \| 16
             
+            	**config**\: False
+            
             .. attribute:: cipsstaticcryptomapnumpeers
             
             	The number of peers associated with this cryptomap  entry. The peers other than the one identified by  'cipsStaticCryptomapPeer' are backup peers.   Manual cryptomaps may have only one peer
@@ -1162,10 +1289,14 @@ class CISCOIPSECMIB(Entity):
             
             	**range:** 0..40
             
+            	**config**\: False
+            
             .. attribute:: cipsstaticcryptomappfs
             
             	This object identifies if the tunnels instantiated due to this policy item should use Perfect Forward Secrecy  (PFS) and if so, what group of Oakley they should use
             	**type**\:  :py:class:`DiffHellmanGrp <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.DiffHellmanGrp>`
+            
+            	**config**\: False
             
             .. attribute:: cipsstaticcryptomaplifetime
             
@@ -1174,6 +1305,8 @@ class CISCOIPSECMIB(Entity):
             
             	**range:** 0..None \| 120..86400
             
+            	**config**\: False
+            
             .. attribute:: cipsstaticcryptomaplifesize
             
             	This object identifies the lifesize (maximum traffic in bytes that may be carried) of the IPSec SAs created using this IPSec policy entry.  If this value is zero, the lifetime assumes the  value specified by the global lifesize parameter
@@ -1181,10 +1314,14 @@ class CISCOIPSECMIB(Entity):
             
             	**range:** 0..None \| 2560..536870912
             
+            	**config**\: False
+            
             .. attribute:: cipsstaticcryptomaplevelhost
             
             	This object identifies the granularity of the IPSec SAs created using this IPSec policy entry.  If this value is TRUE, distinct SA bundles are created for distinct hosts at the end of the application traffic
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1232,6 +1369,8 @@ class CISCOIPSECMIB(Entity):
                 self._perform_setattr(CISCOIPSECMIB.CipsStaticCryptomapTable.CipsStaticCryptomapEntry, ['cipsstaticcryptomapsetname', 'cipsstaticcryptomappriority', 'cipsstaticcryptomaptype', 'cipsstaticcryptomapdescr', 'cipsstaticcryptomappeer', 'cipsstaticcryptomapnumpeers', 'cipsstaticcryptomappfs', 'cipsstaticcryptomaplifetime', 'cipsstaticcryptomaplifesize', 'cipsstaticcryptomaplevelhost'], name, value)
 
 
+
+
     class CipsCryptomapSetIfTable(Entity):
         """
         The table lists the binding of cryptomap sets
@@ -1241,6 +1380,8 @@ class CISCOIPSECMIB(Entity):
         
         	Each entry contains the record of the association between an interface and a cryptomap set (static) that is defined on the managed entity.  Note that the cryptomap set identified in  this binding must static. Dynamic cryptomaps cannot be bound to interfaces
         	**type**\: list of  		 :py:class:`CipsCryptomapSetIfEntry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsCryptomapSetIfTable.CipsCryptomapSetIfEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1289,6 +1430,8 @@ class CISCOIPSECMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cipsstaticcryptomapsetname  (key)
             
             	
@@ -1296,15 +1439,21 @@ class CISCOIPSECMIB(Entity):
             
             	**refers to**\:  :py:class:`cipsstaticcryptomapsetname <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.CipsStaticCryptomapSetTable.CipsStaticCryptomapSetEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cipscryptomapsetifvirtual
             
             	The value of this object identifies if the interface to which the cryptomap set is attached is a tunnel (such as a GRE or PPTP tunnel)
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cipscryptomapsetifstatus
             
             	This object identifies the status of the binding  of the specified cryptomap set with the specified interface. The value when queried is always 'attached'.  When set to 'detached', the cryptomap set if detached  from the specified interface. The effect of this is same  as the CLI command  	config\-if# no crypto map cryptomapSetName  Setting the value to 'attached' will result in  SNMP General Error
             	**type**\:  :py:class:`CryptomapSetBindStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CryptomapSetBindStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1339,7 +1488,11 @@ class CISCOIPSECMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPSECMIB.CipsCryptomapSetIfTable.CipsCryptomapSetIfEntry, ['ifindex', 'cipsstaticcryptomapsetname', 'cipscryptomapsetifvirtual', 'cipscryptomapsetifstatus'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOIPSECMIB()
         return self._top_entity
+
+
 

@@ -46,30 +46,42 @@ class PBRIDGEMIB(Entity):
     	
     	**type**\:  :py:class:`Dot1dExtBase <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dExtBase>`
     
+    	**config**\: False
+    
     .. attribute:: dot1dtphcporttable
     
     	A table that contains information about every high\- capacity port that is associated with this transparent bridge
     	**type**\:  :py:class:`Dot1dTpHCPortTable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dTpHCPortTable>`
+    
+    	**config**\: False
     
     .. attribute:: dot1dtpportoverflowtable
     
     	A table that contains the most\-significant bits of statistics counters for ports that are associated with this transparent bridge that are on high\-capacity interfaces, as defined in the conformance clauses for this table.  This table is provided as a way to read 64\-bit counters for agents that support only SNMPv1.  Note that the reporting of most\-significant and least\-significant counter bits separately runs the risk of missing an overflow of the lower bits in the interval between sampling.  The manager must be aware of this possibility, even within the same varbindlist, when interpreting the results of a request or asynchronous notification
     	**type**\:  :py:class:`Dot1dTpPortOverflowTable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dTpPortOverflowTable>`
     
+    	**config**\: False
+    
     .. attribute:: dot1duserpriorityregentable
     
     	A list of Regenerated User Priorities for each received User Priority on each port of a bridge.  The Regenerated User Priority value may be used to index the Traffic Class Table for each input port.  This only has effect on media that support native User Priority.  The default values for Regenerated User Priorities are the same as the User Priorities
     	**type**\:  :py:class:`Dot1dUserPriorityRegenTable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dUserPriorityRegenTable>`
+    
+    	**config**\: False
     
     .. attribute:: dot1dtrafficclasstable
     
     	A table mapping evaluated User Priority to Traffic Class, for forwarding by the bridge.  Traffic class is a number in the range (0..(dot1dPortNumTrafficClasses\-1))
     	**type**\:  :py:class:`Dot1dTrafficClassTable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dTrafficClassTable>`
     
+    	**config**\: False
+    
     .. attribute:: dot1dportoutboundaccessprioritytable
     
     	A table mapping Regenerated User Priority to Outbound Access Priority.  This is a fixed mapping for all port types, with two options for 802.5 Token Ring
     	**type**\:  :py:class:`Dot1dPortOutboundAccessPriorityTable <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dPortOutboundAccessPriorityTable>`
+    
+    	**config**\: False
     
     
 
@@ -129,15 +141,21 @@ class PBRIDGEMIB(Entity):
         	Indicates the optional parts of IEEE 802.1D and 802.1Q that are implemented by this device and are manageable through this MIB.  Capabilities that are allowed on a per\-port basis are indicated in dot1dPortCapabilities.  dot1dExtendedFilteringServices(0),                       \-\- can perform filtering of                       \-\- individual multicast addresses                       \-\- controlled by GMRP. dot1dTrafficClasses(1),                       \-\- can map user priority to                       \-\- multiple traffic classes. dot1qStaticEntryIndividualPort(2),                       \-\- dot1qStaticUnicastReceivePort &                       \-\- dot1qStaticMulticastReceivePort                       \-\- can represent non\-zero entries. dot1qIVLCapable(3),   \-\- Independent VLAN Learning (IVL). dot1qSVLCapable(4),   \-\- Shared VLAN Learning (SVL). dot1qHybridCapable(5),                       \-\- both IVL & SVL simultaneously. dot1qConfigurablePvidTagging(6),                       \-\- whether the implementation                       \-\- supports the ability to                       \-\- override the default PVID                       \-\- setting and its egress status                       \-\- (VLAN\-Tagged or Untagged) on                       \-\- each port. dot1dLocalVlanCapable(7)                       \-\- can support multiple local                       \-\- bridges, outside of the scope                       \-\- of 802.1Q defined VLANs
         	**type**\:  :py:class:`Dot1dDeviceCapabilities <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dExtBase.Dot1dDeviceCapabilities>`
         
+        	**config**\: False
+        
         .. attribute:: dot1dtrafficclassesenabled
         
         	The value true(1) indicates that Traffic Classes are enabled on this bridge.  When false(2), the bridge operates with a single priority level for all traffic.  The value of this object MUST be retained across reinitializations of the management system
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: dot1dgmrpstatus
         
         	The administrative status requested by management for GMRP.  The value enabled(1) indicates that GMRP should be enabled on this device, in all VLANs, on all ports for which it has not been specifically disabled.  When disabled(2), GMRP is disabled, in all VLANs and on all ports, and all GMRP packets will be forwarded transparently.  This object affects both Applicant and Registrar state machines.  A transition from disabled(2) to enabled(1) will cause a reset of all GMRP state machines on all ports.  The value of this object MUST be retained across reinitializations of the management system
         	**type**\:  :py:class:`EnabledStatus <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.EnabledStatus>`
+        
+        	**config**\: False
         
         
 
@@ -171,6 +189,7 @@ class PBRIDGEMIB(Entity):
             self._perform_setattr(PBRIDGEMIB.Dot1dExtBase, [u'dot1ddevicecapabilities', u'dot1dtrafficclassesenabled', u'dot1dgmrpstatus'], name, value)
 
 
+
     class Dot1dTpHCPortTable(Entity):
         """
         A table that contains information about every high\-
@@ -181,6 +200,8 @@ class PBRIDGEMIB(Entity):
         
         	Statistics information for each high\-capacity port of a transparent bridge
         	**type**\: list of  		 :py:class:`Dot1dTpHCPortEntry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dTpHCPortTable.Dot1dTpHCPortEntry>`
+        
+        	**config**\: False
         
         
 
@@ -223,12 +244,16 @@ class PBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dtpport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTpPortTable.Dot1dTpPortEntry>`
             
+            	**config**\: False
+            
             .. attribute:: dot1dtphcportinframes
             
             	The number of frames that have been received by this port from its segment.  Note that a frame received on the interface corresponding to this port is only counted by this object if and only if it is for a protocol being processed by the local bridging function, including bridge management frames
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: dot1dtphcportoutframes
             
@@ -237,12 +262,16 @@ class PBRIDGEMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: dot1dtphcportindiscards
             
             	Count of valid frames that have been received by this port from its segment that were discarded (i.e., filtered) by the Forwarding Process
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -278,6 +307,8 @@ class PBRIDGEMIB(Entity):
                 self._perform_setattr(PBRIDGEMIB.Dot1dTpHCPortTable.Dot1dTpHCPortEntry, [u'dot1dtpport', u'dot1dtphcportinframes', u'dot1dtphcportoutframes', u'dot1dtphcportindiscards'], name, value)
 
 
+
+
     class Dot1dTpPortOverflowTable(Entity):
         """
         A table that contains the most\-significant bits of
@@ -298,6 +329,8 @@ class PBRIDGEMIB(Entity):
         
         	The most significant bits of statistics counters for a high\- capacity interface of a transparent bridge.  Each object is associated with a corresponding object in dot1dTpPortTable that indicates the least significant bits of the counter
         	**type**\: list of  		 :py:class:`Dot1dTpPortOverflowEntry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dTpPortOverflowTable.Dot1dTpPortOverflowEntry>`
+        
+        	**config**\: False
         
         
 
@@ -342,12 +375,16 @@ class PBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dtpport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dTpPortTable.Dot1dTpPortEntry>`
             
+            	**config**\: False
+            
             .. attribute:: dot1dtpportinoverflowframes
             
             	The number of times the associated dot1dTpPortInFrames counter has overflowed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot1dtpportoutoverflowframes
             
@@ -356,12 +393,16 @@ class PBRIDGEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot1dtpportinoverflowdiscards
             
             	The number of times the associated dot1dTpPortInDiscards counter has overflowed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -397,6 +438,8 @@ class PBRIDGEMIB(Entity):
                 self._perform_setattr(PBRIDGEMIB.Dot1dTpPortOverflowTable.Dot1dTpPortOverflowEntry, [u'dot1dtpport', u'dot1dtpportinoverflowframes', u'dot1dtpportoutoverflowframes', u'dot1dtpportinoverflowdiscards'], name, value)
 
 
+
+
     class Dot1dUserPriorityRegenTable(Entity):
         """
         A list of Regenerated User Priorities for each received
@@ -411,6 +454,8 @@ class PBRIDGEMIB(Entity):
         
         	A mapping of incoming User Priority to a Regenerated User Priority
         	**type**\: list of  		 :py:class:`Dot1dUserPriorityRegenEntry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dUserPriorityRegenTable.Dot1dUserPriorityRegenEntry>`
+        
+        	**config**\: False
         
         
 
@@ -453,6 +498,8 @@ class PBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry>`
             
+            	**config**\: False
+            
             .. attribute:: dot1duserpriority  (key)
             
             	The User Priority for a frame received on this port
@@ -460,12 +507,16 @@ class PBRIDGEMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: dot1dregenuserpriority
             
             	The Regenerated User Priority that the incoming User  Priority is mapped to for this port.  The value of this object MUST be retained across reinitializations of the management system
             	**type**\: int
             
             	**range:** 0..7
+            
+            	**config**\: False
             
             
 
@@ -499,6 +550,8 @@ class PBRIDGEMIB(Entity):
                 self._perform_setattr(PBRIDGEMIB.Dot1dUserPriorityRegenTable.Dot1dUserPriorityRegenEntry, [u'dot1dbaseport', u'dot1duserpriority', u'dot1dregenuserpriority'], name, value)
 
 
+
+
     class Dot1dTrafficClassTable(Entity):
         """
         A table mapping evaluated User Priority to Traffic
@@ -509,6 +562,8 @@ class PBRIDGEMIB(Entity):
         
         	User Priority to Traffic Class mapping
         	**type**\: list of  		 :py:class:`Dot1dTrafficClassEntry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dTrafficClassTable.Dot1dTrafficClassEntry>`
+        
+        	**config**\: False
         
         
 
@@ -550,6 +605,8 @@ class PBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry>`
             
+            	**config**\: False
+            
             .. attribute:: dot1dtrafficclasspriority  (key)
             
             	The Priority value determined for the received frame. This value is equivalent to the priority indicated in the tagged frame received, or one of the evaluated priorities, determined according to the media\-type.  For untagged frames received from Ethernet media, this value is equal to the dot1dPortDefaultUserPriority value for the ingress port.  For untagged frames received from non\-Ethernet media, this value is equal to the dot1dRegenUserPriority value for the ingress port and media\-specific user priority
@@ -557,12 +614,16 @@ class PBRIDGEMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: dot1dtrafficclass
             
             	The Traffic Class the received frame is mapped to.  The value of this object MUST be retained across reinitializations of the management system
             	**type**\: int
             
             	**range:** 0..7
+            
+            	**config**\: False
             
             
 
@@ -596,6 +657,8 @@ class PBRIDGEMIB(Entity):
                 self._perform_setattr(PBRIDGEMIB.Dot1dTrafficClassTable.Dot1dTrafficClassEntry, [u'dot1dbaseport', u'dot1dtrafficclasspriority', u'dot1dtrafficclass'], name, value)
 
 
+
+
     class Dot1dPortOutboundAccessPriorityTable(Entity):
         """
         A table mapping Regenerated User Priority to Outbound
@@ -606,6 +669,8 @@ class PBRIDGEMIB(Entity):
         
         	Regenerated User Priority to Outbound Access Priority mapping
         	**type**\: list of  		 :py:class:`Dot1dPortOutboundAccessPriorityEntry <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dPortOutboundAccessPriorityTable.Dot1dPortOutboundAccessPriorityEntry>`
+        
+        	**config**\: False
         
         
 
@@ -648,6 +713,8 @@ class PBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dbaseport <ydk.models.cisco_ios_xe.BRIDGE_MIB.BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry>`
             
+            	**config**\: False
+            
             .. attribute:: dot1dregenuserpriority  (key)
             
             	
@@ -657,12 +724,16 @@ class PBRIDGEMIB(Entity):
             
             	**refers to**\:  :py:class:`dot1dregenuserpriority <ydk.models.cisco_ios_xe.P_BRIDGE_MIB.PBRIDGEMIB.Dot1dUserPriorityRegenTable.Dot1dUserPriorityRegenEntry>`
             
+            	**config**\: False
+            
             .. attribute:: dot1dportoutboundaccesspriority
             
             	The Outbound Access Priority the received frame is mapped to
             	**type**\: int
             
             	**range:** 0..7
+            
+            	**config**\: False
             
             
 
@@ -695,7 +766,11 @@ class PBRIDGEMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(PBRIDGEMIB.Dot1dPortOutboundAccessPriorityTable.Dot1dPortOutboundAccessPriorityEntry, [u'dot1dbaseport', u'dot1dregenuserpriority', u'dot1dportoutboundaccesspriority'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = PBRIDGEMIB()
         return self._top_entity
+
+
 

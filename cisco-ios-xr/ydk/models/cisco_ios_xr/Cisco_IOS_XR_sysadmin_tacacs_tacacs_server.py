@@ -39,12 +39,16 @@ class TacacsServer(Entity):
     	
     	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_tacacs_tacacs_server.TacacsServer.Requests>`
     
+    	**config**\: False
+    
     .. attribute:: test_authentication
     
     	
     	**type**\:  :py:class:`TestAuthentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_tacacs_tacacs_server.TacacsServer.TestAuthentication>`
     
     	**presence node**\: True
+    
+    	**config**\: False
     
     .. attribute:: test_authorization
     
@@ -53,12 +57,16 @@ class TacacsServer(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: test_accounting
     
     	
     	**type**\:  :py:class:`TestAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_tacacs_tacacs_server.TacacsServer.TestAccounting>`
     
     	**presence node**\: True
+    
+    	**config**\: False
     
     
 
@@ -175,6 +183,7 @@ class TacacsServer(Entity):
             self._perform_setattr(TacacsServer.Host, [u'ip', u'port', u'timeout', u'key'], name, value)
 
 
+
     class Requests(Entity):
         """
         
@@ -183,6 +192,8 @@ class TacacsServer(Entity):
         
         	
         	**type**\: list of  		 :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_tacacs_tacacs_server.TacacsServer.Requests.Ipv4>`
+        
+        	**config**\: False
         
         
 
@@ -228,12 +239,16 @@ class TacacsServer(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: port  (key)
             
             	Server Port
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: opens
             
@@ -242,12 +257,16 @@ class TacacsServer(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: closes
             
             	Socket close count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: aborts
             
@@ -256,12 +275,16 @@ class TacacsServer(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: errors
             
             	Socket error count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: packets_in
             
@@ -270,12 +293,16 @@ class TacacsServer(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: packets_out
             
             	Packets transmitted count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -319,6 +346,8 @@ class TacacsServer(Entity):
                 self._perform_setattr(TacacsServer.Requests.Ipv4, ['addr', 'port', 'opens', 'closes', 'aborts', 'errors', 'packets_in', 'packets_out'], name, value)
 
 
+
+
     class TestAuthentication(Entity):
         """
         
@@ -327,6 +356,8 @@ class TacacsServer(Entity):
         
         	Authentication
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -359,6 +390,7 @@ class TacacsServer(Entity):
             self._perform_setattr(TacacsServer.TestAuthentication, ['authentication'], name, value)
 
 
+
     class TestAuthorization(Entity):
         """
         
@@ -367,6 +399,8 @@ class TacacsServer(Entity):
         
         	Authorization
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -399,6 +433,7 @@ class TacacsServer(Entity):
             self._perform_setattr(TacacsServer.TestAuthorization, ['authorization'], name, value)
 
 
+
     class TestAccounting(Entity):
         """
         
@@ -407,6 +442,8 @@ class TacacsServer(Entity):
         
         	Accounting
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -438,7 +475,10 @@ class TacacsServer(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(TacacsServer.TestAccounting, ['accounting'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = TacacsServer()
         return self._top_entity
+
+
 

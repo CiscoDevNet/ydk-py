@@ -131,6 +131,7 @@ class InputInterface(FilterType):
         super(InputInterface, self).__init__(ns, pref, tag)
 
 
+
 class SrcMac(FilterType):
     """
     Source MAC address
@@ -144,6 +145,7 @@ class SrcMac(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:src-mac"):
         super(SrcMac, self).__init__(ns, pref, tag)
+
 
 
 class Application(FilterType):
@@ -161,6 +163,7 @@ class Application(FilterType):
         super(Application, self).__init__(ns, pref, tag)
 
 
+
 class SecurityGroupName(FilterType):
     """
     security group name
@@ -174,6 +177,7 @@ class SecurityGroupName(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:security-group-name"):
         super(SecurityGroupName, self).__init__(ns, pref, tag)
+
 
 
 class Ipv4AclName(FilterType):
@@ -191,6 +195,7 @@ class Ipv4AclName(FilterType):
         super(Ipv4AclName, self).__init__(ns, pref, tag)
 
 
+
 class FlowDlci(FilterType):
     """
     Frame\-relay DLCI
@@ -204,6 +209,7 @@ class FlowDlci(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:flow-dlci"):
         super(FlowDlci, self).__init__(ns, pref, tag)
+
 
 
 class Dei(FilterType):
@@ -221,6 +227,7 @@ class Dei(FilterType):
         super(Dei, self).__init__(ns, pref, tag)
 
 
+
 class Prec(FilterType):
     """
     IP precendence
@@ -234,6 +241,7 @@ class Prec(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:prec"):
         super(Prec, self).__init__(ns, pref, tag)
+
 
 
 class PacketLength(FilterType):
@@ -251,6 +259,7 @@ class PacketLength(FilterType):
         super(PacketLength, self).__init__(ns, pref, tag)
 
 
+
 class Ipv4Acl(FilterType):
     """
     IPV4 access group Index
@@ -264,6 +273,7 @@ class Ipv4Acl(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:ipv4-acl"):
         super(Ipv4Acl, self).__init__(ns, pref, tag)
+
 
 
 class FlowDe(FilterType):
@@ -281,6 +291,7 @@ class FlowDe(FilterType):
         super(FlowDe, self).__init__(ns, pref, tag)
 
 
+
 class FlowIp(FilterType):
     """
     Flow IP
@@ -294,6 +305,7 @@ class FlowIp(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:flow-ip"):
         super(FlowIp, self).__init__(ns, pref, tag)
+
 
 
 class FlowRecord(FilterType):
@@ -311,6 +323,7 @@ class FlowRecord(FilterType):
         super(FlowRecord, self).__init__(ns, pref, tag)
 
 
+
 class VlanInner(FilterType):
     """
     Vlan\-inner
@@ -324,6 +337,7 @@ class VlanInner(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:vlan-inner"):
         super(VlanInner, self).__init__(ns, pref, tag)
+
 
 
 class Metadata(FilterType):
@@ -341,6 +355,7 @@ class Metadata(FilterType):
         super(Metadata, self).__init__(ns, pref, tag)
 
 
+
 class Vlan(FilterType):
     """
     Vlan
@@ -354,6 +369,7 @@ class Vlan(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:vlan"):
         super(Vlan, self).__init__(ns, pref, tag)
+
 
 
 class AtmVci(FilterType):
@@ -371,6 +387,7 @@ class AtmVci(FilterType):
         super(AtmVci, self).__init__(ns, pref, tag)
 
 
+
 class ClassMap(FilterType):
     """
     class\-map
@@ -384,6 +401,7 @@ class ClassMap(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:class-map"):
         super(ClassMap, self).__init__(ns, pref, tag)
+
 
 
 class QosGroup(FilterType):
@@ -401,6 +419,7 @@ class QosGroup(FilterType):
         super(QosGroup, self).__init__(ns, pref, tag)
 
 
+
 class WlanUserPriority(FilterType):
     """
     WLAN user priority
@@ -414,6 +433,7 @@ class WlanUserPriority(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:wlan-user-priority"):
         super(WlanUserPriority, self).__init__(ns, pref, tag)
+
 
 
 class IpRtp(FilterType):
@@ -431,6 +451,7 @@ class IpRtp(FilterType):
         super(IpRtp, self).__init__(ns, pref, tag)
 
 
+
 class Ipv6Acl(FilterType):
     """
     IPV6 access group Index
@@ -444,6 +465,7 @@ class Ipv6Acl(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:ipv6-acl"):
         super(Ipv6Acl, self).__init__(ns, pref, tag)
+
 
 
 class AtmClp(FilterType):
@@ -461,6 +483,7 @@ class AtmClp(FilterType):
         super(AtmClp, self).__init__(ns, pref, tag)
 
 
+
 class DstMac(FilterType):
     """
     Destination MAC address
@@ -474,6 +497,7 @@ class DstMac(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:dst-mac"):
         super(DstMac, self).__init__(ns, pref, tag)
+
 
 
 class Cos(FilterType):
@@ -493,6 +517,7 @@ class Cos(FilterType):
         super(Cos, self).__init__(ns, pref, tag)
 
 
+
 class DeiInner(FilterType):
     """
     Frame\-relay inner DE bit
@@ -506,6 +531,7 @@ class DeiInner(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:dei-inner"):
         super(DeiInner, self).__init__(ns, pref, tag)
+
 
 
 class MplsExpTop(FilterType):
@@ -524,6 +550,7 @@ class MplsExpTop(FilterType):
         super(MplsExpTop, self).__init__(ns, pref, tag)
 
 
+
 class CosInner(FilterType):
     """
     ATM VC configured as Access VC
@@ -540,6 +567,7 @@ class CosInner(FilterType):
         super(CosInner, self).__init__(ns, pref, tag)
 
 
+
 class Ipv6AclName(FilterType):
     """
     IPV6 access group list
@@ -553,6 +581,7 @@ class Ipv6AclName(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:ipv6-acl-name"):
         super(Ipv6AclName, self).__init__(ns, pref, tag)
+
 
 
 class MplsExpImp(FilterType):
@@ -571,6 +600,7 @@ class MplsExpImp(FilterType):
         super(MplsExpImp, self).__init__(ns, pref, tag)
 
 
+
 class SecurityGroupTag(FilterType):
     """
     security group tag
@@ -584,6 +614,7 @@ class SecurityGroupTag(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:security-group-tag"):
         super(SecurityGroupTag, self).__init__(ns, pref, tag)
+
 
 
 class ClassType(Identity):
@@ -602,6 +633,7 @@ class ClassType(Identity):
         super(ClassType, self).__init__(ns, pref, tag)
 
 
+
 class DiscardClass(FilterType):
     """
     Discard behavior identifier
@@ -617,6 +649,7 @@ class DiscardClass(FilterType):
         super(DiscardClass, self).__init__(ns, pref, tag)
 
 
+
 class Vpls(FilterType):
     """
     VPLS
@@ -630,6 +663,7 @@ class Vpls(FilterType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:vpls"):
         super(Vpls, self).__init__(ns, pref, tag)
+
 
 
 class PolicyType(Identity):
@@ -648,6 +682,7 @@ class PolicyType(Identity):
         super(PolicyType, self).__init__(ns, pref, tag)
 
 
+
 class Control(PolicyType):
     """
     
@@ -662,6 +697,7 @@ class Control(PolicyType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:control"):
         super(Control, self).__init__(ns, pref, tag)
+
 
 
 class Qos(PolicyType):
@@ -680,6 +716,7 @@ class Qos(PolicyType):
         super(Qos, self).__init__(ns, pref, tag)
 
 
+
 class PerfMon(PolicyType):
     """
     
@@ -694,6 +731,7 @@ class PerfMon(PolicyType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:perf-mon"):
         super(PerfMon, self).__init__(ns, pref, tag)
+
 
 
 class PacketService(PolicyType):
@@ -712,6 +750,7 @@ class PacketService(PolicyType):
         super(PacketService, self).__init__(ns, pref, tag)
 
 
+
 class QosClass(ClassType):
     """
     
@@ -726,6 +765,7 @@ class QosClass(ClassType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:qos-class"):
         super(QosClass, self).__init__(ns, pref, tag)
+
 
 
 class ControlClass(ClassType):
@@ -744,6 +784,7 @@ class ControlClass(ClassType):
         super(ControlClass, self).__init__(ns, pref, tag)
 
 
+
 class InspectClass(ClassType):
     """
     
@@ -758,6 +799,7 @@ class InspectClass(ClassType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:inspect-class"):
         super(InspectClass, self).__init__(ns, pref, tag)
+
 
 
 class AppnavClass(ClassType):
@@ -776,6 +818,7 @@ class AppnavClass(ClassType):
         super(AppnavClass, self).__init__(ns, pref, tag)
 
 
+
 class Service(PolicyType):
     """
     
@@ -790,6 +833,7 @@ class Service(PolicyType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:service"):
         super(Service, self).__init__(ns, pref, tag)
+
 
 
 class AccessControlClass(ClassType):
@@ -808,6 +852,7 @@ class AccessControlClass(ClassType):
         super(AccessControlClass, self).__init__(ns, pref, tag)
 
 
+
 class AccessControl(PolicyType):
     """
     
@@ -822,6 +867,7 @@ class AccessControl(PolicyType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:access-control"):
         super(AccessControl, self).__init__(ns, pref, tag)
+
 
 
 class Appnav(PolicyType):
@@ -840,6 +886,7 @@ class Appnav(PolicyType):
         super(Appnav, self).__init__(ns, pref, tag)
 
 
+
 class Inspect(PolicyType):
     """
     
@@ -856,6 +903,7 @@ class Inspect(PolicyType):
         super(Inspect, self).__init__(ns, pref, tag)
 
 
+
 class Pbr(PolicyType):
     """
     
@@ -870,5 +918,6 @@ class Pbr(PolicyType):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:c3pl-types", pref="policy-types", tag="policy-types:pbr"):
         super(Pbr, self).__init__(ns, pref, tag)
+
 
 

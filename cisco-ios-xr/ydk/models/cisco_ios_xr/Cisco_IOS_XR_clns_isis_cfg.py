@@ -1766,6 +1766,7 @@ class Isis(Entity):
                     self._perform_setattr(Isis.Instances.Instance.Srgb, ['lower_bound', 'upper_bound'], name, value)
 
 
+
             class LspGenerationIntervals(Entity):
                 """
                 LSP generation\-interval configuration
@@ -1868,6 +1869,8 @@ class Isis(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspGenerationIntervals.LspGenerationInterval, ['level', 'maximum_wait', 'initial_wait', 'secondary_wait'], name, value)
+
+
 
 
             class LspArrivalTimes(Entity):
@@ -1974,6 +1977,8 @@ class Isis(Entity):
                         self._perform_setattr(Isis.Instances.Instance.LspArrivalTimes.LspArrivalTime, ['level', 'maximum_wait', 'initial_wait', 'secondary_wait'], name, value)
 
 
+
+
             class TraceBufferSize(Entity):
                 """
                 Trace buffer size configuration
@@ -2037,6 +2042,7 @@ class Isis(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Isis.Instances.Instance.TraceBufferSize, ['detailed', 'standard', 'severe', 'hello'], name, value)
+
 
 
             class MaxLinkMetrics(Entity):
@@ -2110,6 +2116,8 @@ class Isis(Entity):
                         self._perform_setattr(Isis.Instances.Instance.MaxLinkMetrics.MaxLinkMetric, ['level'], name, value)
 
 
+
+
             class AdjacencyStagger(Entity):
                 """
                 Stagger ISIS adjacency bring up
@@ -2162,6 +2170,7 @@ class Isis(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Isis.Instances.Instance.AdjacencyStagger, ['initial_nbr', 'max_nbr'], name, value)
+
 
 
             class Afs(Entity):
@@ -2699,6 +2708,8 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SegmentRouting.PrefixSidMap, ['advertise_local', 'receive'], name, value)
 
 
+
+
                         class MetricStyles(Entity):
                             """
                             Metric\-style configuration
@@ -2777,6 +2788,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MetricStyles.MetricStyle, ['level', 'style'], name, value)
+
+
 
 
                         class FrrTable(Entity):
@@ -2954,6 +2967,8 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrLoadSharings.FrrLoadSharing, ['level', 'load_sharing'], name, value)
 
 
+
+
                             class FrrsrlgProtectionTypes(Entity):
                                 """
                                 SRLG protection type configuration
@@ -3032,6 +3047,8 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrsrlgProtectionTypes.FrrsrlgProtectionType, ['level', 'protection_type'], name, value)
+
+
 
 
                             class PriorityLimits(Entity):
@@ -3160,6 +3177,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit.PriorityLimitData, ['priority'], name, value)
 
 
+
                                     class FrrType(Entity):
                                         """
                                         keys\: frr\-type
@@ -3203,6 +3221,9 @@ class Isis(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.PriorityLimits.PriorityLimit.FrrType, ['frr_type', 'priority'], name, value)
+
+
+
 
 
                             class FrrRemoteLfaPrefixes(Entity):
@@ -3287,6 +3308,8 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, ['level', 'prefix_list_name'], name, value)
+
+
 
 
                             class FrrTiebreakers(Entity):
@@ -3378,6 +3401,8 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrTiebreakers.FrrTiebreaker, ['level', 'tiebreaker', 'index'], name, value)
 
 
+
+
                             class FrrUseCandOnlies(Entity):
                                 """
                                 FRR use candidate only configuration
@@ -3457,6 +3482,9 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, ['level', 'frr_type'], name, value)
 
 
+
+
+
                         class RouterId(Entity):
                             """
                             Stable IP address for system. Will only be
@@ -3501,6 +3529,7 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.RouterId, ['address', 'interface_name'], name, value)
+
 
 
                         class SpfPrefixPriorities(Entity):
@@ -3597,6 +3626,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SpfPrefixPriorities.SpfPrefixPriority, ['level', 'prefix_priority_type', 'admin_tag', 'access_list_name'], name, value)
+
+
 
 
                         class SummaryPrefixes(Entity):
@@ -3696,6 +3727,8 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SummaryPrefixes.SummaryPrefix, ['address_prefix', 'tag', 'level'], name, value)
 
 
+
+
                         class MicroLoopAvoidance(Entity):
                             """
                             Micro Loop Avoidance configuration
@@ -3743,6 +3776,7 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MicroLoopAvoidance, ['enable', 'rib_update_delay'], name, value)
+
 
 
                         class Ucmp(Entity):
@@ -3854,6 +3888,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.Enable, ['variance', 'prefix_list_name'], name, value)
 
 
+
                             class ExcludeInterfaces(Entity):
                                 """
                                 Interfaces excluded from UCMP path
@@ -3927,6 +3962,9 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Ucmp.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                         class MaxRedistPrefixes(Entity):
@@ -4012,6 +4050,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MaxRedistPrefixes.MaxRedistPrefix, ['level', 'prefix_limit'], name, value)
+
+
 
 
                         class Propagations(Entity):
@@ -4101,6 +4141,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Propagations.Propagation, ['source_level', 'destination_level', 'route_policy_name'], name, value)
+
+
 
 
                         class Redistributions(Entity):
@@ -4278,6 +4320,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile, ['metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
 
 
+
                                 class OspfOrOspfv3OrIsisOrApplication(Entity):
                                     """
                                     ospf or ospfv3 or isis or application
@@ -4355,6 +4398,7 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, ['instance_name', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
+
 
 
                                 class Bgp(Entity):
@@ -4445,6 +4489,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Bgp, ['as_xx', 'as_yy', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
 
 
+
                                 class Eigrp(Entity):
                                     """
                                     eigrp
@@ -4522,6 +4567,9 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Redistributions.Redistribution.Eigrp, ['as_zz', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
+
+
+
 
 
                         class ApplicationTables(Entity):
@@ -4647,6 +4695,9 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.ApplicationTables.ApplicationTable.AttributeTable, ['app_type', 'enable'], name, value)
 
 
+
+
+
                         class SpfPeriodicIntervals(Entity):
                             """
                             Peoridic SPF configuration
@@ -4731,6 +4782,8 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SpfPeriodicIntervals.SpfPeriodicInterval, ['level', 'periodic_interval'], name, value)
 
 
+
+
                         class DistributeListIn(Entity):
                             """
                             Filter routes sent to the RIB
@@ -4776,6 +4829,7 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.DistributeListIn, ['prefix_list_name', 'route_policy_name'], name, value)
+
 
 
                         class SpfIntervals(Entity):
@@ -4882,6 +4936,8 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.SpfIntervals.SpfInterval, ['level', 'maximum_wait', 'initial_wait', 'secondary_wait'], name, value)
 
 
+
+
                         class MonitorConvergence(Entity):
                             """
                             Enable convergence monitoring
@@ -4932,6 +4988,7 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MonitorConvergence, ['enable', 'track_ip_frr', 'prefix_list'], name, value)
+
 
 
                         class DefaultInformation(Entity):
@@ -4987,6 +5044,7 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.DefaultInformation, ['use_policy', 'policy_name', 'external'], name, value)
+
 
 
                         class AdminDistances(Entity):
@@ -5091,6 +5149,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.AdminDistances.AdminDistance, ['address_prefix', 'distance', 'prefix_list'], name, value)
+
+
 
 
                         class Ispf(Entity):
@@ -5210,6 +5270,9 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Ispf.States.State, ['level', 'state'], name, value)
 
 
+
+
+
                         class MplsLdpGlobal(Entity):
                             """
                             MPLS LDP configuration. MPLS LDP
@@ -5246,6 +5309,7 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.MplsLdpGlobal, ['auto_config'], name, value)
+
 
 
                         class Mpls(Entity):
@@ -5359,6 +5423,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Mpls.RouterId, ['address', 'interface_name'], name, value)
 
 
+
                             class Level(Entity):
                                 """
                                 Enable MPLS for an IS\-IS at the given
@@ -5401,6 +5466,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Mpls.Level, ['level1', 'level2'], name, value)
+
+
 
 
                         class ManualAdjSids(Entity):
@@ -5497,6 +5564,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.ManualAdjSids.ManualAdjSid, ['level', 'sid_type', 'sid', 'protected'], name, value)
+
+
 
 
                         class Metrics(Entity):
@@ -5611,6 +5680,8 @@ class Isis(Entity):
 
 
 
+
+
                         class Weights(Entity):
                             """
                             Weight configuration
@@ -5692,6 +5763,9 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.AfData.Weights.Weight, ['level', 'weight'], name, value)
+
+
+
 
 
                     class TopologyName(Entity):
@@ -6138,6 +6212,8 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SegmentRouting.PrefixSidMap, ['advertise_local', 'receive'], name, value)
 
 
+
+
                         class MetricStyles(Entity):
                             """
                             Metric\-style configuration
@@ -6216,6 +6292,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MetricStyles.MetricStyle, ['level', 'style'], name, value)
+
+
 
 
                         class FrrTable(Entity):
@@ -6393,6 +6471,8 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrLoadSharings.FrrLoadSharing, ['level', 'load_sharing'], name, value)
 
 
+
+
                             class FrrsrlgProtectionTypes(Entity):
                                 """
                                 SRLG protection type configuration
@@ -6471,6 +6551,8 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrsrlgProtectionTypes.FrrsrlgProtectionType, ['level', 'protection_type'], name, value)
+
+
 
 
                             class PriorityLimits(Entity):
@@ -6599,6 +6681,7 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit.PriorityLimitData, ['priority'], name, value)
 
 
+
                                     class FrrType(Entity):
                                         """
                                         keys\: frr\-type
@@ -6642,6 +6725,9 @@ class Isis(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.PriorityLimits.PriorityLimit.FrrType, ['frr_type', 'priority'], name, value)
+
+
+
 
 
                             class FrrRemoteLfaPrefixes(Entity):
@@ -6726,6 +6812,8 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrRemoteLfaPrefixes.FrrRemoteLfaPrefix, ['level', 'prefix_list_name'], name, value)
+
+
 
 
                             class FrrTiebreakers(Entity):
@@ -6817,6 +6905,8 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrTiebreakers.FrrTiebreaker, ['level', 'tiebreaker', 'index'], name, value)
 
 
+
+
                             class FrrUseCandOnlies(Entity):
                                 """
                                 FRR use candidate only configuration
@@ -6896,6 +6986,9 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.FrrTable.FrrUseCandOnlies.FrrUseCandOnly, ['level', 'frr_type'], name, value)
 
 
+
+
+
                         class RouterId(Entity):
                             """
                             Stable IP address for system. Will only be
@@ -6940,6 +7033,7 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.RouterId, ['address', 'interface_name'], name, value)
+
 
 
                         class SpfPrefixPriorities(Entity):
@@ -7036,6 +7130,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPrefixPriorities.SpfPrefixPriority, ['level', 'prefix_priority_type', 'admin_tag', 'access_list_name'], name, value)
+
+
 
 
                         class SummaryPrefixes(Entity):
@@ -7135,6 +7231,8 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SummaryPrefixes.SummaryPrefix, ['address_prefix', 'tag', 'level'], name, value)
 
 
+
+
                         class MicroLoopAvoidance(Entity):
                             """
                             Micro Loop Avoidance configuration
@@ -7182,6 +7280,7 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MicroLoopAvoidance, ['enable', 'rib_update_delay'], name, value)
+
 
 
                         class Ucmp(Entity):
@@ -7293,6 +7392,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.Enable, ['variance', 'prefix_list_name'], name, value)
 
 
+
                             class ExcludeInterfaces(Entity):
                                 """
                                 Interfaces excluded from UCMP path
@@ -7366,6 +7466,9 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Ucmp.ExcludeInterfaces.ExcludeInterface, ['interface_name'], name, value)
+
+
+
 
 
                         class MaxRedistPrefixes(Entity):
@@ -7451,6 +7554,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MaxRedistPrefixes.MaxRedistPrefix, ['level', 'prefix_limit'], name, value)
+
+
 
 
                         class Propagations(Entity):
@@ -7540,6 +7645,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Propagations.Propagation, ['source_level', 'destination_level', 'route_policy_name'], name, value)
+
+
 
 
                         class Redistributions(Entity):
@@ -7717,6 +7824,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.ConnectedOrStaticOrRipOrSubscriberOrMobile, ['metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
 
 
+
                                 class OspfOrOspfv3OrIsisOrApplication(Entity):
                                     """
                                     ospf or ospfv3 or isis or application
@@ -7794,6 +7902,7 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.OspfOrOspfv3OrIsisOrApplication, ['instance_name', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
+
 
 
                                 class Bgp(Entity):
@@ -7884,6 +7993,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Bgp, ['as_xx', 'as_yy', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
 
 
+
                                 class Eigrp(Entity):
                                     """
                                     eigrp
@@ -7961,6 +8071,9 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Redistributions.Redistribution.Eigrp, ['as_zz', 'metric', 'levels', 'route_policy_name', 'metric_type', 'ospf_route_type'], name, value)
+
+
+
 
 
                         class ApplicationTables(Entity):
@@ -8086,6 +8199,9 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.ApplicationTables.ApplicationTable.AttributeTable, ['app_type', 'enable'], name, value)
 
 
+
+
+
                         class SpfPeriodicIntervals(Entity):
                             """
                             Peoridic SPF configuration
@@ -8170,6 +8286,8 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SpfPeriodicIntervals.SpfPeriodicInterval, ['level', 'periodic_interval'], name, value)
 
 
+
+
                         class DistributeListIn(Entity):
                             """
                             Filter routes sent to the RIB
@@ -8215,6 +8333,7 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.DistributeListIn, ['prefix_list_name', 'route_policy_name'], name, value)
+
 
 
                         class SpfIntervals(Entity):
@@ -8321,6 +8440,8 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.SpfIntervals.SpfInterval, ['level', 'maximum_wait', 'initial_wait', 'secondary_wait'], name, value)
 
 
+
+
                         class MonitorConvergence(Entity):
                             """
                             Enable convergence monitoring
@@ -8371,6 +8492,7 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MonitorConvergence, ['enable', 'track_ip_frr', 'prefix_list'], name, value)
+
 
 
                         class DefaultInformation(Entity):
@@ -8426,6 +8548,7 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.DefaultInformation, ['use_policy', 'policy_name', 'external'], name, value)
+
 
 
                         class AdminDistances(Entity):
@@ -8530,6 +8653,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.AdminDistances.AdminDistance, ['address_prefix', 'distance', 'prefix_list'], name, value)
+
+
 
 
                         class Ispf(Entity):
@@ -8649,6 +8774,9 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Ispf.States.State, ['level', 'state'], name, value)
 
 
+
+
+
                         class MplsLdpGlobal(Entity):
                             """
                             MPLS LDP configuration. MPLS LDP
@@ -8685,6 +8813,7 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.MplsLdpGlobal, ['auto_config'], name, value)
+
 
 
                         class Mpls(Entity):
@@ -8798,6 +8927,7 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.RouterId, ['address', 'interface_name'], name, value)
 
 
+
                             class Level(Entity):
                                 """
                                 Enable MPLS for an IS\-IS at the given
@@ -8840,6 +8970,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Mpls.Level, ['level1', 'level2'], name, value)
+
+
 
 
                         class ManualAdjSids(Entity):
@@ -8936,6 +9068,8 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.ManualAdjSids.ManualAdjSid, ['level', 'sid_type', 'sid', 'protected'], name, value)
+
+
 
 
                         class Metrics(Entity):
@@ -9050,6 +9184,8 @@ class Isis(Entity):
 
 
 
+
+
                         class Weights(Entity):
                             """
                             Weight configuration
@@ -9131,6 +9267,11 @@ class Isis(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Isis.Instances.Instance.Afs.Af.TopologyName.Weights.Weight, ['level', 'weight'], name, value)
+
+
+
+
+
 
 
             class LspRefreshIntervals(Entity):
@@ -9218,6 +9359,8 @@ class Isis(Entity):
                         self._perform_setattr(Isis.Instances.Instance.LspRefreshIntervals.LspRefreshInterval, ['level', 'interval'], name, value)
 
 
+
+
             class Distribute(Entity):
                 """
                 Distribute link\-state configuration
@@ -9275,6 +9418,7 @@ class Isis(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Isis.Instances.Instance.Distribute, ['dist_inst_id', 'level', 'dist_throttle'], name, value)
+
 
 
             class FlexAlgos(Entity):
@@ -9420,6 +9564,9 @@ class Isis(Entity):
                             self._perform_setattr(Isis.Instances.Instance.FlexAlgos.FlexAlgo.AffinityExcludeAnies, ['affinity_exclude_any'], name, value)
 
 
+
+
+
             class AffinityMappings(Entity):
                 """
                 Affinity Mapping Table
@@ -9502,6 +9649,8 @@ class Isis(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.AffinityMappings.AffinityMapping, ['affinity_name', 'value'], name, value)
+
+
 
 
             class LspAcceptPasswords(Entity):
@@ -9588,6 +9737,8 @@ class Isis(Entity):
                         self._perform_setattr(Isis.Instances.Instance.LspAcceptPasswords.LspAcceptPassword, ['level', 'password'], name, value)
 
 
+
+
             class LspMtus(Entity):
                 """
                 LSP MTU configuration
@@ -9670,6 +9821,8 @@ class Isis(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspMtus.LspMtu, ['level', 'mtu'], name, value)
+
+
 
 
             class SrlgTable(Entity):
@@ -9892,6 +10045,11 @@ class Isis(Entity):
                                     self._perform_setattr(Isis.Instances.Instance.SrlgTable.SrlgNames.SrlgName.FromTos.FromTo, ['local_ipv4_address', 'remote_ipv4_address'], name, value)
 
 
+
+
+
+
+
             class Nsf(Entity):
                 """
                 IS\-IS NSF configuration
@@ -9963,6 +10121,7 @@ class Isis(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Isis.Instances.Instance.Nsf, ['flavor', 'interface_timer', 'max_interface_timer_expiry', 'lifetime'], name, value)
+
 
 
             class LinkGroups(Entity):
@@ -10069,6 +10228,8 @@ class Isis(Entity):
                         self._perform_setattr(Isis.Instances.Instance.LinkGroups.LinkGroup, ['link_group_name', 'metric_offset', 'revert_members', 'minimum_members'], name, value)
 
 
+
+
             class LspCheckIntervals(Entity):
                 """
                 LSP checksum check interval configuration
@@ -10151,6 +10312,8 @@ class Isis(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspCheckIntervals.LspCheckInterval, ['level', 'interval'], name, value)
+
+
 
 
             class LspPasswords(Entity):
@@ -10270,6 +10433,8 @@ class Isis(Entity):
                         self._perform_setattr(Isis.Instances.Instance.LspPasswords.LspPassword, ['level', 'algorithm', 'failure_mode', 'authentication_type', 'password', 'enable_poi'], name, value)
 
 
+
+
             class Nets(Entity):
                 """
                 NET configuration
@@ -10341,6 +10506,8 @@ class Isis(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.Nets.Net, ['net_name'], name, value)
+
+
 
 
             class LspLifetimes(Entity):
@@ -10425,6 +10592,8 @@ class Isis(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.LspLifetimes.LspLifetime, ['level', 'lifetime'], name, value)
+
+
 
 
             class OverloadBits(Entity):
@@ -10535,6 +10704,8 @@ class Isis(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Isis.Instances.Instance.OverloadBits.OverloadBit, ['level', 'overload_bit_mode', 'hippity_period', 'external_adv_type', 'inter_level_adv_type'], name, value)
+
+
 
 
             class Interfaces(Entity):
@@ -10886,6 +11057,8 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.IntAffinityTable.FlexAlgos, ['flex_algo'], name, value)
 
 
+
+
                     class LspRetransmitThrottleIntervals(Entity):
                         """
                         LSP\-retransmission\-throttle\-interval
@@ -10970,6 +11143,8 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitThrottleIntervals.LspRetransmitThrottleInterval, ['level', 'interval'], name, value)
+
+
 
 
                     class LspRetransmitIntervals(Entity):
@@ -11057,6 +11232,8 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspRetransmitIntervals.LspRetransmitInterval, ['level', 'interval'], name, value)
 
 
+
+
                     class Bfd(Entity):
                         """
                         BFD configuration
@@ -11118,6 +11295,7 @@ class Isis(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.Bfd, ['enable_ipv6', 'enable_ipv4', 'interval', 'detection_multiplier'], name, value)
+
 
 
                     class Priorities(Entity):
@@ -11202,6 +11380,8 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.Priorities.Priority, ['level', 'priority_value'], name, value)
 
 
+
+
                     class HelloAcceptPasswords(Entity):
                         """
                         IIH accept password configuration
@@ -11284,6 +11464,8 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloAcceptPasswords.HelloAcceptPassword, ['level', 'password'], name, value)
+
+
 
 
                     class HelloPasswords(Entity):
@@ -11388,6 +11570,8 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloPasswords.HelloPassword, ['level', 'algorithm', 'failure_mode', 'password'], name, value)
 
 
+
+
                     class HelloPaddings(Entity):
                         """
                         Hello\-padding configuration
@@ -11466,6 +11650,8 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloPaddings.HelloPadding, ['level', 'padding_type'], name, value)
+
+
 
 
                     class HelloMultipliers(Entity):
@@ -11552,6 +11738,8 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloMultipliers.HelloMultiplier, ['level', 'multiplier'], name, value)
 
 
+
+
                     class LspFastFloodThresholds(Entity):
                         """
                         LSP fast flood threshold configuration
@@ -11635,6 +11823,8 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspFastFloodThresholds.LspFastFloodThreshold, ['level', 'count'], name, value)
 
 
+
+
                     class PrefixAttributeNFlagClears(Entity):
                         """
                         Prefix attribute N flag clear configuration
@@ -11705,6 +11895,8 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.PrefixAttributeNFlagClears.PrefixAttributeNFlagClear, ['level'], name, value)
+
+
 
 
                     class HelloIntervals(Entity):
@@ -11792,6 +11984,8 @@ class Isis(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.HelloIntervals.HelloInterval, ['level', 'interval'], name, value)
+
+
 
 
                     class InterfaceAfs(Entity):
@@ -12120,6 +12314,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSid, ['type', 'value', 'php', 'explicit_null', 'nflag_clear'], name, value)
 
 
+
                                 class InterfaceFrrTable(Entity):
                                     """
                                     Fast\-ReRoute configuration
@@ -12312,6 +12507,8 @@ class Isis(Entity):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, ['interface_name', 'frr_type', 'level'], name, value)
 
 
+
+
                                     class FrrRemoteLfaMaxMetrics(Entity):
                                         """
                                         Remote LFA maxmimum metric
@@ -12395,6 +12592,8 @@ class Isis(Entity):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, ['level', 'max_metric'], name, value)
 
 
+
+
                                     class FrrTypes(Entity):
                                         """
                                         Type of FRR computation per level
@@ -12474,6 +12673,8 @@ class Isis(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrTypes.FrrType, ['level', 'type'], name, value)
+
+
 
 
                                     class FrrRemoteLfaTypes(Entity):
@@ -12557,6 +12758,8 @@ class Isis(Entity):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, ['level', 'type'], name, value)
 
 
+
+
                                     class InterfaceFrrTiebreakerDefaults(Entity):
                                         """
                                         Interface FRR Default tiebreaker
@@ -12629,6 +12832,8 @@ class Isis(Entity):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, ['level'], name, value)
 
 
+
+
                                     class FrrtilfaTypes(Entity):
                                         """
                                         TI LFA Enable
@@ -12698,6 +12903,8 @@ class Isis(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, ['level'], name, value)
+
+
 
 
                                     class FrrExcludeInterfaces(Entity):
@@ -12791,6 +12998,8 @@ class Isis(Entity):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, ['interface_name', 'frr_type', 'level'], name, value)
 
 
+
+
                                     class InterfaceFrrTiebreakers(Entity):
                                         """
                                         Interface FRR tiebreakers configuration
@@ -12881,6 +13090,9 @@ class Isis(Entity):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, ['level', 'tiebreaker', 'index'], name, value)
 
 
+
+
+
                                 class MplsLdp(Entity):
                                     """
                                     MPLS LDP configuration
@@ -12919,6 +13131,7 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.MplsLdp, ['sync_level'], name, value)
+
 
 
                                 class PrefixSspfsid(Entity):
@@ -13001,6 +13214,7 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.PrefixSspfsid, ['type', 'value', 'php', 'explicit_null', 'nflag_clear'], name, value)
+
 
 
                                 class AlgorithmPrefixSids(Entity):
@@ -13126,6 +13340,8 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AlgorithmPrefixSids.AlgorithmPrefixSid, ['algo', 'type', 'value', 'php', 'explicit_null', 'nflag_clear'], name, value)
 
 
+
+
                                 class AutoMetrics(Entity):
                                     """
                                     AutoMetric configuration
@@ -13216,6 +13432,8 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AutoMetrics.AutoMetric, ['level', 'proactive_protect'], name, value)
 
 
+
+
                                 class AdminTags(Entity):
                                     """
                                     admin\-tag configuration
@@ -13299,6 +13517,8 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.AdminTags.AdminTag, ['level', 'admin_tag'], name, value)
 
 
+
+
                                 class InterfaceLinkGroup(Entity):
                                     """
                                     Provide link group name and level
@@ -13351,6 +13571,7 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.InterfaceLinkGroup, ['link_group', 'level'], name, value)
+
 
 
                                 class ManualAdjSids(Entity):
@@ -13447,6 +13668,8 @@ class Isis(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.ManualAdjSids.ManualAdjSid, ['level', 'sid_type', 'sid', 'protected'], name, value)
+
+
 
 
                                 class Metrics(Entity):
@@ -13561,6 +13784,8 @@ class Isis(Entity):
 
 
 
+
+
                                 class Weights(Entity):
                                     """
                                     Weight configuration
@@ -13642,6 +13867,9 @@ class Isis(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.InterfaceAfData.Weights.Weight, ['level', 'weight'], name, value)
+
+
+
 
 
                             class TopologyName(Entity):
@@ -13880,6 +14108,7 @@ class Isis(Entity):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSid, ['type', 'value', 'php', 'explicit_null', 'nflag_clear'], name, value)
 
 
+
                                 class InterfaceFrrTable(Entity):
                                     """
                                     Fast\-ReRoute configuration
@@ -14072,6 +14301,8 @@ class Isis(Entity):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrlfaCandidateInterfaces.FrrlfaCandidateInterface, ['interface_name', 'frr_type', 'level'], name, value)
 
 
+
+
                                     class FrrRemoteLfaMaxMetrics(Entity):
                                         """
                                         Remote LFA maxmimum metric
@@ -14155,6 +14386,8 @@ class Isis(Entity):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaMaxMetrics.FrrRemoteLfaMaxMetric, ['level', 'max_metric'], name, value)
 
 
+
+
                                     class FrrTypes(Entity):
                                         """
                                         Type of FRR computation per level
@@ -14234,6 +14467,8 @@ class Isis(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrTypes.FrrType, ['level', 'type'], name, value)
+
+
 
 
                                     class FrrRemoteLfaTypes(Entity):
@@ -14317,6 +14552,8 @@ class Isis(Entity):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrRemoteLfaTypes.FrrRemoteLfaType, ['level', 'type'], name, value)
 
 
+
+
                                     class InterfaceFrrTiebreakerDefaults(Entity):
                                         """
                                         Interface FRR Default tiebreaker
@@ -14389,6 +14626,8 @@ class Isis(Entity):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakerDefaults.InterfaceFrrTiebreakerDefault, ['level'], name, value)
 
 
+
+
                                     class FrrtilfaTypes(Entity):
                                         """
                                         TI LFA Enable
@@ -14458,6 +14697,8 @@ class Isis(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrtilfaTypes.FrrtilfaType, ['level'], name, value)
+
+
 
 
                                     class FrrExcludeInterfaces(Entity):
@@ -14551,6 +14792,8 @@ class Isis(Entity):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.FrrExcludeInterfaces.FrrExcludeInterface, ['interface_name', 'frr_type', 'level'], name, value)
 
 
+
+
                                     class InterfaceFrrTiebreakers(Entity):
                                         """
                                         Interface FRR tiebreakers configuration
@@ -14641,6 +14884,9 @@ class Isis(Entity):
                                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceFrrTable.InterfaceFrrTiebreakers.InterfaceFrrTiebreaker, ['level', 'tiebreaker', 'index'], name, value)
 
 
+
+
+
                                 class MplsLdp(Entity):
                                     """
                                     MPLS LDP configuration
@@ -14679,6 +14925,7 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.MplsLdp, ['sync_level'], name, value)
+
 
 
                                 class PrefixSspfsid(Entity):
@@ -14761,6 +15008,7 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.PrefixSspfsid, ['type', 'value', 'php', 'explicit_null', 'nflag_clear'], name, value)
+
 
 
                                 class AlgorithmPrefixSids(Entity):
@@ -14886,6 +15134,8 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AlgorithmPrefixSids.AlgorithmPrefixSid, ['algo', 'type', 'value', 'php', 'explicit_null', 'nflag_clear'], name, value)
 
 
+
+
                                 class AutoMetrics(Entity):
                                     """
                                     AutoMetric configuration
@@ -14976,6 +15226,8 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AutoMetrics.AutoMetric, ['level', 'proactive_protect'], name, value)
 
 
+
+
                                 class AdminTags(Entity):
                                     """
                                     admin\-tag configuration
@@ -15059,6 +15311,8 @@ class Isis(Entity):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.AdminTags.AdminTag, ['level', 'admin_tag'], name, value)
 
 
+
+
                                 class InterfaceLinkGroup(Entity):
                                     """
                                     Provide link group name and level
@@ -15111,6 +15365,7 @@ class Isis(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.InterfaceLinkGroup, ['link_group', 'level'], name, value)
+
 
 
                                 class ManualAdjSids(Entity):
@@ -15207,6 +15462,8 @@ class Isis(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.ManualAdjSids.ManualAdjSid, ['level', 'sid_type', 'sid', 'protected'], name, value)
+
+
 
 
                                 class Metrics(Entity):
@@ -15321,6 +15578,8 @@ class Isis(Entity):
 
 
 
+
+
                                 class Weights(Entity):
                                     """
                                     Weight configuration
@@ -15402,6 +15661,11 @@ class Isis(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.InterfaceAfs.InterfaceAf.TopologyName.Weights.Weight, ['level', 'weight'], name, value)
+
+
+
+
+
 
 
                     class CsnpIntervals(Entity):
@@ -15490,6 +15754,8 @@ class Isis(Entity):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.CsnpIntervals.CsnpInterval, ['level', 'interval'], name, value)
 
 
+
+
                     class LspIntervals(Entity):
                         """
                         LSP\-interval configuration
@@ -15574,7 +15840,15 @@ class Isis(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Isis.Instances.Instance.Interfaces.Interface.LspIntervals.LspInterval, ['level', 'interval'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Isis()
         return self._top_entity
+
+
 

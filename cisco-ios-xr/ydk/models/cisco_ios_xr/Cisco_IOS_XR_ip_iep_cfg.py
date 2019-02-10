@@ -402,6 +402,9 @@ class IpExplicitPaths(Entity):
                             self._perform_setattr(IpExplicitPaths.Paths.Path.Name.Hops.Hop, ['index_number', 'ip_address', 'hop_type', 'if_index', 'num_type', 'mpls_label'], name, value)
 
 
+
+
+
             class Identifier(Entity):
                 """
                 identifier
@@ -577,7 +580,14 @@ class IpExplicitPaths(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, ['index_number', 'ip_address', 'hop_type', 'if_index', 'num_type', 'mpls_label'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = IpExplicitPaths()
         return self._top_entity
+
+
 

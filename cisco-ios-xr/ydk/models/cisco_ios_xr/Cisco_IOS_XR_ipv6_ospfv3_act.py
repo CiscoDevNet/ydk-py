@@ -136,9 +136,13 @@ class ClearOspfv3Routes(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfv3Routes.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfv3Routes()
         return self._top_entity
+
+
 
 class ClearOspfv3Redistribution(Entity):
     """
@@ -259,9 +263,13 @@ class ClearOspfv3Redistribution(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfv3Redistribution.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfv3Redistribution()
         return self._top_entity
+
+
 
 class ClearOspfv3Process(Entity):
     """
@@ -382,9 +390,13 @@ class ClearOspfv3Process(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfv3Process.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfv3Process()
         return self._top_entity
+
+
 
 class ClearOspfv3StatisticsNeighbor(Entity):
     """
@@ -505,6 +517,7 @@ class ClearOspfv3StatisticsNeighbor(Entity):
                 self._perform_setattr(ClearOspfv3StatisticsNeighbor.Input.Instance, ['instance_identifier'], name, value)
 
 
+
         class Neighbor(Entity):
             """
             
@@ -552,9 +565,13 @@ class ClearOspfv3StatisticsNeighbor(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfv3StatisticsNeighbor.Input.Neighbor, ['neighbor_id', 'interface_name'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfv3StatisticsNeighbor()
         return self._top_entity
+
+
 
 class ClearOspfv3Statistics(Entity):
     """
@@ -687,9 +704,13 @@ class ClearOspfv3Statistics(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfv3Statistics.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfv3Statistics()
         return self._top_entity
+
+
 
 class ClearOspfv3InstanceVrf(Entity):
     """
@@ -1039,6 +1060,10 @@ class ClearOspfv3InstanceVrf(Entity):
                                 self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface, ['interface_name'], name, value)
 
 
+
+
+
+
             class All(Entity):
                 """
                 Clear all non\-default OSPFv3 VRFs
@@ -1237,6 +1262,10 @@ class ClearOspfv3InstanceVrf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.All.Stats.Neighbor.Interface, ['interface_name'], name, value)
+
+
+
+
 
 
             class AllInclusive(Entity):
@@ -1438,7 +1467,15 @@ class ClearOspfv3InstanceVrf(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ClearOspfv3InstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface, ['interface_name'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfv3InstanceVrf()
         return self._top_entity
+
+
 

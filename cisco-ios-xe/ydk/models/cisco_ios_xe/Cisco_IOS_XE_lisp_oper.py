@@ -190,6 +190,8 @@ class LispState(Entity):
     	List of LISP routers
     	**type**\: list of  		 :py:class:`LispRouters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters>`
     
+    	**config**\: False
+    
     
 
     """
@@ -228,12 +230,16 @@ class LispState(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: site_id
         
         	Site\-ID common to all devices attached to the same site
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: xtr_id
         
@@ -242,25 +248,35 @@ class LispState(Entity):
         
         	**range:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: instances
         
         	List of LISP instances
         	**type**\: list of  		 :py:class:`Instances <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances>`
+        
+        	**config**\: False
         
         .. attribute:: sessions
         
         	List of Reliable Registration sessions
         	**type**\: list of  		 :py:class:`Sessions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Sessions>`
         
+        	**config**\: False
+        
         .. attribute:: local_rlocs
         
         	This list represents the set of routing locators configured on this device
         	**type**\: list of  		 :py:class:`LocalRlocs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.LocalRlocs>`
         
+        	**config**\: False
+        
         .. attribute:: prefix_lists
         
         	This list represents list of prefix\-lists configured on this device
         	**type**\: list of  		 :py:class:`PrefixLists <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.PrefixLists>`
+        
+        	**config**\: False
         
         
 
@@ -310,30 +326,42 @@ class LispState(Entity):
             
             	**range:** 0..16777215
             
+            	**config**\: False
+            
             .. attribute:: af
             
             	List of Address\-Families enabled in this LISP instance
             	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af>`
+            
+            	**config**\: False
             
             .. attribute:: vrf_name
             
             	Name of VRF that is mapped to the given LISP Instance ID
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: is_rloc_probing
             
             	Status of RLOC Probing
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ms_eid_membership
             
             	MS registration EID membership list (list of locators known to the MS as allowed to send traffic in the instance)
             	**type**\: list of  		 :py:class:`MsEidMembership <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.MsEidMembership>`
             
+            	**config**\: False
+            
             .. attribute:: etr_eid_membership
             
             	ETR EID membership list (list of locators known to the ETR as allowed to send traffic in the instance)
             	**type**\: list of  		 :py:class:`EtrEidMembership <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.EtrEidMembership>`
+            
+            	**config**\: False
             
             
 
@@ -379,15 +407,21 @@ class LispState(Entity):
                 	Instance\-specific service type
                 	**type**\:  :py:class:`LispIaftypeType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispIaftypeType>`
                 
+                	**config**\: False
+                
                 .. attribute:: role
                 
                 	LISP device role for this service
                 	**type**\:  :py:class:`Role <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.Role>`
                 
+                	**config**\: False
+                
                 .. attribute:: map_cache
                 
                 	Map\-cache for this service instance
                 	**type**\: list of  		 :py:class:`MapCache <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.MapCache>`
+                
+                	**config**\: False
                 
                 .. attribute:: l2_domain_id
                 
@@ -396,12 +430,16 @@ class LispState(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: map_cache_size
                 
                 	Current size of EID\-to\-RLOC map\-cache on this device
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: map_cache_limit
                 
@@ -410,12 +448,16 @@ class LispState(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: etr_map_cache_ttl
                 
                 	TTL of the EID\-to\-RLOC map record provided by the local device in mapping records
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: minutes
                 
@@ -426,12 +468,16 @@ class LispState(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: registration_more_specific_warning_threshold
                 
                 	The warning threshold for the 'accept\-more\-specific' registration count on the Map\-Server
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: registration_more_specific_limit
                 
@@ -440,12 +486,16 @@ class LispState(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: map_cache_threshold
                 
                 	The map\-cache utilization warning threshold on the xTR
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: map_requests_in
                 
@@ -454,12 +504,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: map_requests_out
                 
                 	Total number of map requests sent by this device for any EID\-Prefix of the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: encapsulated_map_requests_in
                 
@@ -468,12 +522,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: encapsulated_map_requests_out
                 
                 	Total number of encapsulated Map\-Requests sent by this device for any EID\-Prefix of the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: rloc_probe_map_requests_in
                 
@@ -482,12 +540,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rloc_probe_map_requests_out
                 
                 	Total number of RLOC probe Map\-Requests sent by this device for any EID\-Prefix of the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: map_requests_expired_on_queue
                 
@@ -496,12 +558,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: map_requests_no_reply
                 
                 	Total number of Map\-Requests attempted by this device for any EID\-Prefix of the given address family and Instance ID without reciving a Map\-Reply
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: map_requests_from_disallowed_locators
                 
@@ -510,12 +576,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: smr_map_requests_in
                 
                 	Total number of SMR Map\-Requests received by this device for any EID\-Prefix of the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: smr_map_requests_out
                 
@@ -524,12 +594,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: ddt_itr_map_requests_dropped
                 
                 	Total number of ITR's Map\-Request messages for any EID\-Prefix of the given address family and Instance ID dropped by the DDT Map\-Resolver
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: ddt_itr_map_requests_nonce_collision
                 
@@ -538,12 +612,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: ddt_itr_map_requests_bad_xtr_nonce
                 
                 	Total number of ITR's Map\-Request messages for any EID\-Prefix of the given address family and Instance ID dropped by the DDT Map\-Resolver due bad nonce
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: mr_map_requests_forwarded
                 
@@ -552,12 +630,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: ms_map_requests_forwarded
                 
                 	Total number of Map\-Requests for any EID\-Prefix of the given address family and Instance ID forwarded by this device to ETR
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: to_alt_map_requests_out
                 
@@ -566,12 +648,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: map_reply_records_in
                 
                 	Total number of Map\-Reply records received by this device for any EID\-Prefix of the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: map_reply_records_out
                 
@@ -580,12 +666,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: authoritative_records_in
                 
                 	Total number of authoritative Map\-Reply records received by this device for any EID\-Prefix of the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: authoritative_records_out
                 
@@ -594,12 +684,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: non_authoritative_records_in
                 
                 	Total number of non authoritative Map\-Reply records received by this device for any EID\-Prefix of the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: non_authoritative_records_out
                 
@@ -608,12 +702,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: negative_records_in
                 
                 	Total number of negative Map\-Reply records received by this device for any EID\-Prefix of the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: negative_records_out
                 
@@ -622,12 +720,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rloc_probe_records_in
                 
                 	Total number of RLOC probe Map\-Replies for any EID\-Prefix of the given address family and Instance ID received by this device
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: rloc_probe_records_out
                 
@@ -636,12 +738,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: ms_proxy_reply_records_out
                 
                 	Total number of MS proxy Map\-Replies for any EID\-Prefix of the given address family and Instance ID sent by this device
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wlc_subscribe_in
                 
@@ -650,12 +756,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wlc_subscribe_out
                 
                 	Total number of WLC Subscribe messages sent by this device for the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wlc_subscribe_in_failure
                 
@@ -664,12 +774,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wlc_subscribe_out_failure
                 
                 	Total number of WLC Subscribe messages for the given address family and Instance ID which were not sent due to internal errors
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wlc_unsubscribe_in
                 
@@ -678,12 +792,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wlc_unsubscribe_out
                 
                 	Total number of WLC Unsubscribe messages sent by this device for the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wlc_unsubscribe_in_failure
                 
@@ -692,12 +810,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wlc_unsubscribe_out_failure
                 
                 	Total number of WLC Unsubscribe messages for the given address family and Instance ID which were not sent due to internal errors
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: map_register_records_in
                 
@@ -706,12 +828,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: map_register_records_out
                 
                 	Total number of Map\-Registers records sent by this device for any EID\-Prefix of the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: map_registers_ms_disabled
                 
@@ -720,12 +846,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: map_registers_auth_failed
                 
                 	Total number of Map\-Register messages for any EID\-Prefix of the given address family and Instance ID dropped due to authentication failure
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: map_registers_from_disallowed_locators
                 
@@ -734,12 +864,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wlc_map_register_records_in
                 
                 	Total number of WLC Map\-Register messages received by this device for any EID\-Prefix of the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wlc_map_register_records_out
                 
@@ -748,12 +882,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wlc_map_register_records_in_ap
                 
                 	Total number of WLC Map\-Register messages received by this device for AP join in the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wlc_map_register_records_out_ap
                 
@@ -762,12 +900,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wlc_map_register_records_in_client
                 
                 	Total number of WLC Map\-Register messages received by this device for wireless client join in the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wlc_map_register_records_out_client
                 
@@ -776,12 +918,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wlc_map_register_records_in_failure
                 
                 	Total number of WLC Map\-Register messages received in the given address family and Instance ID and discarded due to parsing error
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wlc_map_register_records_out_failure
                 
@@ -790,12 +936,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: map_notify_records_in
                 
                 	Total number of Map\-Notify records for any EID\-Prefix of the given address family and Instance ID received by this device
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: map_notify_records_out
                 
@@ -804,12 +954,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: map_notify_auth_failed
                 
                 	Total number of Map\-Notify messages for any EID\-Prefix of the given address family and Instance ID dropped due to authentication failure
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wlc_map_notify_records_in
                 
@@ -818,12 +972,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wlc_map_notify_records_out
                 
                 	Total number of WLC Map\-Notify records for any EID\-Prefix of the given address family and Instance ID sent by this device
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wlc_map_notify_records_in_ap
                 
@@ -832,12 +990,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wlc_map_notify_records_out_ap
                 
                 	Total number of WLC Map\-Notify records for any EID\-Prefix of the given address family and Instance ID sent by this device for AP join
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wlc_map_notify_records_in_client
                 
@@ -846,12 +1008,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wlc_map_notify_records_out_client
                 
                 	Total number of WLC Map\-Notify records for any EID\-Prefix of the given address family and Instance ID sent by this device for wireless client join
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: wlc_map_notify_records_in_failure
                 
@@ -860,12 +1026,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: wlc_map_notify_records_out_failure
                 
                 	Total number of WLC Map\-Notify messages for any EID\-Prefix of the given address family and Instance ID which were not sent because of internal error
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: mapping_record_ttl_alerts
                 
@@ -874,12 +1044,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: remote_eid_entries_created
                 
                 	Total number of remote EID map\-cache entries created by this device for any EID\-Prefix of the given address family and Instance ID
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: remote_eid_entries_deleted
                 
@@ -888,12 +1062,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: remote_eid_nsf_replay_entries_created
                 
                 	Total number of remote EID map\-cache entries for any EID\-Prefix of the given address family and Instance ID recreated by this device after NSF switchover
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: forwarding_data_signals_processed
                 
@@ -902,12 +1080,16 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: forwarding_data_signals_dropped
                 
                 	Total number of forwarding plane data signals for any EID\-Prefix of the given address family and Instance ID dropped by this device
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: forwarding_reachability_reports_processed
                 
@@ -916,6 +1098,8 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: forwarding_reachability_reports_dropped
                 
                 	Total number of forwarding plane reachability reports for any EID\-Prefix of the given address family and Instance ID dropped by this device
@@ -923,40 +1107,56 @@ class LispState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: is_etr_accept_mapping
                 
                 	Indicates whether the ETR accepts piggybacked mapping records received in a Map\-Request
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: is_etr_accept_mapping_verify
                 
                 	Indicates if ETR will try to verify accepted piggybacked mapping records received in a Map\-Request
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: local_dbase
                 
                 	ETR's database of local EID prefixes
                 	**type**\: list of  		 :py:class:`LocalDbase <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.LocalDbase>`
+                
+                	**config**\: False
                 
                 .. attribute:: ms_registrations
                 
                 	Map\-Server database of registered EID Prefixes
                 	**type**\: list of  		 :py:class:`MsRegistrations <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.MsRegistrations>`
                 
+                	**config**\: False
+                
                 .. attribute:: map_servers
                 
                 	List of Map\-Servers to which the ETR should register
                 	**type**\: list of  		 :py:class:`MapServers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.MapServers>`
+                
+                	**config**\: False
                 
                 .. attribute:: map_resolvers
                 
                 	List of Map\-Resolvers where [P]ITR should send its Map\-Requests
                 	**type**\: list of  		 :py:class:`MapResolvers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.MapResolvers>`
                 
+                	**config**\: False
+                
                 .. attribute:: proxy_etrs
                 
                 	List of all Proxy ETRs that this device is configured to use
                 	**type**\: list of  		 :py:class:`ProxyEtrs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.ProxyEtrs>`
+                
+                	**config**\: False
                 
                 
 
@@ -1161,30 +1361,42 @@ class LispState(Entity):
                     	LISP Map\-Server
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_mr
                     
                     	LISP Map\-Resolver
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_itr
                     
                     	LISP ITR
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_etr
                     
                     	LISP ETR
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_pitr
                     
                     	LISP Proxy\-ITR
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_petr
                     
                     	LISP Proxy\-ETR
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -1223,6 +1435,7 @@ class LispState(Entity):
                         self._perform_setattr(LispState.LispRouters.Instances.Af.Role, ['is_ms', 'is_mr', 'is_itr', 'is_etr', 'is_pitr', 'is_petr'], name, value)
 
 
+
                 class MapCache(Entity):
                     """
                     Map\-cache for this service instance
@@ -1232,10 +1445,14 @@ class LispState(Entity):
                     	LISP Address\-Family of the prefix
                     	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix  (key)
                     
                     	LISP prefix. Format is defined by the AF
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: up_time
                     
@@ -1244,12 +1461,16 @@ class LispState(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_modified_time
                     
                     	Last time that the RLOC information or the entry state were modified
                     	**type**\: str
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_update_time
                     
@@ -1258,12 +1479,16 @@ class LispState(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: ttl
                     
                     	Mapping validity period
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: milliseconds
                     
@@ -1272,20 +1497,28 @@ class LispState(Entity):
                     	Indication if the mapping came from an authoritative source
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_static
                     
                     	Indication if the mapping is static (i.e. configured)
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_negative
                     
                     	Indication if the mapping is negative (i.e. provides no locators for LISP encapsulation)
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: nmr_action
                     
                     	Forwarding action in case of negative entry
                     	**type**\:  :py:class:`LispMapReplyActionType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispMapReplyActionType>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: expiry_time
                     
@@ -1294,12 +1527,16 @@ class LispState(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulated_packets
                     
                     	Number of packets of the transit traffic which were encapsulated because they matched this map\-cache entry
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: encapsulated_octets
                     
@@ -1308,15 +1545,21 @@ class LispState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_active
                     
                     	Indication if the mapping is active, that is there was transit traffic matching this map\-cache entry seen in approximately the last minute
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: map_cache_rloc
                     
                     	List of locators for positive mapping
                     	**type**\: list of  		 :py:class:`MapCacheRloc <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1382,15 +1625,21 @@ class LispState(Entity):
                         	LISP Address\-Family of the address
                         	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address  (key)
                         
                         	LISP address. Format is defined by the AF
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	Up/down state of the locator
                         	**type**\:  :py:class:`LispRlocStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispRlocStateType>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: creation_time
                         
@@ -1399,12 +1648,16 @@ class LispState(Entity):
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_state_change_time
                         
                         	Time when up/down state of the RLOC for this map\-cache entry last changed
                         	**type**\: str
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                        
+                        	**config**\: False
                         
                         .. attribute:: rloc_probe_rtt
                         
@@ -1413,12 +1666,16 @@ class LispState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: milliseconds
                         
                         .. attribute:: params
                         
                         	Properties of the locator
                         	**type**\:  :py:class:`Params <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc.Params>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1472,12 +1729,16 @@ class LispState(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: weight
                             
                             	Locator weight
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: mcast_priority
                             
@@ -1486,12 +1747,16 @@ class LispState(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: mcast_weight
                             
                             	Locator's multicast weight
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1526,6 +1791,9 @@ class LispState(Entity):
                                 self._perform_setattr(LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc.Params, ['priority', 'weight', 'mcast_priority', 'mcast_weight'], name, value)
 
 
+
+
+
                 class LocalDbase(Entity):
                     """
                     ETR's database of local EID prefixes
@@ -1535,10 +1803,14 @@ class LispState(Entity):
                     	LISP Address\-Family of the prefix
                     	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix  (key)
                     
                     	LISP prefix. Format is defined by the AF
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: lsb
                     
@@ -1547,20 +1819,28 @@ class LispState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_reachable
                     
                     	If the prefix is currently reachable from this device via EID interfaces
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_dbase_rloc
                     
                     	List of locators
                     	**type**\: list of  		 :py:class:`LocalDbaseRloc <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_proxy
                     
                     	If local database mapping is proxy
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -1608,25 +1888,35 @@ class LispState(Entity):
                         	LISP Address\-Family of the address
                         	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address  (key)
                         
                         	LISP address. Format is defined by the AF
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: params
                         
                         	Properties of the locator
                         	**type**\:  :py:class:`Params <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc.Params>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	Up/down state of the locator
                         	**type**\:  :py:class:`LispRlocStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispRlocStateType>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_local
                         
                         	Indicates if RLOC local to the device or to another xTR in the site; TRUE means RLOC is local to the device
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1676,12 +1966,16 @@ class LispState(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: weight
                             
                             	Locator weight
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: mcast_priority
                             
@@ -1690,12 +1984,16 @@ class LispState(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: mcast_weight
                             
                             	Locator's multicast weight
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1730,6 +2028,9 @@ class LispState(Entity):
                                 self._perform_setattr(LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc.Params, ['priority', 'weight', 'mcast_priority', 'mcast_weight'], name, value)
 
 
+
+
+
                 class MsRegistrations(Entity):
                     """
                     Map\-Server database of registered EID Prefixes
@@ -1739,15 +2040,21 @@ class LispState(Entity):
                     	LISP Address\-Family of the prefix
                     	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix  (key)
                     
                     	LISP prefix. Format is defined by the AF
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_registration_source
                     
                     	Source address of the last valid registration received for this EID prefix
                     	**type**\:  :py:class:`LastRegistrationSource <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.MsRegistrations.LastRegistrationSource>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_registration_source_port
                     
@@ -1756,12 +2063,16 @@ class LispState(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: creation_time
                     
                     	Time when a valid registration was first received for this EID prefix
                     	**type**\: str
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_registration_time
                     
@@ -1770,20 +2081,28 @@ class LispState(Entity):
                     
                     	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
+                    	**config**\: False
+                    
                     .. attribute:: site_name
                     
                     	Name of site matching this registration
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: site_description
                     
                     	Description given for the site matching this registration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_registered
                     
                     	Indicates the registration status of the given EID\-Prefix. If this object is true, then it means the EID\-Prefix is registered
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: authentication_error
                     
@@ -1792,6 +2111,8 @@ class LispState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: rloc_mismatch_error
                     
                     	Count of received registrations for the prefix that had at least one RLOC that was not in the allowed list of RLOCs
@@ -1799,10 +2120,14 @@ class LispState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: etr_registrations
                     
                     	List of registrations for this EID prefix received from different ETRs
                     	**type**\: list of  		 :py:class:`EtrRegistrations <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1865,10 +2190,14 @@ class LispState(Entity):
                         	LISP Address\-Family of the address
                         	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: address
                         
                         	LISP address. Format is defined by the AF
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -1899,6 +2228,7 @@ class LispState(Entity):
                             self._perform_setattr(LispState.LispRouters.Instances.Af.MsRegistrations.LastRegistrationSource, ['afi', 'address'], name, value)
 
 
+
                     class EtrRegistrations(Entity):
                         """
                         List of registrations for this EID prefix received
@@ -1917,12 +2247,16 @@ class LispState(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_port  (key)
                         
                         	Port of the registration source
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: last_registration_time
                         
@@ -1931,12 +2265,16 @@ class LispState(Entity):
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
+                        	**config**\: False
+                        
                         .. attribute:: ttl
                         
                         	Registration validity period
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: minutes
                         
@@ -1945,15 +2283,21 @@ class LispState(Entity):
                         	Indicates if the registering ETR requested proxy\-replying on Map\-Requests by the Map\-Server
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: wants_map_notify
                         
                         	Indicates if the registering ETR wants to be informed about matching registrations with Map\-Notifies
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: ms_registration_rloc
                         
                         	List of locators
                         	**type**\: list of  		 :py:class:`MsRegistrationRloc <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2003,25 +2347,35 @@ class LispState(Entity):
                             	LISP Address\-Family of the address
                             	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: address  (key)
                             
                             	LISP address. Format is defined by the AF
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: params
                             
                             	Properties of the locator
                             	**type**\:  :py:class:`Params <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc.Params>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: state
                             
                             	Up/down state of the locator
                             	**type**\:  :py:class:`LispRlocStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispRlocStateType>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_local
                             
                             	Indicates if RLOC is local to device which sent registration or to another xTR in the site; TRUE means RLOC is local to the registering device
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -2071,12 +2425,16 @@ class LispState(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: weight
                                 
                                 	Locator weight
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mcast_priority
                                 
@@ -2085,12 +2443,16 @@ class LispState(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: mcast_weight
                                 
                                 	Locator's multicast weight
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2125,6 +2487,10 @@ class LispState(Entity):
                                     self._perform_setattr(LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc.Params, ['priority', 'weight', 'mcast_priority', 'mcast_weight'], name, value)
 
 
+
+
+
+
                 class MapServers(Entity):
                     """
                     List of Map\-Servers to which the ETR should register
@@ -2134,15 +2500,21 @@ class LispState(Entity):
                     	LISP Address\-Family of the address
                     	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: address  (key)
                     
                     	LISP address. Format is defined by the AF
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Up/down state of the locator
                     	**type**\:  :py:class:`LispRlocStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispRlocStateType>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2175,6 +2547,7 @@ class LispState(Entity):
                         self._perform_setattr(LispState.LispRouters.Instances.Af.MapServers, ['afi', 'address', 'state'], name, value)
 
 
+
                 class MapResolvers(Entity):
                     """
                     List of Map\-Resolvers where [P]ITR should send its
@@ -2185,15 +2558,21 @@ class LispState(Entity):
                     	LISP Address\-Family of the address
                     	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: address  (key)
                     
                     	LISP address. Format is defined by the AF
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Up/down state of the locator
                     	**type**\:  :py:class:`LispRlocStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispRlocStateType>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2226,6 +2605,7 @@ class LispState(Entity):
                         self._perform_setattr(LispState.LispRouters.Instances.Af.MapResolvers, ['afi', 'address', 'state'], name, value)
 
 
+
                 class ProxyEtrs(Entity):
                     """
                     List of all Proxy ETRs that this device is configured
@@ -2236,20 +2616,28 @@ class LispState(Entity):
                     	LISP Address\-Family of the address
                     	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: address  (key)
                     
                     	LISP address. Format is defined by the AF
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: params
                     
                     	Properties of the locator
                     	**type**\:  :py:class:`Params <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.ProxyEtrs.Params>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Up/down state of the locator
                     	**type**\:  :py:class:`LispRlocStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispRlocStateType>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2297,12 +2685,16 @@ class LispState(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: weight
                         
                         	Locator weight
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: mcast_priority
                         
@@ -2311,12 +2703,16 @@ class LispState(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: mcast_weight
                         
                         	Locator's multicast weight
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -2351,6 +2747,9 @@ class LispState(Entity):
                             self._perform_setattr(LispState.LispRouters.Instances.Af.ProxyEtrs.Params, ['priority', 'weight', 'mcast_priority', 'mcast_weight'], name, value)
 
 
+
+
+
             class MsEidMembership(Entity):
                 """
                 MS registration EID membership list (list of locators
@@ -2370,6 +2769,8 @@ class LispState(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: member_since
                 
                 	Time when this RLOC was added to the list of allowed locators
@@ -2377,15 +2778,21 @@ class LispState(Entity):
                 
                 	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                 
+                	**config**\: False
+                
                 .. attribute:: is_gleaned
                 
                 	Indicates if MS gleaned this RLOC from received EID prefix registration
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_configured
                 
                 	Indicates if this RLOC membership was provided via configuration
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -2420,6 +2827,7 @@ class LispState(Entity):
                     self._perform_setattr(LispState.LispRouters.Instances.MsEidMembership, ['rloc', 'member_since', 'is_gleaned', 'is_configured'], name, value)
 
 
+
             class EtrEidMembership(Entity):
                 """
                 ETR EID membership list (list of locators known to the ETR
@@ -2438,6 +2846,8 @@ class LispState(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: member_since
                 
                 	Time when this RLOC was added to the list of allowed locators
@@ -2445,15 +2855,21 @@ class LispState(Entity):
                 
                 	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                 
+                	**config**\: False
+                
                 .. attribute:: is_learned_from_ms
                 
                 	Indicates if ETR learned about this RLOC membership via message received from a Map\-Server
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_configured
                 
                 	Indicates if this RLOC membership was provided via configuration
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -2488,6 +2904,8 @@ class LispState(Entity):
                     self._perform_setattr(LispState.LispRouters.Instances.EtrEidMembership, ['rloc', 'member_since', 'is_learned_from_ms', 'is_configured'], name, value)
 
 
+
+
         class Sessions(Entity):
             """
             List of Reliable Registration sessions
@@ -2505,6 +2923,8 @@ class LispState(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: peer_address  (key)
             
             	Address of the peer
@@ -2518,12 +2938,16 @@ class LispState(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: local_port  (key)
             
             	Port of the local socket
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: peer_port  (key)
             
@@ -2532,10 +2956,14 @@ class LispState(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	Up/down state of the session
             	**type**\:  :py:class:`LispSessionStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispSessionStateType>`
+            
+            	**config**\: False
             
             .. attribute:: last_state_change_time
             
@@ -2544,15 +2972,21 @@ class LispState(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: is_role_active
             
             	Is session opening role Active or Passive; TRUE means session role is Active
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_routable
             
             	Is route to peer's address known
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: messages_in
             
@@ -2561,12 +2995,16 @@ class LispState(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: messages_out
             
             	Number of messages sent over this session
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: bytes_in
             
@@ -2575,12 +3013,16 @@ class LispState(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: bytes_out
             
             	Number of bytes sent over this session
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -2631,6 +3073,7 @@ class LispState(Entity):
                 self._perform_setattr(LispState.LispRouters.Sessions, ['local_address', 'peer_address', 'local_port', 'peer_port', 'state', 'last_state_change_time', 'is_role_active', 'is_routable', 'messages_in', 'messages_out', 'bytes_in', 'bytes_out'], name, value)
 
 
+
         class LocalRlocs(Entity):
             """
             This list represents the set of routing locators
@@ -2641,20 +3084,28 @@ class LispState(Entity):
             	LISP Address\-Family of the address
             	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
             
+            	**config**\: False
+            
             .. attribute:: address  (key)
             
             	LISP address. Format is defined by the AF
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: state
             
             	Up/down state of the locator
             	**type**\:  :py:class:`LispRlocStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispRlocStateType>`
             
+            	**config**\: False
+            
             .. attribute:: is_local
             
             	Indicates if RLOC is local to the device or to another xTR in the site; TRUE means RLOC is local to the device
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -2689,6 +3140,7 @@ class LispState(Entity):
                 self._perform_setattr(LispState.LispRouters.LocalRlocs, ['afi', 'address', 'state', 'is_local'], name, value)
 
 
+
         class PrefixLists(Entity):
             """
             This list represents list of prefix\-lists configured on this device
@@ -2698,6 +3150,8 @@ class LispState(Entity):
             	Name of the prefix\-list
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: count
             
             	Number of entries in the list
@@ -2705,10 +3159,14 @@ class LispState(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: prefix_list_entry
             
             	List of prefix list entries
             	**type**\: list of  		 :py:class:`PrefixListEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.PrefixLists.PrefixListEntry>`
+            
+            	**config**\: False
             
             
 
@@ -2750,25 +3208,35 @@ class LispState(Entity):
                 	LISP Address\-Family of the prefix
                 	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
                 
+                	**config**\: False
+                
                 .. attribute:: prefix  (key)
                 
                 	LISP prefix. Format is defined by the AF
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: source_has_static
                 
                 	Is the entry sourced statically
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: source_has_rib
                 
                 	Is the entry sourced from RIB
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: source_has_site_reg
                 
                 	Is the entry sourced from site registration
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -2804,7 +3272,12 @@ class LispState(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(LispState.LispRouters.PrefixLists.PrefixListEntry, ['afi', 'prefix', 'source_has_static', 'source_has_rib', 'source_has_site_reg'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = LispState()
         return self._top_entity
+
+
 

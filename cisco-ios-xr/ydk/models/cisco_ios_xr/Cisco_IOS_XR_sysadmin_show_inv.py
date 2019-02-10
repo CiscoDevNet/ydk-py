@@ -28,30 +28,42 @@ class Inventory(Entity):
     	
     	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_inv.Inventory.Location>`
     
+    	**config**\: False
+    
     .. attribute:: all
     
     	
     	**type**\: list of  		 :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_inv.Inventory.All>`
+    
+    	**config**\: False
     
     .. attribute:: chassis
     
     	
     	**type**\: list of  		 :py:class:`Chassis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_inv.Inventory.Chassis>`
     
+    	**config**\: False
+    
     .. attribute:: power
     
     	
     	**type**\: list of  		 :py:class:`Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_inv.Inventory.Power>`
+    
+    	**config**\: False
     
     .. attribute:: fan
     
     	
     	**type**\: list of  		 :py:class:`Fan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_inv.Inventory.Fan>`
     
+    	**config**\: False
+    
     .. attribute:: raw
     
     	
     	**type**\: list of  		 :py:class:`Raw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_inv.Inventory.Raw>`
+    
+    	**config**\: False
     
     
 
@@ -94,30 +106,42 @@ class Inventory(Entity):
         	Node id of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: name
         
         	Name of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: description
         
         	Description of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: pid
         
         	Product ID of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: vid
         
         	Version ID of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: sn
         
         	Serial Numbe of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: index
         
@@ -125,6 +149,8 @@ class Inventory(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -166,6 +192,7 @@ class Inventory(Entity):
             self._perform_setattr(Inventory.Location, ['loc', 'name', 'description', 'pid', 'vid', 'sn', 'index'], name, value)
 
 
+
     class All(Entity):
         """
         
@@ -177,35 +204,49 @@ class Inventory(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: name
         
         	Name of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: description
         
         	Description of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: pid
         
         	Product ID of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: vid
         
         	Version ID of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: sn
         
         	Serial Numbe of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: loc
         
         	Node id of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -247,6 +288,7 @@ class Inventory(Entity):
             self._perform_setattr(Inventory.All, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
 
 
+
     class Chassis(Entity):
         """
         
@@ -258,35 +300,49 @@ class Inventory(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: name
         
         	Name of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: description
         
         	Description of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: pid
         
         	Product ID of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: vid
         
         	Version ID of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: sn
         
         	Serial Numbe of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: loc
         
         	Node id of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -328,6 +384,7 @@ class Inventory(Entity):
             self._perform_setattr(Inventory.Chassis, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
 
 
+
     class Power(Entity):
         """
         
@@ -339,35 +396,49 @@ class Inventory(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: name
         
         	Name of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: description
         
         	Description of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: pid
         
         	Product ID of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: vid
         
         	Version ID of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: sn
         
         	Serial Numbe of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: loc
         
         	Node id of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -409,6 +480,7 @@ class Inventory(Entity):
             self._perform_setattr(Inventory.Power, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
 
 
+
     class Fan(Entity):
         """
         
@@ -420,35 +492,49 @@ class Inventory(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: name
         
         	Name of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: description
         
         	Description of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: pid
         
         	Product ID of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: vid
         
         	Version ID of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: sn
         
         	Serial Numbe of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: loc
         
         	Node id of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -490,6 +576,7 @@ class Inventory(Entity):
             self._perform_setattr(Inventory.Fan, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
 
 
+
     class Raw(Entity):
         """
         
@@ -501,35 +588,49 @@ class Inventory(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: name
         
         	Name of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: description
         
         	Description of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: pid
         
         	Product ID of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: vid
         
         	Version ID of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: sn
         
         	Serial Numbe of the entity
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: loc
         
         	Node id of the entity
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -570,7 +671,10 @@ class Inventory(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.Raw, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Inventory()
         return self._top_entity
+
+
 

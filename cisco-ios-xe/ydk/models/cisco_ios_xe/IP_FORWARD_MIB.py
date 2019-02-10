@@ -22,10 +22,14 @@ class IPFORWARDMIB(Entity):
     	
     	**type**\:  :py:class:`IpForward <ydk.models.cisco_ios_xe.IP_FORWARD_MIB.IPFORWARDMIB.IpForward>`
     
+    	**config**\: False
+    
     .. attribute:: ipforwardtable
     
     	This entity's IP Routing table
     	**type**\:  :py:class:`IpForwardTable <ydk.models.cisco_ios_xe.IP_FORWARD_MIB.IPFORWARDMIB.IpForwardTable>`
+    
+    	**config**\: False
     
     	**status**\: obsolete
     
@@ -33,6 +37,8 @@ class IPFORWARDMIB(Entity):
     
     	This entity's IP Routing table
     	**type**\:  :py:class:`IpCidrRouteTable <ydk.models.cisco_ios_xe.IP_FORWARD_MIB.IPFORWARDMIB.IpCidrRouteTable>`
+    
+    	**config**\: False
     
     
 
@@ -82,6 +88,8 @@ class IPFORWARDMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: ipcidrroutenumber
@@ -90,6 +98,8 @@ class IPFORWARDMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -121,6 +131,7 @@ class IPFORWARDMIB(Entity):
             self._perform_setattr(IPFORWARDMIB.IpForward, ['ipforwardnumber', 'ipcidrroutenumber'], name, value)
 
 
+
     class IpForwardTable(Entity):
         """
         This entity's IP Routing table.
@@ -129,6 +140,8 @@ class IPFORWARDMIB(Entity):
         
         	A particular route to  a  particular  destina\- tion, under a particular policy
         	**type**\: list of  		 :py:class:`IpForwardEntry <ydk.models.cisco_ios_xe.IP_FORWARD_MIB.IPFORWARDMIB.IpForwardTable.IpForwardEntry>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -171,12 +184,16 @@ class IPFORWARDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: ipforwardproto  (key)
             
             	The routing mechanism via which this route was learned.  Inclusion of values for gateway rout\- ing protocols is not  intended  to  imply  that hosts should support those protocols
             	**type**\:  :py:class:`IpForwardProto <ydk.models.cisco_ios_xe.IP_FORWARD_MIB.IPFORWARDMIB.IpForwardTable.IpForwardEntry.IpForwardProto>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -187,6 +204,8 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: ipforwardnexthop  (key)
@@ -195,6 +214,8 @@ class IPFORWARDMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -205,6 +226,8 @@ class IPFORWARDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: ipforwardifindex
@@ -214,12 +237,16 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: ipforwardtype
             
             	The type of route.  Note that local(3)  refers to  a route for which the next hop is the final destination; remote(4) refers to  a  route  for which  the  next  hop is not the final destina\- tion.  Setting this object to the value invalid(2) has the  effect  of  invalidating the corresponding entry in the ipForwardTable object.   That  is, it  effectively  disassociates  the destination identified with said entry from the route iden\- tified    with    said   entry.    It   is   an implementation\-specific matter  as  to  whether the agent removes an invalidated entry from the table.  Accordingly, management  stations  must be prepared to receive tabular information from agents that corresponds to entries not current\- ly  in  use.  Proper interpretation of such en\- tries requires examination of the relevant  ip\- ForwardType object
             	**type**\:  :py:class:`IpForwardType <ydk.models.cisco_ios_xe.IP_FORWARD_MIB.IPFORWARDMIB.IpForwardTable.IpForwardEntry.IpForwardType>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -230,6 +257,8 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: ipforwardinfo
@@ -238,6 +267,8 @@ class IPFORWARDMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -248,6 +279,8 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: ipforwardmetric1
@@ -256,6 +289,8 @@ class IPFORWARDMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -266,6 +301,8 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: ipforwardmetric3
@@ -274,6 +311,8 @@ class IPFORWARDMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -284,6 +323,8 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: ipforwardmetric5
@@ -292,6 +333,8 @@ class IPFORWARDMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -487,6 +530,8 @@ class IPFORWARDMIB(Entity):
 
 
 
+
+
     class IpCidrRouteTable(Entity):
         """
         This entity's IP Routing table.
@@ -495,6 +540,8 @@ class IPFORWARDMIB(Entity):
         
         	A particular route to  a  particular  destina\- tion, under a particular policy
         	**type**\: list of  		 :py:class:`IpCidrRouteEntry <ydk.models.cisco_ios_xe.IP_FORWARD_MIB.IPFORWARDMIB.IpCidrRouteTable.IpCidrRouteEntry>`
+        
+        	**config**\: False
         
         
 
@@ -535,12 +582,16 @@ class IPFORWARDMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: ipcidrroutemask  (key)
             
             	Indicate the mask to be logical\-ANDed with the destination  address  before  being compared to the value  in  the  ipCidrRouteDest  field.   For those  systems  that  do  not support arbitrary subnet masks, an agent constructs the value  of the  ipCidrRouteMask  by  reference to the IP Ad\- dress Class.  Any assignment (implicit or  otherwise)  of  an instance  of  this  object to a value x must be rejected if the bitwise logical\-AND of  x  with the  value of the corresponding instance of the ipCidrRouteDest object is not equal to ipCidrRoute\- Dest
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: ipcidrroutetos  (key)
             
@@ -549,12 +600,16 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipcidrroutenexthop  (key)
             
             	On remote routes, the address of the next sys\- tem en route; Otherwise, 0.0.0.0
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: ipcidrrouteifindex
             
@@ -563,15 +618,21 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipcidrroutetype
             
             	The type of route.  Note that local(3)  refers to  a route for which the next hop is the final destination; remote(4) refers to  a  route  for which  the  next  hop is not the final destina\- tion.  Routes which do not result in traffic forwarding or rejection should not be displayed even if the implementation keeps them stored internally.   reject (2) refers to a route which, if matched, discards the message as unreachable. This is used in some protocols as a means of correctly aggregating routes
             	**type**\:  :py:class:`IpCidrRouteType <ydk.models.cisco_ios_xe.IP_FORWARD_MIB.IPFORWARDMIB.IpCidrRouteTable.IpCidrRouteEntry.IpCidrRouteType>`
             
+            	**config**\: False
+            
             .. attribute:: ipcidrrouteproto
             
             	The routing mechanism via which this route was learned.  Inclusion of values for gateway rout\- ing protocols is not  intended  to  imply  that hosts should support those protocols
             	**type**\:  :py:class:`IpCidrRouteProto <ydk.models.cisco_ios_xe.IP_FORWARD_MIB.IPFORWARDMIB.IpCidrRouteTable.IpCidrRouteEntry.IpCidrRouteProto>`
+            
+            	**config**\: False
             
             .. attribute:: ipcidrrouteage
             
@@ -580,12 +641,16 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipcidrrouteinfo
             
             	A reference to MIB definitions specific to the particular  routing protocol which is responsi\- ble for this route, as determined by the  value specified  in the route's ipCidrRouteProto value. If this information is not present,  its  value should be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntactically valid object  identif\- ier, and any implementation conforming to ASN.1 and the Basic Encoding Rules must  be  able  to generate and recognize this value
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: ipcidrroutenexthopas
             
@@ -594,12 +659,16 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipcidrroutemetric1
             
             	The primary routing  metric  for  this  route. The  semantics of this metric are determined by the routing\-protocol specified in  the  route's ipCidrRouteProto  value.   If  this metric is not used, its value should be set to \-1
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ipcidrroutemetric2
             
@@ -608,12 +677,16 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipcidrroutemetric3
             
             	An alternate routing metric  for  this  route. The  semantics of this metric are determined by the routing\-protocol specified in  the  route's ipCidrRouteProto  value.   If  this metric is not used, its value should be set to \-1
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ipcidrroutemetric4
             
@@ -622,6 +695,8 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipcidrroutemetric5
             
             	An alternate routing metric  for  this  route. The  semantics of this metric are determined by the routing\-protocol specified in  the  route's ipCidrRouteProto  value.   If  this metric is not used, its value should be set to \-1
@@ -629,10 +704,14 @@ class IPFORWARDMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipcidrroutestatus
             
             	The row status variable, used according to row installation and removal conventions
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -815,7 +894,11 @@ class IPFORWARDMIB(Entity):
                 remote = Enum.YLeaf(4, "remote")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = IPFORWARDMIB()
         return self._top_entity
+
+
 

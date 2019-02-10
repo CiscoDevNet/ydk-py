@@ -51,10 +51,14 @@ class AutoRp(Entity):
     	Standby Process
     	**type**\:  :py:class:`Standby <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby>`
     
+    	**config**\: False
+    
     .. attribute:: active
     
     	Active Process
     	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active>`
+    
+    	**config**\: False
     
     
 
@@ -98,10 +102,14 @@ class AutoRp(Entity):
         	AutoRP Candidate RP
         	**type**\:  :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp>`
         
+        	**config**\: False
+        
         .. attribute:: mapping_agent
         
         	AutoRP Mapping Agent Table
         	**type**\:  :py:class:`MappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent>`
+        
+        	**config**\: False
         
         
 
@@ -145,10 +153,14 @@ class AutoRp(Entity):
             	AutoRP Candidate Traffic Counters
             	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp.Traffic>`
             
+            	**config**\: False
+            
             .. attribute:: rps
             
             	AutoRP Candidate RP Table
             	**type**\:  :py:class:`Rps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp.Rps>`
+            
+            	**config**\: False
             
             
 
@@ -194,12 +206,16 @@ class AutoRp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_sent_packets
                 
                 	Number of packets dropped in send path in standby role
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -231,6 +247,7 @@ class AutoRp(Entity):
                     self._perform_setattr(AutoRp.Standby.CandidateRp.Traffic, [u'active_sent_packets', u'standby_sent_packets'], name, value)
 
 
+
             class Rps(Entity):
                 """
                 AutoRP Candidate RP Table
@@ -239,6 +256,8 @@ class AutoRp(Entity):
                 
                 	AutoRP Candidate RP Entry
                 	**type**\: list of  		 :py:class:`Rp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRp.Rps.Rp>`
+                
+                	**config**\: False
                 
                 
 
@@ -278,15 +297,21 @@ class AutoRp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: protocol_mode
                     
                     	Protocol Mode
                     	**type**\:  :py:class:`AutoRpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolMode>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: access_list_name
                     
                     	ACL Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: candidate_rp_address
                     
@@ -295,12 +320,16 @@ class AutoRp(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ttl
                     
                     	TTL
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: announce_period
                     
@@ -309,10 +338,14 @@ class AutoRp(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: protocol_mode_xr
                     
                     	Protocol Mode
                     	**type**\:  :py:class:`AutorpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolMode>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -354,6 +387,9 @@ class AutoRp(Entity):
                         self._perform_setattr(AutoRp.Standby.CandidateRp.Rps.Rp, ['interface_name', 'protocol_mode', u'access_list_name', u'candidate_rp_address', u'ttl', u'announce_period', u'protocol_mode_xr'], name, value)
 
 
+
+
+
         class MappingAgent(Entity):
             """
             AutoRP Mapping Agent Table
@@ -363,15 +399,21 @@ class AutoRp(Entity):
             	AutoRP Mapping Agent Traffic Counters
             	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.Traffic>`
             
+            	**config**\: False
+            
             .. attribute:: rp_addresses
             
             	AutoRP Mapping Agent Table Entries
             	**type**\:  :py:class:`RpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses>`
             
+            	**config**\: False
+            
             .. attribute:: summary
             
             	AutoRP Mapping Agent Summary Information
             	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.Summary>`
+            
+            	**config**\: False
             
             
 
@@ -421,12 +463,16 @@ class AutoRp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_sent_packets
                 
                 	Number of packets dropped in send path in standby role
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: active_received_packets
                 
@@ -435,12 +481,16 @@ class AutoRp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_received_packets
                 
                 	Number of packets dropped in receive path in standby role
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -473,7 +523,8 @@ class AutoRp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AutoRp.Standby.MappingAgent.Traffic, [u'active_sent_packets', u'standby_sent_packets', u'active_received_packets', u'standby_received_packets'], name, value)
+                    self._perform_setattr(AutoRp.Standby.MappingAgent.Traffic, ['active_sent_packets', 'standby_sent_packets', 'active_received_packets', 'standby_received_packets'], name, value)
+
 
 
             class RpAddresses(Entity):
@@ -484,6 +535,8 @@ class AutoRp(Entity):
                 
                 	AutoRP Mapping Agent Entry
                 	**type**\: list of  		 :py:class:`RpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses.RpAddress>`
+                
+                	**config**\: False
                 
                 
 
@@ -523,6 +576,8 @@ class AutoRp(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: rp_address_xr
                     
                     	Candidate\-RP address
@@ -530,12 +585,16 @@ class AutoRp(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: expiry_time
                     
                     	Time for expiration in seconds
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -546,10 +605,14 @@ class AutoRp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: range
                     
                     	Array of ranges
                     	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -584,7 +647,7 @@ class AutoRp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AutoRp.Standby.MappingAgent.RpAddresses.RpAddress, ['rp_address', u'rp_address_xr', u'expiry_time', u'pim_version'], name, value)
+                        self._perform_setattr(AutoRp.Standby.MappingAgent.RpAddresses.RpAddress, ['rp_address', 'rp_address_xr', 'expiry_time', 'pim_version'], name, value)
 
 
                     class Range(Entity):
@@ -598,6 +661,8 @@ class AutoRp(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_length
                         
                         	Prefix length of the range
@@ -605,15 +670,21 @@ class AutoRp(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: protocol_mode
                         
                         	Protocol Mode
                         	**type**\:  :py:class:`AutorpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolMode>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_advertised
                         
                         	Is this entry advertised ?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: create_type
                         
@@ -622,6 +693,8 @@ class AutoRp(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: check_point_object_id
                         
                         	Checkpoint object id
@@ -629,12 +702,16 @@ class AutoRp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: uptime
                         
                         	Uptime in seconds
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -674,7 +751,10 @@ class AutoRp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range, [u'prefix', u'prefix_length', u'protocol_mode', u'is_advertised', u'create_type', u'check_point_object_id', u'uptime'], name, value)
+                            self._perform_setattr(AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range, ['prefix', 'prefix_length', 'protocol_mode', 'is_advertised', 'create_type', 'check_point_object_id', 'uptime'], name, value)
+
+
+
 
 
             class Summary(Entity):
@@ -686,6 +766,8 @@ class AutoRp(Entity):
                 	Is maximum enforcement disabled ?
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: cache_limit
                 
                 	Maximum group to RP mapping entries allowed
@@ -693,12 +775,16 @@ class AutoRp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: cache_count
                 
                 	Number of group to RP mapping entries in the cache
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -729,7 +815,10 @@ class AutoRp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AutoRp.Standby.MappingAgent.Summary, [u'is_maximum_disabled', u'cache_limit', u'cache_count'], name, value)
+                    self._perform_setattr(AutoRp.Standby.MappingAgent.Summary, ['is_maximum_disabled', 'cache_limit', 'cache_count'], name, value)
+
+
+
 
 
     class Active(Entity):
@@ -741,10 +830,14 @@ class AutoRp(Entity):
         	AutoRP Candidate RP
         	**type**\:  :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp>`
         
+        	**config**\: False
+        
         .. attribute:: mapping_agent
         
         	AutoRP Mapping Agent Table
         	**type**\:  :py:class:`MappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent>`
+        
+        	**config**\: False
         
         
 
@@ -788,10 +881,14 @@ class AutoRp(Entity):
             	AutoRP Candidate Traffic Counters
             	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp.Traffic>`
             
+            	**config**\: False
+            
             .. attribute:: rps
             
             	AutoRP Candidate RP Table
             	**type**\:  :py:class:`Rps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp.Rps>`
+            
+            	**config**\: False
             
             
 
@@ -837,12 +934,16 @@ class AutoRp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_sent_packets
                 
                 	Number of packets dropped in send path in standby role
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -874,6 +975,7 @@ class AutoRp(Entity):
                     self._perform_setattr(AutoRp.Active.CandidateRp.Traffic, [u'active_sent_packets', u'standby_sent_packets'], name, value)
 
 
+
             class Rps(Entity):
                 """
                 AutoRP Candidate RP Table
@@ -882,6 +984,8 @@ class AutoRp(Entity):
                 
                 	AutoRP Candidate RP Entry
                 	**type**\: list of  		 :py:class:`Rp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRp.Rps.Rp>`
+                
+                	**config**\: False
                 
                 
 
@@ -921,15 +1025,21 @@ class AutoRp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: protocol_mode
                     
                     	Protocol Mode
                     	**type**\:  :py:class:`AutoRpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolMode>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: access_list_name
                     
                     	ACL Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: candidate_rp_address
                     
@@ -938,12 +1048,16 @@ class AutoRp(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ttl
                     
                     	TTL
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: announce_period
                     
@@ -952,10 +1066,14 @@ class AutoRp(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: protocol_mode_xr
                     
                     	Protocol Mode
                     	**type**\:  :py:class:`AutorpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolMode>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -997,6 +1115,9 @@ class AutoRp(Entity):
                         self._perform_setattr(AutoRp.Active.CandidateRp.Rps.Rp, ['interface_name', 'protocol_mode', u'access_list_name', u'candidate_rp_address', u'ttl', u'announce_period', u'protocol_mode_xr'], name, value)
 
 
+
+
+
         class MappingAgent(Entity):
             """
             AutoRP Mapping Agent Table
@@ -1006,15 +1127,21 @@ class AutoRp(Entity):
             	AutoRP Mapping Agent Traffic Counters
             	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.Traffic>`
             
+            	**config**\: False
+            
             .. attribute:: rp_addresses
             
             	AutoRP Mapping Agent Table Entries
             	**type**\:  :py:class:`RpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses>`
             
+            	**config**\: False
+            
             .. attribute:: summary
             
             	AutoRP Mapping Agent Summary Information
             	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.Summary>`
+            
+            	**config**\: False
             
             
 
@@ -1064,12 +1191,16 @@ class AutoRp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_sent_packets
                 
                 	Number of packets dropped in send path in standby role
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: active_received_packets
                 
@@ -1078,12 +1209,16 @@ class AutoRp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: standby_received_packets
                 
                 	Number of packets dropped in receive path in standby role
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1116,7 +1251,8 @@ class AutoRp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AutoRp.Active.MappingAgent.Traffic, [u'active_sent_packets', u'standby_sent_packets', u'active_received_packets', u'standby_received_packets'], name, value)
+                    self._perform_setattr(AutoRp.Active.MappingAgent.Traffic, ['active_sent_packets', 'standby_sent_packets', 'active_received_packets', 'standby_received_packets'], name, value)
+
 
 
             class RpAddresses(Entity):
@@ -1127,6 +1263,8 @@ class AutoRp(Entity):
                 
                 	AutoRP Mapping Agent Entry
                 	**type**\: list of  		 :py:class:`RpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses.RpAddress>`
+                
+                	**config**\: False
                 
                 
 
@@ -1166,6 +1304,8 @@ class AutoRp(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: rp_address_xr
                     
                     	Candidate\-RP address
@@ -1173,12 +1313,16 @@ class AutoRp(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: expiry_time
                     
                     	Time for expiration in seconds
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -1189,10 +1333,14 @@ class AutoRp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: range
                     
                     	Array of ranges
                     	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1227,7 +1375,7 @@ class AutoRp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AutoRp.Active.MappingAgent.RpAddresses.RpAddress, ['rp_address', u'rp_address_xr', u'expiry_time', u'pim_version'], name, value)
+                        self._perform_setattr(AutoRp.Active.MappingAgent.RpAddresses.RpAddress, ['rp_address', 'rp_address_xr', 'expiry_time', 'pim_version'], name, value)
 
 
                     class Range(Entity):
@@ -1241,6 +1389,8 @@ class AutoRp(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_length
                         
                         	Prefix length of the range
@@ -1248,15 +1398,21 @@ class AutoRp(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: protocol_mode
                         
                         	Protocol Mode
                         	**type**\:  :py:class:`AutorpProtocolMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolMode>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_advertised
                         
                         	Is this entry advertised ?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: create_type
                         
@@ -1265,6 +1421,8 @@ class AutoRp(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: check_point_object_id
                         
                         	Checkpoint object id
@@ -1272,12 +1430,16 @@ class AutoRp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: uptime
                         
                         	Uptime in seconds
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -1317,7 +1479,10 @@ class AutoRp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range, [u'prefix', u'prefix_length', u'protocol_mode', u'is_advertised', u'create_type', u'check_point_object_id', u'uptime'], name, value)
+                            self._perform_setattr(AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range, ['prefix', 'prefix_length', 'protocol_mode', 'is_advertised', 'create_type', 'check_point_object_id', 'uptime'], name, value)
+
+
+
 
 
             class Summary(Entity):
@@ -1329,6 +1494,8 @@ class AutoRp(Entity):
                 	Is maximum enforcement disabled ?
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: cache_limit
                 
                 	Maximum group to RP mapping entries allowed
@@ -1336,12 +1503,16 @@ class AutoRp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: cache_count
                 
                 	Number of group to RP mapping entries in the cache
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1372,9 +1543,14 @@ class AutoRp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AutoRp.Active.MappingAgent.Summary, [u'is_maximum_disabled', u'cache_limit', u'cache_count'], name, value)
+                    self._perform_setattr(AutoRp.Active.MappingAgent.Summary, ['is_maximum_disabled', 'cache_limit', 'cache_count'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = AutoRp()
         return self._top_entity
+
+
 

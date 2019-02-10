@@ -23,105 +23,147 @@ class CISCOSTPEXTENSIONSMIB(Entity):
     	
     	**type**\:  :py:class:`StpxUplinkFastObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxUplinkFastObjects>`
     
+    	**config**\: False
+    
     .. attribute:: stpxbackbonefastobjects
     
     	
     	**type**\:  :py:class:`StpxBackboneFastObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxBackboneFastObjects>`
+    
+    	**config**\: False
     
     .. attribute:: stpxspanningtreeobjects
     
     	
     	**type**\:  :py:class:`StpxSpanningTreeObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects>`
     
+    	**config**\: False
+    
     .. attribute:: stpxmistpobjects
     
     	
     	**type**\:  :py:class:`StpxMISTPObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMISTPObjects>`
+    
+    	**config**\: False
     
     .. attribute:: stpxloopguardobjects
     
     	
     	**type**\:  :py:class:`StpxLoopGuardObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopGuardObjects>`
     
+    	**config**\: False
+    
     .. attribute:: stpxfaststartobjects
     
     	
     	**type**\:  :py:class:`StpxFastStartObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartObjects>`
+    
+    	**config**\: False
     
     .. attribute:: stpxbpduskewingobjects
     
     	
     	**type**\:  :py:class:`StpxBpduSkewingObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxBpduSkewingObjects>`
     
+    	**config**\: False
+    
     .. attribute:: stpxmstobjects
     
     	
     	**type**\:  :py:class:`StpxMSTObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTObjects>`
+    
+    	**config**\: False
     
     .. attribute:: stpxrstpobjects
     
     	
     	**type**\:  :py:class:`StpxRSTPObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPObjects>`
     
+    	**config**\: False
+    
     .. attribute:: stpxsmstobjects
     
     	
     	**type**\:  :py:class:`StpxSMSTObjects <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTObjects>`
+    
+    	**config**\: False
     
     .. attribute:: stpxpvstvlantable
     
     	A list of Virtual LAN entries containing information for Spanning Tree PVST+ protocol.  An entry will exist for each VLAN existing on  the device
     	**type**\:  :py:class:`StpxPVSTVlanTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable>`
     
+    	**config**\: False
+    
     .. attribute:: stpxinconsistencytable
     
     	A table containing a list of the ports for which a particular VLAN's Spanning Tree has been found to have an inconsistency.  Two types of inconsistency are discovered\: 1) an inconsistency where two different port types have been plugged together; and 2) an inconsistency where different switches have different PVIDs for the same link
     	**type**\:  :py:class:`StpxInconsistencyTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable>`
+    
+    	**config**\: False
     
     .. attribute:: stpxrootguardconfigtable
     
     	A table containing a list of the bridge ports for which Spanning Tree RootGuard capability can be configured
     	**type**\:  :py:class:`StpxRootGuardConfigTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable>`
     
+    	**config**\: False
+    
     .. attribute:: stpxrootinconsistencytable
     
     	A table containing a list of the bridge ports for which a particular Spanning Tree instance has been found  to have an root\-inconsistency. The agent creates a new  entry in this table whenever it detects a new  root\-inconsistency, and deletes entries  when/soon after the inconsistency is no longer present
     	**type**\:  :py:class:`StpxRootInconsistencyTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable>`
+    
+    	**config**\: False
     
     .. attribute:: stpxmistpinstancetable
     
     	This table contains one entry for each instance of MISTP and  it contains stpxMISTPInstanceNumber entries, numbered from 1 to stpxMISTPInstanceNumber.  This table is only instantiated when the value of  stpxSpanningTreeType is mistp(2) or mistpPvstPlus(3)
     	**type**\:  :py:class:`StpxMISTPInstanceTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable>`
     
+    	**config**\: False
+    
     .. attribute:: stpxloopguardconfigtable
     
     	A table containing a list of the bridge ports for which Spanning Tree LoopGuard capability can be configured
     	**type**\:  :py:class:`StpxLoopGuardConfigTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable>`
+    
+    	**config**\: False
     
     .. attribute:: stpxloopinconsistencytable
     
     	A table containing a list of the bridge ports for which a particular Spanning Tree instance has been found to have a loop\-inconsistency. The agent creates a new entry in this table whenever it detects a new loop\-inconsistency, and deletes entries when/soon after the inconsistency is no longer present
     	**type**\:  :py:class:`StpxLoopInconsistencyTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable>`
     
+    	**config**\: False
+    
     .. attribute:: stpxfaststartporttable
     
     	A table containing a list of the bridge ports for which Spanning Tree Port Fast Start can be configured
     	**type**\:  :py:class:`StpxFastStartPortTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable>`
+    
+    	**config**\: False
     
     .. attribute:: stpxfaststartopermodetable
     
     	A table containing a list of the bridge ports  for a particular Spanning Tree Instance
     	**type**\:  :py:class:`StpxFastStartOperModeTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable>`
     
+    	**config**\: False
+    
     .. attribute:: stpxbpduskewingtable
     
     	A table containing a list of the bridge ports for  which a particular Spanning Tree instance has been  detected to have BPDU skewing occurred since the  object value of stpxBpduSkewingDetectionEnable was last changed to true(1).  The agent creates a new entry in this table whenever a port in a particular Spanning Tree instance is  detected to be BPDU skewed since the object value of  stpxBpduSkewingDetectionEnable object is changed to  true(1). The agent deletes all the entries in this  table when the object value of  stpxBpduSkewingDetectionEnable is changed to false(2) or the object value of stpxSpanningTreeType is  changed
     	**type**\:  :py:class:`StpxBpduSkewingTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable>`
     
+    	**config**\: False
+    
     .. attribute:: stpxmstinstancetable
     
     	This table contains MST instance information with one entry for an MST instance within the range of  0 to the object value of stpxMSTMaxInstanceNumber.   This table is deprecated and replaced by  stpxSMSTInstanceTable
     	**type**\:  :py:class:`StpxMSTInstanceTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -130,12 +172,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
     	This table contains MST instance information in the  Edit Buffer with one entry for each MST instance numbered from 0 to stpxMSTMaxInstanceNumber.   This table is only instantiated when the  stpxMSTRegionEditBufferStatus has the value of acquiredBySnmp(2).  This table is deprecated and replaced by  stpxSMSTInstanceEditTable
     	**type**\:  :py:class:`StpxMSTInstanceEditTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable>`
     
+    	**config**\: False
+    
     	**status**\: deprecated
     
     .. attribute:: stpxmstporttable
     
     	A table containing port information for the MST  Protocol on all the bridge ports existing on the  system
     	**type**\:  :py:class:`StpxMSTPortTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -144,6 +190,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
     	A table containing a list of the bridge ports for a  particular MST instance.  This table is only instantiated  when the stpxSpanningTreeType is mst(4).   This table is deprecated and replaced with  stpxRSTPPortRoleTable
     	**type**\:  :py:class:`StpxMSTPortRoleTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable>`
     
+    	**config**\: False
+    
     	**status**\: deprecated
     
     .. attribute:: stpxrstpporttable
@@ -151,30 +199,42 @@ class CISCOSTPEXTENSIONSMIB(Entity):
     	A table containing port information for the RSTP  Protocol on all the bridge ports existing in the  system
     	**type**\:  :py:class:`StpxRSTPPortTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable>`
     
+    	**config**\: False
+    
     .. attribute:: stpxrstpportroletable
     
     	A table containing a list of the bridge ports for a  particular Spanning Tree instance.  This table is  only instantiated when the stpxSpanningTreeType is mst(4)  or rapidPvstPlus(5)
     	**type**\:  :py:class:`StpxRSTPPortRoleTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable>`
+    
+    	**config**\: False
     
     .. attribute:: stpxrpvstporttable
     
     	A table containing a list of the bridge ports  for a particular Spanning Tree Instance. This table is only instantiated when the object value of stpxSpanningTreeType is rapidPvstPlus(5)
     	**type**\:  :py:class:`StpxRPVSTPortTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable>`
     
+    	**config**\: False
+    
     .. attribute:: stpxsmstinstancetable
     
     	This table contains MST instance information for IEEE MST
     	**type**\:  :py:class:`StpxSMSTInstanceTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable>`
+    
+    	**config**\: False
     
     .. attribute:: stpxsmstinstanceedittable
     
     	This table contains MST instance information in the  Edit Buffer.   This table is only instantiated when the object value of  stpxMSTRegionEditBufferStatus has the value of acquiredBySnmp(2)
     	**type**\:  :py:class:`StpxSMSTInstanceEditTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable>`
     
+    	**config**\: False
+    
     .. attribute:: stpxsmstporttable
     
     	A table containing port information for the MST  Protocol on all the bridge ports existing on the  system.  This table is only instantiated when the object  value of stpxSpanningTreeType is mst(4)
     	**type**\:  :py:class:`StpxSMSTPortTable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable>`
+    
+    	**config**\: False
     
     
 
@@ -330,12 +390,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         	An indication of whether the UplinkFast capability is administratively enabled on the device.  If the platform does not support configuration of this object when the object value of stpxSpanningTreeType is  mst(4), then this object is not instantiated
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: stpxuplinkfasttransitions
         
         	The cumulative number of UplinkFast transitions (from the STP 'Blocking' state directly to the STP 'Forwarding' state).  All transitions are included in this counter, irrespective of the instance of the Spanning Tree  Protocol on which they occur.  If the platform supports the stpxUplinkFastOperEnabled  object, then this object is not instantiated when the  object value of stpxUplinkFastOperEnabled is false(2). If the platform does not support the  stpxUplinkFastOperEnabled object, then this object is  not instantiated when the object value of  stpxSpanningTreeType is mst(4)
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: transitions
         
@@ -346,6 +410,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	**range:** 0..32000
         
+        	**config**\: False
+        
         	**units**\: frames
         
         .. attribute:: stpxuplinkstationlearningframes
@@ -355,12 +421,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: frames
         
         .. attribute:: stpxuplinkfastoperenabled
         
         	An indication of whether the UplinkFast capability is  operationally enabled on the device
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -398,6 +468,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxUplinkFastObjects, ['stpxuplinkfastenabled', 'stpxuplinkfasttransitions', 'stpxuplinkstationlearninggenrate', 'stpxuplinkstationlearningframes', 'stpxuplinkfastoperenabled'], name, value)
 
 
+
     class StpxBackboneFastObjects(Entity):
         """
         
@@ -407,12 +478,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         	An indication of whether the BackboneFast capability is administratively enabled on the device
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: stpxbackbonefastininferiorbpdus
         
         	The number of inferior BPDUs received by the switch  since the stpxBackboneFastOperEnabled has become true(1). If the value of  stpxBackboneFastOperEnabled is false(2), then this  mib object will have a value of 0
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: stpxbackbonefastinrlqrequestpdus
         
@@ -421,12 +496,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: stpxbackbonefastinrlqresponsepdus
         
         	The number of Root Link Query response PDUs received by the switch since the stpxBackboneFastOperEnabled has become true(1). If the value of stpxBackboneFastOperEnabled is false(2), then this mib object will have a value of 0
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: stpxbackbonefastoutrlqrequestpdus
         
@@ -435,6 +514,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: stpxbackbonefastoutrlqresponsepdus
         
         	The number of Root Link Query response PDUs transmitted by the switch since the stpxBackboneFastOperEnabled has become true(1). If the value of stpxBackboneFastOperEnabled is false(2), then this mib object will have a value of 0
@@ -442,10 +523,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: stpxbackbonefastoperenabled
         
         	An indication of whether the BackboneFast capability is operationally enabled on the device
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -487,6 +572,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxBackboneFastObjects, ['stpxbackbonefastenabled', 'stpxbackbonefastininferiorbpdus', 'stpxbackbonefastinrlqrequestpdus', 'stpxbackbonefastinrlqresponsepdus', 'stpxbackbonefastoutrlqrequestpdus', 'stpxbackbonefastoutrlqresponsepdus', 'stpxbackbonefastoperenabled'], name, value)
 
 
+
     class StpxSpanningTreeObjects(Entity):
         """
         
@@ -496,30 +582,42 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         	The actual mode of spanning tree protocol runs on the  device. It can be one of the following\:  pvstPlus \-\- PVST+ (Per VLAN Spanning Tree+ Protocol).  mistp \-\- MISTP (Multi Instance Spanning Tree Protocol).  mistpPvstPlus \-\-  MISTP with the tunneling scheme                      enabled for PVST+.  mst \-\- IEEE 802.1s Multiple Spanning Tree (MST)        with IEEE 802.1w Rapid Spanning Tree Protocol        (RSTP).  rapidPvstPlus \-\- IEEE 802.1w Rapid Spanning Tree          Protocol (RSTP) for all vlans in PVST+.  When the value of this MIB object gets changed, the  network connectivity would be affected and the  connectivity to this device would also be lost  temporarily
         	**type**\:  :py:class:`StpxSpanningTreeType <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects.StpxSpanningTreeType>`
         
+        	**config**\: False
+        
         .. attribute:: stpxspanningtreepathcostmode
         
         	Indicates the administrative  spanning tree path cost mode  configured on device
         	**type**\:  :py:class:`StpxSpanningTreePathCostMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects.StpxSpanningTreePathCostMode>`
+        
+        	**config**\: False
         
         .. attribute:: stpxextendedsysidadminenabled
         
         	Indicates whether Extended System ID feature  is administratively enabled on the device or not
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: stpxextendedsysidoperenabled
         
         	Indicates whether Extended System ID feature  is operationaly enabled on the device or not.  If the value of this object is true(1), then the accepted values for dot1dStpPriority in BRIDGE\-MIB should be multiples of 4096 plus bridge instance ID, such as VlanIndex. Changing this object value might cause the values of dot1dBaseBridgeAddress and dot1dStpPriority in BRIDGE\-MIB to be changed also
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: stpxnotificationenable
         
         	Indicates whether a specified notification is enabled or not. If a bit corresponding to a notification is set to 1, then  the specified notification can be generated.  newRoot \-\- the newRoot notification as defined in BRIDGE\-MIB.  topologyChange \-\- the topologyChange notification as                   defined in BRIDGE\-MIB.  inconsistency \-\- the stpxInconsistencyUpdate notification.  rootInconsistency \-\- the stpxRootInconsistencyUpdate                       notification.  loopInconsistency \-\- the stpxLoopInconsistencyUpdate                       notification
         	**type**\:  :py:class:`StpxNotificationEnable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects.StpxNotificationEnable>`
         
+        	**config**\: False
+        
         .. attribute:: stpxspanningtreepathcostopermode
         
         	Indicate the operational spanning tree path cost mode on device. This mode applies to all instances of the Spanning Tree protocol running on the device.   When the value of this MIB object gets changed, the path cost of all ports will be reassigned to the default path cost values based on the new spanning tree path cost mode and the ports' speed.  When the value of this MIB object is long(2), the stpxLongStpPortPathCost MIB object must be used in order to retrieve/configure the spanning tree port path cost as a 32 bits value. The set operation on dot1dStpPortPathCost in BRIDGE\-MIB will be rejected. While retrieving the value of dot1dStpPortPathCost, the maximum value of 65535 will be returned if the value of stpxLongStpPortPathCost for the same instance exceeds 65535.  When the value of this MIB object is short(1), the dot1dStpPortPathCost in BRIDGE\-MIB must be used
         	**type**\:  :py:class:`StpxSpanningTreePathCostOperMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects.StpxSpanningTreePathCostOperMode>`
+        
+        	**config**\: False
         
         
 
@@ -684,6 +782,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
+
     class StpxMISTPObjects(Entity):
         """
         
@@ -694,6 +793,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         	**type**\: int
         
         	**range:** 1..256
+        
+        	**config**\: False
         
         
 
@@ -723,6 +824,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMISTPObjects, ['stpxmistpinstancenumber'], name, value)
 
 
+
     class StpxLoopGuardObjects(Entity):
         """
         
@@ -731,6 +833,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	Indicates the global default config mode of LoopGuard  feature on the device
         	**type**\:  :py:class:`StpxLoopGuardGlobalDefaultMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopGuardObjects.StpxLoopGuardGlobalDefaultMode>`
+        
+        	**config**\: False
         
         
 
@@ -779,6 +883,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
+
     class StpxFastStartObjects(Entity):
         """
         
@@ -788,15 +893,21 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         	Indicates the global default mode of the Bpdu Guard feature on the device.  On platforms that does not support per port  Bpdu Guard configuration as indicated by the object stpxFastStartPortBpduGuardMode, if  the value of this object is set to true(1),  and the Fast Start Feature is operationally  enabled on a port, then that port will be  immediately disabled when the system receives a BPDU from that port
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: stpxfaststartbpdufilterenable
         
         	Indicates the global default mode of the Bpdu  Filter feature on the device.  On platforms that does not support per port  Bpdu Filter configuration as indicated by the object stpxFastStartPortBpduFilterMode, if  the value of this object is set to true(1),  and the Fast Start Feature is operationally  enabled on a port, then no BPDUs will be  transmitted on this port
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: stpxfaststartglobaldefaultmode
         
         	Indicates the global default mode of the Fast  Start feature on the device
         	**type**\:  :py:class:`StpxFastStartGlobalDefaultMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartObjects.StpxFastStartGlobalDefaultMode>`
+        
+        	**config**\: False
         
         
 
@@ -849,6 +960,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
+
     class StpxBpduSkewingObjects(Entity):
         """
         
@@ -857,6 +969,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	Indicates whether BPDU skewing detection feature is enabled or not on the system. If this object has the value of true(1), then the system will detect whether BPDUs received by any port on any Spanning  Tree instance are processed at an interval longer than the object value of dot1dStpHelloTime in the BIRDGE\-MIB of the Spanning Tree instance
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -886,6 +1000,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxBpduSkewingObjects, ['stpxbpduskewingdetectionenable'], name, value)
 
 
+
     class StpxMSTObjects(Entity):
         """
         
@@ -897,6 +1012,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	**range:** 1..256
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: stpxmstregionname
@@ -906,12 +1023,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	**length:** 0..32
         
+        	**config**\: False
+        
         .. attribute:: stpxmstregionrevision
         
         	The operational MST region version.  This object is deprecated and replaced by  stpxSMSTRegionRevision
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -920,10 +1041,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         	Indicates the current ownership status of the unique  Region Config Edit Buffer.   released \-\- the Edit Buffer can be acquired by any of              the SNMP management stations.   acquiredBySnmp \-\- the Edit Buffer is acquired by             any of the SNMP management stations.   acquiredByNonSnmp \-\- the Edit Buffer is acquired by the              non\-SNMP users managing the device
         	**type**\:  :py:class:`StpxMSTRegionEditBufferStatus <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTObjects.StpxMSTRegionEditBufferStatus>`
         
+        	**config**\: False
+        
         .. attribute:: stpxmstregioneditbufferoperation
         
         	Indicates the operation that is performed on the Region  Config Edit Buffer.  other \-\-   none of the following operations.    acquire \-\- acquire the Edit Buffer. This operation can             only be performed when the object             stpxMSTRegionEditBufferStatus has the value of            released(1). After the successful operation of             this action, the stpxMSTRegionEditBufferStatus            will be changed to acquiredBySnmp(2).               releaseWithForce \-\- release the Edit Buffer acquired by            non\-SNMP users with force and discard the changes            in the Edit Buffer. This operation can only be             performed when the object             stpxMSTRegionEditBufferStatus has the value of             acquiredByNonSnmp(2).  commit \-\-  commit the changes in the Edit Buffer            and release the Edit Buffer. The successful             operation of this action will make the changes            in the Edit Buffer effective on the device.            This operation can only be performed when the             object stpxMSTRegionEditBufferStatus has the             value of acquiredBySnmp(3).   rollBack \-\- discard the changes in the Edit Buffer            and release the Edit Buffer. This operation can             only be performed when the object             stpxMSTRegionEditBufferStatus has the value             of acquiredBySnmp(3).  This object always returns other(1) when it is read
         	**type**\:  :py:class:`StpxMSTRegionEditBufferOperation <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTObjects.StpxMSTRegionEditBufferOperation>`
+        
+        	**config**\: False
         
         .. attribute:: stpxmstregioneditname
         
@@ -932,12 +1057,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	**length:** 0..32
         
+        	**config**\: False
+        
         .. attribute:: stpxmstregioneditrevision
         
         	The MST region version in the Edit Buffer. This object is only instantiated when the stpxMSTRegionEditBufferStatus  has the value of acquiredBySnmp(2).  This object is deprecated and replaced by stpxSMSTRegionEditRevision
         	**type**\: int
         
         	**range:** 1..65535
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -947,6 +1076,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         	**type**\: int
         
         	**range:** 1..40
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -1110,6 +1241,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
+
     class StpxRSTPObjects(Entity):
         """
         
@@ -1120,6 +1252,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -1149,6 +1283,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRSTPObjects, ['stpxrstptransmitholdcount'], name, value)
 
 
+
     class StpxSMSTObjects(Entity):
         """
         
@@ -1160,12 +1295,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: stpxsmstmaxinstanceid
         
         	The maximum MST instance ID that can be supported  by the device for IEEE MST
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: stpxsmstregionrevision
         
@@ -1174,12 +1313,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: stpxsmstregioneditrevision
         
         	The MST region version in the Edit Buffer for IEEE  MST.  This object is only instantiated when the  stpxMSTRegionEditBufferStatus has the value of  acquiredBySnmp(2)
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: stpxsmstmaxhopcount
         
@@ -1188,15 +1331,21 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: stpxsmstconfigdigest
         
         	The IEEE MST region configuration digest
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: stpxsmstconfigprestandarddigest
         
         	The pre\-standard MST region configuration digest
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -1238,6 +1387,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTObjects, ['stpxsmstmaxinstances', 'stpxsmstmaxinstanceid', 'stpxsmstregionrevision', 'stpxsmstregioneditrevision', 'stpxsmstmaxhopcount', 'stpxsmstconfigdigest', 'stpxsmstconfigprestandarddigest'], name, value)
 
 
+
     class StpxPVSTVlanTable(Entity):
         """
         A list of Virtual LAN entries containing
@@ -1249,6 +1399,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	An entry containing Spanning Tree PVST+ Protocol  information for a particular Virtual LAN
         	**type**\: list of  		 :py:class:`StpxPVSTVlanEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable.StpxPVSTVlanEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1289,10 +1441,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..4095
             
+            	**config**\: False
+            
             .. attribute:: stpxpvstvlanenable
             
             	Indicates whether Spanning Tree PVST+   Protocol is enabled for this Virtual LAN. If  Spanning Tree PVST+ Protocol is not supported  on this VLAN, then notApplicable(3) will be  returned while retrieving the object value for  this VLAN.  If the device only supports a single global Spanning Tree PVST+ Protocol enable/disable  for all the existing VLANs, then the object  value assigned to this VLAN will be applied to the object values of all the instances in this table which do not have the value of notApplicable(3).  If the value of stpxSpanningTreeType is neither  pvstPlus(1) nor rapidPvstPlus(5), then the value  of stpxPVSTVlanEnable for this VLAN can not be  changed
             	**type**\:  :py:class:`StpxPVSTVlanEnable <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable.StpxPVSTVlanEntry.StpxPVSTVlanEnable>`
+            
+            	**config**\: False
             
             
 
@@ -1377,6 +1533,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
+
+
     class StpxInconsistencyTable(Entity):
         """
         A table containing a list of the ports for which
@@ -1391,6 +1549,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	A VLAN on a particular port for which a Spanning Tree inconsistency is currently in effect
         	**type**\: list of  		 :py:class:`StpxInconsistencyEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable.StpxInconsistencyEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1431,6 +1591,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..4095
             
+            	**config**\: False
+            
             .. attribute:: stpxportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
@@ -1438,10 +1600,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxinconsistentstate
             
             	The types of inconsistency which have been discovered on this port for this VLAN's Spanning Tree.  When this object exists, the value of the corresponding instance of the Bridge MIB's dot1dStpPortState object will be 'broken(6)'
             	**type**\:  :py:class:`StpxInconsistentState <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable.StpxInconsistencyEntry.StpxInconsistentState>`
+            
+            	**config**\: False
             
             
 
@@ -1475,6 +1641,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable.StpxInconsistencyEntry, ['stpxvlanindex', 'stpxportindex', 'stpxinconsistentstate'], name, value)
 
 
+
+
     class StpxRootGuardConfigTable(Entity):
         """
         A table containing a list of the bridge ports for which
@@ -1484,6 +1652,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	A bridge port for which Spanning Tree RootGuard capability can be configured
         	**type**\: list of  		 :py:class:`StpxRootGuardConfigEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable.StpxRootGuardConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1524,10 +1694,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxrootguardconfigenabled
             
             	An indication of whether the RootGuard capability is  enabled on this port or not. This configuration will be applied to all Spanning Tree instances in which this port  exists
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1559,6 +1733,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable.StpxRootGuardConfigEntry, ['stpxrootguardconfigportindex', 'stpxrootguardconfigenabled'], name, value)
 
 
+
+
     class StpxRootInconsistencyTable(Entity):
         """
         A table containing a list of the bridge ports for which
@@ -1572,6 +1748,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	A Spanning Tree instance on a particular port for  which a Spanning Tree root\-inconsistency is currently  in effect
         	**type**\: list of  		 :py:class:`StpxRootInconsistencyEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable.StpxRootInconsistencyEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1613,6 +1791,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxrootinconsistencyportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
@@ -1620,10 +1800,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxrootinconsistencystate
             
             	Indicates whether the port on a particular Spanning  Tree instance is currently in root\-inconsistent  state or not
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1657,6 +1841,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable.StpxRootInconsistencyEntry, ['stpxrootinconsistencyindex', 'stpxrootinconsistencyportindex', 'stpxrootinconsistencystate'], name, value)
 
 
+
+
     class StpxMISTPInstanceTable(Entity):
         """
         This table contains one entry for each instance of MISTP and 
@@ -1670,6 +1856,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	A conceptual row containing the status of the MISTP  instance
         	**type**\: list of  		 :py:class:`StpxMISTPInstanceEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable.StpxMISTPInstanceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1710,10 +1898,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..256
             
+            	**config**\: False
+            
             .. attribute:: stpxmistpinstanceenable
             
             	This object indicates whether the MISTP protocol is currently enabled on the MISTP instance.  If this object is set to    'true'    \- the MISTP protocol will run on this instance.                   'false'   \- the MISTP protocol will stop running on this                 instance
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: stpxmistpinstancevlansmapped
             
@@ -1722,12 +1914,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: stpxmistpinstancevlansmapped2k
             
             	A string of octets containing one bit per VLAN for VLANS with VlanIndex values of 1024 through 2047. The first octet corresponds to VLANs with VlanIndex values of 1024 through 1031; the second octet to VLANs 1032 through 1039; etc.  The most significant bit of each octet corresponds to the lowest value VlanIndex in that octet.  For each VLAN, if it is mapped to this MISTP instance, then the bit corresponding to that VLAN is set to '1'.  This object is only instantiated on devices with  support for VlanIndex up to 4095
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             .. attribute:: stpxmistpinstancevlansmapped3k
             
@@ -1736,12 +1932,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: stpxmistpinstancevlansmapped4k
             
             	A string of octets containing one bit per VLAN for VLANS with VlanIndex values of 3072 through 4095. The first octet corresponds to VLANs with VlanIndex values of 3072 through 3079; the second octet to VLANs 3080 through 3087; etc.  The most significant bit of each octet corresponds to the lowest value VlanIndex in that octet.  For each VLAN, if it is mapped to this MISTP instance, then the bit corresponding to that VLAN is set to '1'.  This object is only instantiated on devices with  support for VlanIndex up to 4095
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             
 
@@ -1781,6 +1981,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable.StpxMISTPInstanceEntry, ['stpxmistpinstanceindex', 'stpxmistpinstanceenable', 'stpxmistpinstancevlansmapped', 'stpxmistpinstancevlansmapped2k', 'stpxmistpinstancevlansmapped3k', 'stpxmistpinstancevlansmapped4k'], name, value)
 
 
+
+
     class StpxLoopGuardConfigTable(Entity):
         """
         A table containing a list of the bridge ports for which
@@ -1790,6 +1992,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	A bridge port for which Spanning Tree LoopGuard  capability can be configured
         	**type**\: list of  		 :py:class:`StpxLoopGuardConfigEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable.StpxLoopGuardConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1830,10 +2034,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxloopguardconfigenabled
             
             	An indication of whether the LoopGuard capability is  enabled on this port or not. This configuration will be applied to all the Spanning Tree instances in which this  port exists.  In order to support additional Loop Guard config mode (default) as defined in stpxLoopGuardConfigMode other  than enable (true(1)) or disable (false(2)) as defined  in this object, stpxLoopGuardConfigMode object needs to  be used.  When the stpxLoopGuardConfigMode object has the value of enable(1), the value of stpxLoopGuardConfigEnabled for  the same instance will be true(1). When the  stpxLoopGuardConfigMode object has the value of disable(2),  the value of stpxLoopGuardConfigEnabled for the same  instance will be false(2). When the stpxLoopGuardConfigMode  object has the value of default(3), the value of  stpxLoopGuardConfigEnabled for the same instance will  depend on the object value of  stpxLoopGuardGlobalDefaultMode
             	**type**\: bool
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1841,6 +2049,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	Indicates the mode of Loop Guard Feature on this  port. This configuration will be applied to all  the Spanning Tree instances in which this port  exists.  enable \-\- the Loop Guard feature is enabled on this            port.   disable \-\- the Loop Guard feature is disabled on this            port.    default \-\- whether the Loop Guard feature is enabled            or not on this port depends on the object             value of stpxLoopGuardGlobalDefaultMode
             	**type**\:  :py:class:`StpxLoopGuardConfigMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable.StpxLoopGuardConfigEntry.StpxLoopGuardConfigMode>`
+            
+            	**config**\: False
             
             
 
@@ -1915,6 +2125,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
+
+
     class StpxLoopInconsistencyTable(Entity):
         """
         A table containing a list of the bridge ports for which
@@ -1928,6 +2140,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	A Spanning Tree instance on a particular port for which a Spanning Tree loop\-inconsistency is currently in effect
         	**type**\: list of  		 :py:class:`StpxLoopInconsistencyEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable.StpxLoopInconsistencyEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1969,6 +2183,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxloopinconsistencyportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
@@ -1976,10 +2192,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxloopinconsistencystate
             
             	Indicates whether the port on a particular Spanning  Tree instance is currently in loop\-inconsistent  state or not
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -2013,6 +2233,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable.StpxLoopInconsistencyEntry, ['stpxloopinconsistencyindex', 'stpxloopinconsistencyportindex', 'stpxloopinconsistencystate'], name, value)
 
 
+
+
     class StpxFastStartPortTable(Entity):
         """
         A table containing a list of the bridge ports for
@@ -2023,6 +2245,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	A bridge port for which Spanning Tree Port Fast Start can be configured
         	**type**\: list of  		 :py:class:`StpxFastStartPortEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable.StpxFastStartPortEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2063,10 +2287,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxfaststartportenable
             
             	Indicates whether the port is operating in spantree fast start mode.  A port with fast start enabled is immediately put in spanning tree forwarding state when that port is detected by the Spanning Tree, rather  than starting in blocking state which is the normal  operation.  In order to support additional Fast Start enable mode (enableForTrunk and default) as defined in stpxFastStartPortMode other than enable (true(1)) or disable (false(2)) as defined in this object, stpxFastStartPortMode object needs to be used.  When the stpxFastStartPortMode has the value of enable(1) or enableForTrunk(3), the value of stpxFastStartPortEnable for the same instance will be true(1). When the stpxFastStartPortMode has the value of disable(2), the value of  stpxFastStartPortEnable for the same instance will be  false(2). When the stpxFastStartPortMode has the value  of default(4), the value of stpxFastStartPortEnable for  the same instance depends on the object value of  stpxFastStartGlobalDefaultMode
             	**type**\: bool
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2075,15 +2303,21 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             	Indicates the mode of Fast Start Feature on the  port. A port with fast start enabled is immediately  put in spanning tree forwarding state when the port is detected by the Spanning Tree, rather than  starting in blocking state which is the normal  operation.  enable \-\- the fast start feature is enabled on this            port but will only take effect when the            object value of its            vlanTrunkPortDynamicStatus as specified            in CISCO\-VTP\-MIB is notTrunking(2).  disable \-\- the fast start feature is disabled on this            port.    enableForTrunk \-\- the fast start feature is enabled            on this port and will take effect            regardless of the object value of            its vlanTrunkPortDynamicStatus.  default \-\- whether the fast start feature is enabled            or not on this port depends on the object             value of stpxFastStartGlobalDefaultMode.  network \-\- the fast start network mode is enabled on             this port
             	**type**\:  :py:class:`StpxFastStartPortMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable.StpxFastStartPortEntry.StpxFastStartPortMode>`
             
+            	**config**\: False
+            
             .. attribute:: stpxfaststartportbpduguardmode
             
             	Indicates the mode of Bpdu Guard Feature on the port. A port with Bpdu Guard enabled is  immediately disabled when the system  receives a BPDU from that port.   enable \-\- the Bpdu Guard feature is enabled on this           port.   disable \-\- the Bpdu Guard feature is disabled on this           port.  default \-\- whether the Bpdu Guard feature is enabled            or not on this port depends on the object            value of stpxFastStartBpduGuardEnable. If             the value of stpxFastStartBpduGuardEnable            is true(1) and Fast Start feature is also             enabled operationally on this port, then            this port is immediately disabled when             the system receives a BPDU from this port
             	**type**\:  :py:class:`StpxFastStartPortBpduGuardMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable.StpxFastStartPortEntry.StpxFastStartPortBpduGuardMode>`
             
+            	**config**\: False
+            
             .. attribute:: stpxfaststartportbpdufiltermode
             
             	Indicates the mode of Bpdu Filter Feature on the port. The system will not transmit BPDUs on a port  with Bpdu Filter feature enabled.  enable \-\- the Bpdu Filter feature is enabled on this            port.   disable \-\- the Bpdu Filter feature is disabled on this            port.  default \-\- whether the Bpdu Filter feature is enabled            or not on this port depends on the object            value of stpxFastStartBpduFilterEnable. If            the value of stpxFastStartBpduFilterEnable            is true(1) and Fast Start feature is also            enabled operationally on this port, then            no BPDUs will be transmitted on this port
             	**type**\:  :py:class:`StpxFastStartPortBpduFilterMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable.StpxFastStartPortEntry.StpxFastStartPortBpduFilterMode>`
+            
+            	**config**\: False
             
             
 
@@ -2290,6 +2524,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
+
+
     class StpxFastStartOperModeTable(Entity):
         """
         A table containing a list of the bridge ports 
@@ -2299,6 +2535,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	An entry with port fast start oper mode  information on a bridge port for a particular  Spanning Tree Instance
         	**type**\: list of  		 :py:class:`StpxFastStartOperModeEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable.StpxFastStartOperModeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2340,6 +2578,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxfaststartopermodeportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
@@ -2347,10 +2587,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxfaststartopermode
             
             	Indicates the fast start operational status of the  port on a particular Spanning Tree Instance
             	**type**\:  :py:class:`StpxFastStartOperMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable.StpxFastStartOperModeEntry.StpxFastStartOperMode>`
+            
+            	**config**\: False
             
             
 
@@ -2403,6 +2647,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
+
+
     class StpxBpduSkewingTable(Entity):
         """
         A table containing a list of the bridge ports for 
@@ -2425,6 +2671,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	A Spanning Tree instance on a particular port for which BPDU skewing has been detected
         	**type**\: list of  		 :py:class:`StpxBpduSkewingEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable.StpxBpduSkewingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2465,6 +2713,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxbpduskewingportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
@@ -2472,12 +2722,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxbpduskewinglastskewduration
             
             	Indicates the skew duration in milliseconds of the last BPDU skewing detected
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -2488,6 +2742,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: stpxbpduskewingworstskewtime
@@ -2496,6 +2752,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2533,6 +2791,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable.StpxBpduSkewingEntry, ['stpxbpduskewinginstanceindex', 'stpxbpduskewingportindex', 'stpxbpduskewinglastskewduration', 'stpxbpduskewingworstskewduration', 'stpxbpduskewingworstskewtime'], name, value)
 
 
+
+
     class StpxMSTInstanceTable(Entity):
         """
         This table contains MST instance information with
@@ -2546,6 +2806,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	A conceptual row containing the MST instance  information
         	**type**\: list of  		 :py:class:`StpxMSTInstanceEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable.StpxMSTInstanceEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -2588,6 +2850,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..256
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: stpxmstinstancevlansmapped
@@ -2596,6 +2860,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2606,6 +2872,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: stpxmstinstancevlansmapped3k
@@ -2614,6 +2882,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2624,6 +2894,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: stpxmstinstanceremaininghopcount
@@ -2632,6 +2904,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..40
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2673,6 +2947,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable.StpxMSTInstanceEntry, ['stpxmstinstanceindex', 'stpxmstinstancevlansmapped', 'stpxmstinstancevlansmapped2k', 'stpxmstinstancevlansmapped3k', 'stpxmstinstancevlansmapped4k', 'stpxmstinstanceremaininghopcount'], name, value)
 
 
+
+
     class StpxMSTInstanceEditTable(Entity):
         """
         This table contains MST instance information in the 
@@ -2690,6 +2966,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	A conceptual row containing MST instance information  in the Edit Buffer
         	**type**\: list of  		 :py:class:`StpxMSTInstanceEditEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable.StpxMSTInstanceEditEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -2732,6 +3010,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..256
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: stpxmstinstanceeditvlansmap
@@ -2740,6 +3020,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2750,6 +3032,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: stpxmstinstanceeditvlansmap3k
@@ -2759,6 +3043,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: stpxmstinstanceeditvlansmap4k
@@ -2767,6 +3053,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2806,6 +3094,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable.StpxMSTInstanceEditEntry, ['stpxmstinstanceeditindex', 'stpxmstinstanceeditvlansmap', 'stpxmstinstanceeditvlansmap2k', 'stpxmstinstanceeditvlansmap3k', 'stpxmstinstanceeditvlansmap4k'], name, value)
 
 
+
+
     class StpxMSTPortTable(Entity):
         """
         A table containing port information for the MST 
@@ -2816,6 +3106,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	An entry with port information for the MST Protocol on a bridge port
         	**type**\: list of  		 :py:class:`StpxMSTPortEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortTable.StpxMSTPortEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -2858,12 +3150,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: stpxmstportadminlinktype
             
             	Indicates the administrative link type configuration of  a bridge port for the MST protocol.   pointToPoint \-\- the port is administratively configured to         be connected to a point\-to\-point link.  shared \-\- the port is administratively configured to be         connected to a shared medium.   auto \-\- the administrative configuration of the port's          link type depends on link duplex of the port.         If the port link is full\-duplex, the administrative          link type configuration on this port will be taken          as pointTopoint(1). If the port link is half\-duplex,          the administrative link type configuration on this         port will be taken as shared(2).  This configuration of this object only takes effect when the stpxSpanningTreeType is mst(4) or rapidPvstPlus(5). stpxMSTPortAdminLinkType is deprecated and replaced  with stpxRSTPPortAdminLinkType
             	**type**\:  :py:class:`StpxMSTPortAdminLinkType <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortTable.StpxMSTPortEntry.StpxMSTPortAdminLinkType>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -2872,6 +3168,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             	Indicates the operational link type of a bridge port for the MST protocol.  pointToPoint \-\- the port is operationally connected to         a point\-to\-point link.  shared \-\- the port is operationally connected to          a shared medium.  other \-\- none of the above.  This object is only instantiated when the object value of stpxSpanningTreeType is mst(4).  stpxMSTPortOperLinkType  is deprecated and replaced with stpxRSTPPortOperLinkType
             	**type**\:  :py:class:`StpxMSTPortOperLinkType <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortTable.StpxMSTPortEntry.StpxMSTPortOperLinkType>`
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: stpxmstportprotocolmigration
@@ -2879,12 +3177,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             	The protocol migration control on this port. When the  object value of  stpxSpanningTreeType is mst(4) or  rapidPvstPlus(5), setting true(1) to this object forces  the device to try using version 2 BPDUs on this port.  When the object value of stpxSpanningTreeType is neither  mst(4) nor rapidPvstPlus(5), setting true(1) to this  object has no effect. Setting false(2) to this object has  no effect. This object always returns false(2) when read. stpxMSTPortProtocolMigration is deprecated and  replaced with stpxRSTPPortProtocolMigration
             	**type**\: bool
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: stpxmstportstatus
             
             	Indicates the operational status of the port for the  MST protocol.   edge \-\- this port is an edge port for the MST region.  boundary \-\- this port is a boundary port for the          MST region.  pvst \-\-  this port is connected to a PVST/PVST+ bridge.     stp \-\- this port is connected to a Single Spanning         Tree bridge.   This object is only instantiated when the object value of stpxSpanningTreeType is mst(4).  This object is deprecated and replaced by  stpxSMSTPortStatus
             	**type**\:  :py:class:`StpxMSTPortStatus <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortTable.StpxMSTPortEntry.StpxMSTPortStatus>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -3016,6 +3318,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
+
+
     class StpxMSTPortRoleTable(Entity):
         """
         A table containing a list of the bridge ports for a 
@@ -3029,6 +3333,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	An entry containing the port role information for the MST protocol on a port for a particular MST instance existing on the system
         	**type**\: list of  		 :py:class:`StpxMSTPortRoleEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable.StpxMSTPortRoleEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -3072,6 +3378,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..256
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: stpxmstportroleportindex  (key)
@@ -3081,12 +3389,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: stpxmstportrolevalue
             
             	Indicates the port role on a particular MST instance for the MST protocol.   disabled \-\-  this port has no role on this MST instance.   root \-\- this port has the role of root port on this MST             instance.   designated \-\- this port has the role of designated              port on this MST instance.  alternate \-\- this port has the role of alternate port             on this MST instance.  backUp \-\- this port has the role of backup port on this               MST instance.  boundary \-\- this port has the role of boundary port on              this MST instance.  master \-\- this port has the role of master port on           this MST instance
             	**type**\:  :py:class:`StpxMSTPortRoleValue <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable.StpxMSTPortRoleEntry.StpxMSTPortRoleValue>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -3187,6 +3499,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
+
+
     class StpxRSTPPortTable(Entity):
         """
         A table containing port information for the RSTP 
@@ -3197,6 +3511,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	An entry with port information for the RSTP Protocol on a bridge port
         	**type**\: list of  		 :py:class:`StpxRSTPPortEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable.StpxRSTPPortEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3237,20 +3553,28 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxrstpportadminlinktype
             
             	Indicates the administrative link type configuration of  a bridge port for the RSTP protocol.   pointToPoint \-\- the port is administratively configured to         be connected to a point\-to\-point link.  shared \-\- the port is administratively configured to be         connected to a shared medium.   auto \-\- the administrative configuration of the port's          link type depends on link duplex of the port.         If the port link is full\-duplex, the administrative          link type configuration on this port will be taken          as pointTopoint(1). If the port link is half\-duplex,          the administrative link type configuration on this         port will be taken as shared(2).  This configuration of this object only takes effect when the stpxSpanningTreeType is mst(4) or rapidPvstPlus(5)
             	**type**\:  :py:class:`StpxRSTPPortAdminLinkType <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable.StpxRSTPPortEntry.StpxRSTPPortAdminLinkType>`
+            
+            	**config**\: False
             
             .. attribute:: stpxrstpportoperlinktype
             
             	Indicates the operational link type of a bridge port for the RSTP protocol.  pointToPoint \-\- the port is operationally connected to         a point\-to\-point link.  shared \-\- the port is operationally connected to          a shared medium.  other \-\- none of the above.  This object is only instantiated when the object value of stpxSpanningTreeType is mst(4) or rapidPvstPlus(5)
             	**type**\:  :py:class:`StpxRSTPPortOperLinkType <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable.StpxRSTPPortEntry.StpxRSTPPortOperLinkType>`
             
+            	**config**\: False
+            
             .. attribute:: stpxrstpportprotocolmigration
             
             	The protocol migration control on this port. When the  object value of  stpxSpanningTreeType is mst(4) or  rapidPvstPlus(5), setting true(1) to this object forces  the device to try using version 2 BPDUs on this port.  When the object value of stpxSpanningTreeType is neither  mst(4) nor rapidPvstPlus(5), setting true(1) to  this object has no effect. Setting false(2) to this  object has no effect. This object always returns  false(2) when read
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -3372,6 +3696,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
+
+
     class StpxRSTPPortRoleTable(Entity):
         """
         A table containing a list of the bridge ports for a 
@@ -3383,6 +3709,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	An entry containing the port role information for the RSTP protocol on a port for a particular Spanning Tree instance
         	**type**\: list of  		 :py:class:`StpxRSTPPortRoleEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable.StpxRSTPPortRoleEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3423,6 +3751,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..4095
             
+            	**config**\: False
+            
             .. attribute:: stpxrstpportroleportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
@@ -3430,10 +3760,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxrstpportrolevalue
             
             	Indicates the port role on a particular Spanning Tree  instance for the RSTP protocol.   disabled \-\-  this port has no role in this Spanning             Tree instance.   root \-\- this port has the role of root port in this             Spanning Tree instance.   designated \-\- this port has the role of designated              port in this Spanning Tree instance.  alternate \-\- this port has the role of alternate port             in this Spanning Tree instance.  backUp \-\- this port has the role of backup port in this               Spanning Tree instance.  boundary \-\- this port has the role of boundary port in              this Spanning Tree instance.  master \-\- this port has the role of master port in             this Spanning Tree instance.  This object could have a value of 'boundary' or 'master' only when the object value of stpxSpanningTreeType is mst(4)
             	**type**\:  :py:class:`StpxRSTPPortRoleValue <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable.StpxRSTPPortRoleEntry.StpxRSTPPortRoleValue>`
+            
+            	**config**\: False
             
             
 
@@ -3538,6 +3872,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
 
 
 
+
+
     class StpxRPVSTPortTable(Entity):
         """
         A table containing a list of the bridge ports 
@@ -3549,6 +3885,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	An entry with port status information on a  bridge port for a particular Spanning Tree  Instance
         	**type**\: list of  		 :py:class:`StpxRPVSTPortEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable.StpxRPVSTPortEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3590,6 +3928,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..4095
             
+            	**config**\: False
+            
             .. attribute:: stpxrpvstportindex  (key)
             
             	The value of dot1dBasePort (i.e. dot1dBridge.1.4) for the bridge port
@@ -3597,10 +3937,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxrpvstportstatus
             
             	Indicates the operational status of the port for the  Rapid PVST+ protocol.  edge \-\- this port is an edge port for the RST region.  unused1 \-\- unused bit 1.  unused2 \-\- unused bit 2.  stp \-\- this port is connected to a Single Spanning        Tree/PVST+ bridge.  dispute \-\- this port, as a designated port, received an        inferior BPDU with a designated role and the        learning bit being set
             	**type**\:  :py:class:`StpxRPVSTPortStatus <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable.StpxRPVSTPortEntry.StpxRPVSTPortStatus>`
+            
+            	**config**\: False
             
             
 
@@ -3634,6 +3978,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable.StpxRPVSTPortEntry, ['stpxrpvstportvlanindex', 'stpxrpvstportindex', 'stpxrpvstportstatus'], name, value)
 
 
+
+
     class StpxSMSTInstanceTable(Entity):
         """
         This table contains MST instance information
@@ -3643,6 +3989,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	A conceptual row containing the MST instance  information for IEEE MST
         	**type**\: list of  		 :py:class:`StpxSMSTInstanceEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable.StpxSMSTInstanceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3683,12 +4031,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: stpxsmstinstancevlansmapped1k2k
             
             	A string of octets containing one bit per VLAN for VLANS with VlanIndex values of 0 through 2047. The first octet corresponds to VLANs with VlanIndex values of 0 through 7; the second octet to VLANs 8 through 15; etc.  The most significant bit of each octet corresponds to the lowest value VlanIndex in that octet.  For each VLAN, if it is mapped to this MST instance, then the bit corresponding to that VLAN is set to '1'. If the length of this string is less than 256 octets, any 'missing' octets are assumed to contain the value  of zero
             	**type**\: str
             
             	**length:** 0..256
+            
+            	**config**\: False
             
             .. attribute:: stpxsmstinstancevlansmapped3k4k
             
@@ -3697,12 +4049,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: stpxsmstinstanceremaininghopcount
             
             	The remaining hop count for this MST instance. If this object value is not applicable on an MST instance, then the value retrieved for this object for that MST instance will be \-1.   This object is only instantiated when the object value of stpxSpanningTreeType is mst(4)
             	**type**\: int
             
             	**range:** \-1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: stpxsmstinstancecistregionalroot
             
@@ -3711,12 +4067,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**length:** 8
             
+            	**config**\: False
+            
             .. attribute:: stpxsmstinstancecistintrootcost
             
             	Indicates the CIST Internal Root Path Cost, i.e., the path cost to the CIST Regional Root as specified by the corresponding stpxSMSTInstanceCISTRegionalRoot for the  MST region.  This object is only instantiated when the object value of stpxSpanningTreeType is mst(4) and stpxSMSTInstanceIndex is 0
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3756,6 +4116,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable.StpxSMSTInstanceEntry, ['stpxsmstinstanceindex', 'stpxsmstinstancevlansmapped1k2k', 'stpxsmstinstancevlansmapped3k4k', 'stpxsmstinstanceremaininghopcount', 'stpxsmstinstancecistregionalroot', 'stpxsmstinstancecistintrootcost'], name, value)
 
 
+
+
     class StpxSMSTInstanceEditTable(Entity):
         """
         This table contains MST instance information in the 
@@ -3769,6 +4131,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	A conceptual row containing MST instance information  in the Edit Buffer.  The total number of entries in this table has to be  less than or equal to the object value of stpxSMSTMaxInstances
         	**type**\: list of  		 :py:class:`StpxSMSTInstanceEditEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable.StpxSMSTInstanceEditEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3812,12 +4176,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: stpxsmstinstanceeditvlansmap1k2k
             
             	A string of octets containing one bit per VLAN for VLANS with VlanIndex values of 0 through 2047. The first octet corresponds to VLANs with VlanIndex values of 0 through 7; the second octet to VLANs 8 through 15; etc.  The most significant bit of each octet corresponds to the lowest value VlanIndex in that octet.  For each VLAN, if it is mapped to this MST instance,  then the bit corresponding to that VLAN is set to  '1'. Each VLAN can only be mapped to one unique MST  instance with the range from 0 to stpxSMSTMaxInstanceNumber. If the bit corresponding to a VLAN is changed from '1'  to '0', then that VLAN will be automatically mapped to  SMST instance 0 by the device. If the bit corresponding  to a VLAN is changed from '0' to '1', then that VLAN will  be automatically removed from the MST instance this VLAN was  previously mapped to. If the length of this string is  less than 256 octets, any 'missing' octets are assumed to  contain the value of zero
             	**type**\: str
             
             	**length:** 0..256
+            
+            	**config**\: False
             
             .. attribute:: stpxsmstinstanceeditvlansmap3k4k
             
@@ -3826,10 +4194,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: stpxsmstinstanceeditrowstatus
             
             	This object controls the creation and deletion of a row  in stpxSMSTInstanceEditTable.  When creating an entry in this table, 'createAndGo' method is used and the value of this object is set to 'active'. Deactivation of an 'active' entry is not allowed.  When  deleting an entry in this table, 'destroy' method is used.  Once a row becomes active, value in any other column  within such a row may be modified. When a row is active,  setting the instance of stpxSMSTInstanceEditVlansMap1k2k stpxSMSTInstanceEditVlansMap3k4k for the same MST instance both to the value of zero length can not be allowed
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -3865,6 +4237,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable.StpxSMSTInstanceEditEntry, ['stpxsmstinstanceeditindex', 'stpxsmstinstanceeditvlansmap1k2k', 'stpxsmstinstanceeditvlansmap3k4k', 'stpxsmstinstanceeditrowstatus'], name, value)
 
 
+
+
     class StpxSMSTPortTable(Entity):
         """
         A table containing port information for the MST 
@@ -3878,6 +4252,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         
         	An entry with port information for the MST protocol on a bridge port
         	**type**\: list of  		 :py:class:`StpxSMSTPortEntry <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable.StpxSMSTPortEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3918,10 +4294,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: stpxsmstportstatus
             
             	Indicates the operational status of the port for the  MST protocol.   edge \-\- this port is an edge port for the MST region.  boundary \-\- this port is a boundary port for the          MST region.  pvst \-\-  this port is connected to a PVST/PVST+ bridge.     stp \-\- this port is connected to a Single Spanning         Tree bridge.  dispute \-\- this port, as a designated port, received an         inferior BPDU with a designated role and the         learning bit being set.  rstp \-\- this port is connected to a RSTP bridge or an          MST bridge in a different MST region
             	**type**\:  :py:class:`StpxSMSTPortStatus <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable.StpxSMSTPortEntry.StpxSMSTPortStatus>`
+            
+            	**config**\: False
             
             .. attribute:: stpxsmstportadminhellotime
             
@@ -3929,6 +4309,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: hundredth of seconds
             
@@ -3939,6 +4321,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: hundredth of seconds
             
             .. attribute:: stpxsmstportoperhellotime
@@ -3948,6 +4332,8 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             
             	**range:** \-1..2147483647
             
+            	**config**\: False
+            
             	**units**\: hundredth of seconds
             
             .. attribute:: stpxsmstportadminmstmode
@@ -3955,10 +4341,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             	The desired MST mode of this port.  preStandard \-\- this port is administratively configured to     transmit pre\-standard, i.e. pre IEEE MST, BPDUs.  auto \-\- the BPDU transmission mode of this port is based      on automatic detection of neighbor ports
             	**type**\:  :py:class:`StpxSMSTPortAdminMSTMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable.StpxSMSTPortEntry.StpxSMSTPortAdminMSTMode>`
             
+            	**config**\: False
+            
             .. attribute:: stpxsmstportopermstmode
             
             	Indicates the current operational MST mode of this port.  unknown \-\- the operational mode is currently unknown.  preStandard \-\- this port is currently operating in      pre\-standard MSTP BPDU transmission mode.  standard \-\- this port is currently operating in IEEE MST      BPDU transmission mode
             	**type**\:  :py:class:`StpxSMSTPortOperMSTMode <ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB.CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable.StpxSMSTPortEntry.StpxSMSTPortOperMSTMode>`
+            
+            	**config**\: False
             
             
 
@@ -4055,7 +4445,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 standard = Enum.YLeaf(3, "standard")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOSTPEXTENSIONSMIB()
         return self._top_entity
+
+
 

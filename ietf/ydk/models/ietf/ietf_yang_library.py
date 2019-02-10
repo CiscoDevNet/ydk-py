@@ -36,10 +36,14 @@ class ModulesState(Entity):
     
     	**mandatory**\: True
     
+    	**config**\: False
+    
     .. attribute:: module
     
     	Each entry represents one revision of one module currently supported by the server
     	**type**\: list of  		 :py:class:`Module <ydk.models.ietf.ietf_yang_library.ModulesState.Module>`
+    
+    	**config**\: False
     
     
 
@@ -81,7 +85,9 @@ class ModulesState(Entity):
         	The YANG module or submodule name
         	**type**\: str
         
-        	**pattern:** [a\-zA\-Z\_][a\-zA\-Z0\-9\\\-\_.]\*
+        	**length:** 1..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: revision  (key)
         
@@ -96,10 +102,14 @@ class ModulesState(Entity):
         
         			**length:** 0
         
+        	**config**\: False
+        
         .. attribute:: schema
         
         	Contains a URL that represents the YANG schema resource for this module or submodule. This leaf will only be present if there is a URL available for retrieval of the schema for this entry
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: namespace
         
@@ -108,17 +118,23 @@ class ModulesState(Entity):
         
         	**mandatory**\: True
         
+        	**config**\: False
+        
         .. attribute:: feature
         
         	List of YANG feature names from this module that are supported by the server, regardless of whether they are defined in the module or any included submodule
         	**type**\: list of str
         
-        	**pattern:** [a\-zA\-Z\_][a\-zA\-Z0\-9\\\-\_.]\*
+        	**length:** 1..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: deviation
         
         	List of YANG deviation module names and revisions used by this server to modify the conformance of the module associated with this entry.  Note that the same module can be used for deviations for multiple modules, so the same entry MAY appear within multiple 'module' entries. The deviation module MUST be present in the 'module' list, with the same name and revision values. The 'conformance\-type' value will be 'implement' for the deviation module
         	**type**\: list of  		 :py:class:`Deviation <ydk.models.ietf.ietf_yang_library.ModulesState.Module.Deviation>`
+        
+        	**config**\: False
         
         .. attribute:: conformance_type
         
@@ -127,10 +143,14 @@ class ModulesState(Entity):
         
         	**mandatory**\: True
         
+        	**config**\: False
+        
         .. attribute:: submodule
         
         	Each entry represents one submodule within the parent module
         	**type**\: list of  		 :py:class:`Submodule <ydk.models.ietf.ietf_yang_library.ModulesState.Module.Submodule>`
+        
+        	**config**\: False
         
         
 
@@ -246,7 +266,9 @@ class ModulesState(Entity):
             	The YANG module or submodule name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z\_][a\-zA\-Z0\-9\\\-\_.]\*
+            	**length:** 1..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: revision  (key)
             
@@ -260,6 +282,8 @@ class ModulesState(Entity):
             		**type**\: str
             
             			**length:** 0
+            
+            	**config**\: False
             
             
 
@@ -290,6 +314,7 @@ class ModulesState(Entity):
                 self._perform_setattr(ModulesState.Module.Deviation, ['name', 'revision'], name, value)
 
 
+
         class Submodule(Entity):
             """
             Each entry represents one submodule within the
@@ -300,7 +325,9 @@ class ModulesState(Entity):
             	The YANG module or submodule name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z\_][a\-zA\-Z0\-9\\\-\_.]\*
+            	**length:** 1..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: revision  (key)
             
@@ -315,10 +342,14 @@ class ModulesState(Entity):
             
             			**length:** 0
             
+            	**config**\: False
+            
             .. attribute:: schema
             
             	Contains a URL that represents the YANG schema resource for this module or submodule. This leaf will only be present if there is a URL available for retrieval of the schema for this entry
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -350,7 +381,11 @@ class ModulesState(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ModulesState.Module.Submodule, ['name', 'revision', 'schema'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ModulesState()
         return self._top_entity
+
+
 

@@ -135,6 +135,8 @@ class Lacp(Entity):
     	Operational state data for LACP
     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_lacp.Lacp.State>`
     
+    	**config**\: False
+    
     .. attribute:: interfaces
     
     	Enclosing container for the list of LACP\-enabled interfaces
@@ -216,6 +218,7 @@ class Lacp(Entity):
             self._perform_setattr(Lacp.Config, ['system_priority'], name, value)
 
 
+
     class State(Entity):
         """
         Operational state data for LACP
@@ -226,6 +229,8 @@ class Lacp(Entity):
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         
 
@@ -253,6 +258,7 @@ class Lacp(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lacp.State, ['system_priority'], name, value)
+
 
 
     class Interfaces(Entity):
@@ -313,10 +319,14 @@ class Lacp(Entity):
             	Operational state data for each LACP aggregate interface
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces.Interface.State>`
             
+            	**config**\: False
+            
             .. attribute:: members
             
             	Enclosing container for the list of members interfaces of the aggregate. This list is considered operational state only so is labeled config false and has no config container
             	**type**\:  :py:class:`Members <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces.Interface.Members>`
+            
+            	**config**\: False
             
             
 
@@ -432,6 +442,7 @@ class Lacp(Entity):
                     self._perform_setattr(Lacp.Interfaces.Interface.Config, ['name', 'interval', 'lacp_mode', 'system_id_mac', 'system_priority'], name, value)
 
 
+
             class State(Entity):
                 """
                 Operational state data for each LACP aggregate
@@ -444,10 +455,14 @@ class Lacp(Entity):
                 
                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
+                	**config**\: False
+                
                 .. attribute:: interval
                 
                 	Set the period between LACP messages \-\- uses the lacp\-period\-type enumeration
                 	**type**\:  :py:class:`LacpPeriodType <ydk.models.openconfig.openconfig_lacp.LacpPeriodType>`
+                
+                	**config**\: False
                 
                 	**default value**\: SLOW
                 
@@ -455,6 +470,8 @@ class Lacp(Entity):
                 
                 	ACTIVE is to initiate the transmission of LACP packets. PASSIVE is to wait for peer to initiate the transmission of LACP packets
                 	**type**\:  :py:class:`LacpActivityType <ydk.models.openconfig.openconfig_lacp.LacpActivityType>`
+                
+                	**config**\: False
                 
                 	**default value**\: ACTIVE
                 
@@ -465,12 +482,16 @@ class Lacp(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: system_priority
                 
                 	Sytem priority used by the node on this LAG interface. Lower value is higher priority for determining which node is the controlling system
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -507,6 +528,7 @@ class Lacp(Entity):
                     self._perform_setattr(Lacp.Interfaces.Interface.State, ['name', 'interval', 'lacp_mode', 'system_id_mac', 'system_priority'], name, value)
 
 
+
             class Members(Entity):
                 """
                 Enclosing container for the list of members interfaces of
@@ -517,6 +539,8 @@ class Lacp(Entity):
                 
                 	List of member interfaces and their associated status for a LACP\-controlled aggregate interface.  Member list is not configurable here \-\- each interface indicates items its participation in the LAG
                 	**type**\: list of  		 :py:class:`Member <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces.Interface.Members.Member>`
+                
+                	**config**\: False
                 
                 
 
@@ -558,10 +582,14 @@ class Lacp(Entity):
                     
                     	**refers to**\:  :py:class:`interface <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces.Interface.Members.Member.State>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Operational state data for aggregate members
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces.Interface.Members.Member.State>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -605,35 +633,49 @@ class Lacp(Entity):
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: activity
                         
                         	Indicates participant is active or passive
                         	**type**\:  :py:class:`LacpActivityType <ydk.models.openconfig.openconfig_lacp.LacpActivityType>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: timeout
                         
                         	The timeout type (short or long) used by the participant
                         	**type**\:  :py:class:`LacpTimeoutType <ydk.models.openconfig.openconfig_lacp.LacpTimeoutType>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: synchronization
                         
                         	Indicates whether the participant is in\-sync or out\-of\-sync
                         	**type**\:  :py:class:`LacpSynchronizationType <ydk.models.openconfig.openconfig_lacp.LacpSynchronizationType>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: aggregatable
                         
                         	A true value indicates that the participant will allow the link to be used as part of the aggregate. A false value indicates the link should be used as an individual link
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: collecting
                         
                         	If true, the participant is collecting incoming frames on the link, otherwise false
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: distributing
                         
                         	When true, the participant is distributing outgoing frames; when false, distribution is disabled
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: system_id
                         
@@ -642,12 +684,16 @@ class Lacp(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: oper_key
                         
                         	Current operational value of the key for the aggregate interface
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: partner_id
                         
@@ -656,6 +702,8 @@ class Lacp(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: partner_key
                         
                         	Operational value of the protocol partner's key
@@ -663,10 +711,14 @@ class Lacp(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: counters
                         
                         	LACP protocol counters
                         	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces.Interface.Members.Member.State.Counters>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -730,12 +782,16 @@ class Lacp(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: lacp_out_pkts
                             
                             	Number of LACPDUs transmitted
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: lacp_rx_errors
                             
@@ -744,12 +800,16 @@ class Lacp(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: lacp_tx_errors
                             
                             	Number of LACPDU transmit packet errors
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: lacp_unknown_errors
                             
@@ -758,12 +818,16 @@ class Lacp(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: lacp_errors
                             
                             	Number of LACPDU illegal packet errors
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             
 
@@ -801,7 +865,15 @@ class Lacp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lacp.Interfaces.Interface.Members.Member.State.Counters, ['lacp_in_pkts', 'lacp_out_pkts', 'lacp_rx_errors', 'lacp_tx_errors', 'lacp_unknown_errors', 'lacp_errors'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Lacp()
         return self._top_entity
+
+
 

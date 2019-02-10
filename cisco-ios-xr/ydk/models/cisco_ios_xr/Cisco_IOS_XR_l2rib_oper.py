@@ -378,40 +378,56 @@ class L2rib(Entity):
     	L2RIB detailed producer table
     	**type**\:  :py:class:`ProducersDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ProducersDetails>`
     
+    	**config**\: False
+    
     .. attribute:: summary
     
     	L2RIB EVPN Summary
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Summary>`
+    
+    	**config**\: False
     
     .. attribute:: producers
     
     	L2RIB producer table
     	**type**\:  :py:class:`Producers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Producers>`
     
+    	**config**\: False
+    
     .. attribute:: clients
     
     	L2RIB client table
     	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Clients>`
+    
+    	**config**\: False
     
     .. attribute:: evis_xr
     
     	L2RIB EVPN EVI Detail Table
     	**type**\:  :py:class:`EvisXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EvisXr>`
     
+    	**config**\: False
+    
     .. attribute:: clients_details
     
     	L2RIB detailed client table
     	**type**\:  :py:class:`ClientsDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ClientsDetails>`
+    
+    	**config**\: False
     
     .. attribute:: evi_child_tables
     
     	Container for all EVI Child Tables
     	**type**\:  :py:class:`EviChildTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables>`
     
+    	**config**\: False
+    
     .. attribute:: evis
     
     	L2RIB EVPN EVI Table
     	**type**\:  :py:class:`Evis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Evis>`
+    
+    	**config**\: False
     
     
 
@@ -479,6 +495,8 @@ class L2rib(Entity):
         	L2RIB producers detail information
         	**type**\: list of  		 :py:class:`ProducersDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ProducersDetails.ProducersDetail>`
         
+        	**config**\: False
+        
         
 
         """
@@ -517,6 +535,8 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: product_id
             
             	Product ID
@@ -524,15 +544,21 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: producer
             
             	Non\-detail Producer Bag
             	**type**\:  :py:class:`Producer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ProducersDetails.ProducersDetail.Producer>`
             
+            	**config**\: False
+            
             .. attribute:: statistics
             
             	Producer Statistics
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ProducersDetails.ProducersDetail.Statistics>`
+            
+            	**config**\: False
             
             .. attribute:: last_update_timestamp
             
@@ -540,6 +566,8 @@ class L2rib(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -592,20 +620,28 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: object_type
                 
                 	Object Type
                 	**type**\:  :py:class:`L2ribBagObj <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribBagObj>`
+                
+                	**config**\: False
                 
                 .. attribute:: producer_id
                 
                 	Producer ID
                 	**type**\:  :py:class:`L2ribBagProducerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribBagProducerId>`
                 
+                	**config**\: False
+                
                 .. attribute:: producer_name
                 
                 	Producer Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: admin_distance
                 
@@ -614,6 +650,8 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: purge_time
                 
                 	Purge Time
@@ -621,10 +659,14 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Producer State
                 	**type**\:  :py:class:`L2ribBagProducerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribBagProducerState>`
+                
+                	**config**\: False
                 
                 
 
@@ -666,6 +708,7 @@ class L2rib(Entity):
                     self._perform_setattr(L2rib.ProducersDetails.ProducersDetail.Producer, ['client_id', 'object_type', 'producer_id', 'producer_name', 'admin_distance', 'purge_time', 'state'], name, value)
 
 
+
             class Statistics(Entity):
                 """
                 Producer Statistics
@@ -675,15 +718,21 @@ class L2rib(Entity):
                 	Statistics
                 	**type**\:  :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ProducersDetails.ProducersDetail.Statistics.Statistics_>`
                 
+                	**config**\: False
+                
                 .. attribute:: producer_id
                 
                 	Producer ID
                 	**type**\:  :py:class:`L2ribBagProducerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribBagProducerId>`
                 
+                	**config**\: False
+                
                 .. attribute:: producer_name
                 
                 	Producer Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -730,12 +779,16 @@ class L2rib(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: object_count
                     
                     	Number of Objects
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: endof_interval_ts
                     
@@ -744,10 +797,14 @@ class L2rib(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: extended_counter
                     
                     	Extended Counters
                     	**type**\: list of  		 :py:class:`ExtendedCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ProducersDetails.ProducersDetail.Statistics.Statistics_.ExtendedCounter>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -794,10 +851,14 @@ class L2rib(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter_name
                         
                         	CounterName
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: l2rb_first_event_ts
                         
@@ -806,12 +867,16 @@ class L2rib(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: l2rb_last_event_ts
                         
                         	Real\-clock timestamp in msec of last event
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: l2rb_interval_event_count
                         
@@ -820,12 +885,16 @@ class L2rib(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: l2rb_total_event_count
                         
                         	total number of events
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -865,6 +934,11 @@ class L2rib(Entity):
                             self._perform_setattr(L2rib.ProducersDetails.ProducersDetail.Statistics.Statistics_.ExtendedCounter, ['counter_type', 'counter_name', 'l2rb_first_event_ts', 'l2rb_last_event_ts', 'l2rb_interval_event_count', 'l2rb_total_event_count'], name, value)
 
 
+
+
+
+
+
     class Summary(Entity):
         """
         L2RIB EVPN Summary
@@ -876,6 +950,8 @@ class L2rib(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: total_memory
         
         	Total Allocated Memory
@@ -883,10 +959,14 @@ class L2rib(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: table_summary
         
         	Per Object Table summary
         	**type**\: list of  		 :py:class:`TableSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Summary.TableSummary>`
+        
+        	**config**\: False
         
         
 
@@ -929,12 +1009,16 @@ class L2rib(Entity):
             	Object Type
             	**type**\:  :py:class:`L2ribBagObj <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribBagObj>`
             
+            	**config**\: False
+            
             .. attribute:: object_count
             
             	Number of Objects
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: table_memory
             
@@ -943,10 +1027,14 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: producer_stat
             
             	Statistics per producer
             	**type**\: list of  		 :py:class:`ProducerStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Summary.TableSummary.ProducerStat>`
+            
+            	**config**\: False
             
             
 
@@ -991,15 +1079,21 @@ class L2rib(Entity):
                 	Statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Summary.TableSummary.ProducerStat.Statistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: producer_id
                 
                 	Producer ID
                 	**type**\:  :py:class:`L2ribBagProducerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribBagProducerId>`
                 
+                	**config**\: False
+                
                 .. attribute:: producer_name
                 
                 	Producer Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1046,12 +1140,16 @@ class L2rib(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: object_count
                     
                     	Number of Objects
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: endof_interval_ts
                     
@@ -1060,10 +1158,14 @@ class L2rib(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: extended_counter
                     
                     	Extended Counters
                     	**type**\: list of  		 :py:class:`ExtendedCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Summary.TableSummary.ProducerStat.Statistics.ExtendedCounter>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1110,10 +1212,14 @@ class L2rib(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter_name
                         
                         	CounterName
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: l2rb_first_event_ts
                         
@@ -1122,12 +1228,16 @@ class L2rib(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: l2rb_last_event_ts
                         
                         	Real\-clock timestamp in msec of last event
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: l2rb_interval_event_count
                         
@@ -1136,12 +1246,16 @@ class L2rib(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: l2rb_total_event_count
                         
                         	total number of events
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1181,6 +1295,11 @@ class L2rib(Entity):
                             self._perform_setattr(L2rib.Summary.TableSummary.ProducerStat.Statistics.ExtendedCounter, ['counter_type', 'counter_name', 'l2rb_first_event_ts', 'l2rb_last_event_ts', 'l2rb_interval_event_count', 'l2rb_total_event_count'], name, value)
 
 
+
+
+
+
+
     class Producers(Entity):
         """
         L2RIB producer table
@@ -1189,6 +1308,8 @@ class L2rib(Entity):
         
         	L2RIB producers
         	**type**\: list of  		 :py:class:`Producer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Producers.Producer>`
+        
+        	**config**\: False
         
         
 
@@ -1228,12 +1349,16 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: product_id
             
             	Product ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: client_id
             
@@ -1242,20 +1367,28 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: object_type
             
             	Object Type
             	**type**\:  :py:class:`L2ribBagObj <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribBagObj>`
+            
+            	**config**\: False
             
             .. attribute:: producer_id
             
             	Producer ID
             	**type**\:  :py:class:`L2ribBagProducerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribBagProducerId>`
             
+            	**config**\: False
+            
             .. attribute:: producer_name
             
             	Producer Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: admin_distance
             
@@ -1264,6 +1397,8 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: purge_time
             
             	Purge Time
@@ -1271,10 +1406,14 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	Producer State
             	**type**\:  :py:class:`L2ribBagProducerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribBagProducerState>`
+            
+            	**config**\: False
             
             
 
@@ -1320,6 +1459,8 @@ class L2rib(Entity):
                 self._perform_setattr(L2rib.Producers.Producer, ['object_id', 'product_id', 'client_id', 'object_type', 'producer_id', 'producer_name', 'admin_distance', 'purge_time', 'state'], name, value)
 
 
+
+
     class Clients(Entity):
         """
         L2RIB client table
@@ -1328,6 +1469,8 @@ class L2rib(Entity):
         
         	L2RIB clients
         	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Clients.Client>`
+        
+        	**config**\: False
         
         
 
@@ -1367,12 +1510,16 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: client_id_xr
             
             	Client ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: process_id
             
@@ -1381,6 +1528,8 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_id
             
             	Node ID
@@ -1388,15 +1537,21 @@ class L2rib(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: proc_name
             
             	Process Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: proc_suffix
             
             	Process Suffix
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1436,6 +1591,8 @@ class L2rib(Entity):
                 self._perform_setattr(L2rib.Clients.Client, ['client_id', 'client_id_xr', 'process_id', 'node_id', 'proc_name', 'proc_suffix'], name, value)
 
 
+
+
     class EvisXr(Entity):
         """
         L2RIB EVPN EVI Detail Table
@@ -1444,6 +1601,8 @@ class L2rib(Entity):
         
         	L2RIB EVPN EVI Entry
         	**type**\: list of  		 :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EvisXr.Evi>`
+        
+        	**config**\: False
         
         
 
@@ -1483,10 +1642,14 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: topology
             
             	Topology
             	**type**\:  :py:class:`Topology <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EvisXr.Evi.Topology>`
+            
+            	**config**\: False
             
             .. attribute:: l2r_vni
             
@@ -1495,12 +1658,16 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: l2r_encap_type
             
             	l2r encap type
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: l2r_nve_iod
             
@@ -1509,6 +1676,8 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: l2r_nve_ifhandle
             
             	l2r nve ifhandle
@@ -1516,10 +1685,14 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: vtep_ip
             
             	VTEP IP
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: l2r_topo_txid
             
@@ -1528,12 +1701,16 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: l2r_topo_flags
             
             	Topology Flags
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1592,10 +1769,14 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: topology_name
                 
                 	Topology Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: topology_type
                 
@@ -1603,6 +1784,8 @@ class L2rib(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1635,6 +1818,9 @@ class L2rib(Entity):
                     self._perform_setattr(L2rib.EvisXr.Evi.Topology, ['topology_id', 'topology_name', 'topology_type'], name, value)
 
 
+
+
+
     class ClientsDetails(Entity):
         """
         L2RIB detailed client table
@@ -1643,6 +1829,8 @@ class L2rib(Entity):
         
         	L2RIB clients detail information
         	**type**\: list of  		 :py:class:`ClientsDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ClientsDetails.ClientsDetail>`
+        
+        	**config**\: False
         
         
 
@@ -1682,15 +1870,21 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: client
             
             	Non\-detail Client bag
             	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ClientsDetails.ClientsDetail.Client>`
             
+            	**config**\: False
+            
             .. attribute:: registration_table_statistics
             
             	Registration table statistics
             	**type**\:  :py:class:`RegistrationTableStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics>`
+            
+            	**config**\: False
             
             .. attribute:: producer_count
             
@@ -1699,6 +1893,8 @@ class L2rib(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: last_update_timestamp
             
             	Last Update Timestamp
@@ -1706,10 +1902,14 @@ class L2rib(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: producer_array
             
             	List of Producers
             	**type**\: list of  		 :py:class:`ProducerArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ClientsDetails.ClientsDetail.ProducerArray>`
+            
+            	**config**\: False
             
             
 
@@ -1764,12 +1964,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: process_id
                 
                 	Process ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: node_id
                 
@@ -1778,15 +1982,21 @@ class L2rib(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: proc_name
                 
                 	Process Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: proc_suffix
                 
                 	Process Suffix
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1823,6 +2033,7 @@ class L2rib(Entity):
                     self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.Client, ['client_id_xr', 'process_id', 'node_id', 'proc_name', 'proc_suffix'], name, value)
 
 
+
             class RegistrationTableStatistics(Entity):
                 """
                 Registration table statistics
@@ -1832,15 +2043,21 @@ class L2rib(Entity):
                 	Statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: producer_id
                 
                 	Producer ID
                 	**type**\:  :py:class:`L2ribBagProducerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribBagProducerId>`
                 
+                	**config**\: False
+                
                 .. attribute:: producer_name
                 
                 	Producer Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1886,12 +2103,16 @@ class L2rib(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: object_count
                     
                     	Number of Objects
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: endof_interval_ts
                     
@@ -1900,10 +2121,14 @@ class L2rib(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: extended_counter
                     
                     	Extended Counters
                     	**type**\: list of  		 :py:class:`ExtendedCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics.ExtendedCounter>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1949,10 +2174,14 @@ class L2rib(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: counter_name
                         
                         	CounterName
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: l2rb_first_event_ts
                         
@@ -1961,12 +2190,16 @@ class L2rib(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: l2rb_last_event_ts
                         
                         	Real\-clock timestamp in msec of last event
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: l2rb_interval_event_count
                         
@@ -1975,12 +2208,16 @@ class L2rib(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: l2rb_total_event_count
                         
                         	total number of events
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2019,6 +2256,9 @@ class L2rib(Entity):
                             self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.RegistrationTableStatistics.Statistics.ExtendedCounter, ['counter_type', 'counter_name', 'l2rb_first_event_ts', 'l2rb_last_event_ts', 'l2rb_interval_event_count', 'l2rb_total_event_count'], name, value)
 
 
+
+
+
             class ProducerArray(Entity):
                 """
                 List of Producers
@@ -2028,15 +2268,21 @@ class L2rib(Entity):
                 	Object Type
                 	**type**\:  :py:class:`L2ribBagObj <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribBagObj>`
                 
+                	**config**\: False
+                
                 .. attribute:: producer_id
                 
                 	Producer ID
                 	**type**\:  :py:class:`L2ribBagProducerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribBagProducerId>`
                 
+                	**config**\: False
+                
                 .. attribute:: producer_name
                 
                 	Producer Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: admin_distance
                 
@@ -2045,12 +2291,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: purge_time
                 
                 	Purge Time
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2087,6 +2337,9 @@ class L2rib(Entity):
                     self._perform_setattr(L2rib.ClientsDetails.ClientsDetail.ProducerArray, ['object_type', 'producer_id', 'producer_name', 'admin_distance', 'purge_time'], name, value)
 
 
+
+
+
     class EviChildTables(Entity):
         """
         Container for all EVI Child Tables
@@ -2096,30 +2349,42 @@ class L2rib(Entity):
         	L2RIB EVPN EVI MAC IP Detail table
         	**type**\:  :py:class:`MacipDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacipDetails>`
         
+        	**config**\: False
+        
         .. attribute:: mac_ips
         
         	L2RIB EVPN EVI MAC IP table
         	**type**\:  :py:class:`MacIps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacIps>`
+        
+        	**config**\: False
         
         .. attribute:: macs
         
         	L2RIB EVPN EVI MAC table
         	**type**\:  :py:class:`Macs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs>`
         
+        	**config**\: False
+        
         .. attribute:: imets
         
         	L2RIB EVPN EVI IMET table
         	**type**\:  :py:class:`Imets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Imets>`
+        
+        	**config**\: False
         
         .. attribute:: mac_details
         
         	L2RIB EVPN EVI MAC Detail table
         	**type**\:  :py:class:`MacDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails>`
         
+        	**config**\: False
+        
         .. attribute:: imet_details
         
         	L2RIB EVPN EVI IMET Detail table
         	**type**\:  :py:class:`ImetDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.ImetDetails>`
+        
+        	**config**\: False
         
         
 
@@ -2179,6 +2444,8 @@ class L2rib(Entity):
             	L2RIB EVPN MAC IP Detail table
             	**type**\: list of  		 :py:class:`MacipDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacipDetails.MacipDetail>`
             
+            	**config**\: False
+            
             
 
             """
@@ -2217,6 +2484,8 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tag_id
                 
                 	Tag ID
@@ -2224,12 +2493,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mac_addr
                 
                 	MAC IP Address
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                	**config**\: False
                 
                 .. attribute:: ip_addr
                 
@@ -2244,12 +2517,16 @@ class L2rib(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: admin_dist
                 
                 	Admin distance
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: prod_id
                 
@@ -2258,20 +2535,28 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mac_ip_route
                 
                 	MAC\-IP Route
                 	**type**\:  :py:class:`MacIpRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute>`
+                
+                	**config**\: False
                 
                 .. attribute:: rt_tlv
                 
                 	Mac\-IP Route Opaque Data TLV
                 	**type**\:  :py:class:`RtTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacipDetails.MacipDetail.RtTlv>`
                 
+                	**config**\: False
+                
                 .. attribute:: nh_tlv
                 
                 	Mac\-IP Route Opaque NH TLV
                 	**type**\:  :py:class:`NhTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacipDetails.MacipDetail.NhTlv>`
+                
+                	**config**\: False
                 
                 .. attribute:: sequence_number
                 
@@ -2280,12 +2565,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: flags
                 
                 	MAC\-IP route flags
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: soo
                 
@@ -2294,12 +2583,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: last_update_timestamp
                 
                 	Last Update Timestamp
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -2368,6 +2661,8 @@ class L2rib(Entity):
                     	Next Hop
                     	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: mac_address
                     
                     	MAC Address
@@ -2375,10 +2670,14 @@ class L2rib(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: ip_address
                     
                     	IP Address
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: admin_distance
                     
@@ -2387,6 +2686,8 @@ class L2rib(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: producer_id
                     
                     	Producer ID
@@ -2394,12 +2695,16 @@ class L2rib(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: topology_id
                     
                     	Topology ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2450,6 +2755,8 @@ class L2rib(Entity):
                         	Next hop
                         	**type**\:  :py:class:`NextHop_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: topology_id
                         
                         	Next\-hop TOPOLOGY ID
@@ -2457,12 +2764,16 @@ class L2rib(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: flags
                         
                         	Next\-hop flags
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -2507,10 +2818,14 @@ class L2rib(Entity):
                             	Labeled Next Hop
                             	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_.Labeled>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Type
                             	**type**\:  :py:class:`L2ribNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribNextHop>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv4
                             
@@ -2519,12 +2834,16 @@ class L2rib(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv6
                             
                             	IPV6 address Next Hop
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: mac
                             
@@ -2533,6 +2852,8 @@ class L2rib(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_handle
                             
                             	Intefrace Handle Next Hop
@@ -2540,12 +2861,16 @@ class L2rib(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: xid
                             
                             	XID Next Hop
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2598,10 +2923,14 @@ class L2rib(Entity):
                                 	L2RIB Address Family
                                 	**type**\:  :py:class:`L2ribAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribAfi>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ip_address
                                 
                                 	IP Address
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: label
                                 
@@ -2610,10 +2939,14 @@ class L2rib(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: internal
                                 
                                 	Internal Label
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2649,6 +2982,10 @@ class L2rib(Entity):
                                     self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.MacIpRoute.NextHop.NextHop_.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
+
+
+
+
                 class RtTlv(Entity):
                     """
                     Mac\-IP Route Opaque Data TLV
@@ -2660,6 +2997,8 @@ class L2rib(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: tlv_len
                     
                     	TLV Length
@@ -2667,10 +3006,14 @@ class L2rib(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: tlv_val
                     
                     	TLV Value
                     	**type**\: list of  		 :py:class:`TlvVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacipDetails.MacipDetail.RtTlv.TlvVal>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2715,6 +3058,8 @@ class L2rib(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2743,6 +3088,8 @@ class L2rib(Entity):
                             self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.RtTlv.TlvVal, ['entry'], name, value)
 
 
+
+
                 class NhTlv(Entity):
                     """
                     Mac\-IP Route Opaque NH TLV
@@ -2754,6 +3101,8 @@ class L2rib(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: tlv_len
                     
                     	TLV Length
@@ -2761,10 +3110,14 @@ class L2rib(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: tlv_val
                     
                     	TLV Value
                     	**type**\: list of  		 :py:class:`TlvVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacipDetails.MacipDetail.NhTlv.TlvVal>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2809,6 +3162,8 @@ class L2rib(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2837,6 +3192,10 @@ class L2rib(Entity):
                             self._perform_setattr(L2rib.EviChildTables.MacipDetails.MacipDetail.NhTlv.TlvVal, ['entry'], name, value)
 
 
+
+
+
+
         class MacIps(Entity):
             """
             L2RIB EVPN EVI MAC IP table
@@ -2845,6 +3204,8 @@ class L2rib(Entity):
             
             	L2RIB EVPN MAC IP table
             	**type**\: list of  		 :py:class:`MacIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacIps.MacIp>`
+            
+            	**config**\: False
             
             
 
@@ -2884,6 +3245,8 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tag_id
                 
                 	Tag ID
@@ -2891,12 +3254,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mac_addr
                 
                 	MAC\-IP Address
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                	**config**\: False
                 
                 .. attribute:: ip_addr
                 
@@ -2911,12 +3278,16 @@ class L2rib(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: admin_dist
                 
                 	Admin distance
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: prod_id
                 
@@ -2925,10 +3296,14 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: next_hop
                 
                 	Next Hop
                 	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacIps.MacIp.NextHop>`
+                
+                	**config**\: False
                 
                 .. attribute:: mac_address
                 
@@ -2937,10 +3312,14 @@ class L2rib(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: ip_address
                 
                 	IP Address
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: admin_distance
                 
@@ -2949,6 +3328,8 @@ class L2rib(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: producer_id
                 
                 	Producer ID
@@ -2956,12 +3337,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: topology_id
                 
                 	Topology ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -3024,6 +3409,8 @@ class L2rib(Entity):
                     	Next hop
                     	**type**\:  :py:class:`NextHop_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: topology_id
                     
                     	Next\-hop TOPOLOGY ID
@@ -3031,12 +3418,16 @@ class L2rib(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: flags
                     
                     	Next\-hop flags
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -3081,10 +3472,14 @@ class L2rib(Entity):
                         	Labeled Next Hop
                         	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_.Labeled>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Type
                         	**type**\:  :py:class:`L2ribNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribNextHop>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: ipv4
                         
@@ -3093,12 +3488,16 @@ class L2rib(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPV6 address Next Hop
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: mac
                         
@@ -3107,6 +3506,8 @@ class L2rib(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_handle
                         
                         	Intefrace Handle Next Hop
@@ -3114,12 +3515,16 @@ class L2rib(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: xid
                         
                         	XID Next Hop
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -3172,10 +3577,14 @@ class L2rib(Entity):
                             	L2RIB Address Family
                             	**type**\:  :py:class:`L2ribAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribAfi>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ip_address
                             
                             	IP Address
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: label
                             
@@ -3184,10 +3593,14 @@ class L2rib(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: internal
                             
                             	Internal Label
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -3223,6 +3636,11 @@ class L2rib(Entity):
                                 self._perform_setattr(L2rib.EviChildTables.MacIps.MacIp.NextHop.NextHop_.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
+
+
+
+
+
         class Macs(Entity):
             """
             L2RIB EVPN EVI MAC table
@@ -3231,6 +3649,8 @@ class L2rib(Entity):
             
             	L2RIB EVPN MAC table
             	**type**\: list of  		 :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac>`
+            
+            	**config**\: False
             
             
 
@@ -3270,12 +3690,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tag_id
                 
                 	Tag ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: mac_addr
                 
@@ -3284,12 +3708,16 @@ class L2rib(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: admin_dist
                 
                 	Admin distance
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: prod_id
                 
@@ -3298,10 +3726,14 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: route
                 
                 	MAC route
                 	**type**\:  :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route>`
+                
+                	**config**\: False
                 
                 .. attribute:: mac_address
                 
@@ -3310,12 +3742,16 @@ class L2rib(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: admin_distance
                 
                 	Admin Distance
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: producer_id
                 
@@ -3324,12 +3760,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: topology_id
                 
                 	Topology ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -3388,20 +3828,28 @@ class L2rib(Entity):
                     	Regular MAC route
                     	**type**\:  :py:class:`Regular <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Regular>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: evpn_esi
                     
                     	EVPN ESI MAC route
                     	**type**\:  :py:class:`EvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: bmac
                     
                     	BMAC route
                     	**type**\:  :py:class:`Bmac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Bmac>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: type
                     
                     	Type
                     	**type**\:  :py:class:`L2ribMacRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribMacRoute>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3452,6 +3900,8 @@ class L2rib(Entity):
                         	Next Hop
                         	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Regular.NextHop>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3490,6 +3940,8 @@ class L2rib(Entity):
                             	Next hop
                             	**type**\:  :py:class:`NextHop_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: topology_id
                             
                             	Next\-hop TOPOLOGY ID
@@ -3497,12 +3949,16 @@ class L2rib(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: flags
                             
                             	Next\-hop flags
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -3547,10 +4003,14 @@ class L2rib(Entity):
                                 	Labeled Next Hop
                                 	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_.Labeled>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	Type
                                 	**type**\:  :py:class:`L2ribNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribNextHop>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipv4
                                 
@@ -3559,12 +4019,16 @@ class L2rib(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipv6
                                 
                                 	IPV6 address Next Hop
                                 	**type**\: str
                                 
                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mac
                                 
@@ -3573,6 +4037,8 @@ class L2rib(Entity):
                                 
                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_handle
                                 
                                 	Intefrace Handle Next Hop
@@ -3580,12 +4046,16 @@ class L2rib(Entity):
                                 
                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: xid
                                 
                                 	XID Next Hop
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3638,10 +4108,14 @@ class L2rib(Entity):
                                     	L2RIB Address Family
                                     	**type**\:  :py:class:`L2ribAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribAfi>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ip_address
                                     
                                     	IP Address
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: label
                                     
@@ -3650,10 +4124,14 @@ class L2rib(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: internal
                                     
                                     	Internal Label
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3689,6 +4167,10 @@ class L2rib(Entity):
                                         self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Regular.NextHop.NextHop_.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
+
+
+
+
                     class EvpnEsi(Entity):
                         """
                         EVPN ESI MAC route
@@ -3698,10 +4180,14 @@ class L2rib(Entity):
                         	Ethernet Segment Identifier
                         	**type**\:  :py:class:`EthernetSegmentId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.EthernetSegmentId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: path_list
                         
                         	Path list information. Set for detailed MAC route information
                         	**type**\:  :py:class:`PathList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: sequence_number
                         
@@ -3710,10 +4196,14 @@ class L2rib(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: forward_state
                         
                         	Forwarding State. True means forward, False means drop
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -3764,6 +4254,8 @@ class L2rib(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: system_id
                             
                             	LACP System Id
@@ -3771,12 +4263,16 @@ class L2rib(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: port_key
                             
                             	LACP Port Key
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -3810,6 +4306,7 @@ class L2rib(Entity):
                                 self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.EthernetSegmentId, ['system_priority', 'system_id', 'port_key'], name, value)
 
 
+
                         class PathList(Entity):
                             """
                             Path list information. Set for detailed MAC
@@ -3820,12 +4317,16 @@ class L2rib(Entity):
                             	Type\-specific Path List info
                             	**type**\:  :py:class:`PathListInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: producer_id
                             
                             	ID of EAD route producer
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: mac_count
                             
@@ -3834,6 +4335,8 @@ class L2rib(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: local_label
                             
                             	Path list local Label
@@ -3841,10 +4344,14 @@ class L2rib(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_hop_array
                             
                             	Array of Next Hops for MAC Path List
                             	**type**\: list of  		 :py:class:`NextHopArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3893,15 +4400,21 @@ class L2rib(Entity):
                                 	ESI Path List
                                 	**type**\:  :py:class:`PathListEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: path_list_mac
                                 
                                 	MAC Path List
                                 	**type**\:  :py:class:`PathListMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListMac>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	Type
                                 	**type**\:  :py:class:`L2ribMacRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribMacRoute>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3948,15 +4461,21 @@ class L2rib(Entity):
                                     	Ethernet Segment Identifier
                                     	**type**\:  :py:class:`EthernetSegmentId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: resolved
                                     
                                     	Path list Resolved
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: mac_update_next_hop_array
                                     
                                     	Array of Next Hops from MAC Update
                                     	**type**\: list of  		 :py:class:`MacUpdateNextHopArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4003,6 +4522,8 @@ class L2rib(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: system_id
                                         
                                         	LACP System Id
@@ -4010,12 +4531,16 @@ class L2rib(Entity):
                                         
                                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: port_key
                                         
                                         	LACP Port Key
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4049,6 +4574,7 @@ class L2rib(Entity):
                                             self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId, ['system_priority', 'system_id', 'port_key'], name, value)
 
 
+
                                     class MacUpdateNextHopArray(Entity):
                                         """
                                         Array of Next Hops from MAC Update
@@ -4058,6 +4584,8 @@ class L2rib(Entity):
                                         	Next hop
                                         	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: topology_id
                                         
                                         	Next\-hop TOPOLOGY ID
@@ -4065,12 +4593,16 @@ class L2rib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: flags
                                         
                                         	Next\-hop flags
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4115,10 +4647,14 @@ class L2rib(Entity):
                                             	Labeled Next Hop
                                             	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: type
                                             
                                             	Type
                                             	**type**\:  :py:class:`L2ribNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribNextHop>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: ipv4
                                             
@@ -4127,12 +4663,16 @@ class L2rib(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv6
                                             
                                             	IPV6 address Next Hop
                                             	**type**\: str
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: mac
                                             
@@ -4141,6 +4681,8 @@ class L2rib(Entity):
                                             
                                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: interface_handle
                                             
                                             	Intefrace Handle Next Hop
@@ -4148,12 +4690,16 @@ class L2rib(Entity):
                                             
                                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: xid
                                             
                                             	XID Next Hop
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4206,10 +4752,14 @@ class L2rib(Entity):
                                                 	L2RIB Address Family
                                                 	**type**\:  :py:class:`L2ribAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribAfi>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: ip_address
                                                 
                                                 	IP Address
                                                 	**type**\: str
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: label
                                                 
@@ -4218,10 +4768,14 @@ class L2rib(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: internal
                                                 
                                                 	Internal Label
                                                 	**type**\: bool
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -4257,6 +4811,10 @@ class L2rib(Entity):
                                                     self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
+
+
+
+
                                 class PathListMac(Entity):
                                     """
                                     MAC Path List
@@ -4267,6 +4825,8 @@ class L2rib(Entity):
                                     	**type**\: str
                                     
                                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4296,6 +4856,8 @@ class L2rib(Entity):
                                         self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.PathListInfo.PathListMac, ['mac_address'], name, value)
 
 
+
+
                             class NextHopArray(Entity):
                                 """
                                 Array of Next Hops for MAC Path List
@@ -4305,6 +4867,8 @@ class L2rib(Entity):
                                 	Next hop
                                 	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: topology_id
                                 
                                 	Next\-hop TOPOLOGY ID
@@ -4312,12 +4876,16 @@ class L2rib(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: flags
                                 
                                 	Next\-hop flags
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4362,10 +4930,14 @@ class L2rib(Entity):
                                     	Labeled Next Hop
                                     	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type
                                     
                                     	Type
                                     	**type**\:  :py:class:`L2ribNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribNextHop>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ipv4
                                     
@@ -4374,12 +4946,16 @@ class L2rib(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6
                                     
                                     	IPV6 address Next Hop
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mac
                                     
@@ -4388,6 +4964,8 @@ class L2rib(Entity):
                                     
                                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface_handle
                                     
                                     	Intefrace Handle Next Hop
@@ -4395,12 +4973,16 @@ class L2rib(Entity):
                                     
                                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: xid
                                     
                                     	XID Next Hop
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4453,10 +5035,14 @@ class L2rib(Entity):
                                         	L2RIB Address Family
                                         	**type**\:  :py:class:`L2ribAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribAfi>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ip_address
                                         
                                         	IP Address
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: label
                                         
@@ -4465,10 +5051,14 @@ class L2rib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: internal
                                         
                                         	Internal Label
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4504,6 +5094,11 @@ class L2rib(Entity):
                                             self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
+
+
+
+
+
                     class Bmac(Entity):
                         """
                         BMAC route
@@ -4513,6 +5108,8 @@ class L2rib(Entity):
                         	Path list information
                         	**type**\:  :py:class:`PathList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: bmac_address
                         
                         	BMAC Address
@@ -4520,10 +5117,14 @@ class L2rib(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: forward_state
                         
                         	Forwarding State. True means forward, False means drop
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -4568,12 +5169,16 @@ class L2rib(Entity):
                             	Type\-specific Path List info
                             	**type**\:  :py:class:`PathListInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: producer_id
                             
                             	ID of EAD route producer
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: mac_count
                             
@@ -4582,6 +5187,8 @@ class L2rib(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: local_label
                             
                             	Path list local Label
@@ -4589,10 +5196,14 @@ class L2rib(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_hop_array
                             
                             	Array of Next Hops for MAC Path List
                             	**type**\: list of  		 :py:class:`NextHopArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4641,15 +5252,21 @@ class L2rib(Entity):
                                 	ESI Path List
                                 	**type**\:  :py:class:`PathListEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: path_list_mac
                                 
                                 	MAC Path List
                                 	**type**\:  :py:class:`PathListMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListMac>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	Type
                                 	**type**\:  :py:class:`L2ribMacRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribMacRoute>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -4696,15 +5313,21 @@ class L2rib(Entity):
                                     	Ethernet Segment Identifier
                                     	**type**\:  :py:class:`EthernetSegmentId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: resolved
                                     
                                     	Path list Resolved
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: mac_update_next_hop_array
                                     
                                     	Array of Next Hops from MAC Update
                                     	**type**\: list of  		 :py:class:`MacUpdateNextHopArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4751,6 +5374,8 @@ class L2rib(Entity):
                                         
                                         	**range:** 0..65535
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: system_id
                                         
                                         	LACP System Id
@@ -4758,12 +5383,16 @@ class L2rib(Entity):
                                         
                                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: port_key
                                         
                                         	LACP Port Key
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4797,6 +5426,7 @@ class L2rib(Entity):
                                             self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId, ['system_priority', 'system_id', 'port_key'], name, value)
 
 
+
                                     class MacUpdateNextHopArray(Entity):
                                         """
                                         Array of Next Hops from MAC Update
@@ -4806,6 +5436,8 @@ class L2rib(Entity):
                                         	Next hop
                                         	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: topology_id
                                         
                                         	Next\-hop TOPOLOGY ID
@@ -4813,12 +5445,16 @@ class L2rib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: flags
                                         
                                         	Next\-hop flags
                                         	**type**\: int
                                         
                                         	**range:** 0..65535
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4863,10 +5499,14 @@ class L2rib(Entity):
                                             	Labeled Next Hop
                                             	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: type
                                             
                                             	Type
                                             	**type**\:  :py:class:`L2ribNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribNextHop>`
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: ipv4
                                             
@@ -4875,12 +5515,16 @@ class L2rib(Entity):
                                             
                                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ipv6
                                             
                                             	IPV6 address Next Hop
                                             	**type**\: str
                                             
                                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: mac
                                             
@@ -4889,6 +5533,8 @@ class L2rib(Entity):
                                             
                                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: interface_handle
                                             
                                             	Intefrace Handle Next Hop
@@ -4896,12 +5542,16 @@ class L2rib(Entity):
                                             
                                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: xid
                                             
                                             	XID Next Hop
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4954,10 +5604,14 @@ class L2rib(Entity):
                                                 	L2RIB Address Family
                                                 	**type**\:  :py:class:`L2ribAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribAfi>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: ip_address
                                                 
                                                 	IP Address
                                                 	**type**\: str
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: label
                                                 
@@ -4966,10 +5620,14 @@ class L2rib(Entity):
                                                 
                                                 	**range:** 0..4294967295
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: internal
                                                 
                                                 	Internal Label
                                                 	**type**\: bool
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -5005,6 +5663,10 @@ class L2rib(Entity):
                                                     self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
+
+
+
+
                                 class PathListMac(Entity):
                                     """
                                     MAC Path List
@@ -5015,6 +5677,8 @@ class L2rib(Entity):
                                     	**type**\: str
                                     
                                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5044,6 +5708,8 @@ class L2rib(Entity):
                                         self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.PathListInfo.PathListMac, ['mac_address'], name, value)
 
 
+
+
                             class NextHopArray(Entity):
                                 """
                                 Array of Next Hops for MAC Path List
@@ -5053,6 +5719,8 @@ class L2rib(Entity):
                                 	Next hop
                                 	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: topology_id
                                 
                                 	Next\-hop TOPOLOGY ID
@@ -5060,12 +5728,16 @@ class L2rib(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: flags
                                 
                                 	Next\-hop flags
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5110,10 +5782,14 @@ class L2rib(Entity):
                                     	Labeled Next Hop
                                     	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop.Labeled>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type
                                     
                                     	Type
                                     	**type**\:  :py:class:`L2ribNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribNextHop>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ipv4
                                     
@@ -5122,12 +5798,16 @@ class L2rib(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6
                                     
                                     	IPV6 address Next Hop
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mac
                                     
@@ -5136,6 +5816,8 @@ class L2rib(Entity):
                                     
                                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface_handle
                                     
                                     	Intefrace Handle Next Hop
@@ -5143,12 +5825,16 @@ class L2rib(Entity):
                                     
                                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: xid
                                     
                                     	XID Next Hop
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5201,10 +5887,14 @@ class L2rib(Entity):
                                         	L2RIB Address Family
                                         	**type**\:  :py:class:`L2ribAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribAfi>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ip_address
                                         
                                         	IP Address
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: label
                                         
@@ -5213,10 +5903,14 @@ class L2rib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: internal
                                         
                                         	Internal Label
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5252,6 +5946,14 @@ class L2rib(Entity):
                                             self._perform_setattr(L2rib.EviChildTables.Macs.Mac.Route.Bmac.PathList.NextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
+
+
+
+
+
+
+
+
         class Imets(Entity):
             """
             L2RIB EVPN EVI IMET table
@@ -5260,6 +5962,8 @@ class L2rib(Entity):
             
             	L2RIB EVPN IMET table
             	**type**\: list of  		 :py:class:`Imet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.Imets.Imet>`
+            
+            	**config**\: False
             
             
 
@@ -5299,12 +6003,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tag_id
                 
                 	Tag ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ip_addr
                 
@@ -5319,12 +6027,16 @@ class L2rib(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: admin_dist
                 
                 	Admin distance
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: prod_id
                 
@@ -5333,10 +6045,14 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: vtepi_paddr
                 
                 	Originating Router IP Address
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: admin_distance
                 
@@ -5345,12 +6061,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: producer_id
                 
                 	Producer of Imet route
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: topo_id
                 
@@ -5359,12 +6079,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ethernet_tag_id
                 
                 	Ethernet Tag ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -5412,6 +6136,8 @@ class L2rib(Entity):
                     self._perform_setattr(L2rib.EviChildTables.Imets.Imet, ['evi', 'tag_id', 'ip_addr', 'admin_dist', 'prod_id', 'vtepi_paddr', 'admin_distance', 'producer_id', 'topo_id', 'ethernet_tag_id'], name, value)
 
 
+
+
         class MacDetails(Entity):
             """
             L2RIB EVPN EVI MAC Detail table
@@ -5420,6 +6146,8 @@ class L2rib(Entity):
             
             	L2RIB EVPN MAC Detail table
             	**type**\: list of  		 :py:class:`MacDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail>`
+            
+            	**config**\: False
             
             
 
@@ -5459,12 +6187,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tag_id
                 
                 	Tag ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: mac_addr
                 
@@ -5473,12 +6205,16 @@ class L2rib(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: admin_dist
                 
                 	Admin distance
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: prod_id
                 
@@ -5487,15 +6223,21 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mac_route
                 
                 	MAC Route
                 	**type**\:  :py:class:`MacRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute>`
                 
+                	**config**\: False
+                
                 .. attribute:: rt_tlv
                 
                 	Mac Route Opaque Data TLV
                 	**type**\:  :py:class:`RtTlv <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.RtTlv>`
+                
+                	**config**\: False
                 
                 .. attribute:: sequence_number
                 
@@ -5504,12 +6246,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: flags
                 
                 	MAC route flags
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
+                
+                	**config**\: False
                 
                 .. attribute:: baseflags
                 
@@ -5518,12 +6264,16 @@ class L2rib(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{1,8}
                 
+                	**config**\: False
+                
                 .. attribute:: soo
                 
                 	SOO
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: slot_id
                 
@@ -5532,10 +6282,14 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: esi
                 
                 	ESI
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: last_update_timestamp
                 
@@ -5543,6 +6297,8 @@ class L2rib(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -5611,12 +6367,16 @@ class L2rib(Entity):
                     	MAC route
                     	**type**\:  :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: mac_address
                     
                     	MAC Address
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    	**config**\: False
                     
                     .. attribute:: admin_distance
                     
@@ -5625,6 +6385,8 @@ class L2rib(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: producer_id
                     
                     	Producer ID
@@ -5632,12 +6394,16 @@ class L2rib(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: topology_id
                     
                     	Topology ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -5686,20 +6452,28 @@ class L2rib(Entity):
                         	Regular MAC route
                         	**type**\:  :py:class:`Regular <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: evpn_esi
                         
                         	EVPN ESI MAC route
                         	**type**\:  :py:class:`EvpnEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: bmac
                         
                         	BMAC route
                         	**type**\:  :py:class:`Bmac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Type
                         	**type**\:  :py:class:`L2ribMacRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribMacRoute>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5750,6 +6524,8 @@ class L2rib(Entity):
                             	Next Hop
                             	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop>`
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -5788,6 +6564,8 @@ class L2rib(Entity):
                                 	Next hop
                                 	**type**\:  :py:class:`NextHop_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: topology_id
                                 
                                 	Next\-hop TOPOLOGY ID
@@ -5795,12 +6573,16 @@ class L2rib(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: flags
                                 
                                 	Next\-hop flags
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5845,10 +6627,14 @@ class L2rib(Entity):
                                     	Labeled Next Hop
                                     	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_.Labeled>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type
                                     
                                     	Type
                                     	**type**\:  :py:class:`L2ribNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribNextHop>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ipv4
                                     
@@ -5857,12 +6643,16 @@ class L2rib(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ipv6
                                     
                                     	IPV6 address Next Hop
                                     	**type**\: str
                                     
                                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mac
                                     
@@ -5871,6 +6661,8 @@ class L2rib(Entity):
                                     
                                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: interface_handle
                                     
                                     	Intefrace Handle Next Hop
@@ -5878,12 +6670,16 @@ class L2rib(Entity):
                                     
                                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: xid
                                     
                                     	XID Next Hop
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5936,10 +6732,14 @@ class L2rib(Entity):
                                         	L2RIB Address Family
                                         	**type**\:  :py:class:`L2ribAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribAfi>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ip_address
                                         
                                         	IP Address
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: label
                                         
@@ -5948,10 +6748,14 @@ class L2rib(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: internal
                                         
                                         	Internal Label
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -5987,6 +6791,10 @@ class L2rib(Entity):
                                             self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Regular.NextHop.NextHop_.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
+
+
+
+
                         class EvpnEsi(Entity):
                             """
                             EVPN ESI MAC route
@@ -5996,10 +6804,14 @@ class L2rib(Entity):
                             	Ethernet Segment Identifier
                             	**type**\:  :py:class:`EthernetSegmentId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.EthernetSegmentId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: path_list
                             
                             	Path list information. Set for detailed MAC route information
                             	**type**\:  :py:class:`PathList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: sequence_number
                             
@@ -6008,10 +6820,14 @@ class L2rib(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: forward_state
                             
                             	Forwarding State. True means forward, False means drop
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -6062,6 +6878,8 @@ class L2rib(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: system_id
                                 
                                 	LACP System Id
@@ -6069,12 +6887,16 @@ class L2rib(Entity):
                                 
                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: port_key
                                 
                                 	LACP Port Key
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6108,6 +6930,7 @@ class L2rib(Entity):
                                     self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.EthernetSegmentId, ['system_priority', 'system_id', 'port_key'], name, value)
 
 
+
                             class PathList(Entity):
                                 """
                                 Path list information. Set for detailed MAC
@@ -6118,12 +6941,16 @@ class L2rib(Entity):
                                 	Type\-specific Path List info
                                 	**type**\:  :py:class:`PathListInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: producer_id
                                 
                                 	ID of EAD route producer
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mac_count
                                 
@@ -6132,6 +6959,8 @@ class L2rib(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: local_label
                                 
                                 	Path list local Label
@@ -6139,10 +6968,14 @@ class L2rib(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: next_hop_array
                                 
                                 	Array of Next Hops for MAC Path List
                                 	**type**\: list of  		 :py:class:`NextHopArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6191,15 +7024,21 @@ class L2rib(Entity):
                                     	ESI Path List
                                     	**type**\:  :py:class:`PathListEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: path_list_mac
                                     
                                     	MAC Path List
                                     	**type**\:  :py:class:`PathListMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListMac>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type
                                     
                                     	Type
                                     	**type**\:  :py:class:`L2ribMacRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribMacRoute>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6246,15 +7085,21 @@ class L2rib(Entity):
                                         	Ethernet Segment Identifier
                                         	**type**\:  :py:class:`EthernetSegmentId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: resolved
                                         
                                         	Path list Resolved
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mac_update_next_hop_array
                                         
                                         	Array of Next Hops from MAC Update
                                         	**type**\: list of  		 :py:class:`MacUpdateNextHopArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6301,6 +7146,8 @@ class L2rib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: system_id
                                             
                                             	LACP System Id
@@ -6308,12 +7155,16 @@ class L2rib(Entity):
                                             
                                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: port_key
                                             
                                             	LACP Port Key
                                             	**type**\: int
                                             
                                             	**range:** 0..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6347,6 +7198,7 @@ class L2rib(Entity):
                                                 self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.EthernetSegmentId, ['system_priority', 'system_id', 'port_key'], name, value)
 
 
+
                                         class MacUpdateNextHopArray(Entity):
                                             """
                                             Array of Next Hops from MAC Update
@@ -6356,6 +7208,8 @@ class L2rib(Entity):
                                             	Next hop
                                             	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: topology_id
                                             
                                             	Next\-hop TOPOLOGY ID
@@ -6363,12 +7217,16 @@ class L2rib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: flags
                                             
                                             	Next\-hop flags
                                             	**type**\: int
                                             
                                             	**range:** 0..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6413,10 +7271,14 @@ class L2rib(Entity):
                                                 	Labeled Next Hop
                                                 	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: type
                                                 
                                                 	Type
                                                 	**type**\:  :py:class:`L2ribNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribNextHop>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: ipv4
                                                 
@@ -6425,12 +7287,16 @@ class L2rib(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: ipv6
                                                 
                                                 	IPV6 address Next Hop
                                                 	**type**\: str
                                                 
                                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: mac
                                                 
@@ -6439,6 +7305,8 @@ class L2rib(Entity):
                                                 
                                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: interface_handle
                                                 
                                                 	Intefrace Handle Next Hop
@@ -6446,12 +7314,16 @@ class L2rib(Entity):
                                                 
                                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: xid
                                                 
                                                 	XID Next Hop
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -6504,10 +7376,14 @@ class L2rib(Entity):
                                                     	L2RIB Address Family
                                                     	**type**\:  :py:class:`L2ribAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribAfi>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: ip_address
                                                     
                                                     	IP Address
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: label
                                                     
@@ -6516,10 +7392,14 @@ class L2rib(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: internal
                                                     
                                                     	Internal Label
                                                     	**type**\: bool
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -6555,6 +7435,10 @@ class L2rib(Entity):
                                                         self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
+
+
+
+
                                     class PathListMac(Entity):
                                         """
                                         MAC Path List
@@ -6565,6 +7449,8 @@ class L2rib(Entity):
                                         	**type**\: str
                                         
                                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6594,6 +7480,8 @@ class L2rib(Entity):
                                             self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.PathListInfo.PathListMac, ['mac_address'], name, value)
 
 
+
+
                                 class NextHopArray(Entity):
                                     """
                                     Array of Next Hops for MAC Path List
@@ -6603,6 +7491,8 @@ class L2rib(Entity):
                                     	Next hop
                                     	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: topology_id
                                     
                                     	Next\-hop TOPOLOGY ID
@@ -6610,12 +7500,16 @@ class L2rib(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: flags
                                     
                                     	Next\-hop flags
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6660,10 +7554,14 @@ class L2rib(Entity):
                                         	Labeled Next Hop
                                         	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: type
                                         
                                         	Type
                                         	**type**\:  :py:class:`L2ribNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribNextHop>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ipv4
                                         
@@ -6672,12 +7570,16 @@ class L2rib(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ipv6
                                         
                                         	IPV6 address Next Hop
                                         	**type**\: str
                                         
                                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: mac
                                         
@@ -6686,6 +7588,8 @@ class L2rib(Entity):
                                         
                                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: interface_handle
                                         
                                         	Intefrace Handle Next Hop
@@ -6693,12 +7597,16 @@ class L2rib(Entity):
                                         
                                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: xid
                                         
                                         	XID Next Hop
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6751,10 +7659,14 @@ class L2rib(Entity):
                                             	L2RIB Address Family
                                             	**type**\:  :py:class:`L2ribAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribAfi>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ip_address
                                             
                                             	IP Address
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: label
                                             
@@ -6763,10 +7675,14 @@ class L2rib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: internal
                                             
                                             	Internal Label
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -6802,6 +7718,11 @@ class L2rib(Entity):
                                                 self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.EvpnEsi.PathList.NextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
+
+
+
+
+
                         class Bmac(Entity):
                             """
                             BMAC route
@@ -6811,6 +7732,8 @@ class L2rib(Entity):
                             	Path list information
                             	**type**\:  :py:class:`PathList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: bmac_address
                             
                             	BMAC Address
@@ -6818,10 +7741,14 @@ class L2rib(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: forward_state
                             
                             	Forwarding State. True means forward, False means drop
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -6866,12 +7793,16 @@ class L2rib(Entity):
                                 	Type\-specific Path List info
                                 	**type**\:  :py:class:`PathListInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: producer_id
                                 
                                 	ID of EAD route producer
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mac_count
                                 
@@ -6880,6 +7811,8 @@ class L2rib(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: local_label
                                 
                                 	Path list local Label
@@ -6887,10 +7820,14 @@ class L2rib(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: next_hop_array
                                 
                                 	Array of Next Hops for MAC Path List
                                 	**type**\: list of  		 :py:class:`NextHopArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6939,15 +7876,21 @@ class L2rib(Entity):
                                     	ESI Path List
                                     	**type**\:  :py:class:`PathListEsi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: path_list_mac
                                     
                                     	MAC Path List
                                     	**type**\:  :py:class:`PathListMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListMac>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type
                                     
                                     	Type
                                     	**type**\:  :py:class:`L2ribMacRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribMacRoute>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6994,15 +7937,21 @@ class L2rib(Entity):
                                         	Ethernet Segment Identifier
                                         	**type**\:  :py:class:`EthernetSegmentId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: resolved
                                         
                                         	Path list Resolved
                                         	**type**\: bool
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: mac_update_next_hop_array
                                         
                                         	Array of Next Hops from MAC Update
                                         	**type**\: list of  		 :py:class:`MacUpdateNextHopArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7049,6 +7998,8 @@ class L2rib(Entity):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: system_id
                                             
                                             	LACP System Id
@@ -7056,12 +8007,16 @@ class L2rib(Entity):
                                             
                                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: port_key
                                             
                                             	LACP Port Key
                                             	**type**\: int
                                             
                                             	**range:** 0..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7095,6 +8050,7 @@ class L2rib(Entity):
                                                 self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.EthernetSegmentId, ['system_priority', 'system_id', 'port_key'], name, value)
 
 
+
                                         class MacUpdateNextHopArray(Entity):
                                             """
                                             Array of Next Hops from MAC Update
@@ -7104,6 +8060,8 @@ class L2rib(Entity):
                                             	Next hop
                                             	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: topology_id
                                             
                                             	Next\-hop TOPOLOGY ID
@@ -7111,12 +8069,16 @@ class L2rib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: flags
                                             
                                             	Next\-hop flags
                                             	**type**\: int
                                             
                                             	**range:** 0..65535
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7161,10 +8123,14 @@ class L2rib(Entity):
                                                 	Labeled Next Hop
                                                 	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled>`
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: type
                                                 
                                                 	Type
                                                 	**type**\:  :py:class:`L2ribNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribNextHop>`
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: ipv4
                                                 
@@ -7173,12 +8139,16 @@ class L2rib(Entity):
                                                 
                                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: ipv6
                                                 
                                                 	IPV6 address Next Hop
                                                 	**type**\: str
                                                 
                                                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                                
+                                                	**config**\: False
                                                 
                                                 .. attribute:: mac
                                                 
@@ -7187,6 +8157,8 @@ class L2rib(Entity):
                                                 
                                                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: interface_handle
                                                 
                                                 	Intefrace Handle Next Hop
@@ -7194,12 +8166,16 @@ class L2rib(Entity):
                                                 
                                                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: xid
                                                 
                                                 	XID Next Hop
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -7252,10 +8228,14 @@ class L2rib(Entity):
                                                     	L2RIB Address Family
                                                     	**type**\:  :py:class:`L2ribAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribAfi>`
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: ip_address
                                                     
                                                     	IP Address
                                                     	**type**\: str
+                                                    
+                                                    	**config**\: False
                                                     
                                                     .. attribute:: label
                                                     
@@ -7264,10 +8244,14 @@ class L2rib(Entity):
                                                     
                                                     	**range:** 0..4294967295
                                                     
+                                                    	**config**\: False
+                                                    
                                                     .. attribute:: internal
                                                     
                                                     	Internal Label
                                                     	**type**\: bool
+                                                    
+                                                    	**config**\: False
                                                     
                                                     
 
@@ -7303,6 +8287,10 @@ class L2rib(Entity):
                                                         self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListEsi.MacUpdateNextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
+
+
+
+
                                     class PathListMac(Entity):
                                         """
                                         MAC Path List
@@ -7313,6 +8301,8 @@ class L2rib(Entity):
                                         	**type**\: str
                                         
                                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7342,6 +8332,8 @@ class L2rib(Entity):
                                             self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.PathListInfo.PathListMac, ['mac_address'], name, value)
 
 
+
+
                                 class NextHopArray(Entity):
                                     """
                                     Array of Next Hops for MAC Path List
@@ -7351,6 +8343,8 @@ class L2rib(Entity):
                                     	Next hop
                                     	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: topology_id
                                     
                                     	Next\-hop TOPOLOGY ID
@@ -7358,12 +8352,16 @@ class L2rib(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: flags
                                     
                                     	Next\-hop flags
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7408,10 +8406,14 @@ class L2rib(Entity):
                                         	Labeled Next Hop
                                         	**type**\:  :py:class:`Labeled <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop.Labeled>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: type
                                         
                                         	Type
                                         	**type**\:  :py:class:`L2ribNextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribNextHop>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: ipv4
                                         
@@ -7420,12 +8422,16 @@ class L2rib(Entity):
                                         
                                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: ipv6
                                         
                                         	IPV6 address Next Hop
                                         	**type**\: str
                                         
                                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: mac
                                         
@@ -7434,6 +8440,8 @@ class L2rib(Entity):
                                         
                                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: interface_handle
                                         
                                         	Intefrace Handle Next Hop
@@ -7441,12 +8449,16 @@ class L2rib(Entity):
                                         
                                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: xid
                                         
                                         	XID Next Hop
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7499,10 +8511,14 @@ class L2rib(Entity):
                                             	L2RIB Address Family
                                             	**type**\:  :py:class:`L2ribAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2ribAfi>`
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: ip_address
                                             
                                             	IP Address
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: label
                                             
@@ -7511,10 +8527,14 @@ class L2rib(Entity):
                                             
                                             	**range:** 0..4294967295
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: internal
                                             
                                             	Internal Label
                                             	**type**\: bool
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7550,6 +8570,13 @@ class L2rib(Entity):
                                                 self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.MacRoute.Route.Bmac.PathList.NextHopArray.NextHop.Labeled, ['address_family', 'ip_address', 'label', 'internal'], name, value)
 
 
+
+
+
+
+
+
+
                 class RtTlv(Entity):
                     """
                     Mac Route Opaque Data TLV
@@ -7561,6 +8588,8 @@ class L2rib(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: tlv_len
                     
                     	TLV Length
@@ -7568,10 +8597,14 @@ class L2rib(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: tlv_val
                     
                     	TLV Value
                     	**type**\: list of  		 :py:class:`TlvVal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.MacDetails.MacDetail.RtTlv.TlvVal>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7616,6 +8649,8 @@ class L2rib(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -7644,6 +8679,10 @@ class L2rib(Entity):
                             self._perform_setattr(L2rib.EviChildTables.MacDetails.MacDetail.RtTlv.TlvVal, ['entry'], name, value)
 
 
+
+
+
+
         class ImetDetails(Entity):
             """
             L2RIB EVPN EVI IMET Detail table
@@ -7652,6 +8691,8 @@ class L2rib(Entity):
             
             	L2RIB EVPN IMET Detail table
             	**type**\: list of  		 :py:class:`ImetDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.ImetDetails.ImetDetail>`
+            
+            	**config**\: False
             
             
 
@@ -7691,12 +8732,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tag_id
                 
                 	Tag ID
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: ip_addr
                 
@@ -7711,12 +8756,16 @@ class L2rib(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: admin_dist
                 
                 	Admin distance
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: prod_id
                 
@@ -7725,15 +8774,21 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: imet_route_base
                 
                 	Imet Route base information
                 	**type**\:  :py:class:`ImetRouteBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.EviChildTables.ImetDetails.ImetDetail.ImetRouteBase>`
                 
+                	**config**\: False
+                
                 .. attribute:: tunnel_id
                 
                 	Tunnel Id
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: flags
                 
@@ -7742,12 +8797,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tunnel_type
                 
                 	IMET route tunnel type
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: l2r_label
                 
@@ -7756,6 +8815,8 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: encap_type
                 
                 	Encap Type
@@ -7763,12 +8824,16 @@ class L2rib(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: last_update_timestamp
                 
                 	Last Update Timestamp
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -7831,12 +8896,16 @@ class L2rib(Entity):
                     	Originating Router IP Address
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: admin_distance
                     
                     	Admin Distance
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: producer_id
                     
@@ -7845,6 +8914,8 @@ class L2rib(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: topo_id
                     
                     	Topo ID
@@ -7852,12 +8923,16 @@ class L2rib(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ethernet_tag_id
                     
                     	Ethernet Tag ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -7895,6 +8970,10 @@ class L2rib(Entity):
                         self._perform_setattr(L2rib.EviChildTables.ImetDetails.ImetDetail.ImetRouteBase, ['vtepi_paddr', 'admin_distance', 'producer_id', 'topo_id', 'ethernet_tag_id'], name, value)
 
 
+
+
+
+
     class Evis(Entity):
         """
         L2RIB EVPN EVI Table
@@ -7903,6 +8982,8 @@ class L2rib(Entity):
         
         	L2RIB EVPN EVI Entry
         	**type**\: list of  		 :py:class:`Evi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2rib_oper.L2rib.Evis.Evi>`
+        
+        	**config**\: False
         
         
 
@@ -7942,6 +9023,8 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: topology_id
             
             	Topology ID
@@ -7949,10 +9032,14 @@ class L2rib(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: topology_name
             
             	Topology Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: topology_type
             
@@ -7960,6 +9047,8 @@ class L2rib(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -7994,7 +9083,11 @@ class L2rib(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(L2rib.Evis.Evi, ['evi', 'topology_id', 'topology_name', 'topology_type'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = L2rib()
         return self._top_entity
+
+
 

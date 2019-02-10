@@ -381,6 +381,7 @@ class MdtConfigData(Entity):
                 self._perform_setattr(MdtConfigData.MdtSubscription.Base, [u'stream', u'encoding', u'source_vrf', u'source_address', u'no_trigger', u'period', u'no_synch_on_start', u'no_filter', u'xpath', u'tdl_uri', u'transform_name'], name, value)
 
 
+
         class MdtReceivers(Entity):
             """
             Configuration of receivers of configured 
@@ -453,6 +454,8 @@ class MdtConfigData(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MdtConfigData.MdtSubscription.MdtReceivers, [u'address', u'port', 'protocol', 'profile'], name, value)
+
+
 
 
     class MdtXfrm(Entity):
@@ -617,6 +620,8 @@ class MdtConfigData(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MdtConfigData.MdtXfrm.MdtXfrmInput.MdtXfrmInputField, ['field'], name, value)
+
+
 
 
         class MdtXfrmOp(Entity):
@@ -786,6 +791,7 @@ class MdtConfigData(Entity):
                         self._perform_setattr(MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.OpEvent, ['onchange'], name, value)
 
 
+
                 class Condition(Entity):
                     """
                     Per field condition (e.g. f1 eq 'name')
@@ -827,6 +833,8 @@ class MdtConfigData(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.Condition, ['operator', 'value'], name, value)
+
+
 
 
             class MdtXfrmOpFields(Entity):
@@ -882,7 +890,12 @@ class MdtConfigData(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFields, ['field_id', 'field', 'op_type'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = MdtConfigData()
         return self._top_entity
+
+
 

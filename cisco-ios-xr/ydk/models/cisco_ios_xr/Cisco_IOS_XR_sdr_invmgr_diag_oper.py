@@ -30,6 +30,8 @@ class Diag(Entity):
     	Table of racks
     	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class Diag(Entity):
         
         	Rack name
         	**type**\: list of  		 :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack>`
+        
+        	**config**\: False
         
         
 
@@ -106,25 +110,35 @@ class Diag(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: power_shelfs
             
             	Table for rack power shelf 
             	**type**\:  :py:class:`PowerShelfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs>`
+            
+            	**config**\: False
             
             .. attribute:: fan_trays
             
             	Table for rack fan trays
             	**type**\:  :py:class:`FanTrays <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTrays>`
             
+            	**config**\: False
+            
             .. attribute:: slots
             
             	Table of slots
             	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots>`
             
+            	**config**\: False
+            
             .. attribute:: chassis
             
             	Chassis information
             	**type**\:  :py:class:`Chassis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Chassis>`
+            
+            	**config**\: False
             
             
 
@@ -179,6 +193,8 @@ class Diag(Entity):
                 	Power shelf name
                 	**type**\: list of  		 :py:class:`PowerShelf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -216,10 +232,14 @@ class Diag(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: power_supplies
                     
                     	Table for rack power supply 
                     	**type**\:  :py:class:`PowerSupplies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -261,6 +281,8 @@ class Diag(Entity):
                         	Power Supply name
                         	**type**\: list of  		 :py:class:`PowerSupply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -298,10 +320,14 @@ class Diag(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: information
                             
                             	Basic information
                             	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -343,12 +369,16 @@ class Diag(Entity):
                                 	RMA Data
                                 	**type**\:  :py:class:`Rma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: description
                                 
                                 	A textual description of physical entity
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idprom_format_rev
                                 
@@ -357,12 +387,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: controller_family
                                 
                                 	Controller family
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: controller_type
                                 
@@ -371,12 +405,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vid
                                 
                                 	Version ID
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: hwid
                                 
@@ -385,12 +423,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: pid
                                 
                                 	Product ID
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: udi_description
                                 
@@ -399,12 +441,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: udi_name
                                 
                                 	UDI name
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: clei
                                 
@@ -413,12 +459,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: eci
                                 
                                 	Equipment Catalog Item (ECI) number
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: top_assem_part_num
                                 
@@ -427,12 +477,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: top_assem_vid
                                 
                                 	Top assembly revision number
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: pca_num
                                 
@@ -441,12 +495,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: pcavid
                                 
                                 	PCA revision ID
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: chassis_sid
                                 
@@ -455,12 +513,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dev_num1
                                 
                                 	Deviation Number # 1
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dev_num2
                                 
@@ -469,12 +531,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dev_num3
                                 
                                 	Deviation Number # 3
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dev_num4
                                 
@@ -483,12 +549,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dev_num5
                                 
                                 	Deviation Number # 5
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dev_num6
                                 
@@ -497,12 +567,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dev_num7
                                 
                                 	Deviation Number # 7
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: manu_test_data
                                 
@@ -511,12 +585,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: asset_id
                                 
                                 	Asset ID
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: asset_alias
                                 
@@ -525,12 +603,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: base_mac_address1
                                 
                                 	Base Mac Address #1
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mac_add_blk_size1
                                 
@@ -539,12 +621,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: base_mac_address2
                                 
                                 	Base Mac Address #2
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mac_add_blk_size2
                                 
@@ -553,12 +639,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: base_mac_address3
                                 
                                 	Base Mac Address #3
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mac_add_blk_size3
                                 
@@ -567,12 +657,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: base_mac_address4
                                 
                                 	Base Mac Address #4
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mac_add_blk_size4
                                 
@@ -581,12 +675,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: pcb_serial_num
                                 
                                 	PCB Serial Number
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: power_supply_type
                                 
@@ -595,12 +693,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: power_consumption
                                 
                                 	Power Consumption
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: block_signature
                                 
@@ -609,12 +711,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: block_version
                                 
                                 	Block Version
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: block_length
                                 
@@ -623,12 +729,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: block_checksum
                                 
                                 	Block Checksum
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: eeprom_size
                                 
@@ -637,12 +747,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: block_count
                                 
                                 	Block Count
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fru_major_type
                                 
@@ -651,12 +765,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fru_minor_type
                                 
                                 	FRU Minor Type
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: oem_string
                                 
@@ -665,12 +783,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: product_id
                                 
                                 	Product ID
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: serial_number
                                 
@@ -679,12 +801,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: part_number
                                 
                                 	Part Number
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: part_revision
                                 
@@ -693,12 +819,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: mfg_deviation
                                 
                                 	MFG Deviation
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: hw_version
                                 
@@ -707,12 +837,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: mfg_bits
                                 
                                 	MFG Bits
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: engineer_use
                                 
@@ -721,12 +855,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: snmpoid
                                 
                                 	SNMP OID
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rma_code
                                 
@@ -735,12 +873,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: eci_alpha_number
                                 
                                 	AlphaNumeric Equipment Catalog Item (ECI) number
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -882,7 +1024,7 @@ class Diag(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information, [u'description', u'idprom_format_rev', u'controller_family', u'controller_type', u'vid', u'hwid', u'pid', u'udi_description', u'udi_name', u'clei', u'eci', u'top_assem_part_num', u'top_assem_vid', u'pca_num', u'pcavid', u'chassis_sid', u'dev_num1', u'dev_num2', u'dev_num3', u'dev_num4', u'dev_num5', u'dev_num6', u'dev_num7', u'manu_test_data', u'asset_id', u'asset_alias', u'base_mac_address1', u'mac_add_blk_size1', u'base_mac_address2', u'mac_add_blk_size2', u'base_mac_address3', u'mac_add_blk_size3', u'base_mac_address4', u'mac_add_blk_size4', u'pcb_serial_num', u'power_supply_type', u'power_consumption', u'block_signature', u'block_version', u'block_length', u'block_checksum', u'eeprom_size', u'block_count', u'fru_major_type', u'fru_minor_type', u'oem_string', u'product_id', u'serial_number', u'part_number', u'part_revision', u'mfg_deviation', u'hw_version', u'mfg_bits', u'engineer_use', u'snmpoid', u'rma_code', u'eci_alpha_number'], name, value)
+                                    self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information, ['description', 'idprom_format_rev', 'controller_family', 'controller_type', 'vid', 'hwid', 'pid', 'udi_description', 'udi_name', 'clei', 'eci', 'top_assem_part_num', 'top_assem_vid', 'pca_num', 'pcavid', 'chassis_sid', 'dev_num1', 'dev_num2', 'dev_num3', 'dev_num4', 'dev_num5', 'dev_num6', 'dev_num7', 'manu_test_data', 'asset_id', 'asset_alias', 'base_mac_address1', 'mac_add_blk_size1', 'base_mac_address2', 'mac_add_blk_size2', 'base_mac_address3', 'mac_add_blk_size3', 'base_mac_address4', 'mac_add_blk_size4', 'pcb_serial_num', 'power_supply_type', 'power_consumption', 'block_signature', 'block_version', 'block_length', 'block_checksum', 'eeprom_size', 'block_count', 'fru_major_type', 'fru_minor_type', 'oem_string', 'product_id', 'serial_number', 'part_number', 'part_revision', 'mfg_deviation', 'hw_version', 'mfg_bits', 'engineer_use', 'snmpoid', 'rma_code', 'eci_alpha_number'], name, value)
 
 
                                 class Rma(Entity):
@@ -896,6 +1038,8 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rma_number
                                     
                                     	RMA tracking number format is N\-N\-N
@@ -903,12 +1047,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rma_history
                                     
                                     	RMA history
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -938,7 +1086,13 @@ class Diag(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma, [u'test_history', u'rma_number', u'rma_history'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.PowerShelfs.PowerShelf.PowerSupplies.PowerSupply.Information.Rma, ['test_history', 'rma_number', 'rma_history'], name, value)
+
+
+
+
+
+
 
 
             class FanTrays(Entity):
@@ -949,6 +1103,8 @@ class Diag(Entity):
                 
                 	Fan tray name
                 	**type**\: list of  		 :py:class:`FanTray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTrays.FanTray>`
+                
+                	**config**\: False
                 
                 
 
@@ -987,10 +1143,14 @@ class Diag(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: fanses
                     
                     	Table for rack fans 
                     	**type**\:  :py:class:`Fanses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTrays.FanTray.Fanses>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1032,6 +1192,8 @@ class Diag(Entity):
                         	Fan name
                         	**type**\: list of  		 :py:class:`Fans <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1069,10 +1231,14 @@ class Diag(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: information
                             
                             	Basic information
                             	**type**\:  :py:class:`Information <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1114,12 +1280,16 @@ class Diag(Entity):
                                 	RMA Data
                                 	**type**\:  :py:class:`Rma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information.Rma>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: description
                                 
                                 	A textual description of physical entity
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idprom_format_rev
                                 
@@ -1128,12 +1298,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: controller_family
                                 
                                 	Controller family
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: controller_type
                                 
@@ -1142,12 +1316,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vid
                                 
                                 	Version ID
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: hwid
                                 
@@ -1156,12 +1334,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: pid
                                 
                                 	Product ID
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: udi_description
                                 
@@ -1170,12 +1352,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: udi_name
                                 
                                 	UDI name
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: clei
                                 
@@ -1184,12 +1370,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: eci
                                 
                                 	Equipment Catalog Item (ECI) number
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: top_assem_part_num
                                 
@@ -1198,12 +1388,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: top_assem_vid
                                 
                                 	Top assembly revision number
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: pca_num
                                 
@@ -1212,12 +1406,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: pcavid
                                 
                                 	PCA revision ID
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: chassis_sid
                                 
@@ -1226,12 +1424,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dev_num1
                                 
                                 	Deviation Number # 1
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dev_num2
                                 
@@ -1240,12 +1442,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dev_num3
                                 
                                 	Deviation Number # 3
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dev_num4
                                 
@@ -1254,12 +1460,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dev_num5
                                 
                                 	Deviation Number # 5
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: dev_num6
                                 
@@ -1268,12 +1478,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dev_num7
                                 
                                 	Deviation Number # 7
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: manu_test_data
                                 
@@ -1282,12 +1496,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: asset_id
                                 
                                 	Asset ID
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: asset_alias
                                 
@@ -1296,12 +1514,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: base_mac_address1
                                 
                                 	Base Mac Address #1
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mac_add_blk_size1
                                 
@@ -1310,12 +1532,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: base_mac_address2
                                 
                                 	Base Mac Address #2
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mac_add_blk_size2
                                 
@@ -1324,12 +1550,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: base_mac_address3
                                 
                                 	Base Mac Address #3
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mac_add_blk_size3
                                 
@@ -1338,12 +1568,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: base_mac_address4
                                 
                                 	Base Mac Address #4
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mac_add_blk_size4
                                 
@@ -1352,12 +1586,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: pcb_serial_num
                                 
                                 	PCB Serial Number
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: power_supply_type
                                 
@@ -1366,12 +1604,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: power_consumption
                                 
                                 	Power Consumption
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: block_signature
                                 
@@ -1380,12 +1622,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: block_version
                                 
                                 	Block Version
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: block_length
                                 
@@ -1394,12 +1640,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: block_checksum
                                 
                                 	Block Checksum
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: eeprom_size
                                 
@@ -1408,12 +1658,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: block_count
                                 
                                 	Block Count
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fru_major_type
                                 
@@ -1422,12 +1676,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fru_minor_type
                                 
                                 	FRU Minor Type
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: oem_string
                                 
@@ -1436,12 +1694,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: product_id
                                 
                                 	Product ID
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: serial_number
                                 
@@ -1450,12 +1712,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: part_number
                                 
                                 	Part Number
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: part_revision
                                 
@@ -1464,12 +1730,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: mfg_deviation
                                 
                                 	MFG Deviation
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: hw_version
                                 
@@ -1478,12 +1748,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: mfg_bits
                                 
                                 	MFG Bits
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: engineer_use
                                 
@@ -1492,12 +1766,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: snmpoid
                                 
                                 	SNMP OID
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: rma_code
                                 
@@ -1506,12 +1784,16 @@ class Diag(Entity):
                                 
                                 	**length:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: eci_alpha_number
                                 
                                 	AlphaNumeric Equipment Catalog Item (ECI) number
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1653,7 +1935,7 @@ class Diag(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information, [u'description', u'idprom_format_rev', u'controller_family', u'controller_type', u'vid', u'hwid', u'pid', u'udi_description', u'udi_name', u'clei', u'eci', u'top_assem_part_num', u'top_assem_vid', u'pca_num', u'pcavid', u'chassis_sid', u'dev_num1', u'dev_num2', u'dev_num3', u'dev_num4', u'dev_num5', u'dev_num6', u'dev_num7', u'manu_test_data', u'asset_id', u'asset_alias', u'base_mac_address1', u'mac_add_blk_size1', u'base_mac_address2', u'mac_add_blk_size2', u'base_mac_address3', u'mac_add_blk_size3', u'base_mac_address4', u'mac_add_blk_size4', u'pcb_serial_num', u'power_supply_type', u'power_consumption', u'block_signature', u'block_version', u'block_length', u'block_checksum', u'eeprom_size', u'block_count', u'fru_major_type', u'fru_minor_type', u'oem_string', u'product_id', u'serial_number', u'part_number', u'part_revision', u'mfg_deviation', u'hw_version', u'mfg_bits', u'engineer_use', u'snmpoid', u'rma_code', u'eci_alpha_number'], name, value)
+                                    self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information, ['description', 'idprom_format_rev', 'controller_family', 'controller_type', 'vid', 'hwid', 'pid', 'udi_description', 'udi_name', 'clei', 'eci', 'top_assem_part_num', 'top_assem_vid', 'pca_num', 'pcavid', 'chassis_sid', 'dev_num1', 'dev_num2', 'dev_num3', 'dev_num4', 'dev_num5', 'dev_num6', 'dev_num7', 'manu_test_data', 'asset_id', 'asset_alias', 'base_mac_address1', 'mac_add_blk_size1', 'base_mac_address2', 'mac_add_blk_size2', 'base_mac_address3', 'mac_add_blk_size3', 'base_mac_address4', 'mac_add_blk_size4', 'pcb_serial_num', 'power_supply_type', 'power_consumption', 'block_signature', 'block_version', 'block_length', 'block_checksum', 'eeprom_size', 'block_count', 'fru_major_type', 'fru_minor_type', 'oem_string', 'product_id', 'serial_number', 'part_number', 'part_revision', 'mfg_deviation', 'hw_version', 'mfg_bits', 'engineer_use', 'snmpoid', 'rma_code', 'eci_alpha_number'], name, value)
 
 
                                 class Rma(Entity):
@@ -1667,6 +1949,8 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rma_number
                                     
                                     	RMA tracking number format is N\-N\-N
@@ -1674,12 +1958,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rma_history
                                     
                                     	RMA history
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1709,7 +1997,13 @@ class Diag(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information.Rma, [u'test_history', u'rma_number', u'rma_history'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.FanTrays.FanTray.Fanses.Fans.Information.Rma, ['test_history', 'rma_number', 'rma_history'], name, value)
+
+
+
+
+
+
 
 
             class Slots(Entity):
@@ -1720,6 +2014,8 @@ class Diag(Entity):
                 
                 	Slot name
                 	**type**\: list of  		 :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot>`
+                
+                	**config**\: False
                 
                 
 
@@ -1758,10 +2054,14 @@ class Diag(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: instances
                     
                     	Table of instances
                     	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1803,6 +2103,8 @@ class Diag(Entity):
                         	instance number
                         	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1840,10 +2142,14 @@ class Diag(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: detail
                             
                             	Detail information
                             	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1885,12 +2191,16 @@ class Diag(Entity):
                                 	Card instance
                                 	**type**\:  :py:class:`CardInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: node_operational_state
                                 
                                 	Node operational state 
                                 	**type**\: str
                                 
                                 	**length:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1920,7 +2230,7 @@ class Diag(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail, [u'node_operational_state'], name, value)
+                                    self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail, ['node_operational_state'], name, value)
 
 
                                 class CardInstance(Entity):
@@ -1932,12 +2242,16 @@ class Diag(Entity):
                                     	RMA Data
                                     	**type**\:  :py:class:`Rma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: description
                                     
                                     	A textual description of physical entity
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: idprom_format_rev
                                     
@@ -1946,12 +2260,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: controller_family
                                     
                                     	Controller family
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: controller_type
                                     
@@ -1960,12 +2278,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vid
                                     
                                     	Version ID
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: hwid
                                     
@@ -1974,12 +2296,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pid
                                     
                                     	Product ID
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: udi_description
                                     
@@ -1988,12 +2314,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: udi_name
                                     
                                     	UDI name
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: clei
                                     
@@ -2002,12 +2332,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: eci
                                     
                                     	Equipment Catalog Item (ECI) number
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: top_assem_part_num
                                     
@@ -2016,12 +2350,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: top_assem_vid
                                     
                                     	Top assembly revision number
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: pca_num
                                     
@@ -2030,12 +2368,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pcavid
                                     
                                     	PCA revision ID
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: chassis_sid
                                     
@@ -2044,12 +2386,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: dev_num1
                                     
                                     	Deviation Number # 1
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: dev_num2
                                     
@@ -2058,12 +2404,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: dev_num3
                                     
                                     	Deviation Number # 3
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: dev_num4
                                     
@@ -2072,12 +2422,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: dev_num5
                                     
                                     	Deviation Number # 5
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: dev_num6
                                     
@@ -2086,12 +2440,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: dev_num7
                                     
                                     	Deviation Number # 7
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: manu_test_data
                                     
@@ -2100,12 +2458,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: asset_id
                                     
                                     	Asset ID
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: asset_alias
                                     
@@ -2114,12 +2476,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: base_mac_address1
                                     
                                     	Base Mac Address #1
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mac_add_blk_size1
                                     
@@ -2128,12 +2494,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: base_mac_address2
                                     
                                     	Base Mac Address #2
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mac_add_blk_size2
                                     
@@ -2142,12 +2512,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: base_mac_address3
                                     
                                     	Base Mac Address #3
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mac_add_blk_size3
                                     
@@ -2156,12 +2530,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: base_mac_address4
                                     
                                     	Base Mac Address #4
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mac_add_blk_size4
                                     
@@ -2170,12 +2548,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pcb_serial_num
                                     
                                     	PCB Serial Number
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: power_supply_type
                                     
@@ -2184,12 +2566,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: power_consumption
                                     
                                     	Power Consumption
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: block_signature
                                     
@@ -2198,12 +2584,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: block_version
                                     
                                     	Block Version
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: block_length
                                     
@@ -2212,12 +2602,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: block_checksum
                                     
                                     	Block Checksum
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: eeprom_size
                                     
@@ -2226,12 +2620,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: block_count
                                     
                                     	Block Count
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: fru_major_type
                                     
@@ -2240,12 +2638,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fru_minor_type
                                     
                                     	FRU Minor Type
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: oem_string
                                     
@@ -2254,12 +2656,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: product_id
                                     
                                     	Product ID
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: serial_number
                                     
@@ -2268,12 +2674,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: part_number
                                     
                                     	Part Number
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: part_revision
                                     
@@ -2282,12 +2692,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: mfg_deviation
                                     
                                     	MFG Deviation
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: hw_version
                                     
@@ -2296,12 +2710,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: mfg_bits
                                     
                                     	MFG Bits
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: engineer_use
                                     
@@ -2310,12 +2728,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: snmpoid
                                     
                                     	SNMP OID
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: rma_code
                                     
@@ -2324,12 +2746,16 @@ class Diag(Entity):
                                     
                                     	**length:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: eci_alpha_number
                                     
                                     	AlphaNumeric Equipment Catalog Item (ECI) number
                                     	**type**\: str
                                     
                                     	**length:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2471,7 +2897,7 @@ class Diag(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance, [u'description', u'idprom_format_rev', u'controller_family', u'controller_type', u'vid', u'hwid', u'pid', u'udi_description', u'udi_name', u'clei', u'eci', u'top_assem_part_num', u'top_assem_vid', u'pca_num', u'pcavid', u'chassis_sid', u'dev_num1', u'dev_num2', u'dev_num3', u'dev_num4', u'dev_num5', u'dev_num6', u'dev_num7', u'manu_test_data', u'asset_id', u'asset_alias', u'base_mac_address1', u'mac_add_blk_size1', u'base_mac_address2', u'mac_add_blk_size2', u'base_mac_address3', u'mac_add_blk_size3', u'base_mac_address4', u'mac_add_blk_size4', u'pcb_serial_num', u'power_supply_type', u'power_consumption', u'block_signature', u'block_version', u'block_length', u'block_checksum', u'eeprom_size', u'block_count', u'fru_major_type', u'fru_minor_type', u'oem_string', u'product_id', u'serial_number', u'part_number', u'part_revision', u'mfg_deviation', u'hw_version', u'mfg_bits', u'engineer_use', u'snmpoid', u'rma_code', u'eci_alpha_number'], name, value)
+                                        self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance, ['description', 'idprom_format_rev', 'controller_family', 'controller_type', 'vid', 'hwid', 'pid', 'udi_description', 'udi_name', 'clei', 'eci', 'top_assem_part_num', 'top_assem_vid', 'pca_num', 'pcavid', 'chassis_sid', 'dev_num1', 'dev_num2', 'dev_num3', 'dev_num4', 'dev_num5', 'dev_num6', 'dev_num7', 'manu_test_data', 'asset_id', 'asset_alias', 'base_mac_address1', 'mac_add_blk_size1', 'base_mac_address2', 'mac_add_blk_size2', 'base_mac_address3', 'mac_add_blk_size3', 'base_mac_address4', 'mac_add_blk_size4', 'pcb_serial_num', 'power_supply_type', 'power_consumption', 'block_signature', 'block_version', 'block_length', 'block_checksum', 'eeprom_size', 'block_count', 'fru_major_type', 'fru_minor_type', 'oem_string', 'product_id', 'serial_number', 'part_number', 'part_revision', 'mfg_deviation', 'hw_version', 'mfg_bits', 'engineer_use', 'snmpoid', 'rma_code', 'eci_alpha_number'], name, value)
 
 
                                     class Rma(Entity):
@@ -2485,6 +2911,8 @@ class Diag(Entity):
                                         
                                         	**length:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: rma_number
                                         
                                         	RMA tracking number format is N\-N\-N
@@ -2492,12 +2920,16 @@ class Diag(Entity):
                                         
                                         	**length:** 0..255
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: rma_history
                                         
                                         	RMA history
                                         	**type**\: str
                                         
                                         	**length:** 0..255
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2527,7 +2959,14 @@ class Diag(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma, [u'test_history', u'rma_number', u'rma_history'], name, value)
+                                            self._perform_setattr(Diag.Racks.Rack.Slots.Slot.Instances.Instance.Detail.CardInstance.Rma, ['test_history', 'rma_number', 'rma_history'], name, value)
+
+
+
+
+
+
+
 
 
             class Chassis(Entity):
@@ -2539,12 +2978,16 @@ class Diag(Entity):
                 	RMA Data
                 	**type**\:  :py:class:`Rma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sdr_invmgr_diag_oper.Diag.Racks.Rack.Chassis.Rma>`
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	A textual description of physical entity
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: idprom_format_rev
                 
@@ -2553,12 +2996,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: controller_family
                 
                 	Controller family
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: controller_type
                 
@@ -2567,12 +3014,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: vid
                 
                 	Version ID
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: hwid
                 
@@ -2581,12 +3032,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: pid
                 
                 	Product ID
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: udi_description
                 
@@ -2595,12 +3050,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: udi_name
                 
                 	UDI name
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: clei
                 
@@ -2609,12 +3068,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: eci
                 
                 	Equipment Catalog Item (ECI) number
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: top_assem_part_num
                 
@@ -2623,12 +3086,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: top_assem_vid
                 
                 	Top assembly revision number
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: pca_num
                 
@@ -2637,12 +3104,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: pcavid
                 
                 	PCA revision ID
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: chassis_sid
                 
@@ -2651,12 +3122,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: dev_num1
                 
                 	Deviation Number # 1
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: dev_num2
                 
@@ -2665,12 +3140,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: dev_num3
                 
                 	Deviation Number # 3
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: dev_num4
                 
@@ -2679,12 +3158,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: dev_num5
                 
                 	Deviation Number # 5
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: dev_num6
                 
@@ -2693,12 +3176,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: dev_num7
                 
                 	Deviation Number # 7
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: manu_test_data
                 
@@ -2707,12 +3194,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: asset_id
                 
                 	Asset ID
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: asset_alias
                 
@@ -2721,12 +3212,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: base_mac_address1
                 
                 	Base Mac Address #1
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: mac_add_blk_size1
                 
@@ -2735,12 +3230,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: base_mac_address2
                 
                 	Base Mac Address #2
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: mac_add_blk_size2
                 
@@ -2749,12 +3248,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: base_mac_address3
                 
                 	Base Mac Address #3
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: mac_add_blk_size3
                 
@@ -2763,12 +3266,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: base_mac_address4
                 
                 	Base Mac Address #4
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: mac_add_blk_size4
                 
@@ -2777,12 +3284,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: pcb_serial_num
                 
                 	PCB Serial Number
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: power_supply_type
                 
@@ -2791,12 +3302,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: power_consumption
                 
                 	Power Consumption
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: block_signature
                 
@@ -2805,12 +3320,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: block_version
                 
                 	Block Version
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: block_length
                 
@@ -2819,12 +3338,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: block_checksum
                 
                 	Block Checksum
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: eeprom_size
                 
@@ -2833,12 +3356,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: block_count
                 
                 	Block Count
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: fru_major_type
                 
@@ -2847,12 +3374,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: fru_minor_type
                 
                 	FRU Minor Type
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: oem_string
                 
@@ -2861,12 +3392,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: product_id
                 
                 	Product ID
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: serial_number
                 
@@ -2875,12 +3410,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: part_number
                 
                 	Part Number
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: part_revision
                 
@@ -2889,12 +3428,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: mfg_deviation
                 
                 	MFG Deviation
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: hw_version
                 
@@ -2903,12 +3446,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: mfg_bits
                 
                 	MFG Bits
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: engineer_use
                 
@@ -2917,12 +3464,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: snmpoid
                 
                 	SNMP OID
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: rma_code
                 
@@ -2931,12 +3482,16 @@ class Diag(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: eci_alpha_number
                 
                 	AlphaNumeric Equipment Catalog Item (ECI) number
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -3078,7 +3633,7 @@ class Diag(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Diag.Racks.Rack.Chassis, [u'description', u'idprom_format_rev', u'controller_family', u'controller_type', u'vid', u'hwid', u'pid', u'udi_description', u'udi_name', u'clei', u'eci', u'top_assem_part_num', u'top_assem_vid', u'pca_num', u'pcavid', u'chassis_sid', u'dev_num1', u'dev_num2', u'dev_num3', u'dev_num4', u'dev_num5', u'dev_num6', u'dev_num7', u'manu_test_data', u'asset_id', u'asset_alias', u'base_mac_address1', u'mac_add_blk_size1', u'base_mac_address2', u'mac_add_blk_size2', u'base_mac_address3', u'mac_add_blk_size3', u'base_mac_address4', u'mac_add_blk_size4', u'pcb_serial_num', u'power_supply_type', u'power_consumption', u'block_signature', u'block_version', u'block_length', u'block_checksum', u'eeprom_size', u'block_count', u'fru_major_type', u'fru_minor_type', u'oem_string', u'product_id', u'serial_number', u'part_number', u'part_revision', u'mfg_deviation', u'hw_version', u'mfg_bits', u'engineer_use', u'snmpoid', u'rma_code', u'eci_alpha_number'], name, value)
+                    self._perform_setattr(Diag.Racks.Rack.Chassis, ['description', 'idprom_format_rev', 'controller_family', 'controller_type', 'vid', 'hwid', 'pid', 'udi_description', 'udi_name', 'clei', 'eci', 'top_assem_part_num', 'top_assem_vid', 'pca_num', 'pcavid', 'chassis_sid', 'dev_num1', 'dev_num2', 'dev_num3', 'dev_num4', 'dev_num5', 'dev_num6', 'dev_num7', 'manu_test_data', 'asset_id', 'asset_alias', 'base_mac_address1', 'mac_add_blk_size1', 'base_mac_address2', 'mac_add_blk_size2', 'base_mac_address3', 'mac_add_blk_size3', 'base_mac_address4', 'mac_add_blk_size4', 'pcb_serial_num', 'power_supply_type', 'power_consumption', 'block_signature', 'block_version', 'block_length', 'block_checksum', 'eeprom_size', 'block_count', 'fru_major_type', 'fru_minor_type', 'oem_string', 'product_id', 'serial_number', 'part_number', 'part_revision', 'mfg_deviation', 'hw_version', 'mfg_bits', 'engineer_use', 'snmpoid', 'rma_code', 'eci_alpha_number'], name, value)
 
 
                 class Rma(Entity):
@@ -3092,6 +3647,8 @@ class Diag(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: rma_number
                     
                     	RMA tracking number format is N\-N\-N
@@ -3099,12 +3656,16 @@ class Diag(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: rma_history
                     
                     	RMA history
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -3134,9 +3695,15 @@ class Diag(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Diag.Racks.Rack.Chassis.Rma, [u'test_history', u'rma_number', u'rma_history'], name, value)
+                        self._perform_setattr(Diag.Racks.Rack.Chassis.Rma, ['test_history', 'rma_number', 'rma_history'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Diag()
         return self._top_entity
+
+
 

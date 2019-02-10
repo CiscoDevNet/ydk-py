@@ -32,60 +32,84 @@ class MPLSLDPSTDMIB(Entity):
     	
     	**type**\:  :py:class:`MplsLdpLsrObjects <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpLsrObjects>`
     
+    	**config**\: False
+    
     .. attribute:: mplsldpentityobjects
     
     	
     	**type**\:  :py:class:`MplsLdpEntityObjects <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityObjects>`
+    
+    	**config**\: False
     
     .. attribute:: mplsldpsessionobjects
     
     	
     	**type**\:  :py:class:`MplsLdpSessionObjects <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpSessionObjects>`
     
+    	**config**\: False
+    
     .. attribute:: mplsfecobjects
     
     	
     	**type**\:  :py:class:`MplsFecObjects <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsFecObjects>`
+    
+    	**config**\: False
     
     .. attribute:: mplsldpentitytable
     
     	This table contains information about the MPLS Label Distribution Protocol Entities which exist on this Label Switching Router (LSR) or Label Edge Router (LER)
     	**type**\:  :py:class:`MplsLdpEntityTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable>`
     
+    	**config**\: False
+    
     .. attribute:: mplsldppeertable
     
     	Information about LDP peers known by Entities in the mplsLdpEntityTable.  The information in this table is based on information from the Entity\-Peer interaction during session initialization but is not appropriate for the mplsLdpSessionTable, because objects in this table may or may not be used in session establishment
     	**type**\:  :py:class:`MplsLdpPeerTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable>`
+    
+    	**config**\: False
     
     .. attribute:: mplsldphelloadjacencytable
     
     	A table of Hello Adjacencies for Sessions
     	**type**\:  :py:class:`MplsLdpHelloAdjacencyTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable>`
     
+    	**config**\: False
+    
     .. attribute:: mplsinsegmentldplsptable
     
     	A table of LDP LSP's which map to the mplsInSegmentTable in the MPLS\-LSR\-STD\-MIB module
     	**type**\:  :py:class:`MplsInSegmentLdpLspTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsInSegmentLdpLspTable>`
+    
+    	**config**\: False
     
     .. attribute:: mplsoutsegmentldplsptable
     
     	A table of LDP LSP's which map to the mplsOutSegmentTable in the MPLS\-LSR\-STD\-MIB
     	**type**\:  :py:class:`MplsOutSegmentLdpLspTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable>`
     
+    	**config**\: False
+    
     .. attribute:: mplsfectable
     
     	This table represents the FEC (Forwarding Equivalence Class) Information associated with an LSP
     	**type**\:  :py:class:`MplsFecTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsFecTable>`
+    
+    	**config**\: False
     
     .. attribute:: mplsldplspfectable
     
     	A table which shows the relationship between LDP LSPs and FECs.  Each row represents a single LDP LSP to FEC association
     	**type**\:  :py:class:`MplsLdpLspFecTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpLspFecTable>`
     
+    	**config**\: False
+    
     .. attribute:: mplsldpsessionpeeraddrtable
     
     	This table 'extends' the mplsLdpSessionTable. This table is used to store Label Address Information from Label Address Messages received by this LSR from Peers.  This table is read\-only and should be updated   when Label Withdraw Address Messages are received, i.e., Rows should be deleted as appropriate.  NOTE\:  since more than one address may be contained in a Label Address Message, this table 'sparse augments', the mplsLdpSessionTable's information
     	**type**\:  :py:class:`MplsLdpSessionPeerAddrTable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable>`
+    
+    	**config**\: False
     
     
 
@@ -171,10 +195,14 @@ class MPLSLDPSTDMIB(Entity):
         
         	**length:** 4
         
+        	**config**\: False
+        
         .. attribute:: mplsldplsrloopdetectioncapable
         
         	A indication of whether this Label Switching Router supports loop detection.  none(1) \-\- Loop Detection is not supported            on this LSR.  other(2) \-\- Loop Detection is supported but             by a method other than those             listed below.  hopCount(3) \-\- Loop Detection is supported by                Hop Count only.  pathVector(4) \-\- Loop Detection is supported by                  Path Vector only.  hopCountAndPathVector(5) \-\- Loop Detection is                      supported by both Hop Count                      And Path Vector.  Since Loop Detection is determined during Session Initialization, an individual session may not be running with loop detection.  This object simply gives an indication of whether or not the LSR has the ability to support Loop Detection and which types
         	**type**\:  :py:class:`MplsLdpLsrLoopDetectionCapable <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpLsrObjects.MplsLdpLsrLoopDetectionCapable>`
+        
+        	**config**\: False
         
         
 
@@ -203,7 +231,7 @@ class MPLSLDPSTDMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLsrObjects, [u'mplsldplsrid', u'mplsldplsrloopdetectioncapable'], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLsrObjects, ['mplsldplsrid', 'mplsldplsrloopdetectioncapable'], name, value)
 
         class MplsLdpLsrLoopDetectionCapable(Enum):
             """
@@ -275,6 +303,7 @@ class MPLSLDPSTDMIB(Entity):
 
 
 
+
     class MplsLdpEntityObjects(Entity):
         """
         
@@ -286,12 +315,16 @@ class MPLSLDPSTDMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: mplsldpentityindexnext
         
         	This object contains an appropriate value to be used for mplsLdpEntityIndex when creating entries in the mplsLdpEntityTable. The value 0 indicates that no unassigned entries are available
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -320,7 +353,8 @@ class MPLSLDPSTDMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityObjects, [u'mplsldpentitylastchange', u'mplsldpentityindexnext'], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityObjects, ['mplsldpentitylastchange', 'mplsldpentityindexnext'], name, value)
+
 
 
     class MplsLdpSessionObjects(Entity):
@@ -334,12 +368,16 @@ class MPLSLDPSTDMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: mplsldplspfeclastchange
         
         	The value of sysUpTime at the time of the most recent addition/deletion of an entry to/from the mplsLdpLspFecTable or the most recent change in values to any objects in the mplsLdpLspFecTable.  If no such changes have occurred since the last re\-initialization of the local management subsystem, then this object contains a zero value
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -368,7 +406,8 @@ class MPLSLDPSTDMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionObjects, [u'mplsldppeerlastchange', u'mplsldplspfeclastchange'], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionObjects, ['mplsldppeerlastchange', 'mplsldplspfeclastchange'], name, value)
+
 
 
     class MplsFecObjects(Entity):
@@ -382,12 +421,16 @@ class MPLSLDPSTDMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: mplsfecindexnext
         
         	This object contains an appropriate value to be used for mplsFecIndex when creating entries in the mplsFecTable. The value 0 indicates that no unassigned entries are available
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -416,7 +459,8 @@ class MPLSLDPSTDMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLDPSTDMIB.MplsFecObjects, [u'mplsfeclastchange', u'mplsfecindexnext'], name, value)
+            self._perform_setattr(MPLSLDPSTDMIB.MplsFecObjects, ['mplsfeclastchange', 'mplsfecindexnext'], name, value)
+
 
 
     class MplsLdpEntityTable(Entity):
@@ -430,6 +474,8 @@ class MPLSLDPSTDMIB(Entity):
         
         	An entry in this table represents an LDP entity. An entry can be created by a network administrator or by an SNMP agent as instructed by LDP
         	**type**\: list of  		 :py:class:`MplsLdpEntityEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
+        
+        	**config**\: False
         
         
 
@@ -469,12 +515,16 @@ class MPLSLDPSTDMIB(Entity):
             	The LDP identifier
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentityindex  (key)
             
             	This index is used as a secondary index to uniquely identify this row.  Before creating a row in this table, the 'mplsLdpEntityIndexNext' object should be retrieved. That value should be used for the value of this index when creating a row in this table.  NOTE\:  if a value of zero (0) is retrieved, that indicates that no rows can be created in this table at this time.  A secondary index (this object) is meaningful to some but not all, LDP implementations.  For example an LDP implementation which uses PPP would use this index to differentiate PPP sub\-links.  Another way to use this index is to give this the value of ifIndex.  However, this is dependant   on the implementation
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsldpentityprotocolversion
             
@@ -483,15 +533,21 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentityadminstatus
             
             	The administrative status of this LDP Entity. If this object is changed from 'enable' to 'disable' and this entity has already attempted to establish contact with a Peer, then all contact with that Peer is lost and all information from that Peer needs to be removed from the MIB. (This implies that the network management subsystem should clean up any related entry in the mplsLdpPeerTable.  This further implies that a 'tear\-down' for that session is issued and the session and all information related to that session cease to exist).  At this point the operator is able to change values which are related to this entity.  When the admin status is set back to 'enable', then this Entity will attempt to establish a new session with the Peer
             	**type**\:  :py:class:`MplsLdpEntityAdminStatus <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry.MplsLdpEntityAdminStatus>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentityoperstatus
             
             	The operational status of this LDP Entity.  The value of unknown(1) indicates that the operational status cannot be determined at this time.  The value of unknown should be a transient condition before changing to enabled(2) or disabled(3)
             	**type**\:  :py:class:`MplsLdpEntityOperStatus <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry.MplsLdpEntityOperStatus>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldpentitytcpport
             
@@ -500,6 +556,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentityudpdscport
             
             	The UDP Discovery Port for LDP.  The default value is the well\-known value for this port
@@ -507,12 +565,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitymaxpdulength
             
             	The maximum PDU Length that is sent in the Common Session Parameters of an Initialization Message. According to the LDP Specification [RFC3036] a value of 255 or less specifies the default maximum length of 4096 octets, this is why the value of this object starts at 256.  The operator should explicitly choose the default value (i.e., 4096), or some other value.  The receiving LSR MUST calculate the maximum PDU length for the session by using the smaller of its and its peer's proposals for Max PDU Length
             	**type**\: int
             
             	**range:** 256..65535
+            
+            	**config**\: False
             
             	**units**\: octets
             
@@ -523,6 +585,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: mplsldpentityhelloholdtimer
@@ -531,6 +595,8 @@ class MPLSLDPSTDMIB(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -541,15 +607,21 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..100
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitylabeldistmethod
             
             	For any given LDP session, the method of label distribution must be specified
             	**type**\:  :py:class:`MplsLabelDistributionMethod <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsLabelDistributionMethod>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitylabelretentionmode
             
             	The LDP Entity can be configured to use either conservative or liberal label retention mode.  If the value of this object is conservative(1) then advertized label mappings are retained only if they will be used to forward packets, i.e., if label came from a valid next hop.  If the value of this object is liberal(2) then all advertized label mappings are retained whether they are from a valid next hop or not
             	**type**\:  :py:class:`MplsRetentionMode <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsRetentionMode>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldpentitypathvectorlimit
             
@@ -558,6 +630,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentityhopcountlimit
             
             	If the value of this object is 0 (zero), then Loop Detection using Hop Counters is disabled.  If the value of this object is greater than 0 (zero) then Loop Detection using Hop Counters is enabled, and this object specifies this Entity's maximum allowable value for the Hop Count. Also, the value of the object mplsLdpLsrLoopDetectionCapable must be set to either 'hopCount(3)' or 'hopCountAndPathVector(5)' if this object has a value greater than 0 (zero), otherwise it is ignored
@@ -565,20 +639,28 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitytransportaddrkind
             
             	This specifies whether the loopback or interface address is to be used as the transport address in the transport address TLV of the hello message.  If the value is interface(1), then the IP address of the interface from which hello messages are sent is used as the transport address in the hello message.  Otherwise, if the value is loopback(2), then the IP address of the loopback interface is used as the transport address in the hello message
             	**type**\:  :py:class:`MplsLdpEntityTransportAddrKind <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry.MplsLdpEntityTransportAddrKind>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldpentitytargetpeer
             
             	If this LDP entity uses targeted peer then set this to true
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitytargetpeeraddrtype
             
             	The type of the internetwork layer address used for the Extended Discovery.  This object indicates how the value of mplsLdpEntityTargetPeerAddr is to be interpreted
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldpentitytargetpeeraddr
             
@@ -587,10 +669,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitylabeltype
             
             	Specifies the optional parameters for the LDP Initialization Message.  If the value is generic(1) then no optional parameters will be sent in the LDP Initialization message associated with this Entity.  If the value is atmParameters(2) then a row must be created in the mplsLdpEntityAtmTable, which corresponds to this entry.  If the value is frameRelayParameters(3) then a row must be created in the mplsLdpEntityFrameRelayTable, which corresponds to this entry
             	**type**\:  :py:class:`MplsLdpLabelType <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsLdpLabelType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldpentitydiscontinuitytime
             
@@ -599,15 +685,21 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitystoragetype
             
             	The storage type for this conceptual row. Conceptual rows having the value 'permanent(4)' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentityrowstatus
             
             	The status of this conceptual row.  All writable objects in this row may be modified at any time, however, as described in detail in the section entitled, 'Changing Values After Session Establishment', and again described in the DESCRIPTION clause of the mplsLdpEntityAdminStatus object, if a session has been initiated with a Peer, changing objects in this table will wreak havoc with the session and interrupt traffic.  To repeat again\: the recommended procedure is to set the mplsLdpEntityAdminStatus to down, thereby explicitly causing a session to be torn down. Then, change objects in this entry, then set the mplsLdpEntityAdminStatus to enable, which enables a new session to be initiated
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldpentitystatssessionattempts
             
@@ -616,12 +708,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitystatssessionrejectednohelloerrors
             
             	A count of the Session Rejected/No Hello Error Notification Messages sent or received by this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of mplsLdpEntityDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsldpentitystatssessionrejectedaderrors
             
@@ -630,12 +726,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitystatssessionrejectedmaxpduerrors
             
             	A count of the Session Rejected/Parameters  Max Pdu Length Error Notification Messages sent or received by this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of mplsLdpEntityDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsldpentitystatssessionrejectedlrerrors
             
@@ -644,12 +744,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitystatsbadldpidentifiererrors
             
             	This object counts the number of Bad LDP Identifier Fatal Errors detected by the session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of mplsLdpEntityDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsldpentitystatsbadpdulengtherrors
             
@@ -658,12 +762,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitystatsbadmessagelengtherrors
             
             	This object counts the number of Bad Message Length Fatal Errors detected by the session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of mplsLdpEntityDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsldpentitystatsbadtlvlengtherrors
             
@@ -672,12 +780,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitystatsmalformedtlvvalueerrors
             
             	This object counts the number of Malformed TLV Value Fatal Errors detected by the session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of mplsLdpEntityDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsldpentitystatskeepalivetimerexperrors
             
@@ -686,6 +798,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitystatsshutdownreceivednotifications
             
             	This object counts the number of Shutdown Notifications received related to session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of mplsLdpEntityDiscontinuityTime
@@ -693,12 +807,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentitystatsshutdownsentnotifications
             
             	This object counts the number of Shutdown Notfications sent related to session(s) (past and present) associated with this LDP Entity.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of   mplsLdpEntityDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -795,7 +913,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldpentityprotocolversion', u'mplsldpentityadminstatus', u'mplsldpentityoperstatus', u'mplsldpentitytcpport', u'mplsldpentityudpdscport', u'mplsldpentitymaxpdulength', u'mplsldpentitykeepaliveholdtimer', u'mplsldpentityhelloholdtimer', u'mplsldpentityinitsessionthreshold', u'mplsldpentitylabeldistmethod', u'mplsldpentitylabelretentionmode', u'mplsldpentitypathvectorlimit', u'mplsldpentityhopcountlimit', u'mplsldpentitytransportaddrkind', u'mplsldpentitytargetpeer', u'mplsldpentitytargetpeeraddrtype', u'mplsldpentitytargetpeeraddr', u'mplsldpentitylabeltype', u'mplsldpentitydiscontinuitytime', u'mplsldpentitystoragetype', u'mplsldpentityrowstatus', u'mplsldpentitystatssessionattempts', u'mplsldpentitystatssessionrejectednohelloerrors', u'mplsldpentitystatssessionrejectedaderrors', u'mplsldpentitystatssessionrejectedmaxpduerrors', u'mplsldpentitystatssessionrejectedlrerrors', u'mplsldpentitystatsbadldpidentifiererrors', u'mplsldpentitystatsbadpdulengtherrors', u'mplsldpentitystatsbadmessagelengtherrors', u'mplsldpentitystatsbadtlvlengtherrors', u'mplsldpentitystatsmalformedtlvvalueerrors', u'mplsldpentitystatskeepalivetimerexperrors', u'mplsldpentitystatsshutdownreceivednotifications', u'mplsldpentitystatsshutdownsentnotifications'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldpentityprotocolversion', 'mplsldpentityadminstatus', 'mplsldpentityoperstatus', 'mplsldpentitytcpport', 'mplsldpentityudpdscport', 'mplsldpentitymaxpdulength', 'mplsldpentitykeepaliveholdtimer', 'mplsldpentityhelloholdtimer', 'mplsldpentityinitsessionthreshold', 'mplsldpentitylabeldistmethod', 'mplsldpentitylabelretentionmode', 'mplsldpentitypathvectorlimit', 'mplsldpentityhopcountlimit', 'mplsldpentitytransportaddrkind', 'mplsldpentitytargetpeer', 'mplsldpentitytargetpeeraddrtype', 'mplsldpentitytargetpeeraddr', 'mplsldpentitylabeltype', 'mplsldpentitydiscontinuitytime', 'mplsldpentitystoragetype', 'mplsldpentityrowstatus', 'mplsldpentitystatssessionattempts', 'mplsldpentitystatssessionrejectednohelloerrors', 'mplsldpentitystatssessionrejectedaderrors', 'mplsldpentitystatssessionrejectedmaxpduerrors', 'mplsldpentitystatssessionrejectedlrerrors', 'mplsldpentitystatsbadldpidentifiererrors', 'mplsldpentitystatsbadpdulengtherrors', 'mplsldpentitystatsbadmessagelengtherrors', 'mplsldpentitystatsbadtlvlengtherrors', 'mplsldpentitystatsmalformedtlvvalueerrors', 'mplsldpentitystatskeepalivetimerexperrors', 'mplsldpentitystatsshutdownreceivednotifications', 'mplsldpentitystatsshutdownsentnotifications'], name, value)
 
             class MplsLdpEntityAdminStatus(Enum):
                 """
@@ -913,6 +1031,8 @@ class MPLSLDPSTDMIB(Entity):
 
 
 
+
+
     class MplsLdpPeerTable(Entity):
         """
         Information about LDP peers known by Entities in
@@ -926,6 +1046,8 @@ class MPLSLDPSTDMIB(Entity):
         
         	Information about a single Peer which is related to a Session.  This table is augmented by the mplsLdpSessionTable
         	**type**\: list of  		 :py:class:`MplsLdpPeerEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry>`
+        
+        	**config**\: False
         
         
 
@@ -967,6 +1089,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentityindex  (key)
             
             	
@@ -976,15 +1100,21 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldppeerldpid  (key)
             
             	The LDP identifier of this LDP Peer
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: mplsldppeerlabeldistmethod
             
             	For any given LDP session, the method of label distribution must be specified
             	**type**\:  :py:class:`MplsLabelDistributionMethod <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsLabelDistributionMethod>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldppeerpathvectorlimit
             
@@ -993,10 +1123,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplsldppeertransportaddrtype
             
             	The type of the Internet address for the mplsLdpPeerTransportAddr object.  The LDP specification describes this as being either an IPv4 Transport Address or IPv6 Transport   Address which is used in opening the LDP session's TCP connection, or if the optional TLV is not present, then this is the IPv4/IPv6 source address for the UPD packet carrying the Hellos.  This object specifies how the value of the mplsLdpPeerTransportAddr object should be interpreted
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldppeertransportaddr
             
@@ -1005,6 +1139,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplsldpsessionstatelastchange
             
             	The value of sysUpTime at the time this Session entered its current state as denoted by the mplsLdpSessionState object
@@ -1012,15 +1148,21 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldpsessionstate
             
             	The current state of the session, all of the states 1 to 5 are based on the state machine for session negotiation behavior
             	**type**\:  :py:class:`MplsLdpSessionState <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry.MplsLdpSessionState>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldpsessionrole
             
             	During session establishment the LSR/LER takes either the active role or the passive role based on address comparisons.  This object indicates whether this LSR/LER was behaving in an active role or passive role during this session's establishment.  The value of unknown(1), indicates that the role is not able to be determined at the present time
             	**type**\:  :py:class:`MplsLdpSessionRole <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry.MplsLdpSessionRole>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldpsessionprotocolversion
             
@@ -1029,6 +1171,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: mplsldpsessionkeepaliveholdtimerem
             
             	The keep alive hold time remaining for this session
@@ -1036,12 +1180,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsldpsessionkeepalivetime
             
             	The negotiated KeepAlive Time which represents the amount of seconds between keep alive messages.  The mplsLdpEntityKeepAliveHoldTimer related to this Session is the value that was proposed as the KeepAlive Time for this session.  This value is negotiated during session initialization between the entity's proposed value (i.e., the value configured in mplsLdpEntityKeepAliveHoldTimer) and the peer's proposed KeepAlive Hold Timer value. This value is the smaller of the two proposed values
             	**type**\: int
             
             	**range:** 1..65535
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1052,6 +1200,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             	**units**\: octets
             
             .. attribute:: mplsldpsessiondiscontinuitytime
@@ -1061,6 +1211,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldpsessionstatsunknownmestypeerrors
             
             	This object counts the number of Unknown Message Type Errors detected by this LSR/LER during this session.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of mplsLdpSessionDiscontinuityTime
@@ -1068,12 +1220,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldpsessionstatsunknowntlverrors
             
             	This object counts the number of Unknown TLV Errors detected by this LSR/LER during this session.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of mplsLdpSessionDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1132,7 +1288,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldppeerlabeldistmethod', u'mplsldppeerpathvectorlimit', u'mplsldppeertransportaddrtype', u'mplsldppeertransportaddr', u'mplsldpsessionstatelastchange', u'mplsldpsessionstate', u'mplsldpsessionrole', u'mplsldpsessionprotocolversion', u'mplsldpsessionkeepaliveholdtimerem', u'mplsldpsessionkeepalivetime', u'mplsldpsessionmaxpdulength', u'mplsldpsessiondiscontinuitytime', u'mplsldpsessionstatsunknownmestypeerrors', u'mplsldpsessionstatsunknowntlverrors'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsldppeerlabeldistmethod', 'mplsldppeerpathvectorlimit', 'mplsldppeertransportaddrtype', 'mplsldppeertransportaddr', 'mplsldpsessionstatelastchange', 'mplsldpsessionstate', 'mplsldpsessionrole', 'mplsldpsessionprotocolversion', 'mplsldpsessionkeepaliveholdtimerem', 'mplsldpsessionkeepalivetime', 'mplsldpsessionmaxpdulength', 'mplsldpsessiondiscontinuitytime', 'mplsldpsessionstatsunknownmestypeerrors', 'mplsldpsessionstatsunknowntlverrors'], name, value)
 
             class MplsLdpSessionRole(Enum):
                 """
@@ -1201,6 +1357,8 @@ class MPLSLDPSTDMIB(Entity):
 
 
 
+
+
     class MplsLdpHelloAdjacencyTable(Entity):
         """
         A table of Hello Adjacencies for Sessions.
@@ -1209,6 +1367,8 @@ class MPLSLDPSTDMIB(Entity):
         
         	Each row represents a single LDP Hello Adjacency. An LDP Session can have one or more Hello Adjacencies
         	**type**\: list of  		 :py:class:`MplsLdpHelloAdjacencyEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1250,6 +1410,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentityindex  (key)
             
             	
@@ -1259,12 +1421,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldphelloadjacencyindex  (key)
             
@@ -1273,12 +1439,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldphelloadjacencyholdtimerem
             
             	If the value of this object is 65535, this means that the hold time is infinite (i.e., wait forever).  Otherwise, the time remaining for this Hello Adjacency to receive its next Hello Message.  This interval will change when the 'next' Hello Message which corresponds to this Hello Adjacency is received unless it is infinite
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1289,10 +1459,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: mplsldphelloadjacencytype
             
             	This adjacency is the result of a 'link' hello if the value of this object is link(1).   Otherwise, it is a result of a 'targeted' hello, targeted(2)
             	**type**\:  :py:class:`MplsLdpHelloAdjacencyType <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry.MplsLdpHelloAdjacencyType>`
+            
+            	**config**\: False
             
             
 
@@ -1331,7 +1505,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldphelloadjacencyindex', u'mplsldphelloadjacencyholdtimerem', u'mplsldphelloadjacencyholdtime', u'mplsldphelloadjacencytype'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsldphelloadjacencyindex', 'mplsldphelloadjacencyholdtimerem', 'mplsldphelloadjacencyholdtime', 'mplsldphelloadjacencytype'], name, value)
 
             class MplsLdpHelloAdjacencyType(Enum):
                 """
@@ -1357,6 +1531,8 @@ class MPLSLDPSTDMIB(Entity):
 
 
 
+
+
     class MplsInSegmentLdpLspTable(Entity):
         """
         A table of LDP LSP's which
@@ -1367,6 +1543,8 @@ class MPLSLDPSTDMIB(Entity):
         
         	An entry in this table represents information on a single LDP LSP which is represented by a session's index triple (mplsLdpEntityLdpId, mplsLdpEntityIndex, mplsLdpPeerLdpId) AND the index for the mplsInSegmentTable (mplsInSegmentLdpLspLabelIndex) from the MPLS\-LSR\-STD\-MIB.  The information contained in a row is read\-only
         	**type**\: list of  		 :py:class:`MplsInSegmentLdpLspEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1414,6 +1592,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentityindex  (key)
             
             	
@@ -1423,12 +1603,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry>`
+            
+            	**config**\: False
             
             .. attribute:: mplsinsegmentldplspindex  (key)
             
@@ -1437,15 +1621,21 @@ class MPLSLDPSTDMIB(Entity):
             
             	**length:** 1..24
             
+            	**config**\: False
+            
             .. attribute:: mplsinsegmentldplsplabeltype
             
             	The Layer 2 Label Type
             	**type**\:  :py:class:`MplsLdpLabelType <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsLdpLabelType>`
             
+            	**config**\: False
+            
             .. attribute:: mplsinsegmentldplsptype
             
             	The type of LSP connection
             	**type**\:  :py:class:`MplsLspType <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsLspType>`
+            
+            	**config**\: False
             
             
 
@@ -1482,7 +1672,9 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsinsegmentldplspindex', u'mplsinsegmentldplsplabeltype', u'mplsinsegmentldplsptype'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsinsegmentldplspindex', 'mplsinsegmentldplsplabeltype', 'mplsinsegmentldplsptype'], name, value)
+
+
 
 
     class MplsOutSegmentLdpLspTable(Entity):
@@ -1495,6 +1687,8 @@ class MPLSLDPSTDMIB(Entity):
         
         	An entry in this table represents information on a single LDP LSP which is represented by a session's index triple (mplsLdpEntityLdpId, mplsLdpEntityIndex, mplsLdpPeerLdpId) AND the index (mplsOutSegmentLdpLspIndex) for the mplsOutSegmentTable.  The information contained in a row is read\-only
         	**type**\: list of  		 :py:class:`MplsOutSegmentLdpLspEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1541,6 +1735,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentityindex  (key)
             
             	
@@ -1550,12 +1746,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry>`
+            
+            	**config**\: False
             
             .. attribute:: mplsoutsegmentldplspindex  (key)
             
@@ -1564,15 +1764,21 @@ class MPLSLDPSTDMIB(Entity):
             
             	**length:** 1..24
             
+            	**config**\: False
+            
             .. attribute:: mplsoutsegmentldplsplabeltype
             
             	The Layer 2 Label Type
             	**type**\:  :py:class:`MplsLdpLabelType <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsLdpLabelType>`
             
+            	**config**\: False
+            
             .. attribute:: mplsoutsegmentldplsptype
             
             	The type of LSP connection
             	**type**\:  :py:class:`MplsLspType <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsLspType>`
+            
+            	**config**\: False
             
             
 
@@ -1609,7 +1815,9 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsoutsegmentldplspindex', u'mplsoutsegmentldplsplabeltype', u'mplsoutsegmentldplsptype'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsoutsegmentldplspindex', 'mplsoutsegmentldplsplabeltype', 'mplsoutsegmentldplsptype'], name, value)
+
+
 
 
     class MplsFecTable(Entity):
@@ -1622,6 +1830,8 @@ class MPLSLDPSTDMIB(Entity):
         
         	Each row represents a single FEC Element
         	**type**\: list of  		 :py:class:`MplsFecEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsFecTable.MplsFecEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1661,10 +1871,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsfectype
             
             	The type of the FEC.  If the value of this object is 'prefix(1)' then the FEC type described by this row is an address prefix.  If the value of this object is 'hostAddress(2)' then the FEC type described by this row is a host address
             	**type**\:  :py:class:`MplsFecType <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsFecTable.MplsFecEntry.MplsFecType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsfecaddrprefixlength
             
@@ -1673,10 +1887,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 0..2040
             
+            	**config**\: False
+            
             .. attribute:: mplsfecaddrtype
             
             	The value of this object is the type of the Internet address.  The value of this object, decides how the value of the mplsFecAddr object is interpreted
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsfecaddr
             
@@ -1685,15 +1903,21 @@ class MPLSLDPSTDMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplsfecstoragetype
             
             	The storage type for this conceptual row. Conceptual rows having the value 'permanent(4)' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: mplsfecrowstatus
             
             	The status of this conceptual row.  If the value of this object is 'active(1)', then none of the writable objects of this entry can be modified, except to set this object to 'destroy(6)'.  NOTE\: if this row is being referenced by any entry in the mplsLdpLspFecTable, then a request to destroy this row, will result in an inconsistentValue error
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1732,7 +1956,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsFecTable.MplsFecEntry, [u'mplsfecindex', u'mplsfectype', u'mplsfecaddrprefixlength', u'mplsfecaddrtype', u'mplsfecaddr', u'mplsfecstoragetype', u'mplsfecrowstatus'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsFecTable.MplsFecEntry, ['mplsfecindex', 'mplsfectype', 'mplsfecaddrprefixlength', 'mplsfecaddrtype', 'mplsfecaddr', 'mplsfecstoragetype', 'mplsfecrowstatus'], name, value)
 
             class MplsFecType(Enum):
                 """
@@ -1760,6 +1984,8 @@ class MPLSLDPSTDMIB(Entity):
 
 
 
+
+
     class MplsLdpLspFecTable(Entity):
         """
         A table which shows the relationship between
@@ -1770,6 +1996,8 @@ class MPLSLDPSTDMIB(Entity):
         
         	An entry represents a LDP LSP to FEC association
         	**type**\: list of  		 :py:class:`MplsLdpLspFecEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpLspFecTable.MplsLdpLspFecEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1810,6 +2038,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentityindex  (key)
             
             	
@@ -1819,6 +2049,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldppeerldpid  (key)
             
             	
@@ -1826,10 +2058,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldplspfecsegment  (key)
             
             	If the value is inSegment(1), then this indicates that the following index, mplsLdpLspFecSegmentIndex, contains the same value as the mplsInSegmentLdpLspIndex.  Otherwise, if the value of this object is   outSegment(2),  then this indicates that following index, mplsLdpLspFecSegmentIndex, contains the same value as the mplsOutSegmentLdpLspIndex
             	**type**\:  :py:class:`MplsLdpLspFecSegment <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpLspFecTable.MplsLdpLspFecEntry.MplsLdpLspFecSegment>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldplspfecsegmentindex  (key)
             
@@ -1838,6 +2074,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**length:** 1..24
             
+            	**config**\: False
+            
             .. attribute:: mplsldplspfecindex  (key)
             
             	This index identifies the FEC entry in the mplsFecTable associated with this session. In other words, the value of this index is the same as the value of the mplsFecIndex that denotes the FEC associated with this Session
@@ -1845,15 +2083,21 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldplspfecstoragetype
             
             	The storage type for this conceptual row. Conceptual rows having the value 'permanent(4)' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldplspfecrowstatus
             
             	The status of this conceptual row.  If the value of this object is 'active(1)', then none of the writable objects of this entry can be modified.  The Agent should delete this row when the session ceases to exist.  If an operator wants to associate the session with a different FEC, the recommended procedure is (as described in detail in the section entitled, 'Changing Values After Session Establishment', and again described in the DESCRIPTION clause of the mplsLdpEntityAdminStatus object) is to set the mplsLdpEntityAdminStatus to down, thereby explicitly causing a session to be torn down. This will also cause this entry to be deleted.  Then, set the mplsLdpEntityAdminStatus to enable which enables a new session to be initiated. Once the session is initiated, an entry may be added to this table to associate the new session with a FEC
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1894,7 +2138,7 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLspFecTable.MplsLdpLspFecEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldplspfecsegment', u'mplsldplspfecsegmentindex', u'mplsldplspfecindex', u'mplsldplspfecstoragetype', u'mplsldplspfecrowstatus'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLspFecTable.MplsLdpLspFecEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsldplspfecsegment', 'mplsldplspfecsegmentindex', 'mplsldplspfecindex', 'mplsldplspfecstoragetype', 'mplsldplspfecrowstatus'], name, value)
 
             class MplsLdpLspFecSegment(Enum):
                 """
@@ -1930,6 +2174,8 @@ class MPLSLDPSTDMIB(Entity):
 
 
 
+
+
     class MplsLdpSessionPeerAddrTable(Entity):
         """
         This table 'extends' the mplsLdpSessionTable.
@@ -1949,6 +2195,8 @@ class MPLSLDPSTDMIB(Entity):
         
         	An entry in this table represents information on a session's single next hop address which was advertised in an Address Message from the LDP peer. The information contained in a row is read\-only
         	**type**\: list of  		 :py:class:`MplsLdpSessionPeerAddrEntry <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1991,6 +2239,8 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldpentityindex  (key)
             
             	
@@ -2000,12 +2250,16 @@ class MPLSLDPSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsldpentityindex <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsldppeerldpid  (key)
             
             	
             	**type**\: str
             
             	**refers to**\:  :py:class:`mplsldppeerldpid <ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB.MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldpsessionpeeraddrindex  (key)
             
@@ -2014,10 +2268,14 @@ class MPLSLDPSTDMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsldpsessionpeernexthopaddrtype
             
             	The internetwork layer address type of this Next Hop Address as specified in the Label Address Message associated with this Session. The value of this object indicates how to interpret the value of   mplsLdpSessionPeerNextHopAddr
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsldpsessionpeernexthopaddr
             
@@ -2025,6 +2283,8 @@ class MPLSLDPSTDMIB(Entity):
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -2061,9 +2321,13 @@ class MPLSLDPSTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldpsessionpeeraddrindex', u'mplsldpsessionpeernexthopaddrtype', u'mplsldpsessionpeernexthopaddr'], name, value)
+                self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldppeerldpid', 'mplsldpsessionpeeraddrindex', 'mplsldpsessionpeernexthopaddrtype', 'mplsldpsessionpeernexthopaddr'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = MPLSLDPSTDMIB()
         return self._top_entity
+
+
 

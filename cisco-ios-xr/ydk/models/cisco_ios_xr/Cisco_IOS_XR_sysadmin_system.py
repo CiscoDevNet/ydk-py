@@ -128,6 +128,7 @@ class Mgmt(Entity):
             self._perform_setattr(Mgmt.Ipv4, ['address', 'subnet_mask_ip'], name, value)
 
 
+
     class Ipv6(Entity):
         """
         
@@ -175,7 +176,10 @@ class Mgmt(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Mgmt.Ipv6, ['address', 'prefix'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Mgmt()
         return self._top_entity
+
+
 

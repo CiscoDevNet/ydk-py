@@ -339,25 +339,35 @@ class Hsrp(Entity):
     	IPv4 HSRP information
     	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4>`
     
+    	**config**\: False
+    
     .. attribute:: mgo_sessions
     
     	HSRP MGO session table
     	**type**\:  :py:class:`MgoSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions>`
+    
+    	**config**\: False
     
     .. attribute:: ipv6
     
     	IPv6 HSRP information
     	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6>`
     
+    	**config**\: False
+    
     .. attribute:: bfd_sessions
     
     	The table of HSRP BFD Sessions
     	**type**\:  :py:class:`BfdSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions>`
     
+    	**config**\: False
+    
     .. attribute:: summary
     
     	HSRP summary statistics
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Summary>`
+    
+    	**config**\: False
     
     
 
@@ -413,15 +423,21 @@ class Hsrp(Entity):
         	The HSRP standby group table
         	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups>`
         
+        	**config**\: False
+        
         .. attribute:: tracked_interfaces
         
         	The HSRP tracked interfaces table
         	**type**\:  :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.TrackedInterfaces>`
         
+        	**config**\: False
+        
         .. attribute:: interfaces
         
         	The HSRP interface information table
         	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces>`
+        
+        	**config**\: False
         
         
 
@@ -469,6 +485,8 @@ class Hsrp(Entity):
             	An HSRP standby group
             	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group>`
             
+            	**config**\: False
+            
             
 
             """
@@ -507,6 +525,8 @@ class Hsrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: group_number  (key)
                 
                 	The HSRP group number
@@ -514,30 +534,42 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: resign_sent_time
                 
                 	Time last resign was sent
                 	**type**\:  :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.ResignSentTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: resign_received_time
                 
                 	Time last resign was received
                 	**type**\:  :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.ResignReceivedTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: coup_sent_time
                 
                 	Time last coup was sent
                 	**type**\:  :py:class:`CoupSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.CoupSentTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: coup_received_time
                 
                 	Time last coup was received
                 	**type**\:  :py:class:`CoupReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.CoupReceivedTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: statistics
                 
                 	HSRP Group statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.Statistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: authentication_string
                 
@@ -546,12 +578,16 @@ class Hsrp(Entity):
                 
                 	**length:** 0..9
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_mac_address
                 
                 	Virtual mac address
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                	**config**\: False
                 
                 .. attribute:: hsrp_group_number
                 
@@ -560,10 +596,14 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: address_family
                 
                 	Address family
                 	**type**\:  :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
+                
+                	**config**\: False
                 
                 .. attribute:: version
                 
@@ -572,12 +612,16 @@ class Hsrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: session_name
                 
                 	Session Name
                 	**type**\: str
                 
                 	**length:** 0..16
+                
+                	**config**\: False
                 
                 .. attribute:: slaves
                 
@@ -586,10 +630,14 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_slave
                 
                 	Group is a slave group
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: followed_session_name
                 
@@ -598,6 +646,8 @@ class Hsrp(Entity):
                 
                 	**length:** 0..16
                 
+                	**config**\: False
+                
                 .. attribute:: configured_priority
                 
                 	Configured priority
@@ -605,12 +655,16 @@ class Hsrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: preempt_delay
                 
                 	Preempt delay time in seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -621,6 +675,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: hello_time
@@ -629,6 +685,8 @@ class Hsrp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -639,6 +697,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: learned_hello_time
@@ -647,6 +707,8 @@ class Hsrp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -657,6 +719,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: min_delay_time
@@ -665,6 +729,8 @@ class Hsrp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -675,6 +741,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: virtual_ip_address
@@ -684,12 +752,16 @@ class Hsrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_linklocal_ipv6_address
                 
                 	Virtual linklocal IPv6 address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: active_ip_address
                 
@@ -698,12 +770,16 @@ class Hsrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: active_ipv6_address
                 
                 	Active router's IPv6 address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: active_mac_address
                 
@@ -712,12 +788,16 @@ class Hsrp(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: standby_ip_address
                 
                 	Standby router's IP address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: standby_ipv6_address
                 
@@ -726,6 +806,8 @@ class Hsrp(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: standby_mac_address
                 
                 	Standby router's interface MAC address
@@ -733,10 +815,14 @@ class Hsrp(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: hsrp_router_state
                 
                 	HSRP router state
                 	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
+                
+                	**config**\: False
                 
                 .. attribute:: interface_name_xr
                 
@@ -745,12 +831,16 @@ class Hsrp(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: router_priority
                 
@@ -759,6 +849,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: active_priority
                 
                 	Priority of the Active router
@@ -766,10 +858,14 @@ class Hsrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: active_timer_flag
                 
                 	Active timer running flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: active_timer_secs
                 
@@ -777,6 +873,8 @@ class Hsrp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -787,6 +885,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: standby_timer_flag
@@ -794,12 +894,16 @@ class Hsrp(Entity):
                 	Standby timer running flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: standby_timer_secs
                 
                 	Standby timer running time secs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -810,6 +914,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: hello_timer_flag
@@ -817,12 +923,16 @@ class Hsrp(Entity):
                 	Hello timer running flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: hello_timer_secs
                 
                 	Hello timer running time secs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -833,6 +943,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: delay_timer_flag
@@ -840,12 +952,16 @@ class Hsrp(Entity):
                 	Delay timer running flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: delay_timer_secs
                 
                 	Delay timer running time secs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -856,6 +972,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: current_state_timer_secs
@@ -864,6 +982,8 @@ class Hsrp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -874,12 +994,16 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tracked_interface_count
                 
                 	Number of tracked interfaces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_interface_up_count
                 
@@ -888,45 +1012,63 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: preempt_enabled
                 
                 	Preempt enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: use_configured_timers
                 
                 	Use configured timers
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: use_configured_virtual_ip
                 
                 	Use configured virtual IP
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: use_bia_configured
                 
                 	Use burnt in MAC address configured
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: configured_timers
                 
                 	Non\-default timers are configured
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: configured_mac_address
                 
                 	MAC address configured
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: redirects_disabled
                 
                 	HSRP redirects disabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_enabled
                 
                 	HSRP BFD fast failover
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: bfd_interface
                 
@@ -935,12 +1077,16 @@ class Hsrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_peer_ip_address
                 
                 	BFD Peer IP address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: bfd_peer_ipv6_address
                 
@@ -949,10 +1095,14 @@ class Hsrp(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_session_state
                 
                 	BFD session state
                 	**type**\:  :py:class:`HsrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: bfd_interval
                 
@@ -961,6 +1111,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_multiplier
                 
                 	BFD multiplier
@@ -968,10 +1120,14 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
                 	**type**\:  :py:class:`HsrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacState>`
+                
+                	**config**\: False
                 
                 .. attribute:: secondary_address
                 
@@ -980,15 +1136,21 @@ class Hsrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: global_address
                 
                 	Global virtual IPv6 addresses
                 	**type**\: list of  		 :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.GlobalAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: state_change_history
                 
                 	State change history
                 	**type**\: list of  		 :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.StateChangeHistory>`
+                
+                	**config**\: False
                 
                 
 
@@ -1166,7 +1328,7 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv4.Groups.Group, ['interface_name', 'group_number', 'authentication_string', 'virtual_mac_address', 'hsrp_group_number', 'address_family', 'version', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'configured_priority', 'preempt_delay', 'preempt_timer_secs', 'hello_time', 'hold_time', 'learned_hello_time', 'learned_hold_time', 'min_delay_time', 'reload_delay_time', 'virtual_ip_address', 'virtual_linklocal_ipv6_address', 'active_ip_address', 'active_ipv6_address', 'active_mac_address', 'standby_ip_address', 'standby_ipv6_address', 'standby_mac_address', 'hsrp_router_state', 'interface_name_xr', 'interface', 'router_priority', 'active_priority', 'active_timer_flag', 'active_timer_secs', 'active_timer_msecs', 'standby_timer_flag', 'standby_timer_secs', 'standby_timer_msecs', 'hello_timer_flag', 'hello_timer_secs', 'hello_timer_msecs', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'current_state_timer_secs', 'state_change_count', 'tracked_interface_count', 'tracked_interface_up_count', 'preempt_enabled', 'use_configured_timers', 'use_configured_virtual_ip', 'use_bia_configured', 'configured_timers', 'configured_mac_address', 'redirects_disabled', 'bfd_enabled', 'bfd_interface', 'bfd_peer_ip_address', 'bfd_peer_ipv6_address', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'virtual_mac_address_state', 'secondary_address'], name, value)
+                    self._perform_setattr(Hsrp.Ipv4.Groups.Group, ['interface_name', 'group_number', u'authentication_string', u'virtual_mac_address', u'hsrp_group_number', u'address_family', u'version', u'session_name', u'slaves', u'is_slave', u'followed_session_name', u'configured_priority', u'preempt_delay', u'preempt_timer_secs', u'hello_time', u'hold_time', u'learned_hello_time', u'learned_hold_time', u'min_delay_time', u'reload_delay_time', u'virtual_ip_address', u'virtual_linklocal_ipv6_address', u'active_ip_address', u'active_ipv6_address', u'active_mac_address', u'standby_ip_address', u'standby_ipv6_address', u'standby_mac_address', u'hsrp_router_state', u'interface_name_xr', u'interface', u'router_priority', u'active_priority', u'active_timer_flag', u'active_timer_secs', u'active_timer_msecs', u'standby_timer_flag', u'standby_timer_secs', u'standby_timer_msecs', u'hello_timer_flag', u'hello_timer_secs', u'hello_timer_msecs', u'delay_timer_flag', u'delay_timer_secs', u'delay_timer_msecs', u'current_state_timer_secs', u'state_change_count', u'tracked_interface_count', u'tracked_interface_up_count', u'preempt_enabled', u'use_configured_timers', u'use_configured_virtual_ip', u'use_bia_configured', u'configured_timers', u'configured_mac_address', u'redirects_disabled', u'bfd_enabled', u'bfd_interface', u'bfd_peer_ip_address', u'bfd_peer_ipv6_address', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier', u'virtual_mac_address_state', u'secondary_address'], name, value)
 
 
                 class ResignSentTime(Entity):
@@ -1180,6 +1342,8 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -1188,6 +1352,8 @@ class Hsrp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -1217,7 +1383,8 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignSentTime, [u'seconds', u'nanoseconds'], name, value)
+
 
 
                 class ResignReceivedTime(Entity):
@@ -1231,6 +1398,8 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -1239,6 +1408,8 @@ class Hsrp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -1268,7 +1439,8 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.ResignReceivedTime, [u'seconds', u'nanoseconds'], name, value)
+
 
 
                 class CoupSentTime(Entity):
@@ -1282,6 +1454,8 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -1290,6 +1464,8 @@ class Hsrp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -1319,7 +1495,8 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupSentTime, [u'seconds', u'nanoseconds'], name, value)
+
 
 
                 class CoupReceivedTime(Entity):
@@ -1333,6 +1510,8 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -1341,6 +1520,8 @@ class Hsrp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -1370,7 +1551,8 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.CoupReceivedTime, [u'seconds', u'nanoseconds'], name, value)
+
 
 
                 class Statistics(Entity):
@@ -1384,12 +1566,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: standby_transitions
                     
                     	Number of transitions to Standby State
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: speak_transitions
                     
@@ -1398,12 +1584,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: listen_transitions
                     
                     	Number of transitions to Listen State
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: learn_transitions
                     
@@ -1412,12 +1602,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: init_transitions
                     
                     	Number of transitions to Init State
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: hello_packets_sent
                     
@@ -1426,12 +1620,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resign_packets_sent
                     
                     	Number of Resign Packets sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: coup_packets_sent
                     
@@ -1440,12 +1638,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: hello_packets_received
                     
                     	Number of Hello Packets received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: resign_packets_received
                     
@@ -1454,12 +1656,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: coup_packets_received
                     
                     	Number of Coup Packets received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: auth_fail_received
                     
@@ -1468,6 +1674,8 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: invalid_timer_received
                     
                     	Number of packets received with invalid Hello Time value
@@ -1475,12 +1683,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: mismatch_virtual_ip_address_received
                     
                     	Number of packets received with mismatching virtual IP address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1534,7 +1746,8 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.Statistics, ['active_transitions', 'standby_transitions', 'speak_transitions', 'listen_transitions', 'learn_transitions', 'init_transitions', 'hello_packets_sent', 'resign_packets_sent', 'coup_packets_sent', 'hello_packets_received', 'resign_packets_received', 'coup_packets_received', 'auth_fail_received', 'invalid_timer_received', 'mismatch_virtual_ip_address_received'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.Statistics, [u'active_transitions', u'standby_transitions', u'speak_transitions', u'listen_transitions', u'learn_transitions', u'init_transitions', u'hello_packets_sent', u'resign_packets_sent', u'coup_packets_sent', u'hello_packets_received', u'resign_packets_received', u'coup_packets_received', u'auth_fail_received', u'invalid_timer_received', u'mismatch_virtual_ip_address_received'], name, value)
+
 
 
                 class GlobalAddress(Entity):
@@ -1547,6 +1760,8 @@ class Hsrp(Entity):
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -1572,7 +1787,8 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.GlobalAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.GlobalAddress, [u'ipv6_address'], name, value)
+
 
 
                 class StateChangeHistory(Entity):
@@ -1584,20 +1800,28 @@ class Hsrp(Entity):
                     	Time of state change
                     	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: old_state
                     
                     	Old State
                     	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: new_state
                     
                     	New State
                     	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: reason
                     
                     	Reason for state change
                     	**type**\:  :py:class:`HsrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReason>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1631,7 +1855,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory, [u'old_state', u'new_state', u'reason'], name, value)
 
 
                     class Time(Entity):
@@ -1645,6 +1869,8 @@ class Hsrp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: nanoseconds
@@ -1653,6 +1879,8 @@ class Hsrp(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: nanosecond
                         
@@ -1682,7 +1910,11 @@ class Hsrp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time, [u'seconds', u'nanoseconds'], name, value)
+
+
+
+
 
 
         class TrackedInterfaces(Entity):
@@ -1693,6 +1925,8 @@ class Hsrp(Entity):
             
             	An HSRP tracked interface entry
             	**type**\: list of  		 :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.TrackedInterfaces.TrackedInterface>`
+            
+            	**config**\: False
             
             
 
@@ -1732,12 +1966,16 @@ class Hsrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: group_number  (key)
                 
                 	The HSRP group number
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_interface_name  (key)
                 
@@ -1746,12 +1984,16 @@ class Hsrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: hsrp_group_number
                 
@@ -1760,6 +2002,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: priority_decrement
                 
                 	Priority weighting
@@ -1767,10 +2011,14 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: interface_up_flag
                 
                 	Interface up flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_interface_name_xr
                 
@@ -1779,10 +2027,14 @@ class Hsrp(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: is_object
                 
                 	Tracked Object Flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -1825,7 +2077,9 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', 'interface', 'hsrp_group_number', 'priority_decrement', 'interface_up_flag', 'tracked_interface_name_xr', 'is_object'], name, value)
+                    self._perform_setattr(Hsrp.Ipv4.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', u'interface', u'hsrp_group_number', u'priority_decrement', u'interface_up_flag', u'tracked_interface_name_xr', u'is_object'], name, value)
+
+
 
 
         class Interfaces(Entity):
@@ -1836,6 +2090,8 @@ class Hsrp(Entity):
             
             	A HSRP interface entry
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces.Interface>`
+            
+            	**config**\: False
             
             
 
@@ -1875,10 +2131,14 @@ class Hsrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: statistics
                 
                 	HSRP Interface Statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces.Interface.Statistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: interface
                 
@@ -1887,10 +2147,14 @@ class Hsrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: use_bia_flag
                 
                 	Use burnt in mac address flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -1925,7 +2189,7 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface, ['interface_name', 'interface', 'use_bia_flag'], name, value)
+                    self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface, ['interface_name', u'interface', u'use_bia_flag'], name, value)
 
 
                 class Statistics(Entity):
@@ -1939,12 +2203,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: advert_packets_received
                     
                     	Number of advertisement packets received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: long_packets_received
                     
@@ -1953,12 +2221,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: short_packets_received
                     
                     	Number of packets received that were too short
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: invalid_version_received
                     
@@ -1967,12 +2239,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: invalid_operation_code_received
                     
                     	Number of packets received with invalid operation code
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_group_received
                     
@@ -1981,6 +2257,8 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: inoperational_group_received
                     
                     	Number of packets received for an inoperational group
@@ -1988,12 +2266,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: conflict_source_ip_address_received
                     
                     	Number of packets received from a conflicting Source IP address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2035,7 +2317,11 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface.Statistics, ['advert_packets_sent', 'advert_packets_received', 'long_packets_received', 'short_packets_received', 'invalid_version_received', 'invalid_operation_code_received', 'unknown_group_received', 'inoperational_group_received', 'conflict_source_ip_address_received'], name, value)
+                        self._perform_setattr(Hsrp.Ipv4.Interfaces.Interface.Statistics, [u'advert_packets_sent', u'advert_packets_received', u'long_packets_received', u'short_packets_received', u'invalid_version_received', u'invalid_operation_code_received', u'unknown_group_received', u'inoperational_group_received', u'conflict_source_ip_address_received'], name, value)
+
+
+
+
 
 
     class MgoSessions(Entity):
@@ -2046,6 +2332,8 @@ class Hsrp(Entity):
         
         	HSRP MGO session
         	**type**\: list of  		 :py:class:`MgoSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions.MgoSession>`
+        
+        	**config**\: False
         
         
 
@@ -2085,12 +2373,16 @@ class Hsrp(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: primary_session_name
             
             	Session Name
             	**type**\: str
             
             	**length:** 0..16
+            
+            	**config**\: False
             
             .. attribute:: primary_session_interface
             
@@ -2099,10 +2391,14 @@ class Hsrp(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: primary_af_name
             
             	Address family of primary session
             	**type**\:  :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
+            
+            	**config**\: False
             
             .. attribute:: primary_session_number
             
@@ -2111,15 +2407,21 @@ class Hsrp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: primary_session_state
             
             	State of primary session
             	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
             
+            	**config**\: False
+            
             .. attribute:: slave
             
             	List of slaves following this primary session
             	**type**\: list of  		 :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions.MgoSession.Slave>`
+            
+            	**config**\: False
             
             
 
@@ -2158,7 +2460,7 @@ class Hsrp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Hsrp.MgoSessions.MgoSession, ['session_name', 'primary_session_name', 'primary_session_interface', 'primary_af_name', 'primary_session_number', 'primary_session_state'], name, value)
+                self._perform_setattr(Hsrp.MgoSessions.MgoSession, ['session_name', u'primary_session_name', u'primary_session_interface', u'primary_af_name', u'primary_session_number', u'primary_session_state'], name, value)
 
 
             class Slave(Entity):
@@ -2172,12 +2474,16 @@ class Hsrp(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: slave_group_number
                 
                 	Group number of slave group
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2205,7 +2511,10 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.MgoSessions.MgoSession.Slave, ['slave_group_interface', 'slave_group_number'], name, value)
+                    self._perform_setattr(Hsrp.MgoSessions.MgoSession.Slave, [u'slave_group_interface', u'slave_group_number'], name, value)
+
+
+
 
 
     class Ipv6(Entity):
@@ -2217,15 +2526,21 @@ class Hsrp(Entity):
         	The HSRP tracked interfaces table
         	**type**\:  :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.TrackedInterfaces>`
         
+        	**config**\: False
+        
         .. attribute:: groups
         
         	The HSRP standby group table
         	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups>`
         
+        	**config**\: False
+        
         .. attribute:: interfaces
         
         	The HSRP interface information table
         	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces>`
+        
+        	**config**\: False
         
         
 
@@ -2273,6 +2588,8 @@ class Hsrp(Entity):
             	An HSRP tracked interface entry
             	**type**\: list of  		 :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.TrackedInterfaces.TrackedInterface>`
             
+            	**config**\: False
+            
             
 
             """
@@ -2311,12 +2628,16 @@ class Hsrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: group_number  (key)
                 
                 	The HSRP group number
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_interface_name  (key)
                 
@@ -2325,12 +2646,16 @@ class Hsrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: hsrp_group_number
                 
@@ -2339,6 +2664,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: priority_decrement
                 
                 	Priority weighting
@@ -2346,10 +2673,14 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: interface_up_flag
                 
                 	Interface up flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_interface_name_xr
                 
@@ -2358,10 +2689,14 @@ class Hsrp(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: is_object
                 
                 	Tracked Object Flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -2404,7 +2739,9 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', 'interface', 'hsrp_group_number', 'priority_decrement', 'interface_up_flag', 'tracked_interface_name_xr', 'is_object'], name, value)
+                    self._perform_setattr(Hsrp.Ipv6.TrackedInterfaces.TrackedInterface, ['interface_name', 'group_number', 'tracked_interface_name', u'interface', u'hsrp_group_number', u'priority_decrement', u'interface_up_flag', u'tracked_interface_name_xr', u'is_object'], name, value)
+
+
 
 
         class Groups(Entity):
@@ -2415,6 +2752,8 @@ class Hsrp(Entity):
             
             	An HSRP standby group
             	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group>`
+            
+            	**config**\: False
             
             
 
@@ -2454,6 +2793,8 @@ class Hsrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: group_number  (key)
                 
                 	The HSRP group number
@@ -2461,30 +2802,42 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: resign_sent_time
                 
                 	Time last resign was sent
                 	**type**\:  :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.ResignSentTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: resign_received_time
                 
                 	Time last resign was received
                 	**type**\:  :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.ResignReceivedTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: coup_sent_time
                 
                 	Time last coup was sent
                 	**type**\:  :py:class:`CoupSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.CoupSentTime>`
+                
+                	**config**\: False
                 
                 .. attribute:: coup_received_time
                 
                 	Time last coup was received
                 	**type**\:  :py:class:`CoupReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.CoupReceivedTime>`
                 
+                	**config**\: False
+                
                 .. attribute:: statistics
                 
                 	HSRP Group statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.Statistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: authentication_string
                 
@@ -2493,12 +2846,16 @@ class Hsrp(Entity):
                 
                 	**length:** 0..9
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_mac_address
                 
                 	Virtual mac address
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                	**config**\: False
                 
                 .. attribute:: hsrp_group_number
                 
@@ -2507,10 +2864,14 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: address_family
                 
                 	Address family
                 	**type**\:  :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
+                
+                	**config**\: False
                 
                 .. attribute:: version
                 
@@ -2519,12 +2880,16 @@ class Hsrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: session_name
                 
                 	Session Name
                 	**type**\: str
                 
                 	**length:** 0..16
+                
+                	**config**\: False
                 
                 .. attribute:: slaves
                 
@@ -2533,10 +2898,14 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_slave
                 
                 	Group is a slave group
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: followed_session_name
                 
@@ -2545,6 +2914,8 @@ class Hsrp(Entity):
                 
                 	**length:** 0..16
                 
+                	**config**\: False
+                
                 .. attribute:: configured_priority
                 
                 	Configured priority
@@ -2552,12 +2923,16 @@ class Hsrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: preempt_delay
                 
                 	Preempt delay time in seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -2568,6 +2943,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: hello_time
@@ -2576,6 +2953,8 @@ class Hsrp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -2586,6 +2965,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: learned_hello_time
@@ -2594,6 +2975,8 @@ class Hsrp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -2604,6 +2987,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: min_delay_time
@@ -2612,6 +2997,8 @@ class Hsrp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -2622,6 +3009,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: virtual_ip_address
@@ -2631,12 +3020,16 @@ class Hsrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_linklocal_ipv6_address
                 
                 	Virtual linklocal IPv6 address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: active_ip_address
                 
@@ -2645,12 +3038,16 @@ class Hsrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: active_ipv6_address
                 
                 	Active router's IPv6 address
                 	**type**\: str
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: active_mac_address
                 
@@ -2659,12 +3056,16 @@ class Hsrp(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: standby_ip_address
                 
                 	Standby router's IP address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: standby_ipv6_address
                 
@@ -2673,6 +3074,8 @@ class Hsrp(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: standby_mac_address
                 
                 	Standby router's interface MAC address
@@ -2680,10 +3083,14 @@ class Hsrp(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: hsrp_router_state
                 
                 	HSRP router state
                 	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
+                
+                	**config**\: False
                 
                 .. attribute:: interface_name_xr
                 
@@ -2692,12 +3099,16 @@ class Hsrp(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\: str
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                	**config**\: False
                 
                 .. attribute:: router_priority
                 
@@ -2706,6 +3117,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: active_priority
                 
                 	Priority of the Active router
@@ -2713,10 +3126,14 @@ class Hsrp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: active_timer_flag
                 
                 	Active timer running flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: active_timer_secs
                 
@@ -2724,6 +3141,8 @@ class Hsrp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -2734,6 +3153,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: standby_timer_flag
@@ -2741,12 +3162,16 @@ class Hsrp(Entity):
                 	Standby timer running flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: standby_timer_secs
                 
                 	Standby timer running time secs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -2757,6 +3182,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: hello_timer_flag
@@ -2764,12 +3191,16 @@ class Hsrp(Entity):
                 	Hello timer running flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: hello_timer_secs
                 
                 	Hello timer running time secs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -2780,6 +3211,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: delay_timer_flag
@@ -2787,12 +3220,16 @@ class Hsrp(Entity):
                 	Delay timer running flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: delay_timer_secs
                 
                 	Delay timer running time secs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -2803,6 +3240,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: millisecond
                 
                 .. attribute:: current_state_timer_secs
@@ -2811,6 +3250,8 @@ class Hsrp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -2821,12 +3262,16 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: tracked_interface_count
                 
                 	Number of tracked interfaces
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: tracked_interface_up_count
                 
@@ -2835,45 +3280,63 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: preempt_enabled
                 
                 	Preempt enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: use_configured_timers
                 
                 	Use configured timers
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: use_configured_virtual_ip
                 
                 	Use configured virtual IP
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: use_bia_configured
                 
                 	Use burnt in MAC address configured
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: configured_timers
                 
                 	Non\-default timers are configured
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: configured_mac_address
                 
                 	MAC address configured
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: redirects_disabled
                 
                 	HSRP redirects disabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_enabled
                 
                 	HSRP BFD fast failover
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: bfd_interface
                 
@@ -2882,12 +3345,16 @@ class Hsrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_peer_ip_address
                 
                 	BFD Peer IP address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: bfd_peer_ipv6_address
                 
@@ -2896,10 +3363,14 @@ class Hsrp(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_session_state
                 
                 	BFD session state
                 	**type**\:  :py:class:`HsrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: bfd_interval
                 
@@ -2908,6 +3379,8 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bfd_multiplier
                 
                 	BFD multiplier
@@ -2915,10 +3388,14 @@ class Hsrp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
                 	**type**\:  :py:class:`HsrpVmacState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacState>`
+                
+                	**config**\: False
                 
                 .. attribute:: secondary_address
                 
@@ -2927,15 +3404,21 @@ class Hsrp(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: global_address
                 
                 	Global virtual IPv6 addresses
                 	**type**\: list of  		 :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.GlobalAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: state_change_history
                 
                 	State change history
                 	**type**\: list of  		 :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.StateChangeHistory>`
+                
+                	**config**\: False
                 
                 
 
@@ -3113,7 +3596,7 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv6.Groups.Group, ['interface_name', 'group_number', 'authentication_string', 'virtual_mac_address', 'hsrp_group_number', 'address_family', 'version', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'configured_priority', 'preempt_delay', 'preempt_timer_secs', 'hello_time', 'hold_time', 'learned_hello_time', 'learned_hold_time', 'min_delay_time', 'reload_delay_time', 'virtual_ip_address', 'virtual_linklocal_ipv6_address', 'active_ip_address', 'active_ipv6_address', 'active_mac_address', 'standby_ip_address', 'standby_ipv6_address', 'standby_mac_address', 'hsrp_router_state', 'interface_name_xr', 'interface', 'router_priority', 'active_priority', 'active_timer_flag', 'active_timer_secs', 'active_timer_msecs', 'standby_timer_flag', 'standby_timer_secs', 'standby_timer_msecs', 'hello_timer_flag', 'hello_timer_secs', 'hello_timer_msecs', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'current_state_timer_secs', 'state_change_count', 'tracked_interface_count', 'tracked_interface_up_count', 'preempt_enabled', 'use_configured_timers', 'use_configured_virtual_ip', 'use_bia_configured', 'configured_timers', 'configured_mac_address', 'redirects_disabled', 'bfd_enabled', 'bfd_interface', 'bfd_peer_ip_address', 'bfd_peer_ipv6_address', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'virtual_mac_address_state', 'secondary_address'], name, value)
+                    self._perform_setattr(Hsrp.Ipv6.Groups.Group, ['interface_name', 'group_number', u'authentication_string', u'virtual_mac_address', u'hsrp_group_number', u'address_family', u'version', u'session_name', u'slaves', u'is_slave', u'followed_session_name', u'configured_priority', u'preempt_delay', u'preempt_timer_secs', u'hello_time', u'hold_time', u'learned_hello_time', u'learned_hold_time', u'min_delay_time', u'reload_delay_time', u'virtual_ip_address', u'virtual_linklocal_ipv6_address', u'active_ip_address', u'active_ipv6_address', u'active_mac_address', u'standby_ip_address', u'standby_ipv6_address', u'standby_mac_address', u'hsrp_router_state', u'interface_name_xr', u'interface', u'router_priority', u'active_priority', u'active_timer_flag', u'active_timer_secs', u'active_timer_msecs', u'standby_timer_flag', u'standby_timer_secs', u'standby_timer_msecs', u'hello_timer_flag', u'hello_timer_secs', u'hello_timer_msecs', u'delay_timer_flag', u'delay_timer_secs', u'delay_timer_msecs', u'current_state_timer_secs', u'state_change_count', u'tracked_interface_count', u'tracked_interface_up_count', u'preempt_enabled', u'use_configured_timers', u'use_configured_virtual_ip', u'use_bia_configured', u'configured_timers', u'configured_mac_address', u'redirects_disabled', u'bfd_enabled', u'bfd_interface', u'bfd_peer_ip_address', u'bfd_peer_ipv6_address', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier', u'virtual_mac_address_state', u'secondary_address'], name, value)
 
 
                 class ResignSentTime(Entity):
@@ -3127,6 +3610,8 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -3135,6 +3620,8 @@ class Hsrp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -3164,7 +3651,8 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignSentTime, [u'seconds', u'nanoseconds'], name, value)
+
 
 
                 class ResignReceivedTime(Entity):
@@ -3178,6 +3666,8 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -3186,6 +3676,8 @@ class Hsrp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -3215,7 +3707,8 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.ResignReceivedTime, [u'seconds', u'nanoseconds'], name, value)
+
 
 
                 class CoupSentTime(Entity):
@@ -3229,6 +3722,8 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -3237,6 +3732,8 @@ class Hsrp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -3266,7 +3763,8 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupSentTime, [u'seconds', u'nanoseconds'], name, value)
+
 
 
                 class CoupReceivedTime(Entity):
@@ -3280,6 +3778,8 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: nanoseconds
@@ -3288,6 +3788,8 @@ class Hsrp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: nanosecond
                     
@@ -3317,7 +3819,8 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.CoupReceivedTime, [u'seconds', u'nanoseconds'], name, value)
+
 
 
                 class Statistics(Entity):
@@ -3331,12 +3834,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: standby_transitions
                     
                     	Number of transitions to Standby State
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: speak_transitions
                     
@@ -3345,12 +3852,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: listen_transitions
                     
                     	Number of transitions to Listen State
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: learn_transitions
                     
@@ -3359,12 +3870,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: init_transitions
                     
                     	Number of transitions to Init State
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: hello_packets_sent
                     
@@ -3373,12 +3888,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resign_packets_sent
                     
                     	Number of Resign Packets sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: coup_packets_sent
                     
@@ -3387,12 +3906,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: hello_packets_received
                     
                     	Number of Hello Packets received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: resign_packets_received
                     
@@ -3401,12 +3924,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: coup_packets_received
                     
                     	Number of Coup Packets received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: auth_fail_received
                     
@@ -3415,6 +3942,8 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: invalid_timer_received
                     
                     	Number of packets received with invalid Hello Time value
@@ -3422,12 +3951,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: mismatch_virtual_ip_address_received
                     
                     	Number of packets received with mismatching virtual IP address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3481,7 +4014,8 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.Statistics, ['active_transitions', 'standby_transitions', 'speak_transitions', 'listen_transitions', 'learn_transitions', 'init_transitions', 'hello_packets_sent', 'resign_packets_sent', 'coup_packets_sent', 'hello_packets_received', 'resign_packets_received', 'coup_packets_received', 'auth_fail_received', 'invalid_timer_received', 'mismatch_virtual_ip_address_received'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.Statistics, [u'active_transitions', u'standby_transitions', u'speak_transitions', u'listen_transitions', u'learn_transitions', u'init_transitions', u'hello_packets_sent', u'resign_packets_sent', u'coup_packets_sent', u'hello_packets_received', u'resign_packets_received', u'coup_packets_received', u'auth_fail_received', u'invalid_timer_received', u'mismatch_virtual_ip_address_received'], name, value)
+
 
 
                 class GlobalAddress(Entity):
@@ -3494,6 +4028,8 @@ class Hsrp(Entity):
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -3519,7 +4055,8 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.GlobalAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.GlobalAddress, [u'ipv6_address'], name, value)
+
 
 
                 class StateChangeHistory(Entity):
@@ -3531,20 +4068,28 @@ class Hsrp(Entity):
                     	Time of state change
                     	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: old_state
                     
                     	Old State
                     	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: new_state
                     
                     	New State
                     	**type**\:  :py:class:`StandbyGrpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: reason
                     
                     	Reason for state change
                     	**type**\:  :py:class:`HsrpStateChangeReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReason>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3578,7 +4123,7 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory, [u'old_state', u'new_state', u'reason'], name, value)
 
 
                     class Time(Entity):
@@ -3592,6 +4137,8 @@ class Hsrp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: second
                         
                         .. attribute:: nanoseconds
@@ -3600,6 +4147,8 @@ class Hsrp(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: nanosecond
                         
@@ -3629,7 +4178,11 @@ class Hsrp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time, [u'seconds', u'nanoseconds'], name, value)
+
+
+
+
 
 
         class Interfaces(Entity):
@@ -3640,6 +4193,8 @@ class Hsrp(Entity):
             
             	A HSRP interface entry
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces.Interface>`
+            
+            	**config**\: False
             
             
 
@@ -3679,10 +4234,14 @@ class Hsrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: statistics
                 
                 	HSRP Interface Statistics
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces.Interface.Statistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: interface
                 
@@ -3691,10 +4250,14 @@ class Hsrp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: use_bia_flag
                 
                 	Use burnt in mac address flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -3729,7 +4292,7 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface, ['interface_name', 'interface', 'use_bia_flag'], name, value)
+                    self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface, ['interface_name', u'interface', u'use_bia_flag'], name, value)
 
 
                 class Statistics(Entity):
@@ -3743,12 +4306,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: advert_packets_received
                     
                     	Number of advertisement packets received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: long_packets_received
                     
@@ -3757,12 +4324,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: short_packets_received
                     
                     	Number of packets received that were too short
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: invalid_version_received
                     
@@ -3771,12 +4342,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: invalid_operation_code_received
                     
                     	Number of packets received with invalid operation code
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_group_received
                     
@@ -3785,6 +4360,8 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: inoperational_group_received
                     
                     	Number of packets received for an inoperational group
@@ -3792,12 +4369,16 @@ class Hsrp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: conflict_source_ip_address_received
                     
                     	Number of packets received from a conflicting Source IP address
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3839,7 +4420,11 @@ class Hsrp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface.Statistics, ['advert_packets_sent', 'advert_packets_received', 'long_packets_received', 'short_packets_received', 'invalid_version_received', 'invalid_operation_code_received', 'unknown_group_received', 'inoperational_group_received', 'conflict_source_ip_address_received'], name, value)
+                        self._perform_setattr(Hsrp.Ipv6.Interfaces.Interface.Statistics, [u'advert_packets_sent', u'advert_packets_received', u'long_packets_received', u'short_packets_received', u'invalid_version_received', u'invalid_operation_code_received', u'unknown_group_received', u'inoperational_group_received', u'conflict_source_ip_address_received'], name, value)
+
+
+
+
 
 
     class BfdSessions(Entity):
@@ -3850,6 +4435,8 @@ class Hsrp(Entity):
         
         	An HSRP BFD Session
         	**type**\: list of  		 :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions.BfdSession>`
+        
+        	**config**\: False
         
         
 
@@ -3889,6 +4476,8 @@ class Hsrp(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: ip_address  (key)
             
             	Destination IP Address of BFD Session
@@ -3902,6 +4491,8 @@ class Hsrp(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: bfd_interface_name
             
             	BFD Interface Name
@@ -3909,10 +4500,14 @@ class Hsrp(Entity):
             
             	**length:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: session_address_family
             
             	Session Address family
             	**type**\:  :py:class:`HsrpBAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAf>`
+            
+            	**config**\: False
             
             .. attribute:: destination_address
             
@@ -3921,6 +4516,8 @@ class Hsrp(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: destination_ipv6_address
             
             	BFD IPv6 destination address
@@ -3928,10 +4525,14 @@ class Hsrp(Entity):
             
             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: bfd_session_state
             
             	BFD session state
             	**type**\:  :py:class:`HsrpBfdSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: bfd_interval
             
@@ -3940,6 +4541,8 @@ class Hsrp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: bfd_multiplier
             
             	BFD multiplier
@@ -3947,10 +4550,14 @@ class Hsrp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: group
             
             	HSRP Groups tracking the BFD session
             	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions.BfdSession.Group>`
+            
+            	**config**\: False
             
             
 
@@ -3995,7 +4602,7 @@ class Hsrp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Hsrp.BfdSessions.BfdSession, ['interface_name', 'ip_address', 'bfd_interface_name', 'session_address_family', 'destination_address', 'destination_ipv6_address', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier'], name, value)
+                self._perform_setattr(Hsrp.BfdSessions.BfdSession, ['interface_name', 'ip_address', u'bfd_interface_name', u'session_address_family', u'destination_address', u'destination_ipv6_address', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier'], name, value)
 
 
             class Group(Entity):
@@ -4009,12 +4616,16 @@ class Hsrp(Entity):
                 
                 	**length:** 0..64
                 
+                	**config**\: False
+                
                 .. attribute:: hsrp_group_number
                 
                 	HSRP Group number
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -4042,7 +4653,10 @@ class Hsrp(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Hsrp.BfdSessions.BfdSession.Group, ['interface_name', 'hsrp_group_number'], name, value)
+                    self._perform_setattr(Hsrp.BfdSessions.BfdSession.Group, [u'interface_name', u'hsrp_group_number'], name, value)
+
+
+
 
 
     class Summary(Entity):
@@ -4056,12 +4670,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_sessions_standby
         
         	Number of IPv4 sessions in STANDBY state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_sessions_speak
         
@@ -4070,12 +4688,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_sessions_listen
         
         	Number of IPv4 sessions in LISTEN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_sessions_learn
         
@@ -4084,12 +4706,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_sessions_init
         
         	Number of IPv4 sessions in INIT state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_slaves_active
         
@@ -4098,12 +4724,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_slaves_standby
         
         	Number of IPv4 slaves in STANDBY state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_slaves_speak
         
@@ -4112,12 +4742,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_slaves_listen
         
         	Number of IPv4 slaves in LISTEN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_slaves_learn
         
@@ -4126,12 +4760,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_slaves_init
         
         	Number of IPv4 slaves in INIT state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_virtual_ip_addresses_active_up
         
@@ -4140,12 +4778,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_virtual_ip_addresses_active_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on groups in ACTIVE state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_virtual_ip_addresses_standby_up
         
@@ -4154,12 +4796,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_virtual_ip_addresses_standby_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on groups in STANDBY state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_virtual_ip_addresses_speak_up
         
@@ -4168,12 +4814,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_virtual_ip_addresses_speak_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on groups in SPEAK state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_virtual_ip_addresses_listen_up
         
@@ -4182,12 +4832,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_virtual_ip_addresses_listen_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on groups in LISTEN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_virtual_ip_addresses_learn_up
         
@@ -4196,12 +4850,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_virtual_ip_addresses_learn_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on groups in LEARN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv4_virtual_ip_addresses_init_up
         
@@ -4210,12 +4868,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv4_virtual_ip_addresses_init_down
         
         	Number of DOWN IPv4 Virtual IP Addresses on groups in INIT state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_sessions_active
         
@@ -4224,12 +4886,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_sessions_standby
         
         	Number of IPv6 sessions in STANDBY state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_sessions_speak
         
@@ -4238,12 +4904,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_sessions_listen
         
         	Number of IPv6 sessions in LISTEN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_sessions_learn
         
@@ -4252,12 +4922,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_sessions_init
         
         	Number of IPv6 sessions in INIT state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_slaves_active
         
@@ -4266,12 +4940,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_slaves_standby
         
         	Number of IPv6 slaves in STANDBY state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_slaves_speak
         
@@ -4280,12 +4958,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_slaves_listen
         
         	Number of IPv6 slaves in LISTEN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_slaves_learn
         
@@ -4294,12 +4976,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_slaves_init
         
         	Number of IPv6 slaves in INIT state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_virtual_ip_addresses_active_up
         
@@ -4308,12 +4994,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_virtual_ip_addresses_active_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on groups in ACTIVE state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_virtual_ip_addresses_standby_up
         
@@ -4322,12 +5012,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_virtual_ip_addresses_standby_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on groups in STANDBY state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_virtual_ip_addresses_speak_up
         
@@ -4336,12 +5030,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_virtual_ip_addresses_speak_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on groups in SPEAK state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_virtual_ip_addresses_listen_up
         
@@ -4350,12 +5048,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_virtual_ip_addresses_listen_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on groups in LISTEN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_virtual_ip_addresses_learn_up
         
@@ -4364,12 +5066,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_virtual_ip_addresses_learn_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on groups in LEARN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6_virtual_ip_addresses_init_up
         
@@ -4378,12 +5084,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipv6_virtual_ip_addresses_init_down
         
         	Number of DOWN IPv6 Virtual IP Addresses on groups in INIT state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: interfaces_ipv4_state_up
         
@@ -4392,12 +5102,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: interfaces_ipv4_state_down
         
         	Number of HSRP interfaces with IPv4 caps in DOWN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: tracked_interfaces_ipv4_state_up
         
@@ -4406,12 +5120,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tracked_interfaces_ipv4_state_down
         
         	Number of tracked interfaces with IPv4 caps in DOWN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: tracked_objects_up
         
@@ -4420,12 +5138,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tracked_objects_down
         
         	Number of tracked objects in DOWN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: interfaces_ipv6_state_up
         
@@ -4434,12 +5156,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: interfaces_ipv6_state_down
         
         	Number of HSRP interfaces with IPv6 caps in DOWN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: tracked_interfaces_ipv6_state_up
         
@@ -4448,12 +5174,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tracked_interfaces_ipv6_state_down
         
         	Number of tracked interfaces with IPv6 caps in DOWN state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: bfd_sessions_up
         
@@ -4462,6 +5192,8 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: bfd_sessions_down
         
         	Number of HSRP BFD sessions in DOWN state
@@ -4469,12 +5201,16 @@ class Hsrp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: bfd_session_inactive
         
         	Number of HSRP BFD sessions in INACTIVE state
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -4621,9 +5357,12 @@ class Hsrp(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Hsrp.Summary, ['ipv4_sessions_active', 'ipv4_sessions_standby', 'ipv4_sessions_speak', 'ipv4_sessions_listen', 'ipv4_sessions_learn', 'ipv4_sessions_init', 'ipv4_slaves_active', 'ipv4_slaves_standby', 'ipv4_slaves_speak', 'ipv4_slaves_listen', 'ipv4_slaves_learn', 'ipv4_slaves_init', 'ipv4_virtual_ip_addresses_active_up', 'ipv4_virtual_ip_addresses_active_down', 'ipv4_virtual_ip_addresses_standby_up', 'ipv4_virtual_ip_addresses_standby_down', 'ipv4_virtual_ip_addresses_speak_up', 'ipv4_virtual_ip_addresses_speak_down', 'ipv4_virtual_ip_addresses_listen_up', 'ipv4_virtual_ip_addresses_listen_down', 'ipv4_virtual_ip_addresses_learn_up', 'ipv4_virtual_ip_addresses_learn_down', 'ipv4_virtual_ip_addresses_init_up', 'ipv4_virtual_ip_addresses_init_down', 'ipv6_sessions_active', 'ipv6_sessions_standby', 'ipv6_sessions_speak', 'ipv6_sessions_listen', 'ipv6_sessions_learn', 'ipv6_sessions_init', 'ipv6_slaves_active', 'ipv6_slaves_standby', 'ipv6_slaves_speak', 'ipv6_slaves_listen', 'ipv6_slaves_learn', 'ipv6_slaves_init', 'ipv6_virtual_ip_addresses_active_up', 'ipv6_virtual_ip_addresses_active_down', 'ipv6_virtual_ip_addresses_standby_up', 'ipv6_virtual_ip_addresses_standby_down', 'ipv6_virtual_ip_addresses_speak_up', 'ipv6_virtual_ip_addresses_speak_down', 'ipv6_virtual_ip_addresses_listen_up', 'ipv6_virtual_ip_addresses_listen_down', 'ipv6_virtual_ip_addresses_learn_up', 'ipv6_virtual_ip_addresses_learn_down', 'ipv6_virtual_ip_addresses_init_up', 'ipv6_virtual_ip_addresses_init_down', 'interfaces_ipv4_state_up', 'interfaces_ipv4_state_down', 'tracked_interfaces_ipv4_state_up', 'tracked_interfaces_ipv4_state_down', 'tracked_objects_up', 'tracked_objects_down', 'interfaces_ipv6_state_up', 'interfaces_ipv6_state_down', 'tracked_interfaces_ipv6_state_up', 'tracked_interfaces_ipv6_state_down', 'bfd_sessions_up', 'bfd_sessions_down', 'bfd_session_inactive'], name, value)
+            self._perform_setattr(Hsrp.Summary, [u'ipv4_sessions_active', u'ipv4_sessions_standby', u'ipv4_sessions_speak', u'ipv4_sessions_listen', u'ipv4_sessions_learn', u'ipv4_sessions_init', u'ipv4_slaves_active', u'ipv4_slaves_standby', u'ipv4_slaves_speak', u'ipv4_slaves_listen', u'ipv4_slaves_learn', u'ipv4_slaves_init', u'ipv4_virtual_ip_addresses_active_up', u'ipv4_virtual_ip_addresses_active_down', u'ipv4_virtual_ip_addresses_standby_up', u'ipv4_virtual_ip_addresses_standby_down', u'ipv4_virtual_ip_addresses_speak_up', u'ipv4_virtual_ip_addresses_speak_down', u'ipv4_virtual_ip_addresses_listen_up', u'ipv4_virtual_ip_addresses_listen_down', u'ipv4_virtual_ip_addresses_learn_up', u'ipv4_virtual_ip_addresses_learn_down', u'ipv4_virtual_ip_addresses_init_up', u'ipv4_virtual_ip_addresses_init_down', u'ipv6_sessions_active', u'ipv6_sessions_standby', u'ipv6_sessions_speak', u'ipv6_sessions_listen', u'ipv6_sessions_learn', u'ipv6_sessions_init', u'ipv6_slaves_active', u'ipv6_slaves_standby', u'ipv6_slaves_speak', u'ipv6_slaves_listen', u'ipv6_slaves_learn', u'ipv6_slaves_init', u'ipv6_virtual_ip_addresses_active_up', u'ipv6_virtual_ip_addresses_active_down', u'ipv6_virtual_ip_addresses_standby_up', u'ipv6_virtual_ip_addresses_standby_down', u'ipv6_virtual_ip_addresses_speak_up', u'ipv6_virtual_ip_addresses_speak_down', u'ipv6_virtual_ip_addresses_listen_up', u'ipv6_virtual_ip_addresses_listen_down', u'ipv6_virtual_ip_addresses_learn_up', u'ipv6_virtual_ip_addresses_learn_down', u'ipv6_virtual_ip_addresses_init_up', u'ipv6_virtual_ip_addresses_init_down', u'interfaces_ipv4_state_up', u'interfaces_ipv4_state_down', u'tracked_interfaces_ipv4_state_up', u'tracked_interfaces_ipv4_state_down', u'tracked_objects_up', u'tracked_objects_down', u'interfaces_ipv6_state_up', u'interfaces_ipv6_state_down', u'tracked_interfaces_ipv6_state_up', u'tracked_interfaces_ipv6_state_down', u'bfd_sessions_up', u'bfd_sessions_down', u'bfd_session_inactive'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = Hsrp()
         return self._top_entity
+
+
 

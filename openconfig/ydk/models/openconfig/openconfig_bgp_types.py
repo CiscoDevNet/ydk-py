@@ -187,6 +187,7 @@ class BGPWELLKNOWNSTDCOMMUNITY(Identity):
         super(BGPWELLKNOWNSTDCOMMUNITY, self).__init__(ns, pref, tag)
 
 
+
 class BGPCAPABILITY(Identity):
     """
     Base identity for a BGP capability
@@ -200,6 +201,7 @@ class BGPCAPABILITY(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:BGP_CAPABILITY"):
         super(BGPCAPABILITY, self).__init__(ns, pref, tag)
+
 
 
 class REMOVEPRIVATEASOPTION(Identity):
@@ -218,6 +220,7 @@ class REMOVEPRIVATEASOPTION(Identity):
         super(REMOVEPRIVATEASOPTION, self).__init__(ns, pref, tag)
 
 
+
 class AFISAFITYPE(Identity):
     """
     Base identity type for AFI,SAFI tuples for BGP\-4
@@ -233,6 +236,7 @@ class AFISAFITYPE(Identity):
         super(AFISAFITYPE, self).__init__(ns, pref, tag)
 
 
+
 class GRACEFULRESTART(BGPCAPABILITY):
     """
     Graceful restart functionality
@@ -246,6 +250,7 @@ class GRACEFULRESTART(BGPCAPABILITY):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:GRACEFUL_RESTART"):
         super(GRACEFULRESTART, self).__init__(ns, pref, tag)
+
 
 
 class NOEXPORTSUBCONFED(BGPWELLKNOWNSTDCOMMUNITY):
@@ -265,6 +270,7 @@ class NOEXPORTSUBCONFED(BGPWELLKNOWNSTDCOMMUNITY):
         super(NOEXPORTSUBCONFED, self).__init__(ns, pref, tag)
 
 
+
 class NOADVERTISE(BGPWELLKNOWNSTDCOMMUNITY):
     """
     All NLRI received carrying this community must not be
@@ -282,6 +288,7 @@ class NOADVERTISE(BGPWELLKNOWNSTDCOMMUNITY):
         super(NOADVERTISE, self).__init__(ns, pref, tag)
 
 
+
 class L2VPNEVPN(AFISAFITYPE):
     """
     BGP MPLS Based Ethernet VPN (AFI,SAFI = 25,70)
@@ -295,6 +302,7 @@ class L2VPNEVPN(AFISAFITYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L2VPN_EVPN"):
         super(L2VPNEVPN, self).__init__(ns, pref, tag)
+
 
 
 class NOPEER(BGPWELLKNOWNSTDCOMMUNITY):
@@ -316,6 +324,7 @@ class NOPEER(BGPWELLKNOWNSTDCOMMUNITY):
         super(NOPEER, self).__init__(ns, pref, tag)
 
 
+
 class L2VPNVPLS(AFISAFITYPE):
     """
     BGP\-signalled VPLS (AFI,SAFI = 25,65)
@@ -329,6 +338,7 @@ class L2VPNVPLS(AFISAFITYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L2VPN_VPLS"):
         super(L2VPNVPLS, self).__init__(ns, pref, tag)
+
 
 
 class IPV4UNICAST(AFISAFITYPE):
@@ -346,6 +356,7 @@ class IPV4UNICAST(AFISAFITYPE):
         super(IPV4UNICAST, self).__init__(ns, pref, tag)
 
 
+
 class L3VPNIPV6MULTICAST(AFISAFITYPE):
     """
     Multicast IPv6 MPLS L3VPN (AFI,SAFI = 2,129)
@@ -361,6 +372,7 @@ class L3VPNIPV6MULTICAST(AFISAFITYPE):
         super(L3VPNIPV6MULTICAST, self).__init__(ns, pref, tag)
 
 
+
 class ROUTEREFRESH(BGPCAPABILITY):
     """
     The BGP route\-refresh functionality
@@ -374,6 +386,7 @@ class ROUTEREFRESH(BGPCAPABILITY):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:ROUTE_REFRESH"):
         super(ROUTEREFRESH, self).__init__(ns, pref, tag)
+
 
 
 class PRIVATEASREPLACEALL(REMOVEPRIVATEASOPTION):
@@ -395,6 +408,7 @@ class PRIVATEASREPLACEALL(REMOVEPRIVATEASOPTION):
         super(PRIVATEASREPLACEALL, self).__init__(ns, pref, tag)
 
 
+
 class L3VPNIPV6UNICAST(AFISAFITYPE):
     """
     Unicast IPv6 MPLS L3VPN (AFI,SAFI = 2,128)
@@ -408,6 +422,7 @@ class L3VPNIPV6UNICAST(AFISAFITYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV6_UNICAST"):
         super(L3VPNIPV6UNICAST, self).__init__(ns, pref, tag)
+
 
 
 class L3VPNIPV4UNICAST(AFISAFITYPE):
@@ -425,6 +440,7 @@ class L3VPNIPV4UNICAST(AFISAFITYPE):
         super(L3VPNIPV4UNICAST, self).__init__(ns, pref, tag)
 
 
+
 class L3VPNIPV4MULTICAST(AFISAFITYPE):
     """
     Multicast IPv4 MPLS L3VPN (AFI,SAFI = 1,129)
@@ -438,6 +454,7 @@ class L3VPNIPV4MULTICAST(AFISAFITYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:L3VPN_IPV4_MULTICAST"):
         super(L3VPNIPV4MULTICAST, self).__init__(ns, pref, tag)
+
 
 
 class MPBGP(BGPCAPABILITY):
@@ -455,6 +472,7 @@ class MPBGP(BGPCAPABILITY):
         super(MPBGP, self).__init__(ns, pref, tag)
 
 
+
 class IPV4LABELEDUNICAST(AFISAFITYPE):
     """
     Labeled IPv4 unicast (AFI,SAFI = 1,4)
@@ -468,6 +486,7 @@ class IPV4LABELEDUNICAST(AFISAFITYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV4_LABELED_UNICAST"):
         super(IPV4LABELEDUNICAST, self).__init__(ns, pref, tag)
+
 
 
 class NOEXPORT(BGPWELLKNOWNSTDCOMMUNITY):
@@ -488,6 +507,7 @@ class NOEXPORT(BGPWELLKNOWNSTDCOMMUNITY):
         super(NOEXPORT, self).__init__(ns, pref, tag)
 
 
+
 class IPV6UNICAST(AFISAFITYPE):
     """
     IPv6 unicast (AFI,SAFI = 2,1)
@@ -501,6 +521,7 @@ class IPV6UNICAST(AFISAFITYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:IPV6_UNICAST"):
         super(IPV6UNICAST, self).__init__(ns, pref, tag)
+
 
 
 class IPV6LABELEDUNICAST(AFISAFITYPE):
@@ -518,6 +539,7 @@ class IPV6LABELEDUNICAST(AFISAFITYPE):
         super(IPV6LABELEDUNICAST, self).__init__(ns, pref, tag)
 
 
+
 class ASN32(BGPCAPABILITY):
     """
     4\-byte (32\-bit) AS number functionality
@@ -531,6 +553,7 @@ class ASN32(BGPCAPABILITY):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:ASN32"):
         super(ASN32, self).__init__(ns, pref, tag)
+
 
 
 class PRIVATEASREMOVEALL(REMOVEPRIVATEASOPTION):
@@ -551,6 +574,7 @@ class PRIVATEASREMOVEALL(REMOVEPRIVATEASOPTION):
         super(PRIVATEASREMOVEALL, self).__init__(ns, pref, tag)
 
 
+
 class ADDPATHS(BGPCAPABILITY):
     """
     BGP add\-paths
@@ -564,5 +588,6 @@ class ADDPATHS(BGPCAPABILITY):
 
     def __init__(self, ns="http://openconfig.net/yang/bgp-types", pref="openconfig-bgp-types", tag="openconfig-bgp-types:ADD_PATHS"):
         super(ADDPATHS, self).__init__(ns, pref, tag)
+
 
 

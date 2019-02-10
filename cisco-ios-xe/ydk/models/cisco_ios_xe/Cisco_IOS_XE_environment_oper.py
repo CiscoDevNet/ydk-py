@@ -70,6 +70,8 @@ class EnvironmentSensors(Entity):
     	The list of components on the device chasis
     	**type**\: list of  		 :py:class:`EnvironmentSensor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_environment_oper.EnvironmentSensors.EnvironmentSensor>`
     
+    	**config**\: False
+    
     
 
     """
@@ -106,15 +108,21 @@ class EnvironmentSensors(Entity):
         	Name of the sensor component. This includes all physical components of the chasis \- both fixed and pluggable
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: location  (key)
         
         	Sensor location
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: state
         
         	A description of the current state of the sensor
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: current_reading
         
@@ -123,10 +131,14 @@ class EnvironmentSensors(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: sensor_units
         
         	Units corresponding to the current\-reading value
         	**type**\:  :py:class:`SensorUnitsType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_environment_oper.SensorUnitsType>`
+        
+        	**config**\: False
         
         .. attribute:: low_critical_threshold
         
@@ -135,12 +147,16 @@ class EnvironmentSensors(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: low_normal_threshold
         
         	No alarm above this threshold
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         .. attribute:: high_normal_threshold
         
@@ -149,12 +165,16 @@ class EnvironmentSensors(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: high_critical_threshold
         
         	Alarm threshold over which a critical  alarm will be signaled
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         
 
@@ -199,7 +219,10 @@ class EnvironmentSensors(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EnvironmentSensors.EnvironmentSensor, ['name', 'location', 'state', 'current_reading', 'sensor_units', 'low_critical_threshold', 'low_normal_threshold', 'high_normal_threshold', 'high_critical_threshold'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = EnvironmentSensors()
         return self._top_entity
+
+
 

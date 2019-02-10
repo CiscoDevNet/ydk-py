@@ -30,25 +30,35 @@ class AaaNacm(Entity):
     	AAA NACM summary
     	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Counters>`
     
+    	**config**\: False
+    
     .. attribute:: users
     
     	AAA NACM User summary
     	**type**\:  :py:class:`Users <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Users>`
+    
+    	**config**\: False
     
     .. attribute:: summary
     
     	AAA NACM summary
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Summary>`
     
+    	**config**\: False
+    
     .. attribute:: rules
     
     	AAA NACM Rulelist summary
     	**type**\:  :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Rules>`
     
+    	**config**\: False
+    
     .. attribute:: groups
     
     	AAA NACM Group summary
     	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Groups>`
+    
+    	**config**\: False
     
     
 
@@ -106,6 +116,8 @@ class AaaNacm(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: denied_data_writes
         
         	Denied Data Writes
@@ -113,12 +125,16 @@ class AaaNacm(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: denied_notifications
         
         	Denied Notifications
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         
 
@@ -152,6 +168,7 @@ class AaaNacm(Entity):
             self._perform_setattr(AaaNacm.Counters, ['denied_operations', 'denied_data_writes', 'denied_notifications'], name, value)
 
 
+
     class Users(Entity):
         """
         AAA NACM User summary
@@ -160,6 +177,8 @@ class AaaNacm(Entity):
         
         	AAA NACM User detail
         	**type**\: list of  		 :py:class:`User <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Users.User>`
+        
+        	**config**\: False
         
         
 
@@ -199,6 +218,8 @@ class AaaNacm(Entity):
             
             	**length:** 1..256
             
+            	**config**\: False
+            
             .. attribute:: user_name
             
             	User Name
@@ -206,10 +227,14 @@ class AaaNacm(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: group_name
             
             	Group Name List
             	**type**\: list of  		 :py:class:`GroupName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Users.User.GroupName>`
+            
+            	**config**\: False
             
             
 
@@ -254,6 +279,8 @@ class AaaNacm(Entity):
                 
                 	**length:** 0..256
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -281,6 +308,9 @@ class AaaNacm(Entity):
                     self._perform_setattr(AaaNacm.Users.User.GroupName, ['name'], name, value)
 
 
+
+
+
     class Summary(Entity):
         """
         AAA NACM summary
@@ -292,12 +322,16 @@ class AaaNacm(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: users
         
         	Users
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         .. attribute:: rulelist
         
@@ -306,12 +340,16 @@ class AaaNacm(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: rules
         
         	Rules
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         .. attribute:: read_default
         
@@ -320,12 +358,16 @@ class AaaNacm(Entity):
         
         	**length:** 0..16
         
+        	**config**\: False
+        
         .. attribute:: write_default
         
         	Write Default
         	**type**\: str
         
         	**length:** 0..16
+        
+        	**config**\: False
         
         .. attribute:: exec_default
         
@@ -334,6 +376,8 @@ class AaaNacm(Entity):
         
         	**length:** 0..16
         
+        	**config**\: False
+        
         .. attribute:: enable_nacm
         
         	Enable Nacm
@@ -341,12 +385,16 @@ class AaaNacm(Entity):
         
         	**length:** 0..16
         
+        	**config**\: False
+        
         .. attribute:: enable_external_groups
         
         	Enable External Groups
         	**type**\: str
         
         	**length:** 0..16
+        
+        	**config**\: False
         
         
 
@@ -392,6 +440,7 @@ class AaaNacm(Entity):
             self._perform_setattr(AaaNacm.Summary, ['groups', 'users', 'rulelist', 'rules', 'read_default', 'write_default', 'exec_default', 'enable_nacm', 'enable_external_groups'], name, value)
 
 
+
     class Rules(Entity):
         """
         AAA NACM Rulelist summary
@@ -400,6 +449,8 @@ class AaaNacm(Entity):
         
         	AAA NACM Rulelist detail
         	**type**\: list of  		 :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Rules.Rule>`
+        
+        	**config**\: False
         
         
 
@@ -437,6 +488,8 @@ class AaaNacm(Entity):
             	AAA NACM Rulelist detail
             	**type**\:  :py:class:`RulelistRules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Rules.Rule.RulelistRules>`
             
+            	**config**\: False
+            
             .. attribute:: ordering_index
             
             	Rulelist Ordering Index
@@ -444,12 +497,16 @@ class AaaNacm(Entity):
             
             	**length:** 1..256
             
+            	**config**\: False
+            
             .. attribute:: rulelist_name
             
             	Rulelist Name
             	**type**\: str
             
             	**length:** 1..256
+            
+            	**config**\: False
             
             
 
@@ -494,6 +551,8 @@ class AaaNacm(Entity):
                 	AAA NACM Rulelist detail
                 	**type**\: list of  		 :py:class:`RulelistRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Rules.Rule.RulelistRules.RulelistRule>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -532,12 +591,16 @@ class AaaNacm(Entity):
                     
                     	**length:** 1..256
                     
+                    	**config**\: False
+                    
                     .. attribute:: rule_name
                     
                     	Rule Name
                     	**type**\: str
                     
                     	**length:** 0..512
+                    
+                    	**config**\: False
                     
                     .. attribute:: rule_index
                     
@@ -546,12 +609,16 @@ class AaaNacm(Entity):
                     
                     	**length:** 0..16
                     
+                    	**config**\: False
+                    
                     .. attribute:: rulelist_index
                     
                     	Rulelist Index
                     	**type**\: str
                     
                     	**length:** 0..16
+                    
+                    	**config**\: False
                     
                     .. attribute:: module_name
                     
@@ -560,12 +627,16 @@ class AaaNacm(Entity):
                     
                     	**length:** 0..512
                     
+                    	**config**\: False
+                    
                     .. attribute:: action
                     
                     	Action
                     	**type**\: str
                     
                     	**length:** 0..256
+                    
+                    	**config**\: False
                     
                     .. attribute:: rule_type
                     
@@ -574,12 +645,16 @@ class AaaNacm(Entity):
                     
                     	**length:** 0..256
                     
+                    	**config**\: False
+                    
                     .. attribute:: comment
                     
                     	Comment
                     	**type**\: str
                     
                     	**length:** 0..256
+                    
+                    	**config**\: False
                     
                     .. attribute:: access_operations
                     
@@ -588,6 +663,8 @@ class AaaNacm(Entity):
                     
                     	**length:** 0..256
                     
+                    	**config**\: False
+                    
                     .. attribute:: rule_value
                     
                     	Rule Value
@@ -595,12 +672,16 @@ class AaaNacm(Entity):
                     
                     	**length:** 0..512
                     
+                    	**config**\: False
+                    
                     .. attribute:: hit_count
                     
                     	Hit Count
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -650,6 +731,10 @@ class AaaNacm(Entity):
                         self._perform_setattr(AaaNacm.Rules.Rule.RulelistRules.RulelistRule, ['rule', 'rule_name', 'rule_index', 'rulelist_index', 'module_name', 'action', 'rule_type', 'comment', 'access_operations', 'rule_value', 'hit_count'], name, value)
 
 
+
+
+
+
     class Groups(Entity):
         """
         AAA NACM Group summary
@@ -658,6 +743,8 @@ class AaaNacm(Entity):
         
         	AAA NACM Group detail
         	**type**\: list of  		 :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Groups.Group>`
+        
+        	**config**\: False
         
         
 
@@ -697,6 +784,8 @@ class AaaNacm(Entity):
             
             	**length:** 1..256
             
+            	**config**\: False
+            
             .. attribute:: group_name
             
             	Group Name
@@ -704,15 +793,21 @@ class AaaNacm(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: user_name
             
             	Users Name List
             	**type**\: list of  		 :py:class:`UserName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Groups.Group.UserName>`
             
+            	**config**\: False
+            
             .. attribute:: rule_name
             
             	Rules Name List
             	**type**\: list of  		 :py:class:`RuleName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_nacm_oper.AaaNacm.Groups.Group.RuleName>`
+            
+            	**config**\: False
             
             
 
@@ -758,6 +853,8 @@ class AaaNacm(Entity):
                 
                 	**length:** 0..256
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -785,6 +882,7 @@ class AaaNacm(Entity):
                     self._perform_setattr(AaaNacm.Groups.Group.UserName, ['name'], name, value)
 
 
+
             class RuleName(Entity):
                 """
                 Rules Name List
@@ -795,6 +893,8 @@ class AaaNacm(Entity):
                 	**type**\: str
                 
                 	**length:** 0..256
+                
+                	**config**\: False
                 
                 
 
@@ -822,7 +922,12 @@ class AaaNacm(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AaaNacm.Groups.Group.RuleName, ['name'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = AaaNacm()
         return self._top_entity
+
+
 

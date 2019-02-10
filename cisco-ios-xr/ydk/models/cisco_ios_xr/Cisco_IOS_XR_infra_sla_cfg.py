@@ -414,6 +414,7 @@ class Sla(Entity):
                                     self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize, ['buckets_size', 'buckets_size_unit'], name, value)
 
 
+
                             class Actions(Entity):
                                 """
                                 Thresholds and associated actions for the
@@ -521,6 +522,8 @@ class Sla(Entity):
                                         self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions.Action, ['threshold_type', 'action_type', 'condition', 'threshold_value', 'bin_number'], name, value)
 
 
+
+
                             class Aggregation(Entity):
                                 """
                                 Aggregation to apply to results for the
@@ -581,6 +584,9 @@ class Sla(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation, ['bins_count', 'bins_width', 'bins_width_tenths'], name, value)
+
+
+
 
 
                     class Schedule(Entity):
@@ -682,6 +688,7 @@ class Sla(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Schedule, ['probe_interval', 'probe_interval_day', 'probe_interval_unit', 'start_time_hour', 'start_time_minute', 'start_time_second', 'probe_duration', 'probe_duration_unit'], name, value)
+
 
 
                     class Probe(Entity):
@@ -837,6 +844,7 @@ class Sla(Entity):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send, ['burst_interval', 'burst_interval_unit', 'packet_interval', 'packet_interval_unit', 'packet_count', 'send_type'], name, value)
 
 
+
                         class PacketSizeAndPadding(Entity):
                             """
                             Minimum size to pad outgoing packet to
@@ -895,7 +903,15 @@ class Sla(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding, ['size', 'padding_type', 'padding_value'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Sla()
         return self._top_entity
+
+
 

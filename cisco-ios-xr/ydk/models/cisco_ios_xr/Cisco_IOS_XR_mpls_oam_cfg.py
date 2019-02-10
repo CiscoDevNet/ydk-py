@@ -148,7 +148,11 @@ class MplsOam(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.ReplyMode.ControlChannel, ['allow_reverse_lsp'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = MplsOam()
         return self._top_entity
+
+
 

@@ -533,20 +533,28 @@ class Lmp(Entity):
     	Global OLM process information
     	**type**\:  :py:class:`GlobalStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GlobalStatus>`
     
+    	**config**\: False
+    
     .. attribute:: clients
     
     	UCP OLM clients container class
     	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.Clients>`
+    
+    	**config**\: False
     
     .. attribute:: gmpls_uni
     
     	GMPLS UNI specific OLM/LMP configuration
     	**type**\:  :py:class:`GmplsUni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni>`
     
+    	**config**\: False
+    
     .. attribute:: component_link_ids
     
     	UCP OLM component link ID container class
     	**type**\:  :py:class:`ComponentLinkIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.ComponentLinkIds>`
+    
+    	**config**\: False
     
     
 
@@ -598,40 +606,56 @@ class Lmp(Entity):
         	Local OUNI LMP Node ID
         	**type**\:  :py:class:`LocalOuniLmpNodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GlobalStatus.LocalOuniLmpNodeId>`
         
+        	**config**\: False
+        
         .. attribute:: local_mpls_te_lmp_node_id
         
         	MPLS TE LMP Node ID
         	**type**\:  :py:class:`LocalMplsTeLmpNodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GlobalStatus.LocalMplsTeLmpNodeId>`
+        
+        	**config**\: False
         
         .. attribute:: local_gmpls_uni_lmp_node_id
         
         	GMPLS UNI LMP Node ID
         	**type**\:  :py:class:`LocalGmplsUniLmpNodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GlobalStatus.LocalGmplsUniLmpNodeId>`
         
+        	**config**\: False
+        
         .. attribute:: local_ouni_lmp_node_id_interface
         
         	Local OUNI LMP Node ID I/F
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: local_ouni_lmp_node_id_type
         
         	Local OUNI LMP Node ID type
         	**type**\:  :py:class:`OlmRouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmRouterId>`
         
+        	**config**\: False
+        
         .. attribute:: is_ouni_config_exist
         
         	TRUE if any OLM OUNI config exists
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: is_gmpls_nni_config_exist
         
         	TRUE if any OLM/LNP GMPLS NNI config exists
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: is_gmpls_uni_config_exist
         
         	TRUE if any OLM/LMP GMPLS UNI config exists
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -690,6 +714,8 @@ class Lmp(Entity):
             	Address Union
             	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GlobalStatus.LocalOuniLmpNodeId.Address>`
             
+            	**config**\: False
+            
             
 
             """
@@ -728,12 +754,16 @@ class Lmp(Entity):
                 	AddressType
                 	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_address
                 
                 	IPv4 address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: ipv6_address
                 
@@ -742,12 +772,16 @@ class Lmp(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: unnumbered_address
                 
                 	Unnumberedaddress
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -783,6 +817,8 @@ class Lmp(Entity):
                     self._perform_setattr(Lmp.GlobalStatus.LocalOuniLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
         class LocalMplsTeLmpNodeId(Entity):
             """
             MPLS TE LMP Node ID
@@ -791,6 +827,8 @@ class Lmp(Entity):
             
             	Address Union
             	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address>`
+            
+            	**config**\: False
             
             
 
@@ -830,12 +868,16 @@ class Lmp(Entity):
                 	AddressType
                 	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_address
                 
                 	IPv4 address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: ipv6_address
                 
@@ -844,12 +886,16 @@ class Lmp(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: unnumbered_address
                 
                 	Unnumberedaddress
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -885,6 +931,8 @@ class Lmp(Entity):
                     self._perform_setattr(Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
         class LocalGmplsUniLmpNodeId(Entity):
             """
             GMPLS UNI LMP Node ID
@@ -893,6 +941,8 @@ class Lmp(Entity):
             
             	Address Union
             	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address>`
+            
+            	**config**\: False
             
             
 
@@ -932,12 +982,16 @@ class Lmp(Entity):
                 	AddressType
                 	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_address
                 
                 	IPv4 address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: ipv6_address
                 
@@ -946,12 +1000,16 @@ class Lmp(Entity):
                 
                 	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: unnumbered_address
                 
                 	Unnumberedaddress
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -987,6 +1045,9 @@ class Lmp(Entity):
                     self._perform_setattr(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
+
     class Clients(Entity):
         """
         UCP OLM clients container class
@@ -995,6 +1056,8 @@ class Lmp(Entity):
         
         	Information on a particular OLM API client
         	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.Clients.Client>`
+        
+        	**config**\: False
         
         
 
@@ -1034,15 +1097,21 @@ class Lmp(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: connected_time
             
             	The time the clientconnected in sec
             	**type**\:  :py:class:`ConnectedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.Clients.Client.ConnectedTime>`
             
+            	**config**\: False
+            
             .. attribute:: node_name
             
             	The RP name that the clientprocess is running on
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1089,6 +1158,8 @@ class Lmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1116,6 +1187,9 @@ class Lmp(Entity):
                     self._perform_setattr(Lmp.Clients.Client.ConnectedTime, ['time_connected'], name, value)
 
 
+
+
+
     class GmplsUni(Entity):
         """
         GMPLS UNI specific OLM/LMP configuration
@@ -1125,10 +1199,14 @@ class Lmp(Entity):
         	UCP OLM TE Links container class
         	**type**\:  :py:class:`TeLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks>`
         
+        	**config**\: False
+        
         .. attribute:: neighbors
         
         	UCP OLM neighbors container class
         	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors>`
+        
+        	**config**\: False
         
         
 
@@ -1172,6 +1250,8 @@ class Lmp(Entity):
             	Information on a particular OLM TE Link
             	**type**\: list of  		 :py:class:`TeLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1210,50 +1290,70 @@ class Lmp(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: local_link_id
                 
                 	The local datalink ID
                 	**type**\:  :py:class:`LocalLinkId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId>`
+                
+                	**config**\: False
                 
                 .. attribute:: remote_link_id
                 
                 	The remote datalink ID
                 	**type**\:  :py:class:`RemoteLinkId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId>`
                 
+                	**config**\: False
+                
                 .. attribute:: local_te_link_id
                 
                 	Local TE\-Link ID/ TNA address
                 	**type**\:  :py:class:`LocalTeLinkId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId>`
+                
+                	**config**\: False
                 
                 .. attribute:: remote_te_link_id
                 
                 	Remote TE\-Link ID/ TNA address
                 	**type**\:  :py:class:`RemoteTeLinkId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId>`
                 
+                	**config**\: False
+                
                 .. attribute:: neighbor_address
                 
                 	The address of the neighbor
                 	**type**\:  :py:class:`NeighborAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress>`
+                
+                	**config**\: False
                 
                 .. attribute:: remote_ipcc_address
                 
                 	The remote node's IPCC address
                 	**type**\:  :py:class:`RemoteIpccAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Interface forOLM info
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: protocol_owner
                 
                 	Protocol owningthis te\-link
                 	**type**\:  :py:class:`OlmObjectOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmObjectOwner>`
                 
+                	**config**\: False
+                
                 .. attribute:: neighbor_name
                 
                 	The name of the neighbor
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ipcc_id
                 
@@ -1262,40 +1362,56 @@ class Lmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ipc_ctype
                 
                 	OLM IPCC type
                 	**type**\:  :py:class:`Olmipcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Olmipcc>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipcc_name
                 
                 	The name ofthe IPCC associated with the TE Link
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: local_mux_cap
                 
                 	The local mux capability
                 	**type**\:  :py:class:`OlmMuxCap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmMuxCap>`
+                
+                	**config**\: False
                 
                 .. attribute:: remote_mux_cap
                 
                 	The remote mux capability
                 	**type**\:  :py:class:`OlmMuxCap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmMuxCap>`
                 
+                	**config**\: False
+                
                 .. attribute:: im_state
                 
                 	data link IM state
                 	**type**\:  :py:class:`OlmCompLinkImState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmCompLinkImState>`
+                
+                	**config**\: False
                 
                 .. attribute:: lmp_state
                 
                 	data link LMP state
                 	**type**\:  :py:class:`OlmCompLinkLmpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmCompLinkLmpState>`
                 
+                	**config**\: False
+                
                 .. attribute:: te_link_lmp_state
                 
                 	TE LinkLMP state
                 	**type**\:  :py:class:`OlmteLinkLmpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmteLinkLmpState>`
+                
+                	**config**\: False
                 
                 .. attribute:: gmpls_te_link_local_minimum_bandwidth
                 
@@ -1303,6 +1419,8 @@ class Lmp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte/s
                 
@@ -1313,6 +1431,8 @@ class Lmp(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte/s
                 
                 .. attribute:: gmpls_te_link_neighbor_minimum_bandwidth
@@ -1321,6 +1441,8 @@ class Lmp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: byte/s
                 
@@ -1331,6 +1453,8 @@ class Lmp(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: byte/s
                 
                 .. attribute:: gmpls_te_link_local_encoding_type
@@ -1338,15 +1462,21 @@ class Lmp(Entity):
                 	GMPLS locallink encoding type
                 	**type**\:  :py:class:`OlmLinkEncoding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmLinkEncoding>`
                 
+                	**config**\: False
+                
                 .. attribute:: gmpls_te_link_neighbor_encoding_type
                 
                 	GMPLS neighborlink encoding type
                 	**type**\:  :py:class:`OlmLinkEncoding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmLinkEncoding>`
                 
+                	**config**\: False
+                
                 .. attribute:: is_lmp_enabled
                 
                 	Is LMP enabledon this TE link
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: lmp_transmit_msg_id
                 
@@ -1355,6 +1485,8 @@ class Lmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lmp_receive_msg_id
                 
                 	LMP receivemessage ID
@@ -1362,10 +1494,14 @@ class Lmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lmp_comp_link_status
                 
                 	Component link LMP status indicators
                 	**type**\: list of   :py:class:`OlmCompLinkLmpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmCompLinkLmpStatus>`
+                
+                	**config**\: False
                 
                 
 
@@ -1470,6 +1606,8 @@ class Lmp(Entity):
                     	Address Union
                     	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1507,12 +1645,16 @@ class Lmp(Entity):
                         	AddressType
                         	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: ipv6_address
                         
@@ -1521,12 +1663,16 @@ class Lmp(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: unnumbered_address
                         
                         	Unnumberedaddress
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1561,6 +1707,8 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
                 class RemoteLinkId(Entity):
                     """
                     The remote datalink ID
@@ -1569,6 +1717,8 @@ class Lmp(Entity):
                     
                     	Address Union
                     	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1607,12 +1757,16 @@ class Lmp(Entity):
                         	AddressType
                         	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: ipv6_address
                         
@@ -1621,12 +1775,16 @@ class Lmp(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: unnumbered_address
                         
                         	Unnumberedaddress
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1661,6 +1819,8 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
                 class LocalTeLinkId(Entity):
                     """
                     Local TE\-Link ID/ TNA address
@@ -1669,6 +1829,8 @@ class Lmp(Entity):
                     
                     	Address Union
                     	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1707,12 +1869,16 @@ class Lmp(Entity):
                         	AddressType
                         	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: ipv6_address
                         
@@ -1721,12 +1887,16 @@ class Lmp(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: unnumbered_address
                         
                         	Unnumberedaddress
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1761,6 +1931,8 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
                 class RemoteTeLinkId(Entity):
                     """
                     Remote TE\-Link ID/ TNA address
@@ -1769,6 +1941,8 @@ class Lmp(Entity):
                     
                     	Address Union
                     	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1807,12 +1981,16 @@ class Lmp(Entity):
                         	AddressType
                         	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: ipv6_address
                         
@@ -1821,12 +1999,16 @@ class Lmp(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: unnumbered_address
                         
                         	Unnumberedaddress
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1861,6 +2043,8 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
                 class NeighborAddress(Entity):
                     """
                     The address of the neighbor
@@ -1869,6 +2053,8 @@ class Lmp(Entity):
                     
                     	Address Union
                     	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1907,12 +2093,16 @@ class Lmp(Entity):
                         	AddressType
                         	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: ipv6_address
                         
@@ -1921,12 +2111,16 @@ class Lmp(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: unnumbered_address
                         
                         	Unnumberedaddress
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1961,6 +2155,8 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
                 class RemoteIpccAddress(Entity):
                     """
                     The remote node's IPCC address
@@ -1969,6 +2165,8 @@ class Lmp(Entity):
                     
                     	Address Union
                     	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2007,12 +2205,16 @@ class Lmp(Entity):
                         	AddressType
                         	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: ipv6_address
                         
@@ -2021,12 +2223,16 @@ class Lmp(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: unnumbered_address
                         
                         	Unnumberedaddress
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2061,6 +2267,10 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
+
+
         class Neighbors(Entity):
             """
             UCP OLM neighbors container class
@@ -2069,6 +2279,8 @@ class Lmp(Entity):
             
             	Information on a particular OLM neighbor
             	**type**\: list of  		 :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor>`
+            
+            	**config**\: False
             
             
 
@@ -2108,15 +2320,21 @@ class Lmp(Entity):
                 
                 	**length:** 1..64
                 
+                	**config**\: False
+                
                 .. attribute:: neighbor_address
                 
                 	The remote node ID of the neighbor
                 	**type**\:  :py:class:`NeighborAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress>`
                 
+                	**config**\: False
+                
                 .. attribute:: protocol_owner
                 
                 	Protocol owningthis neighbor
                 	**type**\:  :py:class:`OlmObjectOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmObjectOwner>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipcc_id
                 
@@ -2125,15 +2343,21 @@ class Lmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_lmp_enabled
                 
                 	Is LMP enabled on this neighbor [DEPRECATED]
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_lmp_config_disabled
                 
                 	Are LMP hellos disabled through configuration for this neighbor [DEPRECATED]
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: lmp_transmit_msg_id
                 
@@ -2142,12 +2366,16 @@ class Lmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lmp_receive_msg_id
                 
                 	LMP receive message ID [DEPRECATED]
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: lmp_link_sum_transmit_packets
                 
@@ -2156,6 +2384,8 @@ class Lmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lmp_link_sum_receive_packets
                 
                 	LMP link summary receive packet count[DEPRECATED]
@@ -2163,15 +2393,21 @@ class Lmp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: te_link
                 
                 	A list of TE Links connected to this neighbor
                 	**type**\: list of  		 :py:class:`TeLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink>`
                 
+                	**config**\: False
+                
                 .. attribute:: ipcc
                 
                 	A list of IPCCs connected to this neighbor
                 	**type**\: list of  		 :py:class:`Ipcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.Ipcc>`
+                
+                	**config**\: False
                 
                 
 
@@ -2233,6 +2469,8 @@ class Lmp(Entity):
                     	Address Union
                     	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -2270,12 +2508,16 @@ class Lmp(Entity):
                         	AddressType
                         	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: ipv6_address
                         
@@ -2284,12 +2526,16 @@ class Lmp(Entity):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: unnumbered_address
                         
                         	Unnumberedaddress
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2324,6 +2570,8 @@ class Lmp(Entity):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
                 class TeLink(Entity):
                     """
                     A list of TE Links connected to this neighbor
@@ -2333,45 +2581,63 @@ class Lmp(Entity):
                     	The local datalink ID
                     	**type**\:  :py:class:`LocalLinkId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_link_id
                     
                     	The remote datalink ID
                     	**type**\:  :py:class:`RemoteLinkId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_te_link_id
                     
                     	Local TE\-Link ID/ TNA address
                     	**type**\:  :py:class:`LocalTeLinkId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_te_link_id
                     
                     	Remote TE\-Link ID/ TNA address
                     	**type**\:  :py:class:`RemoteTeLinkId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: neighbor_address
                     
                     	The address of the neighbor
                     	**type**\:  :py:class:`NeighborAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_ipcc_address
                     
                     	The remote node's IPCC address
                     	**type**\:  :py:class:`RemoteIpccAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name
                     
                     	Interface forOLM info
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: protocol_owner
                     
                     	Protocol owningthis te\-link
                     	**type**\:  :py:class:`OlmObjectOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmObjectOwner>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: neighbor_name
                     
                     	The name of the neighbor
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipcc_id
                     
@@ -2380,40 +2646,56 @@ class Lmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipc_ctype
                     
                     	OLM IPCC type
                     	**type**\:  :py:class:`Olmipcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Olmipcc>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipcc_name
                     
                     	The name ofthe IPCC associated with the TE Link
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_mux_cap
                     
                     	The local mux capability
                     	**type**\:  :py:class:`OlmMuxCap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmMuxCap>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: remote_mux_cap
                     
                     	The remote mux capability
                     	**type**\:  :py:class:`OlmMuxCap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmMuxCap>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: im_state
                     
                     	data link IM state
                     	**type**\:  :py:class:`OlmCompLinkImState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmCompLinkImState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lmp_state
                     
                     	data link LMP state
                     	**type**\:  :py:class:`OlmCompLinkLmpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmCompLinkLmpState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: te_link_lmp_state
                     
                     	TE LinkLMP state
                     	**type**\:  :py:class:`OlmteLinkLmpState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmteLinkLmpState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: gmpls_te_link_local_minimum_bandwidth
                     
@@ -2421,6 +2703,8 @@ class Lmp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte/s
                     
@@ -2431,6 +2715,8 @@ class Lmp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: byte/s
                     
                     .. attribute:: gmpls_te_link_neighbor_minimum_bandwidth
@@ -2439,6 +2725,8 @@ class Lmp(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte/s
                     
@@ -2449,6 +2737,8 @@ class Lmp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: byte/s
                     
                     .. attribute:: gmpls_te_link_local_encoding_type
@@ -2456,15 +2746,21 @@ class Lmp(Entity):
                     	GMPLS locallink encoding type
                     	**type**\:  :py:class:`OlmLinkEncoding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmLinkEncoding>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: gmpls_te_link_neighbor_encoding_type
                     
                     	GMPLS neighborlink encoding type
                     	**type**\:  :py:class:`OlmLinkEncoding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmLinkEncoding>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_lmp_enabled
                     
                     	Is LMP enabledon this TE link
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: lmp_transmit_msg_id
                     
@@ -2473,6 +2769,8 @@ class Lmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lmp_receive_msg_id
                     
                     	LMP receivemessage ID
@@ -2480,10 +2778,14 @@ class Lmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lmp_comp_link_status
                     
                     	Component link LMP status indicators
                     	**type**\: list of   :py:class:`OlmCompLinkLmpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmCompLinkLmpStatus>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2585,6 +2887,8 @@ class Lmp(Entity):
                         	Address Union
                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2622,12 +2926,16 @@ class Lmp(Entity):
                             	AddressType
                             	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv6_address
                             
@@ -2636,12 +2944,16 @@ class Lmp(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: unnumbered_address
                             
                             	Unnumberedaddress
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2676,6 +2988,8 @@ class Lmp(Entity):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
                     class RemoteLinkId(Entity):
                         """
                         The remote datalink ID
@@ -2684,6 +2998,8 @@ class Lmp(Entity):
                         
                         	Address Union
                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2722,12 +3038,16 @@ class Lmp(Entity):
                             	AddressType
                             	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv6_address
                             
@@ -2736,12 +3056,16 @@ class Lmp(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: unnumbered_address
                             
                             	Unnumberedaddress
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2776,6 +3100,8 @@ class Lmp(Entity):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
                     class LocalTeLinkId(Entity):
                         """
                         Local TE\-Link ID/ TNA address
@@ -2784,6 +3110,8 @@ class Lmp(Entity):
                         
                         	Address Union
                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2822,12 +3150,16 @@ class Lmp(Entity):
                             	AddressType
                             	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv6_address
                             
@@ -2836,12 +3168,16 @@ class Lmp(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: unnumbered_address
                             
                             	Unnumberedaddress
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2876,6 +3212,8 @@ class Lmp(Entity):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
                     class RemoteTeLinkId(Entity):
                         """
                         Remote TE\-Link ID/ TNA address
@@ -2884,6 +3222,8 @@ class Lmp(Entity):
                         
                         	Address Union
                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2922,12 +3262,16 @@ class Lmp(Entity):
                             	AddressType
                             	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv6_address
                             
@@ -2936,12 +3280,16 @@ class Lmp(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: unnumbered_address
                             
                             	Unnumberedaddress
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2976,6 +3324,8 @@ class Lmp(Entity):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
                     class NeighborAddress(Entity):
                         """
                         The address of the neighbor
@@ -2984,6 +3334,8 @@ class Lmp(Entity):
                         
                         	Address Union
                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3022,12 +3374,16 @@ class Lmp(Entity):
                             	AddressType
                             	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv6_address
                             
@@ -3036,12 +3392,16 @@ class Lmp(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: unnumbered_address
                             
                             	Unnumberedaddress
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3076,6 +3436,8 @@ class Lmp(Entity):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
                     class RemoteIpccAddress(Entity):
                         """
                         The remote node's IPCC address
@@ -3084,6 +3446,8 @@ class Lmp(Entity):
                         
                         	Address Union
                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3122,12 +3486,16 @@ class Lmp(Entity):
                             	AddressType
                             	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv6_address
                             
@@ -3136,12 +3504,16 @@ class Lmp(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: unnumbered_address
                             
                             	Unnumberedaddress
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3176,6 +3548,9 @@ class Lmp(Entity):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
+
                 class Ipcc(Entity):
                     """
                     A list of IPCCs connected to this neighbor
@@ -3185,10 +3560,14 @@ class Lmp(Entity):
                     	The remote node'sIPCC address
                     	**type**\:  :py:class:`RemoteIpccAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: source_ip_cc_address
                     
                     	The local IPCC address
                     	**type**\:  :py:class:`SourceIpCcAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipcc_id
                     
@@ -3197,25 +3576,35 @@ class Lmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipc_ctype
                     
                     	OLM IPCC type
                     	**type**\:  :py:class:`Olmipcc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Olmipcc>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name
                     
                     	The interface name forI/F IPCCs
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: neighbor_name
                     
                     	Neighbor name of theIPCCs neighbor
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipcc_state
                     
                     	OLM IPCC master state
                     	**type**\:  :py:class:`OlmipccState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmipccState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lmp_hello_interval
                     
@@ -3224,12 +3613,16 @@ class Lmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lmp_hello_interval_minimum
                     
                     	LMP minimum acceptable hello send interval [DEPRECATED]
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: lmp_hello_interval_maximum
                     
@@ -3238,12 +3631,16 @@ class Lmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lmp_hello_dead_interval
                     
                     	LMP hello dead interval [DEPRECATED]
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: lmp_hello_dead_interval_minimum
                     
@@ -3252,12 +3649,16 @@ class Lmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lmp_hello_dead_interval_maximum
                     
                     	LMP maximum acceptable hello dead interval [DEPRECATED]
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: lmp_hello_transmit_packets
                     
@@ -3266,12 +3667,16 @@ class Lmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lmp_hello_receive_packets
                     
                     	LMP hello receive packet count [DEPRECATED]
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: lmp_hello_transmit_packet_sequence_number
                     
@@ -3280,12 +3685,16 @@ class Lmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lmp_hello_receive_packet_sequence_number
                     
                     	LMP hello receive packet sequence number[DEPRECATED]
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: lmp_transmit_msg_id
                     
@@ -3294,12 +3703,16 @@ class Lmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lmp_receive_msg_id
                     
                     	LMP receive message ID[DEPRECATED]
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: lmp_link_sum_transmit_packets
                     
@@ -3308,12 +3721,16 @@ class Lmp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lmp_link_sum_receive_packets
                     
                     	LMP link summary receive packet count [DEPRECATED]
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3395,6 +3812,8 @@ class Lmp(Entity):
                         	Address Union
                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -3432,12 +3851,16 @@ class Lmp(Entity):
                             	AddressType
                             	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv6_address
                             
@@ -3446,12 +3869,16 @@ class Lmp(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: unnumbered_address
                             
                             	Unnumberedaddress
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3486,6 +3913,8 @@ class Lmp(Entity):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
                     class SourceIpCcAddress(Entity):
                         """
                         The local IPCC address
@@ -3494,6 +3923,8 @@ class Lmp(Entity):
                         
                         	Address Union
                         	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3532,12 +3963,16 @@ class Lmp(Entity):
                             	AddressType
                             	**type**\:  :py:class:`OlmAddrTypeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.OlmAddrTypeId>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: ipv4_address
                             
                             	IPv4 address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: ipv6_address
                             
@@ -3546,12 +3981,16 @@ class Lmp(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: unnumbered_address
                             
                             	Unnumberedaddress
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3586,6 +4025,12 @@ class Lmp(Entity):
                                 self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
+
+
+
+
+
+
     class ComponentLinkIds(Entity):
         """
         UCP OLM component link ID container class
@@ -3594,6 +4039,8 @@ class Lmp(Entity):
         
         	Retrieve the LMP component link ID for a given controller
         	**type**\: list of  		 :py:class:`ComponentLinkId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper.Lmp.ComponentLinkIds.ComponentLinkId>`
+        
+        	**config**\: False
         
         
 
@@ -3634,12 +4081,16 @@ class Lmp(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: component_interface_id
             
             	LMP component link ID for an I/F
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3670,7 +4121,11 @@ class Lmp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Lmp.ComponentLinkIds.ComponentLinkId, ['controller_name', 'component_interface_id'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Lmp()
         return self._top_entity
+
+
 

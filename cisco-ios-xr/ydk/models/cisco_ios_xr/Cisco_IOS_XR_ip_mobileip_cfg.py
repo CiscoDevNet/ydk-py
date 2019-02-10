@@ -485,6 +485,8 @@ class MobileIp(Entity):
                         self._perform_setattr(MobileIp.Domains.Domain.Mags.Mag, ['mag_name'], name, value)
 
 
+
+
             class Nais(Entity):
                 """
                 Table of NAI
@@ -601,6 +603,8 @@ class MobileIp(Entity):
                         self._perform_setattr(MobileIp.Domains.Domain.Nais.Nai, ['nai_name', 'lma', 'apn', 'customer', 'service', 'network'], name, value)
 
 
+
+
             class AuthenticateOption(Entity):
                 """
                 Authentication option between PMIPV6 entities
@@ -646,6 +650,7 @@ class MobileIp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Domains.Domain.AuthenticateOption, ['spi', 'key'], name, value)
+
 
 
             class Lmas(Entity):
@@ -719,6 +724,10 @@ class MobileIp(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Domains.Domain.Lmas.Lma, ['lma_name'], name, value)
+
+
+
+
 
 
     class Lmas(Entity):
@@ -1122,6 +1131,8 @@ class MobileIp(Entity):
                         self._perform_setattr(MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay, ['br_min', 'br_max'], name, value)
 
 
+
+
             class RatAttributes(Entity):
                 """
                 Radio access technology type config  this LMA
@@ -1165,6 +1176,7 @@ class MobileIp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.RatAttributes, ['lma_rat', 'priority_value'], name, value)
+
 
 
             class HeartBeatAttributes(Entity):
@@ -1221,6 +1233,7 @@ class MobileIp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.HeartBeatAttributes, ['interval', 'retries', 'timeout'], name, value)
+
 
 
             class Lmaipv6Addresses(Entity):
@@ -1296,6 +1309,8 @@ class MobileIp(Entity):
                         self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address, ['address'], name, value)
 
 
+
+
             class Hnp(Entity):
                 """
                 LMA HNP options
@@ -1332,6 +1347,7 @@ class MobileIp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Hnp, ['maximum'], name, value)
+
 
 
             class Redistribute(Entity):
@@ -1375,6 +1391,7 @@ class MobileIp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Redistribute, ['redist_type', 'redist_sub_type'], name, value)
+
 
 
             class Aaa(Entity):
@@ -1461,6 +1478,8 @@ class MobileIp(Entity):
                         self._perform_setattr(MobileIp.Lmas.Lma.Aaa.Accounting, ['enable', 'interim_interval'], name, value)
 
 
+
+
             class Dscp(Entity):
                 """
                 DSCP for packets originating from this LMA
@@ -1504,6 +1523,7 @@ class MobileIp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Dscp, ['value', 'force'], name, value)
+
 
 
             class Lmaipv4Addresses(Entity):
@@ -1579,6 +1599,8 @@ class MobileIp(Entity):
                         self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address, ['address'], name, value)
 
 
+
+
             class Roles(Entity):
                 """
                 Table of Role
@@ -1648,6 +1670,8 @@ class MobileIp(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.Roles.Role, ['lma_role'], name, value)
+
+
 
 
             class BindingAttributes(Entity):
@@ -1726,6 +1750,7 @@ class MobileIp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.BindingAttributes, ['refresh_time', 'delete_wait_interval', 'create_wait_interval', 'max_life_time', 'maximum'], name, value)
+
 
 
             class Mags(Entity):
@@ -1910,6 +1935,7 @@ class MobileIp(Entity):
                             self._perform_setattr(MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption, ['spi', 'key'], name, value)
 
 
+
                     class Dscp(Entity):
                         """
                         DSCP for packets originating from this MAG
@@ -1953,6 +1979,9 @@ class MobileIp(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MobileIp.Lmas.Lma.Mags.Mag.Dscp, ['value', 'force'], name, value)
+
+
+
 
 
             class TunnelAttributes(Entity):
@@ -2000,6 +2029,7 @@ class MobileIp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.TunnelAttributes, ['mtu', 'acl'], name, value)
+
 
 
             class Services(Entity):
@@ -2402,6 +2432,7 @@ class MobileIp(Entity):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption, ['spi', 'key'], name, value)
 
 
+
                             class HeartBeatAttributes(Entity):
                                 """
                                 heartbeat config for this Customer
@@ -2456,6 +2487,7 @@ class MobileIp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes, ['interval', 'retries', 'timeout'], name, value)
+
 
 
                             class Transports(Entity):
@@ -2547,6 +2579,8 @@ class MobileIp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport, ['vrf_name', 'ipv4_address', 'ipv6_address'], name, value)
+
+
 
 
                             class NetworkAttributes(Entity):
@@ -2815,6 +2849,7 @@ class MobileIp(Entity):
                                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool, ['start_address', 'pool_prefix'], name, value)
 
 
+
                                                 class Ipv6Pool(Entity):
                                                     """
                                                     None
@@ -2860,6 +2895,8 @@ class MobileIp(Entity):
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool, ['start_address', 'pool_prefix'], name, value)
+
+
 
 
                                             class MobileNetwork(Entity):
@@ -2999,6 +3036,8 @@ class MobileIp(Entity):
                                                             self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
 
 
+
+
                                                 class Mripv4Pools(Entity):
                                                     """
                                                     Table of MRIPV4Pool
@@ -3090,6 +3129,13 @@ class MobileIp(Entity):
                                                             self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
 
 
+
+
+
+
+
+
+
                             class GreKey(Entity):
                                 """
                                 Customer specific GRE key
@@ -3135,6 +3181,7 @@ class MobileIp(Entity):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey, ['gre_key_type', 'gre_key_value'], name, value)
 
 
+
                             class BindingAttributes(Entity):
                                 """
                                 Customer specific binding attributes
@@ -3173,6 +3220,11 @@ class MobileIp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes, ['max_life_time'], name, value)
+
+
+
+
+
 
 
             class Networks(Entity):
@@ -3396,6 +3448,7 @@ class MobileIp(Entity):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool, ['start_address', 'pool_prefix'], name, value)
 
 
+
                             class Ipv6Pool(Entity):
                                 """
                                 None
@@ -3441,6 +3494,8 @@ class MobileIp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool, ['start_address', 'pool_prefix'], name, value)
+
+
 
 
                         class MobileNetwork(Entity):
@@ -3580,6 +3635,8 @@ class MobileIp(Entity):
                                         self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
 
 
+
+
                             class Mripv4Pools(Entity):
                                 """
                                 Table of MRIPV4Pool
@@ -3671,6 +3728,12 @@ class MobileIp(Entity):
                                         self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
 
 
+
+
+
+
+
+
             class ReplayProtection(Entity):
                 """
                 Replay Protection Method
@@ -3710,7 +3773,12 @@ class MobileIp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.ReplayProtection, ['timestamp_window'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = MobileIp()
         return self._top_entity
+
+
 

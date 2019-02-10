@@ -51,15 +51,21 @@ class CISCORADIUSEXTMIB(Entity):
     	
     	**type**\:  :py:class:`CreClientGlobal <ydk.models.cisco_ios_xe.CISCO_RADIUS_EXT_MIB.CISCORADIUSEXTMIB.CreClientGlobal>`
     
+    	**config**\: False
+    
     .. attribute:: creclientauthentication
     
     	
     	**type**\:  :py:class:`CreClientAuthentication <ydk.models.cisco_ios_xe.CISCO_RADIUS_EXT_MIB.CISCORADIUSEXTMIB.CreClientAuthentication>`
     
+    	**config**\: False
+    
     .. attribute:: creclientaccounting
     
     	
     	**type**\:  :py:class:`CreClientAccounting <ydk.models.cisco_ios_xe.CISCO_RADIUS_EXT_MIB.CISCORADIUSEXTMIB.CreClientAccounting>`
+    
+    	**config**\: False
     
     
 
@@ -109,6 +115,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: RADIUS packets
         
         .. attribute:: creclienttotalmaxwaitqlength
@@ -117,6 +125,8 @@ class CISCORADIUSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: RADIUS packets
         
@@ -127,6 +137,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: RADIUS packets
         
         .. attribute:: creclienttotalaccessrejects
@@ -135,6 +147,8 @@ class CISCORADIUSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: RADIUS packets
         
@@ -145,12 +159,16 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         .. attribute:: creclientsourceportrangestart
         
         	If the 'extended RADIUS source ports' is configured, multiple source ports are used for sending out RADIUS authentication or accounting requests.  This MIB object indicates the port value from where this range starts
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: creclientsourceportrangeend
         
@@ -159,6 +177,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: creclientlastusedsourceport
         
         	If the 'extended RADIUS source ports' is configured, multiple source ports are used for sending out RADIUS authentication or accounting requests.  This MIB object indicates the last source port that was used to send out a RADIUS authentication or accounting request
@@ -166,12 +186,16 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: creclientlastusedsourceid
         
         	This MIB object indicates the last source identifier that was used to send out a RADIUS packet when 'extended RADIUS source ports' is configured.  The source identifier is a counter that is incremented everytime a RADIUS authentication or an accounting packet is sent
         	**type**\: int
         
         	**range:** 0..255
+        
+        	**config**\: False
         
         
 
@@ -217,6 +241,7 @@ class CISCORADIUSEXTMIB(Entity):
             self._perform_setattr(CISCORADIUSEXTMIB.CreClientGlobal, ['creclienttotalmaxinqlength', 'creclienttotalmaxwaitqlength', 'creclienttotalmaxdoneqlength', 'creclienttotalaccessrejects', 'creclienttotalaverageresponsedelay', 'creclientsourceportrangestart', 'creclientsourceportrangeend', 'creclientlastusedsourceport', 'creclientlastusedsourceid'], name, value)
 
 
+
     class CreClientAuthentication(Entity):
         """
         
@@ -228,6 +253,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: RADIUS packets
         
         .. attribute:: creauthclientunknownresponses
@@ -236,6 +263,8 @@ class CISCORADIUSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: RADIUS packets
         
@@ -246,6 +275,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: RADIUS packets
         
         .. attribute:: creauthclientbufferallocfailures
@@ -254,6 +285,8 @@ class CISCORADIUSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: buffer failures
         
@@ -264,6 +297,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: RADIUS packets
         
         .. attribute:: creauthclienttotalpacketswithoutresponses
@@ -272,6 +307,8 @@ class CISCORADIUSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: RADIUS packets
         
@@ -282,6 +319,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         .. attribute:: creauthclientmaxresponsedelay
         
         	This object indicates the maximum delay experienced for RADIUS authentication requests
@@ -289,12 +328,16 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         .. attribute:: creauthclientmaxbuffersize
         
         	This object indicates the maximum buffer size for RADIUS authentication packet
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: bytes
         
@@ -305,6 +348,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: timeouts
         
         .. attribute:: creauthclientdupids
@@ -313,6 +358,8 @@ class CISCORADIUSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: RADIUS packets
         
@@ -323,6 +370,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: RADIUS packets
         
         .. attribute:: creauthclientlastusedsourceid
@@ -331,6 +380,8 @@ class CISCORADIUSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..255
+        
+        	**config**\: False
         
         
 
@@ -384,6 +435,7 @@ class CISCORADIUSEXTMIB(Entity):
             self._perform_setattr(CISCORADIUSEXTMIB.CreClientAuthentication, ['creauthclientbadauthenticators', 'creauthclientunknownresponses', 'creauthclienttotalpacketswithresponses', 'creauthclientbufferallocfailures', 'creauthclienttotalresponses', 'creauthclienttotalpacketswithoutresponses', 'creauthclientaverageresponsedelay', 'creauthclientmaxresponsedelay', 'creauthclientmaxbuffersize', 'creauthclienttimeouts', 'creauthclientdupids', 'creauthclientmalformedresponses', 'creauthclientlastusedsourceid'], name, value)
 
 
+
     class CreClientAccounting(Entity):
         """
         
@@ -395,6 +447,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: RADIUS packets
         
         .. attribute:: creacctclientunknownresponses
@@ -403,6 +457,8 @@ class CISCORADIUSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: RADIUS packets
         
@@ -413,6 +469,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: RADIUS packets
         
         .. attribute:: creacctclientbufferallocfailures
@@ -421,6 +479,8 @@ class CISCORADIUSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: buffer failures
         
@@ -431,6 +491,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: RADIUS packets
         
         .. attribute:: creacctclienttotalpacketswithoutresponses
@@ -439,6 +501,8 @@ class CISCORADIUSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: RADIUS packets
         
@@ -449,6 +513,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         .. attribute:: creacctclientmaxresponsedelay
         
         	This object indicates the maximum delay experienced for RADIUS accounting
@@ -456,12 +522,16 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         .. attribute:: creacctclientmaxbuffersize
         
         	This object indicates the maximum buffer size for RADIUS accounting packets
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: bytes
         
@@ -472,6 +542,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: timeouts
         
         .. attribute:: creacctclientdupids
@@ -480,6 +552,8 @@ class CISCORADIUSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: RADIUS packets
         
@@ -490,6 +564,8 @@ class CISCORADIUSEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: RADIUS packets
         
         .. attribute:: creacctclientlastusedsourceid
@@ -498,6 +574,8 @@ class CISCORADIUSEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..255
+        
+        	**config**\: False
         
         
 
@@ -550,7 +628,10 @@ class CISCORADIUSEXTMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CISCORADIUSEXTMIB.CreClientAccounting, ['creacctclientbadauthenticators', 'creacctclientunknownresponses', 'creacctclienttotalpacketswithresponses', 'creacctclientbufferallocfailures', 'creacctclienttotalresponses', 'creacctclienttotalpacketswithoutresponses', 'creacctclientaverageresponsedelay', 'creacctclientmaxresponsedelay', 'creacctclientmaxbuffersize', 'creacctclienttimeouts', 'creacctclientdupids', 'creacctclientmalformedresponses', 'creacctclientlastusedsourceid'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CISCORADIUSEXTMIB()
         return self._top_entity
+
+
 

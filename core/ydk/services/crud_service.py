@@ -18,7 +18,7 @@ from ydk.errors.error_handler import handle_runtime_error as _handle_error
 from ydk.errors.error_handler import check_argument as _check_argument
 from ydk.errors import YServiceError
 from ydk.types import EntityCollection, Config
-from ydk.entity_utils import _read_entities
+from ydk.entity_utils import _read_entities, _get_top_level_entity, _get_child_entity_from_top
 
 class CRUDService(_CrudService):
     """
@@ -59,8 +59,12 @@ class CRUDService(_CrudService):
         filters = read_filter
         if isinstance(read_filter, EntityCollection):
             filters = read_filter.entities()
+
+        top_filters = _get_top_level_entity(filters, provider.get_session().get_root_schema())
         with _handle_error():
-            read_entity = self._crud.read(provider, filters)
+            read_top_entity = self._crud.read(provider, top_filters)
+        read_entity = _get_child_entity_from_top(read_top_entity, filters)
+
         if isinstance(read_filter, EntityCollection):
             read_entity = Config(read_entity)
         return read_entity
@@ -76,8 +80,12 @@ class CRUDService(_CrudService):
         filters = read_filter
         if isinstance(read_filter, EntityCollection):
             filters = read_filter.entities()
+
+        top_filters = _get_top_level_entity(filters, provider.get_session().get_root_schema())
         with _handle_error():
-            read_entity = self._crud.read_config(provider, filters)
+            read_top_entity = self._crud.read_config(provider, top_filters)
+        read_entity = _get_child_entity_from_top(read_top_entity, filters)
+
         if isinstance(read_filter, EntityCollection):
             read_entity = Config(read_entity)
         return read_entity

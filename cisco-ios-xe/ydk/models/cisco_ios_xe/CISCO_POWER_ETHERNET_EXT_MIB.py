@@ -239,25 +239,35 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
     	
     	**type**\:  :py:class:`CpeExtMIBObjects <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtMIBObjects>`
     
+    	**config**\: False
+    
     .. attribute:: cpeextpdstatistics
     
     	
     	**type**\:  :py:class:`CpeExtPdStatistics <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPdStatistics>`
+    
+    	**config**\: False
     
     .. attribute:: cpeextmainpsetable
     
     	This table contains the additional information for the main PSE group in pethMainPseTable
     	**type**\:  :py:class:`CpeExtMainPseTable <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable>`
     
+    	**config**\: False
+    
     .. attribute:: cpeextpdstatstable
     
     	This table contains the statistics information of the powered devices fallen into different power classifications in the system
     	**type**\:  :py:class:`CpeExtPdStatsTable <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: cpeextpseportlldptable
     
     	A table provides the Link Layer Discovery Protocol (LLDP) based Data Link Layer (DLL) power classification characteristics of PSE ports and PDs attached to them
     	**type**\:  :py:class:`CpeExtPsePortLldpTable <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable>`
+    
+    	**config**\: False
     
     
 
@@ -315,6 +325,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: milliwatts
         
         .. attribute:: cpeextpolicingnotifenable
@@ -322,10 +334,14 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         	This object is used to enable/disable the the cpeExtPolicingNotif notification
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: cpeextpowerpriorityenable
         
         	This object is the global control of the power priority feature on the device. 'true' indicates that the power priority feature is globally enabled. 'false' indicates that the power priority feature is globally disabled
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -359,6 +375,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtMIBObjects, ['cpeextdefaultallocation', 'cpeextpolicingnotifenable', 'cpeextpowerpriorityenable'], name, value)
 
 
+
     class CpeExtPdStatistics(Entity):
         """
         
@@ -369,6 +386,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -398,6 +417,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatistics, ['cpeextpdstatstotaldevices'], name, value)
 
 
+
     class CpeExtMainPseTable(Entity):
         """
         This table contains the additional information for the
@@ -407,6 +427,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         
         	A cpeExtMainPseEntry contains information about a particular pethMainPseGroupIndex. An entry is created by the agent when a main PSE group is added to the pethMainPseTable. An entry is deleted by the agent when a main PSE group is removed from the pethMainPseTable
         	**type**\: list of  		 :py:class:`CpeExtMainPseEntry <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable.CpeExtMainPseEntry>`
+        
+        	**config**\: False
         
         
 
@@ -453,6 +475,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`pethmainpsegroupindex <ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB.POWERETHERNETMIB.PethMainPseTable.PethMainPseEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpeextmainpseentphyindex
             
             	The entPhysicalIndex value that uniquely identifies the main PSE group. If the main PSE group does not have a corresponding physical entry in entPhysicalTable or if the entPhysicalTable is not supported by the management system, then this object has the value of zero
@@ -460,15 +484,21 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cpeextmainpsedescr
             
             	A textual string containing information about the Power Source Equipment (PSE) group
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cpeextmainpsepwrmonitorcapable
             
             	This object indicates if the given group is capable of monitoring the power consumption of the interfaces that belong to the group. The value 'true' means that the group is capable. The value 'false' means that the group in not capable
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cpeextmainpseusedpower
             
@@ -476,6 +506,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: miliwatts
             
@@ -485,6 +517,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: miliwatts
             
@@ -526,6 +560,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
                 self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable.CpeExtMainPseEntry, ['pethmainpsegroupindex', 'cpeextmainpseentphyindex', 'cpeextmainpsedescr', 'cpeextmainpsepwrmonitorcapable', 'cpeextmainpseusedpower', 'cpeextmainpseremainingpower'], name, value)
 
 
+
+
     class CpeExtPdStatsTable(Entity):
         """
         This table contains the statistics information
@@ -536,6 +572,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         
         	A cpeExtPdStatsEntry contains the statistics information about a particular power classification defined in cpeExtPdStatsIndex
         	**type**\: list of  		 :py:class:`CpeExtPdStatsEntry <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable.CpeExtPdStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -575,12 +613,16 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             	The power classification as the index for the statistics information for powered devices.  A value of 'cisco' indicates that the powered devices are CISCO proprietary and their power  classification does not fall into any class in IEEE specifications.  A value of 'class0' indicates that the power  classification of the powered devices falls into class 0 in IEEE specifications.  A value of 'class1' indicates that the power classification of the powered devices falls into class 1 in IEEE specifications.  A value of 'class2' indicates that the power classification of the powered devices falls into class 2 in IEEE specifications.  A value of 'class3' indicates that the power classification of the powered devices falls into class 3 in IEEE specifications.  A value of 'class4' indicates that the power classification of the powered devices falls into class 4 in IEEE specifications
             	**type**\:  :py:class:`CpeExtPdStatsClass <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable.CpeExtPdStatsEntry.CpeExtPdStatsClass>`
             
+            	**config**\: False
+            
             .. attribute:: cpeextpdstatsdevicecount
             
             	This object indicates the count of the powered devices whose power classification falls into  a specific value of cpeExtPdStatsIndex
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -685,6 +727,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
 
 
 
+
+
     class CpeExtPsePortLldpTable(Entity):
         """
         A table provides the Link Layer Discovery Protocol (LLDP)
@@ -695,6 +739,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         
         	A cpeExtPsePortLldpEntry entry contains the LLDP based 802.3at DLL power classification characteristics for a particular PSE and the PD attached to it.   A PSE has its entry here when all of the following conditions are satisfied\: \- The LLDP power classification is globally enabled. \- It has a PD attached. \- LLDP is the operational power negotiation protocol between   the PSE and the PD attached
         	**type**\: list of  		 :py:class:`CpeExtPsePortLldpEntry <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry>`
+        
+        	**config**\: False
         
         
 
@@ -745,6 +791,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`pethpseportgroupindex <ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB.POWERETHERNETMIB.PethPsePortTable.PethPsePortEntry>`
             
+            	**config**\: False
+            
             .. attribute:: pethpseportindex  (key)
             
             	
@@ -754,35 +802,49 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`pethpseportindex <ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB.POWERETHERNETMIB.PethPsePortTable.PethPsePortEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpeextpseportlldppwrtype
             
             	The DTE Power via MDI type of the local system (PSE)
             	**type**\:  :py:class:`CpeExtLldpPwrType <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CpeExtLldpPwrType>`
+            
+            	**config**\: False
             
             .. attribute:: cpeextpseportlldppdpwrtype
             
             	The DTE Power via MDI type of the remote system (PD)
             	**type**\:  :py:class:`CpeExtLldpPwrType <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CpeExtLldpPwrType>`
             
+            	**config**\: False
+            
             .. attribute:: cpeextpseportlldppwrsrc
             
             	The power source of the local system (PSE)
             	**type**\:  :py:class:`CpeExtLldpPwrSrc <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CpeExtLldpPwrSrc>`
+            
+            	**config**\: False
             
             .. attribute:: cpeextpseportlldppdpwrsrc
             
             	The power source of the remote system (PD)
             	**type**\:  :py:class:`CpeExtLldpPwrSrc <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CpeExtLldpPwrSrc>`
             
+            	**config**\: False
+            
             .. attribute:: cpeextpseportlldppwrpriority
             
             	The power priority of the local system (PSE)
             	**type**\:  :py:class:`CpeExtPwrPriority <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CpeExtPwrPriority>`
             
+            	**config**\: False
+            
             .. attribute:: cpeextpseportlldppdpwrpriority
             
             	The power priority of the remote system (PD)
             	**type**\:  :py:class:`CpeExtPwrPriority <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CpeExtPwrPriority>`
+            
+            	**config**\: False
             
             .. attribute:: cpeextpseportlldppwrreq
             
@@ -790,6 +852,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliwatts
             
@@ -800,6 +864,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliwatts
             
             .. attribute:: cpeextpseportlldppwralloc
@@ -808,6 +874,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliwatts
             
@@ -818,6 +886,8 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliwatts
             
             .. attribute:: cpeextpseportlldppwrclass
@@ -825,20 +895,28 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             	The PSE power classification sent to the remote PD via MDI TLV in LLDP Protocol
             	**type**\:  :py:class:`CpeExtLldpPwrClassOrZero <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CpeExtLldpPwrClassOrZero>`
             
+            	**config**\: False
+            
             .. attribute:: cpeextpseportlldppdpwrclass
             
             	This power classification received from the remote system (PD)
             	**type**\:  :py:class:`CpeExtLldpPwrClassOrZero <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CpeExtLldpPwrClassOrZero>`
+            
+            	**config**\: False
             
             .. attribute:: cpeextpseportlldppdpwrsupport
             
             	This object indicates the power support mode received from the remote PD via MDI TLV in LLDP protocol.  'portClass'          \- This bit is set if the port is                        operating as PSE.  Otherwise, it is                        operating as PD.  'pseMdiPwrSupport'   \- This bit is set if power is supported in                        MDI TLV.  'pseMdiPwrState'     \- This bit is set if power is enabled.  'psePairCtrlAbility' \- This bit is set if pair selection can                        be controlled
             	**type**\:  :py:class:`CpeExtPsePortLldpPdPwrSupport <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrSupport>`
             
+            	**config**\: False
+            
             .. attribute:: cpeextpseportlldppdpwrpairsorzero
             
             	This object indicates the pinout pairs in use received from the remote PD via MDI TLV in LLDP Protocol.  'unknown' \- information is not available  'signal'  \- the signal pairs are in use.  'spare'   \- the spare pairs are in use
             	**type**\:  :py:class:`CpeExtPsePortLldpPdPwrPairsOrZero <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrPairsOrZero>`
+            
+            	**config**\: False
             
             
 
@@ -926,7 +1004,11 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
                 spare = Enum.YLeaf(2, "spare")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOPOWERETHERNETEXTMIB()
         return self._top_entity
+
+
 

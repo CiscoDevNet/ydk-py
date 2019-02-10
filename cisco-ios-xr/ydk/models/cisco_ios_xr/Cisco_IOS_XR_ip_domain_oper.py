@@ -57,6 +57,7 @@ class HostAddressBase(Identity):
         super(HostAddressBase, self).__init__(ns, pref, tag)
 
 
+
 class IpDomain(Entity):
     """
     Domain server and host data
@@ -65,6 +66,8 @@ class IpDomain(Entity):
     
     	List of VRFs
     	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs>`
+    
+    	**config**\: False
     
     
 
@@ -104,6 +107,8 @@ class IpDomain(Entity):
         	VRF instance
         	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf>`
         
+        	**config**\: False
+        
         
 
         """
@@ -142,15 +147,21 @@ class IpDomain(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: server
             
             	Domain server data
             	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server>`
             
+            	**config**\: False
+            
             .. attribute:: hosts
             
             	List of domain hosts
             	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts>`
+            
+            	**config**\: False
             
             
 
@@ -197,12 +208,16 @@ class IpDomain(Entity):
                 	Domain lookup
                 	**type**\:  :py:class:`ServerDomainLkup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.ServerDomainLkup>`
                 
+                	**config**\: False
+                
                 .. attribute:: domain_name
                 
                 	Domain name
                 	**type**\: str
                 
                 	**length:** 0..256
+                
+                	**config**\: False
                 
                 .. attribute:: domain
                 
@@ -211,10 +226,14 @@ class IpDomain(Entity):
                 
                 	**length:** 0..256
                 
+                	**config**\: False
+                
                 .. attribute:: server_address
                 
                 	Server address list
                 	**type**\: list of  		 :py:class:`ServerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Server.ServerAddress>`
+                
+                	**config**\: False
                 
                 
 
@@ -246,7 +265,7 @@ class IpDomain(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(IpDomain.Vrfs.Vrf.Server, ['domain_lookup', 'domain_name', 'domain'], name, value)
+                    self._perform_setattr(IpDomain.Vrfs.Vrf.Server, [u'domain_lookup', u'domain_name', u'domain'], name, value)
 
 
                 class ServerAddress(Entity):
@@ -258,6 +277,8 @@ class IpDomain(Entity):
                     	AFName
                     	**type**\:  :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_address
                     
                     	IPv4 address
@@ -265,12 +286,16 @@ class IpDomain(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_address
                     
                     	IPv6 address
                     	**type**\: str
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -300,7 +325,9 @@ class IpDomain(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpDomain.Vrfs.Vrf.Server.ServerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                        self._perform_setattr(IpDomain.Vrfs.Vrf.Server.ServerAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+
+
 
 
             class Hosts(Entity):
@@ -311,6 +338,8 @@ class IpDomain(Entity):
                 
                 	IP domain\-name, lookup style, nameservers for specific host
                 	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host>`
+                
+                	**config**\: False
                 
                 
 
@@ -348,15 +377,21 @@ class IpDomain(Entity):
                     	Hostname
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: host_alias_list
                     
                     	Host alias
                     	**type**\:  :py:class:`HostAliasList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: af_name
                     
                     	Address type
                     	**type**\:  :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: age
                     
@@ -365,12 +400,16 @@ class IpDomain(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     	**units**\: hour
                     
                     .. attribute:: host_address
                     
                     	Host address list
                     	**type**\: list of  		 :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -406,7 +445,7 @@ class IpDomain(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host, ['host_name', 'af_name', 'age'], name, value)
+                        self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host, ['host_name', u'af_name', u'age'], name, value)
 
 
                     class HostAliasList(Entity):
@@ -419,6 +458,8 @@ class IpDomain(Entity):
                         	**type**\: list of str
                         
                         	**length:** 0..256
+                        
+                        	**config**\: False
                         
                         
 
@@ -444,7 +485,8 @@ class IpDomain(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList, ['host_alias'], name, value)
+                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList, [u'host_alias'], name, value)
+
 
 
                     class HostAddress(Entity):
@@ -456,6 +498,8 @@ class IpDomain(Entity):
                         	AFName
                         	**type**\:  :py:class:`HostAddressBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper.HostAddressBase>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
@@ -463,12 +507,16 @@ class IpDomain(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -498,11 +546,18 @@ class IpDomain(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
+                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = IpDomain()
         return self._top_entity
+
+
 
 class Ipv4(HostAddressBase):
     """
@@ -519,6 +574,7 @@ class Ipv4(HostAddressBase):
         super(Ipv4, self).__init__(ns, pref, tag)
 
 
+
 class Ipv6(HostAddressBase):
     """
     IPv6 family address
@@ -532,5 +588,6 @@ class Ipv6(HostAddressBase):
 
     def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-ip-domain-oper", pref="Cisco-IOS-XR-ip-domain-oper", tag="Cisco-IOS-XR-ip-domain-oper:ipv6"):
         super(Ipv6, self).__init__(ns, pref, tag)
+
 
 

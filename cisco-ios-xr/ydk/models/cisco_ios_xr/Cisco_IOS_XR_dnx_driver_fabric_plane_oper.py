@@ -117,6 +117,8 @@ class Fabric(Entity):
     	Plane state table for Fabric 
     	**type**\:  :py:class:`PlaneTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_fabric_plane_oper.Fabric.PlaneTable>`
     
+    	**config**\: False
+    
     
 
     """
@@ -155,10 +157,14 @@ class Fabric(Entity):
         	Show Calvados Plane Statistics
         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_fabric_plane_oper.Fabric.PlaneTable.Statistics>`
         
+        	**config**\: False
+        
         .. attribute:: plane
         
         	Show Calvados Plane State
         	**type**\:  :py:class:`Plane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_fabric_plane_oper.Fabric.PlaneTable.Plane>`
+        
+        	**config**\: False
         
         
 
@@ -202,6 +208,8 @@ class Fabric(Entity):
             	plane stats info
             	**type**\: list of  		 :py:class:`PlaneStatsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_fabric_plane_oper.Fabric.PlaneTable.Statistics.PlaneStatsInfo>`
             
+            	**config**\: False
+            
             
 
             """
@@ -240,12 +248,16 @@ class Fabric(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: rx_data_cells
                 
                 	RxDataCells
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: tx_data_cells
                 
@@ -254,12 +266,16 @@ class Fabric(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rx_correctable_error_cells
                 
                 	RxCorrectableErrorCells
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: rx_un_correctable_error_cells
                 
@@ -268,12 +284,16 @@ class Fabric(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: rx_parity_error_cells
                 
                 	RxParityErrorCells
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -313,6 +333,8 @@ class Fabric(Entity):
                     self._perform_setattr(Fabric.PlaneTable.Statistics.PlaneStatsInfo, ['plane_id', 'rx_data_cells', 'tx_data_cells', 'rx_correctable_error_cells', 'rx_un_correctable_error_cells', 'rx_parity_error_cells'], name, value)
 
 
+
+
         class Plane(Entity):
             """
             Show Calvados Plane State
@@ -321,6 +343,8 @@ class Fabric(Entity):
             
             	detail plane info
             	**type**\: list of  		 :py:class:`DetailPlaneInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_fabric_plane_oper.Fabric.PlaneTable.Plane.DetailPlaneInfo>`
+            
+            	**config**\: False
             
             
 
@@ -360,20 +384,28 @@ class Fabric(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: plane_oper_status
                 
                 	PlaneOperStatus
                 	**type**\:  :py:class:`FsdbPlaneOperState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_fabric_plane_oper.FsdbPlaneOperState>`
+                
+                	**config**\: False
                 
                 .. attribute:: plane_admin_status
                 
                 	PlaneAdminStatus
                 	**type**\:  :py:class:`FsdbPlaneAdminState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_fabric_plane_oper.FsdbPlaneAdminState>`
                 
+                	**config**\: False
+                
                 .. attribute:: plane_mode
                 
                 	Plane Mode Configuration
                 	**type**\:  :py:class:`FsdbPlaneMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_fabric_plane_oper.FsdbPlaneMode>`
+                
+                	**config**\: False
                 
                 .. attribute:: bundles
                 
@@ -382,12 +414,16 @@ class Fabric(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: down_bundles
                 
                 	Total down bundles
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: plane_up_down_count
                 
@@ -396,6 +432,8 @@ class Fabric(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_multicast_count
                 
                 	Plane up multicast count
@@ -403,10 +441,14 @@ class Fabric(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ppu_state
                 
                 	Plane PPU State
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -451,7 +493,12 @@ class Fabric(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fabric.PlaneTable.Plane.DetailPlaneInfo, ['plane_id', 'plane_oper_status', 'plane_admin_status', 'plane_mode', 'bundles', 'down_bundles', 'plane_up_down_count', 'up_multicast_count', 'ppu_state'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Fabric()
         return self._top_entity
+
+
 

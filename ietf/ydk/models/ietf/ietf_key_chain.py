@@ -113,6 +113,7 @@ class KeyChains(Entity):
             self._perform_setattr(KeyChains.AcceptTolerance, ['duration'], name, value)
 
 
+
     class Key(Entity):
         """
         One key.
@@ -221,6 +222,7 @@ class KeyChains(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(KeyChains.Key.KeyString, ['keystring', 'hexadecimal_string'], name, value)
+
 
 
         class Lifetime(Entity):
@@ -351,6 +353,7 @@ class KeyChains(Entity):
                     self._perform_setattr(KeyChains.Key.Lifetime.SendAcceptLifetime, ['always', 'start_date_time', 'no_end_time', 'duration', 'end_date_time'], name, value)
 
 
+
             class SendLifetime(Entity):
                 """
                 Separate lifetime specification for send
@@ -424,6 +427,7 @@ class KeyChains(Entity):
                     self._perform_setattr(KeyChains.Key.Lifetime.SendLifetime, ['always', 'start_date_time', 'no_end_time', 'duration', 'end_date_time'], name, value)
 
 
+
             class AcceptLifetime(Entity):
                 """
                 Separate lifetime specification for accept
@@ -495,6 +499,8 @@ class KeyChains(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(KeyChains.Key.Lifetime.AcceptLifetime, ['always', 'start_date_time', 'no_end_time', 'duration', 'end_date_time'], name, value)
+
+
 
 
         class CryptoAlgorithm(Entity):
@@ -581,7 +587,11 @@ class KeyChains(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(KeyChains.Key.CryptoAlgorithm, ['hmac_sha1_12', 'hmac_sha1_20', 'md5', 'sha_1', 'hmac_sha_1', 'hmac_sha_256', 'hmac_sha_384', 'hmac_sha_512'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = KeyChains()
         return self._top_entity
+
+
 

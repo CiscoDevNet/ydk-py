@@ -25,6 +25,8 @@ class EfpStats(Entity):
     	List of service instance stats
     	**type**\: list of  		 :py:class:`EfpStat <ydk.models.cisco_ios_xe.Cisco_IOS_XE_efp_oper.EfpStats.EfpStat>`
     
+    	**config**\: False
+    
     
 
     """
@@ -63,10 +65,14 @@ class EfpStats(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: interface  (key)
         
         	Interface name
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: in_pkts
         
@@ -75,12 +81,16 @@ class EfpStats(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: in_bytes
         
         	Incoming bytes
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: out_pkts
         
@@ -89,12 +99,16 @@ class EfpStats(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: out_bytes
         
         	Outgoing bytes
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         
 
@@ -133,7 +147,10 @@ class EfpStats(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(EfpStats.EfpStat, ['id', 'interface', 'in_pkts', 'in_bytes', 'out_pkts', 'out_bytes'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = EfpStats()
         return self._top_entity
+
+
 

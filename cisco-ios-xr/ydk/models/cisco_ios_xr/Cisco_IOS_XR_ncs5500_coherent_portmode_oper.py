@@ -30,6 +30,8 @@ class ControllerPortMode(Entity):
     	Name of optics controller
     	**type**\: list of  		 :py:class:`OpticsName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_oper.ControllerPortMode.OpticsName>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,10 +70,14 @@ class ControllerPortMode(Entity):
         
         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
         
+        	**config**\: False
+        
         .. attribute:: port_mode_info
         
         	PortMode  operational data
         	**type**\:  :py:class:`PortModeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_oper.ControllerPortMode.OpticsName.PortModeInfo>`
+        
+        	**config**\: False
         
         
 
@@ -116,12 +122,16 @@ class ControllerPortMode(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: speed
             
             	speed
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             .. attribute:: fec
             
@@ -130,6 +140,8 @@ class ControllerPortMode(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: diff
             
             	diff
@@ -137,12 +149,16 @@ class ControllerPortMode(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: modulation
             
             	modulation
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             
 
@@ -178,7 +194,11 @@ class ControllerPortMode(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ControllerPortMode.OpticsName.PortModeInfo, ['intf_name', 'speed', 'fec', 'diff', 'modulation'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ControllerPortMode()
         return self._top_entity
+
+
 

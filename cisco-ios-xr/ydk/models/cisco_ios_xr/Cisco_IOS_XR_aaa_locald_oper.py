@@ -30,60 +30,84 @@ class Aaa(Entity):
     	All tasks supported by system
     	**type**\:  :py:class:`AllTasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.AllTasks>`
     
+    	**config**\: False
+    
     .. attribute:: currentuser_detail
     
     	Current user specific details
     	**type**\:  :py:class:`CurrentuserDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.CurrentuserDetail>`
+    
+    	**config**\: False
     
     .. attribute:: task_map
     
     	Task map of current user
     	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.TaskMap>`
     
+    	**config**\: False
+    
     .. attribute:: taskgroups
     
     	Individual taskgroups container
     	**type**\:  :py:class:`Taskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups>`
+    
+    	**config**\: False
     
     .. attribute:: users
     
     	Container for individual local user information
     	**type**\:  :py:class:`Users <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users>`
     
+    	**config**\: False
+    
     .. attribute:: password_policies
     
     	Container for individual password policy Information
     	**type**\:  :py:class:`PasswordPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.PasswordPolicies>`
+    
+    	**config**\: False
     
     .. attribute:: usergroups
     
     	Container for individual usergroup Information
     	**type**\:  :py:class:`Usergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups>`
     
+    	**config**\: False
+    
     .. attribute:: authen_method
     
     	Current users authentication method
     	**type**\:  :py:class:`AuthenMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.AuthenMethod>`
+    
+    	**config**\: False
     
     .. attribute:: current_usergroup
     
     	Specific Usergroup Information
     	**type**\:  :py:class:`CurrentUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.CurrentUsergroup>`
     
-    .. attribute:: radius
-    
-    	RADIUS operational data
-    	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius>`
+    	**config**\: False
     
     .. attribute:: tacacs
     
     	TACACS operational data
     	**type**\:  :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs>`
     
+    	**config**\: False
+    
+    .. attribute:: radius
+    
+    	RADIUS operational data
+    	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius>`
+    
+    	**config**\: False
+    
     .. attribute:: diameter
     
     	Diameter operational data
     	**type**\:  :py:class:`Diameter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter>`
+    
+    	**config**\: False
     
     
 
@@ -101,7 +125,7 @@ class Aaa(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("all-tasks", ("all_tasks", Aaa.AllTasks)), ("currentuser-detail", ("currentuser_detail", Aaa.CurrentuserDetail)), ("task-map", ("task_map", Aaa.TaskMap)), ("taskgroups", ("taskgroups", Aaa.Taskgroups)), ("users", ("users", Aaa.Users)), ("password-policies", ("password_policies", Aaa.PasswordPolicies)), ("usergroups", ("usergroups", Aaa.Usergroups)), ("authen-method", ("authen_method", Aaa.AuthenMethod)), ("current-usergroup", ("current_usergroup", Aaa.CurrentUsergroup)), ("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", ("radius", Aaa.Radius)), ("Cisco-IOS-XR-aaa-tacacs-oper:tacacs", ("tacacs", Aaa.Tacacs)), ("Cisco-IOS-XR-aaa-diameter-oper:diameter", ("diameter", Aaa.Diameter))])
+        self._child_classes = OrderedDict([("all-tasks", ("all_tasks", Aaa.AllTasks)), ("currentuser-detail", ("currentuser_detail", Aaa.CurrentuserDetail)), ("task-map", ("task_map", Aaa.TaskMap)), ("taskgroups", ("taskgroups", Aaa.Taskgroups)), ("users", ("users", Aaa.Users)), ("password-policies", ("password_policies", Aaa.PasswordPolicies)), ("usergroups", ("usergroups", Aaa.Usergroups)), ("authen-method", ("authen_method", Aaa.AuthenMethod)), ("current-usergroup", ("current_usergroup", Aaa.CurrentUsergroup)), ("Cisco-IOS-XR-aaa-tacacs-oper:tacacs", ("tacacs", Aaa.Tacacs)), ("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", ("radius", Aaa.Radius)), ("Cisco-IOS-XR-aaa-diameter-oper:diameter", ("diameter", Aaa.Diameter))])
         self._leafs = OrderedDict()
 
         self.all_tasks = Aaa.AllTasks()
@@ -140,13 +164,13 @@ class Aaa(Entity):
         self.current_usergroup.parent = self
         self._children_name_map["current_usergroup"] = "current-usergroup"
 
-        self.radius = Aaa.Radius()
-        self.radius.parent = self
-        self._children_name_map["radius"] = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
-
         self.tacacs = Aaa.Tacacs()
         self.tacacs.parent = self
         self._children_name_map["tacacs"] = "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
+
+        self.radius = Aaa.Radius()
+        self.radius.parent = self
+        self._children_name_map["radius"] = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
 
         self.diameter = Aaa.Diameter()
         self.diameter.parent = self
@@ -166,6 +190,8 @@ class Aaa(Entity):
         
         	Names of available task\-ids
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -195,6 +221,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.AllTasks, [u'task_id'], name, value)
 
 
+
     class CurrentuserDetail(Entity):
         """
         Current user specific details
@@ -204,6 +231,8 @@ class Aaa(Entity):
         	Name of the usergroup
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: authenmethod
         
         	Authentication method
@@ -211,15 +240,21 @@ class Aaa(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: usergroup
         
         	Component usergroups
         	**type**\: list of str
         
+        	**config**\: False
+        
         .. attribute:: taskmap
         
         	Task map details
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -255,6 +290,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.CurrentuserDetail, [u'name', u'authenmethod', u'usergroup', u'taskmap'], name, value)
 
 
+
     class TaskMap(Entity):
         """
         Task map of current user
@@ -264,6 +300,8 @@ class Aaa(Entity):
         	Name of the usergroup
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: authenmethod
         
         	Authentication method
@@ -271,15 +309,21 @@ class Aaa(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: usergroup
         
         	Component usergroups
         	**type**\: list of str
         
+        	**config**\: False
+        
         .. attribute:: taskmap
         
         	Task map details
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -315,6 +359,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.TaskMap, [u'name', u'authenmethod', u'usergroup', u'taskmap'], name, value)
 
 
+
     class Taskgroups(Entity):
         """
         Individual taskgroups container
@@ -323,6 +368,8 @@ class Aaa(Entity):
         
         	Specific Taskgroup Information
         	**type**\: list of  		 :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup>`
+        
+        	**config**\: False
         
         
 
@@ -360,20 +407,28 @@ class Aaa(Entity):
             	Taskgroup name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: included_task_ids
             
             	Task\-ids included
             	**type**\:  :py:class:`IncludedTaskIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.IncludedTaskIds>`
+            
+            	**config**\: False
             
             .. attribute:: task_map
             
             	Computed task map
             	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.TaskMap>`
             
+            	**config**\: False
+            
             .. attribute:: name_xr
             
             	Name of the taskgroup
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -422,6 +477,8 @@ class Aaa(Entity):
                 	List of permitted tasks
                 	**type**\: list of  		 :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -457,25 +514,35 @@ class Aaa(Entity):
                     	Name of the task\-id
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: read
                     
                     	Is read permitted?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: write
                     
                     	Is write permitted?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: execute
                     
                     	Is execute permitted?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: debug
                     
                     	Is debug permitted?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -512,6 +579,8 @@ class Aaa(Entity):
                         self._perform_setattr(Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks, [u'task_id', u'read', u'write', u'execute', u'debug'], name, value)
 
 
+
+
             class TaskMap(Entity):
                 """
                 Computed task map
@@ -520,6 +589,8 @@ class Aaa(Entity):
                 
                 	List of permitted tasks
                 	**type**\: list of  		 :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.TaskMap.Tasks>`
+                
+                	**config**\: False
                 
                 
 
@@ -556,25 +627,35 @@ class Aaa(Entity):
                     	Name of the task\-id
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: read
                     
                     	Is read permitted?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: write
                     
                     	Is write permitted?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: execute
                     
                     	Is execute permitted?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: debug
                     
                     	Is debug permitted?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -611,6 +692,10 @@ class Aaa(Entity):
                         self._perform_setattr(Aaa.Taskgroups.Taskgroup.TaskMap.Tasks, [u'task_id', u'read', u'write', u'execute', u'debug'], name, value)
 
 
+
+
+
+
     class Users(Entity):
         """
         Container for individual local user information
@@ -619,6 +704,8 @@ class Aaa(Entity):
         
         	Specific local user information
         	**type**\: list of  		 :py:class:`User <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User>`
+        
+        	**config**\: False
         
         
 
@@ -656,30 +743,42 @@ class Aaa(Entity):
             	Username
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: task_map
             
             	Computed taskmap
             	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User.TaskMap>`
+            
+            	**config**\: False
             
             .. attribute:: name_xr
             
             	Username
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: admin_user
             
             	Is admin plane user ?
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: first_user
             
             	Is first user ?
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: usergroup
             
             	Member usergroups
             	**type**\: list of str
+            
+            	**config**\: False
             
             
 
@@ -730,6 +829,8 @@ class Aaa(Entity):
                 	List of permitted tasks
                 	**type**\: list of  		 :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User.TaskMap.Tasks>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -765,25 +866,35 @@ class Aaa(Entity):
                     	Name of the task\-id
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: read
                     
                     	Is read permitted?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: write
                     
                     	Is write permitted?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: execute
                     
                     	Is execute permitted?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: debug
                     
                     	Is debug permitted?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -820,6 +931,10 @@ class Aaa(Entity):
                         self._perform_setattr(Aaa.Users.User.TaskMap.Tasks, [u'task_id', u'read', u'write', u'execute', u'debug'], name, value)
 
 
+
+
+
+
     class PasswordPolicies(Entity):
         """
         Container for individual password policy
@@ -829,6 +944,8 @@ class Aaa(Entity):
         
         	Password policy details
         	**type**\: list of  		 :py:class:`PasswordPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.PasswordPolicies.PasswordPolicy>`
+        
+        	**config**\: False
         
         
 
@@ -866,20 +983,28 @@ class Aaa(Entity):
             	Password policy name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: life_time
             
             	Lifetime of the policy
             	**type**\:  :py:class:`LifeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.PasswordPolicies.PasswordPolicy.LifeTime>`
+            
+            	**config**\: False
             
             .. attribute:: lock_out_time
             
             	Lockout time of the policy
             	**type**\:  :py:class:`LockOutTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.PasswordPolicies.PasswordPolicy.LockOutTime>`
             
+            	**config**\: False
+            
             .. attribute:: name_xr
             
             	Password Policy Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: min_len
             
@@ -888,12 +1013,16 @@ class Aaa(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: max_len
             
             	Max Length
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: spl_char
             
@@ -902,12 +1031,16 @@ class Aaa(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: upper_case
             
             	UpperCase Character length
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: lower_case
             
@@ -916,12 +1049,16 @@ class Aaa(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: numeric
             
             	Numeric Character length
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: min_char_change
             
@@ -930,12 +1067,16 @@ class Aaa(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: num_of_users
             
             	Number of users with this policy
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: max_fail_attempts
             
@@ -944,12 +1085,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: usr_count
             
             	Count of users
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: err_count
             
@@ -958,12 +1103,16 @@ class Aaa(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: lock_out_count
             
             	Lock Out Count
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -1038,12 +1187,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: months
                 
                 	months
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: days
                 
@@ -1052,12 +1205,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: hours
                 
                 	hours
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: mins
                 
@@ -1066,12 +1223,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: secs
                 
                 	secs
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -1110,6 +1271,7 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy.LifeTime, [u'years', u'months', u'days', u'hours', u'mins', u'secs'], name, value)
 
 
+
             class LockOutTime(Entity):
                 """
                 Lockout time of the policy
@@ -1121,12 +1283,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: months
                 
                 	months
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: days
                 
@@ -1135,12 +1301,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: hours
                 
                 	hours
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: mins
                 
@@ -1149,12 +1319,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: secs
                 
                 	secs
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -1193,6 +1367,9 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.PasswordPolicies.PasswordPolicy.LockOutTime, [u'years', u'months', u'days', u'hours', u'mins', u'secs'], name, value)
 
 
+
+
+
     class Usergroups(Entity):
         """
         Container for individual usergroup Information
@@ -1201,6 +1378,8 @@ class Aaa(Entity):
         
         	Specific Usergroup Information
         	**type**\: list of  		 :py:class:`Usergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup>`
+        
+        	**config**\: False
         
         
 
@@ -1238,20 +1417,28 @@ class Aaa(Entity):
             	Usergroup name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: task_map
             
             	Computed task map
             	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.TaskMap>`
+            
+            	**config**\: False
             
             .. attribute:: name_xr
             
             	Name of the usergroup
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: taskgroup
             
             	Component taskgroups
             	**type**\: list of  		 :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup>`
+            
+            	**config**\: False
             
             
 
@@ -1298,6 +1485,8 @@ class Aaa(Entity):
                 	List of permitted tasks
                 	**type**\: list of  		 :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.TaskMap.Tasks>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1333,25 +1522,35 @@ class Aaa(Entity):
                     	Name of the task\-id
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: read
                     
                     	Is read permitted?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: write
                     
                     	Is write permitted?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: execute
                     
                     	Is execute permitted?
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: debug
                     
                     	Is debug permitted?
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -1388,6 +1587,8 @@ class Aaa(Entity):
                         self._perform_setattr(Aaa.Usergroups.Usergroup.TaskMap.Tasks, [u'task_id', u'read', u'write', u'execute', u'debug'], name, value)
 
 
+
+
             class Taskgroup(Entity):
                 """
                 Component taskgroups
@@ -1397,15 +1598,21 @@ class Aaa(Entity):
                 	Task\-ids included
                 	**type**\:  :py:class:`IncludedTaskIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds>`
                 
+                	**config**\: False
+                
                 .. attribute:: task_map
                 
                 	Computed task map
                 	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.TaskMap>`
                 
+                	**config**\: False
+                
                 .. attribute:: name_xr
                 
                 	Name of the taskgroup
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1451,6 +1658,8 @@ class Aaa(Entity):
                     	List of permitted tasks
                     	**type**\: list of  		 :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1486,25 +1695,35 @@ class Aaa(Entity):
                         	Name of the task\-id
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: read
                         
                         	Is read permitted?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: write
                         
                         	Is write permitted?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: execute
                         
                         	Is execute permitted?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: debug
                         
                         	Is debug permitted?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1541,6 +1760,8 @@ class Aaa(Entity):
                             self._perform_setattr(Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks, [u'task_id', u'read', u'write', u'execute', u'debug'], name, value)
 
 
+
+
                 class TaskMap(Entity):
                     """
                     Computed task map
@@ -1549,6 +1770,8 @@ class Aaa(Entity):
                     
                     	List of permitted tasks
                     	**type**\: list of  		 :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1585,25 +1808,35 @@ class Aaa(Entity):
                         	Name of the task\-id
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: read
                         
                         	Is read permitted?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: write
                         
                         	Is write permitted?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: execute
                         
                         	Is execute permitted?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: debug
                         
                         	Is debug permitted?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -1640,6 +1873,11 @@ class Aaa(Entity):
                             self._perform_setattr(Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks, [u'task_id', u'read', u'write', u'execute', u'debug'], name, value)
 
 
+
+
+
+
+
     class AuthenMethod(Entity):
         """
         Current users authentication method
@@ -1649,6 +1887,8 @@ class Aaa(Entity):
         	Name of the usergroup
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: authenmethod
         
         	Authentication method
@@ -1656,15 +1896,21 @@ class Aaa(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: usergroup
         
         	Component usergroups
         	**type**\: list of str
         
+        	**config**\: False
+        
         .. attribute:: taskmap
         
         	Task map details
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -1700,6 +1946,7 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.AuthenMethod, [u'name', u'authenmethod', u'usergroup', u'taskmap'], name, value)
 
 
+
     class CurrentUsergroup(Entity):
         """
         Specific Usergroup Information
@@ -1709,6 +1956,8 @@ class Aaa(Entity):
         	Name of the usergroup
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: authenmethod
         
         	Authentication method
@@ -1716,15 +1965,21 @@ class Aaa(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: usergroup
         
         	Component usergroups
         	**type**\: list of str
         
+        	**config**\: False
+        
         .. attribute:: taskmap
         
         	Task map details
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -1760,6 +2015,890 @@ class Aaa(Entity):
             self._perform_setattr(Aaa.CurrentUsergroup, [u'name', u'authenmethod', u'usergroup', u'taskmap'], name, value)
 
 
+
+    class Tacacs(Entity):
+        """
+        TACACS operational data
+        
+        .. attribute:: requests
+        
+        	TACACS Active Request List
+        	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
+        
+        	**config**\: False
+        
+        .. attribute:: servers
+        
+        	TACACS server Information
+        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
+        
+        	**config**\: False
+        
+        .. attribute:: server_groups
+        
+        	TACACS sg Information
+        	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
+        
+        	**config**\: False
+        
+        
+
+        """
+
+        _prefix = 'aaa-tacacs-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Aaa.Tacacs, self).__init__()
+
+            self.yang_name = "tacacs"
+            self.yang_parent_name = "aaa"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("requests", ("requests", Aaa.Tacacs.Requests)), ("servers", ("servers", Aaa.Tacacs.Servers)), ("server-groups", ("server_groups", Aaa.Tacacs.ServerGroups))])
+            self._leafs = OrderedDict()
+
+            self.requests = Aaa.Tacacs.Requests()
+            self.requests.parent = self
+            self._children_name_map["requests"] = "requests"
+
+            self.servers = Aaa.Tacacs.Servers()
+            self.servers.parent = self
+            self._children_name_map["servers"] = "servers"
+
+            self.server_groups = Aaa.Tacacs.ServerGroups()
+            self.server_groups.parent = self
+            self._children_name_map["server_groups"] = "server-groups"
+            self._segment_path = lambda: "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
+            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Aaa.Tacacs, [], name, value)
+
+
+        class Requests(Entity):
+            """
+            TACACS Active Request List
+            
+            .. attribute:: request
+            
+            	request
+            	**type**\: list of  		 :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.Tacacs.Requests, self).__init__()
+
+                self.yang_name = "requests"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("request", ("request", Aaa.Tacacs.Requests.Request))])
+                self._leafs = OrderedDict()
+
+                self.request = YList(self)
+                self._segment_path = lambda: "requests"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.Requests, [], name, value)
+
+
+            class Request(Entity):
+                """
+                request
+                
+                .. attribute:: tacacs_requestbag
+                
+                	tacacs requestbag
+                	**type**\: list of  		 :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.Tacacs.Requests.Request, self).__init__()
+
+                    self.yang_name = "request"
+                    self.yang_parent_name = "requests"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("tacacs-requestbag", ("tacacs_requestbag", Aaa.Tacacs.Requests.Request.TacacsRequestbag))])
+                    self._leafs = OrderedDict()
+
+                    self.tacacs_requestbag = YList(self)
+                    self._segment_path = lambda: "request"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Tacacs.Requests.Request, [], name, value)
+
+
+                class TacacsRequestbag(Entity):
+                    """
+                    tacacs requestbag
+                    
+                    .. attribute:: time_remaining
+                    
+                    	time remaining for this request
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: bytes_out
+                    
+                    	bytes written
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: out_pak_size
+                    
+                    	size of the packet to be sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: bytes_in
+                    
+                    	bytes read from socket
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: in_pak_size
+                    
+                    	size of the packet to be received
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: pak_type
+                    
+                    	the type of packet
+                    	**type**\: str
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: session_id
+                    
+                    	same as in pkt hdr
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: sock
+                    
+                    	socket number
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Aaa.Tacacs.Requests.Request.TacacsRequestbag, self).__init__()
+
+                        self.yang_name = "tacacs-requestbag"
+                        self.yang_parent_name = "request"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('time_remaining', (YLeaf(YType.uint32, 'time-remaining'), ['int'])),
+                            ('bytes_out', (YLeaf(YType.uint32, 'bytes-out'), ['int'])),
+                            ('out_pak_size', (YLeaf(YType.uint32, 'out-pak-size'), ['int'])),
+                            ('bytes_in', (YLeaf(YType.uint32, 'bytes-in'), ['int'])),
+                            ('in_pak_size', (YLeaf(YType.uint32, 'in-pak-size'), ['int'])),
+                            ('pak_type', (YLeaf(YType.str, 'pak-type'), ['str'])),
+                            ('session_id', (YLeaf(YType.int32, 'session-id'), ['int'])),
+                            ('sock', (YLeaf(YType.int32, 'sock'), ['int'])),
+                        ])
+                        self.time_remaining = None
+                        self.bytes_out = None
+                        self.out_pak_size = None
+                        self.bytes_in = None
+                        self.in_pak_size = None
+                        self.pak_type = None
+                        self.session_id = None
+                        self.sock = None
+                        self._segment_path = lambda: "tacacs-requestbag"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/request/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.Tacacs.Requests.Request.TacacsRequestbag, ['time_remaining', 'bytes_out', 'out_pak_size', 'bytes_in', 'in_pak_size', 'pak_type', 'session_id', 'sock'], name, value)
+
+
+
+
+
+        class Servers(Entity):
+            """
+            TACACS server Information
+            
+            .. attribute:: server
+            
+            	server
+            	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.Tacacs.Servers, self).__init__()
+
+                self.yang_name = "servers"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("server", ("server", Aaa.Tacacs.Servers.Server))])
+                self._leafs = OrderedDict()
+
+                self.server = YList(self)
+                self._segment_path = lambda: "servers"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.Servers, [], name, value)
+
+
+            class Server(Entity):
+                """
+                server
+                
+                .. attribute:: addr
+                
+                	internet address of T+ server
+                	**type**\: str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
+                
+                .. attribute:: timeout
+                
+                	per\-server timeout
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: port
+                
+                	per server port to use
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: bytes_in
+                
+                	# of bytes read
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: byte
+                
+                .. attribute:: bytes_out
+                
+                	# of bytes out
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                	**units**\: byte
+                
+                .. attribute:: closes
+                
+                	socket closes
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: opens
+                
+                	socket opens
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: errors
+                
+                	error count
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: aborts
+                
+                	abort count
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: paks_in
+                
+                	# of incoming packets read
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: paks_out
+                
+                	# of outgoing packets sent
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: replies_expected
+                
+                	# of replies expected to arrive
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: up
+                
+                	is the server UP or down ?
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: conn_up
+                
+                	is the server connected ?
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: single_connect
+                
+                	is this a single connect server ?
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: is_private
+                
+                	is this a private server ?
+                	**type**\: bool
+                
+                	**config**\: False
+                
+                .. attribute:: vrf_name
+                
+                	VRF in which server is reachable
+                	**type**\: str
+                
+                	**length:** 0..33
+                
+                	**config**\: False
+                
+                .. attribute:: addr_buf
+                
+                	IP address buffer
+                	**type**\: str
+                
+                	**length:** 0..46
+                
+                	**config**\: False
+                
+                .. attribute:: family
+                
+                	IP address Family
+                	**type**\: str
+                
+                	**length:** 0..5
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.Tacacs.Servers.Server, self).__init__()
+
+                    self.yang_name = "server"
+                    self.yang_parent_name = "servers"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('addr', (YLeaf(YType.str, 'addr'), ['str'])),
+                        ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                        ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                        ('bytes_in', (YLeaf(YType.uint32, 'bytes-in'), ['int'])),
+                        ('bytes_out', (YLeaf(YType.uint32, 'bytes-out'), ['int'])),
+                        ('closes', (YLeaf(YType.uint32, 'closes'), ['int'])),
+                        ('opens', (YLeaf(YType.uint32, 'opens'), ['int'])),
+                        ('errors', (YLeaf(YType.uint32, 'errors'), ['int'])),
+                        ('aborts', (YLeaf(YType.uint32, 'aborts'), ['int'])),
+                        ('paks_in', (YLeaf(YType.uint32, 'paks-in'), ['int'])),
+                        ('paks_out', (YLeaf(YType.uint32, 'paks-out'), ['int'])),
+                        ('replies_expected', (YLeaf(YType.uint32, 'replies-expected'), ['int'])),
+                        ('up', (YLeaf(YType.boolean, 'up'), ['bool'])),
+                        ('conn_up', (YLeaf(YType.boolean, 'conn-up'), ['bool'])),
+                        ('single_connect', (YLeaf(YType.boolean, 'single-connect'), ['bool'])),
+                        ('is_private', (YLeaf(YType.boolean, 'is-private'), ['bool'])),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('addr_buf', (YLeaf(YType.str, 'addr-buf'), ['str'])),
+                        ('family', (YLeaf(YType.str, 'family'), ['str'])),
+                    ])
+                    self.addr = None
+                    self.timeout = None
+                    self.port = None
+                    self.bytes_in = None
+                    self.bytes_out = None
+                    self.closes = None
+                    self.opens = None
+                    self.errors = None
+                    self.aborts = None
+                    self.paks_in = None
+                    self.paks_out = None
+                    self.replies_expected = None
+                    self.up = None
+                    self.conn_up = None
+                    self.single_connect = None
+                    self.is_private = None
+                    self.vrf_name = None
+                    self.addr_buf = None
+                    self.family = None
+                    self._segment_path = lambda: "server"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/servers/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Tacacs.Servers.Server, ['addr', 'timeout', 'port', 'bytes_in', 'bytes_out', 'closes', 'opens', 'errors', 'aborts', 'paks_in', 'paks_out', 'replies_expected', 'up', 'conn_up', 'single_connect', 'is_private', 'vrf_name', 'addr_buf', 'family'], name, value)
+
+
+
+
+        class ServerGroups(Entity):
+            """
+            TACACS sg Information
+            
+            .. attribute:: server_group
+            
+            	server group
+            	**type**\: list of  		 :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
+            
+            	**config**\: False
+            
+            
+
+            """
+
+            _prefix = 'aaa-tacacs-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Aaa.Tacacs.ServerGroups, self).__init__()
+
+                self.yang_name = "server-groups"
+                self.yang_parent_name = "tacacs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("server-group", ("server_group", Aaa.Tacacs.ServerGroups.ServerGroup))])
+                self._leafs = OrderedDict()
+
+                self.server_group = YList(self)
+                self._segment_path = lambda: "server-groups"
+                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Aaa.Tacacs.ServerGroups, [], name, value)
+
+
+            class ServerGroup(Entity):
+                """
+                server group
+                
+                .. attribute:: group_name
+                
+                	name of the server group
+                	**type**\: str
+                
+                	**config**\: False
+                
+                .. attribute:: sg_map_num
+                
+                	server group mapped number
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                	**config**\: False
+                
+                .. attribute:: vrf_name
+                
+                	vrf of the group
+                	**type**\: str
+                
+                	**length:** 0..33
+                
+                	**config**\: False
+                
+                .. attribute:: server
+                
+                	list of servers in this group
+                	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
+                
+                	**config**\: False
+                
+                
+
+                """
+
+                _prefix = 'aaa-tacacs-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.Tacacs.ServerGroups.ServerGroup, self).__init__()
+
+                    self.yang_name = "server-group"
+                    self.yang_parent_name = "server-groups"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("server", ("server", Aaa.Tacacs.ServerGroups.ServerGroup.Server))])
+                    self._leafs = OrderedDict([
+                        ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
+                        ('sg_map_num', (YLeaf(YType.uint32, 'sg-map-num'), ['int'])),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ])
+                    self.group_name = None
+                    self.sg_map_num = None
+                    self.vrf_name = None
+
+                    self.server = YList(self)
+                    self._segment_path = lambda: "server-group"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup, ['group_name', 'sg_map_num', 'vrf_name'], name, value)
+
+
+                class Server(Entity):
+                    """
+                    list of servers in this group
+                    
+                    .. attribute:: addr
+                    
+                    	internet address of T+ server
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: timeout
+                    
+                    	per\-server timeout
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: port
+                    
+                    	per server port to use
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: bytes_in
+                    
+                    	# of bytes read
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: bytes_out
+                    
+                    	# of bytes out
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: closes
+                    
+                    	socket closes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: opens
+                    
+                    	socket opens
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: errors
+                    
+                    	error count
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: aborts
+                    
+                    	abort count
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: paks_in
+                    
+                    	# of incoming packets read
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: paks_out
+                    
+                    	# of outgoing packets sent
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: replies_expected
+                    
+                    	# of replies expected to arrive
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: up
+                    
+                    	is the server UP or down ?
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: conn_up
+                    
+                    	is the server connected ?
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: single_connect
+                    
+                    	is this a single connect server ?
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: is_private
+                    
+                    	is this a private server ?
+                    	**type**\: bool
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: vrf_name
+                    
+                    	VRF in which server is reachable
+                    	**type**\: str
+                    
+                    	**length:** 0..33
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: addr_buf
+                    
+                    	IP address buffer
+                    	**type**\: str
+                    
+                    	**length:** 0..46
+                    
+                    	**config**\: False
+                    
+                    .. attribute:: family
+                    
+                    	IP address Family
+                    	**type**\: str
+                    
+                    	**length:** 0..5
+                    
+                    	**config**\: False
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-tacacs-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Aaa.Tacacs.ServerGroups.ServerGroup.Server, self).__init__()
+
+                        self.yang_name = "server"
+                        self.yang_parent_name = "server-group"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('addr', (YLeaf(YType.str, 'addr'), ['str'])),
+                            ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                            ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                            ('bytes_in', (YLeaf(YType.uint32, 'bytes-in'), ['int'])),
+                            ('bytes_out', (YLeaf(YType.uint32, 'bytes-out'), ['int'])),
+                            ('closes', (YLeaf(YType.uint32, 'closes'), ['int'])),
+                            ('opens', (YLeaf(YType.uint32, 'opens'), ['int'])),
+                            ('errors', (YLeaf(YType.uint32, 'errors'), ['int'])),
+                            ('aborts', (YLeaf(YType.uint32, 'aborts'), ['int'])),
+                            ('paks_in', (YLeaf(YType.uint32, 'paks-in'), ['int'])),
+                            ('paks_out', (YLeaf(YType.uint32, 'paks-out'), ['int'])),
+                            ('replies_expected', (YLeaf(YType.uint32, 'replies-expected'), ['int'])),
+                            ('up', (YLeaf(YType.boolean, 'up'), ['bool'])),
+                            ('conn_up', (YLeaf(YType.boolean, 'conn-up'), ['bool'])),
+                            ('single_connect', (YLeaf(YType.boolean, 'single-connect'), ['bool'])),
+                            ('is_private', (YLeaf(YType.boolean, 'is-private'), ['bool'])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('addr_buf', (YLeaf(YType.str, 'addr-buf'), ['str'])),
+                            ('family', (YLeaf(YType.str, 'family'), ['str'])),
+                        ])
+                        self.addr = None
+                        self.timeout = None
+                        self.port = None
+                        self.bytes_in = None
+                        self.bytes_out = None
+                        self.closes = None
+                        self.opens = None
+                        self.errors = None
+                        self.aborts = None
+                        self.paks_in = None
+                        self.paks_out = None
+                        self.replies_expected = None
+                        self.up = None
+                        self.conn_up = None
+                        self.single_connect = None
+                        self.is_private = None
+                        self.vrf_name = None
+                        self.addr_buf = None
+                        self.family = None
+                        self._segment_path = lambda: "server"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/server-group/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup.Server, ['addr', 'timeout', 'port', 'bytes_in', 'bytes_out', 'closes', 'opens', 'errors', 'aborts', 'paks_in', 'paks_out', 'replies_expected', 'up', 'conn_up', 'single_connect', 'is_private', 'vrf_name', 'addr_buf', 'family'], name, value)
+
+
+
+
+
+
     class Radius(Entity):
         """
         RADIUS operational data
@@ -1769,15 +2908,21 @@ class Aaa(Entity):
         	List of RADIUS servers configured
         	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers>`
         
+        	**config**\: False
+        
         .. attribute:: radius_source_interface
         
         	RADIUS source interfaces
         	**type**\:  :py:class:`RadiusSourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.RadiusSourceInterface>`
         
+        	**config**\: False
+        
         .. attribute:: global_
         
         	RADIUS Client Information
         	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Global>`
+        
+        	**config**\: False
         
         
 
@@ -1825,6 +2970,8 @@ class Aaa(Entity):
             	RADIUS Server
             	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers.Server>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1869,12 +3016,16 @@ class Aaa(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: auth_port_number
                 
                 	Authentication Port number (standard port 1645)
                 	**type**\: int
                 
                 	**range:** 1..65535
+                
+                	**config**\: False
                 
                 .. attribute:: acct_port_number
                 
@@ -1883,12 +3034,16 @@ class Aaa(Entity):
                 
                 	**range:** 1..65535
                 
+                	**config**\: False
+                
                 .. attribute:: ipv4_address
                 
                 	IP address of RADIUS server
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: priority
                 
@@ -1897,12 +3052,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: timeout_xr
                 
                 	Per\-server timeout in seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -1913,12 +3072,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: dead_time
                 
                 	Per\-server deadtime in minutes
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: minute
                 
@@ -1929,6 +3092,8 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: dead_detect_tries
@@ -1938,12 +3103,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: authentication_port
                 
                 	Authentication port
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: accounting_port
                 
@@ -1952,10 +3121,14 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	State of the server UP/DOWN
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: current_state_duration
                 
@@ -1964,12 +3137,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: previous_state_duration
                 
                 	Elapsed time the server was been in              previous state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: packets_in
                 
@@ -1978,12 +3155,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: packets_out
                 
                 	Total number of outgoing packets sent
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: timeouts
                 
@@ -1992,12 +3173,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: aborts
                 
                 	Total number of requests aborted
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: replies_expected
                 
@@ -2006,6 +3191,8 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: redirected_requests
                 
                 	Number of requests redirected
@@ -2013,12 +3200,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: authentication_rtt
                 
                 	Round\-trip time for authentication               in milliseconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -2029,12 +3220,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: access_request_retransmits
                 
                 	Number of retransmitted                          access requests
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: access_accepts
                 
@@ -2043,12 +3238,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: access_rejects
                 
                 	Number of access rejects
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: access_challenges
                 
@@ -2057,12 +3256,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bad_access_responses
                 
                 	Number of bad access responses
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: bad_access_authenticators
                 
@@ -2071,12 +3274,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pending_access_requests
                 
                 	Number of pending access requests
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: access_timeouts
                 
@@ -2085,12 +3292,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: unknown_access_types
                 
                 	Number of packets received with unknown          type from authentication server
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: dropped_access_responses
                 
@@ -2099,12 +3310,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: throttled_access_reqs
                 
                 	No of throttled access reqs stats
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: throttled_timed_out_reqs
                 
@@ -2113,12 +3328,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: throttled_dropped_reqs
                 
                 	No of discarded access reqs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: max_throttled_access_reqs
                 
@@ -2127,12 +3346,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: currently_throttled_access_reqs
                 
                 	No of currently throttled access reqs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: authen_response_time
                 
@@ -2141,12 +3364,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: authen_transaction_successess
                 
                 	Number of succeeded authentication transactions
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: authen_transaction_failure
                 
@@ -2155,12 +3382,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: authen_unexpected_responses
                 
                 	Number of unexpected authentication responses
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: authen_server_error_responses
                 
@@ -2169,12 +3400,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: authen_incorrect_responses
                 
                 	Number of incorrect authentication responses
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: author_requests
                 
@@ -2183,12 +3418,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: author_request_timeouts
                 
                 	Number of access packets timed out
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: author_response_time
                 
@@ -2197,12 +3436,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: author_transaction_successess
                 
                 	Number of succeeded authorization transactions
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: author_transaction_failure
                 
@@ -2211,12 +3454,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: author_unexpected_responses
                 
                 	Number of unexpected authorization responses
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: author_server_error_responses
                 
@@ -2225,6 +3472,8 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: author_incorrect_responses
                 
                 	Number of incorrect authorization responses
@@ -2232,12 +3481,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: accounting_rtt
                 
                 	Round\-trip time for accounting                   in milliseconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: millisecond
                 
@@ -2248,12 +3501,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: accounting_retransmits
                 
                 	Number of retransmitted                          accounting requests
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: accounting_responses
                 
@@ -2262,12 +3519,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: bad_accounting_responses
                 
                 	Number of bad accounting responses
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: bad_accounting_authenticators
                 
@@ -2276,12 +3537,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: pending_accounting_requets
                 
                 	Number of pending accounting requests
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: accounting_timeouts
                 
@@ -2290,12 +3555,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: unknown_accounting_types
                 
                 	Number of packets received with unknown          type from accounting server
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: dropped_accounting_responses
                 
@@ -2304,10 +3573,14 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_a_private_server
                 
                 	Is a private server
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: total_test_auth_reqs
                 
@@ -2316,12 +3589,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: total_test_auth_timeouts
                 
                 	Total auth test timeouts
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: total_test_auth_response
                 
@@ -2330,12 +3607,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: total_test_auth_pending
                 
                 	Total auth test pending
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: total_test_acct_reqs
                 
@@ -2344,12 +3625,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: total_test_acct_timeouts
                 
                 	Total acct test timeouts
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: total_test_acct_response
                 
@@ -2358,12 +3643,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: total_test_acct_pending
                 
                 	Total acct test pending
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: throttled_acct_transactions
                 
@@ -2372,12 +3661,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: throttled_acct_timed_out_stats
                 
                 	No of acct transaction that is throttled is timedout
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: throttled_acct_failures_stats
                 
@@ -2386,12 +3679,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: max_acct_throttled
                 
                 	Max throttled acct transactions
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: throttleda_acct_transactions
                 
@@ -2400,12 +3697,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: acct_unexpected_responses
                 
                 	Number of unexpected accounting responses
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: acct_server_error_responses
                 
@@ -2414,12 +3715,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: acct_incorrect_responses
                 
                 	Number of incorrect accounting responses
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: acct_response_time
                 
@@ -2428,12 +3733,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: acct_transaction_successess
                 
                 	Number of succeeded authentication transactions
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: acct_transaction_failure
                 
@@ -2442,12 +3751,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: total_deadtime
                 
                 	Total time of Server being in DEAD               state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: last_deadtime
                 
@@ -2456,25 +3769,35 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_quarantined
                 
                 	flag to indicate Server is quarantined           or not (Automated TEST in progress)
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: group_name
                 
                 	Server group name for private server
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ip_address_xr
                 
                 	IP address buffer
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: family
                 
                 	IP address Family
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -2678,6 +4001,8 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Radius.Servers.Server, ['ip_address', 'auth_port_number', 'acct_port_number', u'ipv4_address', u'priority', u'timeout_xr', u'retransmit', u'dead_time', u'dead_detect_time', u'dead_detect_tries', u'authentication_port', u'accounting_port', u'state', u'current_state_duration', u'previous_state_duration', u'packets_in', u'packets_out', u'timeouts', u'aborts', u'replies_expected', u'redirected_requests', u'authentication_rtt', u'access_requests', u'access_request_retransmits', u'access_accepts', u'access_rejects', u'access_challenges', u'bad_access_responses', u'bad_access_authenticators', u'pending_access_requests', u'access_timeouts', u'unknown_access_types', u'dropped_access_responses', u'throttled_access_reqs', u'throttled_timed_out_reqs', u'throttled_dropped_reqs', u'max_throttled_access_reqs', u'currently_throttled_access_reqs', u'authen_response_time', u'authen_transaction_successess', u'authen_transaction_failure', u'authen_unexpected_responses', u'authen_server_error_responses', u'authen_incorrect_responses', u'author_requests', u'author_request_timeouts', u'author_response_time', u'author_transaction_successess', u'author_transaction_failure', u'author_unexpected_responses', u'author_server_error_responses', u'author_incorrect_responses', u'accounting_rtt', u'accounting_requests', u'accounting_retransmits', u'accounting_responses', u'bad_accounting_responses', u'bad_accounting_authenticators', u'pending_accounting_requets', u'accounting_timeouts', u'unknown_accounting_types', u'dropped_accounting_responses', u'is_a_private_server', u'total_test_auth_reqs', u'total_test_auth_timeouts', u'total_test_auth_response', u'total_test_auth_pending', u'total_test_acct_reqs', u'total_test_acct_timeouts', u'total_test_acct_response', u'total_test_acct_pending', u'throttled_acct_transactions', u'throttled_acct_timed_out_stats', u'throttled_acct_failures_stats', u'max_acct_throttled', u'throttleda_acct_transactions', u'acct_unexpected_responses', u'acct_server_error_responses', u'acct_incorrect_responses', u'acct_response_time', u'acct_transaction_successess', u'acct_transaction_failure', u'total_deadtime', u'last_deadtime', u'is_quarantined', u'group_name', u'ip_address_xr', u'family'], name, value)
 
 
+
+
         class RadiusSourceInterface(Entity):
             """
             RADIUS source interfaces
@@ -2686,6 +4011,8 @@ class Aaa(Entity):
             
             	List of source interfaces
             	**type**\: list of  		 :py:class:`ListOfSourceInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface>`
+            
+            	**config**\: False
             
             
 
@@ -2723,15 +4050,21 @@ class Aaa(Entity):
                 	Name of the source interface
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ipaddrv4
                 
                 	IP address buffer
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: ipaddrv6
                 
                 	IP address buffer
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: vrfid
                 
@@ -2739,6 +4072,8 @@ class Aaa(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2774,6 +4109,8 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Radius.RadiusSourceInterface.ListOfSourceInterface, [u'interface_name', u'ipaddrv4', u'ipaddrv6', u'vrfid'], name, value)
 
 
+
+
         class Global(Entity):
             """
             RADIUS Client Information
@@ -2785,10 +4122,14 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: authentication_nas_id
             
             	NAS\-Identifier of the RADIUSauthentication client
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: unknown_accounting_response
             
@@ -2797,10 +4138,14 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: accounting_nas_id
             
             	NAS\-Identifier of the RADIUSaccounting client
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -2836,764 +4181,6 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Radius.Global, [u'unknown_authentication_response', u'authentication_nas_id', u'unknown_accounting_response', u'accounting_nas_id'], name, value)
 
 
-    class Tacacs(Entity):
-        """
-        TACACS operational data
-        
-        .. attribute:: requests
-        
-        	TACACS Active Request List
-        	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
-        
-        .. attribute:: servers
-        
-        	TACACS server Information
-        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
-        
-        .. attribute:: server_groups
-        
-        	TACACS sg Information
-        	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
-        
-        
-
-        """
-
-        _prefix = 'aaa-tacacs-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Aaa.Tacacs, self).__init__()
-
-            self.yang_name = "tacacs"
-            self.yang_parent_name = "aaa"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("requests", ("requests", Aaa.Tacacs.Requests)), ("servers", ("servers", Aaa.Tacacs.Servers)), ("server-groups", ("server_groups", Aaa.Tacacs.ServerGroups))])
-            self._leafs = OrderedDict()
-
-            self.requests = Aaa.Tacacs.Requests()
-            self.requests.parent = self
-            self._children_name_map["requests"] = "requests"
-
-            self.servers = Aaa.Tacacs.Servers()
-            self.servers.parent = self
-            self._children_name_map["servers"] = "servers"
-
-            self.server_groups = Aaa.Tacacs.ServerGroups()
-            self.server_groups.parent = self
-            self._children_name_map["server_groups"] = "server-groups"
-            self._segment_path = lambda: "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
-            self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Aaa.Tacacs, [], name, value)
-
-
-        class Requests(Entity):
-            """
-            TACACS Active Request List
-            
-            .. attribute:: request
-            
-            	request
-            	**type**\: list of  		 :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.Tacacs.Requests, self).__init__()
-
-                self.yang_name = "requests"
-                self.yang_parent_name = "tacacs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("request", ("request", Aaa.Tacacs.Requests.Request))])
-                self._leafs = OrderedDict()
-
-                self.request = YList(self)
-                self._segment_path = lambda: "requests"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.Requests, [], name, value)
-
-
-            class Request(Entity):
-                """
-                request
-                
-                .. attribute:: tacacs_requestbag
-                
-                	tacacs requestbag
-                	**type**\: list of  		 :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.Tacacs.Requests.Request, self).__init__()
-
-                    self.yang_name = "request"
-                    self.yang_parent_name = "requests"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("tacacs-requestbag", ("tacacs_requestbag", Aaa.Tacacs.Requests.Request.TacacsRequestbag))])
-                    self._leafs = OrderedDict()
-
-                    self.tacacs_requestbag = YList(self)
-                    self._segment_path = lambda: "request"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.Requests.Request, [], name, value)
-
-
-                class TacacsRequestbag(Entity):
-                    """
-                    tacacs requestbag
-                    
-                    .. attribute:: time_remaining
-                    
-                    	time remaining for this request
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bytes_out
-                    
-                    	bytes written
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: out_pak_size
-                    
-                    	size of the packet to be sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bytes_in
-                    
-                    	bytes read from socket
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: in_pak_size
-                    
-                    	size of the packet to be received
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: pak_type
-                    
-                    	the type of packet
-                    	**type**\: str
-                    
-                    .. attribute:: session_id
-                    
-                    	same as in pkt hdr
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: sock
-                    
-                    	socket number
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-tacacs-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Aaa.Tacacs.Requests.Request.TacacsRequestbag, self).__init__()
-
-                        self.yang_name = "tacacs-requestbag"
-                        self.yang_parent_name = "request"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('time_remaining', (YLeaf(YType.uint32, 'time-remaining'), ['int'])),
-                            ('bytes_out', (YLeaf(YType.uint32, 'bytes-out'), ['int'])),
-                            ('out_pak_size', (YLeaf(YType.uint32, 'out-pak-size'), ['int'])),
-                            ('bytes_in', (YLeaf(YType.uint32, 'bytes-in'), ['int'])),
-                            ('in_pak_size', (YLeaf(YType.uint32, 'in-pak-size'), ['int'])),
-                            ('pak_type', (YLeaf(YType.str, 'pak-type'), ['str'])),
-                            ('session_id', (YLeaf(YType.int32, 'session-id'), ['int'])),
-                            ('sock', (YLeaf(YType.int32, 'sock'), ['int'])),
-                        ])
-                        self.time_remaining = None
-                        self.bytes_out = None
-                        self.out_pak_size = None
-                        self.bytes_in = None
-                        self.in_pak_size = None
-                        self.pak_type = None
-                        self.session_id = None
-                        self.sock = None
-                        self._segment_path = lambda: "tacacs-requestbag"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/request/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Tacacs.Requests.Request.TacacsRequestbag, ['time_remaining', 'bytes_out', 'out_pak_size', 'bytes_in', 'in_pak_size', 'pak_type', 'session_id', 'sock'], name, value)
-
-
-        class Servers(Entity):
-            """
-            TACACS server Information
-            
-            .. attribute:: server
-            
-            	server
-            	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.Tacacs.Servers, self).__init__()
-
-                self.yang_name = "servers"
-                self.yang_parent_name = "tacacs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("server", ("server", Aaa.Tacacs.Servers.Server))])
-                self._leafs = OrderedDict()
-
-                self.server = YList(self)
-                self._segment_path = lambda: "servers"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.Servers, [], name, value)
-
-
-            class Server(Entity):
-                """
-                server
-                
-                .. attribute:: addr
-                
-                	internet address of T+ server
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: timeout
-                
-                	per\-server timeout
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: port
-                
-                	per server port to use
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: bytes_in
-                
-                	# of bytes read
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: byte
-                
-                .. attribute:: bytes_out
-                
-                	# of bytes out
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: byte
-                
-                .. attribute:: closes
-                
-                	socket closes
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: opens
-                
-                	socket opens
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: errors
-                
-                	error count
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: aborts
-                
-                	abort count
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: paks_in
-                
-                	# of incoming packets read
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: paks_out
-                
-                	# of outgoing packets sent
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: replies_expected
-                
-                	# of replies expected to arrive
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: up
-                
-                	is the server UP or down ?
-                	**type**\: bool
-                
-                .. attribute:: conn_up
-                
-                	is the server connected ?
-                	**type**\: bool
-                
-                .. attribute:: single_connect
-                
-                	is this a single connect server ?
-                	**type**\: bool
-                
-                .. attribute:: is_private
-                
-                	is this a private server ?
-                	**type**\: bool
-                
-                .. attribute:: vrf_name
-                
-                	VRF in which server is reachable
-                	**type**\: str
-                
-                	**length:** 0..33
-                
-                .. attribute:: addr_buf
-                
-                	IP address buffer
-                	**type**\: str
-                
-                	**length:** 0..46
-                
-                .. attribute:: family
-                
-                	IP address Family
-                	**type**\: str
-                
-                	**length:** 0..5
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.Tacacs.Servers.Server, self).__init__()
-
-                    self.yang_name = "server"
-                    self.yang_parent_name = "servers"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('addr', (YLeaf(YType.str, 'addr'), ['str'])),
-                        ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
-                        ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
-                        ('bytes_in', (YLeaf(YType.uint32, 'bytes-in'), ['int'])),
-                        ('bytes_out', (YLeaf(YType.uint32, 'bytes-out'), ['int'])),
-                        ('closes', (YLeaf(YType.uint32, 'closes'), ['int'])),
-                        ('opens', (YLeaf(YType.uint32, 'opens'), ['int'])),
-                        ('errors', (YLeaf(YType.uint32, 'errors'), ['int'])),
-                        ('aborts', (YLeaf(YType.uint32, 'aborts'), ['int'])),
-                        ('paks_in', (YLeaf(YType.uint32, 'paks-in'), ['int'])),
-                        ('paks_out', (YLeaf(YType.uint32, 'paks-out'), ['int'])),
-                        ('replies_expected', (YLeaf(YType.uint32, 'replies-expected'), ['int'])),
-                        ('up', (YLeaf(YType.boolean, 'up'), ['bool'])),
-                        ('conn_up', (YLeaf(YType.boolean, 'conn-up'), ['bool'])),
-                        ('single_connect', (YLeaf(YType.boolean, 'single-connect'), ['bool'])),
-                        ('is_private', (YLeaf(YType.boolean, 'is-private'), ['bool'])),
-                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
-                        ('addr_buf', (YLeaf(YType.str, 'addr-buf'), ['str'])),
-                        ('family', (YLeaf(YType.str, 'family'), ['str'])),
-                    ])
-                    self.addr = None
-                    self.timeout = None
-                    self.port = None
-                    self.bytes_in = None
-                    self.bytes_out = None
-                    self.closes = None
-                    self.opens = None
-                    self.errors = None
-                    self.aborts = None
-                    self.paks_in = None
-                    self.paks_out = None
-                    self.replies_expected = None
-                    self.up = None
-                    self.conn_up = None
-                    self.single_connect = None
-                    self.is_private = None
-                    self.vrf_name = None
-                    self.addr_buf = None
-                    self.family = None
-                    self._segment_path = lambda: "server"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/servers/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.Servers.Server, ['addr', 'timeout', 'port', 'bytes_in', 'bytes_out', 'closes', 'opens', 'errors', 'aborts', 'paks_in', 'paks_out', 'replies_expected', 'up', 'conn_up', 'single_connect', 'is_private', 'vrf_name', 'addr_buf', 'family'], name, value)
-
-
-        class ServerGroups(Entity):
-            """
-            TACACS sg Information
-            
-            .. attribute:: server_group
-            
-            	server group
-            	**type**\: list of  		 :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-tacacs-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Aaa.Tacacs.ServerGroups, self).__init__()
-
-                self.yang_name = "server-groups"
-                self.yang_parent_name = "tacacs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("server-group", ("server_group", Aaa.Tacacs.ServerGroups.ServerGroup))])
-                self._leafs = OrderedDict()
-
-                self.server_group = YList(self)
-                self._segment_path = lambda: "server-groups"
-                self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Aaa.Tacacs.ServerGroups, [], name, value)
-
-
-            class ServerGroup(Entity):
-                """
-                server group
-                
-                .. attribute:: group_name
-                
-                	name of the server group
-                	**type**\: str
-                
-                .. attribute:: sg_map_num
-                
-                	server group mapped number
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: vrf_name
-                
-                	vrf of the group
-                	**type**\: str
-                
-                	**length:** 0..33
-                
-                .. attribute:: server
-                
-                	list of servers in this group
-                	**type**\: list of  		 :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-tacacs-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.Tacacs.ServerGroups.ServerGroup, self).__init__()
-
-                    self.yang_name = "server-group"
-                    self.yang_parent_name = "server-groups"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("server", ("server", Aaa.Tacacs.ServerGroups.ServerGroup.Server))])
-                    self._leafs = OrderedDict([
-                        ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
-                        ('sg_map_num', (YLeaf(YType.uint32, 'sg-map-num'), ['int'])),
-                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
-                    ])
-                    self.group_name = None
-                    self.sg_map_num = None
-                    self.vrf_name = None
-
-                    self.server = YList(self)
-                    self._segment_path = lambda: "server-group"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup, ['group_name', 'sg_map_num', 'vrf_name'], name, value)
-
-
-                class Server(Entity):
-                    """
-                    list of servers in this group
-                    
-                    .. attribute:: addr
-                    
-                    	internet address of T+ server
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: timeout
-                    
-                    	per\-server timeout
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: port
-                    
-                    	per server port to use
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: bytes_in
-                    
-                    	# of bytes read
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: bytes_out
-                    
-                    	# of bytes out
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: closes
-                    
-                    	socket closes
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: opens
-                    
-                    	socket opens
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: errors
-                    
-                    	error count
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: aborts
-                    
-                    	abort count
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: paks_in
-                    
-                    	# of incoming packets read
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: paks_out
-                    
-                    	# of outgoing packets sent
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: replies_expected
-                    
-                    	# of replies expected to arrive
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: up
-                    
-                    	is the server UP or down ?
-                    	**type**\: bool
-                    
-                    .. attribute:: conn_up
-                    
-                    	is the server connected ?
-                    	**type**\: bool
-                    
-                    .. attribute:: single_connect
-                    
-                    	is this a single connect server ?
-                    	**type**\: bool
-                    
-                    .. attribute:: is_private
-                    
-                    	is this a private server ?
-                    	**type**\: bool
-                    
-                    .. attribute:: vrf_name
-                    
-                    	VRF in which server is reachable
-                    	**type**\: str
-                    
-                    	**length:** 0..33
-                    
-                    .. attribute:: addr_buf
-                    
-                    	IP address buffer
-                    	**type**\: str
-                    
-                    	**length:** 0..46
-                    
-                    .. attribute:: family
-                    
-                    	IP address Family
-                    	**type**\: str
-                    
-                    	**length:** 0..5
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-tacacs-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Aaa.Tacacs.ServerGroups.ServerGroup.Server, self).__init__()
-
-                        self.yang_name = "server"
-                        self.yang_parent_name = "server-group"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('addr', (YLeaf(YType.str, 'addr'), ['str'])),
-                            ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
-                            ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
-                            ('bytes_in', (YLeaf(YType.uint32, 'bytes-in'), ['int'])),
-                            ('bytes_out', (YLeaf(YType.uint32, 'bytes-out'), ['int'])),
-                            ('closes', (YLeaf(YType.uint32, 'closes'), ['int'])),
-                            ('opens', (YLeaf(YType.uint32, 'opens'), ['int'])),
-                            ('errors', (YLeaf(YType.uint32, 'errors'), ['int'])),
-                            ('aborts', (YLeaf(YType.uint32, 'aborts'), ['int'])),
-                            ('paks_in', (YLeaf(YType.uint32, 'paks-in'), ['int'])),
-                            ('paks_out', (YLeaf(YType.uint32, 'paks-out'), ['int'])),
-                            ('replies_expected', (YLeaf(YType.uint32, 'replies-expected'), ['int'])),
-                            ('up', (YLeaf(YType.boolean, 'up'), ['bool'])),
-                            ('conn_up', (YLeaf(YType.boolean, 'conn-up'), ['bool'])),
-                            ('single_connect', (YLeaf(YType.boolean, 'single-connect'), ['bool'])),
-                            ('is_private', (YLeaf(YType.boolean, 'is-private'), ['bool'])),
-                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
-                            ('addr_buf', (YLeaf(YType.str, 'addr-buf'), ['str'])),
-                            ('family', (YLeaf(YType.str, 'family'), ['str'])),
-                        ])
-                        self.addr = None
-                        self.timeout = None
-                        self.port = None
-                        self.bytes_in = None
-                        self.bytes_out = None
-                        self.closes = None
-                        self.opens = None
-                        self.errors = None
-                        self.aborts = None
-                        self.paks_in = None
-                        self.paks_out = None
-                        self.replies_expected = None
-                        self.up = None
-                        self.conn_up = None
-                        self.single_connect = None
-                        self.is_private = None
-                        self.vrf_name = None
-                        self.addr_buf = None
-                        self.family = None
-                        self._segment_path = lambda: "server"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/server-group/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Aaa.Tacacs.ServerGroups.ServerGroup.Server, ['addr', 'timeout', 'port', 'bytes_in', 'bytes_out', 'closes', 'opens', 'errors', 'aborts', 'paks_in', 'paks_out', 'replies_expected', 'up', 'conn_up', 'single_connect', 'is_private', 'vrf_name', 'addr_buf', 'family'], name, value)
 
 
     class Diameter(Entity):
@@ -3605,50 +4192,70 @@ class Aaa(Entity):
         	Diameter global gy data
         	**type**\:  :py:class:`Gy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Gy>`
         
+        	**config**\: False
+        
         .. attribute:: gx_statistics
         
         	Diameter Gx Statistics data
         	**type**\:  :py:class:`GxStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GxStatistics>`
+        
+        	**config**\: False
         
         .. attribute:: gx
         
         	Diameter global gx data
         	**type**\:  :py:class:`Gx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Gx>`
         
+        	**config**\: False
+        
         .. attribute:: peers
         
         	Diameter peer global data
         	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Peers>`
+        
+        	**config**\: False
         
         .. attribute:: nas
         
         	Diameter NAS data
         	**type**\:  :py:class:`Nas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Nas>`
         
+        	**config**\: False
+        
         .. attribute:: nas_summary
         
         	Diameter NAS summary
         	**type**\:  :py:class:`NasSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.NasSummary>`
+        
+        	**config**\: False
         
         .. attribute:: gy_session_ids
         
         	Diameter Gy Session data list
         	**type**\:  :py:class:`GySessionIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GySessionIds>`
         
+        	**config**\: False
+        
         .. attribute:: gy_statistics
         
         	Diameter Gy Statistics data
         	**type**\:  :py:class:`GyStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GyStatistics>`
+        
+        	**config**\: False
         
         .. attribute:: gx_session_ids
         
         	Diameter Gx Session data list
         	**type**\:  :py:class:`GxSessionIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GxSessionIds>`
         
+        	**config**\: False
+        
         .. attribute:: nas_session
         
         	Diameter Nas Session data
         	**type**\:  :py:class:`NasSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.NasSession>`
+        
+        	**config**\: False
         
         
 
@@ -3724,12 +4331,16 @@ class Aaa(Entity):
             	Gy state
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: tx_timer
             
             	Gy transaction timer in seconds
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -3739,6 +4350,8 @@ class Aaa(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3772,6 +4385,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Diameter.Gy, ['is_enabled', 'tx_timer', 'retransmits'], name, value)
 
 
+
         class GxStatistics(Entity):
             """
             Diameter Gx Statistics data
@@ -3783,12 +4397,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccr_init_failed_messages
             
             	CCR Initial Messages Failed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccr_init_timed_out_messages
             
@@ -3797,12 +4415,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccr_init_retry_messages
             
             	CCR Initial Messages retry
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccr_update_messages
             
@@ -3811,12 +4433,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccr_update_failed_messages
             
             	CCR Update Messages Failed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccr_update_timed_out_messages
             
@@ -3825,12 +4451,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccr_update_retry_messages
             
             	CCR Update Messages retry
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccr_final_messages
             
@@ -3839,12 +4469,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccr_final_failed_messages
             
             	CCR Final Messages Failed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccr_final_timed_out_messages
             
@@ -3853,12 +4487,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccr_final_retry_messages
             
             	CCR Final Messages retry
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cca_init_messages
             
@@ -3867,12 +4505,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cca_init_error_messages
             
             	CCA Initial Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cca_update_messages
             
@@ -3881,12 +4523,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cca_update_error_messages
             
             	CCA Update Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cca_final_messages
             
@@ -3895,12 +4541,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cca_final_error_messages
             
             	CCA Final Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rar_received_messages
             
@@ -3909,12 +4559,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rar_received_error_messages
             
             	RAR Received Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: raa_sent_messages
             
@@ -3923,12 +4577,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: raa_sent_error_messages
             
             	RAA Sent Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: asr_received_messages
             
@@ -3937,12 +4595,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: asr_received_error_messages
             
             	ASR Received Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: asa_sent_messsages
             
@@ -3951,12 +4613,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: asa_sent_error_messages
             
             	ASA Sent Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: session_termination_messages
             
@@ -3965,12 +4631,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: unknown_request_messages
             
             	Unknown Request Messages
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: restore_sessions
             
@@ -3979,12 +4649,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: open_sessions
             
             	Total Opened Sessions
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: close_sessions
             
@@ -3993,12 +4667,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: active_sessions
             
             	Total Active Sessions
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -4090,6 +4768,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Diameter.GxStatistics, ['ccr_init_messages', 'ccr_init_failed_messages', 'ccr_init_timed_out_messages', 'ccr_init_retry_messages', 'ccr_update_messages', 'ccr_update_failed_messages', 'ccr_update_timed_out_messages', 'ccr_update_retry_messages', 'ccr_final_messages', 'ccr_final_failed_messages', 'ccr_final_timed_out_messages', 'ccr_final_retry_messages', 'cca_init_messages', 'cca_init_error_messages', 'cca_update_messages', 'cca_update_error_messages', 'cca_final_messages', 'cca_final_error_messages', 'rar_received_messages', 'rar_received_error_messages', 'raa_sent_messages', 'raa_sent_error_messages', 'asr_received_messages', 'asr_received_error_messages', 'asa_sent_messsages', 'asa_sent_error_messages', 'session_termination_messages', 'unknown_request_messages', 'restore_sessions', 'open_sessions', 'close_sessions', 'active_sessions'], name, value)
 
 
+
         class Gx(Entity):
             """
             Diameter global gx data
@@ -4099,12 +4778,16 @@ class Aaa(Entity):
             	Gx state
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: tx_timer
             
             	Gx transaction timer in seconds
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -4114,6 +4797,8 @@ class Aaa(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -4147,6 +4832,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Diameter.Gx, ['is_enabled', 'tx_timer', 'retransmits'], name, value)
 
 
+
         class Peers(Entity):
             """
             Diameter peer global data
@@ -4156,20 +4842,28 @@ class Aaa(Entity):
             	Origin Host
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: origin_realm
             
             	Origin Realm
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: source_interface
             
             	Source Interface
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: tls_trustpoint
             
             	TLS Trustpoint
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: conn_retry_timer
             
@@ -4177,6 +4871,8 @@ class Aaa(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -4187,6 +4883,8 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: second
             
             .. attribute:: transaction_timer
@@ -4195,6 +4893,8 @@ class Aaa(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -4205,6 +4905,8 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: trans_max
             
             	Maximum number of transactions
@@ -4212,10 +4914,14 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: peer
             
             	Peer List
             	**type**\: list of  		 :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Peers.Peer>`
+            
+            	**config**\: False
             
             
 
@@ -4272,6 +4978,8 @@ class Aaa(Entity):
                 	Peer Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: peer_index
                 
                 	Peer Index
@@ -4279,10 +4987,14 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: address
                 
                 	IPv4 or IPv6 address of DIAMETER peer
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: port
                 
@@ -4291,6 +5003,8 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: port_connect
                 
                 	Local Connection port
@@ -4298,15 +5012,21 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: protocol_type
                 
                 	Protocol Type
                 	**type**\:  :py:class:`ProtocolTypeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.ProtocolTypeValue>`
                 
+                	**config**\: False
+                
                 .. attribute:: security_type
                 
                 	Security type used to transport
                 	**type**\:  :py:class:`SecurityTypeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.SecurityTypeValue>`
+                
+                	**config**\: False
                 
                 .. attribute:: conn_retry_timer
                 
@@ -4314,6 +5034,8 @@ class Aaa(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -4324,6 +5046,8 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: transaction_timer
@@ -4333,6 +5057,8 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: vrf_name
@@ -4340,25 +5066,35 @@ class Aaa(Entity):
                 	Vrf Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: source_interface
                 
                 	Source Interface
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: destination_host
                 
                 	Destination host name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: destination_realm
                 
                 	Destination realm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: peer_type
                 
                 	Peer Type
                 	**type**\:  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.Peer>`
+                
+                	**config**\: False
                 
                 .. attribute:: firmware_revision
                 
@@ -4367,12 +5103,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: state_duration
                 
                 	State Duration in seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -4381,10 +5121,14 @@ class Aaa(Entity):
                 	Last Disconnect Reason
                 	**type**\:  :py:class:`DisconnectCause <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.DisconnectCause>`
                 
+                	**config**\: False
+                
                 .. attribute:: who_init_disconnect
                 
                 	Who Initiated Disconnect
                 	**type**\:  :py:class:`WhoInitiatedDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.WhoInitiatedDisconnect>`
+                
+                	**config**\: False
                 
                 .. attribute:: in_as_rs
                 
@@ -4393,12 +5137,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_as_rs
                 
                 	Outgoing ASRs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_as_as
                 
@@ -4407,12 +5155,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_as_as
                 
                 	Outgoing ASAs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_ac_rs
                 
@@ -4421,12 +5173,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_ac_rs
                 
                 	Outgoing ACRs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_ac_as
                 
@@ -4435,12 +5191,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_ac_as
                 
                 	Outgoing ACAs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_ce_rs
                 
@@ -4449,12 +5209,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_ce_rs
                 
                 	Outgoing CERs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_ce_as
                 
@@ -4463,12 +5227,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_ce_as
                 
                 	Outgoing CEAs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_dw_rs
                 
@@ -4477,12 +5245,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_dw_rs
                 
                 	Outgoing DWRs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_dw_as
                 
@@ -4491,12 +5263,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_dw_as
                 
                 	Outgoing DWAs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_dp_rs
                 
@@ -4505,12 +5281,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_dp_rs
                 
                 	Outgoing DPRs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_dp_as
                 
@@ -4519,12 +5299,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_dp_as
                 
                 	Outgoing DPAs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_ra_rs
                 
@@ -4533,12 +5317,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_ra_rs
                 
                 	Outgoing RARs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_ra_as
                 
@@ -4547,12 +5335,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_ra_as
                 
                 	Outgoing RAAs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_st_rs
                 
@@ -4561,12 +5353,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_st_rs
                 
                 	Outgoing STRs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_st_as
                 
@@ -4575,12 +5371,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_st_as
                 
                 	Outgoing STAs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_cc_rs
                 
@@ -4589,12 +5389,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_cc_rs
                 
                 	Outgoing CCRs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: in_cc_as
                 
@@ -4603,12 +5407,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_cc_as
                 
                 	Outgoing CCAs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: out_aa_rs
                 
@@ -4617,12 +5425,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: in_aa_as
                 
                 	Incoming AAAs
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: malformed_requests
                 
@@ -4631,12 +5443,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: received_proto_errors
                 
                 	Protocol Error Received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: sent_proto_errors
                 
@@ -4645,12 +5461,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: received_transient_fails
                 
                 	Transient failures Received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: sent_transient_fails
                 
@@ -4659,12 +5479,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: received_permanent_fails
                 
                 	Permanent Failures Received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: sent_permanent_fails
                 
@@ -4673,6 +5497,8 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: transport_down
                 
                 	Transport Down
@@ -4680,10 +5506,14 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Peer Connection Status
                 	**type**\:  :py:class:`PeerStateValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_diameter_oper.PeerStateValue>`
+                
+                	**config**\: False
                 
                 
 
@@ -4835,6 +5665,8 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Diameter.Peers.Peer, ['peer_name', 'peer_index', 'address', 'port', 'port_connect', 'protocol_type', 'security_type', 'conn_retry_timer', 'watchdog_timer', 'transaction_timer', 'vrf_name', 'source_interface', 'destination_host', 'destination_realm', 'peer_type', 'firmware_revision', 'state_duration', 'last_disconnect_cause', 'who_init_disconnect', 'in_as_rs', 'out_as_rs', 'in_as_as', 'out_as_as', 'in_ac_rs', 'out_ac_rs', 'in_ac_as', 'out_ac_as', 'in_ce_rs', 'out_ce_rs', 'in_ce_as', 'out_ce_as', 'in_dw_rs', 'out_dw_rs', 'in_dw_as', 'out_dw_as', 'in_dp_rs', 'out_dp_rs', 'in_dp_as', 'out_dp_as', 'in_ra_rs', 'out_ra_rs', 'in_ra_as', 'out_ra_as', 'in_st_rs', 'out_st_rs', 'in_st_as', 'out_st_as', 'in_cc_rs', 'out_cc_rs', 'in_cc_as', 'out_cc_as', 'out_aa_rs', 'in_aa_as', 'malformed_requests', 'received_proto_errors', 'sent_proto_errors', 'received_transient_fails', 'sent_transient_fails', 'received_permanent_fails', 'sent_permanent_fails', 'transport_down', 'state'], name, value)
 
 
+
+
         class Nas(Entity):
             """
             Diameter NAS data
@@ -4844,10 +5676,14 @@ class Aaa(Entity):
             	AAA NAS id
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: list_of_nas
             
             	List of NAS Entries
             	**type**\: list of  		 :py:class:`ListOfNas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.Nas.ListOfNas>`
+            
+            	**config**\: False
             
             
 
@@ -4888,10 +5724,14 @@ class Aaa(Entity):
                 	AAA session id
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: diameter_session_id
                 
                 	Diameter session id
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: authentication_status
                 
@@ -4900,12 +5740,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: authorization_status
                 
                 	Diameter AAR status
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: accounting_status
                 
@@ -4914,12 +5758,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: accounting_status_stop
                 
                 	Diameter ACR status stop
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: disconnect_status
                 
@@ -4928,12 +5776,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: accounting_intrim_in_packets
                 
                 	Accounting intrim packet response in
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: accounting_intrim_out_packets
                 
@@ -4942,15 +5794,21 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: method_list
                 
                 	Method list used for authentication
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: server_used_list
                 
                 	Server used for authentication
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -5000,6 +5858,8 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Diameter.Nas.ListOfNas, ['aaa_session_id', 'diameter_session_id', 'authentication_status', 'authorization_status', 'accounting_status', 'accounting_status_stop', 'disconnect_status', 'accounting_intrim_in_packets', 'accounting_intrim_out_packets', 'method_list', 'server_used_list'], name, value)
 
 
+
+
         class NasSummary(Entity):
             """
             Diameter NAS summary
@@ -5011,12 +5871,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: authen_request_out_packets
             
             	Authentication request pkt out
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: authen_request_in_packets
             
@@ -5025,12 +5889,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: authen_response_out_packets
             
             	Authentication response frwd to client
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: authen_success_packets
             
@@ -5039,12 +5907,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: authen_response_fail_packets
             
             	Authentication response with failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: authorization_in_packets
             
@@ -5053,12 +5925,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: authorization_out_packets
             
             	Authorization request packet out
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: authorization_request_in_packets
             
@@ -5067,12 +5943,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: authorization_response_out_packets
             
             	Authourization response frwd to client
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: authorization_response_success_packets
             
@@ -5081,12 +5961,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: authorization_response_fail_packets
             
             	Authentication response with failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: accounting_response_in_packets
             
@@ -5095,12 +5979,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: accounting_request_out_packets
             
             	Accounting requests packets out
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: accounting_start_request_packets
             
@@ -5109,12 +5997,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: accounting_start_response_packets
             
             	Accounting start response forward to client
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: accounting_start_success_packets
             
@@ -5123,12 +6015,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: accounting_start_failed_packets
             
             	Accounting start response with failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: accounting_stop_response_in_packets
             
@@ -5137,12 +6033,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: accounting_stop_request_out_packets
             
             	Accounting stop requests packets out
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: accounting_stop_request_in_packets
             
@@ -5151,12 +6051,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: accounting_stop_response_out_packets
             
             	Acct stop response forward to client
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: accounting_stop_success_response_packets
             
@@ -5165,12 +6069,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: accounting_stop_failed_packets
             
             	Accounting stop response with failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: accounting_intrim_response_in_packets
             
@@ -5179,12 +6087,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: accounting_interim_request_out_packets
             
             	Accounting interim requests packets out
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: accounting_interim_request_in_packets
             
@@ -5193,12 +6105,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: accounting_interim_response_out_packets
             
             	Accounting interim response frwd to client
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: accounting_interim_success_packets
             
@@ -5207,12 +6123,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: accounting_interim_failed_packets
             
             	Accounting interim response with failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: disconnect_response_in_packets
             
@@ -5221,12 +6141,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: disconnect_request_out_packets
             
             	Disconnect request pkt out
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: disconnect_request_in_packets
             
@@ -5235,12 +6159,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: disconnect_response_out_packets
             
             	Disconnect response forward to client
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: disconnect_success_response_packets
             
@@ -5249,12 +6177,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: disconnect_failed_response_packets
             
             	Disconnect response with failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: coa_request_in_packets
             
@@ -5263,12 +6195,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: coa_response_out_packets
             
             	COA/RAR Response packet out
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: coa_request_packets
             
@@ -5277,12 +6213,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: coa_response_packets
             
             	COA response forward to client
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: coa_success_packets
             
@@ -5291,12 +6231,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: coa_failed_packets
             
             	COA response with failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: pod_in_packets
             
@@ -5305,12 +6249,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pod_out_packets
             
             	PAD/RAR Response packets out
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: pod_request_in_packets
             
@@ -5319,12 +6267,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pod_response_out_packets
             
             	POD response forward to client
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: pod_success_packets
             
@@ -5333,12 +6285,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pod_failed_packets
             
             	POD response with failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -5462,6 +6418,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Diameter.NasSummary, ['authen_response_in_packets', 'authen_request_out_packets', 'authen_request_in_packets', 'authen_response_out_packets', 'authen_success_packets', 'authen_response_fail_packets', 'authorization_in_packets', 'authorization_out_packets', 'authorization_request_in_packets', 'authorization_response_out_packets', 'authorization_response_success_packets', 'authorization_response_fail_packets', 'accounting_response_in_packets', 'accounting_request_out_packets', 'accounting_start_request_packets', 'accounting_start_response_packets', 'accounting_start_success_packets', 'accounting_start_failed_packets', 'accounting_stop_response_in_packets', 'accounting_stop_request_out_packets', 'accounting_stop_request_in_packets', 'accounting_stop_response_out_packets', 'accounting_stop_success_response_packets', 'accounting_stop_failed_packets', 'accounting_intrim_response_in_packets', 'accounting_interim_request_out_packets', 'accounting_interim_request_in_packets', 'accounting_interim_response_out_packets', 'accounting_interim_success_packets', 'accounting_interim_failed_packets', 'disconnect_response_in_packets', 'disconnect_request_out_packets', 'disconnect_request_in_packets', 'disconnect_response_out_packets', 'disconnect_success_response_packets', 'disconnect_failed_response_packets', 'coa_request_in_packets', 'coa_response_out_packets', 'coa_request_packets', 'coa_response_packets', 'coa_success_packets', 'coa_failed_packets', 'pod_in_packets', 'pod_out_packets', 'pod_request_in_packets', 'pod_response_out_packets', 'pod_success_packets', 'pod_failed_packets'], name, value)
 
 
+
         class GySessionIds(Entity):
             """
             Diameter Gy Session data list
@@ -5470,6 +6427,8 @@ class Aaa(Entity):
             
             	Diameter Gy Session data
             	**type**\: list of  		 :py:class:`GySessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GySessionIds.GySessionId>`
+            
+            	**config**\: False
             
             
 
@@ -5509,12 +6468,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: aaa_session_id
                 
                 	AAA session id
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: parent_aaa_session_id
                 
@@ -5523,10 +6486,14 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: diameter_session_id
                 
                 	Diameter session id
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: request_number
                 
@@ -5535,15 +6502,21 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: session_state
                 
                 	Session State
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: request_type
                 
                 	Request Type
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: retry_count
                 
@@ -5551,6 +6524,8 @@ class Aaa(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -5594,6 +6569,8 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Diameter.GySessionIds.GySessionId, ['session_id', 'aaa_session_id', 'parent_aaa_session_id', 'diameter_session_id', 'request_number', 'session_state', 'request_type', 'retry_count'], name, value)
 
 
+
+
         class GyStatistics(Entity):
             """
             Diameter Gy Statistics data
@@ -5605,12 +6582,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccr_init_failed_messages
             
             	CCR Initial Messages Failed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccr_init_timed_out_messages
             
@@ -5619,12 +6600,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccr_init_retry_messages
             
             	CCR Initial Messages retry
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccr_update_messages
             
@@ -5633,12 +6618,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccr_update_failed_messages
             
             	CCR Update Messages Failed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccr_update_timed_out_messages
             
@@ -5647,12 +6636,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccr_update_retry_messages
             
             	CCR Update Messages retry
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccr_final_messages
             
@@ -5661,12 +6654,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccr_final_failed_messages
             
             	CCR Final Messages Failed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ccr_final_timed_out_messages
             
@@ -5675,12 +6672,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ccr_final_retry_messages
             
             	CCR Final Messages retry
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cca_init_messages
             
@@ -5689,12 +6690,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cca_init_error_messages
             
             	CCA Initial Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cca_update_messages
             
@@ -5703,12 +6708,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cca_update_error_messages
             
             	CCA Update Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cca_final_messages
             
@@ -5717,12 +6726,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cca_final_error_messages
             
             	CCA Final Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rar_received_messages
             
@@ -5731,12 +6744,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rar_received_error_messages
             
             	RAR Received Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: raa_sent_messages
             
@@ -5745,12 +6762,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: raa_sent_error_messages
             
             	RAA Sent Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: asr_received_messages
             
@@ -5759,12 +6780,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: asr_received_error_messages
             
             	ASR Received Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: asa_sent_messages
             
@@ -5773,12 +6798,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: asa_sent_error_messages
             
             	ASA Sent Messages Error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: unknown_request_messages
             
@@ -5787,12 +6816,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: restore_sessions
             
             	Restore Sessions
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: open_sessions
             
@@ -5801,6 +6834,8 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: close_sessions
             
             	Total Closed Sessions
@@ -5808,12 +6843,16 @@ class Aaa(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: active_sessions
             
             	Total Active Sessions
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -5903,6 +6942,7 @@ class Aaa(Entity):
                 self._perform_setattr(Aaa.Diameter.GyStatistics, ['ccr_init_messages', 'ccr_init_failed_messages', 'ccr_init_timed_out_messages', 'ccr_init_retry_messages', 'ccr_update_messages', 'ccr_update_failed_messages', 'ccr_update_timed_out_messages', 'ccr_update_retry_messages', 'ccr_final_messages', 'ccr_final_failed_messages', 'ccr_final_timed_out_messages', 'ccr_final_retry_messages', 'cca_init_messages', 'cca_init_error_messages', 'cca_update_messages', 'cca_update_error_messages', 'cca_final_messages', 'cca_final_error_messages', 'rar_received_messages', 'rar_received_error_messages', 'raa_sent_messages', 'raa_sent_error_messages', 'asr_received_messages', 'asr_received_error_messages', 'asa_sent_messages', 'asa_sent_error_messages', 'unknown_request_messages', 'restore_sessions', 'open_sessions', 'close_sessions', 'active_sessions'], name, value)
 
 
+
         class GxSessionIds(Entity):
             """
             Diameter Gx Session data list
@@ -5911,6 +6951,8 @@ class Aaa(Entity):
             
             	Diameter Gx Session data
             	**type**\: list of  		 :py:class:`GxSessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.GxSessionIds.GxSessionId>`
+            
+            	**config**\: False
             
             
 
@@ -5950,6 +6992,8 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: aaa_session_id
                 
                 	AAA session id
@@ -5957,10 +7001,14 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: diameter_session_id
                 
                 	Diameter session id
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: request_number
                 
@@ -5969,15 +7017,21 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: session_state
                 
                 	Session State
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: request_type
                 
                 	Request Type
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: retry_count
                 
@@ -5986,6 +7040,8 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: service_count
                 
                 	 Gx Plus Service Count
@@ -5993,15 +7049,21 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: gx_plus_services
                 
                 	Gx Plus Services
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: reavalidation_time
                 
                 	Revalidation Time
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -6049,6 +7111,8 @@ class Aaa(Entity):
                     self._perform_setattr(Aaa.Diameter.GxSessionIds.GxSessionId, ['session_id', 'aaa_session_id', 'diameter_session_id', 'request_number', 'session_state', 'request_type', 'retry_count', 'service_count', 'gx_plus_services', 'reavalidation_time'], name, value)
 
 
+
+
         class NasSession(Entity):
             """
             Diameter Nas Session data
@@ -6058,10 +7122,14 @@ class Aaa(Entity):
             	AAA NAS id
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: list_of_nas
             
             	List of NAS Entries
             	**type**\: list of  		 :py:class:`ListOfNas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Diameter.NasSession.ListOfNas>`
+            
+            	**config**\: False
             
             
 
@@ -6102,10 +7170,14 @@ class Aaa(Entity):
                 	AAA session id
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: diameter_session_id
                 
                 	Diameter session id
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: authentication_status
                 
@@ -6114,12 +7186,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: authorization_status
                 
                 	Diameter AAR status
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: accounting_status
                 
@@ -6128,12 +7204,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: accounting_status_stop
                 
                 	Diameter ACR status stop
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: disconnect_status
                 
@@ -6142,12 +7222,16 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: accounting_intrim_in_packets
                 
                 	Accounting intrim packet response in
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: accounting_intrim_out_packets
                 
@@ -6156,15 +7240,21 @@ class Aaa(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: method_list
                 
                 	Method list used for authentication
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: server_used_list
                 
                 	Server used for authentication
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -6213,7 +7303,12 @@ class Aaa(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Diameter.NasSession.ListOfNas, ['aaa_session_id', 'diameter_session_id', 'authentication_status', 'authorization_status', 'accounting_status', 'accounting_status_stop', 'disconnect_status', 'accounting_intrim_in_packets', 'accounting_intrim_out_packets', 'method_list', 'server_used_list'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Aaa()
         return self._top_entity
+
+
 

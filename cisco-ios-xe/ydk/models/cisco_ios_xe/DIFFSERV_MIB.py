@@ -56,6 +56,7 @@ class DiffServTBParamTrTCMBlind(ObjectIdentity):
         super(DiffServTBParamTrTCMBlind, self).__init__(ns, pref, tag)
 
 
+
 class DiffServSchedulerWFQ(ObjectIdentity):
     """
     For use with diffServSchedulerMethod to indicate the Weighted
@@ -76,6 +77,7 @@ class DiffServSchedulerWFQ(ObjectIdentity):
         super(DiffServSchedulerWFQ, self).__init__(ns, pref, tag)
 
 
+
 class DiffServTBParamTswTCM(ObjectIdentity):
     """
     Time Sliding Window Three Color Marker Metering as defined by
@@ -92,6 +94,7 @@ class DiffServTBParamTswTCM(ObjectIdentity):
         super(DiffServTBParamTswTCM, self).__init__(ns, pref, tag)
 
 
+
 class DiffServTBParamAvgRate(ObjectIdentity):
     """
     Average Rate Meter as described in the Informal Differentiated
@@ -106,6 +109,7 @@ class DiffServTBParamAvgRate(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamAvgRate"):
         super(DiffServTBParamAvgRate, self).__init__(ns, pref, tag)
+
 
 
 class DiffServSchedulerWRR(ObjectIdentity):
@@ -129,6 +133,7 @@ class DiffServSchedulerWRR(ObjectIdentity):
         super(DiffServSchedulerWRR, self).__init__(ns, pref, tag)
 
 
+
 class DiffServTBParamSrTCMAware(ObjectIdentity):
     """
     Single Rate Three Color Marker Metering as defined by RFC 2697,
@@ -143,6 +148,7 @@ class DiffServTBParamSrTCMAware(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamSrTCMAware"):
         super(DiffServTBParamSrTCMAware, self).__init__(ns, pref, tag)
+
 
 
 class DiffServTBParamSrTCMBlind(ObjectIdentity):
@@ -161,6 +167,7 @@ class DiffServTBParamSrTCMBlind(ObjectIdentity):
         super(DiffServTBParamSrTCMBlind, self).__init__(ns, pref, tag)
 
 
+
 class DiffServTBParamSimpleTokenBucket(ObjectIdentity):
     """
     Two Parameter Token Bucket Meter as described in the Informal
@@ -175,6 +182,7 @@ class DiffServTBParamSimpleTokenBucket(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamSimpleTokenBucket"):
         super(DiffServTBParamSimpleTokenBucket, self).__init__(ns, pref, tag)
+
 
 
 class DiffServSchedulerPriority(ObjectIdentity):
@@ -198,6 +206,7 @@ class DiffServSchedulerPriority(ObjectIdentity):
         super(DiffServSchedulerPriority, self).__init__(ns, pref, tag)
 
 
+
 class DiffServTBParamTrTCMAware(ObjectIdentity):
     """
     Two Rate Three Color Marker Metering as defined by RFC 2698, in
@@ -214,6 +223,7 @@ class DiffServTBParamTrTCMAware(ObjectIdentity):
         super(DiffServTBParamTrTCMAware, self).__init__(ns, pref, tag)
 
 
+
 class DIFFSERVMIB(Entity):
     """
     
@@ -223,110 +233,154 @@ class DIFFSERVMIB(Entity):
     	
     	**type**\:  :py:class:`DiffServClassifier <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServClassifier>`
     
+    	**config**\: False
+    
     .. attribute:: diffservmeter
     
     	
     	**type**\:  :py:class:`DiffServMeter <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServMeter>`
+    
+    	**config**\: False
     
     .. attribute:: diffservtbparam
     
     	
     	**type**\:  :py:class:`DiffServTBParam <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServTBParam>`
     
+    	**config**\: False
+    
     .. attribute:: diffservaction
     
     	
     	**type**\:  :py:class:`DiffServAction <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServAction>`
+    
+    	**config**\: False
     
     .. attribute:: diffservalgdrop
     
     	
     	**type**\:  :py:class:`DiffServAlgDrop <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServAlgDrop>`
     
+    	**config**\: False
+    
     .. attribute:: diffservqueue
     
     	
     	**type**\:  :py:class:`DiffServQueue <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServQueue>`
+    
+    	**config**\: False
     
     .. attribute:: diffservscheduler
     
     	
     	**type**\:  :py:class:`DiffServScheduler <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServScheduler>`
     
+    	**config**\: False
+    
     .. attribute:: diffservdatapathtable
     
     	The data path table contains RowPointers indicating the start of the functional data path for each interface and traffic direction in this device. These may merge, or be separated into parallel data paths
     	**type**\:  :py:class:`DiffServDataPathTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServDataPathTable>`
+    
+    	**config**\: False
     
     .. attribute:: diffservclfrtable
     
     	This table enumerates all the diffserv classifier functional data path elements of this device.  The actual classification definitions are defined in diffServClfrElementTable entries belonging to each classifier.  An entry in this table, pointed to by a RowPointer specifying an instance of diffServClfrStatus, is frequently used as the name for a set of classifier elements, which all use the index diffServClfrId. Per the semantics of the classifier element table, these entries constitute one or more unordered sets of tests which may be simultaneously applied to a message to    classify it.  The primary function of this table is to ensure that the value of diffServClfrId is unique before attempting to use it in creating a diffServClfrElementEntry. Therefore, the diffServClfrEntry must be created on the same SET as the diffServClfrElementEntry, or before the diffServClfrElementEntry is created
     	**type**\:  :py:class:`DiffServClfrTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServClfrTable>`
     
+    	**config**\: False
+    
     .. attribute:: diffservclfrelementtable
     
     	The classifier element table enumerates the relationship between classification patterns and subsequent downstream Differentiated Services Functional Data Path elements. diffServClfrElementSpecific points to a filter that specifies the classification parameters. A classifier may use filter tables of different types together.  One example of a filter table defined in this MIB is diffServMultiFieldClfrTable, for IP Multi\-Field Classifiers (MFCs). Such an entry might identify anything from a single micro\-flow (an identifiable sub\-session packet stream directed from one sending transport to the receiving transport or transports), or aggregates of those such as the traffic from a host, traffic for an application, or traffic between two hosts using an application and a given DSCP. The standard Behavior Aggregate used in the Differentiated Services Architecture is encoded as a degenerate case of such an aggregate \- the traffic using a particular DSCP value.  Filter tables for other filter types may be defined elsewhere
     	**type**\:  :py:class:`DiffServClfrElementTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServClfrElementTable>`
+    
+    	**config**\: False
     
     .. attribute:: diffservmultifieldclfrtable
     
     	A table of IP Multi\-field Classifier filter entries that a    system may use to identify IP traffic
     	**type**\:  :py:class:`DiffServMultiFieldClfrTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServMultiFieldClfrTable>`
     
+    	**config**\: False
+    
     .. attribute:: diffservmetertable
     
     	This table enumerates specific meters that a system may use to police a stream of traffic. The traffic stream to be metered is determined by the Differentiated Services Functional Data Path Element(s) upstream of the meter i.e. by the object(s) that point to each entry in this table.  This may include all traffic on an interface.  Specific meter details are to be found in table entry referenced by diffServMeterSpecific
     	**type**\:  :py:class:`DiffServMeterTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServMeterTable>`
+    
+    	**config**\: False
     
     .. attribute:: diffservtbparamtable
     
     	This table enumerates a single set of token bucket meter parameters that a system may use to police a stream of traffic. Such meters are modeled here as having a single rate and a single burst size. Multiple entries are used when multiple rates/burst sizes are needed
     	**type**\:  :py:class:`DiffServTBParamTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServTBParamTable>`
     
+    	**config**\: False
+    
     .. attribute:: diffservactiontable
     
     	The Action Table enumerates actions that can be performed to a stream of traffic. Multiple actions can be concatenated. For example, traffic exiting from a meter may be counted, marked, and potentially dropped before entering a queue.  Specific actions are indicated by diffServActionSpecific which points to an entry of a specific action type parameterizing the action in detail
     	**type**\:  :py:class:`DiffServActionTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServActionTable>`
+    
+    	**config**\: False
     
     .. attribute:: diffservdscpmarkacttable
     
     	This table enumerates specific DSCPs used for marking or remarking the DSCP field of IP packets. The entries of this table may be referenced by a diffServActionSpecific attribute
     	**type**\:  :py:class:`DiffServDscpMarkActTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServDscpMarkActTable>`
     
+    	**config**\: False
+    
     .. attribute:: diffservcountacttable
     
     	This table contains counters for all the traffic passing through an action element
     	**type**\:  :py:class:`DiffServCountActTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServCountActTable>`
+    
+    	**config**\: False
     
     .. attribute:: diffservalgdroptable
     
     	The algorithmic drop table contains entries describing an element that drops packets according to some algorithm
     	**type**\:  :py:class:`DiffServAlgDropTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServAlgDropTable>`
     
+    	**config**\: False
+    
     .. attribute:: diffservrandomdroptable
     
     	The random drop table contains entries describing a process that drops packets randomly. Entries in this table are pointed to by diffServAlgDropSpecific
     	**type**\:  :py:class:`DiffServRandomDropTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServRandomDropTable>`
+    
+    	**config**\: False
     
     .. attribute:: diffservqtable
     
     	The Queue Table enumerates the individual queues.  Note that the MIB models queuing systems as composed of individual queues, one per class of traffic, even though they may in fact be structured as classes of traffic scheduled using a common calendar queue, or in other ways
     	**type**\:  :py:class:`DiffServQTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServQTable>`
     
+    	**config**\: False
+    
     .. attribute:: diffservschedulertable
     
     	The Scheduler Table enumerates packet schedulers. Multiple scheduling algorithms can be used on a given data path, with each algorithm described by one diffServSchedulerEntry
     	**type**\:  :py:class:`DiffServSchedulerTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServSchedulerTable>`
+    
+    	**config**\: False
     
     .. attribute:: diffservminratetable
     
     	The Minimum Rate Parameters Table enumerates individual sets of scheduling parameter that can be used/reused by Queues and Schedulers
     	**type**\:  :py:class:`DiffServMinRateTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServMinRateTable>`
     
+    	**config**\: False
+    
     .. attribute:: diffservmaxratetable
     
     	The Maximum Rate Parameter Table enumerates individual sets of scheduling parameter that can be used/reused by Queues and Schedulers
     	**type**\:  :py:class:`DiffServMaxRateTable <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServMaxRateTable>`
+    
+    	**config**\: False
     
     
 
@@ -452,6 +506,8 @@ class DIFFSERVMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: diffservclfrelementnextfree
         
         	This object contains an unused value for diffServClfrElementId, or a zero to indicate that none exist
@@ -459,12 +515,16 @@ class DIFFSERVMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: diffservmultifieldclfrnextfree
         
         	This object contains an unused value for diffServMultiFieldClfrId, or a zero to indicate that none exist
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -495,7 +555,8 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServClassifier, [u'diffservclfrnextfree', u'diffservclfrelementnextfree', u'diffservmultifieldclfrnextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServClassifier, ['diffservclfrnextfree', 'diffservclfrelementnextfree', 'diffservmultifieldclfrnextfree'], name, value)
+
 
 
     class DiffServMeter(Entity):
@@ -508,6 +569,8 @@ class DIFFSERVMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -534,7 +597,8 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServMeter, [u'diffservmeternextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServMeter, ['diffservmeternextfree'], name, value)
+
 
 
     class DiffServTBParam(Entity):
@@ -547,6 +611,8 @@ class DIFFSERVMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -573,7 +639,8 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServTBParam, [u'diffservtbparamnextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServTBParam, ['diffservtbparamnextfree'], name, value)
+
 
 
     class DiffServAction(Entity):
@@ -587,12 +654,16 @@ class DIFFSERVMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: diffservcountactnextfree
         
         	This object contains an unused value for diffServCountActId, or a zero to indicate that none exist
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -621,7 +692,8 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServAction, [u'diffservactionnextfree', u'diffservcountactnextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServAction, ['diffservactionnextfree', 'diffservcountactnextfree'], name, value)
+
 
 
     class DiffServAlgDrop(Entity):
@@ -635,12 +707,16 @@ class DIFFSERVMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: diffservrandomdropnextfree
         
         	This object contains an unused value for diffServRandomDropId, or a zero to indicate that none exist
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -669,7 +745,8 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServAlgDrop, [u'diffservalgdropnextfree', u'diffservrandomdropnextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServAlgDrop, ['diffservalgdropnextfree', 'diffservrandomdropnextfree'], name, value)
+
 
 
     class DiffServQueue(Entity):
@@ -682,6 +759,8 @@ class DIFFSERVMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -708,7 +787,8 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServQueue, [u'diffservqnextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServQueue, ['diffservqnextfree'], name, value)
+
 
 
     class DiffServScheduler(Entity):
@@ -722,6 +802,8 @@ class DIFFSERVMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: diffservminratenextfree
         
         	This object contains an unused value for diffServMinRateId, or a zero to indicate that none exist
@@ -729,12 +811,16 @@ class DIFFSERVMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: diffservmaxratenextfree
         
         	This object contains an unused value for diffServMaxRateId, or a zero to indicate that none exist
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -765,7 +851,8 @@ class DIFFSERVMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DIFFSERVMIB.DiffServScheduler, [u'diffservschedulernextfree', u'diffservminratenextfree', u'diffservmaxratenextfree'], name, value)
+            self._perform_setattr(DIFFSERVMIB.DiffServScheduler, ['diffservschedulernextfree', 'diffservminratenextfree', 'diffservmaxratenextfree'], name, value)
+
 
 
     class DiffServDataPathTable(Entity):
@@ -779,6 +866,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry in the data path table indicates the start of a single Differentiated Services Functional Data Path in this device.  These are associated with individual interfaces, logical or physical, and therefore are instantiated by ifIndex. Therefore, the interface index must have been assigned, according to the procedures applicable to that, before it can be meaningfully used. Generally, this means that the interface must exist.  When diffServDataPathStorage is of type nonVolatile, however, this may reflect the configuration for an interface whose ifIndex has been assigned but for which the supporting implementation is not currently present
         	**type**\: list of  		 :py:class:`DiffServDataPathEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServDataPathTable.DiffServDataPathEntry>`
+        
+        	**config**\: False
         
         
 
@@ -832,10 +921,14 @@ class DIFFSERVMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: diffservdatapathifdirection  (key)
             
             	IfDirection specifies whether the reception or transmission path for this interface is in view
             	**type**\:  :py:class:`IfDirection <ydk.models.cisco_ios_xe.DIFFSERV_MIB.IfDirection>`
+            
+            	**config**\: False
             
             .. attribute:: diffservdatapathstart
             
@@ -844,15 +937,21 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservdatapathstorage
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservdatapathstatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -887,7 +986,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServDataPathTable.DiffServDataPathEntry, [u'ifindex', u'diffservdatapathifdirection', u'diffservdatapathstart', u'diffservdatapathstorage', u'diffservdatapathstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServDataPathTable.DiffServDataPathEntry, ['ifindex', 'diffservdatapathifdirection', 'diffservdatapathstart', 'diffservdatapathstorage', 'diffservdatapathstatus'], name, value)
+
+
 
 
     class DiffServClfrTable(Entity):
@@ -918,6 +1019,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry in the classifier table describes a single classifier. All classifier elements belonging to the same classifier use the classifier's diffServClfrId as part of their index
         	**type**\: list of  		 :py:class:`DiffServClfrEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServClfrTable.DiffServClfrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -959,15 +1062,21 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservclfrstorage
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservclfrstatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -998,7 +1107,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServClfrTable.DiffServClfrEntry, [u'diffservclfrid', u'diffservclfrstorage', u'diffservclfrstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServClfrTable.DiffServClfrEntry, ['diffservclfrid', 'diffservclfrstorage', 'diffservclfrstatus'], name, value)
+
+
 
 
     class DiffServClfrElementTable(Entity):
@@ -1028,6 +1139,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry in the classifier element table describes a single element of the classifier
         	**type**\: list of  		 :py:class:`DiffServClfrElementEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServClfrElementTable.DiffServClfrElementEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1070,12 +1183,16 @@ class DIFFSERVMIB(Entity):
             
             	**refers to**\:  :py:class:`diffservclfrid <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServClfrTable.DiffServClfrEntry>`
             
+            	**config**\: False
+            
             .. attribute:: diffservclfrelementid  (key)
             
             	An index that enumerates the Classifier Element entries. Managers obtain new values for row creation in this table by reading diffServClfrElementNextFree
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: diffservclfrelementprecedence
             
@@ -1084,12 +1201,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservclfrelementnext
             
             	This attribute provides one branch of the fan\-out functionality of a classifier described in the Informal Differentiated Services Model section 4.1.  This selects the next Differentiated Services Functional Data Path Element to handle traffic for this data path. This RowPointer should point to an instance of one of\:   diffServClfrEntry   diffServMeterEntry   diffServActionEntry   diffServAlgDropEntry   diffServQEntry  A value of zeroDotZero in this attribute indicates no further Differentiated Services treatment is performed on traffic of this data path. The use of zeroDotZero is the normal usage for the last functional data path element of the current data path.  Setting this to point to a target that does not exist results in an inconsistentValue error.  If the row pointed to is removed or becomes inactive by other means, the treatment is as if this attribute contains a value of zeroDotZero
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: diffservclfrelementspecific
             
@@ -1098,15 +1219,21 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservclfrelementstorage
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservclfrelementstatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1145,7 +1272,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServClfrElementTable.DiffServClfrElementEntry, [u'diffservclfrid', u'diffservclfrelementid', u'diffservclfrelementprecedence', u'diffservclfrelementnext', u'diffservclfrelementspecific', u'diffservclfrelementstorage', u'diffservclfrelementstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServClfrElementTable.DiffServClfrElementEntry, ['diffservclfrid', 'diffservclfrelementid', 'diffservclfrelementprecedence', 'diffservclfrelementnext', 'diffservclfrelementspecific', 'diffservclfrelementstorage', 'diffservclfrelementstatus'], name, value)
+
+
 
 
     class DiffServMultiFieldClfrTable(Entity):
@@ -1160,6 +1289,8 @@ class DIFFSERVMIB(Entity):
         
         	An IP Multi\-field Classifier entry describes a single filter
         	**type**\: list of  		 :py:class:`DiffServMultiFieldClfrEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServMultiFieldClfrTable.DiffServMultiFieldClfrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1199,10 +1330,14 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservmultifieldclfraddrtype
             
             	The type of IP address used by this classifier entry.  While other types of addresses are defined in the InetAddressType    textual convention, and DNS names, a classifier can only look at packets on the wire. Therefore, this object is limited to IPv4 and IPv6 addresses
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: diffservmultifieldclfrdstaddr
             
@@ -1211,12 +1346,16 @@ class DIFFSERVMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: diffservmultifieldclfrdstprefixlength
             
             	The length of the CIDR Prefix carried in diffServMultiFieldClfrDstAddr. In IPv4 addresses, a length of 0 indicates a match of any address; a length of 32 indicates a match of a single host address, and a length between 0 and 32 indicates the use of a CIDR Prefix. IPv6 is similar, except that prefix lengths range from 0..128
             	**type**\: int
             
             	**range:** 0..2040
+            
+            	**config**\: False
             
             	**units**\: bits
             
@@ -1227,12 +1366,16 @@ class DIFFSERVMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: diffservmultifieldclfrsrcprefixlength
             
             	The length of the CIDR Prefix carried in diffServMultiFieldClfrSrcAddr. In IPv4 addresses, a length of 0 indicates a match of any address; a length of 32 indicates a match of a single host address, and a length between 0 and 32 indicates the use of a CIDR Prefix. IPv6 is similar, except that prefix lengths range from 0..128
             	**type**\: int
             
             	**range:** 0..2040
+            
+            	**config**\: False
             
             	**units**\: bits
             
@@ -1243,12 +1386,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** \-1..63
             
+            	**config**\: False
+            
             .. attribute:: diffservmultifieldclfrflowid
             
             	The flow identifier in an IPv6 header
             	**type**\: int
             
             	**range:** 0..1048575
+            
+            	**config**\: False
             
             .. attribute:: diffservmultifieldclfrprotocol
             
@@ -1257,12 +1404,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: diffservmultifieldclfrdstl4portmin
             
             	The minimum value that the layer\-4 destination port number in the packet must have in order to match this classifier entry
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: diffservmultifieldclfrdstl4portmax
             
@@ -1271,12 +1422,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: diffservmultifieldclfrsrcl4portmin
             
             	The minimum value that the layer\-4 source port number in the packet must have in order to match this classifier entry
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: diffservmultifieldclfrsrcl4portmax
             
@@ -1285,15 +1440,21 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: diffservmultifieldclfrstorage
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservmultifieldclfrstatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1348,7 +1509,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServMultiFieldClfrTable.DiffServMultiFieldClfrEntry, [u'diffservmultifieldclfrid', u'diffservmultifieldclfraddrtype', u'diffservmultifieldclfrdstaddr', u'diffservmultifieldclfrdstprefixlength', u'diffservmultifieldclfrsrcaddr', u'diffservmultifieldclfrsrcprefixlength', u'diffservmultifieldclfrdscp', u'diffservmultifieldclfrflowid', u'diffservmultifieldclfrprotocol', u'diffservmultifieldclfrdstl4portmin', u'diffservmultifieldclfrdstl4portmax', u'diffservmultifieldclfrsrcl4portmin', u'diffservmultifieldclfrsrcl4portmax', u'diffservmultifieldclfrstorage', u'diffservmultifieldclfrstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServMultiFieldClfrTable.DiffServMultiFieldClfrEntry, ['diffservmultifieldclfrid', 'diffservmultifieldclfraddrtype', 'diffservmultifieldclfrdstaddr', 'diffservmultifieldclfrdstprefixlength', 'diffservmultifieldclfrsrcaddr', 'diffservmultifieldclfrsrcprefixlength', 'diffservmultifieldclfrdscp', 'diffservmultifieldclfrflowid', 'diffservmultifieldclfrprotocol', 'diffservmultifieldclfrdstl4portmin', 'diffservmultifieldclfrdstl4portmax', 'diffservmultifieldclfrsrcl4portmin', 'diffservmultifieldclfrsrcl4portmax', 'diffservmultifieldclfrstorage', 'diffservmultifieldclfrstatus'], name, value)
+
+
 
 
     class DiffServMeterTable(Entity):
@@ -1367,6 +1530,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry in the meter table describes a single conformance level of a meter
         	**type**\: list of  		 :py:class:`DiffServMeterEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServMeterTable.DiffServMeterEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1407,12 +1572,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservmetersucceednext
             
             	If the traffic does conform, this selects the next Differentiated Services Functional Data Path element to handle traffic for this data path. This RowPointer should point to an instance of one of\:   diffServClfrEntry   diffServMeterEntry   diffServActionEntry   diffServAlgDropEntry   diffServQEntry  A value of zeroDotZero in this attribute indicates that no further Differentiated Services treatment is performed on traffic of this data path. The use of zeroDotZero is the normal usage for the last functional data path element of the current data path.  Setting this to point to a target that does not exist results in an inconsistentValue error.  If the row pointed to is removed or becomes inactive by other means, the treatment is as if this attribute contains a value of zeroDotZero
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: diffservmeterfailnext
             
@@ -1421,6 +1590,8 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservmeterspecific
             
             	This indicates the behavior of the meter by pointing to an entry containing detailed parameters. Note that entries in that specific table must be managed explicitly.  For example, diffServMeterSpecific may point to an entry in diffServTBParamTable, which contains an instance of a single set of Token Bucket parameters.  Setting this to point to a target that does not exist results in an inconsistentValue error.  If the row pointed to is removed or becomes inactive by other means, the meter always succeeds
@@ -1428,15 +1599,21 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservmeterstorage
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservmeterstatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1473,7 +1650,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServMeterTable.DiffServMeterEntry, [u'diffservmeterid', u'diffservmetersucceednext', u'diffservmeterfailnext', u'diffservmeterspecific', u'diffservmeterstorage', u'diffservmeterstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServMeterTable.DiffServMeterEntry, ['diffservmeterid', 'diffservmetersucceednext', 'diffservmeterfailnext', 'diffservmeterspecific', 'diffservmeterstorage', 'diffservmeterstatus'], name, value)
+
+
 
 
     class DiffServTBParamTable(Entity):
@@ -1488,6 +1667,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry that describes a single set of token bucket parameters
         	**type**\: list of  		 :py:class:`DiffServTBParamEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServTBParamTable.DiffServTBParamEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1528,6 +1709,8 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservtbparamtype
             
             	The Metering algorithm associated with the Token Bucket parameters.  zeroDotZero indicates this is unknown.  Standard values for generic algorithms\: diffServTBParamSimpleTokenBucket, diffServTBParamAvgRate, diffServTBParamSrTCMBlind, diffServTBParamSrTCMAware, diffServTBParamTrTCMBlind, diffServTBParamTrTCMAware, and diffServTBParamTswTCM are specified in this MIB as OBJECT\- IDENTITYs; additional values may be further specified in other MIBs
@@ -1535,12 +1718,16 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservtbparamrate
             
             	The token\-bucket rate, in kilobits per second (kbps). This attribute is used for\: 1. CIR in RFC 2697 for srTCM 2. CIR and PIR in RFC 2698 for trTCM 3. CTR and PTR in RFC 2859 for TSWTCM 4. AverageRate in RFC 3290
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             	**units**\: kilobits per second
             
@@ -1551,6 +1738,8 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**units**\: Bytes
             
             .. attribute:: diffservtbparaminterval
@@ -1560,6 +1749,8 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             	**units**\: microseconds
             
             .. attribute:: diffservtbparamstorage
@@ -1567,10 +1758,14 @@ class DIFFSERVMIB(Entity):
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservtbparamstatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1609,7 +1804,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServTBParamTable.DiffServTBParamEntry, [u'diffservtbparamid', u'diffservtbparamtype', u'diffservtbparamrate', u'diffservtbparamburstsize', u'diffservtbparaminterval', u'diffservtbparamstorage', u'diffservtbparamstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServTBParamTable.DiffServTBParamEntry, ['diffservtbparamid', 'diffservtbparamtype', 'diffservtbparamrate', 'diffservtbparamburstsize', 'diffservtbparaminterval', 'diffservtbparamstorage', 'diffservtbparamstatus'], name, value)
+
+
 
 
     class DiffServActionTable(Entity):
@@ -1627,6 +1824,8 @@ class DIFFSERVMIB(Entity):
         
         	Each entry in the action table allows description of one specific action to be applied to traffic
         	**type**\: list of  		 :py:class:`DiffServActionEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServActionTable.DiffServActionEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1667,12 +1866,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservactioninterface
             
             	The interface index (value of ifIndex) that this action occurs on. This may be derived from the diffServDataPathStartEntry's index by extension through the various RowPointers. However, as this may be difficult for a network management station, it is placed here as well.  If this is indeterminate, the value is zero.  This is of especial relevance when reporting the counters which may apply to traffic crossing an interface\:    diffServCountActOctets,    diffServCountActPkts,    diffServAlgDropOctets,    diffServAlgDropPkts,    diffServAlgRandomDropOctets, and    diffServAlgRandomDropPkts.  It is also especially relevant to the queue and scheduler which may be subsequently applied
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: diffservactionnext
             
@@ -1681,6 +1884,8 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservactionspecific
             
             	A pointer to an object instance providing additional information for the type of action indicated by this action table entry.  For the standard actions defined by this MIB module, this should point to either a diffServDscpMarkActEntry or a diffServCountActEntry. For other actions, it may point to an object instance defined in some other MIB.  Setting this to point to a target that does not exist results in an inconsistentValue error.  If the row pointed to is removed or becomes inactive by other means, the Meter should be treated as if it were not present.  This may lead to incorrect policy behavior
@@ -1688,15 +1893,21 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservactionstorage
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservactionstatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1733,7 +1944,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServActionTable.DiffServActionEntry, [u'diffservactionid', u'diffservactioninterface', u'diffservactionnext', u'diffservactionspecific', u'diffservactionstorage', u'diffservactionstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServActionTable.DiffServActionEntry, ['diffservactionid', 'diffservactioninterface', 'diffservactionnext', 'diffservactionspecific', 'diffservactionstorage', 'diffservactionstatus'], name, value)
+
+
 
 
     class DiffServDscpMarkActTable(Entity):
@@ -1746,6 +1959,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry in the DSCP mark action table that describes a single DSCP used for marking
         	**type**\: list of  		 :py:class:`DiffServDscpMarkActEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServDscpMarkActTable.DiffServDscpMarkActEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1786,6 +2001,8 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 0..63
             
+            	**config**\: False
+            
             
 
             """
@@ -1811,7 +2028,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServDscpMarkActTable.DiffServDscpMarkActEntry, [u'diffservdscpmarkactdscp'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServDscpMarkActTable.DiffServDscpMarkActEntry, ['diffservdscpmarkactdscp'], name, value)
+
+
 
 
     class DiffServCountActTable(Entity):
@@ -1823,6 +2042,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry in the count action table describes a single set of traffic counters
         	**type**\: list of  		 :py:class:`DiffServCountActEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServCountActTable.DiffServCountActEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1863,12 +2084,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservcountactoctets
             
             	The number of octets at the Action data path element.  Discontinuities in the value of this counter can occur at re\- initialization of the management system and at other times as indicated by the value of ifCounterDiscontinuityTime on the relevant interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: diffservcountactpkts
             
@@ -1877,15 +2102,21 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: diffservcountactstorage
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservcountactstatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing    to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1920,7 +2151,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServCountActTable.DiffServCountActEntry, [u'diffservcountactid', u'diffservcountactoctets', u'diffservcountactpkts', u'diffservcountactstorage', u'diffservcountactstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServCountActTable.DiffServCountActEntry, ['diffservcountactid', 'diffservcountactoctets', 'diffservcountactpkts', 'diffservcountactstorage', 'diffservcountactstatus'], name, value)
+
+
 
 
     class DiffServAlgDropTable(Entity):
@@ -1932,6 +2165,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry describes a process that drops packets according to some algorithm. Further details of the algorithm type are to be found in diffServAlgDropType and with more detail parameter entry pointed to by diffServAlgDropSpecific when necessary
         	**type**\: list of  		 :py:class:`DiffServAlgDropEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServAlgDropTable.DiffServAlgDropEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1974,10 +2209,14 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservalgdroptype
             
             	The type of algorithm used by this dropper. The value other(1) requires further specification in some other MIB module.  In the tailDrop(2) algorithm, diffServAlgDropQThreshold represents the maximum depth of the queue, pointed to by diffServAlgDropQMeasure, beyond which all newly arriving packets will be dropped.  In the headDrop(3) algorithm, if a packet arrives when the current depth of the queue, pointed to by diffServAlgDropQMeasure, is at diffServAlgDropQThreshold, packets currently at the head of the queue are dropped to make room for the new packet to be enqueued at the tail of the queue.  In the randomDrop(4) algorithm, on packet arrival, an Active Queue Management algorithm is executed which may randomly drop a packet. This algorithm may be proprietary, and it may drop either the arriving packet or another packet in the queue. diffServAlgDropSpecific points to a diffServRandomDropEntry that describes the algorithm. For this algorithm,    diffServAlgDropQThreshold is understood to be the absolute maximum size of the queue and additional parameters are described in diffServRandomDropTable.  The alwaysDrop(5) algorithm is as its name specifies; always drop. In this case, the other configuration values in this Entry are not meaningful; There is no useful 'next' processing step, there is no queue, and parameters describing the queue are not useful. Therefore, diffServAlgDropNext, diffServAlgDropMeasure, and diffServAlgDropSpecific are all zeroDotZero
             	**type**\:  :py:class:`DiffServAlgDropType <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServAlgDropTable.DiffServAlgDropEntry.DiffServAlgDropType>`
+            
+            	**config**\: False
             
             .. attribute:: diffservalgdropnext
             
@@ -1986,6 +2225,8 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservalgdropqmeasure
             
             	Points to an entry in the diffServQTable to indicate the queue that a drop algorithm is to monitor when deciding whether to drop a packet. If the row pointed to does not exist, the algorithmic dropper element is considered inactive.    Setting this to point to a target that does not exist results in an inconsistentValue error.  If the row pointed to is removed or becomes inactive by other means, the treatment is as if this attribute contains a value of zeroDotZero
@@ -1993,12 +2234,16 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservalgdropqthreshold
             
             	A threshold on the depth in bytes of the queue being measured at which a trigger is generated to the dropping algorithm, unless diffServAlgDropType is alwaysDrop(5) where this object is ignored.  For the tailDrop(2) or headDrop(3) algorithms, this represents the depth of the queue, pointed to by diffServAlgDropQMeasure, at which the drop action will take place. Other algorithms will need to define their own semantics for this threshold
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             	**units**\: Bytes
             
@@ -2009,12 +2254,16 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservalgdropoctets
             
             	The number of octets that have been deterministically dropped by this drop process.  Discontinuities in the value of this counter can occur at re\- initialization of the management system and at other times as indicated by the value of ifCounterDiscontinuityTime on the relevant interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: diffservalgdroppkts
             
@@ -2023,12 +2272,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: diffservalgrandomdropoctets
             
             	The number of octets that have been randomly dropped by this drop process.  This counter applies, therefore, only to random droppers.  Discontinuities in the value of this counter can occur at re\- initialization of the management system and at other times as indicated by the value of ifCounterDiscontinuityTime on the relevant interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: diffservalgrandomdroppkts
             
@@ -2037,15 +2290,21 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: diffservalgdropstorage
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservalgdropstatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2094,7 +2353,7 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServAlgDropTable.DiffServAlgDropEntry, [u'diffservalgdropid', u'diffservalgdroptype', u'diffservalgdropnext', u'diffservalgdropqmeasure', u'diffservalgdropqthreshold', u'diffservalgdropspecific', u'diffservalgdropoctets', u'diffservalgdroppkts', u'diffservalgrandomdropoctets', u'diffservalgrandomdroppkts', u'diffservalgdropstorage', u'diffservalgdropstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServAlgDropTable.DiffServAlgDropEntry, ['diffservalgdropid', 'diffservalgdroptype', 'diffservalgdropnext', 'diffservalgdropqmeasure', 'diffservalgdropqthreshold', 'diffservalgdropspecific', 'diffservalgdropoctets', 'diffservalgdroppkts', 'diffservalgrandomdropoctets', 'diffservalgrandomdroppkts', 'diffservalgdropstorage', 'diffservalgdropstatus'], name, value)
 
             class DiffServAlgDropType(Enum):
                 """
@@ -2176,6 +2435,8 @@ class DIFFSERVMIB(Entity):
 
 
 
+
+
     class DiffServRandomDropTable(Entity):
         """
         The random drop table contains entries describing a process that
@@ -2186,6 +2447,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry describes a process that drops packets according to a random algorithm
         	**type**\: list of  		 :py:class:`DiffServRandomDropEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServRandomDropTable.DiffServRandomDropEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2226,12 +2489,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservrandomdropminthreshbytes
             
             	The average queue depth in bytes, beyond which traffic has a non\-zero probability of being dropped. Changes in this variable may or may not be reflected in the reported value of diffServRandomDropMinThreshPkts
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -2242,6 +2509,8 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: diffservrandomdropmaxthreshbytes
@@ -2250,6 +2519,8 @@ class DIFFSERVMIB(Entity):
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -2260,6 +2531,8 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: diffservrandomdropprobmax
@@ -2269,12 +2542,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 0..1000
             
+            	**config**\: False
+            
             .. attribute:: diffservrandomdropweight
             
             	The weighting of past history in affecting the Exponentially Weighted Moving Average function that calculates the current average queue depth.  The equation uses diffServRandomDropWeight/65536 as the coefficient for the new sample in the equation, and (65536 \- diffServRandomDropWeight)/65536 as the coefficient of the old value.  Implementations may limit the values of diffServRandomDropWeight to a subset of the possible range of values, such as powers of two. Doing this would facilitate implementation of the Exponentially Weighted Moving Average using shift instructions or registers
             	**type**\: int
             
             	**range:** 0..65536
+            
+            	**config**\: False
             
             .. attribute:: diffservrandomdropsamplingrate
             
@@ -2283,15 +2560,21 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 0..1000000
             
+            	**config**\: False
+            
             .. attribute:: diffservrandomdropstorage
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservrandomdropstatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2336,7 +2619,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServRandomDropTable.DiffServRandomDropEntry, [u'diffservrandomdropid', u'diffservrandomdropminthreshbytes', u'diffservrandomdropminthreshpkts', u'diffservrandomdropmaxthreshbytes', u'diffservrandomdropmaxthreshpkts', u'diffservrandomdropprobmax', u'diffservrandomdropweight', u'diffservrandomdropsamplingrate', u'diffservrandomdropstorage', u'diffservrandomdropstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServRandomDropTable.DiffServRandomDropEntry, ['diffservrandomdropid', 'diffservrandomdropminthreshbytes', 'diffservrandomdropminthreshpkts', 'diffservrandomdropmaxthreshbytes', 'diffservrandomdropmaxthreshpkts', 'diffservrandomdropprobmax', 'diffservrandomdropweight', 'diffservrandomdropsamplingrate', 'diffservrandomdropstorage', 'diffservrandomdropstatus'], name, value)
+
+
 
 
     class DiffServQTable(Entity):
@@ -2351,6 +2636,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry in the Queue Table describes a single queue or class of traffic
         	**type**\: list of  		 :py:class:`DiffServQEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServQTable.DiffServQEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2391,12 +2678,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservqnext
             
             	This selects the next Differentiated Services Scheduler.  The RowPointer must point to a diffServSchedulerEntry.  A value of zeroDotZero in this attribute indicates an incomplete diffServQEntry instance. In such a case, the entry has no operational effect, since it has no parameters to give it meaning.  Setting this to point to a target that does not exist results in an inconsistentValue error.  If the row pointed to is removed or becomes inactive by other means, the treatment is as if this attribute contains a value of zeroDotZero
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: diffservqminrate
             
@@ -2405,6 +2696,8 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservqmaxrate
             
             	This RowPointer indicates the diffServMaxRateEntry that the scheduler, pointed to by diffServQNext, should use to service this queue.  If the row pointed to is zeroDotZero, the maximum rate is the line speed of the interface.     Setting this to point to a target that does not exist results in an inconsistentValue error.  If the row pointed to is removed or becomes inactive by other means, the treatment is as if this attribute contains a value of zeroDotZero
@@ -2412,15 +2705,21 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservqstorage
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservqstatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2457,7 +2756,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServQTable.DiffServQEntry, [u'diffservqid', u'diffservqnext', u'diffservqminrate', u'diffservqmaxrate', u'diffservqstorage', u'diffservqstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServQTable.DiffServQEntry, ['diffservqid', 'diffservqnext', 'diffservqminrate', 'diffservqmaxrate', 'diffservqstorage', 'diffservqstatus'], name, value)
+
+
 
 
     class DiffServSchedulerTable(Entity):
@@ -2470,6 +2771,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry in the Scheduler Table describing a single instance of a scheduling algorithm
         	**type**\: list of  		 :py:class:`DiffServSchedulerEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServSchedulerTable.DiffServSchedulerEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2510,12 +2813,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservschedulernext
             
             	This selects the next Differentiated Services Functional Data Path Element to handle traffic for this data path. This normally is null (zeroDotZero), or points to a diffServSchedulerEntry or a diffServQEntry.  However, this RowPointer may also point to an instance of\:   diffServClfrEntry,   diffServMeterEntry,   diffServActionEntry,   diffServAlgDropEntry.  It would point another diffServSchedulerEntry when implementing multiple scheduler methods for the same data path, such as having one set of queues scheduled by WRR and that group participating in a priority scheduling system in which other queues compete with it in that way.  It might also point to a second scheduler in a hierarchical scheduling system.  If the row pointed to is zeroDotZero, no further Differentiated Services treatment is performed on traffic of this data path.  Setting this to point to a target that does not exist results in an inconsistentValue error.  If the row pointed to is removed or becomes inactive by other means, the treatment is as if this attribute contains a value of zeroDotZero
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: diffservschedulermethod
             
@@ -2524,12 +2831,16 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservschedulerminrate
             
             	This RowPointer indicates the entry in diffServMinRateTable which indicates the priority or minimum output rate from this scheduler. This attribute is used only when there is more than one level of scheduler.  When it has the value zeroDotZero, it indicates that no minimum rate or priority is imposed.  Setting this to point to a target that does not exist results in an inconsistentValue error.  If the row pointed to is removed or becomes inactive by other means, the treatment is as if this attribute contains a value of zeroDotZero
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: diffservschedulermaxrate
             
@@ -2538,15 +2849,21 @@ class DIFFSERVMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: diffservschedulerstorage
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservschedulerstatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2585,7 +2902,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServSchedulerTable.DiffServSchedulerEntry, [u'diffservschedulerid', u'diffservschedulernext', u'diffservschedulermethod', u'diffservschedulerminrate', u'diffservschedulermaxrate', u'diffservschedulerstorage', u'diffservschedulerstatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServSchedulerTable.DiffServSchedulerEntry, ['diffservschedulerid', 'diffservschedulernext', 'diffservschedulermethod', 'diffservschedulerminrate', 'diffservschedulermaxrate', 'diffservschedulerstorage', 'diffservschedulerstatus'], name, value)
+
+
 
 
     class DiffServMinRateTable(Entity):
@@ -2598,6 +2917,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry in the Minimum Rate Parameters Table describes a single set of scheduling parameters for use by one or more queues or schedulers
         	**type**\: list of  		 :py:class:`DiffServMinRateEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServMinRateTable.DiffServMinRateEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2639,6 +2960,8 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservminratepriority
             
             	The priority of this input to the associated scheduler, relative    to the scheduler's other inputs. A queue or scheduler with a larger numeric value will be served before another with a smaller numeric value
@@ -2646,12 +2969,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservminrateabsolute
             
             	The minimum absolute rate, in kilobits/sec, that a downstream scheduler element should allocate to this queue. If the value is zero, then there is effectively no minimum rate guarantee. If the value is non\-zero, the scheduler will assure the servicing of this queue to at least this rate.  Note that this attribute value and that of diffServMinRateRelative are coupled\: changes to one will affect the value of the other. They are linked by the following equation, in that setting one will change the other\:    diffServMinRateRelative =           (diffServMinRateAbsolute\*1000000)/ifSpeed  or, if appropriate\:    diffServMinRateRelative = diffServMinRateAbsolute/ifHighSpeed
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             	**units**\: kilobits per second
             
@@ -2662,15 +2989,21 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservminratestorage
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservminratestatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2707,7 +3040,9 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServMinRateTable.DiffServMinRateEntry, [u'diffservminrateid', u'diffservminratepriority', u'diffservminrateabsolute', u'diffservminraterelative', u'diffservminratestorage', u'diffservminratestatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServMinRateTable.DiffServMinRateEntry, ['diffservminrateid', 'diffservminratepriority', 'diffservminrateabsolute', 'diffservminraterelative', 'diffservminratestorage', 'diffservminratestatus'], name, value)
+
+
 
 
     class DiffServMaxRateTable(Entity):
@@ -2720,6 +3055,8 @@ class DIFFSERVMIB(Entity):
         
         	An entry in the Maximum Rate Parameter Table describes a single set of scheduling parameters for use by one or more queues or schedulers
         	**type**\: list of  		 :py:class:`DiffServMaxRateEntry <ydk.models.cisco_ios_xe.DIFFSERV_MIB.DIFFSERVMIB.DiffServMaxRateTable.DiffServMaxRateEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2761,6 +3098,8 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservmaxratelevel  (key)
             
             	An index that indicates which level of a multi\-rate shaper is being given its parameters. A multi\-rate shaper has some number of rate levels. Frame Relay's dual rate specification refers to a 'committed' and an 'excess' rate; ATM's dual rate specification refers to a 'mean' and a 'peak' rate. This table is generalized to support an arbitrary number of rates. The committed or mean rate is level 1, the peak rate (if any) is the highest level rate configured, and if there are other rates they are distributed in monotonically increasing order between them
@@ -2768,12 +3107,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: diffservmaxrateabsolute
             
             	The maximum rate in kilobits/sec that a downstream scheduler element should allocate to this queue. If the value is zero, then there is effectively no maximum rate limit and that the scheduler should attempt to be work conserving for this queue. If the value is non\-zero, the scheduler will limit the servicing of this queue to, at most, this rate in a non\-work\-conserving manner.  Note that this attribute value and that of diffServMaxRateRelative are coupled\: changes to one will affect the value of the other. They are linked by the following    equation, in that setting one will change the other\:    diffServMaxRateRelative =           (diffServMaxRateAbsolute\*1000000)/ifSpeed  or, if appropriate\:    diffServMaxRateRelative = diffServMaxRateAbsolute/ifHighSpeed
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             	**units**\: kilobits per second
             
@@ -2784,12 +3127,16 @@ class DIFFSERVMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diffservmaxratethreshold
             
             	The number of bytes of queue depth at which the rate of a    multi\-rate scheduler will increase to the next output rate. In the last conceptual row for such a shaper, this threshold is ignored and by convention is zero
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: Bytes
             
@@ -2798,10 +3145,14 @@ class DIFFSERVMIB(Entity):
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: diffservmaxratestatus
             
             	The status of this conceptual row. All writable objects in this row may be modified at any time. Setting this variable to 'destroy' when the MIB contains one or more RowPointers pointing to it results in destruction being delayed until the row is no longer used
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2840,9 +3191,13 @@ class DIFFSERVMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DIFFSERVMIB.DiffServMaxRateTable.DiffServMaxRateEntry, [u'diffservmaxrateid', u'diffservmaxratelevel', u'diffservmaxrateabsolute', u'diffservmaxraterelative', u'diffservmaxratethreshold', u'diffservmaxratestorage', u'diffservmaxratestatus'], name, value)
+                self._perform_setattr(DIFFSERVMIB.DiffServMaxRateTable.DiffServMaxRateEntry, ['diffservmaxrateid', 'diffservmaxratelevel', 'diffservmaxrateabsolute', 'diffservmaxraterelative', 'diffservmaxratethreshold', 'diffservmaxratestorage', 'diffservmaxratestatus'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = DIFFSERVMIB()
         return self._top_entity
+
+
 

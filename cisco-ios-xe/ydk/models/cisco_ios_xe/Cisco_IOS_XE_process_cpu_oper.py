@@ -25,6 +25,8 @@ class CpuUsage(Entity):
     	Data nodes for Total CPU Utilization Statistics
     	**type**\:  :py:class:`CpuUtilization <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_cpu_oper.CpuUsage.CpuUtilization>`
     
+    	**config**\: False
+    
     
 
     """
@@ -65,6 +67,8 @@ class CpuUsage(Entity):
         
         	**range:** 0..255
         
+        	**config**\: False
+        
         	**units**\: percent
         
         .. attribute:: five_seconds_intr
@@ -73,6 +77,8 @@ class CpuUsage(Entity):
         	**type**\: int
         
         	**range:** 0..255
+        
+        	**config**\: False
         
         	**units**\: percent
         
@@ -83,6 +89,8 @@ class CpuUsage(Entity):
         
         	**range:** 0..255
         
+        	**config**\: False
+        
         	**units**\: percent
         
         .. attribute:: five_minutes
@@ -92,12 +100,16 @@ class CpuUsage(Entity):
         
         	**range:** 0..255
         
+        	**config**\: False
+        
         	**units**\: percent
         
         .. attribute:: cpu_usage_processes
         
         	Data nodes for System wide Process CPU usage Statistics
         	**type**\:  :py:class:`CpuUsageProcesses <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_cpu_oper.CpuUsage.CpuUtilization.CpuUsageProcesses>`
+        
+        	**config**\: False
         
         
 
@@ -146,6 +158,8 @@ class CpuUsage(Entity):
             	The list of software processes on the device
             	**type**\: list of  		 :py:class:`CpuUsageProcess <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_cpu_oper.CpuUsage.CpuUtilization.CpuUsageProcesses.CpuUsageProcess>`
             
+            	**config**\: False
+            
             
 
             """
@@ -184,10 +198,14 @@ class CpuUsage(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: name  (key)
                 
                 	The name of the process
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: tty
                 
@@ -196,12 +214,16 @@ class CpuUsage(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: total_run_time
                 
                 	Total Run\-time of this process (mSec)
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: milli-seconds
                 
@@ -212,12 +234,16 @@ class CpuUsage(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: avg_run_time
                 
                 	Average Run\-time of this process (uSec)
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: micro-seconds
                 
@@ -228,6 +254,8 @@ class CpuUsage(Entity):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
+                	**config**\: False
+                
                 	**units**\: percent
                 
                 .. attribute:: one_minute
@@ -237,6 +265,8 @@ class CpuUsage(Entity):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
+                	**config**\: False
+                
                 	**units**\: percent
                 
                 .. attribute:: five_minutes
@@ -245,6 +275,8 @@ class CpuUsage(Entity):
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**config**\: False
                 
                 	**units**\: percent
                 
@@ -291,7 +323,12 @@ class CpuUsage(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(CpuUsage.CpuUtilization.CpuUsageProcesses.CpuUsageProcess, ['pid', 'name', 'tty', 'total_run_time', 'invocation_count', 'avg_run_time', 'five_seconds', 'one_minute', 'five_minutes'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = CpuUsage()
         return self._top_entity
+
+
 

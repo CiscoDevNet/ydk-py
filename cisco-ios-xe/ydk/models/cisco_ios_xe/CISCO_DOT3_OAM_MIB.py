@@ -85,30 +85,42 @@ class CISCODOT3OAMMIB(Entity):
     	This table contains the primary controls and status for the OAM capabilities of an Ethernet like interface.  There will be one row in this table for each Ethernet like interface in the system that supports the OAM functions defined in [802.3ah]
     	**type**\:  :py:class:`Cdot3OamTable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdot3oampeertable
     
     	This table contains information about the OAM peer for a particular Ethernet like interface. OAM entities communicate with a single OAM peer entity on Ethernet links on which OAM is enabled and operating properly.  There is one entry in this table for each entry in the cdot3OamTable for which information on the peer OAM entity is available.  
     	**type**\:  :py:class:`Cdot3OamPeerTable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamPeerTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdot3oamloopbacktable
     
     	This table contains controls for the loopback state of the local link as well as indicating the status of the loopback function.  There is one entry in this table for each entry in cdot3OamTable that supports loopback functionality (where cdot3OamFunctionsSupported includes the loopbackSupport bit set).  Loopback can be used to place the remote OAM entity in a state where every received frame (except OAMPDUs) is echoed back over the same interface on which they were received.   In this state, at the remote entity, 'normal' traffic is disabled as only the looped back frames are transmitted on the interface. Loopback is thus an intrusive operation that prohibits normal data flow and should be used accordingly.  
     	**type**\:  :py:class:`Cdot3OamLoopbackTable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamLoopbackTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdot3oamstatstable
     
     	This table contains statistics for the OAM function on a particular Ethernet like interface. There is an entry in the table for every entry in the cdot3OamTable.   The counters in this table are defined as 32\-bit entries to match the counter size as defined in [802.3ah].  Given the OAM protocol is a slow protocol, the counters increment at a slow rate. 
     	**type**\:  :py:class:`Cdot3OamStatsTable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: cdot3oameventconfigtable
     
     	Ethernet OAM includes the ability to generate and receive Event Notification OAMPDUs to indicate various link problems. This table contains the mechanisms to enable Event Notifications and configure the thresholds to generate the standard Ethernet OAM events.  There is one entry in the table for every entry in cdot3OamTable that supports OAM events (where cdot3OamFunctionsSupported includes the eventSupport bit set). The values in the table are maintained across changes to cdot3OamOperStatus.    The standard threshold crossing events are\:   \- Errored Symbol Period Event.  Generated when the number of     symbol errors exceeds a threshold within a given window      defined by a number of symbols (for example, 1,000 symbols     out of 1,000,000 had errors).     \- Errored Frame Period Event.  Generated when the number of      frame errors exceeds a threshold within a given window      defined by a number of frames (for example, 10 frames out     of 1000 had errors).     \- Errored Frame Event.  Generated when the number of frame      errors exceeds a threshold within a given window defined      by a period of time (for example, 10 frames in 1 second      had errors).   \- Errored Frame Seconds Summary Event.  Generated when the      number of errored frame seconds exceeds a threshold within     a given time period (for example, 10 errored frame seconds     within the last 100 seconds).  An errored frame second is      defined as a 1 second interval which had >0 frame errors.   There are other events (dying gasp, critical events) that are not threshold crossing events but which can be enabled/disabled via this table.  
     	**type**\:  :py:class:`Cdot3OamEventConfigTable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamEventConfigTable>`
     
+    	**config**\: False
+    
     .. attribute:: cdot3oameventlogtable
     
     	This table records a history of the events that have occurred at the Ethernet OAM level.  These events can include locally detected events, which may result in locally generated OAMPDUs, and remotely detected events, which are detected by the OAM peer entity and signaled to the local entity via Ethernet OAM.  Ethernet OAM events can be signaled by Event Notification OAMPDUs or by the flags field in any OAMPDU.    This table contains both threshold crossing events and non\-threshold crossing events.  The parameters for the threshold window, threshold value, and actual value (cdot3OamEventLogWindowXX, cdot3OamEventLogThresholdXX, cdot3OamEventLogValue) are only applicable to threshold crossing events, and are returned as all F's (2^32 \- 1) for non\-threshold crossing events.   Entries in the table are automatically created when such events are detected.  The size of the table is implementation dependent.  When the table reaches its maximum size, older entries are automatically deleted to make room for newer entries. 
     	**type**\:  :py:class:`Cdot3OamEventLogTable <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamEventLogTable>`
+    
+    	**config**\: False
     
     
 
@@ -171,6 +183,8 @@ class CISCODOT3OAMMIB(Entity):
         	An entry in the table, containing information on the Ethernet OAM function for a single Ethernet like interface. Entries in the table are created automatically for each interface supporting Ethernet OAM. The status of the row entry can be determined from cdot3OamOperStatus.    A cdot3OamEntry is indexed in the cdot3OamTable by the ifIndex object of the Interfaces MIB.  
         	**type**\: list of  		 :py:class:`Cdot3OamEntry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -218,20 +232,28 @@ class CISCODOT3OAMMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdot3oamadminstate
             
             	This object is used to provision the default administrative OAM mode for this interface.  This object represents the desired state of OAM for this interface.    The cdot3OamAdminState always starts in the disabled(1) state until an explicit management action or configuration information retained by the system causes a transition to the enabled(2) state.   When enabled(2), Ethernet OAM will attempt to operate over this interface.  
             	**type**\:  :py:class:`Cdot3OamAdminState <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry.Cdot3OamAdminState>`
+            
+            	**config**\: False
             
             .. attribute:: cdot3oamoperstatus
             
             	At initialization and failure conditions, two OAM entities on the same full\-duplex Ethernet link begin a discovery phase to determine what OAM capabilities may be used on that link.  The progress of this initialization is controlled by the OAM sublayer.               This value is always disabled(1) if OAM is disabled on this interface via the cdot3OamAdminState.    If the link has detected a fault and is transmitting OAMPDUs with a link fault indication, the value is linkFault(2). Also, if the interface is not operational (ifOperStatus is not  up(1)), linkFault(2) is returned.  Note that the object  ifOperStatus may not be up(1) as a result of link failure or administrative action (ifAdminState being down(2) or testing(3)).                     The passiveWait(3) state is returned only by OAM entities in passive mode (cdot3OamMode) and reflects the state in which the OAM entity is waiting to see if the peer device is OAM capable.  The activeSendLocal(4) value is used by active mode devices (cdot3OamMode) and reflects the OAM entity actively trying to discover whether the peer has OAM capability but has not yet made that determination.                     The state sendLocalAndRemote(5) reflects that the local OAM entity has discovered the peer but has not yet accepted or rejected the configuration of the peer.  The local device can, for whatever reason, decide that the peer device is unacceptable and decline OAM peering.  If the local OAM entity rejects the peer OAM entity, the state becomes oamPeeringLocallyRejected(7).  If the OAM peering is allowed by the local device, the state moves to sendLocalAndRemoteOk(6).  Note that both the sendLocalAndRemote(5) and oamPeeringLocallyRejected(7) states fall within the state SEND\_LOCAL\_REMOTE of the Discovery state diagram [802.3ah, Figure 57\-5], with the difference being whether the local OAM client has actively rejected the peering or has just not indicated any decision yet.  Whether a peering decision has been made is indicated via the local flags field in the OAMPDU (reflected in the aOAMLocalFlagsField of 30.3.6.1.10).    If the remote OAM entity rejects the peering, the state becomes oamPeeringRemotelyRejected(8).  Note that both the sendLocalAndRemoteOk(6) and oamPeeringRemotelyRejected(8) states fall within the state SEND\_LOCAL\_REMOTE\_OK of the Discovery state diagram [802.3ah, Figure 57\-5], with the difference being whether the remote OAM client has rejected the peering or has just not yet decided.  This is indicated via the remote flags field in the OAM PDU (reflected in the aOAMRemoteFlagsField of 30.3.6.1.11).                     When the local OAM entity learns that both it and the remote OAM entity have accepted the peering, the state moves to operational(9) corresponding to the SEND\_ANY state of the Discovery state diagram [802.3ah, Figure 57\-5].    Since Ethernet OAM functions are not designed to work completely over half\-duplex interfaces, the value nonOperHalfDuplex(10) is returned whenever Ethernet OAM is enabled (cdot3OamAdminState is enabled(1)) but the interface is in half\-duplex operation.  
             	**type**\:  :py:class:`Cdot3OamOperStatus <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry.Cdot3OamOperStatus>`
             
+            	**config**\: False
+            
             .. attribute:: cdot3oammode
             
             	This object configures the mode of OAM operation for this Ethernet like interface.  OAM on Ethernet interfaces may be in 'active' mode or 'passive' mode.  These two modes differ in that active mode provides additional capabilities to initiate monitoring activities with the remote OAM peer entity, while passive mode generally waits for the peer to initiate OAM actions with it.  As an example, an active OAM entity can put the remote OAM entity in a loopback state, where a passive OAM entity cannot.    The default value of cdot3OamMode is dependent on the type of system on which this Ethernet like interface resides.  The default value should be 'active(1)' unless it is known that this system should take on a subservient role to the other device connected over this interface.    Changing this value results in incrementing the configuration revision field of locally generated OAMPDUs (30.3.6.1.12) and potentially re\-doing the OAM discovery process if the cdot3OamOperStatus was already operational(9).  
             	**type**\:  :py:class:`Cdot3OamMode <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry.Cdot3OamMode>`
+            
+            	**config**\: False
             
             .. attribute:: cdot3oammaxoampdusize
             
@@ -239,6 +261,8 @@ class CISCODOT3OAMMIB(Entity):
             	**type**\: int
             
             	**range:** 64..1518
+            
+            	**config**\: False
             
             	**units**\: octets
             
@@ -249,10 +273,14 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: cdot3oamfunctionssupported
             
             	The OAM functions supported on this Ethernet like interface. OAM consists of separate functional sets beyond the basic discovery process which is always required.  These functional groups can be supported independently by any implementation. These values are communicated to the peer via the local configuration field of Information OAMPDUs.    Setting 'unidirectionalSupport(0)' indicates that the OAM entity supports the transmission of OAMPDUs on links that are operating in unidirectional mode (traffic flowing in one direction only).  Setting 'loopbackSupport(1)' indicates the OAM entity can initiate and respond to loopback commands. Setting 'eventSupport(2)' indicates the OAM entity can send and receive Event Notification OAMPDUs. Setting 'variableSupport(3)' indicates the OAM entity can send and receive Variable Request and Response OAMPDUs.  
             	**type**\:  :py:class:`Cdot3OamFunctionsSupported <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamTable.Cdot3OamEntry.Cdot3OamFunctionsSupported>`
+            
+            	**config**\: False
             
             
 
@@ -535,6 +563,8 @@ class CISCODOT3OAMMIB(Entity):
 
 
 
+
+
     class Cdot3OamPeerTable(Entity):
         """
         This table contains information about the OAM peer for a
@@ -548,6 +578,8 @@ class CISCODOT3OAMMIB(Entity):
         
         	An entry in the table, containing information on the peer OAM entity for a single Ethernet like interface.    Note that there is at most one OAM peer for each Ethernet like interface.  Entries are automatically created when information about the OAM peer entity becomes available, and automatically deleted when the OAM peer entity is no longer in communication.  Peer information is not available when cdot3OamOperStatus is disabled(1), linkFault(2), passiveWait(3), activeSendLocal(4). or nonOperHalfDuplex(10)). 
         	**type**\: list of  		 :py:class:`Cdot3OamPeerEntry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamPeerTable.Cdot3OamPeerEntry>`
+        
+        	**config**\: False
         
         
 
@@ -598,12 +630,16 @@ class CISCODOT3OAMMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdot3oampeermacaddress
             
             	The MAC address of the peer OAM entity.  The MAC address is derived from the most recently received OAMPDU
             	**type**\: str
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            
+            	**config**\: False
             
             .. attribute:: cdot3oampeervendoroui
             
@@ -612,6 +648,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**length:** 3
             
+            	**config**\: False
+            
             .. attribute:: cdot3oampeervendorinfo
             
             	The Vendor Info of the OAM peer as reflected in the latest Information OAMPDU received with a Local Information TLV.  The vendor information field is within the Local Information TLV, and can be used to determine additional information about the peer entity.  The format of the vendor information is unspecified within the 32\-bit field.  This value is initialized to zero before any Local Information TLV is received.  
@@ -619,10 +657,14 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdot3oampeermode
             
             	The mode of the OAM peer as reflected in the latest Information OAMPDU received with a Local Information TLV.  The mode of the peer can be determined from the Configuration field in the Local Information TLV of the last Information OAMPDU received from the peer.  The value is unknown(3) whenever no Local Information TLV has been received.  The values of active(1) and passive(2) are returned when a Local Information TLV has been received indicating the peer is in active or passive mode, respectively. 
             	**type**\:  :py:class:`Cdot3OamPeerMode <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamPeerTable.Cdot3OamPeerEntry.Cdot3OamPeerMode>`
+            
+            	**config**\: False
             
             .. attribute:: cdot3oampeermaxoampdusize
             
@@ -630,6 +672,8 @@ class CISCODOT3OAMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..1518
+            
+            	**config**\: False
             
             	**units**\: octets
             
@@ -640,10 +684,14 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: cdot3oampeerfunctionssupported
             
             	The OAM functions supported on this Ethernet like interface. OAM consists of separate functionality sets above the basic discovery process.  This value indicates the capabilities of the peer OAM entity with respect to these functions.  This value is initialized so all bits are clear.   If unidirectionalSupport(0) is set, then the peer OAM entity supports sending OAM frames on Ethernet interfaces when the receive path is known to be inoperable.   If loopbackSupport(1) is set, then the peer OAM entity can send and receive OAM loopback commands.  If eventSupport(2) is set, then the peer OAM entity can send and receive event OAMPDUs to signal various error conditions. If variableSupport(3) is set, then the peer OAM entity can send and receive variable requests to monitor attribute value as described in Clause 57 of [802.3ah].     The capabilities of the OAM peer can be determined from the configuration field of the Local Information TLV of the most recently received Information OAMPDU with a Local Information TLV.  All zeros are returned if no Local Information TLV has yet been received. 
             	**type**\:  :py:class:`Cdot3OamPeerFunctionsSupported <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamPeerTable.Cdot3OamPeerEntry.Cdot3OamPeerFunctionsSupported>`
+            
+            	**config**\: False
             
             
 
@@ -724,6 +772,8 @@ class CISCODOT3OAMMIB(Entity):
 
 
 
+
+
     class Cdot3OamLoopbackTable(Entity):
         """
         This table contains controls for the loopback state of the
@@ -745,6 +795,8 @@ class CISCODOT3OAMMIB(Entity):
         
         	An entry in the table, containing information on the loopback status for a single Ethernet like interface.  Entries in the table are automatically created whenever the local OAM entity supports loopback capabilities.  The loopback status on the interface can be determined from the cdot3OamLoopbackStatus object.  
         	**type**\: list of  		 :py:class:`Cdot3OamLoopbackEntry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamLoopbackTable.Cdot3OamLoopbackEntry>`
+        
+        	**config**\: False
         
         
 
@@ -791,15 +843,21 @@ class CISCODOT3OAMMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdot3oamloopbackstatus
             
             	The loopback status of the OAM entity.  This status is determined by a combination of the local parser and multiplexer states, the remote parser and multiplexer states, as well as by the actions of the local OAM client.  When operating in normal mode with no loopback in progress, the status reads noLoopback(1).    The values initiatingLooopback(2) and terminatingLoopback(4) can be read or written.  The other values can only be read \- they can never be written.  Writing initiatingLoopback causes the local OAM entity to start the loopback process with its peer.  This value can only be written when the status is noLoopback(1).  Writing the value initiatingLoopback(2) in any other state has no effect.  When in remoteLoopback(3), writing terminatingLoopback(4) causes the local OAM entity to initiate the termination of the loopback state.  Writing terminatingLoopack(4) in any other state has no effect.                     If the OAM client initiates a looopback and has sent an Loopback OAMPDU and is waiting for a response, where the local parser and multiplexer states are DISCARD (see [802.3ah, 57.2.11.1]), the status is 'initiatingLoopback'.  In this case, the local OAM entity has yet to receive any acknowledgement that the remote OAM entity has received its loopback command request.                    If the local OAM client knows that the remote OAM entity is in loopback mode (via the remote state information as described in [802.3ah, 57.2.11.1, 30.3.6.1.15]), the status is remoteLoopback(3).  If the local OAM client is in the process of terminating the remote loopback [802.3ah, 57.2.11.3, 30.3.6.1.14], with its local multiplexer and parser states in DISCARD, the status is terminatingLoopback(4).  If the remote OAM client has put the local OAM entity in loopback mode as indicated by its local parser state, the status is localLoopback(5).    The unknown(6) status indicates the parser and multiplexer combination is unexpected.  This status may be returned if the OAM loopback is in a transition state but should not persist.   The values of this attribute correspond to the following values of the local and remote parser and multiplexer states.     value            LclPrsr   LclMux    RmtPrsr   RmtMux   noLoopback         FWD       FWD       FWD       FWD     initLoopback     DISCARD   DISCARD     FWD       FWD    rmtLoopback      DISCARD     FWD      LPBK    DISCARD   tmtngLoopback    DISCARD   DISCARD    LPBK    DISCARD   lclLoopback        LPBK    DISCARD   DISCARD     FWD   unknown            \*\*\*   any other combination   \*\*\*
             	**type**\:  :py:class:`Cdot3OamLoopbackStatus <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamLoopbackTable.Cdot3OamLoopbackEntry.Cdot3OamLoopbackStatus>`
             
+            	**config**\: False
+            
             .. attribute:: cdot3oamloopbackignorerx
             
             	Since OAM loopback is a disruptive operation (user traffic does not pass), this attribute provides a mechanism to provide controls over whether received OAM loopback commands are processed or ignored.  When the value is ignore(1), received loopback commands are ignored.  When the value is process(2), OAM loopback commands are processed.  The default value is to ignore loopback commands (ignore(1)).  
             	**type**\:  :py:class:`Cdot3OamLoopbackIgnoreRx <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamLoopbackTable.Cdot3OamLoopbackEntry.Cdot3OamLoopbackIgnoreRx>`
+            
+            	**config**\: False
             
             
 
@@ -983,6 +1041,8 @@ class CISCODOT3OAMMIB(Entity):
 
 
 
+
+
     class Cdot3OamStatsTable(Entity):
         """
         This table contains statistics for the OAM function on a
@@ -998,6 +1058,8 @@ class CISCODOT3OAMMIB(Entity):
         
         	An entry in the table, containing statistics information on the Ethernet OAM function for a single Ethernet like interface.  Entries are automatically created for every entry in the cdot3OamTable.  Counters are maintained across transitions in cdot3OamOperStatus.  
         	**type**\: list of  		 :py:class:`Cdot3OamStatsEntry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamStatsTable.Cdot3OamStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1043,12 +1105,16 @@ class CISCODOT3OAMMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdot3oaminformationtx
             
             	A count of the number of Information OAMPDUs transmitted on this interface.  Discontinuities of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of the ifCounterDiscontinuityTime.  
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: frames
             
@@ -1059,6 +1125,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: frames
             
             .. attribute:: cdot3oamuniqueeventnotificationtx
@@ -1067,6 +1135,8 @@ class CISCODOT3OAMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: frames
             
@@ -1077,6 +1147,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: frames
             
             .. attribute:: cdot3oamduplicateeventnotificationtx
@@ -1085,6 +1157,8 @@ class CISCODOT3OAMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: frames
             
@@ -1095,6 +1169,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: frames
             
             .. attribute:: cdot3oamloopbackcontroltx
@@ -1103,6 +1179,8 @@ class CISCODOT3OAMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: frames
             
@@ -1113,6 +1191,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: frames
             
             .. attribute:: cdot3oamvariablerequesttx
@@ -1121,6 +1201,8 @@ class CISCODOT3OAMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: frames
             
@@ -1131,6 +1213,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: frames
             
             .. attribute:: cdot3oamvariableresponsetx
@@ -1139,6 +1223,8 @@ class CISCODOT3OAMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: frames
             
@@ -1149,6 +1235,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: frames
             
             .. attribute:: cdot3oamorgspecifictx
@@ -1157,6 +1245,8 @@ class CISCODOT3OAMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: frames
             
@@ -1167,6 +1257,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: frames
             
             .. attribute:: cdot3oamunsupportedcodestx
@@ -1175,6 +1267,8 @@ class CISCODOT3OAMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: frames
             
@@ -1185,6 +1279,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: frames
             
             .. attribute:: cdot3oamframeslostduetooam
@@ -1193,6 +1289,8 @@ class CISCODOT3OAMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: frames
             
@@ -1258,6 +1356,8 @@ class CISCODOT3OAMMIB(Entity):
                 self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamStatsTable.Cdot3OamStatsEntry, ['ifindex', 'cdot3oaminformationtx', 'cdot3oaminformationrx', 'cdot3oamuniqueeventnotificationtx', 'cdot3oamuniqueeventnotificationrx', 'cdot3oamduplicateeventnotificationtx', 'cdot3oamduplicateeventnotificationrx', 'cdot3oamloopbackcontroltx', 'cdot3oamloopbackcontrolrx', 'cdot3oamvariablerequesttx', 'cdot3oamvariablerequestrx', 'cdot3oamvariableresponsetx', 'cdot3oamvariableresponserx', 'cdot3oamorgspecifictx', 'cdot3oamorgspecificrx', 'cdot3oamunsupportedcodestx', 'cdot3oamunsupportedcodesrx', 'cdot3oamframeslostduetooam'], name, value)
 
 
+
+
     class Cdot3OamEventConfigTable(Entity):
         """
         Ethernet OAM includes the ability to generate and receive
@@ -1296,6 +1396,8 @@ class CISCODOT3OAMMIB(Entity):
         
         	Entries are automatically created and deleted from this table, and exist whenever the OAM entity supports Ethernet OAM events (as indicated by the eventSupport bit in cdot3OamFunctionsSuppported).  Values in the table are maintained across changes to the value of cdot3OamOperStatus.  Event configuration controls when the local management entity sends Event Notification OAMPDUs to its OAM peer, and when certain event flags are set or cleared in OAMPDUs. 
         	**type**\: list of  		 :py:class:`Cdot3OamEventConfigEntry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamEventConfigTable.Cdot3OamEventConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1345,12 +1447,16 @@ class CISCODOT3OAMMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdot3oamerrsymperiodwindowhi
             
             	The two objects cdot3OamErrSymPeriodWindowHi and cdot3OamErrSymPeriodLo together form an unsigned 64\-bit integer representing the number of symbols over which this threshold event is defined.  This is defined as  cdot3OamErrSymPeriodWindow = ((2^32)\*cdot3OamErrSymPeriodWindowHi)                                 + cdot3OamErrSymPeriodWindowLo  If cdot3OamErrSymPeriodThreshold symbol errors occur within a window of cdot3OamErrSymPeriodWindow symbols, an Event Notification OAMPDU should be generated with an Errored Symbol Period Event TLV indicating the threshold has been crossed in this window.    The default value for cdot3OamErrSymPeriodWindow is the number of symbols in one second for the underlying physical layer
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: 2^32 symbols
             
@@ -1361,6 +1467,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: symbols
             
             .. attribute:: cdot3oamerrsymperiodthresholdhi
@@ -1369,6 +1477,8 @@ class CISCODOT3OAMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: 2^32 symbols
             
@@ -1379,6 +1489,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: symbols
             
             .. attribute:: cdot3oamerrsymperiodevnotifenable
@@ -1386,12 +1498,16 @@ class CISCODOT3OAMMIB(Entity):
             	If true, the OAM entity should send an Event Notification OAMPDU when an Errored Symbol Period Event occurs.  By default, this object should have the value true for Ethernet like interfaces that support OAM.  If the OAM layer does not support event notifications (as indicated via the cdot3OamFunctionsSupported attribute), this value is ignored
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cdot3oamerrframeperiodwindow
             
             	The number of frames over which the threshold is defined. The default value of the window is the number of minimum size Ethernet frames that can be received over the physical layer in one second.                    If cdot3OamErrFramePeriodThreshold frame errors occur within a window of cdot3OamErrFramePeriodWindow frames, an Event Notification OAMPDU should be generated with an Errored Frame Period Event TLV indicating the threshold has been crossed in this window.  
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: frames
             
@@ -1402,6 +1518,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: frames
             
             .. attribute:: cdot3oamerrframeperiodevnotifenable
@@ -1409,12 +1527,16 @@ class CISCODOT3OAMMIB(Entity):
             	If true, the OAM entity should send an Event Notification OAMPDU when an Errored Frame Period Event occurs.   By default, this object should have the value true for Ethernet like interfaces that support OAM.  If the OAM layer does not support event notifications (as indicated via the cdot3OamFunctionsSupported attribute), this value is ignored. 
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cdot3oamerrframewindow
             
             	The amount of time (in 100ms increments) over which the threshold is defined.  The default value is 10 (1 second).                    If cdot3OamErrFrameThreshold frame errors occur within a window of cdot3OamErrFrameWindow seconds (measured in tenths of seconds), an Event Notification OAMPDU should be generated with an Errored Frame Event TLV indicating the threshold has been crossed in this window.  
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: tenths of a second
             
@@ -1425,6 +1547,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: frames
             
             .. attribute:: cdot3oamerrframeevnotifenable
@@ -1432,12 +1556,16 @@ class CISCODOT3OAMMIB(Entity):
             	If true, the OAM entity should send an Event Notification OAMPDU when an Errored Frame Event occurs.                   By default, this object should have the value true for Ethernet like interfaces that support OAM.  If the OAM layer does not support event notifications (as indicated via the cdot3OamFunctionsSupported attribute), this value is ignored. 
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cdot3oamerrframesecssummarywindow
             
             	The amount of time (in 100ms intervals) over which the threshold is defined.  The default value is 100 (10 seconds).                    If cdot3OamErrFrameSecsSummaryThreshold frame errors occur within a window of cdot3OamErrFrameSecsSummaryWindow (in tenths of seconds), an Event Notification OAMPDU should be generated with an Errored Frame Seconds Summary Event TLV indicating the threshold has been crossed in this window.  
             	**type**\: int
             
             	**range:** 100..9000
+            
+            	**config**\: False
             
             	**units**\: tenths of a second
             
@@ -1448,6 +1576,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 1..900
             
+            	**config**\: False
+            
             	**units**\: errored frame seconds
             
             .. attribute:: cdot3oamerrframesecsevnotifenable
@@ -1455,15 +1585,21 @@ class CISCODOT3OAMMIB(Entity):
             	If true, the local OAM entity should send an Event Notification OAMPDU when an Errored Frame Seconds Event occurs.                   By default, this object should have the value true for Ethernet like interfaces that support OAM.  If the OAM layer does not support event notifications (as indicated via the cdot3OamFunctionsSupported attribute), this value is ignored
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cdot3oamdyinggaspenable
             
             	If true, the local OAM entity should attempt to indicate a dying gasp via the OAMPDU flags field to its peer OAM entity when a dying gasp event occurs.  The exact definition of a dying gasp event is implementation dependent.  If the system does not support dying gasp capability, setting this object has no effect, and reading the object should always result in 'false'.                    By default, this object should have the value true for Ethernet like interfaces that support OAM.  If the OAM layer does not support event notifications (as indicated via the cdot3OamFunctionsSupported attribute), this value is ignored
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cdot3oamcriticaleventenable
             
             	If true, the local OAM entity should attempt to indicate a critical event via the OAMPDU flags to its peer OAM entity when a critical event occurs.   The exact definition of a critical event is implementation dependent.  If the system does not support critical event capability, setting this object has no effect, and reading the object should always result in 'false'.                    By default, this object should have the value true for Ethernet like interfaces that support OAM.  If the OAM layer does not support event notifications (as indicated via the cdot3OamFunctionsSupported attribute), this value is ignored
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1525,6 +1661,8 @@ class CISCODOT3OAMMIB(Entity):
                 self._perform_setattr(CISCODOT3OAMMIB.Cdot3OamEventConfigTable.Cdot3OamEventConfigEntry, ['ifindex', 'cdot3oamerrsymperiodwindowhi', 'cdot3oamerrsymperiodwindowlo', 'cdot3oamerrsymperiodthresholdhi', 'cdot3oamerrsymperiodthresholdlo', 'cdot3oamerrsymperiodevnotifenable', 'cdot3oamerrframeperiodwindow', 'cdot3oamerrframeperiodthreshold', 'cdot3oamerrframeperiodevnotifenable', 'cdot3oamerrframewindow', 'cdot3oamerrframethreshold', 'cdot3oamerrframeevnotifenable', 'cdot3oamerrframesecssummarywindow', 'cdot3oamerrframesecssummarythreshold', 'cdot3oamerrframesecsevnotifenable', 'cdot3oamdyinggaspenable', 'cdot3oamcriticaleventenable'], name, value)
 
 
+
+
     class Cdot3OamEventLogTable(Entity):
         """
         This table records a history of the events that have occurred
@@ -1552,6 +1690,8 @@ class CISCODOT3OAMMIB(Entity):
         
         	An entry in the cdot3OamEventLogTable.  Entries are automatically created whenever Ethernet OAM events occur at the local OAM entity, and when Event Notification OAMPDUs are received at the local OAM entity (indicating events have occurred at the peer OAM entity).  The size of the table is implementation dependent, but when the table becomes full, older events are automatically deleted to make room for newer events.  The table index cdot3OamEventLogIndex increments for each new entry, and when the maximum value is reached the value restarts at zero.  
         	**type**\: list of  		 :py:class:`Cdot3OamEventLogEntry <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamEventLogTable.Cdot3OamEventLogEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1602,12 +1742,16 @@ class CISCODOT3OAMMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cdot3oameventlogindex  (key)
             
             	An arbitrary integer for identifying individual events within the event log.  
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdot3oameventlogtimestamp
             
@@ -1616,12 +1760,16 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdot3oameventlogoui
             
             	The OUI of the entity defining the object type.  All IEEE 802.3 defined events (as appearing in [802.3ah] except for the Organizationally Unique Event TLVs) use the IEEE 802.3 OUI of 0x0180C2.  Organizations defining their own Event Notification TLVs include their OUI in the Event Notification TLV which gets reflected here.  
             	**type**\: str
             
             	**length:** 3
+            
+            	**config**\: False
             
             .. attribute:: cdot3oameventlogtype
             
@@ -1630,10 +1778,14 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdot3oameventloglocation
             
             	Whether this event occurred locally (local(1)), or was  received from the OAM peer via Ethernet OAM (remote(2))
             	**type**\:  :py:class:`Cdot3OamEventLogLocation <ydk.models.cisco_ios_xe.CISCO_DOT3_OAM_MIB.CISCODOT3OAMMIB.Cdot3OamEventLogTable.Cdot3OamEventLogEntry.Cdot3OamEventLogLocation>`
+            
+            	**config**\: False
             
             .. attribute:: cdot3oameventlogwindowhi
             
@@ -1642,12 +1794,16 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdot3oameventlogwindowlo
             
             	If the event represents a threshold crossing event, the two objects cdot3OamEventWindowHi and cdot3OamEventWindowLo form an unsigned 64\-bit integer yielding the window over which the value was measured for the threshold crossing event (for example, 5, when 11 occurrences happened in 5 seconds while the threshold was 10).   The two objects are combined as\:  cdot3OamEventLogWindow = ((2^32) \* cdot3OamEventLogWindowHi)                                 + cdot3OamEventLogWindowLo  Otherwise, this value is returned as all F's (2^32 \- 1) and  adds no useful information.  
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdot3oameventlogthresholdhi
             
@@ -1656,12 +1812,16 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cdot3oameventlogthresholdlo
             
             	If the event represents a threshold crossing event, the two objects cdot3OamEventThresholdHi and cdot3OamEventThresholdLo form an unsigned 64\-bit integer yielding the value that was crossed for the threshold crossing event (for example, 10, when 11 occurrences happened in 5 seconds while the threshold was 10).  The two objects are combined as\:  cdot3OamEventLogThreshold = ((2^32) \* cdot3OamEventLogThresholdHi)                                  + cdot3OamEventLogThresholdLo  Otherwise, this value is returned as all F's (2^32 \- 1) and adds no useful information.  
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cdot3oameventlogvalue
             
@@ -1670,6 +1830,8 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cdot3oameventlogrunningtotal
             
             	Each Event Notification TLV contains a running total of the number of times an event has occurred, as well as the number of times an Event Notification for the event has been transmitted.  For non\-threshold crossing events, the number of events (cdot3OamLogRunningTotal) and the number of resultant Event Notifications (cdot3OamLogEventTotal) should be identical.   For threshold crossing events, since multiple occurrences may be required to cross the threshold, these values are likely different.  This value represents the total number of times this event has happened since the last reset (for example, 3253, when 3253 symbol errors have occurred since the last reset, which has resulted in 51 symbol error threshold crossing events since the last reset).  
@@ -1677,12 +1839,16 @@ class CISCODOT3OAMMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cdot3oameventlogeventtotal
             
             	Each Event Notification TLV contains a running total of the number of times an event has occurred, as well as the number of times an Event Notification for the event has been transmitted.  For non\-threshold crossing events, the number of events (cdot3OamLogRunningTotal) and the number of resultant Event Notifications (cdot3OamLogEventTotal) should be identical.   For threshold crossing events, since multiple occurrences may be required to cross the threshold, these values are likely different.  This value represents the total number of times one or more of these occurrences have resulted in an Event Notification (for example, 51 when 3253 symbol errors have occurred since the last reset, which has resulted in 51 symbol error threshold crossing events since the last reset).  
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1754,7 +1920,11 @@ class CISCODOT3OAMMIB(Entity):
                 remote = Enum.YLeaf(2, "remote")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCODOT3OAMMIB()
         return self._top_entity
+
+
 

@@ -29,6 +29,7 @@ class ISISSUBTLVTYPE(Identity):
         super(ISISSUBTLVTYPE, self).__init__(ns, pref, tag)
 
 
+
 class ISISTLVTYPE(Identity):
     """
     Base identity for an ISIS TLV type.
@@ -42,6 +43,7 @@ class ISISTLVTYPE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:ISIS_TLV_TYPE"):
         super(ISISTLVTYPE, self).__init__(ns, pref, tag)
+
 
 
 class AREAADDRESSES(ISISTLVTYPE):
@@ -63,6 +65,7 @@ class AREAADDRESSES(ISISTLVTYPE):
         super(AREAADDRESSES, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYSUBTLVSTYPE(ISISSUBTLVTYPE):
     """
     Base identity for an ISIS TLV 22, 23, 222, 223, 141 SUB\-TLV
@@ -79,6 +82,7 @@ class ISREACHABILITYSUBTLVSTYPE(ISISSUBTLVTYPE):
         super(ISREACHABILITYSUBTLVSTYPE, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYLINKLOSS(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 36. Unidirectional Link Loss Delay.
@@ -92,6 +96,7 @@ class ISREACHABILITYLINKLOSS(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_LINK_LOSS"):
         super(ISREACHABILITYLINKLOSS, self).__init__(ns, pref, tag)
+
 
 
 class MTISNEIGHBORATTRIBUTE(ISISTLVTYPE):
@@ -112,6 +117,7 @@ class MTISNEIGHBORATTRIBUTE(ISISTLVTYPE):
         super(MTISNEIGHBORATTRIBUTE, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYIPV4INTERFACEADDRESS(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 6. IPv4 Interface Address.
@@ -125,6 +131,7 @@ class ISREACHABILITYIPV4INTERFACEADDRESS(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_IPV4_INTERFACE_ADDRESS"):
         super(ISREACHABILITYIPV4INTERFACEADDRESS, self).__init__(ns, pref, tag)
+
 
 
 class ISREACHABILITYIPV4NEIGHBORADDRESS(ISREACHABILITYSUBTLVSTYPE):
@@ -142,6 +149,7 @@ class ISREACHABILITYIPV4NEIGHBORADDRESS(ISREACHABILITYSUBTLVSTYPE):
         super(ISREACHABILITYIPV4NEIGHBORADDRESS, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYEXTENDEDADMINGROUP(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 14. Extended Administrative Group.
@@ -155,6 +163,7 @@ class ISREACHABILITYEXTENDEDADMINGROUP(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_EXTENDED_ADMIN_GROUP"):
         super(ISREACHABILITYEXTENDEDADMINGROUP, self).__init__(ns, pref, tag)
+
 
 
 class NLPID(ISISTLVTYPE):
@@ -174,6 +183,7 @@ class NLPID(ISISTLVTYPE):
         super(NLPID, self).__init__(ns, pref, tag)
 
 
+
 class MTIPV6REACHABILITY(ISISTLVTYPE):
     """
     ISIS TLV 237. TLV is aligned with IPv6 Reachability TLV type 236 beside
@@ -188,6 +198,7 @@ class MTIPV6REACHABILITY(ISISTLVTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:MT_IPV6_REACHABILITY"):
         super(MTIPV6REACHABILITY, self).__init__(ns, pref, tag)
+
 
 
 class MTISN(ISISTLVTYPE):
@@ -205,6 +216,7 @@ class MTISN(ISISTLVTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:MT_ISN"):
         super(MTISN, self).__init__(ns, pref, tag)
+
 
 
 class ISNEIGHBORATTRIBUTE(ISISTLVTYPE):
@@ -226,6 +238,7 @@ class ISNEIGHBORATTRIBUTE(ISISTLVTYPE):
         super(ISNEIGHBORATTRIBUTE, self).__init__(ns, pref, tag)
 
 
+
 class ISISALIASID(ISISTLVTYPE):
     """
     ISIS TLV 24. IS\-Alias TLV which extension\-capable ISs to
@@ -243,6 +256,7 @@ class ISISALIASID(ISISTLVTYPE):
         super(ISISALIASID, self).__init__(ns, pref, tag)
 
 
+
 class IPV6SRLG(ISISTLVTYPE):
     """
     ISIS TLV 139. IPv6 Shared Risk Link Group
@@ -258,6 +272,7 @@ class IPV6SRLG(ISISTLVTYPE):
         super(IPV6SRLG, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYBANDWIDTHCONSTRAINTS(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 22. Bandwidth Constraints.
@@ -271,6 +286,7 @@ class ISREACHABILITYBANDWIDTHCONSTRAINTS(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_BANDWIDTH_CONSTRAINTS"):
         super(ISREACHABILITYBANDWIDTHCONSTRAINTS, self).__init__(ns, pref, tag)
+
 
 
 class IPV4TEROUTERID(ISISTLVTYPE):
@@ -289,6 +305,7 @@ class IPV4TEROUTERID(ISISTLVTYPE):
         super(IPV4TEROUTERID, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYIPV6INTERFACEADDRESS(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 12. IPv6 Interface Address.
@@ -302,6 +319,7 @@ class ISREACHABILITYIPV6INTERFACEADDRESS(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_IPV6_INTERFACE_ADDRESS"):
         super(ISREACHABILITYIPV6INTERFACEADDRESS, self).__init__(ns, pref, tag)
+
 
 
 class ROUTERCAPABILITYSUBTLVSTYPE(ISISSUBTLVTYPE):
@@ -319,6 +337,7 @@ class ROUTERCAPABILITYSUBTLVSTYPE(ISISSUBTLVTYPE):
         super(ROUTERCAPABILITYSUBTLVSTYPE, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYADJSID(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 31. Adjacency Segment Identifier.
@@ -332,6 +351,7 @@ class ISREACHABILITYADJSID(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_ADJ_SID"):
         super(ISREACHABILITYADJSID, self).__init__(ns, pref, tag)
+
 
 
 class MULTITOPOLOGY(ISISTLVTYPE):
@@ -356,6 +376,7 @@ class MULTITOPOLOGY(ISISTLVTYPE):
         super(MULTITOPOLOGY, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYLINKATTRIBUTES(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 19. Link Attributes.
@@ -369,6 +390,7 @@ class ISREACHABILITYLINKATTRIBUTES(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_LINK_ATTRIBUTES"):
         super(ISREACHABILITYLINKATTRIBUTES, self).__init__(ns, pref, tag)
+
 
 
 class IPV6INTERFACEADDRESSES(ISISTLVTYPE):
@@ -387,6 +409,7 @@ class IPV6INTERFACEADDRESSES(ISISTLVTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IPV6_INTERFACE_ADDRESSES"):
         super(IPV6INTERFACEADDRESSES, self).__init__(ns, pref, tag)
+
 
 
 class DYNAMICNAME(ISISTLVTYPE):
@@ -408,6 +431,7 @@ class DYNAMICNAME(ISISTLVTYPE):
         super(DYNAMICNAME, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYAVAILABLEBANDWIDTH(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 38. Unidirectional Available Bandwidth.
@@ -421,6 +445,7 @@ class ISREACHABILITYAVAILABLEBANDWIDTH(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_AVAILABLE_BANDWIDTH"):
         super(ISREACHABILITYAVAILABLEBANDWIDTH, self).__init__(ns, pref, tag)
+
 
 
 class IPV4INTERFACEADDRESSES(ISISTLVTYPE):
@@ -439,6 +464,7 @@ class IPV4INTERFACEADDRESSES(ISISTLVTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IPV4_INTERFACE_ADDRESSES"):
         super(IPV4INTERFACEADDRESSES, self).__init__(ns, pref, tag)
+
 
 
 class IPV6TEROUTERID(ISISTLVTYPE):
@@ -460,6 +486,7 @@ class IPV6TEROUTERID(ISISTLVTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IPV6_TE_ROUTER_ID"):
         super(IPV6TEROUTERID, self).__init__(ns, pref, tag)
+
 
 
 class INSTANCEID(ISISTLVTYPE):
@@ -484,6 +511,7 @@ class INSTANCEID(ISISTLVTYPE):
         super(INSTANCEID, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYADJLANSID(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 32. Adjacency LAN Segment Identifier.
@@ -497,6 +525,7 @@ class ISREACHABILITYADJLANSID(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_ADJ_LAN_SID"):
         super(ISREACHABILITYADJLANSID, self).__init__(ns, pref, tag)
+
 
 
 class MTIPV4REACHABILITY(ISISTLVTYPE):
@@ -515,6 +544,7 @@ class MTIPV4REACHABILITY(ISISTLVTYPE):
         super(MTIPV4REACHABILITY, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYUTILIZEDBANDWIDTH(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 39. Unidirectional Utilized Bandwidth.
@@ -528,6 +558,7 @@ class ISREACHABILITYUTILIZEDBANDWIDTH(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_UTILIZED_BANDWIDTH"):
         super(ISREACHABILITYUTILIZEDBANDWIDTH, self).__init__(ns, pref, tag)
+
 
 
 class IPREACHABILITYSUBTLVSTYPE(ISISSUBTLVTYPE):
@@ -546,6 +577,7 @@ class IPREACHABILITYSUBTLVSTYPE(ISISSUBTLVTYPE):
         super(IPREACHABILITYSUBTLVSTYPE, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYMINMAXLINKDELAY(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 34. Min/Max Unidirectional Link Delay.
@@ -561,6 +593,7 @@ class ISREACHABILITYMINMAXLINKDELAY(ISREACHABILITYSUBTLVSTYPE):
         super(ISREACHABILITYMINMAXLINKDELAY, self).__init__(ns, pref, tag)
 
 
+
 class IPREACHABILITYPREFIXSID(IPREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 3. Prefix Segment Identifier.
@@ -574,6 +607,7 @@ class IPREACHABILITYPREFIXSID(IPREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IP_REACHABILITY_PREFIX_SID"):
         super(IPREACHABILITYPREFIXSID, self).__init__(ns, pref, tag)
+
 
 
 class EXTENDEDIPV4REACHABILITY(ISISTLVTYPE):
@@ -593,6 +627,7 @@ class EXTENDEDIPV4REACHABILITY(ISISTLVTYPE):
         super(EXTENDEDIPV4REACHABILITY, self).__init__(ns, pref, tag)
 
 
+
 class IPREACHABILITYPREFIXFLAGS(IPREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 4. Prefix Attribute Flags.
@@ -608,6 +643,7 @@ class IPREACHABILITYPREFIXFLAGS(IPREACHABILITYSUBTLVSTYPE):
         super(IPREACHABILITYPREFIXFLAGS, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYMAXRESERVABLEBANDWIDTH(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 10. Maximum Reservable Bandwidth.
@@ -621,6 +657,7 @@ class ISREACHABILITYMAXRESERVABLEBANDWIDTH(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_MAX_RESERVABLE_BANDWIDTH"):
         super(ISREACHABILITYMAXRESERVABLEBANDWIDTH, self).__init__(ns, pref, tag)
+
 
 
 class PURGEOI(ISISTLVTYPE):
@@ -644,6 +681,7 @@ class PURGEOI(ISISTLVTYPE):
         super(PURGEOI, self).__init__(ns, pref, tag)
 
 
+
 class IPV4EXTERNALREACHABILITY(ISISTLVTYPE):
     """
     ISIS TLV 130. TLV defines IP addresses outside the routing domain
@@ -660,6 +698,7 @@ class IPV4EXTERNALREACHABILITY(ISISTLVTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IPV4_EXTERNAL_REACHABILITY"):
         super(IPV4EXTERNALREACHABILITY, self).__init__(ns, pref, tag)
+
 
 
 class IPV6REACHABILITY(ISISTLVTYPE):
@@ -682,6 +721,7 @@ class IPV6REACHABILITY(ISISTLVTYPE):
         super(IPV6REACHABILITY, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYMAXLINKBANDWIDTH(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 9. Maximum Link Bandwidth.
@@ -697,6 +737,7 @@ class ISREACHABILITYMAXLINKBANDWIDTH(ISREACHABILITYSUBTLVSTYPE):
         super(ISREACHABILITYMAXLINKBANDWIDTH, self).__init__(ns, pref, tag)
 
 
+
 class IPV4SRLG(ISISTLVTYPE):
     """
     ISIS TLV 138. IPv4 Shared Risk Link Group TLV
@@ -710,6 +751,7 @@ class IPV4SRLG(ISISTLVTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IPV4_SRLG"):
         super(IPV4SRLG, self).__init__(ns, pref, tag)
+
 
 
 class IPV4INTERNALREACHABILITY(ISISTLVTYPE):
@@ -729,6 +771,7 @@ class IPV4INTERNALREACHABILITY(ISISTLVTYPE):
         super(IPV4INTERNALREACHABILITY, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYUNRESERVEDBANDWIDTH(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 11. Unreserved bandwidth.
@@ -744,6 +787,7 @@ class ISREACHABILITYUNRESERVEDBANDWIDTH(ISREACHABILITYSUBTLVSTYPE):
         super(ISREACHABILITYUNRESERVEDBANDWIDTH, self).__init__(ns, pref, tag)
 
 
+
 class ROUTERCAPABILITYSRCAPABILITY(ROUTERCAPABILITYSUBTLVSTYPE):
     """
     sub\-TLV 2. Segment Routing Capability.
@@ -757,6 +801,7 @@ class ROUTERCAPABILITYSRCAPABILITY(ROUTERCAPABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:ROUTER_CAPABILITY_SR_CAPABILITY"):
         super(ROUTERCAPABILITYSRCAPABILITY, self).__init__(ns, pref, tag)
+
 
 
 class ROUTERCAPABILITY(ISISTLVTYPE):
@@ -776,6 +821,7 @@ class ROUTERCAPABILITY(ISISTLVTYPE):
         super(ROUTERCAPABILITY, self).__init__(ns, pref, tag)
 
 
+
 class EXTENDEDISREACHABILITY(ISISTLVTYPE):
     """
     ISIS TLV 22. An extended IS reachability TLV that has a
@@ -793,6 +839,7 @@ class EXTENDEDISREACHABILITY(ISISTLVTYPE):
         super(EXTENDEDISREACHABILITY, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYADMINGROUP(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 3. Administrative group(color).
@@ -806,6 +853,7 @@ class ISREACHABILITYADMINGROUP(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_ADMIN_GROUP"):
         super(ISREACHABILITYADMINGROUP, self).__init__(ns, pref, tag)
+
 
 
 class IPREACHABILITYTAG64(IPREACHABILITYSUBTLVSTYPE):
@@ -823,6 +871,7 @@ class IPREACHABILITYTAG64(IPREACHABILITYSUBTLVSTYPE):
         super(IPREACHABILITYTAG64, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYLINKDELAY(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 33. Unidirectional Link Delay.
@@ -838,6 +887,7 @@ class ISREACHABILITYLINKDELAY(ISREACHABILITYSUBTLVSTYPE):
         super(ISREACHABILITYLINKDELAY, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYTEDEFAULTMETRIC(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 18. TE Default Metric.
@@ -851,6 +901,7 @@ class ISREACHABILITYTEDEFAULTMETRIC(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_TE_DEFAULT_METRIC"):
         super(ISREACHABILITYTEDEFAULTMETRIC, self).__init__(ns, pref, tag)
+
 
 
 class AUTHENTICATION(ISISTLVTYPE):
@@ -872,6 +923,7 @@ class AUTHENTICATION(ISISTLVTYPE):
         super(AUTHENTICATION, self).__init__(ns, pref, tag)
 
 
+
 class IISNEIGHBORS(ISISTLVTYPE):
     """
     ISIS TLV 2. Intermediate System to Intermediate System Intra\-
@@ -891,6 +943,7 @@ class IISNEIGHBORS(ISISTLVTYPE):
         super(IISNEIGHBORS, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYUNCONSTRAINEDLSP(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 23. Unconstrained LSP.
@@ -904,6 +957,7 @@ class ISREACHABILITYUNCONSTRAINEDLSP(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_UNCONSTRAINED_LSP"):
         super(ISREACHABILITYUNCONSTRAINEDLSP, self).__init__(ns, pref, tag)
+
 
 
 class ISREACHABILITYIPV6NEIGHBORADDRESS(ISREACHABILITYSUBTLVSTYPE):
@@ -921,6 +975,7 @@ class ISREACHABILITYIPV6NEIGHBORADDRESS(ISREACHABILITYSUBTLVSTYPE):
         super(ISREACHABILITYIPV6NEIGHBORADDRESS, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYRESIDUALBANDWIDTH(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 37. Unidirectional Residual Bandwidth.
@@ -934,6 +989,7 @@ class ISREACHABILITYRESIDUALBANDWIDTH(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_RESIDUAL_BANDWIDTH"):
         super(ISREACHABILITYRESIDUALBANDWIDTH, self).__init__(ns, pref, tag)
+
 
 
 class ISREACHABILITYLINKDELAYVARIATION(ISREACHABILITYSUBTLVSTYPE):
@@ -951,6 +1007,7 @@ class ISREACHABILITYLINKDELAYVARIATION(ISREACHABILITYSUBTLVSTYPE):
         super(ISREACHABILITYLINKDELAYVARIATION, self).__init__(ns, pref, tag)
 
 
+
 class ROUTERCAPABILITYSRALGORITHM(ROUTERCAPABILITYSUBTLVSTYPE):
     """
     sub\-TLV 19. Segment Routing Algorithm.
@@ -964,6 +1021,7 @@ class ROUTERCAPABILITYSRALGORITHM(ROUTERCAPABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:ROUTER_CAPABILITY_SR_ALGORITHM"):
         super(ROUTERCAPABILITYSRALGORITHM, self).__init__(ns, pref, tag)
+
 
 
 class IPREACHABILITYIPV6ROUTERID(IPREACHABILITYSUBTLVSTYPE):
@@ -981,6 +1039,7 @@ class IPREACHABILITYIPV6ROUTERID(IPREACHABILITYSUBTLVSTYPE):
         super(IPREACHABILITYIPV6ROUTERID, self).__init__(ns, pref, tag)
 
 
+
 class ISREACHABILITYLINKPROTECTIONTYPE(ISREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 20. Link Protection Type.
@@ -994,6 +1053,7 @@ class ISREACHABILITYLINKPROTECTIONTYPE(ISREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IS_REACHABILITY_LINK_PROTECTION_TYPE"):
         super(ISREACHABILITYLINKPROTECTIONTYPE, self).__init__(ns, pref, tag)
+
 
 
 class IPREACHABILITYTAG(IPREACHABILITYSUBTLVSTYPE):
@@ -1011,6 +1071,7 @@ class IPREACHABILITYTAG(IPREACHABILITYSUBTLVSTYPE):
         super(IPREACHABILITYTAG, self).__init__(ns, pref, tag)
 
 
+
 class IPREACHABILITYIPV4ROUTERID(IPREACHABILITYSUBTLVSTYPE):
     """
     sub\-TLV 11. IPv4 Source Router ID.
@@ -1024,5 +1085,6 @@ class IPREACHABILITYIPV4ROUTERID(IPREACHABILITYSUBTLVSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/isis-lsdb-types", pref="openconfig-isis-lsdb-types", tag="openconfig-isis-lsdb-types:IP_REACHABILITY_IPV4_ROUTER_ID"):
         super(IPREACHABILITYIPV4ROUTERID, self).__init__(ns, pref, tag)
+
 
 

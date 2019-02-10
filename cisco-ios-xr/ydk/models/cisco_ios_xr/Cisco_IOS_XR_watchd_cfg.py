@@ -163,6 +163,7 @@ class Watchdog(Entity):
             self._perform_setattr(Watchdog.ThresholdMemory, ['minor', 'severe', 'critical'], name, value)
 
 
+
     class DiskLimit(Entity):
         """
         Disk thresholds
@@ -219,9 +220,12 @@ class Watchdog(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Watchdog.DiskLimit, ['minor', 'severe', 'critical'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Watchdog()
         return self._top_entity
+
+
 
 class Watchd(Entity):
     """
@@ -266,4 +270,6 @@ class Watchd(Entity):
     def clone_ptr(self):
         self._top_entity = Watchd()
         return self._top_entity
+
+
 

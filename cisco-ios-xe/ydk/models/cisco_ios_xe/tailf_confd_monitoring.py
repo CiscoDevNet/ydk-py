@@ -22,6 +22,8 @@ class ConfdState(Entity):
     	Tail\-f product version number
     	**type**\: str
     
+    	**config**\: False
+    
     .. attribute:: smp
     
     	
@@ -29,25 +31,35 @@ class ConfdState(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: epoll
     
     	Indicates whether an enhanced poll() function is used
     	**type**\: bool
+    
+    	**config**\: False
     
     .. attribute:: daemon_status
     
     	
     	**type**\:  :py:class:`DaemonStatus <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.DaemonStatus>`
     
+    	**config**\: False
+    
     .. attribute:: read_only_mode
     
     	
     	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
+    	**config**\: False
+    
     .. attribute:: upgrade_mode
     
     	Note that if the node is in upgrade mode, it is not possible to get any information from the system over NETCONF. The error\-app\-tag will be upgrade\-in\-progress.  Existing CLI sessions can get system information
     	**type**\: :py:class:`Empty<ydk.types.Empty>`
+    
+    	**config**\: False
     
     .. attribute:: ha
     
@@ -56,10 +68,14 @@ class ConfdState(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: loaded_data_models
     
     	
     	**type**\:  :py:class:`LoadedDataModels <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.LoadedDataModels>`
+    
+    	**config**\: False
     
     .. attribute:: netconf
     
@@ -68,12 +84,16 @@ class ConfdState(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: cli
     
     	
     	**type**\:  :py:class:`Cli <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Cli>`
     
     	**presence node**\: True
+    
+    	**config**\: False
     
     .. attribute:: webui
     
@@ -82,12 +102,16 @@ class ConfdState(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: rest
     
     	
     	**type**\:  :py:class:`Rest <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Rest>`
     
     	**presence node**\: True
+    
+    	**config**\: False
     
     .. attribute:: snmp
     
@@ -96,10 +120,14 @@ class ConfdState(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: internal
     
     	
     	**type**\:  :py:class:`Internal <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal>`
+    
+    	**config**\: False
     
     
 
@@ -163,7 +191,7 @@ class ConfdState(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(ConfdState, ['version', 'epoll', 'daemon_status', 'read_only_mode', 'upgrade_mode'], name, value)
+        self._perform_setattr(ConfdState, [u'version', u'epoll', u'daemon_status', u'read_only_mode', u'upgrade_mode'], name, value)
 
     class DaemonStatus(Enum):
         """
@@ -214,6 +242,8 @@ class ConfdState(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -242,7 +272,8 @@ class ConfdState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ConfdState.Smp, ['number_of_threads'], name, value)
+            self._perform_setattr(ConfdState.Smp, [u'number_of_threads'], name, value)
+
 
 
     class Ha(Entity):
@@ -254,25 +285,35 @@ class ConfdState(Entity):
         	The current HA mode of the node in the HA cluster
         	**type**\:  :py:class:`Mode <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Ha.Mode>`
         
+        	**config**\: False
+        
         .. attribute:: node_id
         
         	The node identifier of this node in the HA cluster
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: master_node_id
         
         	The node identifier of this node's parent node. This is the HA cluster's master node unless relay slaves are used
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: connected_slave
         
         	The node identifiers of the currently connected slaves
         	**type**\: list of str
         
+        	**config**\: False
+        
         .. attribute:: pending_slave
         
         	The node identifiers of slaves with pending acknowledgement of synchronous replication
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -310,7 +351,7 @@ class ConfdState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ConfdState.Ha, ['mode', 'node_id', 'master_node_id', 'connected_slave', 'pending_slave'], name, value)
+            self._perform_setattr(ConfdState.Ha, [u'mode', u'node_id', u'master_node_id', u'connected_slave', u'pending_slave'], name, value)
 
         class Mode(Enum):
             """
@@ -338,6 +379,7 @@ class ConfdState(Entity):
 
 
 
+
     class LoadedDataModels(Entity):
         """
         
@@ -346,6 +388,8 @@ class ConfdState(Entity):
         
         	This list contains all loaded YANG data modules.  This list is a superset of the 'schema' list defined in ietf\-netconf\-monitoring, which only lists modules exported through NETCONF
         	**type**\: list of  		 :py:class:`DataModel <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.LoadedDataModels.DataModel>`
+        
+        	**config**\: False
         
         
 
@@ -387,25 +431,35 @@ class ConfdState(Entity):
             	The YANG module name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: revision
             
             	The YANG module revision
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: namespace
             
             	The YANG module namespace
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: prefix
             
             	The prefix defined in the YANG module
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: exported_to_all
             
             	This leaf is present if the module is exported to all northbound interfaces
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            	**config**\: False
             
             .. attribute:: exported_to
             
@@ -415,6 +469,8 @@ class ConfdState(Entity):
             		**type**\: list of   :py:class:`ExportedTo <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.LoadedDataModels.DataModel.ExportedTo>`
             
             		**type**\: list of str
+            
+            	**config**\: False
             
             
 
@@ -451,7 +507,7 @@ class ConfdState(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ConfdState.LoadedDataModels.DataModel, ['name', 'revision', 'namespace', 'prefix', 'exported_to_all', 'exported_to'], name, value)
+                self._perform_setattr(ConfdState.LoadedDataModels.DataModel, [u'name', u'revision', u'namespace', u'prefix', u'exported_to_all', u'exported_to'], name, value)
 
             class ExportedTo(Enum):
                 """
@@ -485,6 +541,8 @@ class ConfdState(Entity):
 
 
 
+
+
     class Netconf(Entity):
         """
         
@@ -493,6 +551,8 @@ class ConfdState(Entity):
         
         	The transport addresses the NETCONF server is listening on.  Note that other mechanisms can be put in front of the TCP addresses below, e.g., an OpenSSH server.  Such mechanisms are not known to the daemon and not listed here
         	**type**\:  :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Netconf.Listen>`
+        
+        	**config**\: False
         
         
 
@@ -539,10 +599,14 @@ class ConfdState(Entity):
             	
             	**type**\: list of  		 :py:class:`Tcp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Netconf.Listen.Tcp>`
             
+            	**config**\: False
+            
             .. attribute:: ssh
             
             	
             	**type**\: list of  		 :py:class:`Ssh <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Netconf.Listen.Ssh>`
+            
+            	**config**\: False
             
             
 
@@ -589,12 +653,16 @@ class ConfdState(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: port
                 
                 	
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -623,7 +691,8 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Netconf.Listen.Tcp, ['ip', 'port'], name, value)
+                    self._perform_setattr(ConfdState.Netconf.Listen.Tcp, [u'ip', u'port'], name, value)
+
 
 
             class Ssh(Entity):
@@ -643,12 +712,16 @@ class ConfdState(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: port
                 
                 	
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -677,7 +750,10 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Netconf.Listen.Ssh, ['ip', 'port'], name, value)
+                    self._perform_setattr(ConfdState.Netconf.Listen.Ssh, [u'ip', u'port'], name, value)
+
+
+
 
 
     class Cli(Entity):
@@ -688,6 +764,8 @@ class ConfdState(Entity):
         
         	The transport addresses the CLI server is listening on.  In addition to the SSH addresses listen below, the CLI can always be invoked through the daemons IPC port.  Note that other mechanisms can be put in front of the IPC port, e.g., an OpenSSH server.  Such mechanisms are not known to the daemon and not listed here
         	**type**\:  :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Cli.Listen>`
+        
+        	**config**\: False
         
         
 
@@ -737,6 +815,8 @@ class ConfdState(Entity):
             	
             	**type**\: list of  		 :py:class:`Ssh <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Cli.Listen.Ssh>`
             
+            	**config**\: False
+            
             
 
             """
@@ -781,12 +861,16 @@ class ConfdState(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: port
                 
                 	
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -815,7 +899,10 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Cli.Listen.Ssh, ['ip', 'port'], name, value)
+                    self._perform_setattr(ConfdState.Cli.Listen.Ssh, [u'ip', u'port'], name, value)
+
+
+
 
 
     class Webui(Entity):
@@ -826,6 +913,8 @@ class ConfdState(Entity):
         
         	The transport addresses the WebUI server is listening on
         	**type**\:  :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Webui.Listen>`
+        
+        	**config**\: False
         
         
 
@@ -868,10 +957,14 @@ class ConfdState(Entity):
             	
             	**type**\: list of  		 :py:class:`Tcp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Webui.Listen.Tcp>`
             
+            	**config**\: False
+            
             .. attribute:: ssl
             
             	
             	**type**\: list of  		 :py:class:`Ssl <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Webui.Listen.Ssl>`
+            
+            	**config**\: False
             
             
 
@@ -918,12 +1011,16 @@ class ConfdState(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: port
                 
                 	
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -952,7 +1049,8 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Webui.Listen.Tcp, ['ip', 'port'], name, value)
+                    self._perform_setattr(ConfdState.Webui.Listen.Tcp, [u'ip', u'port'], name, value)
+
 
 
             class Ssl(Entity):
@@ -972,12 +1070,16 @@ class ConfdState(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: port
                 
                 	
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -1006,7 +1108,10 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Webui.Listen.Ssl, ['ip', 'port'], name, value)
+                    self._perform_setattr(ConfdState.Webui.Listen.Ssl, [u'ip', u'port'], name, value)
+
+
+
 
 
     class Rest(Entity):
@@ -1017,6 +1122,8 @@ class ConfdState(Entity):
         
         	The transport addresses the REST server is listening on
         	**type**\:  :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Rest.Listen>`
+        
+        	**config**\: False
         
         
 
@@ -1059,10 +1166,14 @@ class ConfdState(Entity):
             	
             	**type**\: list of  		 :py:class:`Tcp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Rest.Listen.Tcp>`
             
+            	**config**\: False
+            
             .. attribute:: ssl
             
             	
             	**type**\: list of  		 :py:class:`Ssl <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Rest.Listen.Ssl>`
+            
+            	**config**\: False
             
             
 
@@ -1109,12 +1220,16 @@ class ConfdState(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: port
                 
                 	
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -1143,7 +1258,8 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Rest.Listen.Tcp, ['ip', 'port'], name, value)
+                    self._perform_setattr(ConfdState.Rest.Listen.Tcp, [u'ip', u'port'], name, value)
+
 
 
             class Ssl(Entity):
@@ -1163,12 +1279,16 @@ class ConfdState(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: port
                 
                 	
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -1197,7 +1317,10 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Rest.Listen.Ssl, ['ip', 'port'], name, value)
+                    self._perform_setattr(ConfdState.Rest.Listen.Ssl, [u'ip', u'port'], name, value)
+
+
+
 
 
     class Snmp(Entity):
@@ -1209,15 +1332,21 @@ class ConfdState(Entity):
         	The transport addresses the SNMP agent is listening on
         	**type**\:  :py:class:`Listen <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Snmp.Listen>`
         
+        	**config**\: False
+        
         .. attribute:: mib
         
         	MIBs loaded by the SNMP agent
         	**type**\: list of str
         
+        	**config**\: False
+        
         .. attribute:: version
         
         	SNMP version used by the engine
         	**type**\:  :py:class:`Version <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Snmp.Version>`
+        
+        	**config**\: False
         
         .. attribute:: engine_id
         
@@ -1225,6 +1354,8 @@ class ConfdState(Entity):
         	**type**\: str
         
         	**pattern:** ([0\-9a\-fA\-F]){2}(\:([0\-9a\-fA\-F]){2}){4,31}
+        
+        	**config**\: False
         
         
 
@@ -1264,7 +1395,7 @@ class ConfdState(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ConfdState.Snmp, ['mib', 'engine_id'], name, value)
+            self._perform_setattr(ConfdState.Snmp, [u'mib', u'engine_id'], name, value)
 
 
         class Listen(Entity):
@@ -1275,6 +1406,8 @@ class ConfdState(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Udp <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Snmp.Listen.Udp>`
+            
+            	**config**\: False
             
             
 
@@ -1320,12 +1453,16 @@ class ConfdState(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: port
                 
                 	
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -1354,7 +1491,9 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Snmp.Listen.Udp, ['ip', 'port'], name, value)
+                    self._perform_setattr(ConfdState.Snmp.Listen.Udp, [u'ip', u'port'], name, value)
+
+
 
 
         class Version(Entity):
@@ -1366,15 +1505,21 @@ class ConfdState(Entity):
             	
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
+            	**config**\: False
+            
             .. attribute:: v2c
             
             	
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
+            	**config**\: False
+            
             .. attribute:: v3
             
             	
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            	**config**\: False
             
             
 
@@ -1405,7 +1550,9 @@ class ConfdState(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ConfdState.Snmp.Version, ['v1', 'v2c', 'v3'], name, value)
+                self._perform_setattr(ConfdState.Snmp.Version, [u'v1', u'v2c', u'v3'], name, value)
+
+
 
 
     class Internal(Entity):
@@ -1417,10 +1564,14 @@ class ConfdState(Entity):
         	
         	**type**\:  :py:class:`Callpoints <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints>`
         
+        	**config**\: False
+        
         .. attribute:: cdb
         
         	
         	**type**\:  :py:class:`Cdb <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb>`
+        
+        	**config**\: False
         
         
 
@@ -1485,40 +1636,56 @@ class ConfdState(Entity):
             	
             	**type**\: list of  		 :py:class:`Callpoint <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint>`
             
+            	**config**\: False
+            
             .. attribute:: validationpoint
             
             	
             	**type**\: list of  		 :py:class:`Validationpoint <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint>`
+            
+            	**config**\: False
             
             .. attribute:: actionpoint
             
             	
             	**type**\: list of  		 :py:class:`Actionpoint <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint>`
             
+            	**config**\: False
+            
             .. attribute:: snmp_inform_callback
             
             	
             	**type**\: list of  		 :py:class:`SnmpInformCallback <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback>`
+            
+            	**config**\: False
             
             .. attribute:: snmp_notification_subscription
             
             	
             	**type**\: list of  		 :py:class:`SnmpNotificationSubscription <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription>`
             
+            	**config**\: False
+            
             .. attribute:: error_formatting_callback
             
             	
             	**type**\: list of  		 :py:class:`ErrorFormattingCallback <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback>`
+            
+            	**config**\: False
             
             .. attribute:: typepoint
             
             	
             	**type**\: list of  		 :py:class:`Typepoint <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint>`
             
+            	**config**\: False
+            
             .. attribute:: notification_stream_replay
             
             	
             	**type**\: list of  		 :py:class:`NotificationStreamReplay <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay>`
+            
+            	**config**\: False
             
             .. attribute:: authentication_callback
             
@@ -1527,12 +1694,16 @@ class ConfdState(Entity):
             
             	**presence node**\: True
             
+            	**config**\: False
+            
             .. attribute:: authorization_callbacks
             
             	
             	**type**\:  :py:class:`AuthorizationCallbacks <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks>`
             
             	**presence node**\: True
+            
+            	**config**\: False
             
             
 
@@ -1583,30 +1754,42 @@ class ConfdState(Entity):
                 	Callpoint id
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: daemon
                 
                 	
                 	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Daemon>`
+                
+                	**config**\: False
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: range
                 
                 	
                 	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Range>`
+                
+                	**config**\: False
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
                 	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Error>`
+                
+                	**config**\: False
                 
                 
 
@@ -1645,7 +1828,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint, ['id', 'path', 'file', 'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint, [u'id', u'path', u'file', u'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -1686,15 +1869,21 @@ class ConfdState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
                     	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Daemon.Error>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1724,7 +1913,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Daemon, ['id', 'name', 'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Daemon, [u'id', u'name', u'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -1746,6 +1935,7 @@ class ConfdState(Entity):
 
 
 
+
                 class Range(Entity):
                     """
                     
@@ -1755,20 +1945,28 @@ class ConfdState(Entity):
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: daemon
                     
                     	
                     	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Range.Daemon>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1802,7 +2000,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range, ['lower', 'upper', 'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range, [u'lower', u'upper', u'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -1816,15 +2014,21 @@ class ConfdState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
                         	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Callpoint.Range.Daemon.Error>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1854,7 +2058,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range.Daemon, ['id', 'name', 'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range.Daemon, [u'id', u'name', u'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -1876,6 +2080,9 @@ class ConfdState(Entity):
 
 
 
+
+
+
             class Validationpoint(Entity):
                 """
                 
@@ -1885,30 +2092,42 @@ class ConfdState(Entity):
                 	Callpoint id
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: daemon
                 
                 	
                 	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Daemon>`
+                
+                	**config**\: False
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: range
                 
                 	
                 	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Range>`
+                
+                	**config**\: False
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
                 	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Error>`
+                
+                	**config**\: False
                 
                 
 
@@ -1947,7 +2166,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint, ['id', 'path', 'file', 'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint, [u'id', u'path', u'file', u'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -1988,15 +2207,21 @@ class ConfdState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
                     	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Daemon.Error>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2026,7 +2251,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Daemon, ['id', 'name', 'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Daemon, [u'id', u'name', u'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -2048,6 +2273,7 @@ class ConfdState(Entity):
 
 
 
+
                 class Range(Entity):
                     """
                     
@@ -2057,20 +2283,28 @@ class ConfdState(Entity):
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: daemon
                     
                     	
                     	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2104,7 +2338,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range, ['lower', 'upper', 'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range, [u'lower', u'upper', u'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -2118,15 +2352,21 @@ class ConfdState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
                         	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon.Error>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2156,7 +2396,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon, ['id', 'name', 'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon, [u'id', u'name', u'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -2178,6 +2418,9 @@ class ConfdState(Entity):
 
 
 
+
+
+
             class Actionpoint(Entity):
                 """
                 
@@ -2187,30 +2430,42 @@ class ConfdState(Entity):
                 	Callpoint id
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: daemon
                 
                 	
                 	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Daemon>`
+                
+                	**config**\: False
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: range
                 
                 	
                 	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Range>`
+                
+                	**config**\: False
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
                 	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Error>`
+                
+                	**config**\: False
                 
                 
 
@@ -2249,7 +2504,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint, ['id', 'path', 'file', 'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint, [u'id', u'path', u'file', u'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -2290,15 +2545,21 @@ class ConfdState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
                     	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Daemon.Error>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2328,7 +2589,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Daemon, ['id', 'name', 'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Daemon, [u'id', u'name', u'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -2350,6 +2611,7 @@ class ConfdState(Entity):
 
 
 
+
                 class Range(Entity):
                     """
                     
@@ -2359,20 +2621,28 @@ class ConfdState(Entity):
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: daemon
                     
                     	
                     	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2406,7 +2676,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range, ['lower', 'upper', 'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range, [u'lower', u'upper', u'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -2420,15 +2690,21 @@ class ConfdState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
                         	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon.Error>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2458,7 +2734,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon, ['id', 'name', 'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon, [u'id', u'name', u'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -2480,6 +2756,9 @@ class ConfdState(Entity):
 
 
 
+
+
+
             class SnmpInformCallback(Entity):
                 """
                 
@@ -2489,30 +2768,42 @@ class ConfdState(Entity):
                 	Callpoint id
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: daemon
                 
                 	
                 	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon>`
+                
+                	**config**\: False
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: range
                 
                 	
                 	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Range>`
+                
+                	**config**\: False
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
                 	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Error>`
+                
+                	**config**\: False
                 
                 
 
@@ -2551,7 +2842,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback, ['id', 'path', 'file', 'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback, [u'id', u'path', u'file', u'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -2592,15 +2883,21 @@ class ConfdState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
                     	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon.Error>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2630,7 +2927,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon, ['id', 'name', 'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon, [u'id', u'name', u'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -2652,6 +2949,7 @@ class ConfdState(Entity):
 
 
 
+
                 class Range(Entity):
                     """
                     
@@ -2661,20 +2959,28 @@ class ConfdState(Entity):
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: daemon
                     
                     	
                     	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2708,7 +3014,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range, ['lower', 'upper', 'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range, [u'lower', u'upper', u'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -2722,15 +3028,21 @@ class ConfdState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
                         	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon.Error>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2760,7 +3072,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon, ['id', 'name', 'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon, [u'id', u'name', u'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -2782,6 +3094,9 @@ class ConfdState(Entity):
 
 
 
+
+
+
             class SnmpNotificationSubscription(Entity):
                 """
                 
@@ -2791,30 +3106,42 @@ class ConfdState(Entity):
                 	Callpoint id
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: daemon
                 
                 	
                 	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon>`
+                
+                	**config**\: False
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: range
                 
                 	
                 	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range>`
+                
+                	**config**\: False
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
                 	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Error>`
+                
+                	**config**\: False
                 
                 
 
@@ -2853,7 +3180,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription, ['id', 'path', 'file', 'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription, [u'id', u'path', u'file', u'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -2894,15 +3221,21 @@ class ConfdState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
                     	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon.Error>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2932,7 +3265,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon, ['id', 'name', 'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon, [u'id', u'name', u'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -2954,6 +3287,7 @@ class ConfdState(Entity):
 
 
 
+
                 class Range(Entity):
                     """
                     
@@ -2963,20 +3297,28 @@ class ConfdState(Entity):
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: daemon
                     
                     	
                     	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3010,7 +3352,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range, ['lower', 'upper', 'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range, [u'lower', u'upper', u'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -3024,15 +3366,21 @@ class ConfdState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
                         	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon.Error>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3062,7 +3410,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon, ['id', 'name', 'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon, [u'id', u'name', u'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -3084,6 +3432,9 @@ class ConfdState(Entity):
 
 
 
+
+
+
             class ErrorFormattingCallback(Entity):
                 """
                 
@@ -3093,30 +3444,42 @@ class ConfdState(Entity):
                 	Callpoint id
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: daemon
                 
                 	
                 	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon>`
+                
+                	**config**\: False
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: range
                 
                 	
                 	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range>`
+                
+                	**config**\: False
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
                 	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Error>`
+                
+                	**config**\: False
                 
                 
 
@@ -3155,7 +3518,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback, ['id', 'path', 'file', 'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback, [u'id', u'path', u'file', u'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -3196,15 +3559,21 @@ class ConfdState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
                     	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon.Error>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3234,7 +3603,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon, ['id', 'name', 'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon, [u'id', u'name', u'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -3256,6 +3625,7 @@ class ConfdState(Entity):
 
 
 
+
                 class Range(Entity):
                     """
                     
@@ -3265,20 +3635,28 @@ class ConfdState(Entity):
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: daemon
                     
                     	
                     	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3312,7 +3690,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range, ['lower', 'upper', 'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range, [u'lower', u'upper', u'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -3326,15 +3704,21 @@ class ConfdState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
                         	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon.Error>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3364,7 +3748,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon, ['id', 'name', 'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon, [u'id', u'name', u'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -3386,6 +3770,9 @@ class ConfdState(Entity):
 
 
 
+
+
+
             class Typepoint(Entity):
                 """
                 
@@ -3395,30 +3782,42 @@ class ConfdState(Entity):
                 	Callpoint id
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: daemon
                 
                 	
                 	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Daemon>`
+                
+                	**config**\: False
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: range
                 
                 	
                 	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Range>`
+                
+                	**config**\: False
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
                 	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Error>`
+                
+                	**config**\: False
                 
                 
 
@@ -3457,7 +3856,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint, ['id', 'path', 'file', 'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint, [u'id', u'path', u'file', u'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -3498,15 +3897,21 @@ class ConfdState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
                     	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Daemon.Error>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3536,7 +3941,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Daemon, ['id', 'name', 'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Daemon, [u'id', u'name', u'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -3558,6 +3963,7 @@ class ConfdState(Entity):
 
 
 
+
                 class Range(Entity):
                     """
                     
@@ -3567,20 +3973,28 @@ class ConfdState(Entity):
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: daemon
                     
                     	
                     	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Range.Daemon>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3614,7 +4028,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range, ['lower', 'upper', 'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range, [u'lower', u'upper', u'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -3628,15 +4042,21 @@ class ConfdState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
                         	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.Typepoint.Range.Daemon.Error>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3666,7 +4086,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range.Daemon, ['id', 'name', 'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range.Daemon, [u'id', u'name', u'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -3688,6 +4108,9 @@ class ConfdState(Entity):
 
 
 
+
+
+
             class NotificationStreamReplay(Entity):
                 """
                 
@@ -3697,35 +4120,49 @@ class ConfdState(Entity):
                 	Name of the notification stream
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: replay_support
                 
                 	
                 	**type**\:  :py:class:`ReplaySupport <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.ReplaySupport>`
+                
+                	**config**\: False
                 
                 .. attribute:: daemon
                 
                 	
                 	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon>`
                 
+                	**config**\: False
+                
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: range
                 
                 	
                 	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Range>`
                 
+                	**config**\: False
+                
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
                 	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Error>`
+                
+                	**config**\: False
                 
                 
 
@@ -3766,7 +4203,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay, ['name', 'replay_support', 'path', 'file', 'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay, [u'name', u'replay_support', u'path', u'file', u'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -3826,15 +4263,21 @@ class ConfdState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
                     	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon.Error>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3864,7 +4307,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon, ['id', 'name', 'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon, [u'id', u'name', u'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -3886,6 +4329,7 @@ class ConfdState(Entity):
 
 
 
+
                 class Range(Entity):
                     """
                     
@@ -3895,20 +4339,28 @@ class ConfdState(Entity):
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: daemon
                     
                     	
                     	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -3942,7 +4394,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range, ['lower', 'upper', 'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range, [u'lower', u'upper', u'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -3956,15 +4408,21 @@ class ConfdState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
                         	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon.Error>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3994,7 +4452,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon, ['id', 'name', 'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon, [u'id', u'name', u'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -4016,6 +4474,9 @@ class ConfdState(Entity):
 
 
 
+
+
+
             class AuthenticationCallback(Entity):
                 """
                 
@@ -4025,30 +4486,42 @@ class ConfdState(Entity):
                 	
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: daemon
                 
                 	
                 	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon>`
+                
+                	**config**\: False
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: range
                 
                 	
                 	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Range>`
+                
+                	**config**\: False
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
                 	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Error>`
+                
+                	**config**\: False
                 
                 
 
@@ -4090,7 +4563,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback, ['enabled', 'path', 'file', 'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback, [u'enabled', u'path', u'file', u'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -4131,15 +4604,21 @@ class ConfdState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
                     	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon.Error>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4170,7 +4649,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon, ['id', 'name', 'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon, [u'id', u'name', u'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -4192,6 +4671,7 @@ class ConfdState(Entity):
 
 
 
+
                 class Range(Entity):
                     """
                     
@@ -4201,20 +4681,28 @@ class ConfdState(Entity):
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: daemon
                     
                     	
                     	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4249,7 +4737,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range, ['lower', 'upper', 'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range, [u'lower', u'upper', u'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -4263,15 +4751,21 @@ class ConfdState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
                         	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon.Error>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4302,7 +4796,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon, ['id', 'name', 'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon, [u'id', u'name', u'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -4324,6 +4818,9 @@ class ConfdState(Entity):
 
 
 
+
+
+
             class AuthorizationCallbacks(Entity):
                 """
                 
@@ -4333,30 +4830,42 @@ class ConfdState(Entity):
                 	
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: daemon
                 
                 	
                 	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon>`
+                
+                	**config**\: False
                 
                 .. attribute:: path
                 
                 	The path of the list that a range registration pertains to
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: range
                 
                 	
                 	**type**\: list of  		 :py:class:`Range <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range>`
+                
+                	**config**\: False
                 
                 .. attribute:: file
                 
                 	The pathname of the shared object implementing the type for a typepoint
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	If this leaf exists, there is a problem with the callpoint registration
                 	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Error>`
+                
+                	**config**\: False
                 
                 
 
@@ -4398,7 +4907,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks, ['enabled', 'path', 'file', 'error'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks, [u'enabled', u'path', u'file', u'error'], name, value)
 
                 class Error(Enum):
                     """
@@ -4439,15 +4948,21 @@ class ConfdState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	The name of the application daemon that has registered for a callpoint
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem with the daemon registration
                     	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon.Error>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4478,7 +4993,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon, ['id', 'name', 'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon, [u'id', u'name', u'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -4500,6 +5015,7 @@ class ConfdState(Entity):
 
 
 
+
                 class Range(Entity):
                     """
                     
@@ -4509,20 +5025,28 @@ class ConfdState(Entity):
                     	The space\-separated set of keys that defines the lower endpoint of the range for a non\-default registration
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: upper
                     
                     	The space\-separated set of keys that defines the upper endpoint of the range for a non\-default registration
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: default
                     
                     	If this leaf exists, this is a default registration \- in this case 'lower' and 'upper' do not exist
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: daemon
                     
                     	
                     	**type**\:  :py:class:`Daemon <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4557,7 +5081,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range, ['lower', 'upper', 'default'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range, [u'lower', u'upper', u'default'], name, value)
 
 
                     class Daemon(Entity):
@@ -4571,15 +5095,21 @@ class ConfdState(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	The name of the application daemon that has registered for a callpoint
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: error
                         
                         	If this leaf exists, there is a problem with the daemon registration
                         	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon.Error>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4610,7 +5140,7 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon, ['id', 'name', 'error'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon, [u'id', u'name', u'error'], name, value)
 
                         class Error(Enum):
                             """
@@ -4632,6 +5162,10 @@ class ConfdState(Entity):
 
 
 
+
+
+
+
         class Cdb(Entity):
             """
             
@@ -4641,10 +5175,14 @@ class ConfdState(Entity):
             	
             	**type**\: list of  		 :py:class:`Datastore <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore>`
             
+            	**config**\: False
+            
             .. attribute:: client
             
             	
             	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client>`
+            
+            	**config**\: False
             
             
 
@@ -4683,10 +5221,14 @@ class ConfdState(Entity):
                 	
                 	**type**\:  :py:class:`DatastoreName <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.DatastoreName>`
                 
+                	**config**\: False
+                
                 .. attribute:: transaction_id
                 
                 	The id of the last committed transaction for the 'running' datastore, or the last update for the 'operational' datastore. For the 'operational' datastore, it is only present when HA is enabled
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: write_queue
                 
@@ -4695,10 +5237,14 @@ class ConfdState(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: filename
                 
                 	The pathname of the file that is used for persistent storage for the datastore. Not present for 'running' when 'startup' exists
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: disk_size
                 
@@ -4707,12 +5253,16 @@ class ConfdState(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: ram_size
                 
                 	The size of the in\-memory representation of the datastore
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: read_locks
                 
@@ -4721,20 +5271,28 @@ class ConfdState(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: write_lock_set
                 
                 	Indicates whether a write lock is in effect for the datastore. Not present for the 'operational' datastore
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: subscription_lock_set
                 
                 	Indicates whether a subscription lock is in effect for the 'operational' datastore
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: waiting_for_replication_sync
                 
                 	Indicates whether synchronous replication from HA master to HA slave is in progress for the datastore. Not present for the 'operational' datastore
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: pending_subscription_sync
                 
@@ -4743,10 +5301,14 @@ class ConfdState(Entity):
                 
                 	**presence node**\: True
                 
+                	**config**\: False
+                
                 .. attribute:: pending_notification_queue
                 
                 	Queues of notifications that have been generated but not yet delivered to subscribing clients. Not present for the 'startup' datastore
                 	**type**\: list of  		 :py:class:`PendingNotificationQueue <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue>`
+                
+                	**config**\: False
                 
                 
 
@@ -4796,7 +5358,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Cdb.Datastore, ['name', 'transaction_id', 'write_queue', 'filename', 'disk_size', 'ram_size', 'read_locks', 'write_lock_set', 'subscription_lock_set', 'waiting_for_replication_sync'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Cdb.Datastore, [u'name', u'transaction_id', u'write_queue', u'filename', u'disk_size', u'ram_size', u'read_locks', u'write_lock_set', u'subscription_lock_set', u'waiting_for_replication_sync'], name, value)
 
 
                 class PendingSubscriptionSync(Entity):
@@ -4812,10 +5374,14 @@ class ConfdState(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: notification
                     
                     	
                     	**type**\: list of  		 :py:class:`Notification <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: time_remaining
                     
@@ -4827,6 +5393,8 @@ class ConfdState(Entity):
                     			**range:** 0..18446744073709551615
                     
                     		**type**\:  :py:class:`TimeRemaining <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.TimeRemaining>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4859,7 +5427,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync, ['priority', 'time_remaining'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync, [u'priority', u'time_remaining'], name, value)
 
                     class TimeRemaining(Enum):
                         """
@@ -4894,12 +5462,16 @@ class ConfdState(Entity):
                         	The name of the client that is the recipient of the notification
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: subscription_ids
                         
                         	The subscription identifiers for the subscriptions that generated the notification
                         	**type**\: list of int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4927,7 +5499,9 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification, ['client_name', 'subscription_ids'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification, [u'client_name', u'subscription_ids'], name, value)
+
+
 
 
                 class PendingNotificationQueue(Entity):
@@ -4940,6 +5514,8 @@ class ConfdState(Entity):
                     
                     	
                     	**type**\: list of  		 :py:class:`Notification <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4978,10 +5554,14 @@ class ConfdState(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: client_name
                         
                         	The name of the client that is the recipient of the notification
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: subscription_ids
                         
@@ -4989,6 +5569,8 @@ class ConfdState(Entity):
                         	**type**\: list of int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5018,7 +5600,10 @@ class ConfdState(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification, ['priority', 'client_name', 'subscription_ids'], name, value)
+                            self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification, [u'priority', u'client_name', u'subscription_ids'], name, value)
+
+
+
 
 
             class Client(Entity):
@@ -5030,15 +5615,21 @@ class ConfdState(Entity):
                 	The client name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: info
                 
                 	Additional information about the client obtained at connect time. If present, it consists of client PID and socket file descriptor number
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	The type of client\: 'inactive' is a client connection without any specific state. 'client' means that the client has an active session towards a datastore. A 'subscriber' has made one or more subscriptions. 'waiting' means that the client is waiting for completion of a call such as cdb\_wait\_start()
                 	**type**\:  :py:class:`Type <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Type>`
+                
+                	**config**\: False
                 
                 .. attribute:: datastore
                 
@@ -5049,15 +5640,21 @@ class ConfdState(Entity):
                 
                 		**type**\:  :py:class:`Datastore <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Datastore>`
                 
+                	**config**\: False
+                
                 .. attribute:: lock
                 
                 	Set when 'type' = 'client' and the client has requested or acquired a lock on the datastore. The 'pending\-read' and 'pending\-subscription' values indicate that the client has requested but not yet acquired the corresponding lock. A 'read' lock is never taken for the 'operational' datastore, a 'subscription' lock is never taken for any other datastore than 'operational'
                 	**type**\:  :py:class:`Lock <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Lock>`
                 
+                	**config**\: False
+                
                 .. attribute:: subscription
                 
                 	
                 	**type**\: list of  		 :py:class:`Subscription <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Subscription>`
+                
+                	**config**\: False
                 
                 
 
@@ -5094,7 +5691,7 @@ class ConfdState(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ConfdState.Internal.Cdb.Client, ['name', 'info', 'type', 'datastore', 'lock'], name, value)
+                    self._perform_setattr(ConfdState.Internal.Cdb.Client, [u'name', u'info', u'type', u'datastore', u'lock'], name, value)
 
                 class Datastore(Enum):
                     """
@@ -5193,10 +5790,14 @@ class ConfdState(Entity):
                     	The name of the datastore for the subscription \- only 'running' and 'operational' can have subscriptions
                     	**type**\:  :py:class:`DatastoreName <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.DatastoreName>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: twophase
                     
                     	Present if this is a 'twophase' subscription, i.e. notifications will be delivered at 'prepare' in addition to 'commit'. Only for the 'running' datastore
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: priority
                     
@@ -5205,6 +5806,8 @@ class ConfdState(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: id
                     
                     	The subscription identifier for the subscription
@@ -5212,15 +5815,21 @@ class ConfdState(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: path
                     
                     	The path that the subscription pertains to
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: error
                     
                     	If this leaf exists, there is a problem  with the subscription
                     	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xe.tailf_confd_monitoring.ConfdState.Internal.Cdb.Client.Subscription.Error>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5257,7 +5866,7 @@ class ConfdState(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ConfdState.Internal.Cdb.Client.Subscription, ['datastore', 'twophase', 'priority', 'id', 'path', 'error'], name, value)
+                        self._perform_setattr(ConfdState.Internal.Cdb.Client.Subscription, [u'datastore', u'twophase', u'priority', u'id', u'path', u'error'], name, value)
 
                     class Error(Enum):
                         """
@@ -5278,7 +5887,13 @@ class ConfdState(Entity):
                         PENDING = Enum.YLeaf(0, "PENDING")
 
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ConfdState()
         return self._top_entity
+
+
 

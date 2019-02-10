@@ -471,6 +471,10 @@ class HwModuleProfileConfig(Entity):
                                     self._perform_setattr(HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv4Address.Ipv4Unicast.Ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength, ['prefix_length', 'ipv4_unicast_prefix_percent'], name, value)
 
 
+
+
+
+
                 class Ipv6Address(Entity):
                     """
                     IPv6 table for TCAM LC cards
@@ -641,6 +645,12 @@ class HwModuleProfileConfig(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(HwModuleProfileConfig.Profile.TcamTable.FibTable.Ipv6Address.Ipv6Unicast.Ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength, ['prefix_length', 'ipv6_unicast_prefix_percent'], name, value)
+
+
+
+
+
+
 
 
         class Netflow(Entity):
@@ -821,6 +831,9 @@ class HwModuleProfileConfig(Entity):
                             self._perform_setattr(HwModuleProfileConfig.Profile.Netflow.NetflowLocations.NetflowLocation.NetflowLocationLeaf, ['location_id', 'enable_val'], name, value)
 
 
+
+
+
             class LocationAll(Entity):
                 """
                 IPFIX315 Location All
@@ -858,6 +871,8 @@ class HwModuleProfileConfig(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(HwModuleProfileConfig.Profile.Netflow.LocationAll, ['location_all_leaf'], name, value)
+
+
 
 
         class Flowspecs(Entity):
@@ -964,6 +979,8 @@ class HwModuleProfileConfig(Entity):
                     self._perform_setattr(HwModuleProfileConfig.Profile.Flowspecs.Flowspec, ['v6_enable', 'location_string', 'location_id', 'enable_val'], name, value)
 
 
+
+
         class SegmentRoutings(Entity):
             """
             Configure Segment Routing profile.
@@ -1050,6 +1067,8 @@ class HwModuleProfileConfig(Entity):
                     self._perform_setattr(HwModuleProfileConfig.Profile.SegmentRoutings.SegmentRouting, ['srv6', 'enable_val'], name, value)
 
 
+
+
         class LoadBalance(Entity):
             """
             Configure load balance parameters
@@ -1087,6 +1106,7 @@ class HwModuleProfileConfig(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HwModuleProfileConfig.Profile.LoadBalance, ['load_balance_profile'], name, value)
+
 
 
         class Stats(Entity):
@@ -1215,6 +1235,9 @@ class HwModuleProfileConfig(Entity):
                         self._perform_setattr(HwModuleProfileConfig.Profile.Stats.StatsProfileModes.StatsProfileMode, ['stats_mode_default', 'mode'], name, value)
 
 
+
+
+
         class ProfileAcl(Entity):
             """
             Configure acl profile
@@ -1250,6 +1273,7 @@ class HwModuleProfileConfig(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HwModuleProfileConfig.Profile.ProfileAcl, ['egress'], name, value)
+
 
 
         class BundleScale(Entity):
@@ -1289,6 +1313,7 @@ class HwModuleProfileConfig(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HwModuleProfileConfig.Profile.BundleScale, ['trunk_size'], name, value)
+
 
 
         class ProfileTcam(Entity):
@@ -1662,6 +1687,8 @@ class HwModuleProfileConfig(Entity):
                                 self._perform_setattr(HwModuleProfileConfig.Profile.ProfileTcam.KeyFormat.KeyFormatAclTable.Ipv6AclTables.Ipv6AclTable, ['location_string', 'location_id', 'source_addr', 'source_port', 'destination_addr', 'dest_port', 'prot_type', 'tcp_flag', 'pack_len', 'precedence', 'udf1', 'udf2', 'udf3', 'udf4', 'udf5', 'udf6', 'udf7', 'udf8', 'en_capture', 'en_ttl', 'en_match', 'en_share_acl'], name, value)
 
 
+
+
                     class Ipv4AclTables(Entity):
                         """
                         Configure ipv4 acl profile
@@ -1928,6 +1955,11 @@ class HwModuleProfileConfig(Entity):
                                 self._perform_setattr(HwModuleProfileConfig.Profile.ProfileTcam.KeyFormat.KeyFormatAclTable.Ipv4AclTables.Ipv4AclTable, ['location_string', 'location_id', 'source_addr', 'destination_addr', 'source_port', 'dest_port', 'prot_type', 'tcp_flag', 'pack_len', 'frag_bit', 'precedence', 'port_range', 'udf1', 'udf2', 'udf3', 'udf4', 'udf5', 'udf6', 'udf7', 'udf8', 'en_capture', 'en_ttl', 'en_match', 'en_share_acl'], name, value)
 
 
+
+
+
+
+
         class Qos(Entity):
             """
             Configure profile.
@@ -2041,6 +2073,7 @@ class HwModuleProfileConfig(Entity):
                     self._perform_setattr(HwModuleProfileConfig.Profile.Qos.HqosEnableAll, ['hqos_enable'], name, value)
 
 
+
             class IngressModelRootDef(Entity):
                 """
                 Configure Ingress Model Default
@@ -2078,6 +2111,7 @@ class HwModuleProfileConfig(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(HwModuleProfileConfig.Profile.Qos.IngressModelRootDef, ['ingress_model_leaf_def'], name, value)
+
 
 
             class IngressModels(Entity):
@@ -2211,6 +2245,9 @@ class HwModuleProfileConfig(Entity):
                             self._perform_setattr(HwModuleProfileConfig.Profile.Qos.IngressModels.IngressModel.IngressModelLeaf, ['location', 'ingress_model_leaf'], name, value)
 
 
+
+
+
             class ClassMapsRootDef(Entity):
                 """
                 Configure Class Maps Default
@@ -2248,6 +2285,7 @@ class HwModuleProfileConfig(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(HwModuleProfileConfig.Profile.Qos.ClassMapsRootDef, ['class_map_size_def'], name, value)
+
 
 
             class ClassMaps(Entity):
@@ -2381,6 +2419,11 @@ class HwModuleProfileConfig(Entity):
                             self._perform_setattr(HwModuleProfileConfig.Profile.Qos.ClassMaps.ClassMap.ClassMapSize, ['location', 'class_map_size'], name, value)
 
 
+
+
+
+
+
     class FibScale(Entity):
         """
         Configure Fib for Scale for noTcam LC.
@@ -2503,6 +2546,8 @@ class HwModuleProfileConfig(Entity):
                     self._perform_setattr(HwModuleProfileConfig.FibScale.Ipv6UnicastScaleNoTcam.ScaleIpv6NoTcam, ['internet_optimized_ipv6_no_tcam'], name, value)
 
 
+
+
         class Ipv4UnicastScaleNoTcam(Entity):
             """
             IPv4 table for NOTCAM LC Scale.
@@ -2576,6 +2621,9 @@ class HwModuleProfileConfig(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(HwModuleProfileConfig.FibScale.Ipv4UnicastScaleNoTcam.ScaleIpv4NoTcam, ['optimized_ipv4_no_tcam'], name, value)
+
+
+
 
 
     class OrchestratedLinecardReload(Entity):
@@ -2780,6 +2828,11 @@ class HwModuleProfileConfig(Entity):
                             self._perform_setattr(HwModuleProfileConfig.OrchestratedLinecardReload.PlaneTableEntries.PlaneTableEntry.RackTableEntries.RackTableEntry, ['rack_num', 'nodes_list'], name, value)
 
 
+
+
+
+
+
     class Tcam(Entity):
         """
         Configure Tcam.
@@ -2893,6 +2946,9 @@ class HwModuleProfileConfig(Entity):
                     self._perform_setattr(HwModuleProfileConfig.Tcam.FibTcamScale.Ipv4UnicastScale, ['ipv4_scale'], name, value)
 
 
+
+
+
     class Qosqppb(Entity):
         """
         Configure profile.
@@ -2967,7 +3023,11 @@ class HwModuleProfileConfig(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(HwModuleProfileConfig.Qosqppb.Ipv6Scale, ['ipv6_short'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = HwModuleProfileConfig()
         return self._top_entity
+
+
 

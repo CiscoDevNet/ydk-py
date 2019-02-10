@@ -216,6 +216,8 @@ class IpSubscriber(Entity):
     	IP subscriber operational data for a particular location
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -255,6 +257,8 @@ class IpSubscriber(Entity):
         	Location. For eg., 0/1/CPU0
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -293,20 +297,28 @@ class IpSubscriber(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: summary
             
             	IP subscriber interface summary
             	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary>`
+            
+            	**config**\: False
             
             .. attribute:: interfaces
             
             	IP subscriber interface table
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Interfaces>`
             
+            	**config**\: False
+            
             .. attribute:: access_interfaces
             
             	IP subscriber access interface table
             	**type**\:  :py:class:`AccessInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.AccessInterfaces>`
+            
+            	**config**\: False
             
             
 
@@ -357,15 +369,21 @@ class IpSubscriber(Entity):
                 	Access interface summary statistics
                 	**type**\:  :py:class:`AccessInterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_counts
                 
                 	Initiator interface counts
                 	**type**\:  :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.InterfaceCounts>`
                 
+                	**config**\: False
+                
                 .. attribute:: vrf
                 
                 	Array of VRFs with IPSUB interfaces
                 	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.Vrf>`
+                
+                	**config**\: False
                 
                 
 
@@ -410,10 +428,14 @@ class IpSubscriber(Entity):
                     	Summary counts per initiator
                     	**type**\:  :py:class:`Initiators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_initiators
                     
                     	Summary counts per initiator for ipv6 session
                     	**type**\:  :py:class:`Ipv6Initiators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interfaces
                     
@@ -421,6 +443,8 @@ class IpSubscriber(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -454,7 +478,7 @@ class IpSubscriber(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary, [u'interfaces'], name, value)
+                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary, ['interfaces'], name, value)
 
 
                     class Initiators(Entity):
@@ -466,10 +490,14 @@ class IpSubscriber(Entity):
                         	DHCP summary statistics
                         	**type**\:  :py:class:`Dhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: packet_trigger
                         
                         	Packet trigger summary statistics
                         	**type**\:  :py:class:`PacketTrigger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -514,12 +542,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_bytes
                             
                             	Number of first sign of life bytes received for initiating protocol
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -549,7 +581,8 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp, [u'fsol_packets', u'fsol_bytes'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp, ['fsol_packets', 'fsol_bytes'], name, value)
+
 
 
                         class PacketTrigger(Entity):
@@ -563,12 +596,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_bytes
                             
                             	Number of first sign of life bytes received for initiating protocol
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -598,7 +635,9 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger, [u'fsol_packets', u'fsol_bytes'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger, ['fsol_packets', 'fsol_bytes'], name, value)
+
+
 
 
                     class Ipv6Initiators(Entity):
@@ -610,10 +649,14 @@ class IpSubscriber(Entity):
                         	DHCP summary statistics
                         	**type**\:  :py:class:`Dhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: packet_trigger
                         
                         	Packet trigger summary statistics
                         	**type**\:  :py:class:`PacketTrigger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -658,12 +701,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_bytes
                             
                             	Number of first sign of life bytes received for initiating protocol
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -693,7 +740,8 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp, [u'fsol_packets', u'fsol_bytes'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp, ['fsol_packets', 'fsol_bytes'], name, value)
+
 
 
                         class PacketTrigger(Entity):
@@ -707,12 +755,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_bytes
                             
                             	Number of first sign of life bytes received for initiating protocol
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -742,7 +794,10 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger, [u'fsol_packets', u'fsol_bytes'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger, ['fsol_packets', 'fsol_bytes'], name, value)
+
+
+
 
 
                 class InterfaceCounts(Entity):
@@ -754,10 +809,14 @@ class IpSubscriber(Entity):
                     	Initiators
                     	**type**\:  :py:class:`Initiators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_initiators
                     
                     	IPv6 Initiators
                     	**type**\:  :py:class:`Ipv6Initiators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -800,10 +859,14 @@ class IpSubscriber(Entity):
                         	DHCP
                         	**type**\:  :py:class:`Dhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: packet_trigger
                         
                         	Packet trigger
                         	**type**\:  :py:class:`PacketTrigger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -848,12 +911,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: initialized
                             
                             	Initialized
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: session_creation_started
                             
@@ -862,12 +929,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: control_policy_executing
                             
                             	Control policy executing
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: control_policy_executed
                             
@@ -876,12 +947,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: session_features_applied
                             
                             	Session features applied
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: vrf_configured
                             
@@ -890,12 +965,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: adding_adjacency
                             
                             	Adding adjacency
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: adjacency_added
                             
@@ -904,12 +983,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: up
                             
                             	Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: down
                             
@@ -918,12 +1001,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: disconnecting
                             
                             	Disconnecting
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: disconnected
                             
@@ -932,6 +1019,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: error
                             
                             	Error
@@ -939,12 +1028,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_interfaces
                             
                             	Total number of interfaces in all states
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -998,7 +1091,8 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
+
 
 
                         class PacketTrigger(Entity):
@@ -1012,12 +1106,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: initialized
                             
                             	Initialized
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: session_creation_started
                             
@@ -1026,12 +1124,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: control_policy_executing
                             
                             	Control policy executing
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: control_policy_executed
                             
@@ -1040,12 +1142,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: session_features_applied
                             
                             	Session features applied
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: vrf_configured
                             
@@ -1054,12 +1160,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: adding_adjacency
                             
                             	Adding adjacency
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: adjacency_added
                             
@@ -1068,12 +1178,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: up
                             
                             	Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: down
                             
@@ -1082,12 +1196,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: disconnecting
                             
                             	Disconnecting
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: disconnected
                             
@@ -1096,6 +1214,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: error
                             
                             	Error
@@ -1103,12 +1223,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_interfaces
                             
                             	Total number of interfaces in all states
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1162,7 +1286,9 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
+
+
 
 
                     class Ipv6Initiators(Entity):
@@ -1174,10 +1300,14 @@ class IpSubscriber(Entity):
                         	DHCP
                         	**type**\:  :py:class:`Dhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: packet_trigger
                         
                         	Packet trigger
                         	**type**\:  :py:class:`PacketTrigger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1222,12 +1352,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: initialized
                             
                             	Initialized
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: session_creation_started
                             
@@ -1236,12 +1370,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: control_policy_executing
                             
                             	Control policy executing
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: control_policy_executed
                             
@@ -1250,12 +1388,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: session_features_applied
                             
                             	Session features applied
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: vrf_configured
                             
@@ -1264,12 +1406,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: adding_adjacency
                             
                             	Adding adjacency
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: adjacency_added
                             
@@ -1278,12 +1424,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: up
                             
                             	Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: down
                             
@@ -1292,12 +1442,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: disconnecting
                             
                             	Disconnecting
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: disconnected
                             
@@ -1306,6 +1460,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: error
                             
                             	Error
@@ -1313,12 +1469,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_interfaces
                             
                             	Total number of interfaces in all states
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1372,7 +1532,8 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
+
 
 
                         class PacketTrigger(Entity):
@@ -1386,12 +1547,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: initialized
                             
                             	Initialized
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: session_creation_started
                             
@@ -1400,12 +1565,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: control_policy_executing
                             
                             	Control policy executing
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: control_policy_executed
                             
@@ -1414,12 +1583,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: session_features_applied
                             
                             	Session features applied
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: vrf_configured
                             
@@ -1428,12 +1601,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: adding_adjacency
                             
                             	Adding adjacency
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: adjacency_added
                             
@@ -1442,12 +1619,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: up
                             
                             	Up
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: down
                             
@@ -1456,12 +1637,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: disconnecting
                             
                             	Disconnecting
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: disconnected
                             
@@ -1470,6 +1655,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: error
                             
                             	Error
@@ -1477,12 +1664,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_interfaces
                             
                             	Total number of interfaces in all states
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1536,7 +1727,10 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger, ['invalid', 'initialized', 'session_creation_started', 'control_policy_executing', 'control_policy_executed', 'session_features_applied', 'vrf_configured', 'adding_adjacency', 'adjacency_added', 'up', 'down', 'disconnecting', 'disconnected', 'error', 'total_interfaces'], name, value)
+
+
+
 
 
                 class Vrf(Entity):
@@ -1548,10 +1742,14 @@ class IpSubscriber(Entity):
                     	IPv4 VRF
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6vrf_name
                     
                     	IPv6 VRF
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interfaces
                     
@@ -1560,12 +1758,16 @@ class IpSubscriber(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_interfaces
                     
                     	Number of IPv6 subscriber interfaces in the VRF table
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -1597,7 +1799,9 @@ class IpSubscriber(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.Vrf, [u'vrf_name', u'ipv6vrf_name', u'interfaces', u'ipv6_interfaces'], name, value)
+                        self._perform_setattr(IpSubscriber.Nodes.Node.Summary.Vrf, ['vrf_name', 'ipv6vrf_name', 'interfaces', 'ipv6_interfaces'], name, value)
+
+
 
 
             class Interfaces(Entity):
@@ -1608,6 +1812,8 @@ class IpSubscriber(Entity):
                 
                 	IP subscriber interface entry
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -1646,15 +1852,21 @@ class IpSubscriber(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: vrf
                     
                     	IPv4 VRF details
                     	**type**\:  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6vrf
                     
                     	IPv6 VRF details
                     	**type**\:  :py:class:`Ipv6vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: access_interface
                     
@@ -1663,6 +1875,8 @@ class IpSubscriber(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: subscriber_ipv4_address
                     
                     	IPv4 Address of the subscriber
@@ -1670,10 +1884,14 @@ class IpSubscriber(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: subscriber_ipv6_address
                     
                     	IPv6 Address of the subscriber
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: subscriber_mac_addres
                     
@@ -1682,6 +1900,8 @@ class IpSubscriber(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: subscriber_label
                     
                     	Subscriber label for this subscriber interface
@@ -1689,75 +1909,105 @@ class IpSubscriber(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_creation_time
                     
                     	Interface creation time in month day hh\:mm\:ss format
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: age
                     
                     	Age in hh\:mm\:ss format
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: initiator
                     
                     	Protocol trigger for creation of this subscriber session
                     	**type**\:  :py:class:`IpsubMaIntfInitiatorData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpsubMaIntfInitiatorData>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: state
                     
                     	State of the subscriber session
                     	**type**\:  :py:class:`IpsubMaIntfStateData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpsubMaIntfStateData>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: old_state
                     
                     	Previous state of the subscriber session
                     	**type**\:  :py:class:`IpsubMaIntfStateData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpsubMaIntfStateData>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_state_change_time
                     
                     	Interface's last state change time in month day hh\:mm\:ss format
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: current_change_age
                     
                     	Current change age in hh\:mm\:ss format
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv6_initiator
                     
                     	Protocol trigger for creation of this subscriber's IPv6 session
                     	**type**\:  :py:class:`IpsubMaIntfInitiatorData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpsubMaIntfInitiatorData>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_state
                     
                     	State of the subscriber's IPv6 session
                     	**type**\:  :py:class:`IpsubMaIntfStateData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpsubMaIntfStateData>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv6_old_state
                     
                     	Previous state of the subscriber's IPv6 session
                     	**type**\:  :py:class:`IpsubMaIntfStateData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpsubMaIntfStateData>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_last_state_change_time
                     
                     	Interface's IPV6 last state change time in month day hh\:mm\:ss format
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv6_current_change_age
                     
                     	IPV6 Current change age in hh\:mm\:ss format
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_l2_connected
                     
                     	True if L2 connected
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_type
                     
                     	Session Type
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1829,7 +2079,7 @@ class IpSubscriber(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface, ['interface_name', u'access_interface', u'subscriber_ipv4_address', u'subscriber_ipv6_address', u'subscriber_mac_addres', u'subscriber_label', u'interface_creation_time', u'age', u'initiator', u'state', u'old_state', u'last_state_change_time', u'current_change_age', u'ipv6_initiator', u'ipv6_state', u'ipv6_old_state', u'ipv6_last_state_change_time', u'ipv6_current_change_age', u'is_l2_connected', u'session_type'], name, value)
+                        self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface, ['interface_name', 'access_interface', 'subscriber_ipv4_address', 'subscriber_ipv6_address', 'subscriber_mac_addres', 'subscriber_label', 'interface_creation_time', 'age', 'initiator', 'state', 'old_state', 'last_state_change_time', 'current_change_age', 'ipv6_initiator', 'ipv6_state', 'ipv6_old_state', 'ipv6_last_state_change_time', 'ipv6_current_change_age', 'is_l2_connected', 'session_type'], name, value)
 
 
                     class Vrf(Entity):
@@ -1841,10 +2091,14 @@ class IpSubscriber(Entity):
                         	VRF name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: table_name
                         
                         	Table
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -1872,7 +2126,8 @@ class IpSubscriber(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf, [u'vrf_name', u'table_name'], name, value)
+                            self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf, ['vrf_name', 'table_name'], name, value)
+
 
 
                     class Ipv6vrf(Entity):
@@ -1884,10 +2139,14 @@ class IpSubscriber(Entity):
                         	VRF name
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: table_name
                         
                         	Table
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -1915,7 +2174,10 @@ class IpSubscriber(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf, [u'vrf_name', u'table_name'], name, value)
+                            self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf, ['vrf_name', 'table_name'], name, value)
+
+
+
 
 
             class AccessInterfaces(Entity):
@@ -1926,6 +2188,8 @@ class IpSubscriber(Entity):
                 
                 	IP subscriber access interface entry
                 	**type**\: list of  		 :py:class:`AccessInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface>`
+                
+                	**config**\: False
                 
                 
 
@@ -1964,50 +2228,70 @@ class IpSubscriber(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: initiators
                     
                     	Configurational state\-statistics for each initiating protocol enabled on this parent interface
                     	**type**\:  :py:class:`Initiators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv6_initiators
                     
                     	Configurational state\-statistics for each initiating protocol enabled on this parent interface for IPv6 session
                     	**type**\:  :py:class:`Ipv6Initiators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_limit
                     
                     	Configuration session limits for each session limit source and type
                     	**type**\:  :py:class:`SessionLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_creation_time
                     
                     	Interface creation time in Month Date HH\:MM\:SS format
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: age
                     
                     	Age in HH\:MM\:SS format
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_type
                     
                     	Interface Type
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Operational state of this interface
                     	**type**\:  :py:class:`IpsubMaParentIntfStateData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpsubMaParentIntfStateData>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ipv6_state
                     
                     	Operational ipv6 state of this interface
                     	**type**\:  :py:class:`IpsubMaParentIntfStateData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpsubMaParentIntfStateData>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: vlan_type
                     
                     	The VLAN type on the access interface
                     	**type**\:  :py:class:`IpsubMaParentIntfVlan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpsubMaParentIntfVlan>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2057,7 +2341,7 @@ class IpSubscriber(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface, ['interface_name', u'interface_creation_time', u'age', u'interface_type', u'state', u'ipv6_state', u'vlan_type'], name, value)
+                        self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface, ['interface_name', 'interface_creation_time', 'age', 'interface_type', 'state', 'ipv6_state', 'vlan_type'], name, value)
 
 
                     class Initiators(Entity):
@@ -2071,10 +2355,14 @@ class IpSubscriber(Entity):
                         	DHCP information
                         	**type**\:  :py:class:`Dhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: packet_trigger
                         
                         	packet trigger information
                         	**type**\:  :py:class:`PacketTrigger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2117,10 +2405,14 @@ class IpSubscriber(Entity):
                             	Ture if the initiator is configred
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: unique_ip_check
                             
                             	True if check for subscriber address uniquenessduring first sign of life is enabled
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: sessions
                             
@@ -2129,6 +2421,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_packets
                             
                             	Number of first sign of life packets received for initiating protocol on this interface
@@ -2136,12 +2430,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_bytes
                             
                             	Number of first sign of life bytes received for initiating protocol on this interface
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2152,12 +2450,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_dropped_bytes
                             
                             	Number of first sign of life bytes received for initiating protocol on this interface that were dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2168,6 +2470,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_dropped_packets_session_limit
                             
                             	Number of first sign of life packets received for initiating protocol on this interface that were dropped due to exceeding one or more of the configured session limits
@@ -2175,12 +2479,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_dropped_packets_dup_addr
                             
                             	Number of first sign of life packets received for initiating protocol on this interface that were dropped due to duplicate source address
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2224,7 +2532,8 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
+
 
 
                         class PacketTrigger(Entity):
@@ -2236,10 +2545,14 @@ class IpSubscriber(Entity):
                             	Ture if the initiator is configred
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: unique_ip_check
                             
                             	True if check for subscriber address uniquenessduring first sign of life is enabled
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: sessions
                             
@@ -2248,6 +2561,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_packets
                             
                             	Number of first sign of life packets received for initiating protocol on this interface
@@ -2255,12 +2570,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_bytes
                             
                             	Number of first sign of life bytes received for initiating protocol on this interface
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2271,12 +2590,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_dropped_bytes
                             
                             	Number of first sign of life bytes received for initiating protocol on this interface that were dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2287,6 +2610,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_dropped_packets_session_limit
                             
                             	Number of first sign of life packets received for initiating protocol on this interface that were dropped due to exceeding one or more of the configured session limits
@@ -2294,12 +2619,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_dropped_packets_dup_addr
                             
                             	Number of first sign of life packets received for initiating protocol on this interface that were dropped due to duplicate source address
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2343,7 +2672,9 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
+
+
 
 
                     class Ipv6Initiators(Entity):
@@ -2357,10 +2688,14 @@ class IpSubscriber(Entity):
                         	DHCP information
                         	**type**\:  :py:class:`Dhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: packet_trigger
                         
                         	packet trigger information
                         	**type**\:  :py:class:`PacketTrigger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2403,10 +2738,14 @@ class IpSubscriber(Entity):
                             	Ture if the initiator is configred
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: unique_ip_check
                             
                             	True if check for subscriber address uniquenessduring first sign of life is enabled
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: sessions
                             
@@ -2415,6 +2754,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_packets
                             
                             	Number of first sign of life packets received for initiating protocol on this interface
@@ -2422,12 +2763,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_bytes
                             
                             	Number of first sign of life bytes received for initiating protocol on this interface
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2438,12 +2783,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_dropped_bytes
                             
                             	Number of first sign of life bytes received for initiating protocol on this interface that were dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2454,6 +2803,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_dropped_packets_session_limit
                             
                             	Number of first sign of life packets received for initiating protocol on this interface that were dropped due to exceeding one or more of the configured session limits
@@ -2461,12 +2812,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_dropped_packets_dup_addr
                             
                             	Number of first sign of life packets received for initiating protocol on this interface that were dropped due to duplicate source address
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2510,7 +2865,8 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
+
 
 
                         class PacketTrigger(Entity):
@@ -2522,10 +2878,14 @@ class IpSubscriber(Entity):
                             	Ture if the initiator is configred
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: unique_ip_check
                             
                             	True if check for subscriber address uniquenessduring first sign of life is enabled
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: sessions
                             
@@ -2534,6 +2894,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_packets
                             
                             	Number of first sign of life packets received for initiating protocol on this interface
@@ -2541,12 +2903,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_bytes
                             
                             	Number of first sign of life bytes received for initiating protocol on this interface
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2557,12 +2923,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_dropped_bytes
                             
                             	Number of first sign of life bytes received for initiating protocol on this interface that were dropped
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             	**units**\: byte
                             
@@ -2573,6 +2943,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_dropped_packets_session_limit
                             
                             	Number of first sign of life packets received for initiating protocol on this interface that were dropped due to exceeding one or more of the configured session limits
@@ -2580,12 +2952,16 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: fsol_dropped_packets_dup_addr
                             
                             	Number of first sign of life packets received for initiating protocol on this interface that were dropped due to duplicate source address
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2629,7 +3005,9 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger, ['is_configured', 'unique_ip_check', 'sessions', 'fsol_packets', 'fsol_bytes', 'fsol_dropped_packets', 'fsol_dropped_bytes', 'fsol_dropped_packets_flow', 'fsol_dropped_packets_session_limit', 'fsol_dropped_packets_dup_addr'], name, value)
+
+
 
 
                     class SessionLimit(Entity):
@@ -2642,10 +3020,14 @@ class IpSubscriber(Entity):
                         	Unclassified source session limits
                         	**type**\:  :py:class:`UnclassifiedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: total
                         
                         	All sources session limits
                         	**type**\:  :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper.IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2690,6 +3072,8 @@ class IpSubscriber(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             
 
                             """
@@ -2714,7 +3098,8 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource, [u'per_vlan'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource, ['per_vlan'], name, value)
+
 
 
                         class Total(Entity):
@@ -2727,6 +3112,8 @@ class IpSubscriber(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2752,9 +3139,17 @@ class IpSubscriber(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total, [u'per_vlan'], name, value)
+                                self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total, ['per_vlan'], name, value)
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = IpSubscriber()
         return self._top_entity
+
+
 

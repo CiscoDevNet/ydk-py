@@ -26,6 +26,8 @@ class AccessLists(Entity):
     	An access list (acl) is an ordered list of access list entries (ACE). Each access control entries has a list of match criteria, and a list of actions. Since there are several kinds of access control lists implemented with different attributes for each and different for each vendor, this model accommodates customizing access control lists for each kind and for each vendor
     	**type**\: list of  		 :py:class:`AccessList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl_oper.AccessLists.AccessList>`
     
+    	**config**\: False
+    
     
 
     """
@@ -69,10 +71,14 @@ class AccessLists(Entity):
         	The name of access\-list. A device MAY restrict the length and value of this name, possibly space and special characters are not allowed
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: access_list_entries
         
         	access\-list\-entry(ACE) information
         	**type**\:  :py:class:`AccessListEntries <ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl_oper.AccessLists.AccessList.AccessListEntries>`
+        
+        	**config**\: False
         
         
 
@@ -115,6 +121,8 @@ class AccessLists(Entity):
             	A list of ACEs
             	**type**\: list of  		 :py:class:`AccessListEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl_oper.AccessLists.AccessList.AccessListEntries.AccessListEntry>`
             
+            	**config**\: False
+            
             
 
             """
@@ -152,10 +160,14 @@ class AccessLists(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: access_list_entries_oper_data
                 
                 	Per access list entries operational data
                 	**type**\:  :py:class:`AccessListEntriesOperData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_acl_oper.AccessLists.AccessList.AccessListEntries.AccessListEntry.AccessListEntriesOperData>`
+                
+                	**config**\: False
                 
                 
 
@@ -199,6 +211,8 @@ class AccessLists(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -225,7 +239,13 @@ class AccessLists(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(AccessLists.AccessList.AccessListEntries.AccessListEntry.AccessListEntriesOperData, ['match_counter'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = AccessLists()
         return self._top_entity
+
+
 

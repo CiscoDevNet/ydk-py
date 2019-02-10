@@ -172,20 +172,28 @@ class FlowMonitors(Entity):
     	List of Flow monitors
     	**type**\: list of  		 :py:class:`FlowMonitor <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitor>`
     
+    	**config**\: False
+    
     .. attribute:: flow_export_statistics
     
     	List of statistics per exporter
     	**type**\: list of  		 :py:class:`FlowExportStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowExportStatistics>`
+    
+    	**config**\: False
     
     .. attribute:: flow_cache_statistics
     
     	List of statistics per flow cache
     	**type**\: list of  		 :py:class:`FlowCacheStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowCacheStatistics>`
     
+    	**config**\: False
+    
     .. attribute:: flow_monitor_statistics
     
     	List of statistics per flow monitor
     	**type**\: list of  		 :py:class:`FlowMonitorStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitorStatistics>`
+    
+    	**config**\: False
     
     
 
@@ -226,6 +234,8 @@ class FlowMonitors(Entity):
         	Name of the flow monitor
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: time_collected
         
         	Time the flow monitor data was collected in seconds
@@ -233,10 +243,14 @@ class FlowMonitors(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: flows
         
         	All the flows for this flow monitor
         	**type**\:  :py:class:`Flows <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitor.Flows>`
+        
+        	**config**\: False
         
         
 
@@ -281,6 +295,8 @@ class FlowMonitors(Entity):
             	List of flows
             	**type**\: list of  		 :py:class:`Flow <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitor.Flows.Flow>`
             
+            	**config**\: False
+            
             
 
             """
@@ -316,20 +332,28 @@ class FlowMonitors(Entity):
                 	Source address of the flow
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: destination_address  (key)
                 
                 	Destination address of the flow
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: interface_input  (key)
                 
                 	Input interface of the flow
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: is_multicast  (key)
                 
                 	Multicast flow
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: vrf_id_input  (key)
                 
@@ -338,12 +362,16 @@ class FlowMonitors(Entity):
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
+                	**config**\: False
+                
                 .. attribute:: source_port  (key)
                 
                 	Source port number
                 	**type**\: int
                 
                 	**range:** \-9223372036854775808..9223372036854775807
+                
+                	**config**\: False
                 
                 .. attribute:: destination_port  (key)
                 
@@ -352,10 +380,14 @@ class FlowMonitors(Entity):
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
+                	**config**\: False
+                
                 .. attribute:: ip_tos  (key)
                 
                 	ip\-tos value
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ip_protocol  (key)
                 
@@ -364,10 +396,14 @@ class FlowMonitors(Entity):
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
+                	**config**\: False
+                
                 .. attribute:: interface_output
                 
                 	Output interface of the flow
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: bytes
                 
@@ -376,12 +412,16 @@ class FlowMonitors(Entity):
                 
                 	**range:** \-9223372036854775808..9223372036854775807
                 
+                	**config**\: False
+                
                 .. attribute:: packets
                 
                 	Number of packets passed through
                 	**type**\: int
                 
                 	**range:** \-9223372036854775808..9223372036854775807
+                
+                	**config**\: False
                 
                 
 
@@ -432,6 +472,9 @@ class FlowMonitors(Entity):
                     self._perform_setattr(FlowMonitors.FlowMonitor.Flows.Flow, ['source_address', 'destination_address', 'interface_input', 'is_multicast', 'vrf_id_input', 'source_port', 'destination_port', 'ip_tos', 'ip_protocol', 'interface_output', 'bytes', 'packets'], name, value)
 
 
+
+
+
     class FlowExportStatistics(Entity):
         """
         List of statistics per exporter
@@ -441,15 +484,21 @@ class FlowMonitors(Entity):
         	The name of the flow exporter
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: transport_stats
         
         	The coontainer for the transport statistics
         	**type**\:  :py:class:`TransportStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowExportStatistics.TransportStats>`
         
+        	**config**\: False
+        
         .. attribute:: export_client
         
         	The container for the export client information
         	**type**\: list of  		 :py:class:`ExportClient <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowExportStatistics.ExportClient>`
+        
+        	**config**\: False
         
         
 
@@ -496,10 +545,14 @@ class FlowMonitors(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: flow_exporter_stats
             
             	Container of the exporter statistics
             	**type**\: list of  		 :py:class:`FlowExporterStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowExportStatistics.TransportStats.FlowExporterStats>`
+            
+            	**config**\: False
             
             
 
@@ -539,6 +592,8 @@ class FlowMonitors(Entity):
                 	The type of the export statistics
                 	**type**\:  :py:class:`FlowExporterIpwriteStatsType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowExporterIpwriteStatsType>`
                 
+                	**config**\: False
+                
                 .. attribute:: pkt_counts
                 
                 	The packet counts that have been exported
@@ -546,12 +601,16 @@ class FlowMonitors(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: byte_counts
                 
                 	The byte counts that have been exported
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -584,6 +643,8 @@ class FlowMonitors(Entity):
                     self._perform_setattr(FlowMonitors.FlowExportStatistics.TransportStats.FlowExporterStats, ['type', 'pkt_counts', 'byte_counts'], name, value)
 
 
+
+
         class ExportClient(Entity):
             """
             The container for the export client information
@@ -593,15 +654,21 @@ class FlowMonitors(Entity):
             	The name of the flow export client
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: group
             
             	The group that this exporter client belongs to
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: protocol_stats
             
             	The container with the protocol statistics
             	**type**\:  :py:class:`ProtocolStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowExportStatistics.ExportClient.ProtocolStats>`
+            
+            	**config**\: False
             
             
 
@@ -647,12 +714,16 @@ class FlowMonitors(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bytes_sent
                 
                 	Bytes sent on this exporter
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: bytes_dropped
                 
@@ -661,12 +732,16 @@ class FlowMonitors(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: records_added
                 
                 	Number of records added
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: records_sent
                 
@@ -675,12 +750,16 @@ class FlowMonitors(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: records_dropped
                 
                 	Number of records dropped
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -719,6 +798,9 @@ class FlowMonitors(Entity):
                     self._perform_setattr(FlowMonitors.FlowExportStatistics.ExportClient.ProtocolStats, ['bytes_added', 'bytes_sent', 'bytes_dropped', 'records_added', 'records_sent', 'records_dropped'], name, value)
 
 
+
+
+
     class FlowCacheStatistics(Entity):
         """
         List of statistics per flow cache
@@ -728,12 +810,16 @@ class FlowMonitors(Entity):
         	The name of the flow cache
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: cache_size
         
         	The size of the cache
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: current_entries
         
@@ -742,12 +828,16 @@ class FlowMonitors(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: high_watermark
         
         	The high watermark of flows
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: flows_added
         
@@ -756,12 +846,16 @@ class FlowMonitors(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: flows_aged
         
         	The number of flows that have been aged
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: active_flows_timed_out
         
@@ -770,12 +864,16 @@ class FlowMonitors(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: inactive_flows_timed_out
         
         	The number of flows that have been timed out for inactivity
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         
 
@@ -819,6 +917,7 @@ class FlowMonitors(Entity):
             self._perform_setattr(FlowMonitors.FlowCacheStatistics, ['name', 'cache_size', 'current_entries', 'high_watermark', 'flows_added', 'flows_aged', 'active_flows_timed_out', 'inactive_flows_timed_out'], name, value)
 
 
+
     class FlowMonitorStatistics(Entity):
         """
         List of statistics per flow monitor
@@ -828,25 +927,35 @@ class FlowMonitors(Entity):
         	The name of the flow monitor
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: description
         
         	The description of the flow monitor
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: record_name
         
         	The name of the record
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: active_flow_exporter
         
         	The active flow exporters
         	**type**\: list of str
         
+        	**config**\: False
+        
         .. attribute:: inactive_flow_exporter
         
         	The inactive flow exporters
         	**type**\: list of str
+        
+        	**config**\: False
         
         .. attribute:: invalid_packet_counts
         
@@ -855,25 +964,35 @@ class FlowMonitors(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: cache_data
         
         	The grouping of the cache data
         	**type**\:  :py:class:`CacheData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitors.FlowMonitorStatistics.CacheData>`
+        
+        	**config**\: False
         
         .. attribute:: transaction_end_ager_enabled
         
         	Indicate whether the transaction end ager is enabled
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: protocol_dist_configured
         
         	The protocol distribution is configured
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: size_dist_configured
         
         	The size distribution is configured
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: inactive_timer
         
@@ -882,12 +1001,16 @@ class FlowMonitors(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: active_timer
         
         	The active time on the normal cache
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: update_timeout
         
@@ -896,12 +1019,16 @@ class FlowMonitors(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: synchronized_timeout
         
         	The timeout of the synchronized cache
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: export_spread_interval
         
@@ -910,12 +1037,16 @@ class FlowMonitors(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: immediate_timeout
         
         	The timeout for the immediate cache
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -986,20 +1117,28 @@ class FlowMonitors(Entity):
             	The state of the flow cache
             	**type**\:  :py:class:`FlowMonitorCacheState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper.FlowMonitorCacheState>`
             
+            	**config**\: False
+            
             .. attribute:: type
             
             	The type of the flow cache
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cache_name
             
             	The name of the cache
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: status
             
             	The status of the cache
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: num_entries
             
@@ -1008,12 +1147,16 @@ class FlowMonitors(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: num_bytes
             
             	The number of bytes in the cache
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -1051,7 +1194,11 @@ class FlowMonitors(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(FlowMonitors.FlowMonitorStatistics.CacheData, ['state', 'type', 'cache_name', 'status', 'num_entries', 'num_bytes'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = FlowMonitors()
         return self._top_entity
+
+
 

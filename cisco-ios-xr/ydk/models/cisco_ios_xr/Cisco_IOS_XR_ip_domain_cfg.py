@@ -280,6 +280,8 @@ class IpDomain(Entity):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host, ['host_name', 'address'], name, value)
 
 
+
+
             class Servers(Entity):
                 """
                 Name server addresses
@@ -368,6 +370,8 @@ class IpDomain(Entity):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Servers.Server, ['order', 'server_address'], name, value)
 
 
+
+
             class Lists(Entity):
                 """
                 Domain names to complete unqualified host
@@ -452,6 +456,8 @@ class IpDomain(Entity):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Lists.List, ['order', 'list_name'], name, value)
 
 
+
+
             class Ipv4Hosts(Entity):
                 """
                 IPv4 host
@@ -531,7 +537,13 @@ class IpDomain(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host, ['host_name', 'address'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = IpDomain()
         return self._top_entity
+
+
 

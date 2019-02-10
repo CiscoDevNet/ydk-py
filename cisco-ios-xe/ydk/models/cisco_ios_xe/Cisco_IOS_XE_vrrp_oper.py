@@ -146,6 +146,8 @@ class VrrpOperData(Entity):
     	VRRP operational state
     	**type**\: list of  		 :py:class:`VrrpOperState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper.VrrpOperData.VrrpOperState>`
     
+    	**config**\: False
+    
     
 
     """
@@ -184,6 +186,8 @@ class VrrpOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: group_id  (key)
         
         	VRRP group number
@@ -191,15 +195,21 @@ class VrrpOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: addr_type  (key)
         
         	Address family of VRRP group. IPv4 or IPv6 are the two valid values
         	**type**\:  :py:class:`AddrType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_common_types.AddrType>`
         
+        	**config**\: False
+        
         .. attribute:: version
         
         	VRRP version
         	**type**\:  :py:class:`ProtoVersion <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper.ProtoVersion>`
+        
+        	**config**\: False
         
         .. attribute:: virtual_ip
         
@@ -214,15 +224,21 @@ class VrrpOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: if_name
         
         	Name for the interface on which VRRP group is hosted
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: vrrp_state
         
         	VRRP group state
         	**type**\:  :py:class:`VrrpProtoState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper.VrrpProtoState>`
+        
+        	**config**\: False
         
         .. attribute:: virtual_mac
         
@@ -230,6 +246,8 @@ class VrrpOperData(Entity):
         	**type**\: str
         
         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+        
+        	**config**\: False
         
         .. attribute:: master_ip
         
@@ -244,10 +262,14 @@ class VrrpOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: is_owner
         
         	Whether the router owns the VRRP Primary virtual IP address. When Interface IP address and VRRP Primary virtual IP address are the same for this router, its priority is bumped up to 255
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: priority
         
@@ -256,12 +278,16 @@ class VrrpOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: advertisement_timer
         
         	Time interval between hello packets sent by the master router in milliseconds
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: master_down_timer
         
@@ -270,6 +296,8 @@ class VrrpOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: skew_time
         
         	Time to skew Master Down Interval in milliseconds
@@ -277,10 +305,14 @@ class VrrpOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: preempt
         
         	Controls whether a higher priority virtual router will preempt a lower priority master
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: master_transitions
         
@@ -289,10 +321,14 @@ class VrrpOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: new_master_reason
         
         	Indicates why this router became master of the VRRP group
         	**type**\:  :py:class:`MasterReason <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper.MasterReason>`
+        
+        	**config**\: False
         
         .. attribute:: last_state_change_time
         
@@ -301,12 +337,16 @@ class VrrpOperData(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: adv_interval_errors
         
         	Total number of VRRP packets that arrived with advertisement interval different to the configured value
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ip_ttl_errors
         
@@ -315,12 +355,16 @@ class VrrpOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: rcvd_pri_zero_pak
         
         	Total number of VRRP packets received with priority 0
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: sent_pri_zero_pak
         
@@ -329,12 +373,16 @@ class VrrpOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: rcvd_invalid_type_pak
         
         	Total number of VRRP packets received with invalid Type field
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: addr_list_errors
         
@@ -343,12 +391,16 @@ class VrrpOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: pak_len_errors
         
         	Total number of VRRP packets received with length less that VRRP header length
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: discontinuity_time
         
@@ -357,12 +409,16 @@ class VrrpOperData(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: advertisement_sent
         
         	Total number of VRRP packets sent
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: advertisement_rcvd
         
@@ -371,15 +427,21 @@ class VrrpOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: track_list
         
         	Status of list of tracking objects in the group
         	**type**\: list of  		 :py:class:`TrackList <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper.VrrpOperData.VrrpOperState.TrackList>`
         
+        	**config**\: False
+        
         .. attribute:: omp_state
         
         	Indicates the state of the Overlay Management protocol tracking
         	**type**\:  :py:class:`OmpStateUpdown <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper.OmpStateUpdown>`
+        
+        	**config**\: False
         
         .. attribute:: secondary_vip_addresses
         
@@ -393,6 +455,8 @@ class VrrpOperData(Entity):
         		**type**\: list of str
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         
 
@@ -491,10 +555,14 @@ class VrrpOperData(Entity):
             	Name of the tracking object
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: track_obj_state
             
             	State of the tracking object
             	**type**\:  :py:class:`TrackState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper.TrackState>`
+            
+            	**config**\: False
             
             
 
@@ -524,7 +592,11 @@ class VrrpOperData(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(VrrpOperData.VrrpOperState.TrackList, ['track_name', 'track_obj_state'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = VrrpOperData()
         return self._top_entity
+
+
 

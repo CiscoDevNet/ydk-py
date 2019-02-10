@@ -206,7 +206,12 @@ class Ipv4Virtual(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Virtual.Vrfs.Vrf.Address, ['address', 'netmask'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Ipv4Virtual()
         return self._top_entity
+
+
 

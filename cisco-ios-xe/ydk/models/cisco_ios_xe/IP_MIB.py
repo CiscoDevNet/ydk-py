@@ -232,20 +232,28 @@ class IPMIB(Entity):
     	
     	**type**\:  :py:class:`Ip <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ip>`
     
+    	**config**\: False
+    
     .. attribute:: iptrafficstats
     
     	
     	**type**\:  :py:class:`IpTrafficStats <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpTrafficStats>`
+    
+    	**config**\: False
     
     .. attribute:: icmp
     
     	
     	**type**\:  :py:class:`Icmp <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Icmp>`
     
+    	**config**\: False
+    
     .. attribute:: ipaddrtable
     
     	The table of addressing information relevant to this entity's IPv4 addresses.  This table has been deprecated, as a new IP version\-neutral table has been added.  It is loosely replaced by the ipAddressTable although several objects that weren't deemed useful weren't carried forward while another (ipAdEntReasmMaxSize) was moved to the ipv4InterfaceTable
     	**type**\:  :py:class:`IpAddrTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddrTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -254,6 +262,8 @@ class IPMIB(Entity):
     	The IPv4 Address Translation table used for mapping from IPv4 addresses to physical addresses.  This table has been deprecated, as a new IP version\-neutral table has been added.  It is loosely replaced by the ipNetToPhysicalTable
     	**type**\:  :py:class:`IpNetToMediaTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToMediaTable>`
     
+    	**config**\: False
+    
     	**status**\: deprecated
     
     .. attribute:: ipv4interfacetable
@@ -261,60 +271,84 @@ class IPMIB(Entity):
     	The table containing per\-interface IPv4\-specific information
     	**type**\:  :py:class:`Ipv4InterfaceTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv4InterfaceTable>`
     
+    	**config**\: False
+    
     .. attribute:: ipv6interfacetable
     
     	The table containing per\-interface IPv6\-specific information
     	**type**\:  :py:class:`Ipv6InterfaceTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6InterfaceTable>`
+    
+    	**config**\: False
     
     .. attribute:: ipsystemstatstable
     
     	The table containing system wide, IP version specific traffic statistics.  This table and the ipIfStatsTable contain similar objects whose difference is in their granularity.  Where this table contains system wide traffic statistics, the ipIfStatsTable contains the same statistics but counted on a per\-interface basis
     	**type**\:  :py:class:`IpSystemStatsTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpSystemStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: ipifstatstable
     
     	The table containing per\-interface traffic statistics.  This table and the ipSystemStatsTable contain similar objects whose difference is in their granularity.  Where this table contains per\-interface statistics, the ipSystemStatsTable contains the same statistics, but counted on a system wide basis
     	**type**\:  :py:class:`IpIfStatsTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpIfStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: ipaddressprefixtable
     
     	This table allows the user to determine the source of an IP address or set of IP addresses, and allows other tables to share the information via pointer rather than by copying.  For example, when the node configures both a unicast and anycast address for a prefix, the ipAddressPrefix objects for those addresses will point to a single row in this table.  This table primarily provides support for IPv6 prefixes, and several of the objects are less meaningful for IPv4.  The table continues to allow IPv4 addresses to allow future flexibility.  In order to promote a common configuration, this document includes suggestions for default values for IPv4 prefixes.  Each of these values may be overridden if an object is meaningful to the node.  All prefixes used by this entity should be included in this table independent of how the entity learned the prefix. (This table isn't limited to prefixes learned from router   advertisements.)
     	**type**\:  :py:class:`IpAddressPrefixTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddressPrefixTable>`
     
+    	**config**\: False
+    
     .. attribute:: ipaddresstable
     
     	This table contains addressing information relevant to the entity's interfaces.  This table does not contain multicast address information. Tables for such information should be contained in multicast specific MIBs, such as RFC 3019.  While this table is writable, the user will note that several objects, such as ipAddressOrigin, are not.  The intention in allowing a user to write to this table is to allow them to add or remove any entry that isn't   permanent.  The user should be allowed to modify objects and entries when that would not cause inconsistencies within the table.  Allowing write access to objects, such as ipAddressOrigin, could allow a user to insert an entry and then label it incorrectly.  Note well\: When including IPv6 link\-local addresses in this table, the entry must use an InetAddressType of 'ipv6z' in order to differentiate between the possible interfaces
     	**type**\:  :py:class:`IpAddressTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddressTable>`
+    
+    	**config**\: False
     
     .. attribute:: ipnettophysicaltable
     
     	The IP Address Translation table used for mapping from IP addresses to physical addresses.  The Address Translation tables contain the IP address to 'physical' address equivalences.  Some interfaces do not use translation tables for determining address equivalences (e.g., DDN\-X.25 has an algorithmic method); if all interfaces are of this type, then the Address Translation table is empty, i.e., has zero entries.  While many protocols may be used to populate this table, ARP and Neighbor Discovery are the most likely options
     	**type**\:  :py:class:`IpNetToPhysicalTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToPhysicalTable>`
     
+    	**config**\: False
+    
     .. attribute:: ipv6scopezoneindextable
     
     	The table used to describe IPv6 unicast and multicast scope zones.  For those objects that have names rather than numbers, the names were chosen to coincide with the names used in the IPv6 address architecture document. 
     	**type**\:  :py:class:`Ipv6ScopeZoneIndexTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6ScopeZoneIndexTable>`
+    
+    	**config**\: False
     
     .. attribute:: ipdefaultroutertable
     
     	The table used to describe the default routers known to this   entity
     	**type**\:  :py:class:`IpDefaultRouterTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpDefaultRouterTable>`
     
+    	**config**\: False
+    
     .. attribute:: ipv6routeradverttable
     
     	The table containing information used to construct router advertisements
     	**type**\:  :py:class:`Ipv6RouterAdvertTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6RouterAdvertTable>`
+    
+    	**config**\: False
     
     .. attribute:: icmpstatstable
     
     	The table of generic system\-wide ICMP counters
     	**type**\:  :py:class:`IcmpStatsTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IcmpStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: icmpmsgstatstable
     
     	The table of system\-wide per\-version, per\-message type ICMP counters
     	**type**\:  :py:class:`IcmpMsgStatsTable <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IcmpMsgStatsTable>`
+    
+    	**config**\: False
     
     
 
@@ -418,6 +452,8 @@ class IPMIB(Entity):
         	The indication of whether this entity is acting as an IPv4 router in respect to the forwarding of datagrams received by, but not addressed to, this entity.  IPv4 routers forward datagrams.  IPv4 hosts do not (except those source\-routed via the host).  When this object is written, the entity should save the change to non\-volatile storage and restore the object from non\-volatile storage upon re\-initialization of the system. Note\: a stronger requirement is not used because this object was previously defined
         	**type**\:  :py:class:`IpForwarding <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ip.IpForwarding>`
         
+        	**config**\: False
+        
         .. attribute:: ipdefaultttl
         
         	The default value inserted into the Time\-To\-Live field of the IPv4 header of datagrams originated at this entity, whenever a TTL value is not supplied by the transport layer   protocol.  When this object is written, the entity should save the change to non\-volatile storage and restore the object from non\-volatile storage upon re\-initialization of the system. Note\: a stronger requirement is not used because this object was previously defined
@@ -425,12 +461,16 @@ class IPMIB(Entity):
         
         	**range:** 1..255
         
+        	**config**\: False
+        
         .. attribute:: ipinreceives
         
         	The total number of input datagrams received from interfaces, including those received in error.  This object has been deprecated, as a new IP version\-neutral   table has been added.  It is loosely replaced by ipSystemStatsInRecieves
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -441,6 +481,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: ipinaddrerrors
@@ -449,6 +491,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -459,6 +503,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: ipinunknownprotos
@@ -467,6 +513,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -477,6 +525,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: ipindelivers
@@ -485,6 +535,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -495,6 +547,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: ipoutdiscards
@@ -503,6 +557,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -513,6 +569,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: ipreasmtimeout
@@ -521,6 +579,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** \-2147483648..2147483647
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -531,6 +591,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: ipreasmoks
@@ -539,6 +601,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -549,6 +613,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: ipfragoks
@@ -557,6 +623,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -567,6 +635,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: ipfragcreates
@@ -575,6 +645,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -585,12 +657,16 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: ipv6ipforwarding
         
         	The indication of whether this entity is acting as an IPv6 router on any interface in respect to the forwarding of datagrams received by, but not addressed to, this entity. IPv6 routers forward datagrams.  IPv6 hosts do not (except those source\-routed via the host).  When this object is written, the entity SHOULD save the change to non\-volatile storage and restore the object from non\-volatile storage upon re\-initialization of the system
         	**type**\:  :py:class:`Ipv6IpForwarding <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ip.Ipv6IpForwarding>`
+        
+        	**config**\: False
         
         .. attribute:: ipv6ipdefaulthoplimit
         
@@ -599,12 +675,16 @@ class IPMIB(Entity):
         
         	**range:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: ipv4interfacetablelastchange
         
         	The value of sysUpTime on the most recent occasion at which a row in the ipv4InterfaceTable was added or deleted, or when an ipv4InterfaceReasmMaxSize or an ipv4InterfaceEnableStatus object was modified.  If new objects are added to the ipv4InterfaceTable that require the ipv4InterfaceTableLastChange to be updated when they are modified, they must specify that requirement in their description clause
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: ipv6interfacetablelastchange
         
@@ -613,6 +693,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ipaddressspinlock
         
         	An advisory lock used to allow cooperating SNMP managers to coordinate their use of the set operation in creating or modifying rows within this table.  In order to use this lock to coordinate the use of set operations, managers should first retrieve ipAddressTableSpinLock.  They should then determine the appropriate row to create or modify.  Finally, they should issue the appropriate set command, including the retrieved value of ipAddressSpinLock.  If another manager has altered the table in the meantime, then the value of ipAddressSpinLock will have changed, and the creation will fail as it will be specifying an incorrect value for ipAddressSpinLock.  It is suggested, but not required, that the ipAddressSpinLock be the first var bind for each set of objects representing a 'row' in a PDU
@@ -620,12 +702,16 @@ class IPMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         .. attribute:: ipv6routeradvertspinlock
         
         	An advisory lock used to allow cooperating SNMP managers to coordinate their use of the set operation in creating or modifying rows within this table.  In order to use this lock to coordinate the use of set operations, managers should first retrieve ipv6RouterAdvertSpinLock.  They should then determine the appropriate row to create or modify.  Finally, they should issue the appropriate set command including the retrieved value of ipv6RouterAdvertSpinLock.  If another manager has altered the table in the meantime, then the value of ipv6RouterAdvertSpinLock will have changed and the creation will fail as it will be specifying an incorrect value for ipv6RouterAdvertSpinLock.  It is suggested, but not required, that the ipv6RouterAdvertSpinLock be the first var bind for each set of objects representing a 'row' in a PDU
         	**type**\: int
         
         	**range:** 0..2147483647
+        
+        	**config**\: False
         
         
 
@@ -771,6 +857,7 @@ class IPMIB(Entity):
 
 
 
+
     class IpTrafficStats(Entity):
         """
         
@@ -781,6 +868,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -810,6 +899,7 @@ class IPMIB(Entity):
             self._perform_setattr(IPMIB.IpTrafficStats, ['ipifstatstablelastchange'], name, value)
 
 
+
     class Icmp(Entity):
         """
         
@@ -821,6 +911,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpinerrors
@@ -829,6 +921,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -839,6 +933,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpintimeexcds
@@ -847,6 +943,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -857,6 +955,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpinsrcquenchs
@@ -865,6 +965,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -875,6 +977,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpinechos
@@ -883,6 +987,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -893,6 +999,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpintimestamps
@@ -901,6 +1009,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -911,6 +1021,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpinaddrmasks
@@ -919,6 +1031,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -929,6 +1043,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpoutmsgs
@@ -937,6 +1053,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -947,6 +1065,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpoutdestunreachs
@@ -955,6 +1075,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -965,6 +1087,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpoutparmprobs
@@ -973,6 +1097,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -983,6 +1109,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpoutredirects
@@ -991,6 +1119,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -1001,6 +1131,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpoutechoreps
@@ -1009,6 +1141,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -1019,6 +1153,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpouttimestampreps
@@ -1027,6 +1163,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -1037,6 +1175,8 @@ class IPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: icmpoutaddrmaskreps
@@ -1045,6 +1185,8 @@ class IPMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -1126,6 +1268,7 @@ class IPMIB(Entity):
             self._perform_setattr(IPMIB.Icmp, ['icmpinmsgs', 'icmpinerrors', 'icmpindestunreachs', 'icmpintimeexcds', 'icmpinparmprobs', 'icmpinsrcquenchs', 'icmpinredirects', 'icmpinechos', 'icmpinechoreps', 'icmpintimestamps', 'icmpintimestampreps', 'icmpinaddrmasks', 'icmpinaddrmaskreps', 'icmpoutmsgs', 'icmpouterrors', 'icmpoutdestunreachs', 'icmpouttimeexcds', 'icmpoutparmprobs', 'icmpoutsrcquenchs', 'icmpoutredirects', 'icmpoutechos', 'icmpoutechoreps', 'icmpouttimestamps', 'icmpouttimestampreps', 'icmpoutaddrmasks', 'icmpoutaddrmaskreps'], name, value)
 
 
+
     class IpAddrTable(Entity):
         """
         The table of addressing information relevant to this
@@ -1141,6 +1284,8 @@ class IPMIB(Entity):
         
         	The addressing information for one of this entity's IPv4 addresses
         	**type**\: list of  		 :py:class:`IpAddrEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddrTable.IpAddrEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -1183,6 +1328,8 @@ class IPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ipadentifindex
@@ -1191,6 +1338,8 @@ class IPMIB(Entity):
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1201,6 +1350,8 @@ class IPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ipadentbcastaddr
@@ -1210,6 +1361,8 @@ class IPMIB(Entity):
             
             	**range:** 0..1
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ipadentreasmmaxsize
@@ -1218,6 +1371,8 @@ class IPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1257,6 +1412,8 @@ class IPMIB(Entity):
                 self._perform_setattr(IPMIB.IpAddrTable.IpAddrEntry, ['ipadentaddr', 'ipadentifindex', 'ipadentnetmask', 'ipadentbcastaddr', 'ipadentreasmmaxsize'], name, value)
 
 
+
+
     class IpNetToMediaTable(Entity):
         """
         The IPv4 Address Translation table used for mapping from
@@ -1270,6 +1427,8 @@ class IPMIB(Entity):
         
         	Each entry contains one IpAddress to `physical' address equivalence
         	**type**\: list of  		 :py:class:`IpNetToMediaEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToMediaTable.IpNetToMediaEntry>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -1312,6 +1471,8 @@ class IPMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ipnettomedianetaddress  (key)
@@ -1320,6 +1481,8 @@ class IPMIB(Entity):
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1330,12 +1493,16 @@ class IPMIB(Entity):
             
             	**length:** 0..65535
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: ipnettomediatype
             
             	The type of mapping.  Setting this object to the value invalid(2) has the effect   of invalidating the corresponding entry in the ipNetToMediaTable.  That is, it effectively dis\-associates the interface identified with said entry from the mapping identified with said entry.  It is an implementation\- specific matter as to whether the agent removes an invalidated entry from the table.  Accordingly, management stations must be prepared to receive tabular information from agents that corresponds to entries not currently in use.  Proper interpretation of such entries requires examination of the relevant ipNetToMediaType object.  As the entries in this table are typically not persistent when this object is written the entity should not save the change to non\-volatile storage.  Note\: a stronger requirement is not used because this object was previously defined
             	**type**\:  :py:class:`IpNetToMediaType <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToMediaTable.IpNetToMediaEntry.IpNetToMediaType>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1430,6 +1597,8 @@ class IPMIB(Entity):
 
 
 
+
+
     class Ipv4InterfaceTable(Entity):
         """
         The table containing per\-interface IPv4\-specific
@@ -1439,6 +1608,8 @@ class IPMIB(Entity):
         
         	An entry containing IPv4\-specific information for a specific interface
         	**type**\: list of  		 :py:class:`Ipv4InterfaceEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv4InterfaceTable.Ipv4InterfaceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1479,6 +1650,8 @@ class IPMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipv4interfacereasmmaxsize
             
             	The size of the largest IPv4 datagram that this entity can re\-assemble from incoming IPv4 fragmented datagrams received on this interface
@@ -1486,10 +1659,14 @@ class IPMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: ipv4interfaceenablestatus
             
             	The indication of whether IPv4 is enabled (up) or disabled (down) on this interface.  This object does not affect the state of the interface itself, only its connection to an IPv4 stack.  The IF\-MIB should be used to control the state of the interface
             	**type**\:  :py:class:`Ipv4InterfaceEnableStatus <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv4InterfaceTable.Ipv4InterfaceEntry.Ipv4InterfaceEnableStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ipv4interfaceretransmittime
             
@@ -1497,6 +1674,8 @@ class IPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -1559,6 +1738,8 @@ class IPMIB(Entity):
 
 
 
+
+
     class Ipv6InterfaceTable(Entity):
         """
         The table containing per\-interface IPv6\-specific
@@ -1568,6 +1749,8 @@ class IPMIB(Entity):
         
         	An entry containing IPv6\-specific information for a given interface
         	**type**\: list of  		 :py:class:`Ipv6InterfaceEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6InterfaceTable.Ipv6InterfaceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1608,12 +1791,16 @@ class IPMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipv6interfacereasmmaxsize
             
             	The size of the largest IPv6 datagram that this entity can re\-assemble from incoming IPv6 fragmented datagrams received on this interface
             	**type**\: int
             
             	**range:** 1500..65535
+            
+            	**config**\: False
             
             	**units**\: octets
             
@@ -1622,10 +1809,14 @@ class IPMIB(Entity):
             	The Interface Identifier for this interface.  The Interface Identifier is combined with an address prefix to form an interface address.  By default, the Interface Identifier is auto\-configured according to the rules of the link type to which this interface is attached.   A zero length identifier may be used where appropriate.  One possible example is a loopback interface
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ipv6interfaceenablestatus
             
             	The indication of whether IPv6 is enabled (up) or disabled (down) on this interface.  This object does not affect the state of the interface itself, only its connection to an IPv6 stack.  The IF\-MIB should be used to control the state of the interface.  When this object is written, the entity SHOULD save the change to non\-volatile storage and restore the object from non\-volatile storage upon re\-initialization of the system
             	**type**\:  :py:class:`Ipv6InterfaceEnableStatus <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6InterfaceTable.Ipv6InterfaceEntry.Ipv6InterfaceEnableStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ipv6interfacereachabletime
             
@@ -1633,6 +1824,8 @@ class IPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -1643,12 +1836,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: ipv6interfaceforwarding
             
             	The indication of whether this entity is acting as an IPv6 router on this interface with respect to the forwarding of datagrams received by, but not addressed to, this entity. IPv6 routers forward datagrams.  IPv6 hosts do not (except those source\-routed via the host).  This object is constrained by ipv6IpForwarding and is ignored if ipv6IpForwarding is set to notForwarding.  Those systems that do not provide per\-interface control of the forwarding function should set this object to forwarding for all interfaces and allow the ipv6IpForwarding object to control the forwarding capability.  When this object is written, the entity SHOULD save the change to non\-volatile storage and restore the object from non\-volatile storage upon re\-initialization of the system
             	**type**\:  :py:class:`Ipv6InterfaceForwarding <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6InterfaceTable.Ipv6InterfaceEntry.Ipv6InterfaceForwarding>`
+            
+            	**config**\: False
             
             
 
@@ -1764,6 +1961,8 @@ class IPMIB(Entity):
 
 
 
+
+
     class IpSystemStatsTable(Entity):
         """
         The table containing system wide, IP version specific
@@ -1777,6 +1976,8 @@ class IPMIB(Entity):
         
         	A statistics entry containing system\-wide objects for a particular IP version
         	**type**\: list of  		 :py:class:`IpSystemStatsEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpSystemStatsTable.IpSystemStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1815,12 +2016,16 @@ class IPMIB(Entity):
             	The IP version of this row
             	**type**\:  :py:class:`IpVersion <ydk.models.ietf.ietf_inet_types.IpVersion>`
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatsinreceives
             
             	The total number of input IP datagrams received, including those received in error.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatshcinreceives
             
@@ -1829,12 +2034,16 @@ class IPMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatsinoctets
             
             	The total number of octets received in input IP datagrams, including those received in error.  Octets from datagrams counted in ipSystemStatsInReceives MUST be counted here.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatshcinoctets
             
@@ -1843,12 +2052,16 @@ class IPMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatsinhdrerrors
             
             	The number of input IP datagrams discarded due to errors in their IP headers, including version number mismatch, other format errors, hop count exceeded, errors discovered in processing their IP options, etc.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsinnoroutes
             
@@ -1857,12 +2070,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatsinaddrerrors
             
             	The number of input IP datagrams discarded because the IP address in their IP header's destination field was not a valid address to be received at this entity.  This count includes invalid addresses (e.g., \:\:0).  For entities that are not IP routers and therefore do not forward   datagrams, this counter includes datagrams discarded because the destination address was not a local address.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsinunknownprotos
             
@@ -1871,12 +2088,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatsintruncatedpkts
             
             	The number of input IP datagrams discarded because the datagram frame didn't carry enough data.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsinforwdatagrams
             
@@ -1885,12 +2106,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatshcinforwdatagrams
             
             	The number of input datagrams for which this entity was not their final IP destination and for which this entity attempted to find a route to forward them to that final destination.  This object counts the same packets as ipSystemStatsInForwDatagrams, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsreasmreqds
             
@@ -1899,12 +2124,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatsreasmoks
             
             	The number of IP datagrams successfully reassembled.  When tracking interface statistics, the counter of the interface to which these datagrams were addressed is incremented.  This interface might not be the same as the input interface for some of the datagrams.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsreasmfails
             
@@ -1913,12 +2142,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatsindiscards
             
             	The number of input IP datagrams for which no problems were encountered to prevent their continued processing, but were discarded (e.g., for lack of buffer space).  Note that this counter does not include any datagrams discarded while awaiting re\-assembly.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsindelivers
             
@@ -1927,12 +2160,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatshcindelivers
             
             	The total number of datagrams successfully delivered to IP user\-protocols (including ICMP).  This object counts the same packets as ipSystemStatsInDelivers, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsoutrequests
             
@@ -1941,12 +2178,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatshcoutrequests
             
             	The total number of IP datagrams that local IP user\- protocols (including ICMP) supplied to IP in requests for transmission.  This object counts the same packets as ipSystemStatsOutRequests, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsoutnoroutes
             
@@ -1955,12 +2196,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatsoutforwdatagrams
             
             	The number of datagrams for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination.  In entities that do not act as IP routers, this counter will include only those datagrams that were Source\-Routed via this entity, and the Source\-Route processing was successful.  When tracking interface statistics, the counter of the outgoing interface is incremented for a successfully forwarded datagram.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatshcoutforwdatagrams
             
@@ -1969,12 +2214,16 @@ class IPMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatsoutdiscards
             
             	The number of output IP datagrams for which no problem was encountered to prevent their transmission to their destination, but were discarded (e.g., for lack of buffer space).  Note that this counter would include   datagrams counted in ipSystemStatsOutForwDatagrams if any such datagrams met this (discretionary) discard criterion.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsoutfragreqds
             
@@ -1983,12 +2232,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatsoutfragoks
             
             	The number of IP datagrams that have been successfully fragmented.  When tracking interface statistics, the counter of the outgoing interface is incremented for a successfully fragmented datagram.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsoutfragfails
             
@@ -1997,12 +2250,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatsoutfragcreates
             
             	The number of output datagram fragments that have been generated as a result of IP fragmentation.  When tracking interface statistics, the counter of the outgoing interface is incremented for a successfully fragmented datagram.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsouttransmits
             
@@ -2011,12 +2268,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatshcouttransmits
             
             	The total number of IP datagrams that this entity supplied to the lower layers for transmission.  This object counts the same datagrams as ipSystemStatsOutTransmits, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsoutoctets
             
@@ -2025,12 +2286,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatshcoutoctets
             
             	The total number of octets in IP datagrams delivered to the lower layers for transmission.  This objects counts the same octets as ipSystemStatsOutOctets, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of   ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsinmcastpkts
             
@@ -2039,12 +2304,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatshcinmcastpkts
             
             	The number of IP multicast datagrams received.  This object counts the same datagrams as ipSystemStatsInMcastPkts but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsinmcastoctets
             
@@ -2053,12 +2322,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatshcinmcastoctets
             
             	The total number of octets received in IP multicast datagrams.  This object counts the same octets as ipSystemStatsInMcastOctets, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsoutmcastpkts
             
@@ -2067,12 +2340,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatshcoutmcastpkts
             
             	The number of IP multicast datagrams transmitted.  This object counts the same datagrams as ipSystemStatsOutMcastPkts, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsoutmcastoctets
             
@@ -2081,12 +2358,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatshcoutmcastoctets
             
             	The total number of octets transmitted in IP multicast datagrams.  This object counts the same octets as ipSystemStatsOutMcastOctets, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsinbcastpkts
             
@@ -2095,12 +2376,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatshcinbcastpkts
             
             	The number of IP broadcast datagrams received.  This object counts the same datagrams as ipSystemStatsInBcastPkts but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of   ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsoutbcastpkts
             
@@ -2109,12 +2394,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatshcoutbcastpkts
             
             	The number of IP broadcast datagrams transmitted.  This object counts the same datagrams as ipSystemStatsOutBcastPkts, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipSystemStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipsystemstatsdiscontinuitytime
             
@@ -2123,12 +2412,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipsystemstatsrefreshrate
             
             	The minimum reasonable polling interval for this entry. This object provides an indication of the minimum amount of time required to update the counters in this entry
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milli-seconds
             
@@ -2250,6 +2543,8 @@ class IPMIB(Entity):
                 self._perform_setattr(IPMIB.IpSystemStatsTable.IpSystemStatsEntry, ['ipsystemstatsipversion', 'ipsystemstatsinreceives', 'ipsystemstatshcinreceives', 'ipsystemstatsinoctets', 'ipsystemstatshcinoctets', 'ipsystemstatsinhdrerrors', 'ipsystemstatsinnoroutes', 'ipsystemstatsinaddrerrors', 'ipsystemstatsinunknownprotos', 'ipsystemstatsintruncatedpkts', 'ipsystemstatsinforwdatagrams', 'ipsystemstatshcinforwdatagrams', 'ipsystemstatsreasmreqds', 'ipsystemstatsreasmoks', 'ipsystemstatsreasmfails', 'ipsystemstatsindiscards', 'ipsystemstatsindelivers', 'ipsystemstatshcindelivers', 'ipsystemstatsoutrequests', 'ipsystemstatshcoutrequests', 'ipsystemstatsoutnoroutes', 'ipsystemstatsoutforwdatagrams', 'ipsystemstatshcoutforwdatagrams', 'ipsystemstatsoutdiscards', 'ipsystemstatsoutfragreqds', 'ipsystemstatsoutfragoks', 'ipsystemstatsoutfragfails', 'ipsystemstatsoutfragcreates', 'ipsystemstatsouttransmits', 'ipsystemstatshcouttransmits', 'ipsystemstatsoutoctets', 'ipsystemstatshcoutoctets', 'ipsystemstatsinmcastpkts', 'ipsystemstatshcinmcastpkts', 'ipsystemstatsinmcastoctets', 'ipsystemstatshcinmcastoctets', 'ipsystemstatsoutmcastpkts', 'ipsystemstatshcoutmcastpkts', 'ipsystemstatsoutmcastoctets', 'ipsystemstatshcoutmcastoctets', 'ipsystemstatsinbcastpkts', 'ipsystemstatshcinbcastpkts', 'ipsystemstatsoutbcastpkts', 'ipsystemstatshcoutbcastpkts', 'ipsystemstatsdiscontinuitytime', 'ipsystemstatsrefreshrate'], name, value)
 
 
+
+
     class IpIfStatsTable(Entity):
         """
         The table containing per\-interface traffic statistics.  This
@@ -2263,6 +2558,8 @@ class IPMIB(Entity):
         
         	An interface statistics entry containing objects for a particular interface and version of IP
         	**type**\: list of  		 :py:class:`IpIfStatsEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpIfStatsTable.IpIfStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2301,12 +2598,16 @@ class IPMIB(Entity):
             	The IP version of this row
             	**type**\:  :py:class:`IpVersion <ydk.models.ietf.ietf_inet_types.IpVersion>`
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsifindex  (key)
             
             	The index value that uniquely identifies the interface to which this entry is applicable.  The interface identified by a particular value of this index is the same interface as identified by the same value of the IF\-MIB's ifIndex
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsinreceives
             
@@ -2315,12 +2616,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatshcinreceives
             
             	The total number of input IP datagrams received, including those received in error.  This object counts the same datagrams as ipIfStatsInReceives, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsinoctets
             
@@ -2329,12 +2634,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatshcinoctets
             
             	The total number of octets received in input IP datagrams, including those received in error.  This object counts the same octets as ipIfStatsInOctets, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsinhdrerrors
             
@@ -2343,12 +2652,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsinnoroutes
             
             	The number of input IP datagrams discarded because no route could be found to transmit them to their destination.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsinaddrerrors
             
@@ -2357,12 +2670,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsinunknownprotos
             
             	The number of locally\-addressed IP datagrams received successfully but discarded because of an unknown or unsupported protocol.  When tracking interface statistics, the counter of the interface to which these datagrams were addressed is incremented.  This interface might not be the same as the input interface for some of the datagrams.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of   ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsintruncatedpkts
             
@@ -2371,12 +2688,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsinforwdatagrams
             
             	The number of input datagrams for which this entity was not their final IP destination and for which this entity attempted to find a route to forward them to that final destination.  In entities that do not act as IP routers, this counter will include only those datagrams that were Source\-Routed via this entity, and the Source\-Route processing was successful.  When tracking interface statistics, the counter of the incoming interface is incremented for each datagram.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipifstatshcinforwdatagrams
             
@@ -2385,12 +2706,16 @@ class IPMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsreasmreqds
             
             	The number of IP fragments received that needed to be reassembled at this interface.  When tracking interface statistics, the counter of the interface to which these fragments were addressed is incremented.  This interface might not be the same as the input interface for some of the fragments.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsreasmoks
             
@@ -2399,12 +2724,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsreasmfails
             
             	The number of failures detected by the IP re\-assembly algorithm (for whatever reason\: timed out, errors, etc.). Note that this is not necessarily a count of discarded IP fragments since some algorithms (notably the algorithm in RFC 815) can lose track of the number of fragments by combining them as they are received.  When tracking interface statistics, the counter of the interface to which these fragments were addressed is incremented.  This interface might not be the same as the input interface for some of the fragments.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsindiscards
             
@@ -2413,12 +2742,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsindelivers
             
             	The total number of datagrams successfully delivered to IP user\-protocols (including ICMP).  When tracking interface statistics, the counter of the interface to which these datagrams were addressed is incremented.  This interface might not be the same as the   input interface for some of the datagrams.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipifstatshcindelivers
             
@@ -2427,12 +2760,16 @@ class IPMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsoutrequests
             
             	The total number of IP datagrams that local IP user\- protocols (including ICMP) supplied to IP in requests for transmission.  Note that this counter does not include any datagrams counted in ipIfStatsOutForwDatagrams.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipifstatshcoutrequests
             
@@ -2441,12 +2778,16 @@ class IPMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsoutforwdatagrams
             
             	The number of datagrams for which this entity was not their final IP destination and for which it was successful in finding a path to their final destination.  In entities that do not act as IP routers, this counter will include only those datagrams that were Source\-Routed via this entity, and the Source\-Route processing was successful.  When tracking interface statistics, the counter of the outgoing interface is incremented for a successfully forwarded datagram.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipifstatshcoutforwdatagrams
             
@@ -2455,12 +2796,16 @@ class IPMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsoutdiscards
             
             	The number of output IP datagrams for which no problem was encountered to prevent their transmission to their destination, but were discarded (e.g., for lack of buffer space).  Note that this counter would include datagrams counted in ipIfStatsOutForwDatagrams if any such datagrams met this (discretionary) discard criterion.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsoutfragreqds
             
@@ -2469,12 +2814,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsoutfragoks
             
             	The number of IP datagrams that have been successfully fragmented.  When tracking interface statistics, the counter of the   outgoing interface is incremented for a successfully fragmented datagram.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsoutfragfails
             
@@ -2483,12 +2832,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsoutfragcreates
             
             	The number of output datagram fragments that have been generated as a result of IP fragmentation.  When tracking interface statistics, the counter of the outgoing interface is incremented for a successfully fragmented datagram.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsouttransmits
             
@@ -2497,12 +2850,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatshcouttransmits
             
             	The total number of IP datagrams that this entity supplied to the lower layers for transmission.  This object counts the same datagrams as ipIfStatsOutTransmits, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsoutoctets
             
@@ -2511,12 +2868,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatshcoutoctets
             
             	The total number of octets in IP datagrams delivered to the lower layers for transmission.  This objects counts the same octets as ipIfStatsOutOctets, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsinmcastpkts
             
@@ -2525,12 +2886,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatshcinmcastpkts
             
             	The number of IP multicast datagrams received.  This object counts the same datagrams as ipIfStatsInMcastPkts, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsinmcastoctets
             
@@ -2539,12 +2904,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatshcinmcastoctets
             
             	The total number of octets received in IP multicast datagrams.  This object counts the same octets as ipIfStatsInMcastOctets, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsoutmcastpkts
             
@@ -2553,12 +2922,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatshcoutmcastpkts
             
             	The number of IP multicast datagrams transmitted.  This object counts the same datagrams as ipIfStatsOutMcastPkts, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other   times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsoutmcastoctets
             
@@ -2567,12 +2940,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatshcoutmcastoctets
             
             	The total number of octets transmitted in IP multicast datagrams.  This object counts the same octets as ipIfStatsOutMcastOctets, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsinbcastpkts
             
@@ -2581,12 +2958,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatshcinbcastpkts
             
             	The number of IP broadcast datagrams received.  This object counts the same datagrams as ipIfStatsInBcastPkts, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsoutbcastpkts
             
@@ -2595,12 +2976,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatshcoutbcastpkts
             
             	The number of IP broadcast datagrams transmitted.  This object counts the same datagrams as ipIfStatsOutBcastPkts, but allows for larger values.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ipIfStatsDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ipifstatsdiscontinuitytime
             
@@ -2609,12 +2994,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipifstatsrefreshrate
             
             	The minimum reasonable polling interval for this entry. This object provides an indication of the minimum amount of time required to update the counters in this entry
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milli-seconds
             
@@ -2736,6 +3125,8 @@ class IPMIB(Entity):
                 self._perform_setattr(IPMIB.IpIfStatsTable.IpIfStatsEntry, ['ipifstatsipversion', 'ipifstatsifindex', 'ipifstatsinreceives', 'ipifstatshcinreceives', 'ipifstatsinoctets', 'ipifstatshcinoctets', 'ipifstatsinhdrerrors', 'ipifstatsinnoroutes', 'ipifstatsinaddrerrors', 'ipifstatsinunknownprotos', 'ipifstatsintruncatedpkts', 'ipifstatsinforwdatagrams', 'ipifstatshcinforwdatagrams', 'ipifstatsreasmreqds', 'ipifstatsreasmoks', 'ipifstatsreasmfails', 'ipifstatsindiscards', 'ipifstatsindelivers', 'ipifstatshcindelivers', 'ipifstatsoutrequests', 'ipifstatshcoutrequests', 'ipifstatsoutforwdatagrams', 'ipifstatshcoutforwdatagrams', 'ipifstatsoutdiscards', 'ipifstatsoutfragreqds', 'ipifstatsoutfragoks', 'ipifstatsoutfragfails', 'ipifstatsoutfragcreates', 'ipifstatsouttransmits', 'ipifstatshcouttransmits', 'ipifstatsoutoctets', 'ipifstatshcoutoctets', 'ipifstatsinmcastpkts', 'ipifstatshcinmcastpkts', 'ipifstatsinmcastoctets', 'ipifstatshcinmcastoctets', 'ipifstatsoutmcastpkts', 'ipifstatshcoutmcastpkts', 'ipifstatsoutmcastoctets', 'ipifstatshcoutmcastoctets', 'ipifstatsinbcastpkts', 'ipifstatshcinbcastpkts', 'ipifstatsoutbcastpkts', 'ipifstatshcoutbcastpkts', 'ipifstatsdiscontinuitytime', 'ipifstatsrefreshrate'], name, value)
 
 
+
+
     class IpAddressPrefixTable(Entity):
         """
         This table allows the user to determine the source of an IP
@@ -2766,6 +3157,8 @@ class IPMIB(Entity):
         
         	An entry in the ipAddressPrefixTable
         	**type**\: list of  		 :py:class:`IpAddressPrefixEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddressPrefixTable.IpAddressPrefixEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2805,10 +3198,14 @@ class IPMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipaddressprefixtype  (key)
             
             	The address type of ipAddressPrefix
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: ipaddressprefixprefix  (key)
             
@@ -2817,6 +3214,8 @@ class IPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ipaddressprefixlength  (key)
             
             	The prefix length associated with this prefix.  The value 0 has no special meaning for this object.  It simply refers to address '\:\:/0'
@@ -2824,20 +3223,28 @@ class IPMIB(Entity):
             
             	**range:** 0..2040
             
+            	**config**\: False
+            
             .. attribute:: ipaddressprefixorigin
             
             	The origin of this prefix
             	**type**\:  :py:class:`IpAddressPrefixOriginTC <ydk.models.cisco_ios_xe.IP_MIB.IpAddressPrefixOriginTC>`
+            
+            	**config**\: False
             
             .. attribute:: ipaddressprefixonlinkflag
             
             	This object has the value 'true(1)', if this prefix can be used for on\-link determination; otherwise, the value is 'false(2)'.  The default for IPv4 prefixes is 'true(1)'
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ipaddressprefixautonomousflag
             
             	Autonomous address configuration flag.  When true(1), indicates that this prefix can be used for autonomous address configuration (i.e., can be used to form a local interface address).  If false(2), it is not used to auto\- configure a local interface address.  The default for IPv4 prefixes is 'false(2)'
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ipaddressprefixadvpreferredlifetime
             
@@ -2845,6 +3252,8 @@ class IPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -2854,6 +3263,8 @@ class IPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -2901,6 +3312,8 @@ class IPMIB(Entity):
                 self._perform_setattr(IPMIB.IpAddressPrefixTable.IpAddressPrefixEntry, ['ipaddressprefixifindex', 'ipaddressprefixtype', 'ipaddressprefixprefix', 'ipaddressprefixlength', 'ipaddressprefixorigin', 'ipaddressprefixonlinkflag', 'ipaddressprefixautonomousflag', 'ipaddressprefixadvpreferredlifetime', 'ipaddressprefixadvvalidlifetime'], name, value)
 
 
+
+
     class IpAddressTable(Entity):
         """
         This table contains addressing information relevant to the
@@ -2930,6 +3343,8 @@ class IPMIB(Entity):
         
         	An address mapping for a particular interface
         	**type**\: list of  		 :py:class:`IpAddressEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddressTable.IpAddressEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2967,12 +3382,16 @@ class IPMIB(Entity):
             	The address type of ipAddressAddr
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
+            	**config**\: False
+            
             .. attribute:: ipaddressaddr  (key)
             
             	The IP address to which this entry's addressing information   pertains.  The address type of this object is specified in ipAddressAddrType.  Implementors need to be aware that if the size of ipAddressAddr exceeds 116 octets, then OIDS of instances of columns in this row will have more than 128 sub\-identifiers and cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: ipaddressifindex
             
@@ -2981,10 +3400,14 @@ class IPMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipaddresstype
             
             	The type of address.  broadcast(3) is not a valid value for IPv6 addresses (RFC 3513)
             	**type**\:  :py:class:`IpAddressType <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpAddressTable.IpAddressEntry.IpAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: ipaddressprefix
             
@@ -2993,15 +3416,21 @@ class IPMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: ipaddressorigin
             
             	The origin of the address
             	**type**\:  :py:class:`IpAddressOriginTC <ydk.models.cisco_ios_xe.IP_MIB.IpAddressOriginTC>`
             
+            	**config**\: False
+            
             .. attribute:: ipaddressstatus
             
             	The status of the address, describing if the address can be used for communication.  In the absence of other information, an IPv4 address is always preferred(1)
             	**type**\:  :py:class:`IpAddressStatusTC <ydk.models.cisco_ios_xe.IP_MIB.IpAddressStatusTC>`
+            
+            	**config**\: False
             
             .. attribute:: ipaddresscreated
             
@@ -3010,6 +3439,8 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipaddresslastchanged
             
             	The value of sysUpTime at the time this entry was last updated.  If this entry was updated prior to the last re\- initialization of the local network management subsystem, then this object contains a zero value
@@ -3017,15 +3448,21 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipaddressrowstatus
             
             	The status of this conceptual row.  The RowStatus TC requires that this DESCRIPTION clause states under which circumstances other objects in this row   can be modified.  The value of this object has no effect on whether other objects in this conceptual row can be modified.  A conceptual row can not be made active until the ipAddressIfIndex has been set to a valid index
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: ipaddressstoragetype
             
             	The storage type for this conceptual row.  If this object has a value of 'permanent', then no other objects are required to be able to be modified
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -3098,6 +3535,8 @@ class IPMIB(Entity):
 
 
 
+
+
     class IpNetToPhysicalTable(Entity):
         """
         The IP Address Translation table used for mapping from IP
@@ -3118,6 +3557,8 @@ class IPMIB(Entity):
         
         	Each entry contains one IP address to `physical' address equivalence
         	**type**\: list of  		 :py:class:`IpNetToPhysicalEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToPhysicalTable.IpNetToPhysicalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3158,10 +3599,14 @@ class IPMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipnettophysicalnetaddresstype  (key)
             
             	The type of ipNetToPhysicalNetAddress
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: ipnettophysicalnetaddress  (key)
             
@@ -3170,12 +3615,16 @@ class IPMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ipnettophysicalphysaddress
             
             	The media\-dependent `physical' address.  As the entries in this table are typically not persistent when this object is written the entity SHOULD NOT save the change to non\-volatile storage
             	**type**\: str
             
             	**length:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: ipnettophysicallastupdated
             
@@ -3184,20 +3633,28 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipnettophysicaltype
             
             	The type of mapping.  Setting this object to the value invalid(2) has the effect of invalidating the corresponding entry in the ipNetToPhysicalTable.  That is, it effectively dis\- associates the interface identified with said entry from the mapping identified with said entry.  It is an implementation\-specific matter as to whether the agent   removes an invalidated entry from the table.  Accordingly, management stations must be prepared to receive tabular information from agents that corresponds to entries not currently in use.  Proper interpretation of such entries requires examination of the relevant ipNetToPhysicalType object.  The 'dynamic(3)' type indicates that the IP address to physical addresses mapping has been dynamically resolved using e.g., IPv4 ARP or the IPv6 Neighbor Discovery protocol.  The 'static(4)' type indicates that the mapping has been statically configured.  Both of these refer to entries that provide mappings for other entities addresses.  The 'local(5)' type indicates that the mapping is provided for an entity's own interface address.  As the entries in this table are typically not persistent when this object is written the entity SHOULD NOT save the change to non\-volatile storage
             	**type**\:  :py:class:`IpNetToPhysicalType <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToPhysicalTable.IpNetToPhysicalEntry.IpNetToPhysicalType>`
+            
+            	**config**\: False
             
             .. attribute:: ipnettophysicalstate
             
             	The Neighbor Unreachability Detection state for the interface when the address mapping in this entry is used. If Neighbor Unreachability Detection is not in use (e.g. for IPv4), this object is always unknown(6)
             	**type**\:  :py:class:`IpNetToPhysicalState <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpNetToPhysicalTable.IpNetToPhysicalEntry.IpNetToPhysicalState>`
             
+            	**config**\: False
+            
             .. attribute:: ipnettophysicalrowstatus
             
             	The status of this conceptual row.  The RowStatus TC requires that this DESCRIPTION clause states under which circumstances other objects in this row can be modified.  The value of this object has no effect on whether other objects in this conceptual row can be modified.  A conceptual row can not be made active until the ipNetToPhysicalPhysAddress object has been set.  Note that if the ipNetToPhysicalType is set to 'invalid', the managed node may delete the entry independent of the state of this object
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -3361,6 +3818,8 @@ class IPMIB(Entity):
 
 
 
+
+
     class Ipv6ScopeZoneIndexTable(Entity):
         """
         The table used to describe IPv6 unicast and multicast scope
@@ -3374,6 +3833,8 @@ class IPMIB(Entity):
         
         	Each entry contains the list of scope identifiers on a given interface
         	**type**\: list of  		 :py:class:`Ipv6ScopeZoneIndexEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6ScopeZoneIndexTable.Ipv6ScopeZoneIndexEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3414,12 +3875,16 @@ class IPMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipv6scopezoneindexlinklocal
             
             	The zone index for the link\-local scope on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipv6scopezoneindex3
             
@@ -3428,12 +3893,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipv6scopezoneindexadminlocal
             
             	The zone index for the admin\-local scope on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipv6scopezoneindexsitelocal
             
@@ -3442,12 +3911,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipv6scopezoneindex6
             
             	The zone index for scope 6 on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipv6scopezoneindex7
             
@@ -3456,12 +3929,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipv6scopezoneindexorganizationlocal
             
             	The zone index for the organization\-local scope on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipv6scopezoneindex9
             
@@ -3470,12 +3947,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipv6scopezoneindexa
             
             	The zone index for scope A on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ipv6scopezoneindexb
             
@@ -3484,6 +3965,8 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipv6scopezoneindexc
             
             	The zone index for scope C on this interface
@@ -3491,12 +3974,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipv6scopezoneindexd
             
             	The zone index for scope D on this interface
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3550,6 +4037,8 @@ class IPMIB(Entity):
                 self._perform_setattr(IPMIB.Ipv6ScopeZoneIndexTable.Ipv6ScopeZoneIndexEntry, ['ipv6scopezoneindexifindex', 'ipv6scopezoneindexlinklocal', 'ipv6scopezoneindex3', 'ipv6scopezoneindexadminlocal', 'ipv6scopezoneindexsitelocal', 'ipv6scopezoneindex6', 'ipv6scopezoneindex7', 'ipv6scopezoneindexorganizationlocal', 'ipv6scopezoneindex9', 'ipv6scopezoneindexa', 'ipv6scopezoneindexb', 'ipv6scopezoneindexc', 'ipv6scopezoneindexd'], name, value)
 
 
+
+
     class IpDefaultRouterTable(Entity):
         """
         The table used to describe the default routers known to this
@@ -3561,6 +4050,8 @@ class IPMIB(Entity):
         
         	Each entry contains information about a default router known to this entity
         	**type**\: list of  		 :py:class:`IpDefaultRouterEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpDefaultRouterTable.IpDefaultRouterEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3599,12 +4090,16 @@ class IPMIB(Entity):
             	The address type for this row
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
+            	**config**\: False
+            
             .. attribute:: ipdefaultrouteraddress  (key)
             
             	The IP address of the default router represented by this row.  The address type of this object is specified in ipDefaultRouterAddressType.  Implementers need to be aware that if the size of ipDefaultRouterAddress exceeds 115 octets, then OIDS of instances of columns in this row will have more than 128 sub\-identifiers and cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: ipdefaultrouterifindex  (key)
             
@@ -3613,6 +4108,8 @@ class IPMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipdefaultrouterlifetime
             
             	The remaining length of time, in seconds, that this router will continue to be useful as a default router.  A value of zero indicates that it is no longer useful as a default router.  It is left to the implementer of the MIB as to whether a router with a lifetime of zero is removed from the list.  For IPv6, this value should be extracted from the router advertisement messages
@@ -3620,12 +4117,16 @@ class IPMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: ipdefaultrouterpreference
             
             	An indication of preference given to this router as a default router as described in he Default Router Preferences document.  Treating the value as a 2 bit signed integer allows for simple arithmetic comparisons.  For IPv4 routers or IPv6 routers that are not using the updated router advertisement format, this object is set to medium (0)
             	**type**\:  :py:class:`IpDefaultRouterPreference <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IpDefaultRouterTable.IpDefaultRouterEntry.IpDefaultRouterPreference>`
+            
+            	**config**\: False
             
             
 
@@ -3702,6 +4203,8 @@ class IPMIB(Entity):
 
 
 
+
+
     class Ipv6RouterAdvertTable(Entity):
         """
         The table containing information used to construct router
@@ -3711,6 +4214,8 @@ class IPMIB(Entity):
         
         	An entry containing information used to construct router advertisements.  Information in this table is persistent, and when this object is written, the entity SHOULD save the change to non\-volatile storage
         	**type**\: list of  		 :py:class:`Ipv6RouterAdvertEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.Ipv6RouterAdvertTable.Ipv6RouterAdvertEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3755,10 +4260,14 @@ class IPMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ipv6routeradvertsendadverts
             
             	A flag indicating whether the router sends periodic router advertisements and responds to router solicitations on this interface
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ipv6routeradvertmaxinterval
             
@@ -3766,6 +4275,8 @@ class IPMIB(Entity):
             	**type**\: int
             
             	**range:** 4..1800
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -3776,6 +4287,8 @@ class IPMIB(Entity):
             
             	**range:** 3..1350
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: ipv6routeradvertmanagedflag
@@ -3783,10 +4296,14 @@ class IPMIB(Entity):
             	The true/false value to be placed into the 'managed address configuration' flag field in router advertisements sent from this interface
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: ipv6routeradvertotherconfigflag
             
             	The true/false value to be placed into the 'other stateful configuration' flag field in router advertisements sent from this interface
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: ipv6routeradvertlinkmtu
             
@@ -3795,12 +4312,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ipv6routeradvertreachabletime
             
             	The value to be placed in the reachable time field in router advertisement messages sent from this interface.  A value of zero in the router advertisement indicates that the advertisement isn't specifying a value for reachable time
             	**type**\: int
             
             	**range:** 0..3600000
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -3811,6 +4332,8 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: ipv6routeradvertcurhoplimit
@@ -3820,6 +4343,8 @@ class IPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ipv6routeradvertdefaultlifetime
             
             	The value to be placed in the router lifetime field of router advertisements sent from this interface.  This value MUST be either 0 or between ipv6RouterAdvertMaxInterval and 9000 seconds.  A value of zero indicates that the router is not to be used as a default router.  The default is 3 \* ipv6RouterAdvertMaxInterval
@@ -3827,12 +4352,16 @@ class IPMIB(Entity):
             
             	**range:** 0..None \| 4..9000
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: ipv6routeradvertrowstatus
             
             	The status of this conceptual row.  As all objects in this conceptual row have default values, a row can be created and made active by setting this object appropriately.  The RowStatus TC requires that this DESCRIPTION clause states under which circumstances other objects in this row can be modified.  The value of this object has no effect on whether other objects in this conceptual row can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -3884,6 +4413,8 @@ class IPMIB(Entity):
                 self._perform_setattr(IPMIB.Ipv6RouterAdvertTable.Ipv6RouterAdvertEntry, ['ipv6routeradvertifindex', 'ipv6routeradvertsendadverts', 'ipv6routeradvertmaxinterval', 'ipv6routeradvertmininterval', 'ipv6routeradvertmanagedflag', 'ipv6routeradvertotherconfigflag', 'ipv6routeradvertlinkmtu', 'ipv6routeradvertreachabletime', 'ipv6routeradvertretransmittime', 'ipv6routeradvertcurhoplimit', 'ipv6routeradvertdefaultlifetime', 'ipv6routeradvertrowstatus'], name, value)
 
 
+
+
     class IcmpStatsTable(Entity):
         """
         The table of generic system\-wide ICMP counters.
@@ -3892,6 +4423,8 @@ class IPMIB(Entity):
         
         	A conceptual row in the icmpStatsTable
         	**type**\: list of  		 :py:class:`IcmpStatsEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IcmpStatsTable.IcmpStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3929,12 +4462,16 @@ class IPMIB(Entity):
             	The IP version of the statistics
             	**type**\:  :py:class:`IpVersion <ydk.models.ietf.ietf_inet_types.IpVersion>`
             
+            	**config**\: False
+            
             .. attribute:: icmpstatsinmsgs
             
             	The total number of ICMP messages that the entity received. Note that this counter includes all those counted by icmpStatsInErrors
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: icmpstatsinerrors
             
@@ -3943,6 +4480,8 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: icmpstatsoutmsgs
             
             	The total number of ICMP messages that the entity attempted to send.  Note that this counter includes all those counted by icmpStatsOutErrors
@@ -3950,12 +4489,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: icmpstatsouterrors
             
             	The number of ICMP messages that this entity did not send due to problems discovered within ICMP, such as a lack of buffers.  This value should not include errors discovered outside the ICMP layer, such as the inability of IP to route the resultant datagram.  In some implementations, there may be no types of error that contribute to this counter's value
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3993,6 +4536,8 @@ class IPMIB(Entity):
                 self._perform_setattr(IPMIB.IcmpStatsTable.IcmpStatsEntry, ['icmpstatsipversion', 'icmpstatsinmsgs', 'icmpstatsinerrors', 'icmpstatsoutmsgs', 'icmpstatsouterrors'], name, value)
 
 
+
+
     class IcmpMsgStatsTable(Entity):
         """
         The table of system\-wide per\-version, per\-message type ICMP
@@ -4002,6 +4547,8 @@ class IPMIB(Entity):
         
         	A conceptual row in the icmpMsgStatsTable.  The system should track each ICMP type value, even if that ICMP type is not supported by the system.  However, a given row need not be instantiated unless a message of that type has been processed, i.e., the row for icmpMsgStatsType=X MAY be instantiated before but MUST be instantiated after the first message with Type=X is received or transmitted.  After receiving or transmitting any succeeding messages with Type=X, the relevant counter must be incremented
         	**type**\: list of  		 :py:class:`IcmpMsgStatsEntry <ydk.models.cisco_ios_xe.IP_MIB.IPMIB.IcmpMsgStatsTable.IcmpMsgStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4049,12 +4596,16 @@ class IPMIB(Entity):
             	The IP version of the statistics
             	**type**\:  :py:class:`IpVersion <ydk.models.ietf.ietf_inet_types.IpVersion>`
             
+            	**config**\: False
+            
             .. attribute:: icmpmsgstatstype  (key)
             
             	The ICMP type field of the message type being counted by this row.  Note that ICMP message types are scoped by the address type in use
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: icmpmsgstatsinpkts
             
@@ -4063,12 +4614,16 @@ class IPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: icmpmsgstatsoutpkts
             
             	The number of output packets for this AF and type
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -4103,7 +4658,11 @@ class IPMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.IcmpMsgStatsTable.IcmpMsgStatsEntry, ['icmpmsgstatsipversion', 'icmpmsgstatstype', 'icmpmsgstatsinpkts', 'icmpmsgstatsoutpkts'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = IPMIB()
         return self._top_entity
+
+
 

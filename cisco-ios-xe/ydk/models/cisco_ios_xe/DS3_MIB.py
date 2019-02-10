@@ -23,45 +23,63 @@ class DS3MIB(Entity):
     	The DS3/E3 Configuration table
     	**type**\:  :py:class:`Dsx3ConfigTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable>`
     
+    	**config**\: False
+    
     .. attribute:: dsx3currenttable
     
     	The DS3/E3 current table contains various statistics being collected for the current 15 minute interval
     	**type**\:  :py:class:`Dsx3CurrentTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3CurrentTable>`
+    
+    	**config**\: False
     
     .. attribute:: dsx3intervaltable
     
     	The DS3/E3 Interval Table contains various statistics collected by each DS3/E3 Interface over the previous 24 hours of operation.  The past 24 hours are broken into 96 completed 15 minute intervals.  Each row in this table represents one such interval (identified by dsx3IntervalNumber) and for one specific interface (identifed by dsx3IntervalIndex)
     	**type**\:  :py:class:`Dsx3IntervalTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3IntervalTable>`
     
+    	**config**\: False
+    
     .. attribute:: dsx3totaltable
     
     	The DS3/E3 Total Table contains the cumulative sum of the various statistics for the 24 hour period preceding the current interval
     	**type**\:  :py:class:`Dsx3TotalTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3TotalTable>`
+    
+    	**config**\: False
     
     .. attribute:: dsx3farendconfigtable
     
     	The DS3 Far End Configuration Table contains configuration information reported in the C\-bits from the remote end
     	**type**\:  :py:class:`Dsx3FarEndConfigTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndConfigTable>`
     
+    	**config**\: False
+    
     .. attribute:: dsx3farendcurrenttable
     
     	The DS3 Far End Current table contains various statistics being collected for the current 15 minute interval.  The statistics are collected from the far end block error code within the C\- bits
     	**type**\:  :py:class:`Dsx3FarEndCurrentTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndCurrentTable>`
+    
+    	**config**\: False
     
     .. attribute:: dsx3farendintervaltable
     
     	The DS3 Far End Interval Table contains various statistics collected by each DS3 interface over the previous 24 hours of operation.  The past 24 hours are broken into 96 completed 15 minute intervals
     	**type**\:  :py:class:`Dsx3FarEndIntervalTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndIntervalTable>`
     
+    	**config**\: False
+    
     .. attribute:: dsx3farendtotaltable
     
     	The DS3 Far End Total Table contains the cumulative sum of the various statistics for the 24 hour period preceding the current interval
     	**type**\:  :py:class:`Dsx3FarEndTotalTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndTotalTable>`
     
+    	**config**\: False
+    
     .. attribute:: dsx3fractable
     
     	This table is deprecated in favour of using ifStackTable.  Implementation of this table was optional.  It was designed for those systems dividing a DS3/E3 into channels containing different data streams that are of local interest.  The DS3/E3 fractional table identifies which DS3/E3 channels associated with a CSU are being used to support a logical interface, i.e., an entry in the interfaces table from the Internet\- standard MIB.  For example, consider a DS3 device with 4 high speed links carrying router traffic, a feed for voice, a feed for video, and a synchronous channel for a non\-routed protocol.  We might describe the allocation of channels, in the dsx3FracTable, as follows\: dsx3FracIfIndex.2. 1 = 3  dsx3FracIfIndex.2.15 = 4 dsx3FracIfIndex.2. 2 = 3  dsx3FracIfIndex.2.16 = 6 dsx3FracIfIndex.2. 3 = 3  dsx3FracIfIndex.2.17 = 6 dsx3FracIfIndex.2. 4 = 3  dsx3FracIfIndex.2.18 = 6 dsx3FracIfIndex.2. 5 = 3  dsx3FracIfIndex.2.19 = 6 dsx3FracIfIndex.2. 6 = 3  dsx3FracIfIndex.2.20 = 6 dsx3FracIfIndex.2. 7 = 4  dsx3FracIfIndex.2.21 = 6 dsx3FracIfIndex.2. 8 = 4  dsx3FracIfIndex.2.22 = 6 dsx3FracIfIndex.2. 9 = 4  dsx3FracIfIndex.2.23 = 6 dsx3FracIfIndex.2.10 = 4  dsx3FracIfIndex.2.24 = 6 dsx3FracIfIndex.2.11 = 4  dsx3FracIfIndex.2.25 = 6 dsx3FracIfIndex.2.12 = 5  dsx3FracIfIndex.2.26 = 6 dsx3FracIfIndex.2.13 = 5  dsx3FracIfIndex.2.27 = 6 dsx3FracIfIndex.2.14 = 5  dsx3FracIfIndex.2.28 = 6 For dsx3M23, dsx3 SYNTRAN, dsx3CbitParity, and dsx3ClearChannel  there are 28 legal channels, numbered 1 throug h 28.  For e3Framed there are 16 legal channels, numbered 1 through 16.  The channels (1..16) correspond directly to the equivalently numbered time\-slots
     	**type**\:  :py:class:`Dsx3FracTable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FracTable>`
+    
+    	**config**\: False
     
     	**status**\: deprecated
     
@@ -135,6 +153,8 @@ class DS3MIB(Entity):
         	An entry in the DS3/E3 Configuration table
         	**type**\: list of  		 :py:class:`Dsx3ConfigEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -173,12 +193,16 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dsx3ifindex
             
             	This value for this object is equal to the value of ifIndex from the Interfaces table of MIB II (RFC 1213)
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -189,6 +213,8 @@ class DS3MIB(Entity):
             
             	**range:** 0..899
             
+            	**config**\: False
+            
             .. attribute:: dsx3validintervals
             
             	The number of previous near end intervals for which data was collected.  The value will be 96 unless the interface was brought online within the last 24 hours, in which case the value will be the number of complete 15 minute near end intervals since the interface has been online.  In the case where the agent is a proxy, it is possible that some intervals are unavailable.  In this case, this interval is the maximum interval number for which data is available
@@ -196,20 +222,28 @@ class DS3MIB(Entity):
             
             	**range:** 0..96
             
+            	**config**\: False
+            
             .. attribute:: dsx3linetype
             
             	This variable indicates the variety of DS3 C\-bit or E3 application implementing this interface. The type of interface affects the interpretation of the usage and error statistics.  The rate of DS3 is 44.736 Mbps and E3 is 34.368 Mbps.  The dsx3ClearChannel value means that the C\-bits are not used except for sending/receiving AIS. The values, in sequence, describe\:  TITLE\:            SPECIFICATION\: dsx3M23            ANSI T1.107\-1988 [9] dsx3SYNTRAN        ANSI T1.107\-1988 [9] dsx3CbitParity     ANSI T1.107a\-1990 [9a] dsx3ClearChannel   ANSI T1.102\-1987 [8] e3Framed           CCITT G.751 [12] e3Plcp             ETSI T/NA(91)18 [13]
             	**type**\:  :py:class:`Dsx3LineType <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3LineType>`
+            
+            	**config**\: False
             
             .. attribute:: dsx3linecoding
             
             	This variable describes the variety of Zero Code Suppression used on this interface, which in turn affects a number of its characteristics.  dsx3B3ZS and e3HDB3 refer to the use of specified patterns of normal bits and bipolar violations which are used to replace sequences of zero bits of a specified length
             	**type**\:  :py:class:`Dsx3LineCoding <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3LineCoding>`
             
+            	**config**\: False
+            
             .. attribute:: dsx3sendcode
             
             	This variable indicates what type of code is being sent across the DS3/E3 interface by the device.  (These are optional for E3 interfaces.) Setting this variable causes the interface to begin sending the code requested. The values mean\:     dsx3SendNoCode        sending looped or normal data     dsx3SendLineCode        sending a request for a line loopback     dsx3SendPayloadCode        sending a request for a payload loopback        (i.e., all DS1/E1s in a DS3/E3 frame)     dsx3SendResetCode        sending a loopback deactivation request     dsx3SendDS1LoopCode        requesting to loopback a particular DS1/E1        within a DS3/E3 frame.  The DS1/E1 is        indicated in dsx3Ds1ForRemoteLoop.     dsx3SendTestPattern        sending a test pattern
             	**type**\:  :py:class:`Dsx3SendCode <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3SendCode>`
+            
+            	**config**\: False
             
             .. attribute:: dsx3circuitidentifier
             
@@ -218,10 +252,14 @@ class DS3MIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: dsx3loopbackconfig
             
             	This variable represents the desired loopback configuration of the DS3/E3 interface.  The values mean\:  dsx3NoLoop   Not in the loopback state.  A device that is   not capable of performing a loopback on   the interface shall always return this as   its value.  dsx3PayloadLoop   The received signal at this interface is looped   through the device.  Typically the received signal   is looped back for retransmission after it has   passed through the device's framing function.  dsx3LineLoop   The received signal at this interface does not   go through the device (minimum penetration) but   is looped back out.  dsx3OtherLoop   Loopbacks that are not defined here.  dsx3InwardLoop   The sent signal at this interface is looped back   through the device.  dsx3DualLoop   Both dsx1LineLoop and dsx1InwardLoop will be   active simultaneously
             	**type**\:  :py:class:`Dsx3LoopbackConfig <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3LoopbackConfig>`
+            
+            	**config**\: False
             
             .. attribute:: dsx3linestatus
             
@@ -230,10 +268,14 @@ class DS3MIB(Entity):
             
             	**range:** 1..4095
             
+            	**config**\: False
+            
             .. attribute:: dsx3transmitclocksource
             
             	The source of Transmit Clock.  loopTiming indicates that the recovered receive clock is used as the transmit clock.  localTiming indicates that a local clock source is used or that an external clock is attached to the box containing the interface.  throughTiming indicates that transmit clock is derived from the recovered receive clock of another DS3 interface
             	**type**\:  :py:class:`Dsx3TransmitClockSource <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3TransmitClockSource>`
+            
+            	**config**\: False
             
             .. attribute:: dsx3invalidintervals
             
@@ -242,12 +284,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..96
             
+            	**config**\: False
+            
             .. attribute:: dsx3linelength
             
             	The length of the ds3 line in meters.  This object provides information for line build out circuitry if it exists and can use this object to adjust the line build out
             	**type**\: int
             
             	**range:** 0..64000
+            
+            	**config**\: False
             
             	**units**\: meters
             
@@ -258,10 +304,14 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3linestatuschangetrapenable
             
             	Indicates whether dsx3LineStatusChange traps should be generated for this interface
             	**type**\:  :py:class:`Dsx3LineStatusChangeTrapEnable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3LineStatusChangeTrapEnable>`
+            
+            	**config**\: False
             
             .. attribute:: dsx3loopbackstatus
             
@@ -270,10 +320,14 @@ class DS3MIB(Entity):
             
             	**range:** 1..127
             
+            	**config**\: False
+            
             .. attribute:: dsx3channelization
             
             	Indicates whether this ds3/e3 is channelized or unchannelized.  The value of enabledDs1 indicates that this is a DS3 channelized into DS1s.  The value of enabledDs3 indicated that this is a DS3 channelized into DS2s.  Setting this object will cause the creation or deletion of DS2 or DS1 entries in the ifTable.  
             	**type**\:  :py:class:`Dsx3Channelization <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3ConfigTable.Dsx3ConfigEntry.Dsx3Channelization>`
+            
+            	**config**\: False
             
             .. attribute:: dsx3ds1forremoteloop
             
@@ -281,6 +335,8 @@ class DS3MIB(Entity):
             	**type**\: int
             
             	**range:** 0..29
+            
+            	**config**\: False
             
             
 
@@ -689,6 +745,8 @@ class DS3MIB(Entity):
 
 
 
+
+
     class Dsx3CurrentTable(Entity):
         """
         The DS3/E3 current table contains various
@@ -699,6 +757,8 @@ class DS3MIB(Entity):
         
         	An entry in the DS3/E3 Current table
         	**type**\: list of  		 :py:class:`Dsx3CurrentEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3CurrentTable.Dsx3CurrentEntry>`
+        
+        	**config**\: False
         
         
 
@@ -738,12 +798,16 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dsx3currentpess
             
             	The counter associated with the number of P\-bit Errored Seconds
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3currentpsess
             
@@ -752,12 +816,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3currentsefss
             
             	The counter associated with the number of Severely Errored Framing Seconds
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3currentuass
             
@@ -766,12 +834,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3currentlcvs
             
             	The counter associated with the number of Line Coding Violations
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3currentpcvs
             
@@ -780,12 +852,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3currentless
             
             	The number of Line Errored Seconds
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3currentccvs
             
@@ -794,6 +870,8 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3currentcess
             
             	The number of C\-bit Errored Seconds
@@ -801,12 +879,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3currentcsess
             
             	The number of C\-bit Severely Errored Seconds
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -856,6 +938,8 @@ class DS3MIB(Entity):
                 self._perform_setattr(DS3MIB.Dsx3CurrentTable.Dsx3CurrentEntry, ['dsx3currentindex', 'dsx3currentpess', 'dsx3currentpsess', 'dsx3currentsefss', 'dsx3currentuass', 'dsx3currentlcvs', 'dsx3currentpcvs', 'dsx3currentless', 'dsx3currentccvs', 'dsx3currentcess', 'dsx3currentcsess'], name, value)
 
 
+
+
     class Dsx3IntervalTable(Entity):
         """
         The DS3/E3 Interval Table contains various
@@ -871,6 +955,8 @@ class DS3MIB(Entity):
         
         	An entry in the DS3/E3 Interval table
         	**type**\: list of  		 :py:class:`Dsx3IntervalEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3IntervalTable.Dsx3IntervalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -910,12 +996,16 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dsx3intervalnumber  (key)
             
             	A number between 1 and 96, where 1 is the most recently completed 15 minute interval and 96 is the 15 minutes interval completed 23 hours and 45 minutes prior to interval 1
             	**type**\: int
             
             	**range:** 1..96
+            
+            	**config**\: False
             
             .. attribute:: dsx3intervalpess
             
@@ -924,12 +1014,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3intervalpsess
             
             	The counter associated with the number of P\-bit Severely Errored Seconds
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3intervalsefss
             
@@ -938,12 +1032,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3intervaluass
             
             	The counter associated with the number of Unavailable Seconds.  This object may decrease if the occurance of unavailable seconds occurs across an inteval boundary
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3intervallcvs
             
@@ -952,12 +1050,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3intervalpcvs
             
             	The counter associated with the number of P\-bit Coding Violations
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3intervalless
             
@@ -966,12 +1068,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3intervalccvs
             
             	The number of C\-bit Coding Violations
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3intervalcess
             
@@ -980,6 +1086,8 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3intervalcsess
             
             	The number of C\-bit Severely Errored Seconds
@@ -987,10 +1095,14 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3intervalvaliddata
             
             	This variable indicates if the data for this interval is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1044,6 +1156,8 @@ class DS3MIB(Entity):
                 self._perform_setattr(DS3MIB.Dsx3IntervalTable.Dsx3IntervalEntry, ['dsx3intervalindex', 'dsx3intervalnumber', 'dsx3intervalpess', 'dsx3intervalpsess', 'dsx3intervalsefss', 'dsx3intervaluass', 'dsx3intervallcvs', 'dsx3intervalpcvs', 'dsx3intervalless', 'dsx3intervalccvs', 'dsx3intervalcess', 'dsx3intervalcsess', 'dsx3intervalvaliddata'], name, value)
 
 
+
+
     class Dsx3TotalTable(Entity):
         """
         The DS3/E3 Total Table contains the cumulative
@@ -1054,6 +1168,8 @@ class DS3MIB(Entity):
         
         	An entry in the DS3/E3 Total table
         	**type**\: list of  		 :py:class:`Dsx3TotalEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3TotalTable.Dsx3TotalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1093,12 +1209,16 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dsx3totalpess
             
             	The counter associated with the number of P\-bit Errored Seconds, encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3totalpsess
             
@@ -1107,12 +1227,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3totalsefss
             
             	The counter associated with the number of Severely Errored Framing Seconds, encountered by a DS3/E3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3totaluass
             
@@ -1121,12 +1245,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3totallcvs
             
             	The counter associated with the number of Line Coding Violations encountered by a DS3/E3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3totalpcvs
             
@@ -1135,12 +1263,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3totalless
             
             	The number of Line Errored  Seconds  (BPVs  or illegal  zero  sequences) encountered by a DS3/E3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3totalccvs
             
@@ -1149,6 +1281,8 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3totalcess
             
             	The number of C\-bit Errored Seconds encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
@@ -1156,12 +1290,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3totalcsess
             
             	The number of C\-bit Severely Errored Seconds encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1211,6 +1349,8 @@ class DS3MIB(Entity):
                 self._perform_setattr(DS3MIB.Dsx3TotalTable.Dsx3TotalEntry, ['dsx3totalindex', 'dsx3totalpess', 'dsx3totalpsess', 'dsx3totalsefss', 'dsx3totaluass', 'dsx3totallcvs', 'dsx3totalpcvs', 'dsx3totalless', 'dsx3totalccvs', 'dsx3totalcess', 'dsx3totalcsess'], name, value)
 
 
+
+
     class Dsx3FarEndConfigTable(Entity):
         """
         The DS3 Far End Configuration Table contains
@@ -1221,6 +1361,8 @@ class DS3MIB(Entity):
         
         	An entry in the DS3 Far End Configuration table
         	**type**\: list of  		 :py:class:`Dsx3FarEndConfigEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndConfigTable.Dsx3FarEndConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1260,12 +1402,16 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendequipcode
             
             	This is the Far End Equipment Identification code that describes the specific piece of equipment. It is sent within the Path Identification Message
             	**type**\: str
             
             	**length:** 0..10
+            
+            	**config**\: False
             
             .. attribute:: dsx3farendlocationidcode
             
@@ -1274,12 +1420,16 @@ class DS3MIB(Entity):
             
             	**length:** 0..11
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendframeidcode
             
             	This is the Far End Frame Identification code that identifies where the equipment is located within a building at a given location.  It is sent within the Path Identification Message
             	**type**\: str
             
             	**length:** 0..10
+            
+            	**config**\: False
             
             .. attribute:: dsx3farendunitcode
             
@@ -1288,12 +1438,16 @@ class DS3MIB(Entity):
             
             	**length:** 0..6
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendfacilityidcode
             
             	This code identifies a specific Far End DS3 path. It is sent within the Path Identification Message
             	**type**\: str
             
             	**length:** 0..38
+            
+            	**config**\: False
             
             
 
@@ -1333,6 +1487,8 @@ class DS3MIB(Entity):
                 self._perform_setattr(DS3MIB.Dsx3FarEndConfigTable.Dsx3FarEndConfigEntry, ['dsx3farendlineindex', 'dsx3farendequipcode', 'dsx3farendlocationidcode', 'dsx3farendframeidcode', 'dsx3farendunitcode', 'dsx3farendfacilityidcode'], name, value)
 
 
+
+
     class Dsx3FarEndCurrentTable(Entity):
         """
         The DS3 Far End Current table contains various
@@ -1345,6 +1501,8 @@ class DS3MIB(Entity):
         
         	An entry in the DS3 Far End Current table
         	**type**\: list of  		 :py:class:`Dsx3FarEndCurrentEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndCurrentTable.Dsx3FarEndCurrentEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1384,12 +1542,16 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendtimeelapsed
             
             	The number of seconds that have elapsed since the beginning of the far end current error\-measurement period.  If, for some reason, such as an adjustment in the system's time\-of\-day clock, the current interval exceeds the maximum value, the agent will return the maximum value
             	**type**\: int
             
             	**range:** 0..899
+            
+            	**config**\: False
             
             .. attribute:: dsx3farendvalidintervals
             
@@ -1398,12 +1560,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..96
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendcurrentcess
             
             	The counter associated with the number of Far Far End C\-bit Errored Seconds
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3farendcurrentcsess
             
@@ -1412,12 +1578,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendcurrentccvs
             
             	The counter associated with the number of Far End C\-bit Coding Violations reported via the far end block error count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3farendcurrentuass
             
@@ -1426,12 +1596,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendinvalidintervals
             
             	The number of intervals in the range from 0 to dsx3FarEndValidIntervals for which no data is available.  This object will typically be zero except in cases where the data for some intervals are not available (e.g., in proxy situations)
             	**type**\: int
             
             	**range:** 0..96
+            
+            	**config**\: False
             
             
 
@@ -1475,6 +1649,8 @@ class DS3MIB(Entity):
                 self._perform_setattr(DS3MIB.Dsx3FarEndCurrentTable.Dsx3FarEndCurrentEntry, ['dsx3farendcurrentindex', 'dsx3farendtimeelapsed', 'dsx3farendvalidintervals', 'dsx3farendcurrentcess', 'dsx3farendcurrentcsess', 'dsx3farendcurrentccvs', 'dsx3farendcurrentuass', 'dsx3farendinvalidintervals'], name, value)
 
 
+
+
     class Dsx3FarEndIntervalTable(Entity):
         """
         The DS3 Far End Interval Table contains various
@@ -1487,6 +1663,8 @@ class DS3MIB(Entity):
         
         	An entry in the DS3 Far End Interval table
         	**type**\: list of  		 :py:class:`Dsx3FarEndIntervalEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndIntervalTable.Dsx3FarEndIntervalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1526,12 +1704,16 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendintervalnumber  (key)
             
             	A number between 1 and 96, where 1 is the most recently completed 15 minute interval and 96 is the 15 minutes interval completed 23 hours and 45 minutes prior to interval 1
             	**type**\: int
             
             	**range:** 1..96
+            
+            	**config**\: False
             
             .. attribute:: dsx3farendintervalcess
             
@@ -1540,12 +1722,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendintervalcsess
             
             	The counter associated with the number of Far End C\-bit Severely Errored Seconds
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3farendintervalccvs
             
@@ -1554,6 +1740,8 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendintervaluass
             
             	The counter associated with the number of Far End unavailable seconds
@@ -1561,10 +1749,14 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendintervalvaliddata
             
             	This variable indicates if the data for this interval is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -1606,6 +1798,8 @@ class DS3MIB(Entity):
                 self._perform_setattr(DS3MIB.Dsx3FarEndIntervalTable.Dsx3FarEndIntervalEntry, ['dsx3farendintervalindex', 'dsx3farendintervalnumber', 'dsx3farendintervalcess', 'dsx3farendintervalcsess', 'dsx3farendintervalccvs', 'dsx3farendintervaluass', 'dsx3farendintervalvaliddata'], name, value)
 
 
+
+
     class Dsx3FarEndTotalTable(Entity):
         """
         The DS3 Far End Total Table contains the
@@ -1616,6 +1810,8 @@ class DS3MIB(Entity):
         
         	An entry in the DS3 Far End Total table
         	**type**\: list of  		 :py:class:`Dsx3FarEndTotalEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FarEndTotalTable.Dsx3FarEndTotalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1655,12 +1851,16 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendtotalcess
             
             	The counter associated with the number of Far End C\-bit Errored Seconds encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dsx3farendtotalcsess
             
@@ -1669,6 +1869,8 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendtotalccvs
             
             	The counter associated with the number of Far End C\-bit Coding Violations reported via the far end block error count encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
@@ -1676,12 +1878,16 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dsx3farendtotaluass
             
             	The counter associated with the number of Far End unavailable seconds encountered by a DS3 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1717,6 +1923,8 @@ class DS3MIB(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DS3MIB.Dsx3FarEndTotalTable.Dsx3FarEndTotalEntry, ['dsx3farendtotalindex', 'dsx3farendtotalcess', 'dsx3farendtotalcsess', 'dsx3farendtotalccvs', 'dsx3farendtotaluass'], name, value)
+
+
 
 
     class Dsx3FracTable(Entity):
@@ -1768,6 +1976,8 @@ class DS3MIB(Entity):
         	An entry in the DS3 Fractional table
         	**type**\: list of  		 :py:class:`Dsx3FracEntry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3FracTable.Dsx3FracEntry>`
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         
@@ -1808,6 +2018,8 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: dsx3fracnumber  (key)
@@ -1817,6 +2029,8 @@ class DS3MIB(Entity):
             
             	**range:** 1..31
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: dsx3fracifindex
@@ -1825,6 +2039,8 @@ class DS3MIB(Entity):
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1859,7 +2075,11 @@ class DS3MIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(DS3MIB.Dsx3FracTable.Dsx3FracEntry, ['dsx3fracindex', 'dsx3fracnumber', 'dsx3fracifindex'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = DS3MIB()
         return self._top_entity
+
+
 

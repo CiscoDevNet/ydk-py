@@ -106,9 +106,12 @@ class Rcp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Rcp.RcpClient, ['username', 'source_interface'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Rcp()
         return self._top_entity
+
+
 
 class Ftp(Entity):
     """
@@ -339,9 +342,14 @@ class Ftp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ftp.FtpClient.Vrfs.Vrf, ['vrf_name', 'source_interface', 'username', 'anonymous_password', 'password', 'passive'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Ftp()
         return self._top_entity
+
+
 
 class Tftp(Entity):
     """
@@ -552,7 +560,12 @@ class Tftp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Tftp.TftpClient.Vrfs.Vrf, ['vrf_name', 'source_interface', 'retry', 'timeout'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Tftp()
         return self._top_entity
+
+
 

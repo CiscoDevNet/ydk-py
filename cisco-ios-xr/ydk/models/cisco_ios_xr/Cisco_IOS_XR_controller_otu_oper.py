@@ -669,6 +669,8 @@ class Otu(Entity):
     	All OTU Port operational data
     	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers>`
     
+    	**config**\: False
+    
     
 
     """
@@ -706,6 +708,8 @@ class Otu(Entity):
         
         	OTU Port operational data
         	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller>`
+        
+        	**config**\: False
         
         
 
@@ -745,15 +749,21 @@ class Otu(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: prbs
             
             	OTU port PRBS operational data
             	**type**\:  :py:class:`Prbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Prbs>`
             
+            	**config**\: False
+            
             .. attribute:: info
             
             	OTU port operational data
             	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info>`
+            
+            	**config**\: False
             
             
 
@@ -800,20 +810,28 @@ class Otu(Entity):
                 	otu prbs test
                 	**type**\:  :py:class:`OtuPrbsTest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsTest>`
                 
+                	**config**\: False
+                
                 .. attribute:: otu_prbs_mode
                 
                 	otu prbs mode
                 	**type**\:  :py:class:`OtuPrbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsMode>`
+                
+                	**config**\: False
                 
                 .. attribute:: otu_prbs_pattern
                 
                 	otu prbs pattern
                 	**type**\:  :py:class:`OtuPrbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsPattern>`
                 
+                	**config**\: False
+                
                 .. attribute:: otu_prbs_status
                 
                 	otu prbs status
                 	**type**\:  :py:class:`OtuPrbsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsStatus>`
+                
+                	**config**\: False
                 
                 
 
@@ -845,7 +863,8 @@ class Otu(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Otu.Controllers.Controller.Prbs, [u'otu_prbs_test', u'otu_prbs_mode', u'otu_prbs_pattern', u'otu_prbs_status'], name, value)
+                    self._perform_setattr(Otu.Controllers.Controller.Prbs, ['otu_prbs_test', 'otu_prbs_mode', 'otu_prbs_pattern', 'otu_prbs_status'], name, value)
+
 
 
             class Info(Entity):
@@ -857,50 +876,70 @@ class Otu(Entity):
                 	TTI
                 	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Local>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote
                 
                 	Remote
                 	**type**\:  :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Remote>`
+                
+                	**config**\: False
                 
                 .. attribute:: tti_mode
                 
                 	OTU TTI
                 	**type**\:  :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode>`
                 
+                	**config**\: False
+                
                 .. attribute:: network_srlg
                 
                 	Network Shared Risk Link Group information
                 	**type**\:  :py:class:`NetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg>`
+                
+                	**config**\: False
                 
                 .. attribute:: otu_alarm_info
                 
                 	OTU layer alarm Information
                 	**type**\:  :py:class:`OtuAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: proactive
                 
                 	Proactive Protection
                 	**type**\:  :py:class:`Proactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Proactive>`
+                
+                	**config**\: False
                 
                 .. attribute:: otu_fec_satistics
                 
                 	OTU FEC Statistics
                 	**type**\:  :py:class:`OtuFecSatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuFecSatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: ains_info
                 
                 	AINS information
                 	**type**\:  :py:class:`AinsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.AinsInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: state
                 
                 	Admin State
                 	**type**\:  :py:class:`OtuStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuStateEt>`
                 
+                	**config**\: False
+                
                 .. attribute:: name
                 
                 	Interface Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: sf
                 
@@ -909,6 +948,8 @@ class Otu(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: sd
                 
                 	SD in the form of 1.0E \- <SD>
@@ -916,35 +957,49 @@ class Otu(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: loopback_mode
                 
                 	Loopback
                 	**type**\:  :py:class:`OtuLoopBackMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackMode>`
+                
+                	**config**\: False
                 
                 .. attribute:: fec_mode
                 
                 	FEC
                 	**type**\:  :py:class:`OtuG709fecMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuG709fecMode>`
                 
+                	**config**\: False
+                
                 .. attribute:: derivedstate_mode
                 
                 	Derived State
                 	**type**\:  :py:class:`OtuDerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuDerState>`
+                
+                	**config**\: False
                 
                 .. attribute:: inherit_sec_state
                 
                 	Sec State
                 	**type**\:  :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
                 
+                	**config**\: False
+                
                 .. attribute:: config_sec_state
                 
                 	Sec State
                 	**type**\:  :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
                 
+                	**config**\: False
+                
                 .. attribute:: gcc_mode
                 
                 	OTU GCC
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: q
                 
@@ -953,6 +1008,8 @@ class Otu(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: q_margin
                 
                 	q margin calculated
@@ -960,10 +1017,14 @@ class Otu(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: performance_monitoring
                 
                 	Performance Monitoring
                 	**type**\:  :py:class:`OtuPerMon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPerMon>`
+                
+                	**config**\: False
                 
                 .. attribute:: ec
                 
@@ -972,12 +1033,16 @@ class Otu(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: uc
                 
                 	Uncorrected word count
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: pre_fec_val
                 
@@ -986,6 +1051,8 @@ class Otu(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: pre_fec_mantissa
                 
                 	Pre FEC BER Mantissa in form E\-<mantisaa>
@@ -993,35 +1060,49 @@ class Otu(Entity):
                 
                 	**range:** \-128..127
                 
+                	**config**\: False
+                
                 .. attribute:: ec_value
                 
                 	EC value present
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: uc_value
                 
                 	Uc value present
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: pre_fec_ber_value
                 
                 	Pre fec val present 
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: pre_fec_ber_mantissa
                 
                 	Pre fec val mantissa
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: nv_optical_support
                 
                 	NV Optical support
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: gmpls_tti_mode
                 
                 	GMPLS TTI MODE
                 	**type**\:  :py:class:`GmplsOtuTtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.GmplsOtuTtiMode>`
+                
+                	**config**\: False
                 
                 .. attribute:: gmpls_tvm_id
                 
@@ -1030,15 +1111,21 @@ class Otu(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: auto_tti_flag
                 
                 	Auto tti flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	Controller description string
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1146,7 +1233,7 @@ class Otu(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Otu.Controllers.Controller.Info, [u'state', u'name', u'sf', u'sd', u'loopback_mode', u'fec_mode', u'derivedstate_mode', u'inherit_sec_state', u'config_sec_state', u'gcc_mode', u'q', u'q_margin', u'performance_monitoring', u'ec', u'uc', u'pre_fec_val', u'pre_fec_mantissa', u'ec_value', u'uc_value', u'pre_fec_ber_value', u'pre_fec_ber_mantissa', u'nv_optical_support', u'gmpls_tti_mode', u'gmpls_tvm_id', u'auto_tti_flag', u'description'], name, value)
+                    self._perform_setattr(Otu.Controllers.Controller.Info, ['state', 'name', 'sf', 'sd', 'loopback_mode', 'fec_mode', 'derivedstate_mode', 'inherit_sec_state', 'config_sec_state', 'gcc_mode', 'q', 'q_margin', 'performance_monitoring', 'ec', 'uc', 'pre_fec_val', 'pre_fec_mantissa', 'ec_value', 'uc_value', 'pre_fec_ber_value', 'pre_fec_ber_mantissa', 'nv_optical_support', 'gmpls_tti_mode', 'gmpls_tvm_id', 'auto_tti_flag', 'description'], name, value)
 
 
                 class Local(Entity):
@@ -1160,12 +1247,16 @@ class Otu(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: if_index
                     
                     	IfIndex
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1193,7 +1284,8 @@ class Otu(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.Local, [u'router_id', u'if_index'], name, value)
+                        self._perform_setattr(Otu.Controllers.Controller.Info.Local, ['router_id', 'if_index'], name, value)
+
 
 
                 class Remote(Entity):
@@ -1207,12 +1299,16 @@ class Otu(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: if_index
                     
                     	IfIndex
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1240,7 +1336,8 @@ class Otu(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.Remote, [u'router_id', u'if_index'], name, value)
+                        self._perform_setattr(Otu.Controllers.Controller.Info.Remote, ['router_id', 'if_index'], name, value)
+
 
 
                 class TtiMode(Entity):
@@ -1252,45 +1349,63 @@ class Otu(Entity):
                     	String Sent
                     	**type**\:  :py:class:`Tx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Tx>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: exp
                     
                     	String Expected
                     	**type**\:  :py:class:`Exp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Exp>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: rec
                     
                     	String Received
                     	**type**\:  :py:class:`Rec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: g709tti_sent_mode
                     
                     	G709TTI sent
                     	**type**\:  :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: g709tti_exp_mode
                     
                     	G709TTI Expected
                     	**type**\:  :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: g709tti_rec_mode
                     
                     	G709TTI Recieved
                     	**type**\:  :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: remote_interface
                     
                     	Remote Interface Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_host_name
                     
                     	Remote host name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_ip_addr
                     
                     	Remote host ip
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1338,7 +1453,7 @@ class Otu(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode, [u'g709tti_sent_mode', u'g709tti_exp_mode', u'g709tti_rec_mode', u'remote_interface', u'remote_host_name', u'remote_ip_addr'], name, value)
+                        self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode, ['g709tti_sent_mode', 'g709tti_exp_mode', 'g709tti_rec_mode', 'remote_interface', 'remote_host_name', 'remote_ip_addr'], name, value)
 
 
                     class Tx(Entity):
@@ -1350,20 +1465,28 @@ class Otu(Entity):
                         	full tti ascii String 
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: sapi
                         
                         	tx String 
                         	**type**\: list of  		 :py:class:`Sapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Tx.Sapi>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: dapi
                         
                         	exp String 
                         	**type**\: list of  		 :py:class:`Dapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Tx.Dapi>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: operator_specific
                         
                         	rec String 
                         	**type**\: list of  		 :py:class:`OperatorSpecific <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Tx.OperatorSpecific>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1393,7 +1516,7 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx, [u'full_tti_ascii_string'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx, ['full_tti_ascii_string'], name, value)
 
 
                         class Sapi(Entity):
@@ -1406,6 +1529,8 @@ class Otu(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1431,7 +1556,8 @@ class Otu(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.Sapi, [u'entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.Sapi, ['entry'], name, value)
+
 
 
                         class Dapi(Entity):
@@ -1444,6 +1570,8 @@ class Otu(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1469,7 +1597,8 @@ class Otu(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.Dapi, [u'entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.Dapi, ['entry'], name, value)
+
 
 
                         class OperatorSpecific(Entity):
@@ -1482,6 +1611,8 @@ class Otu(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1507,7 +1638,9 @@ class Otu(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.OperatorSpecific, [u'entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.OperatorSpecific, ['entry'], name, value)
+
+
 
 
                     class Exp(Entity):
@@ -1519,20 +1652,28 @@ class Otu(Entity):
                         	full tti ascii String 
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: sapi
                         
                         	tx String 
                         	**type**\: list of  		 :py:class:`Sapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Exp.Sapi>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: dapi
                         
                         	exp String 
                         	**type**\: list of  		 :py:class:`Dapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Exp.Dapi>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: operator_specific
                         
                         	rec String 
                         	**type**\: list of  		 :py:class:`OperatorSpecific <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Exp.OperatorSpecific>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1562,7 +1703,7 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp, [u'full_tti_ascii_string'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp, ['full_tti_ascii_string'], name, value)
 
 
                         class Sapi(Entity):
@@ -1575,6 +1716,8 @@ class Otu(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1600,7 +1743,8 @@ class Otu(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.Sapi, [u'entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.Sapi, ['entry'], name, value)
+
 
 
                         class Dapi(Entity):
@@ -1613,6 +1757,8 @@ class Otu(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1638,7 +1784,8 @@ class Otu(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.Dapi, [u'entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.Dapi, ['entry'], name, value)
+
 
 
                         class OperatorSpecific(Entity):
@@ -1651,6 +1798,8 @@ class Otu(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1676,7 +1825,9 @@ class Otu(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.OperatorSpecific, [u'entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.OperatorSpecific, ['entry'], name, value)
+
+
 
 
                     class Rec(Entity):
@@ -1688,20 +1839,28 @@ class Otu(Entity):
                         	full tti ascii String 
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: sapi
                         
                         	tx String 
                         	**type**\: list of  		 :py:class:`Sapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec.Sapi>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: dapi
                         
                         	exp String 
                         	**type**\: list of  		 :py:class:`Dapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec.Dapi>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: operator_specific
                         
                         	rec String 
                         	**type**\: list of  		 :py:class:`OperatorSpecific <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec.OperatorSpecific>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1731,7 +1890,7 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec, [u'full_tti_ascii_string'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec, ['full_tti_ascii_string'], name, value)
 
 
                         class Sapi(Entity):
@@ -1744,6 +1903,8 @@ class Otu(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1769,7 +1930,8 @@ class Otu(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.Sapi, [u'entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.Sapi, ['entry'], name, value)
+
 
 
                         class Dapi(Entity):
@@ -1782,6 +1944,8 @@ class Otu(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1807,7 +1971,8 @@ class Otu(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.Dapi, [u'entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.Dapi, ['entry'], name, value)
+
 
 
                         class OperatorSpecific(Entity):
@@ -1820,6 +1985,8 @@ class Otu(Entity):
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1845,7 +2012,10 @@ class Otu(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.OperatorSpecific, [u'entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.OperatorSpecific, ['entry'], name, value)
+
+
+
 
 
                 class NetworkSrlg(Entity):
@@ -1856,6 +2026,8 @@ class Otu(Entity):
                     
                     	Array of Network Shared Risk Link Group information
                     	**type**\: list of  		 :py:class:`SrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1895,10 +2067,14 @@ class Otu(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: srlg
                         
                         	Shared Risk Link Group information expressed in  integer format
                         	**type**\: list of  		 :py:class:`Srlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo.Srlg>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1926,7 +2102,7 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo, [u'set_id'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo, ['set_id'], name, value)
 
 
                         class Srlg(Entity):
@@ -1941,6 +2117,8 @@ class Otu(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1966,7 +2144,10 @@ class Otu(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo.Srlg, [u'entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo.Srlg, ['entry'], name, value)
+
+
+
 
 
                 class OtuAlarmInfo(Entity):
@@ -1978,85 +2159,119 @@ class Otu(Entity):
                     	Loss of Signal
                     	**type**\:  :py:class:`Los <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Los>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: lof
                     
                     	Loss of Frame
                     	**type**\:  :py:class:`Lof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lom
                     
                     	Loss of MultiFrame
                     	**type**\:  :py:class:`Lom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: oof
                     
                     	Out of Frame
                     	**type**\:  :py:class:`Oof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: oom
                     
                     	Out of MultiFrame
                     	**type**\:  :py:class:`Oom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ais
                     
                     	Alarm Indication Signal
                     	**type**\:  :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: iae
                     
                     	Incoming Alignment Error
                     	**type**\:  :py:class:`Iae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: biae
                     
                     	Backward Incoming Alignment Error
                     	**type**\:  :py:class:`Biae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: bdi
                     
                     	Backward Defect Indication
                     	**type**\:  :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: tim
                     
                     	Trace Identifier Mismatch
                     	**type**\:  :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: eoc
                     
                     	GCC End of Channel
                     	**type**\:  :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: fec_mismatch
                     
                     	FEC mismatch alarm
                     	**type**\:  :py:class:`FecMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: sf_ber
                     
                     	SF BER alarm
                     	**type**\:  :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sd_ber
                     
                     	SD BER alarm
                     	**type**\:  :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: ec
                     
                     	EC alarm
                     	**type**\:  :py:class:`Ec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: uc
                     
                     	UC alarm
                     	**type**\:  :py:class:`Uc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: fecunc
                     
                     	FEC UnCorrected Word
                     	**type**\:  :py:class:`Fecunc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2159,15 +2374,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2175,6 +2396,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2206,7 +2429,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Los, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Los, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Lof(Entity):
@@ -2218,15 +2442,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2234,6 +2464,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2265,7 +2497,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Lom(Entity):
@@ -2277,15 +2510,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2293,6 +2532,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2324,7 +2565,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Oof(Entity):
@@ -2336,15 +2578,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2352,6 +2600,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2383,7 +2633,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Oom(Entity):
@@ -2395,15 +2646,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2411,6 +2668,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2442,7 +2701,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Ais(Entity):
@@ -2454,15 +2714,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2470,6 +2736,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2501,7 +2769,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Iae(Entity):
@@ -2513,15 +2782,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2529,6 +2804,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2560,7 +2837,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Biae(Entity):
@@ -2572,15 +2850,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2588,6 +2872,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2619,7 +2905,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Bdi(Entity):
@@ -2631,15 +2918,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2647,6 +2940,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2678,7 +2973,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Tim(Entity):
@@ -2690,15 +2986,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2706,6 +3008,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2737,7 +3041,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Eoc(Entity):
@@ -2749,15 +3054,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2765,6 +3076,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2796,7 +3109,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class FecMismatch(Entity):
@@ -2808,15 +3122,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2824,6 +3144,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2855,7 +3177,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class SfBer(Entity):
@@ -2867,15 +3190,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2883,6 +3212,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2914,7 +3245,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class SdBer(Entity):
@@ -2926,15 +3258,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -2942,6 +3280,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -2973,7 +3313,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Ec(Entity):
@@ -2985,15 +3326,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -3001,6 +3348,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3032,7 +3381,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Uc(Entity):
@@ -3044,15 +3394,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -3060,6 +3416,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3091,7 +3449,8 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
 
 
                     class Fecunc(Entity):
@@ -3103,15 +3462,21 @@ class Otu(Entity):
                         	Is reporting enabled?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_detected
                         
                         	Is defect detected?
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_asserted
                         
                         	Is defect delared?
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: counter
                         
@@ -3119,6 +3484,8 @@ class Otu(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3150,7 +3517,9 @@ class Otu(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
+
 
 
                 class Proactive(Entity):
@@ -3162,25 +3531,35 @@ class Otu(Entity):
                     	Proactive Status
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: inherit_sec_state
                     
                     	Secondary Admin State
                     	**type**\:  :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: config_sec_state
                     
                     	Sec State
                     	**type**\:  :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: proactive_fsm_state
                     
                     	Proactive FSM State
                     	**type**\:  :py:class:`OtuPpFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpFsmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: proactive_fsm_if_state
                     
                     	Proactive FSM IF State
                     	**type**\:  :py:class:`OtuPpIntfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: trig_thresh_coeff
                     
@@ -3189,12 +3568,16 @@ class Otu(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: trig_thresh_power
                     
                     	Trigger threshold power
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: rvrt_thresh_coeff
                     
@@ -3203,12 +3586,16 @@ class Otu(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: rvrt_thresh_power
                     
                     	Revert threshold power
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: trigger_window
                     
@@ -3217,12 +3604,16 @@ class Otu(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: revert_window
                     
                     	Revert Integration Window
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -3268,7 +3659,8 @@ class Otu(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.Proactive, [u'proactive_status', u'inherit_sec_state', u'config_sec_state', u'proactive_fsm_state', u'proactive_fsm_if_state', u'trig_thresh_coeff', u'trig_thresh_power', u'rvrt_thresh_coeff', u'rvrt_thresh_power', u'trigger_window', u'revert_window'], name, value)
+                        self._perform_setattr(Otu.Controllers.Controller.Info.Proactive, ['proactive_status', 'inherit_sec_state', 'config_sec_state', 'proactive_fsm_state', 'proactive_fsm_if_state', 'trig_thresh_coeff', 'trig_thresh_power', 'rvrt_thresh_coeff', 'rvrt_thresh_power', 'trigger_window', 'revert_window'], name, value)
+
 
 
                 class OtuFecSatistics(Entity):
@@ -3280,10 +3672,14 @@ class Otu(Entity):
                     	Bit Error Rate After Forward Error Correction
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: pre_fec_ber
                     
                     	Bit Error Rate Before Forward Error Correction
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -3311,7 +3707,8 @@ class Otu(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.OtuFecSatistics, [u'post_fec_ber', u'pre_fec_ber'], name, value)
+                        self._perform_setattr(Otu.Controllers.Controller.Info.OtuFecSatistics, ['post_fec_ber', 'pre_fec_ber'], name, value)
+
 
 
                 class AinsInfo(Entity):
@@ -3323,12 +3720,16 @@ class Otu(Entity):
                     	AINS State
                     	**type**\:  :py:class:`OtuAinsStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuAinsStateEt>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: ains_timer_minutes
                     
                     	AINS Timer in Minutes
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: minute
                     
@@ -3338,6 +3739,8 @@ class Otu(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -3369,9 +3772,15 @@ class Otu(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.AinsInfo, [u'ains_state', u'ains_timer_minutes', u'ains_remaining_secs'], name, value)
+                        self._perform_setattr(Otu.Controllers.Controller.Info.AinsInfo, ['ains_state', 'ains_timer_minutes', 'ains_remaining_secs'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Otu()
         return self._top_entity
+
+
 

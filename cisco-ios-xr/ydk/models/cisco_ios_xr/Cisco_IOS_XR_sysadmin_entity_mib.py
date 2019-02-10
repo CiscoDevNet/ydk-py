@@ -77,30 +77,42 @@ class ENTITYMIB(Entity):
     	
     	**type**\:  :py:class:`EntityGeneral <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntityGeneral>`
     
+    	**config**\: False
+    
     .. attribute:: entphysicaltable
     
     	
     	**type**\:  :py:class:`EntPhysicalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntPhysicalTable>`
+    
+    	**config**\: False
     
     .. attribute:: entlogicaltable
     
     	
     	**type**\:  :py:class:`EntLogicalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntLogicalTable>`
     
+    	**config**\: False
+    
     .. attribute:: entlpmappingtable
     
     	
     	**type**\:  :py:class:`EntLPMappingTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntLPMappingTable>`
+    
+    	**config**\: False
     
     .. attribute:: entaliasmappingtable
     
     	
     	**type**\:  :py:class:`EntAliasMappingTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntAliasMappingTable>`
     
+    	**config**\: False
+    
     .. attribute:: entphysicalcontainstable
     
     	
     	**type**\:  :py:class:`EntPhysicalContainsTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntPhysicalContainsTable>`
+    
+    	**config**\: False
     
     
 
@@ -162,6 +174,8 @@ class ENTITYMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         
 
         """
@@ -190,6 +204,7 @@ class ENTITYMIB(Entity):
             self._perform_setattr(ENTITYMIB.EntityGeneral, [u'entlastchangetime'], name, value)
 
 
+
     class EntPhysicalTable(Entity):
         """
         
@@ -198,6 +213,8 @@ class ENTITYMIB(Entity):
         
         	
         	**type**\: list of  		 :py:class:`EntPhysicalEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -237,12 +254,16 @@ class ENTITYMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: entphysicaldescr
             
             	
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: entphysicalvendortype
             
@@ -251,6 +272,8 @@ class ENTITYMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: entphysicalcontainedin
             
             	
@@ -258,10 +281,14 @@ class ENTITYMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: entphysicalclass
             
             	
             	**type**\:  :py:class:`PhysicalClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.PhysicalClass>`
+            
+            	**config**\: False
             
             .. attribute:: entphysicalparentrelpos
             
@@ -270,12 +297,16 @@ class ENTITYMIB(Entity):
             
             	**range:** \-1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: entphysicalname
             
             	
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: entphysicalhardwarerev
             
@@ -284,12 +315,16 @@ class ENTITYMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: entphysicalfirmwarerev
             
             	
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: entphysicalsoftwarerev
             
@@ -298,12 +333,16 @@ class ENTITYMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: entphysicalserialnum
             
             	
             	**type**\: str
             
             	**length:** 0..32
+            
+            	**config**\: False
             
             .. attribute:: entphysicalmfgname
             
@@ -312,12 +351,16 @@ class ENTITYMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: entphysicalmodelname
             
             	
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: entphysicalalias
             
@@ -326,6 +369,8 @@ class ENTITYMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: entphysicalassetid
             
             	
@@ -333,10 +378,14 @@ class ENTITYMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: entphysicalisfru
             
             	
             	**type**\:  :py:class:`TruthValue <ydk.models.cisco_ios_xr.SNMPv2_TC.TruthValue>`
+            
+            	**config**\: False
             
             
 
@@ -396,6 +445,8 @@ class ENTITYMIB(Entity):
                 self._perform_setattr(ENTITYMIB.EntPhysicalTable.EntPhysicalEntry, [u'entphysicalindex', u'entphysicaldescr', u'entphysicalvendortype', u'entphysicalcontainedin', u'entphysicalclass', u'entphysicalparentrelpos', u'entphysicalname', u'entphysicalhardwarerev', u'entphysicalfirmwarerev', u'entphysicalsoftwarerev', u'entphysicalserialnum', u'entphysicalmfgname', u'entphysicalmodelname', u'entphysicalalias', u'entphysicalassetid', u'entphysicalisfru'], name, value)
 
 
+
+
     class EntLogicalTable(Entity):
         """
         
@@ -404,6 +455,8 @@ class ENTITYMIB(Entity):
         
         	
         	**type**\: list of  		 :py:class:`EntLogicalEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntLogicalTable.EntLogicalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -443,12 +496,16 @@ class ENTITYMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: entlogicaldescr
             
             	
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: entlogicaltype
             
@@ -457,12 +514,16 @@ class ENTITYMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: entlogicalcommunity
             
             	
             	**type**\: str
             
             	**pattern:** (([0\-9a\-fA\-F]){2}(\:([0\-9a\-fA\-F]){2})\*)?
+            
+            	**config**\: False
             
             .. attribute:: entlogicaltaddress
             
@@ -471,12 +532,16 @@ class ENTITYMIB(Entity):
             
             	**pattern:** (\\d\*(.\\d\*)\*)?
             
+            	**config**\: False
+            
             .. attribute:: entlogicaltdomain
             
             	
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: entlogicalcontextengineid
             
@@ -485,12 +550,16 @@ class ENTITYMIB(Entity):
             
             	**pattern:** (([0\-9a\-fA\-F]){2}(\:([0\-9a\-fA\-F]){2})\*)?
             
+            	**config**\: False
+            
             .. attribute:: entlogicalcontextname
             
             	
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -534,6 +603,8 @@ class ENTITYMIB(Entity):
                 self._perform_setattr(ENTITYMIB.EntLogicalTable.EntLogicalEntry, [u'entlogicalindex', u'entlogicaldescr', u'entlogicaltype', u'entlogicalcommunity', u'entlogicaltaddress', u'entlogicaltdomain', u'entlogicalcontextengineid', u'entlogicalcontextname'], name, value)
 
 
+
+
     class EntLPMappingTable(Entity):
         """
         
@@ -542,6 +613,8 @@ class ENTITYMIB(Entity):
         
         	
         	**type**\: list of  		 :py:class:`EntLPMappingEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntLPMappingTable.EntLPMappingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -581,12 +654,16 @@ class ENTITYMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: entlpphysicalindex  (key)
             
             	
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -618,6 +695,8 @@ class ENTITYMIB(Entity):
                 self._perform_setattr(ENTITYMIB.EntLPMappingTable.EntLPMappingEntry, [u'entlogicalindex', u'entlpphysicalindex'], name, value)
 
 
+
+
     class EntAliasMappingTable(Entity):
         """
         
@@ -626,6 +705,8 @@ class ENTITYMIB(Entity):
         
         	
         	**type**\: list of  		 :py:class:`EntAliasMappingEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -665,6 +746,8 @@ class ENTITYMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: entaliaslogicalindexorzero  (key)
             
             	
@@ -672,12 +755,16 @@ class ENTITYMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: entaliasmappingidentifier
             
             	
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             
 
@@ -711,6 +798,8 @@ class ENTITYMIB(Entity):
                 self._perform_setattr(ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry, [u'entphysicalindex', u'entaliaslogicalindexorzero', u'entaliasmappingidentifier'], name, value)
 
 
+
+
     class EntPhysicalContainsTable(Entity):
         """
         
@@ -719,6 +808,8 @@ class ENTITYMIB(Entity):
         
         	
         	**type**\: list of  		 :py:class:`EntPhysicalContainsEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_entity_mib.ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -758,12 +849,16 @@ class ENTITYMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: entphysicalchildindex  (key)
             
             	
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -794,7 +889,11 @@ class ENTITYMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry, [u'entphysicalindex', u'entphysicalchildindex'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ENTITYMIB()
         return self._top_entity
+
+
 

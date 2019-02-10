@@ -50,6 +50,7 @@ class CiscoSipUaMIBNotificationPrefix(ObjectIdentity):
         super(CiscoSipUaMIBNotificationPrefix, self).__init__(ns, pref, tag)
 
 
+
 class CiscoSipUaMIBNotifications(ObjectIdentity):
     """
     Old style notification prefixing.  Being replaced by
@@ -66,6 +67,7 @@ class CiscoSipUaMIBNotifications(ObjectIdentity):
         super(CiscoSipUaMIBNotifications, self).__init__(ns, pref, tag)
 
 
+
 class CISCOSIPUAMIB(Entity):
     """
     
@@ -75,110 +77,154 @@ class CISCOSIPUAMIB(Entity):
     	
     	**type**\:  :py:class:`CSipCfgBase <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBase>`
     
+    	**config**\: False
+    
     .. attribute:: csipcfgtimer
     
     	
     	**type**\:  :py:class:`CSipCfgTimer <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgTimer>`
+    
+    	**config**\: False
     
     .. attribute:: csipcfgretry
     
     	
     	**type**\:  :py:class:`CSipCfgRetry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgRetry>`
     
+    	**config**\: False
+    
     .. attribute:: csipcfgpeer
     
     	
     	**type**\:  :py:class:`CSipCfgPeer <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeer>`
+    
+    	**config**\: False
     
     .. attribute:: csipcfgaaa
     
     	
     	**type**\:  :py:class:`CSipCfgAaa <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgAaa>`
     
+    	**config**\: False
+    
     .. attribute:: csipcfgvoiceservicevoip
     
     	
     	**type**\:  :py:class:`CSipCfgVoiceServiceVoip <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgVoiceServiceVoip>`
+    
+    	**config**\: False
     
     .. attribute:: csipstatsinfo
     
     	
     	**type**\:  :py:class:`CSipStatsInfo <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsInfo>`
     
+    	**config**\: False
+    
     .. attribute:: csipstatssuccess
     
     	
     	**type**\:  :py:class:`CSipStatsSuccess <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsSuccess>`
+    
+    	**config**\: False
     
     .. attribute:: csipstatsredirect
     
     	
     	**type**\:  :py:class:`CSipStatsRedirect <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsRedirect>`
     
+    	**config**\: False
+    
     .. attribute:: csipstatserrclient
     
     	
     	**type**\:  :py:class:`CSipStatsErrClient <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsErrClient>`
+    
+    	**config**\: False
     
     .. attribute:: csipstatserrserver
     
     	
     	**type**\:  :py:class:`CSipStatsErrServer <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsErrServer>`
     
+    	**config**\: False
+    
     .. attribute:: csipstatsglobalfail
     
     	
     	**type**\:  :py:class:`CSipStatsGlobalFail <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsGlobalFail>`
+    
+    	**config**\: False
     
     .. attribute:: csipstatstraffic
     
     	
     	**type**\:  :py:class:`CSipStatsTraffic <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsTraffic>`
     
+    	**config**\: False
+    
     .. attribute:: csipstatsretry
     
     	
     	**type**\:  :py:class:`CSipStatsRetry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsRetry>`
+    
+    	**config**\: False
     
     .. attribute:: csipstatsmisc
     
     	
     	**type**\:  :py:class:`CSipStatsMisc <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsMisc>`
     
+    	**config**\: False
+    
     .. attribute:: csipstatsconnection
     
     	
     	**type**\:  :py:class:`CSipStatsConnection <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsConnection>`
+    
+    	**config**\: False
     
     .. attribute:: csipcfgearlymediatable
     
     	This table contains configuration for Early Media Cut Through.  The configuration controls how the SIP user agent will process 1xx (Provisional) SIP response messages that contain  Session Definition Protocol (SDP) payloads
     	**type**\:  :py:class:`CSipCfgEarlyMediaTable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgEarlyMediaTable>`
     
+    	**config**\: False
+    
     .. attribute:: csipcfgbindsourceaddrtable
     
     	This table contains configuration for binding the scope of packets to the particular ethernet interface. The scope for the packets can be specified as either 'signalling' or 'media' packets. The ethernet interface shall be specified by the interface index. The table shall be indexed based on the scope
     	**type**\:  :py:class:`CSipCfgBindSourceAddrTable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBindSourceAddrTable>`
+    
+    	**config**\: False
     
     .. attribute:: csipcfgpeertable
     
     	This table contains per dial\-peer SIP related  configuration.     The table is a sparse table of dial\-peer information. This means, it only reflects dial\-peers being used  for SIP.  A dial\-peer is being used for SIP if the  value of cvVoIPPeerCfgSessionProtocol  (CISCO\-VOICE\-DIAL\-CONTROL\-MIB) is 'sip'.  Dial\-peers are not created or destroyed via this table.  Only SIP related configuration can be  performed via this table once the dial\-peer exists in the system and is visible in this table
     	**type**\:  :py:class:`CSipCfgPeerTable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeerTable>`
     
+    	**config**\: False
+    
     .. attribute:: csipcfgstatuscausetable
     
     	This table contains SIP status code to PSTN cause code mapping configuration.  Inbound SIP response messages  that will result in outbound PSTN signalling messages will have the SIP status codes transposed into the PSTN cause codes as prescribed by the contents of this  table
     	**type**\:  :py:class:`CSipCfgStatusCauseTable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgStatusCauseTable>`
+    
+    	**config**\: False
     
     .. attribute:: csipcfgcausestatustable
     
     	This table contains PSTN cause code to SIP status code mapping configuration.   Inbound PSTN signalling messages that will result in outbound SIP response messages  will have the PSTN cause codes transposed into the SIP status codes as prescribed by the contents of this  table
     	**type**\:  :py:class:`CSipCfgCauseStatusTable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgCauseStatusTable>`
     
+    	**config**\: False
+    
     .. attribute:: csipstatssuccessoktable
     
     	This table contains statistics for sent and received 200 Ok response messages.  The  statistics are kept on per SIP method basis
     	**type**\:  :py:class:`CSipStatsSuccessOkTable <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsSuccessOkTable>`
+    
+    	**config**\: False
     
     
 
@@ -302,15 +348,21 @@ class CISCOSIPUAMIB(Entity):
         	This object will reflect the version of SIP supported by this  user agent.  It will follow the same format as SIP version  information contained in the SIP messages generated by this user agent.  For example, user agents supporting SIP version 2 will return 'SIP/2.0' as dictated by RFC 2543
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: csipcfgtransport
         
         	This object specifies the transport protocol the SIP user  agent will use to receive SIP messages.  A value of 'disabled' indicates that the UA will not receive any SIP messages
         	**type**\:  :py:class:`CSipCfgTransport <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBase.CSipCfgTransport>`
         
+        	**config**\: False
+        
         .. attribute:: csipcfguserlocationserveraddr
         
         	This object specifies address of the User Location  Server (ULS) being used to resolve the location of end  points.  This could be a Domain Name Server (DNS) or a  SIP proxy/redirect server.  The format of the address follows the IETF service location  protocol. The syntax is as follows\:     mapping\-type\:type\-specific\-syntax  the mapping\-type specifies a scheme for mapping the matching  dial string to a target server. The type\-specific\-syntax is  exactly that, something that the particular mapping scheme can understand.  For example,    Session target           Meaning    ipv4\:171.68.13.55\:1006   The session target is the IP                              version 4 address of 171.68.13.55                              and port 1006.    dns\:pots.cisco.com       The session target is the IP host                              with dns name pots.cisco.com.  The valid Mapping type definitions for the peer follow\:    ipv4  \- Syntax\: ipv4\:w.x.y.z\:port or  ipv4\:w.x.y.z     dns   \- Syntax\: dns\:host.domain
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: csipcfgmaxforwards
         
@@ -318,6 +370,8 @@ class CISCOSIPUAMIB(Entity):
         	**type**\: int
         
         	**range:** 1..70
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -328,12 +382,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: csipcfgbindsrcaddrscope
         
         	This object specifies the scope of packets to which the source IP address of the interface  designated by cSipCfgBindSrcAddrInterface will be bound.  A value of 'all' means the IP address  will be bound to both SIP signalling and media packets. A value of 'control' means the IP address will only be bound to SIP signalling packets.   If cSipCfgBindSrcAddrInterface is set to 0, the value of this object has no meaning
         	**type**\:  :py:class:`CSipCfgBindSrcAddrScope <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBase.CSipCfgBindSrcAddrScope>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -342,35 +400,49 @@ class CISCOSIPUAMIB(Entity):
         	This object specifies the format of the prefix used  by the system for DNS SRV queries.  v1  \:  RFC 2052 format \- 'protocol.transport.' v2  \:  RFC 2782 format \- '\_protocol.\_transport.'  This object allows backward compatibility with systems only supporting RFC 2052 format
         	**type**\:  :py:class:`CSipCfgDnsSrvQueryStringFormat <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBase.CSipCfgDnsSrvQueryStringFormat>`
         
+        	**config**\: False
+        
         .. attribute:: csipcfgredirectiondisabled
         
         	This object specifies how call redirection (3xx) is handled by the user agent.    If 'false', the user agent's treatment of incoming  3xx class response messages is as defined in RFC 2543.   That is, the user agent uses the Contact header(s) from the 3xx response to reinitiate another INVITE transaction to the user's new location.  The call  is redirected.  If 'true', the user agent treats incoming 3xx  response messages as 4xx (client error) class  response messages.  In this case, the call is not redirected, instead it is released with the  appropriate PSTN cause code.  The mapping of SIP 3xx response status codes to 4xx response status codes is as follows\:  300 Multiple Choices \-> 410 Gone  301 Moved Permanently \-> 410 Gone  302 Moved Temporarily \-> 480 Temporarily Unavailable  305 User Proxy        \-> 410 Gone  380 Alternative Service \-> 410 Gone  Any other 3xx \-> 410 Gone
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: csipcfgsymnatenabled
         
         	This object specifies whether remote media checks for Symmetric Network Address Translation (NAT)  is enabled or disabled.  If 'true', remote media checks are enabled.  The gateway will have the ability to open a Real Time  Transport Protocol (RTP) session with the remote end and then update (modify) the existing RTP session's remote address/port (raddr\:rport) with the source address and port of the actual media packet received.  This would be triggered for only those calls where the Session Description Protocol (SDP) received by the gateway has an indication to do so.  If 'false', remote media checks are disabled
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: csipcfgsymnatdirectionrole
         
         	This object specifies the value of the 'a=direction\:<role>' SDP attribute supported by  the user agent.  The direction attribute is used  to describe the role of the user agent (as an  endpoint for a connection\-oriented media stream)  in the connection setup procedure.  none    \:  No role is specified. passive \:  The user agent will advertise itself            as a 'passive' entity (inside the NAT)            in the SDP. active  \:  The user agent will advertise itself            as a 'active' entity (outside the NAT)            in the SDP
         	**type**\:  :py:class:`CSipCfgSymNatDirectionRole <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBase.CSipCfgSymNatDirectionRole>`
+        
+        	**config**\: False
         
         .. attribute:: csipcfgsuspendresumeenabled
         
         	This object specifies if support for handling  Suspend/Resume events from the switch is enabled or not.  If 'true', the user agent on getting a Suspend will notify the remote agent by sending it a re\-invite with a hold SDP. Similarly, when the Gateway receives a Resume, it will initiate a re\-invite with the original SDP and unhold the call.  If 'false', the user agent will not initiate any re\-invites on receiving Suspend/Resume events, basically it won't be putting the call on hold or off hold
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: csipcfgoffercallhold
         
         	This object specifies how the SIP gateway would initiate call hold requests.  directionAttr\: The user agent will use the direction                 attribute such as a=sendonly or a=inactive in                 the sdp to initiate call hold requests.                    connAddr\: The user agent will use 0.0.0.0 connection address            to specify Call Hold
         	**type**\:  :py:class:`CSipCfgOfferCallHold <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBase.CSipCfgOfferCallHold>`
         
+        	**config**\: False
+        
         .. attribute:: csipcfgreasonheaderoveride
         
         	This object specifies that the Reason header overrides SIP  status code mapping table
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: csipcfgmaximumforwards
         
@@ -378,6 +450,8 @@ class CISCOSIPUAMIB(Entity):
         	**type**\: int
         
         	**range:** 1..70
+        
+        	**config**\: False
         
         
 
@@ -600,6 +674,7 @@ class CISCOSIPUAMIB(Entity):
 
 
 
+
     class CSipCfgTimer(Entity):
         """
         
@@ -611,6 +686,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 100..1000
         
+        	**config**\: False
+        
         	**units**\: milliseconds
         
         .. attribute:: csipcfgtimerexpires
@@ -619,6 +696,8 @@ class CISCOSIPUAMIB(Entity):
         	**type**\: int
         
         	**range:** 60000..300000
+        
+        	**config**\: False
         
         	**units**\: milliseconds
         
@@ -629,6 +708,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 100..1000
         
+        	**config**\: False
+        
         	**units**\: milliseconds
         
         .. attribute:: csipcfgtimerdisconnect
@@ -637,6 +718,8 @@ class CISCOSIPUAMIB(Entity):
         	**type**\: int
         
         	**range:** 100..1000
+        
+        	**config**\: False
         
         	**units**\: milliseconds
         
@@ -647,6 +730,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 100..1000
         
+        	**config**\: False
+        
         	**units**\: milliseconds
         
         .. attribute:: csipcfgtimercomet
@@ -655,6 +740,8 @@ class CISCOSIPUAMIB(Entity):
         	**type**\: int
         
         	**range:** 100..1000
+        
+        	**config**\: False
         
         	**units**\: milliseconds
         
@@ -665,6 +752,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 100..1000
         
+        	**config**\: False
+        
         	**units**\: milliseconds
         
         .. attribute:: csipcfgtimernotify
@@ -673,6 +762,8 @@ class CISCOSIPUAMIB(Entity):
         	**type**\: int
         
         	**range:** 100..1000
+        
+        	**config**\: False
         
         	**units**\: milliseconds
         
@@ -683,6 +774,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 100..1000
         
+        	**config**\: False
+        
         	**units**\: milliseconds
         
         .. attribute:: csipcfgtimersessiontimer
@@ -691,6 +784,8 @@ class CISCOSIPUAMIB(Entity):
         	**type**\: int
         
         	**range:** 60..86400
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -701,6 +796,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..None \| 15..2880
         
+        	**config**\: False
+        
         	**units**\: minutes
         
         .. attribute:: csipcfgtimerinfo
@@ -709,6 +806,8 @@ class CISCOSIPUAMIB(Entity):
         	**type**\: int
         
         	**range:** 100..1000
+        
+        	**config**\: False
         
         	**units**\: milliseconds
         
@@ -719,6 +818,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 5..30
         
+        	**config**\: False
+        
         	**units**\: minutes
         
         .. attribute:: csipcfgtimerbufferinvite
@@ -727,6 +828,8 @@ class CISCOSIPUAMIB(Entity):
         	**type**\: int
         
         	**range:** 0..None \| 50..5000
+        
+        	**config**\: False
         
         	**units**\: milliseconds
         
@@ -784,6 +887,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgTimer, ['csipcfgtimertrying', 'csipcfgtimerexpires', 'csipcfgtimerconnect', 'csipcfgtimerdisconnect', 'csipcfgtimerprack', 'csipcfgtimercomet', 'csipcfgtimerreliablersp', 'csipcfgtimernotify', 'csipcfgtimerrefer', 'csipcfgtimersessiontimer', 'csipcfgtimerhold', 'csipcfgtimerinfo', 'csipcfgtimerconnectionaging', 'csipcfgtimerbufferinvite'], name, value)
 
 
+
     class CSipCfgRetry(Entity):
         """
         
@@ -795,12 +899,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 1..10
         
+        	**config**\: False
+        
         .. attribute:: csipcfgretrybye
         
         	This object specifies the number of times a user agent  will retry sending a BYE request
         	**type**\: int
         
         	**range:** 1..10
+        
+        	**config**\: False
         
         .. attribute:: csipcfgretrycancel
         
@@ -809,12 +917,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 1..10
         
+        	**config**\: False
+        
         .. attribute:: csipcfgretryregister
         
         	This object specifies the number of times a user agent  will retry sending a REGISTER request
         	**type**\: int
         
         	**range:** 1..10
+        
+        	**config**\: False
         
         .. attribute:: csipcfgretryresponse
         
@@ -823,12 +935,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 1..10
         
+        	**config**\: False
+        
         .. attribute:: csipcfgretryprack
         
         	This object specifies the number of times a user agent  will retry sending a PRACK (PRovisional ACKnowledgement)
         	**type**\: int
         
         	**range:** 1..10
+        
+        	**config**\: False
         
         .. attribute:: csipcfgretrycomet
         
@@ -837,12 +953,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 1..10
         
+        	**config**\: False
+        
         .. attribute:: csipcfgretryreliablersp
         
         	This object specifies the number of times a user agent  will retry sending a reliable response
         	**type**\: int
         
         	**range:** 1..10
+        
+        	**config**\: False
         
         .. attribute:: csipcfgretrynotify
         
@@ -851,12 +971,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 1..10
         
+        	**config**\: False
+        
         .. attribute:: csipcfgretryrefer
         
         	This object specifies the number of times a user agent  will retry sending a Refer request
         	**type**\: int
         
         	**range:** 1..10
+        
+        	**config**\: False
         
         .. attribute:: csipcfgretryinfo
         
@@ -865,12 +989,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 1..10
         
+        	**config**\: False
+        
         .. attribute:: csipcfgretrysubscribe
         
         	This object specifies the number of times a user agent will retry sending a Subscribe request
         	**type**\: int
         
         	**range:** 1..10
+        
+        	**config**\: False
         
         
 
@@ -922,6 +1050,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgRetry, ['csipcfgretryinvite', 'csipcfgretrybye', 'csipcfgretrycancel', 'csipcfgretryregister', 'csipcfgretryresponse', 'csipcfgretryprack', 'csipcfgretrycomet', 'csipcfgretryreliablersp', 'csipcfgretrynotify', 'csipcfgretryrefer', 'csipcfgretryinfo', 'csipcfgretrysubscribe'], name, value)
 
 
+
     class CSipCfgPeer(Entity):
         """
         
@@ -931,20 +1060,28 @@ class CISCOSIPUAMIB(Entity):
         	This object specifies the session transport  protocol that will be used for outbound SIP  messages.  This configuration is applicable to all dial\-peers in the system having  cSipCfgPeerOutSessionTransport set to 'system'
         	**type**\:  :py:class:`CSipCfgOutSessionTransport <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeer.CSipCfgOutSessionTransport>`
         
+        	**config**\: False
+        
         .. attribute:: csipcfgreliable1xxrspstr
         
         	This object specifies the string that will be  placed in either the Supported or Require SIP  header, as specified by cSipCfgReliable1xxRspHdr
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: csipcfgreliable1xxrsphdr
         
         	This object specifies behavior with respect to Supported or Require headers in SIP messages sent and received via this dial\-peer.  If the originating gateway is configured for 'require', the Require header is added to the outgoing INVITEs with the value of cSipCfgReliable1xxStr.  This requires the use of reliable provisional responses by the terminating gateway.  Sessions will be torn down if this use cannot be supported by that gateway.  If the originating gateway is configured for 'supported', the Supported header is added to the outgoing INVITEs with the value of cSipCfgReliable1xxStr.  This  requires that an attempt to use reliable provisional responses be made, but sessions can continue without them.  If the originating gateway is configured for 'disabled', the value of cSipCfgReliable1xxStr will NOT be added to either the Require or Supported headers of outgoing INVITEs
         	**type**\:  :py:class:`CSipCfgReliable1xxRspHdr <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeer.CSipCfgReliable1xxRspHdr>`
         
+        	**config**\: False
+        
         .. attribute:: csipcfgurltype
         
         	This object specifies the URL type sent in outbound INVITES generated by this device
         	**type**\:  :py:class:`CSipCfgUrlType <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeer.CSipCfgUrlType>`
+        
+        	**config**\: False
         
         
 
@@ -1077,6 +1214,7 @@ class CISCOSIPUAMIB(Entity):
 
 
 
+
     class CSipCfgAaa(Entity):
         """
         
@@ -1085,6 +1223,8 @@ class CISCOSIPUAMIB(Entity):
         
         	This object specifies the source of the information used to populate the username attribute of AAA billing records
         	**type**\:  :py:class:`CSipCfgAaaUsername <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgAaa.CSipCfgAaaUsername>`
+        
+        	**config**\: False
         
         
 
@@ -1133,6 +1273,7 @@ class CISCOSIPUAMIB(Entity):
 
 
 
+
     class CSipCfgVoiceServiceVoip(Entity):
         """
         
@@ -1142,12 +1283,16 @@ class CISCOSIPUAMIB(Entity):
         	This object specifies if support for passing SIP headers from Invite, Subscribe, Notify Request to the application is enabled.  If 'true', the headers received in a message will be passed to the application.  If 'false', the headers received in a message will not be passed to the application
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: csipcfgmaxsubscriptionaccept
         
         	This object specifies the maximum number of concurrent SIP subscriptions a SIP Gateway can accept
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipcfgmaxsubscriptionoriginate
         
@@ -1156,10 +1301,14 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipcfgswitchtransportenabled
         
         	This object specifies if the functionality of switching between transports from udp to tcp if the message size of a Request is greater than 1300 bytes is enabled or not.  This configuration is at the global level, and will only be  considered if there exists no voip dial\-peer
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -1195,6 +1344,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgVoiceServiceVoip, ['csipcfgheaderpassingenabled', 'csipcfgmaxsubscriptionaccept', 'csipcfgmaxsubscriptionoriginate', 'csipcfgswitchtransportenabled'], name, value)
 
 
+
     class CSipStatsInfo(Entity):
         """
         
@@ -1206,12 +1356,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsinfotryingouts
         
         	This object reflects the total number of Trying (100) responses sent by the user agent since system startup. Trying responses indicate that some unspecified action is being taken on behalf of this call, but the user has not yet been located.  Outbound Trying responses indicate this system is successfully  receiving INVITE requests and processing them on  behalf of the system initiating the INVITE
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsinforingingins
         
@@ -1220,12 +1374,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsinforingingouts
         
         	This object reflects the total number of Ringing (180) responses sent by the user agent since system startup. A outbound Ringing response indicates that this system has processed an INVITE for a particular end user and found a possible location where that user has registered recently.  The system is trying to alert the end user and is conveying that status to the system that originated the INVITE
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsinfoforwardedins
         
@@ -1234,12 +1392,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsinfoforwardedouts
         
         	This object reflects the total number of Call Is Being Forwarded (181) responses sent by the user agent since system startup. A proxy server may use a Forwarded status code to indicate that the call is being forwarded to a different set of destinations.  Outbound Forwarded responses indicate this system is taking some forwarding action for calls and conveying that status to the system that initiated the calls
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsinfoqueuedins
         
@@ -1248,12 +1410,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsinfoqueuedouts
         
         	This object reflects the total number of Queued (182) responses sent by the user agent since system startup. Outbound Queued responses indicate this system has determined that the called party is temporarily unavailable but the call is not rejected.  Rather  the call is queued until the called party becomes available.  Queued responses messages are sent to the system originating the call request to convey the current status of a queued call
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsinfosessionprogins
         
@@ -1262,12 +1428,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsinfosessionprogouts
         
         	This object reflects the total number of Session Progress (183) responses sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -1315,6 +1485,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsInfo, ['csipstatsinfotryingins', 'csipstatsinfotryingouts', 'csipstatsinforingingins', 'csipstatsinforingingouts', 'csipstatsinfoforwardedins', 'csipstatsinfoforwardedouts', 'csipstatsinfoqueuedins', 'csipstatsinfoqueuedouts', 'csipstatsinfosessionprogins', 'csipstatsinfosessionprogouts'], name, value)
 
 
+
     class CSipStatsSuccess(Entity):
         """
         
@@ -1326,6 +1497,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: csipstatssuccessokouts
@@ -1334,6 +1507,8 @@ class CISCOSIPUAMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -1344,12 +1519,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatssuccessacceptedouts
         
         	This object reflects the total number of Accepted (202) responses sent by the user agent since system startup. The meaning of outbound 202 Ok responses depends on the method used in the associated request
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -1385,6 +1564,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsSuccess, ['csipstatssuccessokins', 'csipstatssuccessokouts', 'csipstatssuccessacceptedins', 'csipstatssuccessacceptedouts'], name, value)
 
 
+
     class CSipStatsRedirect(Entity):
         """
         
@@ -1396,6 +1576,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsredirmovedperms
         
         	This object reflects the total number of Moved  Permanently (301) responses received by the user agent since system startup. Moved Permanently responses indicate that the called party  can no longer be found at the address offered in the request  and the requesting UAC should retry at the new address given  by the Contact header field of the response
@@ -1403,12 +1585,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsredirmovedtemps
         
         	This object reflects the total number of Moved  Temporarily (302) responses received by the user agent since system startup. Moved Temporarily responses indicate the UAC should retry the request directed at the new address(es) given by the Contact header field of the response. The duration of this redirection can be indicated through the Expires header.  If no explicit expiration time is given, the new address(es) are only valid for this call
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -1419,6 +1605,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: csipstatsrediruseproxys
@@ -1428,12 +1616,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsrediraltservices
         
         	This object reflects the total number of Alternative Service (380) responses received by the user agent since system startup. Alternative Service responses indicate that the call was not successful, but alternative services are possible.  Those alternative services are described in the message body of the response
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsredirmovedtempsins
         
@@ -1442,12 +1634,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsredirmovedtempsouts
         
         	This object reflects the total number of Moved Temporarily (302) responses sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -1491,6 +1687,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsRedirect, ['csipstatsredirmultiplechoices', 'csipstatsredirmovedperms', 'csipstatsredirmovedtemps', 'csipstatsredirseeothers', 'csipstatsrediruseproxys', 'csipstatsrediraltservices', 'csipstatsredirmovedtempsins', 'csipstatsredirmovedtempsouts'], name, value)
 
 
+
     class CSipStatsErrClient(Entity):
         """
         
@@ -1502,12 +1699,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientbadrequestouts
         
         	This object reflects the total number of Bad Request (400)  responses sent by the user agent since system startup. Outbound Bad Request responses indicate that requests  received by this system could not be understood due to  malformed syntax
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientunauthorizedins
         
@@ -1516,12 +1717,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientunauthorizedouts
         
         	This object reflects the total number of Unauthorized (401)  responses sent by the user agent since system startup. Outbound Unauthorized responses indicate that requests  received by this system require user authentication
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientpaymentreqdins
         
@@ -1530,12 +1735,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientpaymentreqdouts
         
         	This object reflects the total number of Payment Required  (402) responses sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientforbiddenins
         
@@ -1544,12 +1753,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientforbiddenouts
         
         	This object reflects the total number of Forbidden (403)  responses sent by the user agent since system startup. Outbound Forbidden responses indicate that requests received by this system are understood but this system is refusing to fulfill the requests
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientnotfoundins
         
@@ -1558,12 +1771,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientnotfoundouts
         
         	This object reflects the total number of Not Found (404)  responses sent by the user agent since system startup. Outbound Not Found responses indicate that this system knows that the called party does not exist at the domain specified in the Request\-URI or the domain is not handled by this system
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientmethnotallowedins
         
@@ -1572,12 +1789,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientmethnotallowedouts
         
         	This object reflects the total number of Method Not Allowed  (405) received sent by the user agent since system startup. Outbound Method Not Allowed responses indicate that requests  received by this system have SIP methods specified in the  Request\-Line that are not allowed for the address identified  by the Request\-URI
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientnotacceptableins
         
@@ -1586,12 +1807,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientnotacceptableouts
         
         	This object reflects the total number of Not Acceptable (406)  responses sent by the user agent since system startup. Outbound Not Acceptable responses indicate that the resources identified by requests received by this system cannot generate responses with content characteristics acceptable to the  system sending the requests
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientproxyauthreqdins
         
@@ -1600,12 +1825,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientproxyauthreqdouts
         
         	This object reflects the total number of Proxy Authentication  Required (407) responses sent by the user agent since system startup. Outbound Proxy Authentication Required responses indicate that the systems issuing requests being processed by this system  must authenticate themselves with this system before gaining  access to requested resources
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientreqtimeoutins
         
@@ -1614,12 +1843,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientreqtimeoutouts
         
         	This object reflects the total number of Request Timeout  (408) responses sent by the user agent since system startup. Outbound Request Timeout responses indicate that this  system is not able to produce an appropriate response within  the time indicated in the Expires header of the request
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientconflictins
         
@@ -1628,12 +1861,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientconflictouts
         
         	This object reflects the total number of Conflict (409)  responses sent by the user agent since system startup. Outbound Conflict responses indicate that requests received by this system could not be completed due to a conflict with the current state of a requested resource
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientgoneins
         
@@ -1642,6 +1879,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientgoneouts
         
         	This object reflects the total number of Gone (410)  responses sent by the user agent since system startup. Outbound Gone responses indicate that the requested resources are no longer available at this system and no forwarding address is known
@@ -1649,12 +1888,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientlengthrequiredins
         
         	This object reflects the total number of Length Required  (411) responses received by the user agent since system startup. Inbound Length Required responses indicate that requests  issued by this system are being refused by servers because  of no defined Content\-Length header field
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -1665,6 +1908,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: csipstatsclientreqenttoolargeins
@@ -1674,12 +1919,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientreqenttoolargeouts
         
         	This object reflects the total number of Request Entity Too  Large (413) responses sent by the user agent since system startup. Outbound Request Entity Too Large responses indicate that  requests received by this system are larger than this system  is willing or able to process
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientrequritoolargeins
         
@@ -1688,12 +1937,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientrequritoolargeouts
         
         	This object reflects the total number of Request\-URI Too  Large (414) responses sent by the user agent since system startup. Outbound Request\-URI Too Large responses indicate that  Request\-URIs received by this system are longer than this  system is willing or able to interpret
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientnosupmediatypeins
         
@@ -1702,12 +1955,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientnosupmediatypeouts
         
         	This object reflects the total number of Unsupported Media  Type (415) responses sent by the user agent since system startup. Outbound Unsupported Media Type responses indicate that the  body of requests received by this system are in a format not  supported by the requested resource for the requested method
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientbadextensionins
         
@@ -1716,12 +1973,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientbadextensionouts
         
         	This object reflects the total number of Bad Extension (420)  responses sent by the user agent since system startup. Outbound Bad Extension responses indicate that this system did not understand the protocol extension specified in a Require header field of requests
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclienttempnotavailins
         
@@ -1730,12 +1991,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclienttempnotavailouts
         
         	This object reflects the total number of Temporarily Not  Available (480) responses sent by the user agent since system startup. Outbound Temporarily Not Available responses indicate that  the called party's end system was contacted successfully but  the called party is currently unavailable
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientcalllegnoexistins
         
@@ -1744,12 +2009,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientcalllegnoexistouts
         
         	This object reflects the total number of Call Leg/Transaction  Does Not Exist (481) responses sent by the user agent since system startup. Outbound Call Leg/Transaction Does Not Exist responses  indicate that BYE or CANCEL requests have been received by  this system and not call leg or transaction matching that  request exists
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientloopdetectedins
         
@@ -1758,12 +2027,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientloopdetectedouts
         
         	This object reflects the total number of Loop Detected (482)  responses sent by the user agent since system startup. Outbound Loop Detected responses indicate that requests  received by this system contain a Via path with this system  appearing more than once
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclienttoomanyhopsins
         
@@ -1772,12 +2045,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclienttoomanyhopsouts
         
         	This object reflects the total number of Too Many Hops (483)  responses sent by the user agent since system startup. Outbound Too Many Hops responses indicate that requests received by this system contain more Via entries (hops) than are allowed by the Max\-Forwards header field of the requests
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientaddrincompleteins
         
@@ -1786,12 +2063,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientaddrincompleteouts
         
         	This object reflects the total number of Address Incomplete  (484) responses sent by the user agent since system startup. Outbound Address Incomplete responses indicate that requests  received by this system had To addresses or Request\-URIs that  were incomplete
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientambiguousins
         
@@ -1800,12 +2081,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientambiguousouts
         
         	This object reflects the total number of Ambiguous (485)  responses sent by the user agent since system startup. Outbound Ambiguous responses indicate that requests received by this system contained ambiguous address information
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientbusyhereins
         
@@ -1814,12 +2099,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientbusyhereouts
         
         	This object reflects the total number of Busy Here (486)  responses sent by the user agent since system startup. Outbound Busy Here responses indicate that the called party's end system was contacted successfully but the called party is currently not willing or able to take  additional calls
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientreqtermins
         
@@ -1828,12 +2117,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientreqtermouts
         
         	This object reflects the total number of Request Terminated  (487) responses sent by the user agent since system startup. Request Terminated responses are issued if the original  request was terminated via CANCEL or BYE
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientnoaccepthereins
         
@@ -1842,12 +2135,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientnoaccepthereouts
         
         	This object reflects the total number of Not Acceptable Here (488) responses sent by the user agent since system startup. The response has the same meaning as 606 (Not Acceptable),  but only applies to the specific entity addressed by the  Request\-URI and the request may succeed elsewhere
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientbadeventins
         
@@ -1856,12 +2153,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientbadeventouts
         
         	This object reflects the total number of BadEvent (489)  responses sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientsttoosmallins
         
@@ -1870,12 +2171,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientsttoosmallouts
         
         	This object reflects the total number of SessionTimerTooSmall (422) responses sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsclientreqpendingins
         
@@ -1884,12 +2189,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsclientreqpendingouts
         
         	This object reflects the total number of RequestPending (491) responses sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -2029,6 +2338,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsErrClient, ['csipstatsclientbadrequestins', 'csipstatsclientbadrequestouts', 'csipstatsclientunauthorizedins', 'csipstatsclientunauthorizedouts', 'csipstatsclientpaymentreqdins', 'csipstatsclientpaymentreqdouts', 'csipstatsclientforbiddenins', 'csipstatsclientforbiddenouts', 'csipstatsclientnotfoundins', 'csipstatsclientnotfoundouts', 'csipstatsclientmethnotallowedins', 'csipstatsclientmethnotallowedouts', 'csipstatsclientnotacceptableins', 'csipstatsclientnotacceptableouts', 'csipstatsclientproxyauthreqdins', 'csipstatsclientproxyauthreqdouts', 'csipstatsclientreqtimeoutins', 'csipstatsclientreqtimeoutouts', 'csipstatsclientconflictins', 'csipstatsclientconflictouts', 'csipstatsclientgoneins', 'csipstatsclientgoneouts', 'csipstatsclientlengthrequiredins', 'csipstatsclientlengthrequiredouts', 'csipstatsclientreqenttoolargeins', 'csipstatsclientreqenttoolargeouts', 'csipstatsclientrequritoolargeins', 'csipstatsclientrequritoolargeouts', 'csipstatsclientnosupmediatypeins', 'csipstatsclientnosupmediatypeouts', 'csipstatsclientbadextensionins', 'csipstatsclientbadextensionouts', 'csipstatsclienttempnotavailins', 'csipstatsclienttempnotavailouts', 'csipstatsclientcalllegnoexistins', 'csipstatsclientcalllegnoexistouts', 'csipstatsclientloopdetectedins', 'csipstatsclientloopdetectedouts', 'csipstatsclienttoomanyhopsins', 'csipstatsclienttoomanyhopsouts', 'csipstatsclientaddrincompleteins', 'csipstatsclientaddrincompleteouts', 'csipstatsclientambiguousins', 'csipstatsclientambiguousouts', 'csipstatsclientbusyhereins', 'csipstatsclientbusyhereouts', 'csipstatsclientreqtermins', 'csipstatsclientreqtermouts', 'csipstatsclientnoaccepthereins', 'csipstatsclientnoaccepthereouts', 'csipstatsclientbadeventins', 'csipstatsclientbadeventouts', 'csipstatsclientsttoosmallins', 'csipstatsclientsttoosmallouts', 'csipstatsclientreqpendingins', 'csipstatsclientreqpendingouts'], name, value)
 
 
+
     class CSipStatsErrServer(Entity):
         """
         
@@ -2040,12 +2350,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsserverinterrorouts
         
         	This object reflects the total number of Internal Server Error (500) responses sent by the user agent since system startup. Outbound Internal Server Error responses indicate that this  system has encountered unexpected conditions that prevent it  from fulfilling received requests
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsservernotimplementedins
         
@@ -2054,12 +2368,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsservernotimplementedouts
         
         	This object reflects the total number of Not Implemented  (501) responses sent by the user agent since system startup. Outbound Not Implemented responses indicate that this system does not support the functionality required to fulfill the  requests
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsserverbadgatewayins
         
@@ -2068,12 +2386,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsserverbadgatewayouts
         
         	This object reflects the total number of Bad Gateway (502)  responses sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsserverserviceunavailins
         
@@ -2082,12 +2404,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsserverserviceunavailouts
         
         	This object reflects the total number of Service Unavailable  (503) responses sent by the user agent since system startup. Outbound Service Unavailable responses indicate that this system is temporarily unable to handle received requests
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsservergatewaytimeoutins
         
@@ -2096,12 +2422,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsservergatewaytimeoutouts
         
         	This object reflects the total number of Gateway Time\-out  (504) responses sent by the user agent since system startup. Outbound Gateway Time\-out responses indicate that this system did not receive a timely response from the system it had accessed to assist in completing a received request
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsserverbadsipversionins
         
@@ -2110,12 +2440,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsserverbadsipversionouts
         
         	This object reflects the total number of SIP Version Not  Supported (505) responses sent by the user agent since system startup. Outbound SIP Version Not Supported responses indicate that  this system does not support, or refuses to support, the SIP  protocol version used in received requests
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsserverprecondfailureins
         
@@ -2124,12 +2458,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsserverprecondfailureouts
         
         	This object reflects the total number of Precondition  Failure (580) responses sent by the user agent since system startup. This response is returned by a UAS if it is unable to perform the mandatory preconditions for the session
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -2185,6 +2523,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsErrServer, ['csipstatsserverinterrorins', 'csipstatsserverinterrorouts', 'csipstatsservernotimplementedins', 'csipstatsservernotimplementedouts', 'csipstatsserverbadgatewayins', 'csipstatsserverbadgatewayouts', 'csipstatsserverserviceunavailins', 'csipstatsserverserviceunavailouts', 'csipstatsservergatewaytimeoutins', 'csipstatsservergatewaytimeoutouts', 'csipstatsserverbadsipversionins', 'csipstatsserverbadsipversionouts', 'csipstatsserverprecondfailureins', 'csipstatsserverprecondfailureouts'], name, value)
 
 
+
     class CSipStatsGlobalFail(Entity):
         """
         
@@ -2196,12 +2535,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsglobalbusyeverywhereouts
         
         	This object reflects the total number of Busy Everywhere (600) responses sent by the user agent since system startup. Outbound Busy Everywhere responses indicate that  this system has successfully contacted a called party's end system and the called party does not wish to take the call at this time
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsglobaldeclineins
         
@@ -2210,12 +2553,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsglobaldeclineouts
         
         	This object reflects the total number of Decline (603) responses sent by the user agent since system startup. Outbound Decline responses indicate that this system has successfully contacted a called party's end system and the called party explicitly does not wish to, or cannot, participate
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsglobalnotanywhereins
         
@@ -2224,12 +2571,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsglobalnotanywhereouts
         
         	This object reflects the total number of Does Not Exist Anywhere (604) responses sent by the user agent since system startup. Outbound Does Not Exist Anywhere responses indicate that this system has authoritative information that the called party in the To field of received requests does not exist anywhere
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsglobalnotacceptableins
         
@@ -2238,12 +2589,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsglobalnotacceptableouts
         
         	This object reflects the total number of Not Acceptable (606) responses sent by the user agent since system startup. Outbound Not Acceptable responses indicate that the called party wishes to communicate, but cannot adequately support the session described in the request
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -2287,6 +2642,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsGlobalFail, ['csipstatsglobalbusyeverywhereins', 'csipstatsglobalbusyeverywhereouts', 'csipstatsglobaldeclineins', 'csipstatsglobaldeclineouts', 'csipstatsglobalnotanywhereins', 'csipstatsglobalnotanywhereouts', 'csipstatsglobalnotacceptableins', 'csipstatsglobalnotacceptableouts'], name, value)
 
 
+
     class CSipStatsTraffic(Entity):
         """
         
@@ -2298,12 +2654,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficinviteouts
         
         	This object reflects the total number of INVITE requests sent by the user agent
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatstrafficackins
         
@@ -2312,12 +2672,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficackouts
         
         	This object reflects the total number of ACK requests sent by the user agent
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatstrafficbyeins
         
@@ -2326,12 +2690,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficbyeouts
         
         	This object reflects the total number of BYE requests sent by the user agent
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatstrafficcancelins
         
@@ -2340,12 +2708,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficcancelouts
         
         	This object reflects the total number of CANCEL requests sent by the user agent
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatstrafficoptionsins
         
@@ -2354,12 +2726,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficoptionsouts
         
         	This object reflects the total number of OPTIONS requests sent by the user agent
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatstrafficregisterins
         
@@ -2368,12 +2744,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficregisterouts
         
         	This object reflects the total number of REGISTER requests  sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatstrafficcometins
         
@@ -2382,12 +2762,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficcometouts
         
         	This object reflects the total number of COndition MET  requests sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatstrafficprackins
         
@@ -2396,12 +2780,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficprackouts
         
         	This object reflects the total number of PRovisonal  ACKnowledgement requests sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatstrafficreferins
         
@@ -2410,12 +2798,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficreferouts
         
         	This object reflects the total number of Refer requests sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatstrafficnotifyins
         
@@ -2424,12 +2816,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficnotifyouts
         
         	This object reflects the total number of Notify  requests sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatstrafficinfoins
         
@@ -2438,12 +2834,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficinfoouts
         
         	This object reflects the total number of Info  requests sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatstrafficsubscribeins
         
@@ -2452,12 +2852,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficsubscribeouts
         
         	This object reflects the total number of Subscribe requests sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatstrafficupdateins
         
@@ -2466,12 +2870,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatstrafficupdateouts
         
         	This object reflects the total number of Update requests sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -2551,6 +2959,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsTraffic, ['csipstatstrafficinviteins', 'csipstatstrafficinviteouts', 'csipstatstrafficackins', 'csipstatstrafficackouts', 'csipstatstrafficbyeins', 'csipstatstrafficbyeouts', 'csipstatstrafficcancelins', 'csipstatstrafficcancelouts', 'csipstatstrafficoptionsins', 'csipstatstrafficoptionsouts', 'csipstatstrafficregisterins', 'csipstatstrafficregisterouts', 'csipstatstrafficcometins', 'csipstatstrafficcometouts', 'csipstatstrafficprackins', 'csipstatstrafficprackouts', 'csipstatstrafficreferins', 'csipstatstrafficreferouts', 'csipstatstrafficnotifyins', 'csipstatstrafficnotifyouts', 'csipstatstrafficinfoins', 'csipstatstrafficinfoouts', 'csipstatstrafficsubscribeins', 'csipstatstrafficsubscribeouts', 'csipstatstrafficupdateins', 'csipstatstrafficupdateouts'], name, value)
 
 
+
     class CSipStatsRetry(Entity):
         """
         
@@ -2562,12 +2971,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsretrybyes
         
         	This object reflects the total number of BYE retries that have been sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsretrycancels
         
@@ -2576,12 +2989,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsretryregisters
         
         	This object reflects the total number of REGISTER retries that have been sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsretryresponses
         
@@ -2590,12 +3007,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsretrypracks
         
         	This object reflects the total number of PRovisional ACKnowledgement retries sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsretrycomets
         
@@ -2604,12 +3025,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsretryreliable1xxrsps
         
         	This object reflects the total number of Reliable 1xx Response retries sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsretrynotifys
         
@@ -2618,12 +3043,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsretryrefers
         
         	This object reflects the total number of Refer retries that have been sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsretryinfo
         
@@ -2632,12 +3061,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsretrysubscribe
         
         	This object reflects the total number of Subscribe retries that have been sent by the user agent since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -2689,6 +3122,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsRetry, ['csipstatsretryinvites', 'csipstatsretrybyes', 'csipstatsretrycancels', 'csipstatsretryregisters', 'csipstatsretryresponses', 'csipstatsretrypracks', 'csipstatsretrycomets', 'csipstatsretryreliable1xxrsps', 'csipstatsretrynotifys', 'csipstatsretryrefers', 'csipstatsretryinfo', 'csipstatsretrysubscribe'], name, value)
 
 
+
     class CSipStatsMisc(Entity):
         """
         
@@ -2699,6 +3133,8 @@ class CISCOSIPUAMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -2728,6 +3164,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsMisc, ['csipstatsmisc3xxmappedto4xxrsps'], name, value)
 
 
+
     class CSipStatsConnection(Entity):
         """
         
@@ -2739,12 +3176,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsconnudpsendfailures
         
         	This object reflects the total number of UDP send failures since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsconntcpremoteclosures
         
@@ -2753,12 +3194,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsconnudpcreatefailures
         
         	This object reflects the total number of connection create failures for UDP since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsconntcpcreatefailures
         
@@ -2767,12 +3212,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsconnudpinactivetimeouts
         
         	This object reflects the total number of UDP connections that  timed out due to inactivity since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: csipstatsconntcpinactivetimeouts
         
@@ -2781,6 +3230,8 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsactiveudpconnections
         
         	This object reflects the total number of active UDP connections since system startup
@@ -2788,12 +3239,16 @@ class CISCOSIPUAMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csipstatsactivetcpconnections
         
         	This object reflects the total number of active TCP connections since system startup
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -2839,6 +3294,7 @@ class CISCOSIPUAMIB(Entity):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsConnection, ['csipstatsconntcpsendfailures', 'csipstatsconnudpsendfailures', 'csipstatsconntcpremoteclosures', 'csipstatsconnudpcreatefailures', 'csipstatsconntcpcreatefailures', 'csipstatsconnudpinactivetimeouts', 'csipstatsconntcpinactivetimeouts', 'csipstatsactiveudpconnections', 'csipstatsactivetcpconnections'], name, value)
 
 
+
     class CSipCfgEarlyMediaTable(Entity):
         """
         This table contains configuration for Early
@@ -2851,6 +3307,8 @@ class CISCOSIPUAMIB(Entity):
         
         	A row in the cSipCfgEarlyMediaTable. A row is accessible with a Provisional (1xx) status code value (eg, 180) and provides an object for the enabling or disabling of the Early Media Cut Through functionality
         	**type**\: list of  		 :py:class:`CSipCfgEarlyMediaEntry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgEarlyMediaTable.CSipCfgEarlyMediaEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2894,10 +3352,14 @@ class CISCOSIPUAMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: csipcfgearlymediacutthrudisabled
             
             	This object specifies whether Early Media  Cut Through is enabled or disabled for the  SIP response messages with status codes that  match cSipCfgEarlyMediaStatusCodeIndex.  If 'true', early media cut through is disabled, and the user agent will process the message as though it did not contain any SDP payload.  If 'false', early media cut through is enabled, and the user agent will process the message similar to a 183 (Session Progress) and cut through for early media.  The assumption being that the SDP is an indication that the far end is going to send early media
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -2929,6 +3391,8 @@ class CISCOSIPUAMIB(Entity):
                 self._perform_setattr(CISCOSIPUAMIB.CSipCfgEarlyMediaTable.CSipCfgEarlyMediaEntry, ['csipcfgearlymediastatuscodeindex', 'csipcfgearlymediacutthrudisabled'], name, value)
 
 
+
+
     class CSipCfgBindSourceAddrTable(Entity):
         """
         This table contains configuration for binding
@@ -2943,6 +3407,8 @@ class CISCOSIPUAMIB(Entity):
         
         	A row in the cSipCfgBindSourceAddrTable. A row is accessible with the scope of packets to which the source IP address of the interface designated by cSipCfgBindSourceAddrInterface will be bound
         	**type**\: list of  		 :py:class:`CSipCfgBindSourceAddrEntry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBindSourceAddrTable.CSipCfgBindSourceAddrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2984,12 +3450,16 @@ class CISCOSIPUAMIB(Entity):
             	A unique identifier of a row in this table and specifies the scope of packets to which the source IP address of the interface designated by cSipCfgBindSourceAddrInterface will be bound
             	**type**\:  :py:class:`CSipCfgBindSourceAddrScope <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgBindSourceAddrTable.CSipCfgBindSourceAddrEntry.CSipCfgBindSourceAddrScope>`
             
+            	**config**\: False
+            
             .. attribute:: csipcfgbindsourceaddrinterface
             
             	This object may specify the interface where the source IP address used in SIP signalling or media packets is configured.  A value of 0 means that there is no specific source address configured and in this case the best local IP address will be chosen by the system
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             
 
@@ -3046,6 +3516,8 @@ class CISCOSIPUAMIB(Entity):
 
 
 
+
+
     class CSipCfgPeerTable(Entity):
         """
         This table contains per dial\-peer SIP related 
@@ -3066,6 +3538,8 @@ class CISCOSIPUAMIB(Entity):
         
         	A row in the cSipCfgPeerTable
         	**type**\: list of  		 :py:class:`CSipCfgPeerEntry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeerTable.CSipCfgPeerEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3105,30 +3579,42 @@ class CISCOSIPUAMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: csipcfgpeeroutsessiontransport
             
             	This object specifies the session transport  protocol that will be used by this dial\-peer for outbound SIP messages.    The value 'system' is the default and indicates  that this dial\-peer should use the value set by  cSipCfgOutSessionTransport instead
             	**type**\:  :py:class:`CSipCfgPeerOutSessionTransport <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeerTable.CSipCfgPeerEntry.CSipCfgPeerOutSessionTransport>`
+            
+            	**config**\: False
             
             .. attribute:: csipcfgpeerreliable1xxrspstr
             
             	This object specifies the string that will be  placed in either the Supported or Require SIP  header, as specified by cSipCfgPeerReliable1xxRspHdr
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csipcfgpeerreliable1xxrsphdr
             
             	This object specifies behavior with respect to Support or Require headers in SIP messages sent and received via this dial\-peer.  If the originating gateway is configured for 'require', the Require header is added to the outgoing INVITEs with the value of cSipCfgPeerReliable1xxStr.  This requires the use of reliable provisional responses by the terminating gateway.  Sessions will be torn down if this use cannot be supported by that gateway.  If the originating gateway is configured for 'supported', the Supported header is added to the outgoing INVITEs with the value of cSipCfgPeerReliable1xxStr.  This  requires that an attempt to use reliable provisional responses be made, but sessions can continue without them.  If the originating gateway is configured for 'disabled', the value of cSipCfgReliable1xxStr will NOT be added to either the Require or Supported headers of outgoing INVITEs.  The value 'system' is the default and indicates that this  dial\-peer should use the value of  cSipCfgReliable1xxRspHdr instead
             	**type**\:  :py:class:`CSipCfgPeerReliable1xxRspHdr <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeerTable.CSipCfgPeerEntry.CSipCfgPeerReliable1xxRspHdr>`
+            
+            	**config**\: False
             
             .. attribute:: csipcfgpeerurltype
             
             	This object specifies the URL type sent in outbound INVITES generated by this device.  The value 'system' is the default and indicates that this  dial\-peer should use the value of cSipCfgUrlType instead
             	**type**\:  :py:class:`CSipCfgPeerUrlType <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgPeerTable.CSipCfgPeerEntry.CSipCfgPeerUrlType>`
             
+            	**config**\: False
+            
             .. attribute:: csipcfgpeerswitchtransenabled
             
             	This object specifies if the functionality of switching between transports from UDP to TCP if the message size of a Request is greater than 1300 bytes is enabled or not
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -3289,6 +3775,8 @@ class CISCOSIPUAMIB(Entity):
 
 
 
+
+
     class CSipCfgStatusCauseTable(Entity):
         """
         This table contains SIP status code to PSTN cause code
@@ -3302,6 +3790,8 @@ class CISCOSIPUAMIB(Entity):
         
         	A row in the cSipCfgStatusCauseTable.  Entries cannot be created or destroyed by the actions of any NMS
         	**type**\: list of  		 :py:class:`CSipCfgStatusCauseEntry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgStatusCauseTable.CSipCfgStatusCauseEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3342,6 +3832,8 @@ class CISCOSIPUAMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: csipcfgpstncause
             
             	The PSTN cause code to which the SIP status code given by cSipCfgStatusCodeIndex is to be mapped for outbound PSTN signalling messages
@@ -3349,10 +3841,14 @@ class CISCOSIPUAMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: csipcfgstatuscausestorestatus
             
             	This object reflects the storage status of this table entry.  If the value is 'volatile', then this entry only exists in RAM and the information would be lost (reverting to defaults) on system reload.   If the value is 'nonVolatile' then this entry has been  written to NVRAM and will persist across system reloads
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -3386,6 +3882,8 @@ class CISCOSIPUAMIB(Entity):
                 self._perform_setattr(CISCOSIPUAMIB.CSipCfgStatusCauseTable.CSipCfgStatusCauseEntry, ['csipcfgstatuscodeindex', 'csipcfgpstncause', 'csipcfgstatuscausestorestatus'], name, value)
 
 
+
+
     class CSipCfgCauseStatusTable(Entity):
         """
         This table contains PSTN cause code to SIP status code
@@ -3399,6 +3897,8 @@ class CISCOSIPUAMIB(Entity):
         
         	A row in the cSipCfgCauseStatusTable. Entries cannot be created or destroyed by the actions of any NMS
         	**type**\: list of  		 :py:class:`CSipCfgCauseStatusEntry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipCfgCauseStatusTable.CSipCfgCauseStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3439,6 +3939,8 @@ class CISCOSIPUAMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: csipcfgstatuscode
             
             	The SIP status code to which the PSTN cause code given by cSipCfgPstnCauseIndex is to be mapped for outbound SIP response messages
@@ -3446,10 +3948,14 @@ class CISCOSIPUAMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: csipcfgcausestatusstorestatus
             
             	This object reflects the storage status of this table entry.  If the value is 'volatile', then this entry only exists in RAM and the information would be lost (reverting to defaults) on system reload.   If the value is 'nonVolatile' then this entry has been  written to NVRAM and will persist across system reloads
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -3483,6 +3989,8 @@ class CISCOSIPUAMIB(Entity):
                 self._perform_setattr(CISCOSIPUAMIB.CSipCfgCauseStatusTable.CSipCfgCauseStatusEntry, ['csipcfgpstncauseindex', 'csipcfgstatuscode', 'csipcfgcausestatusstorestatus'], name, value)
 
 
+
+
     class CSipStatsSuccessOkTable(Entity):
         """
         This table contains statistics for sent and
@@ -3493,6 +4001,8 @@ class CISCOSIPUAMIB(Entity):
         
         	A row in the cSipStatsSuccessOkTable.  There is  an entry for each SIP method for which 200 Ok  inbound and/or outbound statistics are kept
         	**type**\: list of  		 :py:class:`CSipStatsSuccessOkEntry <ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB.CISCOSIPUAMIB.CSipStatsSuccessOkTable.CSipStatsSuccessOkEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3534,6 +4044,8 @@ class CISCOSIPUAMIB(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: csipstatssuccessokinbounds
             
             	This object reflects the total number of Ok (200) responses sent by the user agent, since system startup, that were associated with the SIP method as specified by cSipStatsSuccessOkMethod
@@ -3541,12 +4053,16 @@ class CISCOSIPUAMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csipstatssuccessokoutbounds
             
             	This object reflects the total number of Ok (200) responses received by the user agent, since system startup, that were associated with the SIP method as specified by cSipStatsSuccessOkMethod
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3579,7 +4095,11 @@ class CISCOSIPUAMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSIPUAMIB.CSipStatsSuccessOkTable.CSipStatsSuccessOkEntry, ['csipstatssuccessokmethod', 'csipstatssuccessokinbounds', 'csipstatssuccessokoutbounds'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOSIPUAMIB()
         return self._top_entity
+
+
 

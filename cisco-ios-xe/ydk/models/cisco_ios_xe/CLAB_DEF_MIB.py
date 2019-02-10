@@ -26,6 +26,8 @@ class CLABDEFMIB(Entity):
     	
     	**type**\:  :py:class:`ClabSecCertObject <ydk.models.cisco_ios_xe.CLAB_DEF_MIB.CLABDEFMIB.ClabSecCertObject>`
     
+    	**config**\: False
+    
     
 
     """
@@ -66,12 +68,16 @@ class CLABDEFMIB(Entity):
         
         	**length:** 0..4096
         
+        	**config**\: False
+        
         .. attribute:: clabcvcrootcacert
         
         	The X509 DER\-encoded CableLabs CVC Root CA Certificate
         	**type**\: str
         
         	**length:** 0..4096
+        
+        	**config**\: False
         
         .. attribute:: clabcvccacert
         
@@ -80,6 +86,8 @@ class CLABDEFMIB(Entity):
         
         	**length:** 0..4096
         
+        	**config**\: False
+        
         .. attribute:: clabmfgcvccert
         
         	The X509 DER\-encoded Manufacturer CVC Certificate
@@ -87,12 +95,16 @@ class CLABDEFMIB(Entity):
         
         	**length:** 0..4096
         
+        	**config**\: False
+        
         .. attribute:: clabmfgcacert
         
         	The X509 DER\-encoded Manufacturer CA Certificate
         	**type**\: str
         
         	**length:** 0..4096
+        
+        	**config**\: False
         
         
 
@@ -129,7 +141,10 @@ class CLABDEFMIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CLABDEFMIB.ClabSecCertObject, ['clabsrvcprvdrrootcacert', 'clabcvcrootcacert', 'clabcvccacert', 'clabmfgcvccert', 'clabmfgcacert'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CLABDEFMIB()
         return self._top_entity
+
+
 

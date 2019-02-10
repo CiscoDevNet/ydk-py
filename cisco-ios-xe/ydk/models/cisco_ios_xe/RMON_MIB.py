@@ -185,6 +185,7 @@ class RmonEventsV2(ObjectIdentity):
         super(RmonEventsV2, self).__init__(ns, pref, tag)
 
 
+
 class RMONMIB(Entity):
     """
     
@@ -194,90 +195,126 @@ class RMONMIB(Entity):
     	A list of Ethernet statistics entries
     	**type**\:  :py:class:`EtherStatsTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EtherStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: historycontroltable
     
     	A list of history control entries
     	**type**\:  :py:class:`HistoryControlTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HistoryControlTable>`
+    
+    	**config**\: False
     
     .. attribute:: etherhistorytable
     
     	A list of Ethernet history entries
     	**type**\:  :py:class:`EtherHistoryTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EtherHistoryTable>`
     
+    	**config**\: False
+    
     .. attribute:: alarmtable
     
     	A list of alarm entries
     	**type**\:  :py:class:`AlarmTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.AlarmTable>`
+    
+    	**config**\: False
     
     .. attribute:: hostcontroltable
     
     	A list of host table control entries
     	**type**\:  :py:class:`HostControlTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostControlTable>`
     
+    	**config**\: False
+    
     .. attribute:: hosttable
     
     	A list of host entries
     	**type**\:  :py:class:`HostTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTable>`
+    
+    	**config**\: False
     
     .. attribute:: hosttimetable
     
     	A list of time\-ordered host table entries
     	**type**\:  :py:class:`HostTimeTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTimeTable>`
     
+    	**config**\: False
+    
     .. attribute:: hosttopncontroltable
     
     	A list of top N host control entries
     	**type**\:  :py:class:`HostTopNControlTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTopNControlTable>`
+    
+    	**config**\: False
     
     .. attribute:: hosttopntable
     
     	A list of top N host entries
     	**type**\:  :py:class:`HostTopNTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTopNTable>`
     
+    	**config**\: False
+    
     .. attribute:: matrixcontroltable
     
     	A list of information entries for the traffic matrix on each interface
     	**type**\:  :py:class:`MatrixControlTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.MatrixControlTable>`
+    
+    	**config**\: False
     
     .. attribute:: matrixsdtable
     
     	A list of traffic matrix entries indexed by source and destination MAC address
     	**type**\:  :py:class:`MatrixSDTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.MatrixSDTable>`
     
+    	**config**\: False
+    
     .. attribute:: matrixdstable
     
     	A list of traffic matrix entries indexed by destination and source MAC address
     	**type**\:  :py:class:`MatrixDSTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.MatrixDSTable>`
+    
+    	**config**\: False
     
     .. attribute:: filtertable
     
     	A list of packet filter entries
     	**type**\:  :py:class:`FilterTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.FilterTable>`
     
+    	**config**\: False
+    
     .. attribute:: channeltable
     
     	A list of packet channel entries
     	**type**\:  :py:class:`ChannelTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.ChannelTable>`
+    
+    	**config**\: False
     
     .. attribute:: buffercontroltable
     
     	A list of buffers control entries
     	**type**\:  :py:class:`BufferControlTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.BufferControlTable>`
     
+    	**config**\: False
+    
     .. attribute:: capturebuffertable
     
     	A list of packets captured off of a channel
     	**type**\:  :py:class:`CaptureBufferTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.CaptureBufferTable>`
+    
+    	**config**\: False
     
     .. attribute:: eventtable
     
     	A list of events to be generated
     	**type**\:  :py:class:`EventTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EventTable>`
     
+    	**config**\: False
+    
     .. attribute:: logtable
     
     	A list of events that have been logged
     	**type**\:  :py:class:`LogTable <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.LogTable>`
+    
+    	**config**\: False
     
     
 
@@ -385,6 +422,8 @@ class RMONMIB(Entity):
         	A collection of statistics kept for a particular Ethernet interface.  As an example, an instance of the etherStatsPkts object might be named etherStatsPkts.1
         	**type**\: list of  		 :py:class:`EtherStatsEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EtherStatsTable.EtherStatsEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -425,12 +464,16 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: etherstatsdatasource
             
             	This object identifies the source of the data that this etherStats entry is configured to analyze.  This source can be any ethernet interface on this device. In order to identify a particular interface, this object shall identify the instance of the ifIndex object, defined in RFC 2233 [17], for the desired interface. For example, if an entry were to receive data from interface #1, this object would be set to ifIndex.1.  The statistics in this group reflect all packets on the local network segment attached to the identified interface.  An agent may or may not be able to tell if fundamental changes to the media of the interface have occurred and necessitate an invalidation of this entry.  For example, a hot\-pluggable ethernet card could be pulled out and replaced by a token\-ring card.  In such a case, if the agent has such knowledge of the change, it is recommended that it invalidate this entry.  This object may not be modified if the associated etherStatsStatus object is equal to valid(1)
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: etherstatsdropevents
             
@@ -439,12 +482,16 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: etherstatsoctets
             
             	The total number of octets of data (including those in bad packets) received on the network (excluding framing bits but including FCS octets). This object can be used as a reasonable estimate of 10\-Megabit ethernet utilization.  If greater precision is desired, the etherStatsPkts and etherStatsOctets objects should be sampled before and after a common interval.  The differences in the sampled values are Pkts and Octets, respectively, and the number of seconds in the interval is Interval.  These values are used to calculate the Utilization as follows\:                   Pkts \* (9.6 + 6.4) + (Octets \* .8)  Utilization = \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-                          Interval \* 10,000  The result of this equation is the value Utilization which is the percent utilization of the ethernet segment on a scale of 0 to 100 percent
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Octets
             
@@ -455,6 +502,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: etherstatsbroadcastpkts
@@ -463,6 +512,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -473,6 +524,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: etherstatscrcalignerrors
@@ -481,6 +534,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -491,6 +546,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: etherstatsoversizepkts
@@ -499,6 +556,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -509,6 +568,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: etherstatsjabbers
@@ -517,6 +578,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -527,6 +590,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Collisions
             
             .. attribute:: etherstatspkts64octets
@@ -535,6 +600,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -545,6 +612,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: etherstatspkts128to255octets
@@ -553,6 +622,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -563,6 +634,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: etherstatspkts512to1023octets
@@ -571,6 +644,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -581,6 +656,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: etherstatsowner
@@ -590,10 +667,14 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: etherstatsstatus
             
             	The status of this etherStats entry
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             .. attribute:: etherstatsdroppedframes
             
@@ -602,12 +683,16 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: etherstatscreatetime
             
             	The value of sysUpTime when this control entry was last activated. This can be used by the management station to ensure that the table has not been deleted and recreated between polls
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -678,7 +763,9 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.EtherStatsTable.EtherStatsEntry, [u'etherstatsindex', u'etherstatsdatasource', u'etherstatsdropevents', u'etherstatsoctets', u'etherstatspkts', u'etherstatsbroadcastpkts', u'etherstatsmulticastpkts', u'etherstatscrcalignerrors', u'etherstatsundersizepkts', u'etherstatsoversizepkts', u'etherstatsfragments', u'etherstatsjabbers', u'etherstatscollisions', u'etherstatspkts64octets', u'etherstatspkts65to127octets', u'etherstatspkts128to255octets', u'etherstatspkts256to511octets', u'etherstatspkts512to1023octets', u'etherstatspkts1024to1518octets', u'etherstatsowner', u'etherstatsstatus', u'etherstatsdroppedframes', u'etherstatscreatetime'], name, value)
+                self._perform_setattr(RMONMIB.EtherStatsTable.EtherStatsEntry, [u'etherstatsindex', u'etherstatsdatasource', u'etherstatsdropevents', u'etherstatsoctets', u'etherstatspkts', u'etherstatsbroadcastpkts', u'etherstatsmulticastpkts', u'etherstatscrcalignerrors', u'etherstatsundersizepkts', u'etherstatsoversizepkts', u'etherstatsfragments', u'etherstatsjabbers', u'etherstatscollisions', u'etherstatspkts64octets', u'etherstatspkts65to127octets', u'etherstatspkts128to255octets', u'etherstatspkts256to511octets', u'etherstatspkts512to1023octets', u'etherstatspkts1024to1518octets', u'etherstatsowner', u'etherstatsstatus', 'etherstatsdroppedframes', 'etherstatscreatetime'], name, value)
+
+
 
 
     class HistoryControlTable(Entity):
@@ -689,6 +776,8 @@ class RMONMIB(Entity):
         
         	A list of parameters that set up a periodic sampling of statistics.  As an example, an instance of the historyControlInterval object might be named historyControlInterval.2
         	**type**\: list of  		 :py:class:`HistoryControlEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HistoryControlTable.HistoryControlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -731,12 +820,16 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: historycontroldatasource
             
             	This object identifies the source of the data for which historical data was collected and placed in a media\-specific table on behalf of this historyControlEntry.  This source can be any interface on this device.  In order to identify a particular interface, this object shall identify the instance of the ifIndex object, defined in  RFC 2233 [17], for the desired interface. For example, if an entry were to receive data from interface #1, this object would be set to ifIndex.1.  The statistics in this group reflect all packets on the local network segment attached to the identified interface.  An agent may or may not be able to tell if fundamental changes to the media of the interface have occurred and necessitate an invalidation of this entry.  For example, a hot\-pluggable ethernet card could be pulled out and replaced by a token\-ring card.  In such a case, if the agent has such knowledge of the change, it is recommended that it invalidate this entry.  This object may not be modified if the associated historyControlStatus object is equal to valid(1)
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: historycontrolbucketsrequested
             
@@ -745,6 +838,8 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: historycontrolbucketsgranted
             
             	The number of discrete sampling intervals over which data shall be saved in the part of the media\-specific table associated with this historyControlEntry. When the associated historyControlBucketsRequested object is created or modified, the probe should set this object as closely to the requested value as is possible for the particular probe implementation and available resources.  The probe must not lower this value except as a result of a modification to the associated historyControlBucketsRequested object.  There will be times when the actual number of buckets associated with this entry is less than the value of this object.  In this case, at the end of each sampling interval, a new bucket will be added to the media\-specific table.  When the number of buckets reaches the value of this object and a new bucket is to be added to the media\-specific table, the oldest bucket associated with this historyControlEntry shall be deleted by the agent so that the new bucket can be added.  When the value of this object changes to a value less than the current value, entries are deleted from the media\-specific table associated with this historyControlEntry.  Enough of the oldest of these entries shall be deleted by the agent so that their number remains less than or equal to the new value of this object.  When the value of this object changes to a value greater than the current value, the number of associated media\- specific entries may be allowed to grow
@@ -752,12 +847,16 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: historycontrolinterval
             
             	The interval in seconds over which the data is sampled for each bucket in the part of the media\-specific table associated with this historyControlEntry.  This interval can be set to any number of seconds between 1 and 3600 (1 hour).  Because the counters in a bucket may overflow at their maximum value with no indication, a prudent manager will take into account the possibility of overflow in any of the associated counters.  It is important to consider the minimum time in which any counter could overflow on a particular media type and set the historyControlInterval object to a value less than this interval.  This is typically most important for the 'octets' counter in any media\-specific table.  For example, on an Ethernet network, the etherHistoryOctets counter could overflow in about one hour at the Ethernet's maximum utilization.  This object may not be modified if the associated historyControlStatus object is equal to valid(1)
             	**type**\: int
             
             	**range:** 1..3600
+            
+            	**config**\: False
             
             	**units**\: Seconds
             
@@ -768,10 +867,14 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: historycontrolstatus
             
             	The status of this historyControl entry.  Each instance of the media\-specific table associated with this historyControlEntry will be deleted by the agent if this historyControlEntry is not equal to valid(1)
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             .. attribute:: historycontroldroppedframes
             
@@ -779,6 +882,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -819,7 +924,9 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.HistoryControlTable.HistoryControlEntry, [u'historycontrolindex', u'historycontroldatasource', u'historycontrolbucketsrequested', u'historycontrolbucketsgranted', u'historycontrolinterval', u'historycontrolowner', u'historycontrolstatus', u'historycontroldroppedframes'], name, value)
+                self._perform_setattr(RMONMIB.HistoryControlTable.HistoryControlEntry, [u'historycontrolindex', u'historycontroldatasource', u'historycontrolbucketsrequested', u'historycontrolbucketsgranted', u'historycontrolinterval', u'historycontrolowner', u'historycontrolstatus', 'historycontroldroppedframes'], name, value)
+
+
 
 
     class EtherHistoryTable(Entity):
@@ -830,6 +937,8 @@ class RMONMIB(Entity):
         
         	An historical sample of Ethernet statistics on a particular Ethernet interface.  This sample is associated with the historyControlEntry which set up the parameters for a regular collection of these samples.  As an example, an instance of the etherHistoryPkts object might be named etherHistoryPkts.2.89
         	**type**\: list of  		 :py:class:`EtherHistoryEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EtherHistoryTable.EtherHistoryEntry>`
+        
+        	**config**\: False
         
         
 
@@ -874,12 +983,16 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: etherhistorysampleindex  (key)
             
             	An index that uniquely identifies the particular sample this entry represents among all samples associated with the same historyControlEntry. This index starts at 1 and increases by one as each new sample is taken
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: etherhistoryintervalstart
             
@@ -888,6 +1001,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: etherhistorydropevents
             
             	The total number of events in which packets were dropped by the probe due to lack of resources during this sampling interval.  Note that this number is not necessarily the number of packets dropped, it is just the number of times this condition has been detected
@@ -895,12 +1010,16 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: etherhistoryoctets
             
             	The total number of octets of data (including those in bad packets) received on the network (excluding framing bits but including FCS octets)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Octets
             
@@ -911,6 +1030,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: etherhistorybroadcastpkts
@@ -919,6 +1040,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -929,6 +1052,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: etherhistorycrcalignerrors
@@ -937,6 +1062,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -947,6 +1074,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: etherhistoryoversizepkts
@@ -955,6 +1084,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -965,6 +1096,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: etherhistoryjabbers
@@ -973,6 +1106,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -983,6 +1118,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Collisions
             
             .. attribute:: etherhistoryutilization
@@ -991,6 +1128,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..10000
+            
+            	**config**\: False
             
             
 
@@ -1048,6 +1187,8 @@ class RMONMIB(Entity):
                 self._perform_setattr(RMONMIB.EtherHistoryTable.EtherHistoryEntry, [u'etherhistoryindex', u'etherhistorysampleindex', u'etherhistoryintervalstart', u'etherhistorydropevents', u'etherhistoryoctets', u'etherhistorypkts', u'etherhistorybroadcastpkts', u'etherhistorymulticastpkts', u'etherhistorycrcalignerrors', u'etherhistoryundersizepkts', u'etherhistoryoversizepkts', u'etherhistoryfragments', u'etherhistoryjabbers', u'etherhistorycollisions', u'etherhistoryutilization'], name, value)
 
 
+
+
     class AlarmTable(Entity):
         """
         A list of alarm entries.
@@ -1056,6 +1197,8 @@ class RMONMIB(Entity):
         
         	A list of parameters that set up a periodic checking for alarm conditions.  For example, an instance of the alarmValue object might be named alarmValue.8
         	**type**\: list of  		 :py:class:`AlarmEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.AlarmTable.AlarmEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1097,12 +1240,16 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: alarminterval
             
             	The interval in seconds over which the data is sampled and compared with the rising and falling thresholds.  When setting this variable, care should be taken in the case of deltaValue sampling \- the interval should be set short enough that the sampled variable is very unlikely to increase or decrease by more than 2^31 \- 1 during a single sampling interval.  This object may not be modified if the associated alarmStatus object is equal to valid(1)
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: Seconds
             
@@ -1113,10 +1260,14 @@ class RMONMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: alarmsampletype
             
             	The method of sampling the selected variable and calculating the value to be compared against the thresholds.  If the value of this object is absoluteValue(1), the value of the selected variable will be compared directly with the thresholds at the end of the sampling interval.  If the value of this object is deltaValue(2), the value of the selected variable at the last sample will be subtracted from the current value, and the difference compared with the thresholds.  This object may not be modified if the associated alarmStatus object is equal to valid(1)
             	**type**\:  :py:class:`AlarmSampleType <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.AlarmTable.AlarmEntry.AlarmSampleType>`
+            
+            	**config**\: False
             
             .. attribute:: alarmvalue
             
@@ -1125,10 +1276,14 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: alarmstartupalarm
             
             	The alarm that may be sent when this entry is first set to valid.  If the first sample after this entry becomes valid is greater than or equal to the risingThreshold and alarmStartupAlarm is equal to risingAlarm(1) or risingOrFallingAlarm(3), then a single rising alarm will be generated.  If the first sample after this entry becomes valid is less than or equal to the fallingThreshold and alarmStartupAlarm is equal to fallingAlarm(2) or risingOrFallingAlarm(3), then a single falling alarm will be generated.  This object may not be modified if the associated alarmStatus object is equal to valid(1)
             	**type**\:  :py:class:`AlarmStartupAlarm <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.AlarmTable.AlarmEntry.AlarmStartupAlarm>`
+            
+            	**config**\: False
             
             .. attribute:: alarmrisingthreshold
             
@@ -1137,12 +1292,16 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: alarmfallingthreshold
             
             	A threshold for the sampled statistic.  When the current sampled value is less than or equal to this threshold, and the value at the last sampling interval was greater than this threshold, a single event will be generated. A single event will also be generated if the first sample after this entry becomes valid is less than or equal to this threshold and the associated alarmStartupAlarm is equal to fallingAlarm(2) or risingOrFallingAlarm(3).  After a falling event is generated, another such event will not be generated until the sampled value rises above this threshold and reaches the alarmRisingThreshold.  This object may not be modified if the associated alarmStatus object is equal to valid(1)
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: alarmrisingeventindex
             
@@ -1151,12 +1310,16 @@ class RMONMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: alarmfallingeventindex
             
             	The index of the eventEntry that is used when a falling threshold is crossed.  The eventEntry identified by a particular value of this index is the same as identified by the same value of the eventIndex object.  If there is no corresponding entry in the eventTable, then no association exists.  In particular, if this value is zero, no associated event will be generated, as zero is not a valid event index.  This object may not be modified if the associated alarmStatus object is equal to valid(1)
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: alarmowner
             
@@ -1165,10 +1328,14 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: alarmstatus
             
             	The status of this alarm entry
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1302,6 +1469,8 @@ class RMONMIB(Entity):
 
 
 
+
+
     class HostControlTable(Entity):
         """
         A list of host table control entries.
@@ -1310,6 +1479,8 @@ class RMONMIB(Entity):
         
         	A list of parameters that set up the discovery of hosts on a particular interface and the collection of statistics about these hosts.  For example, an instance of the hostControlTableSize object might be named hostControlTableSize.1
         	**type**\: list of  		 :py:class:`HostControlEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostControlTable.HostControlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1353,12 +1524,16 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: hostcontroldatasource
             
             	This object identifies the source of the data for this instance of the host function.  This source can be any interface on this device.  In order to identify a particular interface, this object shall identify the instance of the ifIndex object, defined in RFC 2233 [17], for the desired interface. For example, if an entry were to receive data from interface #1, this object would be set to ifIndex.1.  The statistics in this group reflect all packets on the local network segment attached to the identified interface.  An agent may or may not be able to tell if fundamental changes to the media of the interface have occurred and necessitate an invalidation of this entry.  For example, a hot\-pluggable ethernet card could be pulled out and replaced by a token\-ring card.  In such a case, if the agent has such knowledge of the change, it is recommended that it invalidate this entry.  This object may not be modified if the associated hostControlStatus object is equal to valid(1)
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: hostcontroltablesize
             
@@ -1367,12 +1542,16 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: hostcontrollastdeletetime
             
             	The value of sysUpTime when the last entry was deleted from the portion of the hostTable associated with this hostControlEntry.  If no deletions have occurred, this value shall be zero
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: hostcontrolowner
             
@@ -1381,10 +1560,14 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: hostcontrolstatus
             
             	The status of this hostControl entry.  If this object is not equal to valid(1), all associated entries in the hostTable, hostTimeTable, and the hostTopNTable shall be deleted by the agent
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             .. attribute:: hostcontroldroppedframes
             
@@ -1393,12 +1576,16 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: hostcontrolcreatetime
             
             	The value of sysUpTime when this control entry was last activated. This can be used by the management station to ensure that the table has not been deleted and recreated between polls
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1439,7 +1626,9 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.HostControlTable.HostControlEntry, [u'hostcontrolindex', u'hostcontroldatasource', u'hostcontroltablesize', u'hostcontrollastdeletetime', u'hostcontrolowner', u'hostcontrolstatus', u'hostcontroldroppedframes', u'hostcontrolcreatetime'], name, value)
+                self._perform_setattr(RMONMIB.HostControlTable.HostControlEntry, [u'hostcontrolindex', u'hostcontroldatasource', u'hostcontroltablesize', u'hostcontrollastdeletetime', u'hostcontrolowner', u'hostcontrolstatus', 'hostcontroldroppedframes', 'hostcontrolcreatetime'], name, value)
+
+
 
 
     class HostTable(Entity):
@@ -1450,6 +1639,8 @@ class RMONMIB(Entity):
         
         	A collection of statistics for a particular host that has been discovered on an interface of this device.  For example, an instance of the hostOutBroadcastPkts object might be named hostOutBroadcastPkts.1.6.8.0.32.27.3.176
         	**type**\: list of  		 :py:class:`HostEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTable.HostEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1492,10 +1683,14 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: hostaddress  (key)
             
             	The physical address of this host
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: hostcreationorder
             
@@ -1504,12 +1699,16 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: hostinpkts
             
             	The number of good packets transmitted to this address since it was added to the hostTable
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -1520,6 +1719,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: hostinoctets
@@ -1528,6 +1729,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Octets
             
@@ -1538,6 +1741,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Octets
             
             .. attribute:: hostouterrors
@@ -1546,6 +1751,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -1556,6 +1763,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: hostoutmulticastpkts
@@ -1564,6 +1773,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -1613,6 +1824,8 @@ class RMONMIB(Entity):
                 self._perform_setattr(RMONMIB.HostTable.HostEntry, [u'hostindex', u'hostaddress', u'hostcreationorder', u'hostinpkts', u'hostoutpkts', u'hostinoctets', u'hostoutoctets', u'hostouterrors', u'hostoutbroadcastpkts', u'hostoutmulticastpkts'], name, value)
 
 
+
+
     class HostTimeTable(Entity):
         """
         A list of time\-ordered host table entries.
@@ -1621,6 +1834,8 @@ class RMONMIB(Entity):
         
         	A collection of statistics for a particular host that has been discovered on an interface of this device.  This collection includes the relative ordering of the creation time of this object.  For example, an instance of the hostTimeOutBroadcastPkts object might be named hostTimeOutBroadcastPkts.1.687
         	**type**\: list of  		 :py:class:`HostTimeEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTimeTable.HostTimeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1665,6 +1880,8 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: hosttimecreationorder  (key)
             
             	An index that uniquely identifies an entry in the hostTime table among those entries associated with the same hostControlEntry.  This index shall be between 1 and N, where N is the value of the associated hostControlTableSize.  The ordering of the indexes is based on the order of each entry's insertion into the table, in which entries added earlier have a lower index value than entries added later. Thus the management station has the ability to learn of new entries added to this table without downloading the entire table.  It is important to note that the index for a particular entry may change as an (earlier) entry is deleted from the table.  Because this order may change, management stations should make use of the hostControlLastDeleteTime variable in the hostControlEntry associated with the relevant portion of the hostTimeTable.  By observing this variable, the management station may detect the circumstances where a download of the table may have missed entries, and where a previous association between a value of hostTimeCreationOrder and a hostTimeEntry may no longer hold
@@ -1672,10 +1889,14 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: hosttimeaddress
             
             	The physical address of this host
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: hosttimeinpkts
             
@@ -1683,6 +1904,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -1693,6 +1916,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: hosttimeinoctets
@@ -1701,6 +1926,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Octets
             
@@ -1711,6 +1938,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Octets
             
             .. attribute:: hosttimeouterrors
@@ -1719,6 +1948,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -1729,6 +1960,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: hosttimeoutmulticastpkts
@@ -1737,6 +1970,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -1786,6 +2021,8 @@ class RMONMIB(Entity):
                 self._perform_setattr(RMONMIB.HostTimeTable.HostTimeEntry, [u'hosttimeindex', u'hosttimecreationorder', u'hosttimeaddress', u'hosttimeinpkts', u'hosttimeoutpkts', u'hosttimeinoctets', u'hosttimeoutoctets', u'hosttimeouterrors', u'hosttimeoutbroadcastpkts', u'hosttimeoutmulticastpkts'], name, value)
 
 
+
+
     class HostTopNControlTable(Entity):
         """
         A list of top N host control entries.
@@ -1794,6 +2031,8 @@ class RMONMIB(Entity):
         
         	A set of parameters that control the creation of a report of the top N hosts according to several metrics.  For example, an instance of the hostTopNDuration object might be named hostTopNDuration.3
         	**type**\: list of  		 :py:class:`HostTopNControlEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTopNControlTable.HostTopNControlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1836,6 +2075,8 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: hosttopnhostindex
             
             	The host table for which a top N report will be prepared on behalf of this entry.  The host table identified by a particular value of this index is associated with the same host table as identified by the same value of hostIndex.  This object may not be modified if the associated hostTopNStatus object is equal to valid(1)
@@ -1843,10 +2084,14 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: hosttopnratebase
             
             	The variable for each host that the hostTopNRate variable is based upon.  This object may not be modified if the associated hostTopNStatus object is equal to valid(1)
             	**type**\:  :py:class:`HostTopNRateBase <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTopNControlTable.HostTopNControlEntry.HostTopNRateBase>`
+            
+            	**config**\: False
             
             .. attribute:: hosttopntimeremaining
             
@@ -1854,6 +2099,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: Seconds
             
@@ -1864,6 +2111,8 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**units**\: Seconds
             
             .. attribute:: hosttopnrequestedsize
@@ -1873,12 +2122,16 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: hosttopngrantedsize
             
             	The maximum number of hosts in the top N table.  When the associated hostTopNRequestedSize object is created or modified, the probe should set this object as closely to the requested value as is possible for the particular implementation and available resources. The probe must not lower this value except as a result of a set to the associated hostTopNRequestedSize object.  Hosts with the highest value of hostTopNRate shall be placed in this table in decreasing order of this rate until there is no more room or until there are no more hosts
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: hosttopnstarttime
             
@@ -1887,6 +2140,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: hosttopnowner
             
             	The entity that configured this entry and is therefore using the resources assigned to it
@@ -1894,10 +2149,14 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: hosttopnstatus
             
             	The status of this hostTopNControl entry.  If this object is not equal to valid(1), all associated hostTopNEntries shall be deleted by the agent
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1988,6 +2247,8 @@ class RMONMIB(Entity):
 
 
 
+
+
     class HostTopNTable(Entity):
         """
         A list of top N host entries.
@@ -1996,6 +2257,8 @@ class RMONMIB(Entity):
         
         	A set of statistics for a host that is part of a top N report.  For example, an instance of the hostTopNRate object might be named hostTopNRate.3.10
         	**type**\: list of  		 :py:class:`HostTopNEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.HostTopNTable.HostTopNEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2037,6 +2300,8 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: hosttopnindex  (key)
             
             	An index that uniquely identifies an entry in the hostTopN table among those in the same report. This index is between 1 and N, where N is the number of entries in this table.  Increasing values of hostTopNIndex shall be assigned to entries with decreasing values of hostTopNRate until index N is assigned to the entry with the lowest value of hostTopNRate or there are no more hostTopNEntries
@@ -2044,10 +2309,14 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: hosttopnaddress
             
             	The physical address of this host
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: hosttopnrate
             
@@ -2055,6 +2324,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             
 
@@ -2090,6 +2361,8 @@ class RMONMIB(Entity):
                 self._perform_setattr(RMONMIB.HostTopNTable.HostTopNEntry, [u'hosttopnreport', u'hosttopnindex', u'hosttopnaddress', u'hosttopnrate'], name, value)
 
 
+
+
     class MatrixControlTable(Entity):
         """
         A list of information entries for the
@@ -2099,6 +2372,8 @@ class RMONMIB(Entity):
         
         	Information about a traffic matrix on a particular interface.  For example, an instance of the matrixControlLastDeleteTime object might be named matrixControlLastDeleteTime.1
         	**type**\: list of  		 :py:class:`MatrixControlEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.MatrixControlTable.MatrixControlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2141,12 +2416,16 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: matrixcontroldatasource
             
             	This object identifies the source of the data from which this entry creates a traffic matrix. This source can be any interface on this device.  In order to identify a particular interface, this object shall identify the instance of the ifIndex object, defined in RFC 2233 [17], for the desired interface.  For example, if an entry were to receive data from interface #1, this object would be set to ifIndex.1.  The statistics in this group reflect all packets on the local network segment attached to the identified interface.  An agent may or may not be able to tell if fundamental changes to the media of the interface have occurred and necessitate an invalidation of this entry.  For example, a hot\-pluggable ethernet card could be pulled out and replaced by a token\-ring card.  In such a case, if the agent has such knowledge of the change, it is recommended that it invalidate this entry.  This object may not be modified if the associated matrixControlStatus object is equal to valid(1)
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: matrixcontroltablesize
             
@@ -2155,12 +2434,16 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: matrixcontrollastdeletetime
             
             	The value of sysUpTime when the last entry was deleted from the portion of the matrixSDTable or matrixDSTable associated with this matrixControlEntry. If no deletions have occurred, this value shall be zero
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: matrixcontrolowner
             
@@ -2169,10 +2452,14 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: matrixcontrolstatus
             
             	The status of this matrixControl entry. If this object is not equal to valid(1), all associated entries in the matrixSDTable and the matrixDSTable shall be deleted by the agent
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             .. attribute:: matrixcontroldroppedframes
             
@@ -2181,12 +2468,16 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: matrixcontrolcreatetime
             
             	The value of sysUpTime when this control entry was last activated. This can be used by the management station to ensure that the table has not been deleted and recreated between polls
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2227,7 +2518,9 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.MatrixControlTable.MatrixControlEntry, [u'matrixcontrolindex', u'matrixcontroldatasource', u'matrixcontroltablesize', u'matrixcontrollastdeletetime', u'matrixcontrolowner', u'matrixcontrolstatus', u'matrixcontroldroppedframes', u'matrixcontrolcreatetime'], name, value)
+                self._perform_setattr(RMONMIB.MatrixControlTable.MatrixControlEntry, [u'matrixcontrolindex', u'matrixcontroldatasource', u'matrixcontroltablesize', u'matrixcontrollastdeletetime', u'matrixcontrolowner', u'matrixcontrolstatus', 'matrixcontroldroppedframes', 'matrixcontrolcreatetime'], name, value)
+
+
 
 
     class MatrixSDTable(Entity):
@@ -2239,6 +2532,8 @@ class RMONMIB(Entity):
         
         	A collection of statistics for communications between two addresses on a particular interface.  For example, an instance of the matrixSDPkts object might be named matrixSDPkts.1.6.8.0.32.27.3.176.6.8.0.32.10.8.113
         	**type**\: list of  		 :py:class:`MatrixSDEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.MatrixSDTable.MatrixSDEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2281,15 +2576,21 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: matrixsdsourceaddress  (key)
             
             	The source physical address
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: matrixsddestaddress  (key)
             
             	The destination physical address
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: matrixsdpkts
             
@@ -2297,6 +2598,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -2307,6 +2610,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Octets
             
             .. attribute:: matrixsderrors
@@ -2315,6 +2620,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -2356,6 +2663,8 @@ class RMONMIB(Entity):
                 self._perform_setattr(RMONMIB.MatrixSDTable.MatrixSDEntry, [u'matrixsdindex', u'matrixsdsourceaddress', u'matrixsddestaddress', u'matrixsdpkts', u'matrixsdoctets', u'matrixsderrors'], name, value)
 
 
+
+
     class MatrixDSTable(Entity):
         """
         A list of traffic matrix entries indexed by
@@ -2365,6 +2674,8 @@ class RMONMIB(Entity):
         
         	A collection of statistics for communications between two addresses on a particular interface.  For example, an instance of the matrixSDPkts object might be named matrixSDPkts.1.6.8.0.32.10.8.113.6.8.0.32.27.3.176
         	**type**\: list of  		 :py:class:`MatrixDSEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.MatrixDSTable.MatrixDSEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2407,15 +2718,21 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: matrixdsdestaddress  (key)
             
             	The destination physical address
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: matrixdssourceaddress  (key)
             
             	The source physical address
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: matrixdspkts
             
@@ -2423,6 +2740,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -2433,6 +2752,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: Octets
             
             .. attribute:: matrixdserrors
@@ -2441,6 +2762,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -2482,6 +2805,8 @@ class RMONMIB(Entity):
                 self._perform_setattr(RMONMIB.MatrixDSTable.MatrixDSEntry, [u'matrixdsindex', u'matrixdsdestaddress', u'matrixdssourceaddress', u'matrixdspkts', u'matrixdsoctets', u'matrixdserrors'], name, value)
 
 
+
+
     class FilterTable(Entity):
         """
         A list of packet filter entries.
@@ -2490,6 +2815,8 @@ class RMONMIB(Entity):
         
         	A set of parameters for a packet filter applied on a particular interface.  As an example, an instance of the filterPktData object might be named filterPktData.12
         	**type**\: list of  		 :py:class:`FilterEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.FilterTable.FilterEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2531,12 +2858,16 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: filterchannelindex
             
             	This object identifies the channel of which this filter is a part.  The filters identified by a particular value of this object are associated with the same channel as identified by the same value of the channelIndex object
             	**type**\: int
             
             	**range:** 1..65535
+            
+            	**config**\: False
             
             .. attribute:: filterpktdataoffset
             
@@ -2545,6 +2876,8 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**units**\: Octets
             
             .. attribute:: filterpktdata
@@ -2552,15 +2885,21 @@ class RMONMIB(Entity):
             	The data that is to be matched with the input packet. For each packet received, this filter and the accompanying filterPktDataMask and filterPktDataNotMask will be adjusted for the offset.  The only bits relevant to this match algorithm are those that have the corresponding filterPktDataMask bit equal to one.  The following three rules are then applied to every packet\:  (1) If the packet is too short and does not have data     corresponding to part of the filterPktData, the packet     will fail this data match.  (2) For each relevant bit from the packet with the     corresponding filterPktDataNotMask bit set to zero, if     the bit from the packet is not equal to the corresponding     bit from the filterPktData, then the packet will fail     this data match.  (3) If for every relevant bit from the packet with the     corresponding filterPktDataNotMask bit set to one, the     bit from the packet is equal to the corresponding bit     from the filterPktData, then the packet will fail this     data match.  Any packets that have not failed any of the three matches above have passed this data match.  In particular, a zero length filter will match any packet.  This object may not be modified if the associated filterStatus object is equal to valid(1)
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: filterpktdatamask
             
             	The mask that is applied to the match process. After adjusting this mask for the offset, only those bits in the received packet that correspond to bits set in this mask are relevant for further processing by the match algorithm.  The offset is applied to filterPktDataMask in the same way it is applied to the filter.  For the purposes of the matching algorithm, if the associated filterPktData object is longer than this mask, this mask is conceptually extended with '1' bits until it reaches the length of the filterPktData object.  This object may not be modified if the associated filterStatus object is equal to valid(1)
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: filterpktdatanotmask
             
             	The inversion mask that is applied to the match process.  After adjusting this mask for the offset, those relevant bits in the received packet that correspond to bits cleared in this mask must all be equal to their corresponding bits in the filterPktData object for the packet to be accepted.  In addition, at least one of those relevant bits in the received packet that correspond to bits set in this mask must be different to its corresponding bit in the filterPktData object.  For the purposes of the matching algorithm, if the associated filterPktData object is longer than this mask, this mask is conceptually extended with '0' bits until it reaches the length of the filterPktData object.  This object may not be modified if the associated filterStatus object is equal to valid(1)
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: filterpktstatus
             
@@ -2569,12 +2908,16 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: filterpktstatusmask
             
             	The mask that is applied to the status match process. Only those bits in the received packet that correspond to bits set in this mask are relevant for further processing by the status match algorithm.  For the purposes of the matching algorithm, if the associated filterPktStatus object is longer than this mask, this mask is conceptually extended with '1' bits until it reaches the size of the filterPktStatus.  In addition, if a packet status is longer than this mask, this mask is conceptually extended with '0' bits until it reaches the size of the packet status.  This object may not be modified if the associated filterStatus object is equal to valid(1)
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: filterpktstatusnotmask
             
@@ -2583,6 +2926,8 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: filterowner
             
             	The entity that configured this entry and is therefore using the resources assigned to it
@@ -2590,10 +2935,14 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: filterstatus
             
             	The status of this filter entry
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             .. attribute:: filterprotocoldirdatalocalindex
             
@@ -2602,12 +2951,16 @@ class RMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: filterprotocoldirlocalindex
             
             	When this object is set to a non\-zero value, the filter that it is associated with will discard the packet if the packet doesn't match this protocol directory entry
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             
 
@@ -2658,7 +3011,9 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.FilterTable.FilterEntry, [u'filterindex', u'filterchannelindex', u'filterpktdataoffset', u'filterpktdata', u'filterpktdatamask', u'filterpktdatanotmask', u'filterpktstatus', u'filterpktstatusmask', u'filterpktstatusnotmask', u'filterowner', u'filterstatus', u'filterprotocoldirdatalocalindex', u'filterprotocoldirlocalindex'], name, value)
+                self._perform_setattr(RMONMIB.FilterTable.FilterEntry, [u'filterindex', u'filterchannelindex', u'filterpktdataoffset', u'filterpktdata', u'filterpktdatamask', u'filterpktdatanotmask', u'filterpktstatus', u'filterpktstatusmask', u'filterpktstatusnotmask', u'filterowner', u'filterstatus', 'filterprotocoldirdatalocalindex', 'filterprotocoldirlocalindex'], name, value)
+
+
 
 
     class ChannelTable(Entity):
@@ -2669,6 +3024,8 @@ class RMONMIB(Entity):
         
         	A set of parameters for a packet channel applied on a particular interface.  As an example, an instance of the channelMatches object might be named channelMatches.3
         	**type**\: list of  		 :py:class:`ChannelEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.ChannelTable.ChannelEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2710,6 +3067,8 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: channelifindex
             
             	The value of this object uniquely identifies the interface on this remote network monitoring device to which the associated filters are applied to allow data into this channel.  The interface identified by a particular value of this object is the same interface as identified by the same value of the ifIndex object, defined in RFC 2233 [17].  The filters in this group are applied to all packets on the local network segment attached to the identified interface.  An agent may or may not be able to tell if fundamental changes to the media of the interface have occurred and necessitate an invalidation of this entry.  For example, a hot\-pluggable ethernet card could be pulled out and replaced by a token\-ring card.  In such a case, if the agent has such knowledge of the change, it is recommended that it invalidate this entry.  This object may not be modified if the associated channelStatus object is equal to valid(1)
@@ -2717,15 +3076,21 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: channelaccepttype
             
             	This object controls the action of the filters associated with this channel.  If this object is equal to acceptMatched(1), packets will be accepted to this channel if they are accepted by both the packet data and packet status matches of an associated filter.  If this object is equal to acceptFailed(2), packets will be accepted to this channel only if they fail either the packet data match or the packet status match of each of the associated filters.  In particular, a channel with no associated filters will match no packets if set to acceptMatched(1) case and will match all packets in the acceptFailed(2) case.  This object may not be modified if the associated channelStatus object is equal to valid(1)
             	**type**\:  :py:class:`ChannelAcceptType <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.ChannelTable.ChannelEntry.ChannelAcceptType>`
             
+            	**config**\: False
+            
             .. attribute:: channeldatacontrol
             
             	This object controls the flow of data through this channel. If this object is on(1), data, status and events flow through this channel.  If this object is off(2), data, status and events will not flow through this channel
             	**type**\:  :py:class:`ChannelDataControl <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.ChannelTable.ChannelEntry.ChannelDataControl>`
+            
+            	**config**\: False
             
             .. attribute:: channelturnoneventindex
             
@@ -2734,12 +3099,16 @@ class RMONMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: channelturnoffeventindex
             
             	The value of this object identifies the event that is configured to turn the associated channelDataControl from on to off when the event is generated.  The event identified by a particular value of this object is the same event as identified by the same value of the eventIndex object.  If there is no corresponding entry in the eventTable, then no association exists.  In fact, if no event is intended for this channel, channelTurnOffEventIndex must be set to zero, a non\-existent event index.  This object may not be modified if the associated channelStatus object is equal to valid(1)
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: channeleventindex
             
@@ -2748,10 +3117,14 @@ class RMONMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: channeleventstatus
             
             	The event status of this channel.  If this channel is configured to generate events when packets are matched, a means of controlling the flow of those events is often needed.  When this object is equal to eventReady(1), a single event may be generated, after which this object will be set by the probe to eventFired(2).  While in the eventFired(2) state, no events will be generated until the object is modified to eventReady(1) (or eventAlwaysReady(3)).  The management station can thus easily respond to a notification of an event by re\-enabling this object.  If the management station wishes to disable this flow control and allow events to be generated at will, this object may be set to eventAlwaysReady(3).  Disabling the flow control is discouraged as it can result in high network traffic or other performance problems
             	**type**\:  :py:class:`ChannelEventStatus <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.ChannelTable.ChannelEntry.ChannelEventStatus>`
+            
+            	**config**\: False
             
             .. attribute:: channelmatches
             
@@ -2759,6 +3132,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: Packets
             
@@ -2769,6 +3144,8 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: channelowner
             
             	The entity that configured this entry and is therefore using the resources assigned to it
@@ -2776,10 +3153,14 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: channelstatus
             
             	The status of this channel entry
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             .. attribute:: channeldroppedframes
             
@@ -2788,12 +3169,16 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: channelcreatetime
             
             	The value of sysUpTime when this control entry was last activated. This can be used by the management station to ensure that the table has not been deleted and recreated between polls
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2846,7 +3231,7 @@ class RMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RMONMIB.ChannelTable.ChannelEntry, [u'channelindex', u'channelifindex', u'channelaccepttype', u'channeldatacontrol', u'channelturnoneventindex', u'channelturnoffeventindex', u'channeleventindex', u'channeleventstatus', u'channelmatches', u'channeldescription', u'channelowner', u'channelstatus', u'channeldroppedframes', u'channelcreatetime'], name, value)
+                self._perform_setattr(RMONMIB.ChannelTable.ChannelEntry, [u'channelindex', u'channelifindex', u'channelaccepttype', u'channeldatacontrol', u'channelturnoneventindex', u'channelturnoffeventindex', u'channeleventindex', u'channeleventstatus', u'channelmatches', u'channeldescription', u'channelowner', u'channelstatus', 'channeldroppedframes', 'channelcreatetime'], name, value)
 
             class ChannelAcceptType(Enum):
                 """
@@ -2970,6 +3355,8 @@ class RMONMIB(Entity):
 
 
 
+
+
     class BufferControlTable(Entity):
         """
         A list of buffers control entries.
@@ -2978,6 +3365,8 @@ class RMONMIB(Entity):
         
         	A set of parameters that control the collection of a stream of packets that have matched filters.  As an example, an instance of the bufferControlCaptureSliceSize object might be named bufferControlCaptureSliceSize.3
         	**type**\: list of  		 :py:class:`BufferControlEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.BufferControlTable.BufferControlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3020,6 +3409,8 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: buffercontrolchannelindex
             
             	An index that identifies the channel that is the source of packets for this bufferControl table. The channel identified by a particular value of this index is the same as identified by the same value of the channelIndex object.  This object may not be modified if the associated bufferControlStatus object is equal to valid(1)
@@ -3027,15 +3418,21 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: buffercontrolfullstatus
             
             	This object shows whether the buffer has room to accept new packets or if it is full.  If the status is spaceAvailable(1), the buffer is accepting new packets normally.  If the status is full(2) and the associated bufferControlFullAction object is wrapWhenFull, the buffer is accepting new packets by deleting enough of the oldest packets to make room for new ones as they arrive.  Otherwise, if the status is full(2) and the bufferControlFullAction object is lockWhenFull, then the buffer has stopped collecting packets.  When this object is set to full(2) the probe must not later set it to spaceAvailable(1) except in the case of a significant gain in resources such as an increase of bufferControlOctetsGranted.  In particular, the wrap\-mode action of deleting old packets to make room for newly arrived packets must not affect the value of this object
             	**type**\:  :py:class:`BufferControlFullStatus <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.BufferControlTable.BufferControlEntry.BufferControlFullStatus>`
             
+            	**config**\: False
+            
             .. attribute:: buffercontrolfullaction
             
             	Controls the action of the buffer when it reaches the full status.  When in the lockWhenFull(1) state and a packet is added to the buffer that fills the buffer, the bufferControlFullStatus will be set to full(2) and this buffer will stop capturing packets
             	**type**\:  :py:class:`BufferControlFullAction <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.BufferControlTable.BufferControlEntry.BufferControlFullAction>`
+            
+            	**config**\: False
             
             .. attribute:: buffercontrolcaptureslicesize
             
@@ -3043,6 +3440,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: Octets
             
@@ -3053,6 +3452,8 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**units**\: Octets
             
             .. attribute:: buffercontroldownloadoffset
@@ -3061,6 +3462,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: Octets
             
@@ -3071,6 +3474,8 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**units**\: Octets
             
             .. attribute:: buffercontrolmaxoctetsgranted
@@ -3079,6 +3484,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: Octets
             
@@ -3089,6 +3496,8 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**units**\: Packets
             
             .. attribute:: buffercontrolturnontime
@@ -3098,6 +3507,8 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: buffercontrolowner
             
             	The entity that configured this entry and is therefore using the resources assigned to it
@@ -3105,10 +3516,14 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: buffercontrolstatus
             
             	The status of this buffer Control Entry
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             
 
@@ -3240,6 +3655,8 @@ class RMONMIB(Entity):
 
 
 
+
+
     class CaptureBufferTable(Entity):
         """
         A list of packets captured off of a channel.
@@ -3248,6 +3665,8 @@ class RMONMIB(Entity):
         
         	A packet captured off of an attached network.  As an example, an instance of the captureBufferPacketData object might be named captureBufferPacketData.3.1783
         	**type**\: list of  		 :py:class:`CaptureBufferEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.CaptureBufferTable.CaptureBufferEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3289,12 +3708,16 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: capturebufferindex  (key)
             
             	An index that uniquely identifies an entry in the captureBuffer table associated with a particular bufferControlEntry.  This index will start at 1 and increase by one for each new packet added with the same captureBufferControlIndex.  Should this value reach 2147483647, the next packet added with the same captureBufferControlIndex shall cause this value to wrap around to 1
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: capturebufferpacketid
             
@@ -3303,10 +3726,14 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: capturebufferpacketdata
             
             	The data inside the packet, starting at the beginning of the packet plus any offset specified in the associated bufferControlDownloadOffset, including any link level headers.  The length of the data in this object is the minimum of the length of the captured packet minus the offset, the length of the associated bufferControlCaptureSliceSize minus the offset, and the associated bufferControlDownloadSliceSize.  If this minimum is less than zero, this object shall have a length of zero
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: capturebufferpacketlength
             
@@ -3314,6 +3741,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: Octets
             
@@ -3324,6 +3753,8 @@ class RMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**units**\: Milliseconds
             
             .. attribute:: capturebufferpacketstatus
@@ -3332,6 +3763,8 @@ class RMONMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             
 
@@ -3373,6 +3806,8 @@ class RMONMIB(Entity):
                 self._perform_setattr(RMONMIB.CaptureBufferTable.CaptureBufferEntry, [u'capturebuffercontrolindex', u'capturebufferindex', u'capturebufferpacketid', u'capturebufferpacketdata', u'capturebufferpacketlength', u'capturebufferpackettime', u'capturebufferpacketstatus'], name, value)
 
 
+
+
     class EventTable(Entity):
         """
         A list of events to be generated.
@@ -3381,6 +3816,8 @@ class RMONMIB(Entity):
         
         	A set of parameters that describe an event to be generated when certain conditions are met.  As an example, an instance of the eventLastTimeSent object might be named eventLastTimeSent.6
         	**type**\: list of  		 :py:class:`EventEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EventTable.EventEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3423,6 +3860,8 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: eventdescription
             
             	A comment describing this event entry
@@ -3430,10 +3869,14 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: eventtype
             
             	The type of notification that the probe will make about this event.  In the case of log, an entry is made in the log table for each event.  In the case of snmp\-trap, an SNMP trap is sent to one or more management stations
             	**type**\:  :py:class:`EventType <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.EventTable.EventEntry.EventType>`
+            
+            	**config**\: False
             
             .. attribute:: eventcommunity
             
@@ -3442,12 +3885,16 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: eventlasttimesent
             
             	The value of sysUpTime at the time this event entry last generated an event.  If this entry has not generated any events, this value will be zero
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: eventowner
             
@@ -3456,10 +3903,14 @@ class RMONMIB(Entity):
             
             	**length:** 0..127
             
+            	**config**\: False
+            
             .. attribute:: eventstatus
             
             	The status of this event entry.  If this object is not equal to valid(1), all associated log entries shall be deleted by the agent
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             
 
@@ -3534,6 +3985,8 @@ class RMONMIB(Entity):
 
 
 
+
+
     class LogTable(Entity):
         """
         A list of events that have been logged.
@@ -3542,6 +3995,8 @@ class RMONMIB(Entity):
         
         	A set of data describing an event that has been logged.  For example, an instance of the logDescription object might be named logDescription.6.47
         	**type**\: list of  		 :py:class:`LogEntry <ydk.models.cisco_ios_xe.RMON_MIB.RMONMIB.LogTable.LogEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3583,12 +4038,16 @@ class RMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: logindex  (key)
             
             	An index that uniquely identifies an entry in the log table amongst those generated by the same eventEntries.  These indexes are assigned beginning with 1 and increase by one with each new log entry.  The association between values of logIndex and logEntries is fixed for the lifetime of each logEntry. The agent may choose to delete the oldest instances of logEntry as required because of lack of memory.  It is an implementation\-specific matter as to when this deletion may occur
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: logtime
             
@@ -3597,12 +4056,16 @@ class RMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: logdescription
             
             	An implementation dependent description of the event that activated this log entry
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -3637,7 +4100,11 @@ class RMONMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.LogTable.LogEntry, [u'logeventindex', u'logindex', u'logtime', u'logdescription'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = RMONMIB()
         return self._top_entity
+
+
 

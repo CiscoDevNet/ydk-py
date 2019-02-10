@@ -232,6 +232,7 @@ class PerformanceMeasurement(Entity):
                     self._perform_setattr(PerformanceMeasurement.DelayProfileInterface.Advertisement.Accelerated, ['threshold', 'minimum_change', 'enable'], name, value)
 
 
+
             class Periodic(Entity):
                 """
                 Periodic Advertisement Profile
@@ -304,6 +305,8 @@ class PerformanceMeasurement(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerformanceMeasurement.DelayProfileInterface.Advertisement.Periodic, ['interval', 'threshold', 'minimum_change', 'disable'], name, value)
+
+
 
 
         class Probe(Entity):
@@ -415,6 +418,9 @@ class PerformanceMeasurement(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerformanceMeasurement.DelayProfileInterface.Probe.Burst, ['count', 'interval'], name, value)
+
+
+
 
 
     class Interfaces(Entity):
@@ -552,7 +558,12 @@ class PerformanceMeasurement(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerformanceMeasurement.Interfaces.Interface.DelayMeasurement, ['enable_delay_measurement', 'advertise_delay'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = PerformanceMeasurement()
         return self._top_entity
+
+
 

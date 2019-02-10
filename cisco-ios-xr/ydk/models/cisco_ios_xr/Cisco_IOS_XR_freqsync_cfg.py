@@ -160,3 +160,5 @@ class FrequencySynchronization(Entity):
         self._top_entity = FrequencySynchronization()
         return self._top_entity
 
+
+

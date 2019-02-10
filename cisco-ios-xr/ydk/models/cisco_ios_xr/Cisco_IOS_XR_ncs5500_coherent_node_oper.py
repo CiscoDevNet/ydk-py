@@ -30,6 +30,8 @@ class Coherent(Entity):
     	Coherent list of nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class Coherent(Entity):
         
         	Coherent discovery operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -107,15 +111,21 @@ class Coherent(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: coherent_time_stats
             
             	Coherent driver performace information
             	**type**\:  :py:class:`CoherentTimeStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats>`
             
+            	**config**\: False
+            
             .. attribute:: coherenthealth
             
             	Coherent node data for driver health
             	**type**\:  :py:class:`Coherenthealth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.Coherenthealth>`
+            
+            	**config**\: False
             
             
 
@@ -162,20 +172,28 @@ class Coherent(Entity):
                 	opts ea bulk create
                 	**type**\:  :py:class:`OptsEaBulkCreate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats.OptsEaBulkCreate>`
                 
+                	**config**\: False
+                
                 .. attribute:: opts_ea_bulk_update
                 
                 	opts ea bulk update
                 	**type**\:  :py:class:`OptsEaBulkUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats.OptsEaBulkUpdate>`
+                
+                	**config**\: False
                 
                 .. attribute:: dsp_ea_bulk_create
                 
                 	dsp ea bulk create
                 	**type**\:  :py:class:`DspEaBulkCreate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats.DspEaBulkCreate>`
                 
+                	**config**\: False
+                
                 .. attribute:: dsp_ea_bulk_update
                 
                 	dsp ea bulk update
                 	**type**\:  :py:class:`DspEaBulkUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats.DspEaBulkUpdate>`
+                
+                	**config**\: False
                 
                 .. attribute:: driver_init
                 
@@ -184,12 +202,16 @@ class Coherent(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: driver_operational
                 
                 	driver operational
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: device_created
                 
@@ -198,12 +220,16 @@ class Coherent(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: optics_controllers_created
                 
                 	optics controllers created
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: dsp_controllers_created
                 
@@ -212,6 +238,8 @@ class Coherent(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: eth_intf_created
                 
                 	eth intf created
@@ -219,10 +247,14 @@ class Coherent(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: port_stat
                 
                 	port stat
                 	**type**\: list of  		 :py:class:`PortStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats.PortStat>`
+                
+                	**config**\: False
                 
                 
 
@@ -276,7 +308,7 @@ class Coherent(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats, ['driver_init', 'driver_operational', 'device_created', 'optics_controllers_created', 'dsp_controllers_created', 'eth_intf_created'], name, value)
+                    self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats, [u'driver_init', u'driver_operational', u'device_created', u'optics_controllers_created', u'dsp_controllers_created', u'eth_intf_created'], name, value)
 
 
                 class OptsEaBulkCreate(Entity):
@@ -290,12 +322,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: end
                     
                     	end
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: time_taken
                     
@@ -304,12 +340,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: worst_time
                     
                     	worst time
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -341,7 +381,8 @@ class Coherent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.OptsEaBulkCreate, ['start', 'end', 'time_taken', 'worst_time'], name, value)
+                        self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.OptsEaBulkCreate, [u'start', u'end', u'time_taken', u'worst_time'], name, value)
+
 
 
                 class OptsEaBulkUpdate(Entity):
@@ -355,12 +396,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: end
                     
                     	end
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: time_taken
                     
@@ -369,12 +414,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: worst_time
                     
                     	worst time
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -406,7 +455,8 @@ class Coherent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.OptsEaBulkUpdate, ['start', 'end', 'time_taken', 'worst_time'], name, value)
+                        self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.OptsEaBulkUpdate, [u'start', u'end', u'time_taken', u'worst_time'], name, value)
+
 
 
                 class DspEaBulkCreate(Entity):
@@ -420,12 +470,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: end
                     
                     	end
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: time_taken
                     
@@ -434,12 +488,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: worst_time
                     
                     	worst time
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -471,7 +529,8 @@ class Coherent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.DspEaBulkCreate, ['start', 'end', 'time_taken', 'worst_time'], name, value)
+                        self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.DspEaBulkCreate, [u'start', u'end', u'time_taken', u'worst_time'], name, value)
+
 
 
                 class DspEaBulkUpdate(Entity):
@@ -485,12 +544,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: end
                     
                     	end
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: time_taken
                     
@@ -499,12 +562,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: worst_time
                     
                     	worst time
                     	**type**\: str
                     
                     	**length:** 0..255
+                    
+                    	**config**\: False
                     
                     
 
@@ -536,7 +603,8 @@ class Coherent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.DspEaBulkUpdate, ['start', 'end', 'time_taken', 'worst_time'], name, value)
+                        self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.DspEaBulkUpdate, [u'start', u'end', u'time_taken', u'worst_time'], name, value)
+
 
 
                 class PortStat(Entity):
@@ -548,35 +616,49 @@ class Coherent(Entity):
                     	laser on stats
                     	**type**\:  :py:class:`LaserOnStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats.PortStat.LaserOnStats>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_off_stats
                     
                     	laser off stats
                     	**type**\:  :py:class:`LaserOffStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats.PortStat.LaserOffStats>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: wl_op_stats
                     
                     	wl op stats
                     	**type**\:  :py:class:`WlOpStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats.PortStat.WlOpStats>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: txpwr_op_stats
                     
                     	txpwr op stats
                     	**type**\:  :py:class:`TxpwrOpStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats.PortStat.TxpwrOpStats>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: cdmin_op_stats
                     
                     	cdmin op stats
                     	**type**\:  :py:class:`CdminOpStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats.PortStat.CdminOpStats>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: cdmax_op_stats
                     
                     	cdmax op stats
                     	**type**\:  :py:class:`CdmaxOpStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats.PortStat.CdmaxOpStats>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: traffictype_op_stats
                     
                     	traffictype op stats
                     	**type**\:  :py:class:`TraffictypeOpStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.CoherentTimeStats.PortStat.TraffictypeOpStats>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: rsip
                     
@@ -585,6 +667,8 @@ class Coherent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: fp_port_idx
                     
                     	fp port idx
@@ -592,10 +676,14 @@ class Coherent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_state
                     
                     	laser state
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: provisioned_frequency
                     
@@ -604,12 +692,16 @@ class Coherent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_power
                     
                     	tx power
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: cd_min
                     
@@ -618,6 +710,8 @@ class Coherent(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: cd_max
                     
                     	cd max
@@ -625,12 +719,16 @@ class Coherent(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: traffic_type
                     
                     	traffic type
                     	**type**\: str
                     
                     	**length:** 0..128
+                    
+                    	**config**\: False
                     
                     
 
@@ -698,7 +796,7 @@ class Coherent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat, ['rsip', 'fp_port_idx', 'laser_state', 'provisioned_frequency', 'tx_power', 'cd_min', 'cd_max', 'traffic_type'], name, value)
+                        self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat, [u'rsip', u'fp_port_idx', u'laser_state', u'provisioned_frequency', u'tx_power', u'cd_min', u'cd_max', u'traffic_type'], name, value)
 
 
                     class LaserOnStats(Entity):
@@ -712,12 +810,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: end
                         
                         	end
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_taken
                         
@@ -726,12 +828,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -763,7 +869,8 @@ class Coherent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.LaserOnStats, ['start', 'end', 'time_taken', 'worst_time'], name, value)
+                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.LaserOnStats, [u'start', u'end', u'time_taken', u'worst_time'], name, value)
+
 
 
                     class LaserOffStats(Entity):
@@ -777,12 +884,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: end
                         
                         	end
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_taken
                         
@@ -791,12 +902,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -828,7 +943,8 @@ class Coherent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.LaserOffStats, ['start', 'end', 'time_taken', 'worst_time'], name, value)
+                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.LaserOffStats, [u'start', u'end', u'time_taken', u'worst_time'], name, value)
+
 
 
                     class WlOpStats(Entity):
@@ -842,12 +958,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: end
                         
                         	end
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_taken
                         
@@ -856,12 +976,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -893,7 +1017,8 @@ class Coherent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.WlOpStats, ['start', 'end', 'time_taken', 'worst_time'], name, value)
+                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.WlOpStats, [u'start', u'end', u'time_taken', u'worst_time'], name, value)
+
 
 
                     class TxpwrOpStats(Entity):
@@ -907,12 +1032,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: end
                         
                         	end
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_taken
                         
@@ -921,12 +1050,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -958,7 +1091,8 @@ class Coherent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.TxpwrOpStats, ['start', 'end', 'time_taken', 'worst_time'], name, value)
+                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.TxpwrOpStats, [u'start', u'end', u'time_taken', u'worst_time'], name, value)
+
 
 
                     class CdminOpStats(Entity):
@@ -972,12 +1106,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: end
                         
                         	end
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_taken
                         
@@ -986,12 +1124,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -1023,7 +1165,8 @@ class Coherent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.CdminOpStats, ['start', 'end', 'time_taken', 'worst_time'], name, value)
+                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.CdminOpStats, [u'start', u'end', u'time_taken', u'worst_time'], name, value)
+
 
 
                     class CdmaxOpStats(Entity):
@@ -1037,12 +1180,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: end
                         
                         	end
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_taken
                         
@@ -1051,12 +1198,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -1088,7 +1239,8 @@ class Coherent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.CdmaxOpStats, ['start', 'end', 'time_taken', 'worst_time'], name, value)
+                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.CdmaxOpStats, [u'start', u'end', u'time_taken', u'worst_time'], name, value)
+
 
 
                     class TraffictypeOpStats(Entity):
@@ -1102,12 +1254,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: end
                         
                         	end
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_taken
                         
@@ -1116,12 +1272,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: worst_time
                         
                         	worst time
                         	**type**\: str
                         
                         	**length:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -1153,7 +1313,10 @@ class Coherent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.TraffictypeOpStats, ['start', 'end', 'time_taken', 'worst_time'], name, value)
+                            self._perform_setattr(Coherent.Nodes.Node.CoherentTimeStats.PortStat.TraffictypeOpStats, [u'start', u'end', u'time_taken', u'worst_time'], name, value)
+
+
+
 
 
             class Coherenthealth(Entity):
@@ -1165,75 +1328,105 @@ class Coherent(Entity):
                 	is peyto
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: im_state
                 
                 	im state
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: aipc_srvr_state
                 
                 	aipc srvr state
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: sysdb_state
                 
                 	sysdb state
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: pm_state
                 
                 	pm state
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: optics_ea_conn
                 
                 	optics ea conn
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: dsp_ea_conn
                 
                 	dsp ea conn
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: vether_state
                 
                 	vether state
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: morgoth_alive
                 
                 	morgoth alive
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: prov_infra_state
                 
                 	prov infra state
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: sdk_fpga_compatible
                 
                 	sdk fpga compatible
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: pending_provision
                 
                 	pending provision
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: pulse_sent
                 
                 	pulse sent
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: inside_prov_loop
                 
                 	inside prov loop
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: fpd_in_progress
                 
                 	fpd in progress
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: prov_run_count
                 
@@ -1242,12 +1435,16 @@ class Coherent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sdk_version
                 
                 	sdk version
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: morgoth_running_version
                 
@@ -1256,12 +1453,16 @@ class Coherent(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: morgoth_downloaded_version
                 
                 	morgoth downloaded version
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: morgoth_golden_version
                 
@@ -1270,12 +1471,16 @@ class Coherent(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: dsp0_version
                 
                 	dsp0 version
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: dsp1_version
                 
@@ -1284,12 +1489,16 @@ class Coherent(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: dsp2_version
                 
                 	dsp2 version
                 	**type**\: str
                 
                 	**length:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: board_type
                 
@@ -1298,6 +1507,8 @@ class Coherent(Entity):
                 
                 	**length:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: jlink_op
                 
                 	jlink op
@@ -1305,10 +1516,14 @@ class Coherent(Entity):
                 
                 	**length:** 0..6144
                 
+                	**config**\: False
+                
                 .. attribute:: port_data
                 
                 	port data
                 	**type**\: list of  		 :py:class:`PortData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.Coherenthealth.PortData>`
+                
+                	**config**\: False
                 
                 
 
@@ -1384,7 +1599,7 @@ class Coherent(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Coherent.Nodes.Node.Coherenthealth, ['is_peyto', 'im_state', 'aipc_srvr_state', 'sysdb_state', 'pm_state', 'optics_ea_conn', 'dsp_ea_conn', 'vether_state', 'morgoth_alive', 'prov_infra_state', 'sdk_fpga_compatible', 'pending_provision', 'pulse_sent', 'inside_prov_loop', 'fpd_in_progress', 'prov_run_count', 'sdk_version', 'morgoth_running_version', 'morgoth_downloaded_version', 'morgoth_golden_version', 'dsp0_version', 'dsp1_version', 'dsp2_version', 'board_type', 'jlink_op'], name, value)
+                    self._perform_setattr(Coherent.Nodes.Node.Coherenthealth, [u'is_peyto', u'im_state', u'aipc_srvr_state', u'sysdb_state', u'pm_state', u'optics_ea_conn', u'dsp_ea_conn', u'vether_state', u'morgoth_alive', u'prov_infra_state', u'sdk_fpga_compatible', u'pending_provision', u'pulse_sent', u'inside_prov_loop', u'fpd_in_progress', u'prov_run_count', u'sdk_version', u'morgoth_running_version', u'morgoth_downloaded_version', u'morgoth_golden_version', u'dsp0_version', u'dsp1_version', u'dsp2_version', u'board_type', u'jlink_op'], name, value)
 
 
                 class PortData(Entity):
@@ -1396,10 +1611,14 @@ class Coherent(Entity):
                     	ctp info
                     	**type**\:  :py:class:`CtpInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.Coherenthealth.PortData.CtpInfo>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_info
                     
                     	interface info
                     	**type**\:  :py:class:`InterfaceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.Coherenthealth.PortData.InterfaceInfo>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: rsip
                     
@@ -1408,60 +1627,84 @@ class Coherent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: optics_ctrl_created
                     
                     	optics ctrl created
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: dsp_ctrl_created
                     
                     	dsp ctrl created
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: has_pluggable
                     
                     	has pluggable
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: optics_admin_up
                     
                     	optics admin up
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: dsp_admin_up
                     
                     	dsp admin up
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: end_of_config
                     
                     	end of config
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: optics_laser_state
                     
                     	optics laser state
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: laser_state
                     
                     	laser state
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: laser_on_pending
                     
                     	laser on pending
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: provisioning_needed
                     
                     	provisioning needed
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: force_reprovision
                     
                     	force reprovision
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: fp_port_idx
                     
@@ -1470,12 +1713,16 @@ class Coherent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: configured_frequency
                     
                     	configured frequency
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: provisioned_frequency
                     
@@ -1484,12 +1731,16 @@ class Coherent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: configured_tx_power
                     
                     	configured tx power
                     	**type**\: str
                     
                     	**length:** 0..128
+                    
+                    	**config**\: False
                     
                     .. attribute:: provisioned_tx_power
                     
@@ -1498,12 +1749,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..128
                     
+                    	**config**\: False
+                    
                     .. attribute:: configured_cd_min
                     
                     	configured cd min
                     	**type**\: str
                     
                     	**length:** 0..128
+                    
+                    	**config**\: False
                     
                     .. attribute:: provisioned_cd_min
                     
@@ -1512,12 +1767,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..128
                     
+                    	**config**\: False
+                    
                     .. attribute:: configured_cd_max
                     
                     	configured cd max
                     	**type**\: str
                     
                     	**length:** 0..128
+                    
+                    	**config**\: False
                     
                     .. attribute:: provisioned_cd_max
                     
@@ -1526,12 +1785,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..128
                     
+                    	**config**\: False
+                    
                     .. attribute:: configured_traffic_type
                     
                     	configured traffic type
                     	**type**\: str
                     
                     	**length:** 0..128
+                    
+                    	**config**\: False
                     
                     .. attribute:: provisioned_traffic_type
                     
@@ -1540,12 +1803,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..128
                     
+                    	**config**\: False
+                    
                     .. attribute:: configured_loopback_mode
                     
                     	configured loopback mode
                     	**type**\: str
                     
                     	**length:** 0..128
+                    
+                    	**config**\: False
                     
                     .. attribute:: provisioned_loopback_mode
                     
@@ -1554,12 +1821,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..128
                     
+                    	**config**\: False
+                    
                     .. attribute:: expected_ctp2_led_state
                     
                     	expected ctp2 led state
                     	**type**\: str
                     
                     	**length:** 0..128
+                    
+                    	**config**\: False
                     
                     .. attribute:: provisioned_ctp2_led_state
                     
@@ -1568,12 +1839,16 @@ class Coherent(Entity):
                     
                     	**length:** 0..128
                     
+                    	**config**\: False
+                    
                     .. attribute:: led_op_rc
                     
                     	led op rc
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: laser_op_rc
                     
@@ -1582,12 +1857,16 @@ class Coherent(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: wlen_op_rc
                     
                     	wlen op rc
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: traffic_op_rc
                     
@@ -1596,12 +1875,16 @@ class Coherent(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: loopback_op_rc
                     
                     	loopback op rc
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: tx_power_op_rc
                     
@@ -1610,12 +1893,16 @@ class Coherent(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: cd_min_op_rc
                     
                     	cd min op rc
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: cd_max_op_rc
                     
@@ -1624,10 +1911,14 @@ class Coherent(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: provisioning_failed
                     
                     	provisioning failed
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: ctp2_hw_alarms
                     
@@ -1636,6 +1927,8 @@ class Coherent(Entity):
                     
                     	**length:** 0..128
                     
+                    	**config**\: False
+                    
                     .. attribute:: dsp_hw_alarms
                     
                     	dsp hw alarms
@@ -1643,10 +1936,14 @@ class Coherent(Entity):
                     
                     	**length:** 0..256
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_pm_port_created_opt
                     
                     	is pm port created opt
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: rc_pm_port_opt
                     
@@ -1655,12 +1952,16 @@ class Coherent(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: pm_port_state_opt
                     
                     	pm port state opt
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: rc_pm_provision_opt
                     
@@ -1669,10 +1970,14 @@ class Coherent(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_alarm_port_created_opt
                     
                     	is alarm port created opt
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: rc_alarm_port_opt
                     
@@ -1681,10 +1986,14 @@ class Coherent(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_pm_port_created_dsp
                     
                     	is pm port created dsp
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: rc_pm_port_dsp
                     
@@ -1693,12 +2002,16 @@ class Coherent(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: pm_port_state_dsp
                     
                     	pm port state dsp
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: rc_pm_provision_dsp
                     
@@ -1707,10 +2020,14 @@ class Coherent(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_alarm_port_created_dsp
                     
                     	is alarm port created dsp
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: rc_alarm_port_dsp
                     
@@ -1718,6 +2035,8 @@ class Coherent(Entity):
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -1849,7 +2168,7 @@ class Coherent(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Coherent.Nodes.Node.Coherenthealth.PortData, ['rsip', 'optics_ctrl_created', 'dsp_ctrl_created', 'has_pluggable', 'optics_admin_up', 'dsp_admin_up', 'end_of_config', 'optics_laser_state', 'laser_state', 'laser_on_pending', 'provisioning_needed', 'force_reprovision', 'fp_port_idx', 'configured_frequency', 'provisioned_frequency', 'configured_tx_power', 'provisioned_tx_power', 'configured_cd_min', 'provisioned_cd_min', 'configured_cd_max', 'provisioned_cd_max', 'configured_traffic_type', 'provisioned_traffic_type', 'configured_loopback_mode', 'provisioned_loopback_mode', 'expected_ctp2_led_state', 'provisioned_ctp2_led_state', 'led_op_rc', 'laser_op_rc', 'wlen_op_rc', 'traffic_op_rc', 'loopback_op_rc', 'tx_power_op_rc', 'cd_min_op_rc', 'cd_max_op_rc', 'provisioning_failed', 'ctp2_hw_alarms', 'dsp_hw_alarms', 'is_pm_port_created_opt', 'rc_pm_port_opt', 'pm_port_state_opt', 'rc_pm_provision_opt', 'is_alarm_port_created_opt', 'rc_alarm_port_opt', 'is_pm_port_created_dsp', 'rc_pm_port_dsp', 'pm_port_state_dsp', 'rc_pm_provision_dsp', 'is_alarm_port_created_dsp', 'rc_alarm_port_dsp'], name, value)
+                        self._perform_setattr(Coherent.Nodes.Node.Coherenthealth.PortData, [u'rsip', u'optics_ctrl_created', u'dsp_ctrl_created', u'has_pluggable', u'optics_admin_up', u'dsp_admin_up', u'end_of_config', u'optics_laser_state', u'laser_state', u'laser_on_pending', u'provisioning_needed', u'force_reprovision', u'fp_port_idx', u'configured_frequency', u'provisioned_frequency', u'configured_tx_power', u'provisioned_tx_power', u'configured_cd_min', u'provisioned_cd_min', u'configured_cd_max', u'provisioned_cd_max', u'configured_traffic_type', u'provisioned_traffic_type', u'configured_loopback_mode', u'provisioned_loopback_mode', u'expected_ctp2_led_state', u'provisioned_ctp2_led_state', u'led_op_rc', u'laser_op_rc', u'wlen_op_rc', u'traffic_op_rc', u'loopback_op_rc', u'tx_power_op_rc', u'cd_min_op_rc', u'cd_max_op_rc', u'provisioning_failed', u'ctp2_hw_alarms', u'dsp_hw_alarms', u'is_pm_port_created_opt', u'rc_pm_port_opt', u'pm_port_state_opt', u'rc_pm_provision_opt', u'is_alarm_port_created_opt', u'rc_alarm_port_opt', u'is_pm_port_created_dsp', u'rc_pm_port_dsp', u'pm_port_state_dsp', u'rc_pm_provision_dsp', u'is_alarm_port_created_dsp', u'rc_alarm_port_dsp'], name, value)
 
 
                     class CtpInfo(Entity):
@@ -1863,12 +2182,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: part_number
                         
                         	part number
                         	**type**\: str
                         
                         	**length:** 0..16
+                        
+                        	**config**\: False
                         
                         .. attribute:: serial_number
                         
@@ -1877,12 +2200,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: date_code_number
                         
                         	date code number
                         	**type**\: str
                         
                         	**length:** 0..10
+                        
+                        	**config**\: False
                         
                         .. attribute:: clei_code_number
                         
@@ -1891,12 +2218,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..10
                         
+                        	**config**\: False
+                        
                         .. attribute:: vendorname
                         
                         	vendorname
                         	**type**\: str
                         
                         	**length:** 0..16
+                        
+                        	**config**\: False
                         
                         .. attribute:: description
                         
@@ -1905,12 +2236,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..64
                         
+                        	**config**\: False
+                        
                         .. attribute:: pid
                         
                         	pid
                         	**type**\: str
                         
                         	**length:** 0..16
+                        
+                        	**config**\: False
                         
                         .. attribute:: vid
                         
@@ -1919,12 +2254,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: module_hardware_version_number
                         
                         	module hardware version number
                         	**type**\: str
                         
                         	**length:** 0..16
+                        
+                        	**config**\: False
                         
                         .. attribute:: module_firmware_running_version_number
                         
@@ -1933,6 +2272,8 @@ class Coherent(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: module_firmware_committed_version_number
                         
                         	module firmware committed version number
@@ -1940,12 +2281,16 @@ class Coherent(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: ctp_type
                         
                         	ctp type
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1995,7 +2340,8 @@ class Coherent(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Coherent.Nodes.Node.Coherenthealth.PortData.CtpInfo, ['deviation', 'part_number', 'serial_number', 'date_code_number', 'clei_code_number', 'vendorname', 'description', 'pid', 'vid', 'module_hardware_version_number', 'module_firmware_running_version_number', 'module_firmware_committed_version_number', 'ctp_type'], name, value)
+                            self._perform_setattr(Coherent.Nodes.Node.Coherenthealth.PortData.CtpInfo, [u'deviation', u'part_number', u'serial_number', u'date_code_number', u'clei_code_number', u'vendorname', u'description', u'pid', u'vid', u'module_hardware_version_number', u'module_firmware_running_version_number', u'module_firmware_committed_version_number', u'ctp_type'], name, value)
+
 
 
                     class InterfaceInfo(Entity):
@@ -2006,6 +2352,8 @@ class Coherent(Entity):
                         
                         	eth data
                         	**type**\: list of  		 :py:class:`EthData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper.Coherent.Nodes.Node.Coherenthealth.PortData.InterfaceInfo.EthData>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2044,12 +2392,16 @@ class Coherent(Entity):
                             
                             	**length:** 0..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: intf_handle
                             
                             	intf handle
                             	**type**\: str
                             
                             	**length:** 0..128
+                            
+                            	**config**\: False
                             
                             .. attribute:: admin_state
                             
@@ -2058,15 +2410,21 @@ class Coherent(Entity):
                             
                             	**length:** 0..128
                             
+                            	**config**\: False
+                            
                             .. attribute:: admin_up
                             
                             	admin up
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_created
                             
                             	is created
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -2100,9 +2458,17 @@ class Coherent(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Coherent.Nodes.Node.Coherenthealth.PortData.InterfaceInfo.EthData, ['ifname', 'intf_handle', 'admin_state', 'admin_up', 'is_created'], name, value)
+                                self._perform_setattr(Coherent.Nodes.Node.Coherenthealth.PortData.InterfaceInfo.EthData, [u'ifname', u'intf_handle', u'admin_state', u'admin_up', u'is_created'], name, value)
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Coherent()
         return self._top_entity
+
+
 

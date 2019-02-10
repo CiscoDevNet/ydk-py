@@ -30,6 +30,8 @@ class ProcessesMemory(Entity):
     	List of nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_procmem_oper.ProcessesMemory.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class ProcessesMemory(Entity):
         
         	Node ID
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_procmem_oper.ProcessesMemory.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -106,10 +110,14 @@ class ProcessesMemory(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: process_ids
             
             	List of jobs
             	**type**\:  :py:class:`ProcessIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_procmem_oper.ProcessesMemory.Nodes.Node.ProcessIds>`
+            
+            	**config**\: False
             
             
 
@@ -152,6 +160,8 @@ class ProcessesMemory(Entity):
                 	Process Id
                 	**type**\: list of  		 :py:class:`ProcessId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_procmem_oper.ProcessesMemory.Nodes.Node.ProcessIds.ProcessId>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -189,10 +199,14 @@ class ProcessesMemory(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	Process name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: jid
                     
@@ -201,12 +215,16 @@ class ProcessesMemory(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pid
                     
                     	Process ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: text_seg_size
                     
@@ -215,12 +233,16 @@ class ProcessesMemory(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: data_seg_size
                     
                     	Data Segment Size in KB
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: stack_seg_size
                     
@@ -229,12 +251,16 @@ class ProcessesMemory(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: malloc_size
                     
                     	Malloced Memory Size in KB
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: dyn_limit
                     
@@ -243,6 +269,8 @@ class ProcessesMemory(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: shared_mem
                     
                     	Shared memory size in KB
@@ -250,12 +278,16 @@ class ProcessesMemory(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: physical_mem
                     
                     	Physical memory size in KB
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -303,7 +335,13 @@ class ProcessesMemory(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ProcessesMemory.Nodes.Node.ProcessIds.ProcessId, ['process_id', u'name', u'jid', u'pid', u'text_seg_size', u'data_seg_size', u'stack_seg_size', u'malloc_size', u'dyn_limit', u'shared_mem', u'physical_mem'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ProcessesMemory()
         return self._top_entity
+
+
 

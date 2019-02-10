@@ -492,10 +492,14 @@ class ArpGmp(Entity):
     	Table of VRF related ARP\-GMP operational data
     	**type**\:  :py:class:`VrfInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.VrfInfos>`
     
+    	**config**\: False
+    
     .. attribute:: vrfs
     
     	Table of per VRF ARP\-GMP operational data
     	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs>`
+    
+    	**config**\: False
     
     
 
@@ -539,6 +543,8 @@ class ArpGmp(Entity):
         	VRF related ARP\-GMP operational data
         	**type**\: list of  		 :py:class:`VrfInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.VrfInfos.VrfInfo>`
         
+        	**config**\: False
+        
         
 
         """
@@ -577,10 +583,14 @@ class ArpGmp(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: vrf_name_xr
             
             	VRF Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: vrf_id_number
             
@@ -589,12 +599,16 @@ class ArpGmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: table_id
             
             	IPv4 unicast table ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rsi_handle
             
@@ -603,12 +617,16 @@ class ArpGmp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rsi_handle_high
             
             	RSI registration handle (top 32\-bits)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -645,7 +663,9 @@ class ArpGmp(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ArpGmp.VrfInfos.VrfInfo, ['vrf_name', u'vrf_name_xr', u'vrf_id_number', u'table_id', u'rsi_handle', u'rsi_handle_high'], name, value)
+                self._perform_setattr(ArpGmp.VrfInfos.VrfInfo, ['vrf_name', 'vrf_name_xr', 'vrf_id_number', 'table_id', 'rsi_handle', 'rsi_handle_high'], name, value)
+
+
 
 
     class Vrfs(Entity):
@@ -656,6 +676,8 @@ class ArpGmp(Entity):
         
         	Per VRF ARP\-GMP operational data
         	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf>`
+        
+        	**config**\: False
         
         
 
@@ -695,20 +717,28 @@ class ArpGmp(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: configured_ip_addresses
             
             	Table of ARP\-GMP configured IP addresses information
             	**type**\:  :py:class:`ConfiguredIpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses>`
+            
+            	**config**\: False
             
             .. attribute:: routes
             
             	Table of ARP GMP route information
             	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.Routes>`
             
+            	**config**\: False
+            
             .. attribute:: interface_configured_ips
             
             	Table of ARP GMP interface and associated configured IP data
             	**type**\:  :py:class:`InterfaceConfiguredIps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps>`
+            
+            	**config**\: False
             
             
 
@@ -760,6 +790,8 @@ class ArpGmp(Entity):
                 	ARP\-GMP configured IP address information
                 	**type**\: list of  		 :py:class:`ConfiguredIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -797,12 +829,16 @@ class ArpGmp(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: ip_address
                     
                     	IP address
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: hardware_address
                     
@@ -811,15 +847,21 @@ class ArpGmp(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation_type
                     
                     	Encap type
                     	**type**\:  :py:class:`ArpGmpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEncap>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: entry_type
                     
                     	Entry type static/alias
                     	**type**\:  :py:class:`ArpGmpBagEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEntry>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -853,7 +895,9 @@ class ArpGmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress, ['address', u'ip_address', u'hardware_address', u'encapsulation_type', u'entry_type'], name, value)
+                        self._perform_setattr(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress, ['address', 'ip_address', 'hardware_address', 'encapsulation_type', 'entry_type'], name, value)
+
+
 
 
             class Routes(Entity):
@@ -864,6 +908,8 @@ class ArpGmp(Entity):
                 
                 	ARP GMP route information
                 	**type**\: list of  		 :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.Routes.Route>`
+                
+                	**config**\: False
                 
                 
 
@@ -902,12 +948,16 @@ class ArpGmp(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length
                     
                     	Prefix length
                     	**type**\: int
                     
                     	**range:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: ip_address
                     
@@ -916,12 +966,16 @@ class ArpGmp(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: prefix_length_xr
                     
                     	IP address length
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name_xr
                     
@@ -930,12 +984,16 @@ class ArpGmp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name
                     
                     	Interface names
                     	**type**\: list of str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     
 
@@ -971,7 +1029,9 @@ class ArpGmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ArpGmp.Vrfs.Vrf.Routes.Route, ['address', 'prefix_length', u'ip_address', u'prefix_length_xr', u'interface_name_xr', u'interface_name'], name, value)
+                        self._perform_setattr(ArpGmp.Vrfs.Vrf.Routes.Route, ['address', 'prefix_length', 'ip_address', 'prefix_length_xr', 'interface_name_xr', 'interface_name'], name, value)
+
+
 
 
             class InterfaceConfiguredIps(Entity):
@@ -983,6 +1043,8 @@ class ArpGmp(Entity):
                 
                 	ARP GMP interface and associated configured IP data
                 	**type**\: list of  		 :py:class:`InterfaceConfiguredIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp>`
+                
+                	**config**\: False
                 
                 
 
@@ -1022,6 +1084,8 @@ class ArpGmp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: address
                     
                     	Configured ARP\-GMP IP
@@ -1029,10 +1093,14 @@ class ArpGmp(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: associated_configuration_entry
                     
                     	Associated configuration entry
                     	**type**\:  :py:class:`AssociatedConfigurationEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_name_xr
                     
@@ -1041,12 +1109,16 @@ class ArpGmp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: reference_count
                     
                     	Route reference count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1082,7 +1154,7 @@ class ArpGmp(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp, ['interface_name', 'address', u'interface_name_xr', u'reference_count'], name, value)
+                        self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp, ['interface_name', 'address', 'interface_name_xr', 'reference_count'], name, value)
 
 
                     class AssociatedConfigurationEntry(Entity):
@@ -1096,6 +1168,8 @@ class ArpGmp(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: hardware_address
                         
                         	Hardware address 
@@ -1103,15 +1177,21 @@ class ArpGmp(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: encapsulation_type
                         
                         	Encap type
                         	**type**\:  :py:class:`ArpGmpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEncap>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: entry_type
                         
                         	Entry type static/alias
                         	**type**\:  :py:class:`ArpGmpBagEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEntry>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1143,11 +1223,18 @@ class ArpGmp(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry, [u'ip_address', u'hardware_address', u'encapsulation_type', u'entry_type'], name, value)
+                            self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry, ['ip_address', 'hardware_address', 'encapsulation_type', 'entry_type'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = ArpGmp()
         return self._top_entity
+
+
 
 class Arp(Entity):
     """
@@ -1157,6 +1244,8 @@ class Arp(Entity):
     
     	Table of per\-node ARP operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -1196,6 +1285,8 @@ class Arp(Entity):
         	Per\-node ARP operational data
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -1234,35 +1325,49 @@ class Arp(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: resolution_history_dynamic
             
             	Per node dynamically\-resolved ARP resolution history data
             	**type**\:  :py:class:`ResolutionHistoryDynamic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ResolutionHistoryDynamic>`
+            
+            	**config**\: False
             
             .. attribute:: traffic_vrfs
             
             	ARP Traffic information per VRF
             	**type**\:  :py:class:`TrafficVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficVrfs>`
             
+            	**config**\: False
+            
             .. attribute:: traffic_node
             
             	Per node ARP Traffic data
             	**type**\:  :py:class:`TrafficNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficNode>`
+            
+            	**config**\: False
             
             .. attribute:: resolution_history_client
             
             	Per node client\-installed ARP resolution history data
             	**type**\:  :py:class:`ResolutionHistoryClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ResolutionHistoryClient>`
             
+            	**config**\: False
+            
             .. attribute:: entries
             
             	Table of ARP entries
             	**type**\:  :py:class:`Entries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.Entries>`
             
+            	**config**\: False
+            
             .. attribute:: traffic_interfaces
             
             	ARP Traffic information per interface
             	**type**\:  :py:class:`TrafficInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficInterfaces>`
+            
+            	**config**\: False
             
             
 
@@ -1326,6 +1431,8 @@ class Arp(Entity):
                 	Resolution history array
                 	**type**\: list of  		 :py:class:`ArpEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1363,6 +1470,8 @@ class Arp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: nanosecond
                     
                     .. attribute:: idb_interface_name
@@ -1372,12 +1481,16 @@ class Arp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_address
                     
                     	IPv4 address
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_address
                     
@@ -1386,10 +1499,14 @@ class Arp(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: status
                     
                     	Resolution status
                     	**type**\:  :py:class:`ArpResolutionHistoryStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpResolutionHistoryStatus>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: client_id
                     
@@ -1398,6 +1515,8 @@ class Arp(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: entry_state
                     
                     	ARP entry state
@@ -1405,12 +1524,16 @@ class Arp(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: resolution_request_count
                     
                     	Resolution Request count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1453,6 +1576,8 @@ class Arp(Entity):
                         self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry, ['nsec_timestamp', 'idb_interface_name', 'ipv4_address', 'mac_address', 'status', 'client_id', 'entry_state', 'resolution_request_count'], name, value)
 
 
+
+
             class TrafficVrfs(Entity):
                 """
                 ARP Traffic information per VRF
@@ -1461,6 +1586,8 @@ class Arp(Entity):
                 
                 	Per VRF traffic data
                 	**type**\: list of  		 :py:class:`TrafficVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficVrfs.TrafficVrf>`
+                
+                	**config**\: False
                 
                 
 
@@ -1497,12 +1624,16 @@ class Arp(Entity):
                     	VRF name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: requests_received
                     
                     	Total ARP requests received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: replies_received
                     
@@ -1511,12 +1642,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: requests_sent
                     
                     	Total ARP requests sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: replies_sent
                     
@@ -1525,12 +1660,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: proxy_replies_sent
                     
                     	Total Proxy ARP replies sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: subscr_requests_received
                     
@@ -1539,12 +1678,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: subscr_replies_sent
                     
                     	Total ARP replies sent over subscriber interface
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: subscr_replies_gratg_sent
                     
@@ -1553,12 +1696,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_proxy_replies_sent
                     
                     	Total Local Proxy ARP replies sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: gratuitous_replies_sent
                     
@@ -1567,12 +1714,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resolution_requests_received
                     
                     	Total ARP resolution requests received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: resolution_replies_received
                     
@@ -1581,12 +1732,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resolution_requests_dropped
                     
                     	total ARP resolution requests dropped
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_of_memory_errors
                     
@@ -1595,12 +1750,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: no_buffer_errors
                     
                     	Total errors for no buffer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_entries
                     
@@ -1609,12 +1768,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dynamic_entries
                     
                     	Total dynamic entries in the cache
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: static_entries
                     
@@ -1623,12 +1786,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: alias_entries
                     
                     	Total alias entries in the cache
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_entries
                     
@@ -1637,12 +1804,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: standby_entries
                     
                     	Total standby entries in the cache
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: dhcp_entries
                     
@@ -1651,12 +1822,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: vxlan_entries
                     
                     	Total VXLAN entries in the cache
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: ip_packets_dropped_node
                     
@@ -1665,12 +1840,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: arp_packet_node_out_of_subnet
                     
                     	Total ARP packets on node due to out of subnet
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: ip_packets_dropped_interface
                     
@@ -1679,12 +1858,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: arp_packet_interface_out_of_subnet
                     
                     	Total arp packets on interface due to out of subnet
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: arp_packet_unsolicited_packet
                     
@@ -1693,12 +1876,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: idb_structures
                     
                     	Total idb structures on this node
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1785,6 +1972,8 @@ class Arp(Entity):
                         self._perform_setattr(Arp.Nodes.Node.TrafficVrfs.TrafficVrf, ['vrf_name', 'requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
 
 
+
+
             class TrafficNode(Entity):
                 """
                 Per node ARP Traffic data
@@ -1796,12 +1985,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: replies_received
                 
                 	Total ARP replies received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: requests_sent
                 
@@ -1810,12 +2003,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: replies_sent
                 
                 	Total ARP replies sent
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: proxy_replies_sent
                 
@@ -1824,12 +2021,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: subscr_requests_received
                 
                 	Total ARP requests received over subscriber interface
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: subscr_replies_sent
                 
@@ -1838,12 +2039,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: subscr_replies_gratg_sent
                 
                 	Total ARP grat replies sent over subscriber interface
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: local_proxy_replies_sent
                 
@@ -1852,12 +2057,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: gratuitous_replies_sent
                 
                 	Total Gratuituous ARP replies sent
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: resolution_requests_received
                 
@@ -1866,12 +2075,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: resolution_replies_received
                 
                 	Total ARP resolution replies received
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: resolution_requests_dropped
                 
@@ -1880,12 +2093,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_of_memory_errors
                 
                 	Total errors for out of memory
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: no_buffer_errors
                 
@@ -1894,12 +2111,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: total_entries
                 
                 	Total ARP entries in the cache
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: dynamic_entries
                 
@@ -1908,12 +2129,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: static_entries
                 
                 	Total static entries in the cache
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: alias_entries
                 
@@ -1922,12 +2147,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: interface_entries
                 
                 	Total interface entries in the cache
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: standby_entries
                 
@@ -1936,12 +2165,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: dhcp_entries
                 
                 	Total DHCP entries in the cache
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: vxlan_entries
                 
@@ -1950,12 +2183,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ip_packets_dropped_node
                 
                 	Total ip packets droped on this node
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: arp_packet_node_out_of_subnet
                 
@@ -1964,12 +2201,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ip_packets_dropped_interface
                 
                 	Total ip packets droped on this interface
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: arp_packet_interface_out_of_subnet
                 
@@ -1978,6 +2219,8 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: arp_packet_unsolicited_packet
                 
                 	Total unsolicited arp packets dropped
@@ -1985,12 +2228,16 @@ class Arp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: idb_structures
                 
                 	Total idb structures on this node
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2075,6 +2322,7 @@ class Arp(Entity):
                     self._perform_setattr(Arp.Nodes.Node.TrafficNode, ['requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
 
 
+
             class ResolutionHistoryClient(Entity):
                 """
                 Per node client\-installed ARP resolution
@@ -2084,6 +2332,8 @@ class Arp(Entity):
                 
                 	Resolution history array
                 	**type**\: list of  		 :py:class:`ArpEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ResolutionHistoryClient.ArpEntry>`
+                
+                	**config**\: False
                 
                 
 
@@ -2122,6 +2372,8 @@ class Arp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     	**units**\: nanosecond
                     
                     .. attribute:: idb_interface_name
@@ -2131,12 +2383,16 @@ class Arp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv4_address
                     
                     	IPv4 address
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: mac_address
                     
@@ -2145,10 +2401,14 @@ class Arp(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    	**config**\: False
+                    
                     .. attribute:: status
                     
                     	Resolution status
                     	**type**\:  :py:class:`ArpResolutionHistoryStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpResolutionHistoryStatus>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: client_id
                     
@@ -2157,6 +2417,8 @@ class Arp(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: entry_state
                     
                     	ARP entry state
@@ -2164,12 +2426,16 @@ class Arp(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: resolution_request_count
                     
                     	Resolution Request count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2212,6 +2478,8 @@ class Arp(Entity):
                         self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryClient.ArpEntry, ['nsec_timestamp', 'idb_interface_name', 'ipv4_address', 'mac_address', 'status', 'client_id', 'entry_state', 'resolution_request_count'], name, value)
 
 
+
+
             class Entries(Entity):
                 """
                 Table of ARP entries
@@ -2220,6 +2488,8 @@ class Arp(Entity):
                 
                 	ARP entry
                 	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.Entries.Entry>`
+                
+                	**config**\: False
                 
                 
 
@@ -2258,6 +2528,8 @@ class Arp(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name  (key)
                     
                     	Interface name
@@ -2265,20 +2537,28 @@ class Arp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: media_type
                     
                     	Media type for this entry
                     	**type**\:  :py:class:`IpArpBagMedia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagMedia>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: state
                     
                     	State of this entry
                     	**type**\:  :py:class:`IpArpBagState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: flag
                     
                     	Flags of this entry
                     	**type**\:  :py:class:`IpArpBagFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagFlags>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: age
                     
@@ -2287,10 +2567,14 @@ class Arp(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: encapsulation_type
                     
                     	Source encapsulation type
                     	**type**\:  :py:class:`IpArpBagEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagEncap>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: hardware_length
                     
@@ -2299,12 +2583,16 @@ class Arp(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: hardware_address
                     
                     	Hardware address
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    	**config**\: False
                     
                     
 
@@ -2349,6 +2637,8 @@ class Arp(Entity):
                         self._perform_setattr(Arp.Nodes.Node.Entries.Entry, ['address', 'interface_name', 'media_type', 'state', 'flag', 'age', 'encapsulation_type', 'hardware_length', 'hardware_address'], name, value)
 
 
+
+
             class TrafficInterfaces(Entity):
                 """
                 ARP Traffic information per interface
@@ -2357,6 +2647,8 @@ class Arp(Entity):
                 
                 	Per interface traffic data
                 	**type**\: list of  		 :py:class:`TrafficInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficInterfaces.TrafficInterface>`
+                
+                	**config**\: False
                 
                 
 
@@ -2395,12 +2687,16 @@ class Arp(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: requests_received
                     
                     	Total ARP requests received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: replies_received
                     
@@ -2409,12 +2705,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: requests_sent
                     
                     	Total ARP requests sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: replies_sent
                     
@@ -2423,12 +2723,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: proxy_replies_sent
                     
                     	Total Proxy ARP replies sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: subscr_requests_received
                     
@@ -2437,12 +2741,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: subscr_replies_sent
                     
                     	Total ARP replies sent over subscriber interface
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: subscr_replies_gratg_sent
                     
@@ -2451,12 +2759,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_proxy_replies_sent
                     
                     	Total Local Proxy ARP replies sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: gratuitous_replies_sent
                     
@@ -2465,12 +2777,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resolution_requests_received
                     
                     	Total ARP resolution requests received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: resolution_replies_received
                     
@@ -2479,12 +2795,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resolution_requests_dropped
                     
                     	total ARP resolution requests dropped
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_of_memory_errors
                     
@@ -2493,12 +2813,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: no_buffer_errors
                     
                     	Total errors for no buffer
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_entries
                     
@@ -2507,12 +2831,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: dynamic_entries
                     
                     	Total dynamic entries in the cache
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: static_entries
                     
@@ -2521,12 +2849,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: alias_entries
                     
                     	Total alias entries in the cache
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_entries
                     
@@ -2535,12 +2867,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: standby_entries
                     
                     	Total standby entries in the cache
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: dhcp_entries
                     
@@ -2549,12 +2885,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: vxlan_entries
                     
                     	Total VXLAN entries in the cache
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: ip_packets_dropped_node
                     
@@ -2563,12 +2903,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: arp_packet_node_out_of_subnet
                     
                     	Total ARP packets on node due to out of subnet
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: ip_packets_dropped_interface
                     
@@ -2577,12 +2921,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: arp_packet_interface_out_of_subnet
                     
                     	Total arp packets on interface due to out of subnet
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: arp_packet_unsolicited_packet
                     
@@ -2591,12 +2939,16 @@ class Arp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: idb_structures
                     
                     	Total idb structures on this node
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -2682,7 +3034,13 @@ class Arp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Arp.Nodes.Node.TrafficInterfaces.TrafficInterface, ['interface_name', 'requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Arp()
         return self._top_entity
+
+
 

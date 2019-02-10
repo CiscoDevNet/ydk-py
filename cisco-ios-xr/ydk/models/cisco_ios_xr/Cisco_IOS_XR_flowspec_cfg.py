@@ -373,6 +373,11 @@ class FlowSpec(Entity):
                             self._perform_setattr(FlowSpec.Afs.Af.ServicePolicies.ServicePolicy.PolicyType, ['policy_type', 'local'], name, value)
 
 
+
+
+
+
+
     class Vrfs(Entity):
         """
         Table of VRF
@@ -668,7 +673,16 @@ class FlowSpec(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.ServicePolicies.ServicePolicy.PolicyType, ['policy_type', 'local'], name, value)
 
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = FlowSpec()
         return self._top_entity
+
+
 

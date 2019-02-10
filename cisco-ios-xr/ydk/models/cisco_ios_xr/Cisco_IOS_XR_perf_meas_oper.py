@@ -264,6 +264,8 @@ class PerformanceMeasurement(Entity):
     	Node table for node\-specific operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -301,6 +303,8 @@ class PerformanceMeasurement(Entity):
         
         	Node\-specific data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -340,15 +344,21 @@ class PerformanceMeasurement(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: summary
             
             	Summary
             	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Summary>`
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	Interfaces
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces>`
+            
+            	**config**\: False
             
             
 
@@ -395,12 +405,16 @@ class PerformanceMeasurement(Entity):
                 	Delay summary
                 	**type**\:  :py:class:`DelaySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Summary.DelaySummary>`
                 
+                	**config**\: False
+                
                 .. attribute:: total_interfaces
                 
                 	Number of delay measurement interfaces enabled
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -442,10 +456,14 @@ class PerformanceMeasurement(Entity):
                     	Interface delay summary
                     	**type**\:  :py:class:`InterfaceDelaySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: delay_global_counters
                     
                     	PM delay global counters
                     	**type**\:  :py:class:`DelayGlobalCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.DelayGlobalCounters>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -488,10 +506,14 @@ class PerformanceMeasurement(Entity):
                         	Delay profile
                         	**type**\:  :py:class:`DelayProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayProfile>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: delay_transport_counters
                         
                         	PM delay counters for a transport types
                         	**type**\:  :py:class:`DelayTransportCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_delay_sessions
                         
@@ -499,6 +521,8 @@ class PerformanceMeasurement(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -546,12 +570,16 @@ class PerformanceMeasurement(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: burst_interval
                             
                             	Burst Interval (msec)
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: burst_count
                             
@@ -560,15 +588,21 @@ class PerformanceMeasurement(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: delay_measurement_mode
                             
                             	Delay Measurement Mode Type
                             	**type**\:  :py:class:`PmDelayMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PmDelayMode>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: periodic_advertisement_enabled
                             
                             	Advertisement Periodic Enabled
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: periodic_advertisement_interval
                             
@@ -577,12 +611,16 @@ class PerformanceMeasurement(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: effective_periodic_advertisement_interval
                             
                             	Advertisement Periodic Effective (sec)
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: periodic_advertisement_threshold
                             
@@ -591,12 +629,16 @@ class PerformanceMeasurement(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: periodic_advertisement_minimum_change
                             
                             	Advertisement Periodic Minimum Change (uSec)
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: accelerated_advertisement_threshold
                             
@@ -605,6 +647,8 @@ class PerformanceMeasurement(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: accelerated_advertisement_minimum_change
                             
                             	Advertisement Accelerated Minimum Change (uSec)
@@ -612,10 +656,14 @@ class PerformanceMeasurement(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: accelerated_advertisement_enabled
                             
                             	Advertisement Accelerated Enabled
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -666,6 +714,7 @@ class PerformanceMeasurement(Entity):
                                 self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayProfile, ['probe_interval', 'burst_interval', 'burst_count', 'delay_measurement_mode', 'periodic_advertisement_enabled', 'periodic_advertisement_interval', 'effective_periodic_advertisement_interval', 'periodic_advertisement_threshold', 'periodic_advertisement_minimum_change', 'accelerated_advertisement_threshold', 'accelerated_advertisement_minimum_change', 'accelerated_advertisement_enabled'], name, value)
 
 
+
                         class DelayTransportCounters(Entity):
                             """
                             PM delay counters for a transport types
@@ -675,10 +724,14 @@ class PerformanceMeasurement(Entity):
                             	Generic counters for a PM interface instance
                             	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.GenericCounters>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: exclusive_counters
                             
                             	Exclusive counters for a PM interface instance
                             	**type**\:  :py:class:`ExclusiveCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.ExclusiveCounters>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -723,12 +776,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: query_packet_sent_errors
                                 
                                 	Query packets sent error
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: query_packet_sent_error_no_ip_address
                                 
@@ -737,12 +794,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: query_packets_received
                                 
                                 	Query packets received
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: received_packet_error_negative_delay
                                 
@@ -751,12 +812,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: received_packet_error_delay_exceeds_threshold
                                 
                                 	Received packet error, delay exceeds threshold
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: received_packet_error_missing_tx_timestamp
                                 
@@ -765,12 +830,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: received_packet_error_missing_rx_timestamp
                                 
                                 	Received packet error, missing Rx timestamp
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: received_packet_error_probe_full
                                 
@@ -779,12 +848,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: received_packet_error_probe_not_started
                                 
                                 	Received packet error, probe not started
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: received_packet_control_code_error
                                 
@@ -793,12 +866,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: received_packet_control_code_notification
                                 
                                 	Received packet with a control code notification
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: probes_started
                                 
@@ -807,12 +884,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: probes_complete
                                 
                                 	Probes completed
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: probes_incomplete
                                 
@@ -821,12 +902,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: advertisement
                                 
                                 	Advertisements
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -885,6 +970,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.GenericCounters, ['query_packets_sent', 'query_packet_sent_errors', 'query_packet_sent_error_no_ip_address', 'query_packets_received', 'received_packet_error_negative_delay', 'received_packet_error_delay_exceeds_threshold', 'received_packet_error_missing_tx_timestamp', 'received_packet_error_missing_rx_timestamp', 'received_packet_error_probe_full', 'received_packet_error_probe_not_started', 'received_packet_control_code_error', 'received_packet_control_code_notification', 'probes_started', 'probes_complete', 'probes_incomplete', 'advertisement'], name, value)
 
 
+
                             class ExclusiveCounters(Entity):
                                 """
                                 Exclusive counters for a PM interface instance
@@ -894,10 +980,14 @@ class PerformanceMeasurement(Entity):
                                 	Counters Exclusive for interface
                                 	**type**\:  :py:class:`InterfaceExclusiveCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.ExclusiveCounters.InterfaceExclusiveCounters>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: type
                                 
                                 	type
                                 	**type**\:  :py:class:`PmTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PmTransport>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -941,12 +1031,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: query_packet_sent_error_no_mpls_caps
                                     
                                     	Query packet sent error, no MPLS caps
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -977,6 +1071,10 @@ class PerformanceMeasurement(Entity):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.InterfaceDelaySummary.DelayTransportCounters.ExclusiveCounters.InterfaceExclusiveCounters, ['query_packet_sent_error_interface_down', 'query_packet_sent_error_no_mpls_caps'], name, value)
 
 
+
+
+
+
                     class DelayGlobalCounters(Entity):
                         """
                         PM delay global counters
@@ -988,12 +1086,16 @@ class PerformanceMeasurement(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: query_packets_received
                         
                         	Query packets received
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_packet_error_invalid_session_id
                         
@@ -1002,12 +1104,16 @@ class PerformanceMeasurement(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_packet_error_no_session
                         
                         	Received packet error, no session
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -1042,6 +1148,9 @@ class PerformanceMeasurement(Entity):
                             self._perform_setattr(PerformanceMeasurement.Nodes.Node.Summary.DelaySummary.DelayGlobalCounters, ['query_packets_sent', 'query_packets_received', 'received_packet_error_invalid_session_id', 'received_packet_error_no_session'], name, value)
 
 
+
+
+
             class Interfaces(Entity):
                 """
                 Interfaces
@@ -1051,10 +1160,14 @@ class PerformanceMeasurement(Entity):
                 	Interface detailed table
                 	**type**\:  :py:class:`InterfaceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_delay
                 
                 	Delay\-measurement intformation
                 	**type**\:  :py:class:`InterfaceDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay>`
+                
+                	**config**\: False
                 
                 
 
@@ -1097,6 +1210,8 @@ class PerformanceMeasurement(Entity):
                     	Detailed interface information
                     	**type**\: list of  		 :py:class:`InterfaceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1134,10 +1249,14 @@ class PerformanceMeasurement(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_name_xr
                         
                         	Interface name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_handle
                         
@@ -1146,10 +1265,14 @@ class PerformanceMeasurement(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface_state
                         
                         	Interface state
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: source_address
                         
@@ -1158,12 +1281,16 @@ class PerformanceMeasurement(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_v6_address
                         
                         	Source IPv6 Address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: source_mac_address
                         
@@ -1172,12 +1299,16 @@ class PerformanceMeasurement(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: primary_vlan_tag
                         
                         	Primary VLAN Tag
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: secondary_vlan_tag
                         
@@ -1186,10 +1317,14 @@ class PerformanceMeasurement(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: delay_measurement_session
                         
                         	Delay\-measurement sessions
                         	**type**\: list of  		 :py:class:`DelayMeasurementSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1245,30 +1380,42 @@ class PerformanceMeasurement(Entity):
                             	Information for the current probe
                             	**type**\:  :py:class:`CurrentProbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.CurrentProbe>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: session_counters
                             
                             	Session counters
                             	**type**\:  :py:class:`SessionCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: last_advertisement_information
                             
                             	Last advertisement information
                             	**type**\:  :py:class:`LastAdvertisementInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastAdvertisementInformation>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: next_advertisement_information
                             
                             	Next advertisement information
                             	**type**\:  :py:class:`NextAdvertisementInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.NextAdvertisementInformation>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: last_notification_control_code
                             
                             	Last notifcation control code received
                             	**type**\:  :py:class:`LastNotificationControlCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastNotificationControlCode>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: last_error_control_code
                             
                             	Last error control code received
                             	**type**\:  :py:class:`LastErrorControlCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastErrorControlCode>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: session_id
                             
@@ -1277,15 +1424,21 @@ class PerformanceMeasurement(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: transport_type
                             
                             	Transport Type
                             	**type**\:  :py:class:`PmTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PmTransport>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: measurement_type
                             
                             	Measurement Type
                             	**type**\:  :py:class:`PmMeasurement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PmMeasurement>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: periodic_advertisement_interval_in_sec
                             
@@ -1294,12 +1447,16 @@ class PerformanceMeasurement(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             	**units**\: second
                             
                             .. attribute:: probe_history
                             
                             	Current probe history
                             	**type**\: list of  		 :py:class:`ProbeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.ProbeHistory>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1369,12 +1526,16 @@ class PerformanceMeasurement(Entity):
                                 	Summarized  results of the current probe
                                 	**type**\:  :py:class:`ProbeResults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.CurrentProbe.ProbeResults>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: probe_start_time_stamp
                                 
                                 	Timestamp in milliseconds of the current probe start (milliseconds since Jan. 1, 1970)
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: millisecond
                                 
@@ -1385,6 +1546,8 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**units**\: millisecond
                                 
                                 .. attribute:: next_packet_sent_time_remaining_in_millisec
@@ -1393,6 +1556,8 @@ class PerformanceMeasurement(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: millisecond
                                 
@@ -1403,6 +1568,8 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: number_of_packets_received
                                 
                                 	Number of packets received in the current probe
@@ -1410,10 +1577,14 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: probe_not_running_reason
                                 
                                 	Reason why probe is not running
                                 	**type**\:  :py:class:`PmProbeNotRunningReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PmProbeNotRunningReason>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1467,12 +1638,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: minimum
                                     
                                     	Minimum value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: maximum
                                     
@@ -1481,12 +1656,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: variance
                                     
                                     	Variance value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1521,6 +1700,8 @@ class PerformanceMeasurement(Entity):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.CurrentProbe.ProbeResults, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
 
+
+
                             class SessionCounters(Entity):
                                 """
                                 Session counters
@@ -1530,10 +1711,14 @@ class PerformanceMeasurement(Entity):
                                 	Generic counters for a PM interface instance
                                 	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.GenericCounters>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: exclusive_counters
                                 
                                 	Exclusive counters for a PM interface instance
                                 	**type**\:  :py:class:`ExclusiveCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.ExclusiveCounters>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1578,12 +1763,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: query_packet_sent_errors
                                     
                                     	Query packets sent error
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: query_packet_sent_error_no_ip_address
                                     
@@ -1592,12 +1781,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: query_packets_received
                                     
                                     	Query packets received
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: received_packet_error_negative_delay
                                     
@@ -1606,12 +1799,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: received_packet_error_delay_exceeds_threshold
                                     
                                     	Received packet error, delay exceeds threshold
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: received_packet_error_missing_tx_timestamp
                                     
@@ -1620,12 +1817,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: received_packet_error_missing_rx_timestamp
                                     
                                     	Received packet error, missing Rx timestamp
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: received_packet_error_probe_full
                                     
@@ -1634,12 +1835,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: received_packet_error_probe_not_started
                                     
                                     	Received packet error, probe not started
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: received_packet_control_code_error
                                     
@@ -1648,12 +1853,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: received_packet_control_code_notification
                                     
                                     	Received packet with a control code notification
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: probes_started
                                     
@@ -1662,12 +1871,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: probes_complete
                                     
                                     	Probes completed
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: probes_incomplete
                                     
@@ -1676,12 +1889,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: advertisement
                                     
                                     	Advertisements
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1740,6 +1957,7 @@ class PerformanceMeasurement(Entity):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.GenericCounters, ['query_packets_sent', 'query_packet_sent_errors', 'query_packet_sent_error_no_ip_address', 'query_packets_received', 'received_packet_error_negative_delay', 'received_packet_error_delay_exceeds_threshold', 'received_packet_error_missing_tx_timestamp', 'received_packet_error_missing_rx_timestamp', 'received_packet_error_probe_full', 'received_packet_error_probe_not_started', 'received_packet_control_code_error', 'received_packet_control_code_notification', 'probes_started', 'probes_complete', 'probes_incomplete', 'advertisement'], name, value)
 
 
+
                                 class ExclusiveCounters(Entity):
                                     """
                                     Exclusive counters for a PM interface instance
@@ -1749,10 +1967,14 @@ class PerformanceMeasurement(Entity):
                                     	Counters Exclusive for interface
                                     	**type**\:  :py:class:`InterfaceExclusiveCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.ExclusiveCounters.InterfaceExclusiveCounters>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type
                                     
                                     	type
                                     	**type**\:  :py:class:`PmTransport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PmTransport>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1796,12 +2018,16 @@ class PerformanceMeasurement(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: query_packet_sent_error_no_mpls_caps
                                         
                                         	Query packet sent error, no MPLS caps
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1832,6 +2058,9 @@ class PerformanceMeasurement(Entity):
                                             self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.SessionCounters.ExclusiveCounters.InterfaceExclusiveCounters, ['query_packet_sent_error_interface_down', 'query_packet_sent_error_no_mpls_caps'], name, value)
 
 
+
+
+
                             class LastAdvertisementInformation(Entity):
                                 """
                                 Last advertisement information
@@ -1841,6 +2070,8 @@ class PerformanceMeasurement(Entity):
                                 	Advertised values
                                 	**type**\:  :py:class:`AdvertisedValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastAdvertisementInformation.AdvertisedValues>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: time_of_advertisement
                                 
                                 	Time of the advertisement (milliseconds since Jan. 1, 1970)
@@ -1848,12 +2079,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 	**units**\: millisecond
                                 
                                 .. attribute:: advertisement_reason
                                 
                                 	Reason for advertisement
                                 	**type**\:  :py:class:`PmAdvertReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PmAdvertReason>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1899,12 +2134,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: minimum
                                     
                                     	Minimum value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: maximum
                                     
@@ -1913,12 +2152,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: variance
                                     
                                     	Variance value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1953,6 +2196,8 @@ class PerformanceMeasurement(Entity):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastAdvertisementInformation.AdvertisedValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
 
+
+
                             class NextAdvertisementInformation(Entity):
                                 """
                                 Next advertisement information
@@ -1962,6 +2207,8 @@ class PerformanceMeasurement(Entity):
                                 	Advertisement interval values
                                 	**type**\:  :py:class:`AdvertisementIntervalValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.NextAdvertisementInformation.AdvertisementIntervalValues>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: advertisement_interval_probes_remaining
                                 
                                 	Probes remaining until next periodic advertisement check
@@ -1969,12 +2216,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: rolling_average
                                 
                                 	Rolling average value (uSec)
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2020,12 +2271,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: minimum
                                     
                                     	Minimum value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: maximum
                                     
@@ -2034,12 +2289,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: variance
                                     
                                     	Variance value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2074,6 +2333,8 @@ class PerformanceMeasurement(Entity):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.NextAdvertisementInformation.AdvertisementIntervalValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
 
+
+
                             class LastNotificationControlCode(Entity):
                                 """
                                 Last notifcation control code received
@@ -2085,12 +2346,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: timestamp
                                 
                                 	Received timestamp of the control code (milliseconds since Jan. 1, 1970)
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: millisecond
                                 
@@ -2123,6 +2388,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastNotificationControlCode, ['control_code', 'timestamp'], name, value)
 
 
+
                             class LastErrorControlCode(Entity):
                                 """
                                 Last error control code received
@@ -2134,12 +2400,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: timestamp
                                 
                                 	Received timestamp of the control code (milliseconds since Jan. 1, 1970)
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: millisecond
                                 
@@ -2172,6 +2442,7 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.LastErrorControlCode, ['control_code', 'timestamp'], name, value)
 
 
+
                             class ProbeHistory(Entity):
                                 """
                                 Current probe history
@@ -2183,12 +2454,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: query_timestamp
                                 
                                 	Timestamp when the measurement was taken (milliseconds since Jan. 1, 1970)
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: millisecond
                                 
@@ -2221,6 +2496,10 @@ class PerformanceMeasurement(Entity):
                                     self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDetails.InterfaceDetail.DelayMeasurementSession.ProbeHistory, ['measurement_value', 'query_timestamp'], name, value)
 
 
+
+
+
+
                 class InterfaceDelay(Entity):
                     """
                     Delay\-measurement intformation
@@ -2230,25 +2509,35 @@ class PerformanceMeasurement(Entity):
                     	Table of last probe aggregation
                     	**type**\:  :py:class:`InterfaceLastAggregations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_probe_histories
                     
                     	Table of probe histories
                     	**type**\:  :py:class:`InterfaceProbeHistories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_aggregated_histories
                     
                     	Table of aggregated probe histories
                     	**type**\:  :py:class:`InterfaceAggregatedHistories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_last_probes
                     
                     	Table of last probes
                     	**type**\:  :py:class:`InterfaceLastProbes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_last_advertisements
                     
                     	Table of last advertisements
                     	**type**\:  :py:class:`InterfaceLastAdvertisements <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2303,6 +2592,8 @@ class PerformanceMeasurement(Entity):
                         	Last probe aggregation information
                         	**type**\: list of  		 :py:class:`InterfaceLastAggregation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2340,10 +2631,14 @@ class PerformanceMeasurement(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: last_aggregation
                             
                             	Last probe aggregation
                             	**type**\:  :py:class:`LastAggregation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation.LastAggregation>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2385,6 +2680,8 @@ class PerformanceMeasurement(Entity):
                                 	Aggregated probe values
                                 	**type**\:  :py:class:`AggregatedProbeValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation.LastAggregation.AggregatedProbeValues>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aggregation_timestamp
                                 
                                 	Time probe aggregation was done (milliseconds since Jan. 1, 1970)
@@ -2392,12 +2689,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 	**units**\: millisecond
                                 
                                 .. attribute:: aggregation_action
                                 
                                 	Action performed with the aggregated values
                                 	**type**\:  :py:class:`PmAdvertReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PmAdvertReason>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2443,12 +2744,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: minimum
                                     
                                     	Minimum value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: maximum
                                     
@@ -2457,12 +2762,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: variance
                                     
                                     	Variance value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2497,6 +2806,10 @@ class PerformanceMeasurement(Entity):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAggregations.InterfaceLastAggregation.LastAggregation.AggregatedProbeValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
 
+
+
+
+
                     class InterfaceProbeHistories(Entity):
                         """
                         Table of probe histories
@@ -2505,6 +2818,8 @@ class PerformanceMeasurement(Entity):
                         
                         	Probe history information
                         	**type**\: list of  		 :py:class:`InterfaceProbeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2543,10 +2858,14 @@ class PerformanceMeasurement(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_name_xr
                             
                             	Interface name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: interface_handle
                             
@@ -2555,10 +2874,14 @@ class PerformanceMeasurement(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: history
                             
                             	History of previous probes
                             	**type**\: list of  		 :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory.History>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2602,12 +2925,16 @@ class PerformanceMeasurement(Entity):
                                 	Probe values
                                 	**type**\:  :py:class:`ProbeValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory.History.ProbeValues>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: probe_start_timestamp
                                 
                                 	Time last probe started (milliseconds since Jan. 1, 1970)
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: millisecond
                                 
@@ -2618,12 +2945,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: packets_received
                                 
                                 	Packets received
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2671,12 +3002,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: minimum
                                     
                                     	Minimum value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: maximum
                                     
@@ -2685,12 +3020,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: variance
                                     
                                     	Variance value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2725,6 +3064,10 @@ class PerformanceMeasurement(Entity):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceProbeHistories.InterfaceProbeHistory.History.ProbeValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
 
+
+
+
+
                     class InterfaceAggregatedHistories(Entity):
                         """
                         Table of aggregated probe histories
@@ -2733,6 +3076,8 @@ class PerformanceMeasurement(Entity):
                         
                         	Aggregated probe history information
                         	**type**\: list of  		 :py:class:`InterfaceAggregatedHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2771,10 +3116,14 @@ class PerformanceMeasurement(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_name_xr
                             
                             	Interface name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: interface_handle
                             
@@ -2783,10 +3132,14 @@ class PerformanceMeasurement(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: history
                             
                             	History of previous probe aggregations
                             	**type**\: list of  		 :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory.History>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2830,6 +3183,8 @@ class PerformanceMeasurement(Entity):
                                 	Aggregated probe values
                                 	**type**\:  :py:class:`AggregatedProbeValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory.History.AggregatedProbeValues>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: aggregation_timestamp
                                 
                                 	Time probe aggregation was done (milliseconds since Jan. 1, 1970)
@@ -2837,12 +3192,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 	**units**\: millisecond
                                 
                                 .. attribute:: aggregation_action
                                 
                                 	Action performed with the aggregated values
                                 	**type**\:  :py:class:`PmAdvertReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PmAdvertReason>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2888,12 +3247,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: minimum
                                     
                                     	Minimum value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: maximum
                                     
@@ -2902,12 +3265,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: variance
                                     
                                     	Variance value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2942,6 +3309,10 @@ class PerformanceMeasurement(Entity):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceAggregatedHistories.InterfaceAggregatedHistory.History.AggregatedProbeValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
 
+
+
+
+
                     class InterfaceLastProbes(Entity):
                         """
                         Table of last probes
@@ -2950,6 +3321,8 @@ class PerformanceMeasurement(Entity):
                         
                         	Last measurement information
                         	**type**\: list of  		 :py:class:`InterfaceLastProbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2988,10 +3361,14 @@ class PerformanceMeasurement(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: last_probe
                             
                             	Last probe
                             	**type**\:  :py:class:`LastProbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe.LastProbe>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3033,12 +3410,16 @@ class PerformanceMeasurement(Entity):
                                 	Probe values
                                 	**type**\:  :py:class:`ProbeValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe.LastProbe.ProbeValues>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: probe_start_timestamp
                                 
                                 	Time last probe started (milliseconds since Jan. 1, 1970)
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: millisecond
                                 
@@ -3049,12 +3430,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: packets_received
                                 
                                 	Packets received
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3102,12 +3487,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: minimum
                                     
                                     	Minimum value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: maximum
                                     
@@ -3116,12 +3505,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: variance
                                     
                                     	Variance value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3156,6 +3549,10 @@ class PerformanceMeasurement(Entity):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastProbes.InterfaceLastProbe.LastProbe.ProbeValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
 
+
+
+
+
                     class InterfaceLastAdvertisements(Entity):
                         """
                         Table of last advertisements
@@ -3164,6 +3561,8 @@ class PerformanceMeasurement(Entity):
                         
                         	Last advertisement information
                         	**type**\: list of  		 :py:class:`InterfaceLastAdvertisement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -3202,10 +3601,14 @@ class PerformanceMeasurement(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: last_advertisement
                             
                             	Last advertisement
                             	**type**\:  :py:class:`LastAdvertisement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement.LastAdvertisement>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3247,6 +3650,8 @@ class PerformanceMeasurement(Entity):
                                 	Advertised values
                                 	**type**\:  :py:class:`AdvertisedValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement.LastAdvertisement.AdvertisedValues>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: time_of_advertisement
                                 
                                 	Time of the advertisement (milliseconds since Jan. 1, 1970)
@@ -3254,12 +3659,16 @@ class PerformanceMeasurement(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 	**units**\: millisecond
                                 
                                 .. attribute:: advertisement_reason
                                 
                                 	Reason for advertisement
                                 	**type**\:  :py:class:`PmAdvertReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PmAdvertReason>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3305,12 +3714,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: minimum
                                     
                                     	Minimum value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: maximum
                                     
@@ -3319,12 +3732,16 @@ class PerformanceMeasurement(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: variance
                                     
                                     	Variance value (uSec)
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3358,9 +3775,19 @@ class PerformanceMeasurement(Entity):
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PerformanceMeasurement.Nodes.Node.Interfaces.InterfaceDelay.InterfaceLastAdvertisements.InterfaceLastAdvertisement.LastAdvertisement.AdvertisedValues, ['average', 'minimum', 'maximum', 'variance'], name, value)
 
+
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = PerformanceMeasurement()
         return self._top_entity
+
+
 
 class PerformanceMeasurementResponder(Entity):
     """
@@ -3370,6 +3797,8 @@ class PerformanceMeasurementResponder(Entity):
     
     	Node table for node\-specific operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurementResponder.Nodes>`
+    
+    	**config**\: False
     
     
 
@@ -3409,6 +3838,8 @@ class PerformanceMeasurementResponder(Entity):
         	Node\-specific data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurementResponder.Nodes.Node>`
         
+        	**config**\: False
+        
         
 
         """
@@ -3447,15 +3878,21 @@ class PerformanceMeasurementResponder(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: summary
             
             	Summary
             	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurementResponder.Nodes.Node.Summary>`
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	Table of interfaces
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurementResponder.Nodes.Node.Interfaces>`
+            
+            	**config**\: False
             
             
 
@@ -3502,12 +3939,16 @@ class PerformanceMeasurementResponder(Entity):
                 	Global responder counters
                 	**type**\:  :py:class:`ResponderCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurementResponder.Nodes.Node.Summary.ResponderCounters>`
                 
+                	**config**\: False
+                
                 .. attribute:: total_interfaces
                 
                 	Number of interfaces in the responder cache
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: packet_rate
                 
@@ -3516,12 +3957,16 @@ class PerformanceMeasurementResponder(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: packet_rate_high_water_mark
                 
                 	Global incoming packet rate high water mark
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -3569,12 +4014,16 @@ class PerformanceMeasurementResponder(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: reply_packet_sent_error
                     
                     	Response packets sent error
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: query_packet_received
                     
@@ -3583,12 +4032,16 @@ class PerformanceMeasurementResponder(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: received_packet_error_urotlv_not_present
                     
                     	Received packet error, URO TLV not present
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: received_packet_error_invalid_source_port_number
                     
@@ -3597,12 +4050,16 @@ class PerformanceMeasurementResponder(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: received_packet_error_no_source_address
                     
                     	Received packet error, no source address
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: received_packet_error_no_return_path
                     
@@ -3611,12 +4068,16 @@ class PerformanceMeasurementResponder(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: received_packet_error_invalid_querier_control_code
                     
                     	Received packet error, invalid querier control code
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: received_packet_error_unsupported_timestamp_format
                     
@@ -3625,12 +4086,16 @@ class PerformanceMeasurementResponder(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: received_packet_error_timestamp_not_available
                     
                     	Received packet error, timestamp not available
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: received_packet_error_unsupported_mandatory_tlv
                     
@@ -3639,12 +4104,16 @@ class PerformanceMeasurementResponder(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: received_packet_error_invalid_packet
                     
                     	Received packet error, invalid packet
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -3695,6 +4164,8 @@ class PerformanceMeasurementResponder(Entity):
                         self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Summary.ResponderCounters, [u'reply_packet_sent', u'reply_packet_sent_error', u'query_packet_received', u'received_packet_error_urotlv_not_present', u'received_packet_error_invalid_source_port_number', u'received_packet_error_no_source_address', u'received_packet_error_no_return_path', u'received_packet_error_invalid_querier_control_code', u'received_packet_error_unsupported_timestamp_format', u'received_packet_error_timestamp_not_available', u'received_packet_error_unsupported_mandatory_tlv', u'received_packet_error_invalid_packet'], name, value)
 
 
+
+
             class Interfaces(Entity):
                 """
                 Table of interfaces
@@ -3703,6 +4174,8 @@ class PerformanceMeasurementResponder(Entity):
                 
                 	Interface information
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface>`
+                
+                	**config**\: False
                 
                 
 
@@ -3741,15 +4214,21 @@ class PerformanceMeasurementResponder(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_counters
                     
                     	Per interface responder counters
                     	**type**\:  :py:class:`InterfaceCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper.PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface.InterfaceCounters>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name_xr
                     
                     	Interface name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_handle
                     
@@ -3758,12 +4237,16 @@ class PerformanceMeasurementResponder(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: source_address
                     
                     	Source Address
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: source_v6_address
                     
@@ -3772,12 +4255,16 @@ class PerformanceMeasurementResponder(Entity):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: packet_rate
                     
                     	Incoming packet rate
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: packet_rate_high_water_mark
                     
@@ -3786,12 +4273,16 @@ class PerformanceMeasurementResponder(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: cleanup_time_remaining
                     
                     	Seconds until an inactive interface is cleaned up
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -3851,12 +4342,16 @@ class PerformanceMeasurementResponder(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: reply_packet_sent_error
                         
                         	Response packets sent error
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: query_packet_received
                         
@@ -3865,12 +4360,16 @@ class PerformanceMeasurementResponder(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_packet_error_urotlv_not_present
                         
                         	Received packet error, URO TLV not present
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_packet_error_invalid_source_port_number
                         
@@ -3879,12 +4378,16 @@ class PerformanceMeasurementResponder(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_packet_error_no_source_address
                         
                         	Received packet error, no source address
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_packet_error_no_return_path
                         
@@ -3893,12 +4396,16 @@ class PerformanceMeasurementResponder(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_packet_error_invalid_querier_control_code
                         
                         	Received packet error, invalid querier control code
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_packet_error_unsupported_timestamp_format
                         
@@ -3907,12 +4414,16 @@ class PerformanceMeasurementResponder(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_packet_error_timestamp_not_available
                         
                         	Received packet error, timestamp not available
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: received_packet_error_unsupported_mandatory_tlv
                         
@@ -3921,12 +4432,16 @@ class PerformanceMeasurementResponder(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_packet_error_invalid_packet
                         
                         	Received packet error, invalid packet
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -3976,7 +4491,14 @@ class PerformanceMeasurementResponder(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerformanceMeasurementResponder.Nodes.Node.Interfaces.Interface.InterfaceCounters, [u'reply_packet_sent', u'reply_packet_sent_error', u'query_packet_received', u'received_packet_error_urotlv_not_present', u'received_packet_error_invalid_source_port_number', u'received_packet_error_no_source_address', u'received_packet_error_no_return_path', u'received_packet_error_invalid_querier_control_code', u'received_packet_error_unsupported_timestamp_format', u'received_packet_error_timestamp_not_available', u'received_packet_error_unsupported_mandatory_tlv', u'received_packet_error_invalid_packet'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = PerformanceMeasurementResponder()
         return self._top_entity
+
+
 

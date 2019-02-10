@@ -168,20 +168,28 @@ class CISCORTTMONMIB(Entity):
     	
     	**type**\:  :py:class:`RttMonAppl <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonAppl>`
     
+    	**config**\: False
+    
     .. attribute:: rttmonapplsupportedrtttypestable
     
     	A table of which contains the supported Rtt Monitor Types.  See the RttMonRttType textual convention for the definition of each type
     	**type**\:  :py:class:`RttMonApplSupportedRttTypesTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplSupportedRttTypesTable>`
+    
+    	**config**\: False
     
     .. attribute:: rttmonapplsupportedprotocolstable
     
     	A table of which contains the supported Rtt Monitor Protocols.  See the RttMonProtocol textual convention  for the definition of each protocol
     	**type**\:  :py:class:`RttMonApplSupportedProtocolsTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplSupportedProtocolsTable>`
     
+    	**config**\: False
+    
     .. attribute:: rttmonapplpreconfigedtable
     
     	A table of which contains the previously configured Script Names and File IO targets.  These Script Names and File IO targets are installed via a different mechanism than this application, and are specific to each platform
     	**type**\:  :py:class:`RttMonApplPreConfigedTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplPreConfigedTable>`
+    
+    	**config**\: False
     
     	**status**\: obsolete
     
@@ -190,20 +198,28 @@ class CISCORTTMONMIB(Entity):
     	A table which contains the definitions for key\-strings that will be used in authenticating RTR Control Protocol
     	**type**\:  :py:class:`RttMonApplAuthTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplAuthTable>`
     
+    	**config**\: False
+    
     .. attribute:: rttmonctrladmintable
     
     	A table of Round Trip Time (RTT) monitoring definitions.  The RTT administration control is in multiple tables.   This first table, is used to create a conceptual RTT  control row.  The following tables contain objects which  configure scheduling, information gathering, and  notification/trigger generation.  All of these tables  will create the same conceptual RTT control row as this  table using this tables' index as their own index.   This table is limited in size by the agent  implementation.  The object rttMonApplNumCtrlAdminEntry will reflect this tables maximum number of entries
     	**type**\:  :py:class:`RttMonCtrlAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable>`
+    
+    	**config**\: False
     
     .. attribute:: rttmonechoadmintable
     
     	A table that contains Round Trip Time (RTT) specific definitions.  This table is controlled via the  rttMonCtrlAdminTable.  Entries in this table are created via the rttMonCtrlAdminStatus object
     	**type**\:  :py:class:`RttMonEchoAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable>`
     
+    	**config**\: False
+    
     .. attribute:: rttmonfileioadmintable
     
     	A table of Round Trip Time (RTT) monitoring 'fileIO' specific definitions.  When the RttMonRttType is not 'fileIO' this table is not valid.  This table is controlled via the  rttMonCtrlAdminTable.  Entries in this table are created via the rttMonCtrlAdminStatus object
     	**type**\:  :py:class:`RttMonFileIOAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonFileIOAdminTable>`
+    
+    	**config**\: False
     
     	**status**\: obsolete
     
@@ -212,6 +228,8 @@ class CISCORTTMONMIB(Entity):
     	A table of Round Trip Time (RTT) monitoring 'script' specific definitions.  When the RttMonRttType is not 'script' this table is not valid.  This table is controlled via the rttMonCtrlAdminTable.  Entries in this table are created via the rttMonCtrlAdminStatus object
     	**type**\:  :py:class:`RttMonScriptAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonScriptAdminTable>`
     
+    	**config**\: False
+    
     	**status**\: obsolete
     
     .. attribute:: rttmonreacttriggeradmintable
@@ -219,75 +237,105 @@ class CISCORTTMONMIB(Entity):
     	A table of which contains the list of conceptual RTT control rows that will start to collect data when a  reaction condition is violated and when  rttMonReactAdminActionType is set to one of the  following\:   \-  triggerOnly   \-  trapAndTrigger   \-  nmvtAndTrigger   \-  trapNmvtAndTrigger or when a reaction condition is violated and when any of the row in rttMonReactTable has rttMonReactActionType as one of the following\:   \- triggerOnly   \- trapAndTrigger  The goal of this table is to define one or more  additional conceptual RTT control rows that will become active and start to collect additional history and statistics (depending on the rows configuration values), when a problem has been detected.  If the conceptual RTT control row is undefined, and a  trigger occurs, no action will take place.    If the conceptual RTT control row is scheduled to start  at a later time, triggering that row will have no effect.  If the conceptual RTT control row is currently active,  triggering that row will have no effect on that row, but  the rttMonReactTriggerOperState object will transition to  'active'.  An entry in this table can only be triggered when it is not currently in a triggered state.  The object rttMonReactTriggerOperState will  reflect the state of each entry in this table
     	**type**\:  :py:class:`RttMonReactTriggerAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTriggerAdminTable>`
     
+    	**config**\: False
+    
     .. attribute:: rttmonechopathadmintable
     
     	A table to store the hop addresses in a Loose Source Routing path. Response times are computed along the specified path using ping.  This maximum table size is limited by the size of the  maximum number of hop addresses that can fit in an IP header, which is 8. The object rttMonEchoPathAdminEntry will reflect  this tables maximum number of entries.  This table is coupled with rttMonCtrlAdminStatus
     	**type**\:  :py:class:`RttMonEchoPathAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoPathAdminTable>`
+    
+    	**config**\: False
     
     .. attribute:: rttmongrpscheduleadmintable
     
     	A table of Round Trip Time (RTT) monitoring group scheduling specific definitions. This table is used to create a conceptual group scheduling control row. The entries in this control row contain objects used to define group schedule configuration parameters.  The objects of this table will be used to schedule a group of probes identified by the conceptual rows of the rttMonCtrlAdminTable
     	**type**\:  :py:class:`RttMonGrpScheduleAdminTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonGrpScheduleAdminTable>`
     
+    	**config**\: False
+    
     .. attribute:: rttmplsvpnmonctrltable
     
     	A table of Auto SAA L3 MPLS VPN definitions.  The Auto SAA L3 MPLS VPN administration control is in multiple tables.  This first table, is used to create a conceptual Auto SAA L3 MPLS VPN control row.  The following tables contain objects which used in type specific configurations, scheduling and reaction configurations. All of these tables will create the same conceptual control row as this table using this table's index as their own index.  In order to a row in this table to become active the following objects must be defined.   rttMplsVpnMonCtrlRttType,   rttMplsVpnMonCtrlVrfName and   rttMplsVpnMonSchedulePeriod
     	**type**\:  :py:class:`RttMplsVpnMonCtrlTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMplsVpnMonCtrlTable>`
+    
+    	**config**\: False
     
     .. attribute:: rttmonreacttable
     
     	A table that contains the reaction configurations. Each conceptual row in rttMonReactTable corresponds to a reaction configured for the probe defined in rttMonCtrlAdminTable.  For each reaction configured for a probe there is an entry in the table.  Each Probe can have multiple reactions and hence there can be multiple rows for a particular probe.  This table is coupled with rttMonCtrlAdminTable
     	**type**\:  :py:class:`RttMonReactTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTable>`
     
+    	**config**\: False
+    
     .. attribute:: rttmongeneratedopertable
     
     	This table contains information about the generated operation id as part of a parent IP SLA operation. The parent operation id is pseudo\-random number, selected by the management  station based on an operation started by the management  station,when creating a row via the rttMonCtrlAdminStatus object in the rttMonCtrlAdminTable table
     	**type**\:  :py:class:`RttMonGeneratedOperTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonGeneratedOperTable>`
+    
+    	**config**\: False
     
     .. attribute:: rttmonstatscapturetable
     
     	The statistics capture database.  The statistics capture table contains summarized  information of the results for a conceptual RTT control  row.  A rolling accumulated history of this information  is maintained in a series of hourly 'group(s)'.  Each  'group' contains a series of 'path(s)', each 'path'  contains a series of 'hop(s)', each 'hop' contains a  series of 'statistics distribution bucket(s)'.  Each conceptual statistics row has a current hourly  group, into which RTT results are accumulated.  At the  end of each hour a new hourly group is created which  then becomes current.  The counters and accumulators in  the new group are initialized to zero.  The previous  group(s) is kept in the table until the table contains  rttMonStatisticsAdminNumHourGroups groups for the  conceptual statistics row;  at this point, the oldest  group is discarded and is replaced by the newly created  one.  The hourly group is uniquely identified by the  rttMonStatsCaptureStartTimeIndex object.  If the activity for a conceptual RTT control row ceases  because the rttMonCtrlOperState object transitions to  'inactive', the corresponding current hourly group in  this table is 'frozen', and a new hourly group is  created when activity is resumed.  If the activity for a conceptual RTT control row ceases  because the rttMonCtrlOperState object transitions to  'pending' this whole table will be cleared and reset to  its initial state.  When the RttMonRttType is 'pathEcho', the path  exploration RTT requests' statistics will not be  accumulated in this table.  NOTE\: When the RttMonRttType is 'pathEcho', a source to        target rttMonStatsCapturePathIndex path will be        created for each rttMonStatsCaptureStartTimeIndex        to hold all errors that occur when a specific path       had not been found or connection has not be setup.  Using this rttMonStatsCaptureTable, a managing  application can retrieve summarized data from accurately  measured periods, which is synchronized across multiple  conceptual RTT control rows.  With the new hourly group creation being performed on a 60 minute period, the  managing station has plenty of time to collect the data,  and need not be concerned with the vagaries of network  delays and lost PDU's when trying to get matching data.   Also, the managing station can spread the data gathering  over a longer period, which removes the need for a flood  of get requests in a short period which otherwise would  occur
     	**type**\:  :py:class:`RttMonStatsCaptureTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCaptureTable>`
     
+    	**config**\: False
+    
     .. attribute:: rttmonstatscollecttable
     
     	The statistics collection database.  This table has the exact same behavior as the rttMonStatsCaptureTable, except it does not keep statistical distribution information.  For a complete table description see the rttMonStatsCaptureTable object
     	**type**\:  :py:class:`RttMonStatsCollectTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCollectTable>`
+    
+    	**config**\: False
     
     .. attribute:: rttmonstatstotalstable
     
     	The statistics totals database.  This table has the exact same behavior as the rttMonStatsCaptureTable, except it only keeps 60 minute group values.  For a complete table description see the rttMonStatsCaptureTable object
     	**type**\:  :py:class:`RttMonStatsTotalsTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsTotalsTable>`
     
+    	**config**\: False
+    
     .. attribute:: rttmonhttpstatstable
     
     	The HTTP statistics collection database.  The HTTP statistics table contains summarized information of the results for a conceptual RTT control row. A rolling accumulated history of this information is maintained in a  series of hourly 'group(s)'.  The operation of this table is same as that of  rttMonStatsCaptureTable, except that this table can only  store a maximum of 2 hours of data
     	**type**\:  :py:class:`RttMonHTTPStatsTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonHTTPStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: rttmonjitterstatstable
     
     	The Jitter statistics collection database.  The Jitter statistics table contains summarized information of the results for a conceptual RTT control row. A rolling accumulated history of this information is maintained in a  series of hourly 'group(s)'.  The operation of this table is same as that of  rttMonStatsCaptureTable, except that this table will store  2 hours of data
     	**type**\:  :py:class:`RttMonJitterStatsTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonJitterStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: rttmonlpdgrpstatstable
     
     	The Auto SAA L3 MPLS VPN LPD Group Database.  The LPD Group statistics table contains summarized performance statistics for the LPD group.  LPD Group \- The set of 'single probes' which are subset of the 'lspGroup' probe traversing set of paths between two PE end points are grouped together and called as the LPD group. The LPD group will be uniquely referenced by the LPD Group ID.  A rolling accumulated history of this information is maintained in a series of hourly 'group(s)'.  Each conceptual statistics row has a current hourly group, into which RTT results are accumulated. At the end of each hour a new hourly group is created which then becomes current. The counters and accumulators in the new group are initialized to zero. The previous group(s) is kept in the table until the table contains rttMplsVpnMonTypeLpdStatHours groups for the conceptual statistics row;  at this point, the oldest group is discarded and is replaced by the newly created one. The hourly group is uniquely identified by the rttMonLpdGrpStatsStartTimeIndex object
     	**type**\:  :py:class:`RttMonLpdGrpStatsTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLpdGrpStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: rttmonhistorycollectiontable
     
     	The history collection database.  The history table contains a point by point rolling  history of the most recent RTT operations for each  conceptual RTT control row.  The rolling history of this  information is maintained in a series of 'live(s)', each containing a series of 'bucket(s)', each 'bucket'  contains a series of 'sample(s)'.  Each conceptual history row can have lives.  A life is  defined by the rttMonCtrlOperRttLife object.  A new life  will be created when rttMonCtrlOperState transitions 'active'.  When the number of lives become greater  than rttMonHistoryAdminNumLives the oldest life will be  discarded and a new life will be created by incrementing the index.  The path exploration RTT operation will be kept as an entry in this table
     	**type**\:  :py:class:`RttMonHistoryCollectionTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonHistoryCollectionTable>`
     
+    	**config**\: False
+    
     .. attribute:: rttmonlatesthttpopertable
     
     	A table which contains the status of latest HTTP RTT operation
     	**type**\:  :py:class:`RttMonLatestHTTPOperTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLatestHTTPOperTable>`
     
+    	**config**\: False
+    
     .. attribute:: rttmonlatestjitteropertable
     
     	A table which contains the status of latest Jitter operation
     	**type**\:  :py:class:`RttMonLatestJitterOperTable <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLatestJitterOperTable>`
+    
+    	**config**\: False
     
     
 
@@ -419,12 +467,16 @@ class CISCORTTMONMIB(Entity):
         	Round Trip Time monitoring application version string.  The format will be\:  'Version.Release.Patch\-Level\: Textual\-Description'  For example\:  '1.0.0\: Initial RTT Application'
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: rttmonapplmaxpacketdatasize
         
         	The maximum size of the data portion an echo packet supported by this RTT application.  This is the maximum value that can be specified by (rttMonEchoAdminPktDataRequestSize + ARR Header) or  (rttMonEchoAdminPktDataResponseSize + ARR Header) in the rttMonCtrlAdminTable.  This object is undefined for conceptual RTT  control rows when the RttMonRttType object is set to 'fileIO' or 'script'
         	**type**\: int
         
         	**range:** 0..16384
+        
+        	**config**\: False
         
         	**units**\: octets
         
@@ -435,6 +487,8 @@ class CISCORTTMONMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: rttmonapplnumctrladminentry
         
         	This object defines the maximum number of entries that can be added to the rttMonCtrlAdminTable. It is calculated at the system init time. The value is impacted when rttMonApplFreeMemLowWaterMark is changed
@@ -442,15 +496,21 @@ class CISCORTTMONMIB(Entity):
         
         	**range:** 1..2147483647
         
+        	**config**\: False
+        
         .. attribute:: rttmonapplreset
         
         	When set to 'reset' the entire RTT application goes through a reset sequence, making a best  effort to revert to its startup condition.  Any  and all rows in the Overall Control Group will be immediately deleted, together with any associated rows in the Statistics Collection Group, and  History Collection Group.  All open connections  will also be closed.  Finally the  rttMonApplPreConfigedTable will reset (see  rttMonApplPreConfigedReset)
         	**type**\:  :py:class:`RttReset <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttReset>`
         
+        	**config**\: False
+        
         .. attribute:: rttmonapplpreconfigedreset
         
         	When set to 'reset' the RTT application will reset the Application Preconfigured MIB section.  This will force the RTT application to delete all entries in the rttMonApplPreConfigedTable and then to repopulate the table with the current configuration.  This provides a mechanism to load and unload user scripts and file paths
         	**type**\:  :py:class:`RttReset <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttReset>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -461,6 +521,8 @@ class CISCORTTMONMIB(Entity):
         
         	**range:** 1..2147483647
         
+        	**config**\: False
+        
         .. attribute:: rttmonapplfreememlowwatermark
         
         	This object defines the amount of free memory a router must have in order to configure RTR. If RTR found out that the memory is falling below this mark, it will not allow new probes to be configured.  This value should not be set higher (or very close to) than  the free bytes available on the router
@@ -468,15 +530,21 @@ class CISCORTTMONMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         .. attribute:: rttmonappllatestseterror
         
         	An error description for the last error message caused by set.  Currently, it includes set error caused due to setting rttMonApplFreeMemLowWaterMark greater than the available free memory on the router or not enough memory left to create new probes
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: rttmonapplresponder
         
         	Enable or disable RTR responder on the router
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: rttmonappllpdgrpstatsreset
         
@@ -484,6 +552,8 @@ class CISCORTTMONMIB(Entity):
         	**type**\: int
         
         	**range:** 0..2147483647
+        
+        	**config**\: False
         
         
 
@@ -533,6 +603,7 @@ class CISCORTTMONMIB(Entity):
             self._perform_setattr(CISCORTTMONMIB.RttMonAppl, ['rttmonapplversion', 'rttmonapplmaxpacketdatasize', 'rttmonappltimeoflastset', 'rttmonapplnumctrladminentry', 'rttmonapplreset', 'rttmonapplpreconfigedreset', 'rttmonapplprobecapacity', 'rttmonapplfreememlowwatermark', 'rttmonappllatestseterror', 'rttmonapplresponder', 'rttmonappllpdgrpstatsreset'], name, value)
 
 
+
     class RttMonApplSupportedRttTypesTable(Entity):
         """
         A table of which contains the supported Rtt
@@ -545,6 +616,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list that presents the valid Rtt Monitor Types
         	**type**\: list of  		 :py:class:`RttMonApplSupportedRttTypesEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplSupportedRttTypesTable.RttMonApplSupportedRttTypesEntry>`
+        
+        	**config**\: False
         
         
 
@@ -583,10 +656,14 @@ class CISCORTTMONMIB(Entity):
             	This object indexes the supported 'RttMonRttType' types
             	**type**\:  :py:class:`RttMonRttType <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonRttType>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonapplsupportedrtttypesvalid
             
             	This object defines the supported 'RttMonRttType' types
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -618,6 +695,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonApplSupportedRttTypesTable.RttMonApplSupportedRttTypesEntry, ['rttmonapplsupportedrtttypes', 'rttmonapplsupportedrtttypesvalid'], name, value)
 
 
+
+
     class RttMonApplSupportedProtocolsTable(Entity):
         """
         A table of which contains the supported Rtt
@@ -630,6 +709,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list that presents the valid Rtt Monitor Protocols
         	**type**\: list of  		 :py:class:`RttMonApplSupportedProtocolsEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplSupportedProtocolsTable.RttMonApplSupportedProtocolsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -668,10 +749,14 @@ class CISCORTTMONMIB(Entity):
             	This object indexes the supported 'RttMonProtocol' protocols
             	**type**\:  :py:class:`RttMonProtocol <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonProtocol>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonapplsupportedprotocolsvalid
             
             	This object defines the supported 'RttMonProtocol' protocols
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -703,6 +788,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonApplSupportedProtocolsTable.RttMonApplSupportedProtocolsEntry, ['rttmonapplsupportedprotocols', 'rttmonapplsupportedprotocolsvalid'], name, value)
 
 
+
+
     class RttMonApplPreConfigedTable(Entity):
         """
         A table of which contains the previously
@@ -716,6 +803,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects that describe the previously configured Script Names and File IO targets
         	**type**\: list of  		 :py:class:`RttMonApplPreConfigedEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplPreConfigedTable.RttMonApplPreConfigedEntry>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -756,6 +845,8 @@ class CISCORTTMONMIB(Entity):
             	This is the type of value being stored in the rttMonApplPreConfigedName object
             	**type**\:  :py:class:`RttMonApplPreConfigedType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplPreConfigedTable.RttMonApplPreConfigedEntry.RttMonApplPreConfigedType>`
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: rttmonapplpreconfigedname  (key)
@@ -763,12 +854,16 @@ class CISCORTTMONMIB(Entity):
             	This is either one of the following depending on the value of the rttMonApplPreConfigedType object\:   \- The file path to a server.  One of these file paths     must be used when defining an entry in the     rttMonFileIOAdminTable table with 'fileIO' as the     value of the rttMonCtrlAdminRttType object.   \- The script name to be used when generating RTT     operations.  One of these script names must be used     when defining an entry in the rttMonScriptAdminTable     table with 'script' as the value of the     rttMonCtrlAdminRttType object.  NOTE\:  For script names, command line parameters         can follow these names in the         rttMonScriptAdminTable table
             	**type**\: str
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: rttmonapplpreconfigedvalid
             
             	When this row exists, this value will be 'true'. This object exists only to create a valid row in this  table
             	**type**\: bool
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -823,6 +918,8 @@ class CISCORTTMONMIB(Entity):
 
 
 
+
+
     class RttMonApplAuthTable(Entity):
         """
         A table which contains the definitions for key\-strings
@@ -832,6 +929,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list that presents the valid parameters for Authenticating RTR Control Protocol
         	**type**\: list of  		 :py:class:`RttMonApplAuthEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonApplAuthTable.RttMonApplAuthEntry>`
+        
+        	**config**\: False
         
         
 
@@ -872,12 +971,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonapplauthkeychain
             
             	A string which represents the key\-chain name. If multiple key\-strings are specified, then the authenticator will  alternate between the specified strings
             	**type**\: str
             
             	**length:** 1..48
+            
+            	**config**\: False
             
             .. attribute:: rttmonapplauthkeystring1
             
@@ -886,12 +989,16 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 1..48
             
+            	**config**\: False
+            
             .. attribute:: rttmonapplauthkeystring2
             
             	A string which represents a key\-string name whose id is 2
             	**type**\: str
             
             	**length:** 1..48
+            
+            	**config**\: False
             
             .. attribute:: rttmonapplauthkeystring3
             
@@ -900,12 +1007,16 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 1..48
             
+            	**config**\: False
+            
             .. attribute:: rttmonapplauthkeystring4
             
             	A string which represents a key\-string name whose id is 4
             	**type**\: str
             
             	**length:** 1..48
+            
+            	**config**\: False
             
             .. attribute:: rttmonapplauthkeystring5
             
@@ -914,10 +1025,14 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 1..48
             
+            	**config**\: False
+            
             .. attribute:: rttmonapplauthstatus
             
             	The status of the Authentication row
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -961,6 +1076,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonApplAuthTable.RttMonApplAuthEntry, ['rttmonapplauthindex', 'rttmonapplauthkeychain', 'rttmonapplauthkeystring1', 'rttmonapplauthkeystring2', 'rttmonapplauthkeystring3', 'rttmonapplauthkeystring4', 'rttmonapplauthkeystring5', 'rttmonapplauthstatus'], name, value)
 
 
+
+
     class RttMonCtrlAdminTable(Entity):
         """
         A table of Round Trip Time (RTT) monitoring definitions.
@@ -981,6 +1098,8 @@ class CISCORTTMONMIB(Entity):
         
         	A base list of objects that define a conceptual RTT control row
         	**type**\: list of  		 :py:class:`RttMonCtrlAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1021,12 +1140,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonctrladminowner
             
             	Identifies the entity that created this table row
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: rttmonctrladmintag
             
@@ -1035,10 +1158,14 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 0..16
             
+            	**config**\: False
+            
             .. attribute:: rttmonctrladminrtttype
             
             	The type of RTT operation to be performed.  This value must be set in the same PDU or before setting any type specific configuration.  Note\: The RTT operation 'lspGroup' cannot be created via this control row. It will be created automatically by Auto SAA L3 MPLS VPN when rttMplsVpnMonCtrlLpd is 'true'
             	**type**\:  :py:class:`RttMonRttType <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonRttType>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonctrladminthreshold
             
@@ -1046,6 +1173,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -1056,6 +1185,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..604800
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: rttmonctrladmintimeout
@@ -1065,6 +1196,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..604800000
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: rttmonctrladminverifydata
@@ -1072,15 +1205,21 @@ class CISCORTTMONMIB(Entity):
             	When set to true, the resulting data in each RTT operation is compared with the expected data.  This includes checking header information (if possible) and exact packet size.  Any mismatch will be recorded in the rttMonStatsCollectVerifyErrors object.  Some RttMonRttTypes may not support this option.  When a type does not support this option, the agent will  transition this object to false.  It is the management applications responsibility to check for this  transition
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmonctrladminstatus
             
             	The status of the conceptual RTT control row.  In order for this object to become active, the following  row objects must be defined\:    \- rttMonCtrlAdminRttType Additionally\:  \- for echo, pathEcho based on 'ipIcmpEcho' and dlsw probes     rttMonEchoAdminProtocol and      rttMonEchoAdminTargetAddress;  \- for echo, pathEcho based on 'mplsLspPingAppl'     rttMonEchoAdminProtocol, rttMonEchoAdminTargetAddress      and rttMonEchoAdminLSPFECType  \- for udpEcho, tcpConnect and jitter probes     rttMonEchoAdminTargetAddress and     rttMonEchoAdminTargetPort  \- for http and ftp probe     rttMonEchoAdminURL   \- for dns probe     rttMonEchoAdminTargetAddressString      rttMonEchoAdminNameServer   \- dhcp probe doesn't require any additional objects  All other objects can assume default values. The  conceptual Rtt control row will be placed into a  'pending' state (via the rttMonCtrlOperState object) if rttMonScheduleAdminRttStartTime is not specified.  Most conceptual Rtt control row objects cannot be  modified once this conceptual Rtt control row has been  created.  The objects that can change are the following\:   \- Objects in the rttMonReactAdminTable can be modified    as needed without setting this object to     'notInService'.  \- Objects in the rttMonScheduleAdminTable can be     modified only when this object has the value of    'notInService'.  \- The rttMonCtrlOperState can be modified to control    the state of the probe.  Once this object is in 'active' status, it cannot be  set to 'notInService' while the rttMonCtrlOperState is in 'active' state.  Thus the rttMonCtrlOperState  object must be transitioned first.   This object can be set to 'destroy' from any value at any time
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonctrladminnvgen
             
             	When set to true, this entry will be shown in 'show running' command and can be saved into Non\-volatile memory
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rttmonctrladmingroupname
             
@@ -1089,12 +1228,16 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: rttmonscheduleadminrttlife
             
             	This object value will be placed into the rttMonCtrlOperRttLife object when the rttMonCtrlOperState object transitions to 'active' or 'pending'.  The value 2147483647 has a special meaning.  When this object is set to 2147483647, the  rttMonCtrlOperRttLife object will not decrement.   And thus the life time will never end
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1105,12 +1248,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonscheduleadminconceptrowageout
             
             	The amount of time this conceptual Rtt control row will exist when not in an 'active' rttMonCtrlOperState.  When this conceptual Rtt control row enters an 'active'  state, this timer will be reset and suspended.  When  this conceptual RTT control row enters a state other  than 'active', the timer will be restarted.  NOTE\:  When a conceptual Rtt control row ages out, the         agent needs to remove the associated entries in         the rttMonReactTriggerAdminTable and         rttMonReactTriggerOperTable.  When this value is set to zero, this entry will never be aged out. rttMonScheduleAdminConceptRowAgeout object is superseded by rttMonScheduleAdminConceptRowAgeoutV2
             	**type**\: int
             
             	**range:** 0..2073600
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1121,12 +1268,16 @@ class CISCORTTMONMIB(Entity):
             	When set to true, this entry will be scheduled to run automatically for the specified duration equal to the life configured, at the same time daily.  This value cannot be set to true  (a) if rttMonScheduleAdminRttLife object has value greater or    equal to 86400 seconds. (b) if sum of values of rttMonScheduleAdminRttLife and    rttMonScheduleAdminConceptRowAgeout is less or equal to    86400 seconds
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmonscheduleadminconceptrowageoutv2
             
             	The amount of time this conceptual Rtt control row will exist when not in an 'active' rttMonCtrlOperState.  When this conceptual Rtt control row enters an 'active' state, this timer will be reset and suspended.  When this conceptual RTT control row enters a state other than 'active', the timer will be restarted.  NOTE\:  It is the same as rttMonScheduleAdminConceptRowAgeout        except DEFVAL is 0 to be consistent with CLI ageout        default.  When this value is set to zero, this entry will never be aged out
             	**type**\: int
             
             	**range:** 0..2073600
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1135,6 +1286,8 @@ class CISCORTTMONMIB(Entity):
             	If true, a reaction is generated when a RTT operation to a rttMonEchoAdminTargetAddress (echo type) causes  rttMonCtrlOperConnectionLostOccurred to change its  value.  Thus connections to intermediate hops will  not cause this value to change. rttMonReactAdminConnectionEnable object is superseded by rttMonReactVar
             	**type**\: bool
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: rttmonreactadmintimeoutenable
@@ -1142,12 +1295,16 @@ class CISCORTTMONMIB(Entity):
             	If true, a reaction is generated when a RTT operation causes rttMonCtrlOperTimeoutOccurred  to change its value.    When the RttMonRttType is 'pathEcho' timeouts to  intermediate hops will not cause  rttMonCtrlOperTimeoutOccurred to change its value. rttMonReactAdminTimeoutEnable object is superseded by rttMonReactVar
             	**type**\: bool
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: rttmonreactadminthresholdtype
             
             	This object specifies the conditions under which rttMonCtrlOperOverThresholdOccurred is changed\:  NOTE\:  When the RttMonRttType is 'pathEcho' this         objects' value and all associated         object values are only valid when RTT         'echo' operations are to the        rttMonEchoAdminTargetAddress object address.  Thus        'pathEcho' operations to intermediate        hops will not cause this object to change.  never       \- rttMonCtrlOperOverThresholdOccurred is                 never set immediate   \- rttMonCtrlOperOverThresholdOccurred is set                 to true when an operation completion time                 exceeds rttMonCtrlAdminThreshold;                 conversely                 rttMonCtrlOperOverThresholdOccurred is set                 to false when an operation completion time                 falls below                 rttMonReactAdminThresholdFalling  consecutive \- rttMonCtrlOperOverThresholdOccurred is set                 to true when an operation completion time                 exceeds rttMonCtrlAdminThreshold on                 rttMonReactAdminThresholdCount consecutive                 RTT operations; conversely,                 rttMonCtrlOperOverThresholdOccurred is set                 to false when an operation completion time                falls under the                 rttMonReactAdminThresholdFalling                 for the same number of consecutive                 operations  xOfy        \- rttMonCtrlOperOverThresholdOccurred is set                 to true when x (as specified by                 rttMonReactAdminThresholdCount) out of the                 last y (as specified by                 rttMonReactAdminThresholdCount2)                 operation completion time exceeds                 rttMonCtrlAdminThreshold;                 conversely, it is set to false when x,                 out of the last y operation completion                time fall below                rttMonReactAdminThresholdFalling                NOTE\: When x > y, the probe will never                      generate a reaction. average     \- rttMonCtrlOperOverThresholdOccurred is set                 to true when the running average of the                 previous rttMonReactAdminThresholdCount                 operation completion times exceed                 rttMonCtrlAdminThreshold; conversely, it                 is set to false when the running average                 falls below the                 rttMonReactAdminThresholdFalling  If this value is changed by a management station,  rttMonCtrlOperOverThresholdOccurred is set to false, but  no reaction is generated if the prior value of  rttMonCtrlOperOverThresholdOccurred was true. rttMonReactAdminThresholdType object is superseded by rttMonReactThresholdType
             	**type**\:  :py:class:`RttMonReactAdminThresholdType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry.RttMonReactAdminThresholdType>`
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1157,6 +1314,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -1169,6 +1328,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..16
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: rttmonreactadminthresholdcount2
@@ -1178,6 +1339,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..16
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: rttmonreactadminactiontype
@@ -1185,12 +1348,16 @@ class CISCORTTMONMIB(Entity):
             	Specifies what type(s), if any, of reaction(s) to generate if an operation violates one of the watched  conditions\:  none               \- no reaction is generated trapOnly           \- a trap is generated nmvtOnly           \- an SNA NMVT is generated triggerOnly        \- all trigger actions defined for this                        entry are initiated trapAndNmvt        \- both a trap and an SNA NMVT are                        generated trapAndTrigger     \- both a trap and all trigger actions                        are initiated  nmvtAndTrigger     \- both a NMVT and all trigger actions                        are initiated trapNmvtAndTrigger \- a NMVT, trap, and all trigger actions                       are initiated  A trigger action is defined via the  rttMonReactTriggerAdminTable. rttMonReactAdminActionType object is superseded by rttMonReactActionType
             	**type**\:  :py:class:`RttMonReactAdminActionType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry.RttMonReactAdminActionType>`
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: rttmonreactadminverifyerrorenable
             
             	If true, a reaction is generated when a RTT operation causes rttMonCtrlOperVerifyErrorOccurred  to change its value. rttMonReactAdminVerifyErrorEnable object is superseded by rttMonReactVar
             	**type**\: bool
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1201,12 +1368,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..25
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatisticsadminnumpaths
             
             	When RttMonRttType is 'pathEcho' this is the maximum number of statistics paths to record per hourly group.   This value directly represents the path to a target.   For all other RttMonRttTypes this value will be  forced to one by the agent.  NOTE\: For 'pathEcho' a source to target path will be        created to to hold all errors that occur when a        specific path or connection has not be found/setup.        Thus, it is advised to set this value greater       than one.  Since this index does not rollover, only the first rttMonStatisticsAdminNumPaths will be kept
             	**type**\: int
             
             	**range:** 1..128
+            
+            	**config**\: False
             
             .. attribute:: rttmonstatisticsadminnumhops
             
@@ -1215,6 +1386,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..30
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatisticsadminnumdistbuckets
             
             	The maximum number of statistical distribution Buckets to accumulate.  Since this index does not rollover, only the first rttMonStatisticsAdminNumDistBuckets will be kept.  The last rttMonStatisticsAdminNumDistBucket will contain all entries from its distribution interval start point to infinity. This object is not applicable  to http and jitter probes
@@ -1222,12 +1395,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..20
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatisticsadmindistinterval
             
             	The statistical distribution buckets interval.  Distribution Bucket Example\:  rttMonStatisticsAdminNumDistBuckets = 5 buckets rttMonStatisticsAdminDistInterval = 10 milliseconds  \| Bucket 1 \| Bucket 2 \| Bucket 3 \| Bucket 4 \| Bucket 5  \| \|  0\-9 ms  \| 10\-19 ms \| 20\-29 ms \| 30\-39 ms \| 40\-Inf ms \|  Odd Example\:  rttMonStatisticsAdminNumDistBuckets = 1 buckets rttMonStatisticsAdminDistInterval = 10 milliseconds  \| Bucket 1  \| \|  0\-Inf ms \|  Thus, this odd example shows that the value of  rttMonStatisticsAdminDistInterval does not apply when rttMonStatisticsAdminNumDistBuckets is one. This object is not applicable to http and jitter probes
             	**type**\: int
             
             	**range:** 1..100
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -1238,12 +1415,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2
             
+            	**config**\: False
+            
             .. attribute:: rttmonhistoryadminnumbuckets
             
             	The maximum number of history buckets to record.  When the RttMonRttType is 'pathEcho'  this value directly  represents a path to a target.  For all other  RttMonRttTypes this value should be set to the number  of operations to keep per lifetime.  After rttMonHistoryAdminNumBuckets are filled, the  and the oldest entries are deleted and the most recent rttMonHistoryAdminNumBuckets buckets are retained
             	**type**\: int
             
             	**range:** 1..60
+            
+            	**config**\: False
             
             .. attribute:: rttmonhistoryadminnumsamples
             
@@ -1252,10 +1433,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..30
             
+            	**config**\: False
+            
             .. attribute:: rttmonhistoryadminfilter
             
             	Defines a filter for adding RTT results to the history buffer\:  none          \- no history is recorded all           \- the results of all completion times                   and failed completions are recorded overThreshold \- the results of completion times                  over rttMonCtrlAdminThreshold are                   recorded. failures      \- the results of failed operations (only)                   are recorded
             	**type**\:  :py:class:`RttMonHistoryAdminFilter <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry.RttMonHistoryAdminFilter>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonctrlopermodificationtime
             
@@ -1264,12 +1449,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonctrloperdiagtext
             
             	A string which can be used as an aid in tracing problems. The content of this field will depend on the type of  target (rttMonEchoAdminProtocol).   When rttMonEchoAdminProtocol is one of snaLU0EchoAppl, or  snaLU2EchoAppl this object contains the name of the  Logical Unit (LU) being used for this RTT session (from the HOST's point of view), once the session has been  established; this can then be used to correlate this  name to the connection information stored in the  Mainframe Host.  When rttMonEchoAdminProtocol is snaLU62EchoAppl, this  object contains the Logical Unit (LU) name being used for this RTT session, once the session has been established.   This name can be used by the management application to  correlate this objects value to the connection  information stored at this SNMP Agent via the APPC or  APPN mib.  When rttMonEchoAdminProtocol is not one of the  previously mentioned values, this value will be null.  It is primarily intended that this object contains  information which has significance to a human operator
             	**type**\: str
             
             	**length:** 0..51
+            
+            	**config**\: False
             
             .. attribute:: rttmonctrloperresettime
             
@@ -1278,6 +1467,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonctrloperoctetsinuse
             
             	This object is the number of octets currently in use by this composite conceptual RTT row.  A composite conceptual row include the control, statistics, and  history conceptual rows combined.  (All octets that are addressed via the rttMonCtrlAdminIndex in this mib.)
@@ -1285,20 +1476,28 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonctrloperconnectionlostoccurred
             
             	This object will only change its value when the RttMonRttType is 'echo' or 'pathEcho'.  This object is set to true when the RTT connection fails  to be established or is lost, and set to false when a  connection is reestablished.  When the RttMonRttType is 'pathEcho', connection loss applies only to the rttMonEchoAdminTargetAddress and not to intermediate hops to the Target.  When this value changes and  rttMonReactAdminConnectionEnable is true, a reaction  will occur.   If a trap is sent it is a  rttMonConnectionChangeNotification.  When this value changes and any one of the rttMonReactTable row has rttMonReactVar object value as 'connectionLoss(8)', a reaction may occur.  If a trap is sent it is rttMonNotification with rttMonReactVar value of 'connectionLoss'
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rttmonctrlopertimeoutoccurred
             
             	This object will change its value for all RttMonRttTypes.  This object is set to true when an operation times out,  and set to false when an operation completes under  rttMonCtrlAdminTimeout.  When this value changes, a  reaction may occur, as defined by  rttMonReactAdminTimeoutEnable.   When the RttMonRttType is 'pathEcho', this timeout applies only to the rttMonEchoAdminTargetAddress and not to intermediate hops to the Target.  If a trap is sent it is a rttMonTimeoutNotification.  When this value changes and any one of the rttMonReactTable row has rttMonReactVar object value as 'timeout(7)', a reaction may occur.  If a trap is sent it is rttMonNotification with rttMonReactVar value of 'timeout'
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmonctrloperoverthresholdoccurred
             
             	This object will change its value for all RttMonRttTypes.  This object is changed by operation completion times over threshold, as defined by rttMonReactAdminThresholdType.   When this value changes, a reaction may occur, as defined  by rttMonReactAdminThresholdType.   If a trap is sent it is a rttMonThresholdNotification.  This object is set to true if the operation completion time exceeds the rttMonCtrlAdminThreshold and set to false when an operation completes under rttMonCtrlAdminThreshold. When this value changes, a reaction may occur, as defined by rttMonReactThresholdType.  If a trap is sent it is rttMonNotification with rttMonReactVar value of 'rtt'
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rttmonctrlopernumrtts
             
@@ -1307,12 +1506,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonctrloperrttlife
             
             	This object is decremented every second, until it reaches zero.  When the value of this object is zero RTT operations for this row are suspended.  This  object will either reach zero by a countdown or  it will transition to zero via setting the rttMonCtrlOperState.  When this object reaches zero the agent needs to  transition the rttMonCtrlOperState to 'inactive'.  REMEMBER\:  The value 2147483647 has a special             meaning.  When this object has the            value 2147483647, this object will            not decrement.  And thus the life             time will never.  When the rttMonCtrlOperState object is 'active' and  the rttMonReactTriggerOperState object transitions to  'active' this object will not be updated with the  current value of rttMonCrtlAdminRttLife object
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1321,10 +1524,14 @@ class CISCORTTMONMIB(Entity):
             	The RttMonOperStatus object is used to manage the 'state' of the probe that is implementing  conceptual RTT control row.  This status object has six defined values\:  reset(1)          \- reset this entry, transition                     to 'pending' orderlyStop(2)    \- shutdown this entry at the end                      of the next RTT operation attempt,                       transition to 'inactive' immediateStop(3)  \- shutdown this entry immediately                      (if possible), transition to                       'inactive' pending(4)        \- this value is not settable and                      this conceptual RTT control row is                       waiting for further control either                       via the rttMonScheduleAdminTable                       or the rttMonReactAdminTable/                      rttMonReactTriggerAdminTable;                      This object can transition to this                      value via two mechanisms, first by                      reseting this object, and second                      by creating a conceptual Rtt control                      row with the                       rttMonScheduleAdminRttStartTime                      object with the its special value inactive(5)       \- this value is not settable and                      this conceptual RTT control row is                       waiting for further control via                      the rttMonScheduleAdminTable;                      This object can transition to this                      value via two mechanisms, first by                      setting this object to 'orderlyStop'                      or 'immediateStop', second by                       the rttMonCtrlOperRttLife object                      reaching zero active(6)         \- this value is not settable and                      this conceptual RTT control row is                      currently active restart(7)        \- this value is only settable when the                      state is active. It clears the data                      of this entry and remain on active state.  The probes action when this object is set to 'reset'\:   \-  all rows in rttMonStatsCaptureTable that relate to        this conceptual RTT control row are destroyed and        the indices are set to 1   \-  if rttMonStatisticsAdminNumHourGroups is not zero, a        single new rttMonStatsCaptureTable row is created   \-  all rows in rttMonHistoryCaptureTable that relate        to this RTT definition are destroyed and the indices       are set to 1   \-  implied history used for timeout or threshold       notification (see rttMonReactAdminThresholdType or       rttMonReactThresholdType)       is purged   \-  rttMonCtrlOperRttLife is set to        rttMonScheduleAdminRttLife   \-  rttMonCtrlOperNumRtts is set to zero   \-  rttMonCtrlOperTimeoutOccurred,        rttMonCtrlOperOverThresholdOccurred, and        rttMonCtrlOperConnectionLostOccurred are set to        false; if this causes a change in the value of        either of these objects, resolution notifications        will not occur   \-  the next RTT operation is controlled by the objects       in the rttMonScheduleAdminTable or the        rttMonReactAdminTable/rttMonReactTriggerAdminTable   \-  if the rttMonReactTriggerOperState is 'active', it        will transition to 'pending'   \-  all rttMonReactTriggerAdminEntries pointing to       this conceptual entry with their        rttMonReactTriggerOperState object 'active',        will transition their OperState to 'pending'   \-  all open connections must be maintained  This can be used to synchronize various RTT  definitions, so that the RTT requests occur  simultaneously, or as simultaneously as possible.  The probes action when this object transitions to    'inactive' (via setting this object to 'orderlyStop'    or 'immediateStop' or by rttMonCtrlOperRttLife    reaching zero)\:   \-  all statistics and history collection information       table entries will be closed and kept   \-  implied history used for timeout or threshold       notification (see rttMonReactAdminThresholdType or       rttMonReactThresholdType)       is purged   \-  rttMonCtrlOperTimeoutOccurred,        rttMonCtrlOperOverThresholdOccurred, and        rttMonCtrlOperConnectionLostOccurred are set to        false; if this causes a change in the value of        either of these objects, resolution notifications        will not occur.   \-  the next RTT request is controlled by the objects       in the rttMonScheduleAdminTable   \-  if the rttMonReactTriggerOperState is 'active', it        will transition to 'pending' (this denotes that       the Trigger will be ready the next time this       object goes active)   \-  all rttMonReactTriggerAdminEntries pointing to       this conceptual entry with their        rttMonReactTriggerOperState object 'active',        will transition their OperState to 'pending'   \-  all open connections are to be closed and cleanup.               rttMonCtrlOperState                     STATE           +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+           \|      A       \|       B      \|      C      \| ACTION       \|  'pending'   \|  'inactive'  \|   'active'  \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| OperState set  \|    noError   \|inconsistent\- \|   noError   \| \|  to 'reset'    \|              \| Value        \|             \| \|                \|    \-> A      \|              \|   \-> A      \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| OperState set  \|    noError   \|    noError   \|   noError   \| \|to 'orderlyStop'\|    \-> B      \|    \-> B      \|   \-> B      \| \|     or to      \|              \|              \|             \| \|'immediateStop' \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \|  Event causes  \|    \-> C      \|    \-> B      \|   \-> C      \| \| Trigger State  \|              \|              \|   see (3)   \| \| to transition  \|              \|              \|             \| \| to 'active'    \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| AdminStatus    \|    \-> C      \|    \-> C      \|   see (1)   \| \| transitions to \|              \|              \|             \| \| 'active' &     \|              \|              \|             \| \| RttStartTime is\|              \|              \|             \| \| special value  \|              \|              \|             \| \| of one.        \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| AdminStatus    \|    \-> A      \|    \-> A      \|   see (1)   \| \| transitions to \|              \|              \|             \| \| 'active' &     \|              \|              \|             \| \| RttStartTime is\|              \|              \|             \| \| special value  \|              \|              \|             \| \| of less than   \|              \|              \|             \| \| current time,  \|              \|              \|             \| \| excluding one. \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| AdminStatus    \|    \-> A      \|    \-> B      \|   see (2)   \| \| transitions to \|              \|              \|             \| \| 'notInService' \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| AdminStatus    \|    \-> B      \|    \-> B      \|   \-> B      \| \| transitions to \|              \|              \|             \| \| 'delete'       \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \| AdminStatus is \|    \-> C      \|    \-> C      \|   \-> C      \| \| 'active' & the \|              \|              \|   see (3)   \| \| RttStartTime   \|              \|              \|             \| \| arrives        \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \|   RowAgeout    \|    \-> B      \|    \-> B      \|   \-> B      \| \|    expires     \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+ \|  OperRttLife   \|    N/A       \|    N/A       \|   \-> B      \| \| counts down to \|              \|              \|             \| \| zero           \|              \|              \|             \| +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-\-+\-\-\-\-\-\-\-\-\-\-\-\-\-+  (1) \- rttMonCtrlOperState must have transitioned to 'inactive' or 'pending' before the rttMonCtrlAdminStatus can transition to 'active'.  See (2). (2) \- rttMonCtrlAdminStatus cannot transition to 'notInService' unless rttMonCtrlOperState has been previously forced to 'inactive' or 'pending'. (3) \- when this happens the rttMonCtrlOperRttLife will not be updated with the rttMonCtrlAdminRttLife.  NOTE\:  In order for all objects in a PDU to be set        at the same time, this object can not be        part of a multi\-bound PDU
             	**type**\:  :py:class:`RttMonCtrlOperState <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry.RttMonCtrlOperState>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonctrloperverifyerroroccurred
             
             	This object is true if rttMonCtrlAdminVerifyData is set to true and data corruption occurs
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestrttopercompletiontime
             
@@ -1333,12 +1540,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds/microseconds
             
             .. attribute:: rttmonlatestrttopersense
             
             	A sense code for the completion status of the latest RTT operation
             	**type**\:  :py:class:`RttResponseSense <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttResponseSense>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestrttoperapplspecificsense
             
@@ -1347,10 +1558,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestrttopersensedescription
             
             	A sense description for the completion status of the latest RTT operation when the  rttMonLatestRttOperSense object is set to  'applicationSpecific'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestrttopertime
             
@@ -1359,10 +1574,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestrttoperaddress
             
             	When the RttMonRttType is 'echo', 'pathEcho', 'udpEcho', 'tcpConnect', 'dns' and 'dlsw' this is a string which specifies  the address of the target for this RTT operation.  When the  RttMonRttType is not one of these types this object will  be null.  This address will be the address of the hop along the path to the rttMonEchoAdminTargetAddress address, including rttMonEchoAdminTargetAddress address, or just the rttMonEchoAdminTargetAddress address, when the path information is not collected.  This behavior is defined by the rttMonCtrlAdminRttType object.  The interpretation of this string depends on the type of RTT operation selected, as specified by the rttMonEchoAdminProtocol object.  See rttMonEchoAdminTargetAddress for a complete description
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -2128,6 +2347,8 @@ class CISCORTTMONMIB(Entity):
 
 
 
+
+
     class RttMonEchoAdminTable(Entity):
         """
         A table that contains Round Trip Time (RTT) specific
@@ -2141,6 +2362,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects that define specific configuration for RttMonRttType conceptual Rtt control rows
         	**type**\: list of  		 :py:class:`RttMonEchoAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2183,15 +2406,21 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminprotocol
             
             	Specifies the protocol to be used to perform the RTT operation. The following list defines what protocol  should be used for each probe type\:  echo, pathEcho   \- ipIcmpEcho / mplsLspPingAppl udpEcho          \- ipUdpEchoAppl tcpConnect       \- ipTcpConn http             \- httpAppl jitter           \- jitterAppl dlsw             \- dlswAppl dhcp             \- dhcpAppl ftp              \- ftpAppl mplsLspPing      \- mplsLspPingAppl voip             \- voipAppl video            \- videoAppl  When this protocol does not support the type, a 'badValue' error will be returned
             	**type**\:  :py:class:`RttMonProtocol <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonProtocol>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmintargetaddress
             
             	A string which specifies the address of the target
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminpktdatarequestsize
             
@@ -2199,6 +2428,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..16384
+            
+            	**config**\: False
             
             	**units**\: octets
             
@@ -2209,6 +2440,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..16384
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmintargetport
             
             	This object represents the target's port number. This object is applicable to udpEcho, tcpConnect and jitter probes
@@ -2216,10 +2449,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminsourceaddress
             
             	A string which specifies the IP address of the source. This object is applicable to all probes except dns, dlsw  and sna
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminsourceport
             
@@ -2228,10 +2465,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmincontrolenable
             
             	If this object is enabled, then the RTR application will send control messages to a responder, residing on the  target router to respond to the data request packets being  sent by the source router. This object is not applicable to  echo, pathEcho, dns and http probes
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadmintos
             
@@ -2240,25 +2481,35 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminlsrenable
             
             	If this object is enabled then it means that the application calculates response time for a specific path, defined in rttMonEchoPathAdminEntry. This object is applicable to echo  probe only
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadmintargetaddressstring
             
             	A string which specifies the address of the target. This string can be in IP address format or a hostname. This object is applicable to dns probe only
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminnameserver
             
             	A string which specifies the ip address of the name\-server. This object is applicable to dns probe only
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminoperation
             
             	A code that represents the specific type of RTT operation. This object is applicable to http and ftp probe only
             	**type**\:  :py:class:`RttMonOperation <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonOperation>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminhttpversion
             
@@ -2267,15 +2518,21 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 3..10
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminurl
             
             	A string which represents the URL to which a HTTP probe should communicate with. This object is applicable to http probe only
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmincache
             
             	If this object is false then it means that HTTP request should not download cached pages. This means that the request should  be forwarded to the origin server. This object is applicable to http probe only
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadmininterval
             
@@ -2283,6 +2540,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..60000
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -2293,40 +2552,56 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminproxy
             
             	This string represents the proxy server information. This object is applicable to http probe only
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminstring1
             
             	This string stores the content of HTTP raw request. If the request cannot fit into String1 then it should  be split and put in Strings 1 through 5.  This string stores the content of the DHCP raw option data.  The raw DHCP option data must be in HEX. If an odd number of characters are specified, a 0 will be appended to the end of the string.  Only DHCP option 82 (decimal) is allowed. Here is an example of a valid string\: 5208010610005A6F1234 Only rttMonEchoAdminString1 is used for dhcp, Strings 1 through 5 are not used.  This object is applicable to http and dhcp probe  types only
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminstring2
             
             	This string stores the content of HTTP raw request. rttMonEchoAdminString1\-5 are concatenated to  form the HTTP raw request used in the RTT operation. This object is applicable to http probe only
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminstring3
             
             	This string stores the content of HTTP raw request. rttMonEchoAdminString1\-5 are concatenated to  form the HTTP raw request used in the RTT operation. This object is applicable to http probe only
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminstring4
             
             	This string stores the content of HTTP raw request. rttMonEchoAdminString1\-5 are concatenated to  form the HTTP raw request used in the RTT operation. This object is applicable to http probe only
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminstring5
             
             	This string stores the content of HTTP raw request. rttMonEchoAdminString1\-5 are concatenated to  form the HTTP raw request used in the RTT operation. This object is applicable to http probe only
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminmode
             
             	A code that represents the specific type of RTT operation. This object is applicable to ftp probe only
             	**type**\:  :py:class:`RttMonOperation <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonOperation>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminvrfname
             
@@ -2335,10 +2610,14 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmincodectype
             
             	Specifies the codec type to be used with jitter probe. This is applicable only for the jitter probe.  If codec\-type is configured the following parameters cannot be  configured. rttMonEchoAdminPktDataRequestSize rttMonEchoAdminInterval rttMonEchoAdminNumPackets
             	**type**\:  :py:class:`RttMonCodecType <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonCodecType>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadmincodecinterval
             
@@ -2346,6 +2625,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..60000
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -2356,6 +2637,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..16384
             
+            	**config**\: False
+            
             	**units**\: octets
             
             .. attribute:: rttmonechoadmincodecnumpackets
@@ -2365,6 +2648,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..60000
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminicpifadvfactor
             
             	The advantage factor is dependant on the type of access and how the service is to be used. Conventional Wire\-line     0 Mobility within Building    5 Mobility within geographic area  10 Access to hard\-to\-reach location   20  This will be used while calculating the ICPIF values This valid only for Jitter while calculating the ICPIF value
@@ -2372,20 +2657,28 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..20
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminlspfectype
             
             	The type of the target FEC for the RTT 'echo' and 'pathEcho' operations based on 'mplsLspPingAppl' RttMonProtocol.  ldpIpv4Prefix   \- LDP IPv4 prefix
             	**type**\:  :py:class:`RttMonEchoAdminLSPFECType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry.RttMonEchoAdminLSPFECType>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminlspselector
             
             	A string which specifies a valid 127/8 address. This address is of the form 127.x.y.z. This address is not used to route the MPLS echo packet to the destination but is used for load balancing in cases where the IP payload's destination address is used for load balancing
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminlspreplymode
             
             	This object specifies the reply mode for the LSP Echo requests
             	**type**\:  :py:class:`RttMonLSPPingReplyMode <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonLSPPingReplyMode>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminlspttl
             
@@ -2394,6 +2687,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminlspexp
             
             	This object represents the EXP value that needs to be put as precedence bit in the MPLS echo request IP header
@@ -2401,15 +2696,21 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminprecision
             
             	This object specifies the accuracy of statistics that needs to be calculated milliseconds \- The accuracy of stats will be of milliseconds microseconds \- The accuracy of stats will be in microseconds. This value can be set only for jitter operation
             	**type**\:  :py:class:`RttMonEchoAdminPrecision <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry.RttMonEchoAdminPrecision>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminprobepakpriority
             
             	This object specifies the priority that will be assigned to probe packet.  This value can be set only for jitter  operation
             	**type**\:  :py:class:`RttMonEchoAdminProbePakPriority <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry.RttMonEchoAdminProbePakPriority>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminowntpsynctolabs
             
@@ -2417,6 +2718,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: microseconds
             
@@ -2427,10 +2730,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..100
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminowntpsynctoltype
             
             	This object specifies whether the value in specified for oneway NTP sync tolerance is absolute value or percent value
             	**type**\:  :py:class:`RttMonEchoAdminOWNTPSyncTolType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry.RttMonEchoAdminOWNTPSyncTolType>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadmincallednumber
             
@@ -2439,20 +2746,28 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 0..24
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmindetectpoint
             
             	A code that represents the detect point of post dial delay. This object is applicable to SAA post dial delay probe only
             	**type**\:  :py:class:`RttMonOperation <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonOperation>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadmingkregistration
             
             	A boolean that represents VoIP GK registration delay. This object is applicable to SAA GK registration delay  probe only
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminsourcevoiceport
             
             	A string which specifies the voice\-port on the source gateway. This object is applicable to RTP probe only
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadmincallduration
             
@@ -2461,6 +2776,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..600
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminlspreplydscp
             
             	This object specifies the DSCP value to be set in the IP header of the LSP echo reply packet. The value of this object will be in range of DiffServ codepoint values between 0 to 63.  Note\: This object cannot be set to value of 255. This default value specifies that DSCP is not set for this row
@@ -2468,10 +2785,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..63 \| 255..None
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminlspnullshim
             
             	This object specifies if the explicit\-null label is to be added to LSP echo requests which are sent while performing RTT operation
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadmintargetmpid
             
@@ -2480,10 +2801,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..8191
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmintargetdomainname
             
             	This object specifies the name of the domain in which the destination maintenance point lies. It is only applicable to  ethernetPing and ethernetJitter operation
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadmintargetvlan
             
@@ -2492,12 +2817,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..4094
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminethernetcos
             
             	This object specifies the class of service in an Ethernet packet header. It is only applicable to ethernetPing and  ethernetJitter operation
             	**type**\: int
             
             	**range:** 0..7
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminlspvccvid
             
@@ -2506,6 +2835,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmintargetevc
             
             	This object specifies the Ethernet Virtual Connection in which the destination maintenance point lies. It is only  applicable to ethernetPing and ethernetJitter operation.  It will be set to NULL for other types of operations
@@ -2513,10 +2844,14 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 0..100
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmintargetmepport
             
             	This object specifies that Port Level CFM testing towards an Outward/Down MEP will be used. It is only applicable to  ethernetPing and ethernetJitter operation.  It will be set to NULL for other types of operations
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminvideotrafficprofile
             
@@ -2525,6 +2860,8 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmindscp
             
             	This object represents the Differentiated Service Code Point (DSCP) QoS marking in the generated synthetic packets.  Value \- DiffServ Class     0 \- BE (default)    10 \- AF11    12 \- AF12    14 \- AF13    18 \- AF21    20 \- AF22    22 \- AF23    26 \- AF31    28 \- AF32    30 \- AF33    34 \- AF41    36 \- AF42    38 \- AF43     8 \- CS1    16 \- CS2    24 \- CS3    32 \- CS4    40 \- CS5    48 \- CS6    56 \- CS7    46 \- EF
@@ -2532,10 +2869,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..63
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminreservedsp
             
             	This object represents the video traffic generation source.  be \: best effort using DSP but without reservation gs \: guaranteed service using DSP with reservation na \: not applicable for not using DSP
             	**type**\:  :py:class:`RttMonEchoAdminReserveDsp <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoAdminTable.RttMonEchoAdminEntry.RttMonEchoAdminReserveDsp>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadmininputinterface
             
@@ -2544,10 +2885,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminemulatesourceaddress
             
             	This object specifies the IP address of the emulated source from which the synthetic packets would be generated. If this object is not specified, the emulated source IP address will by default be the same as rttMonEchoAdminSourceAddress. This object is applicable to video probes
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminemulatesourceport
             
@@ -2556,10 +2901,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminemulatetargetaddress
             
             	This object specifies the IP address of the emulated target by which the synthetic packets would be received. If this object is not specified, the emulated target IP address will by default be the same as rttMonEchoAdminTargetAddress. This object is applicable to video probes
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminemulatetargetport
             
@@ -2568,12 +2917,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..65536
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmintargetmacaddress
             
             	This object indicates the MAC address of the target device. This object is only applicable for Y.1731 operations.  rttMonEchoAdminTargetMacAddress and rttMonEchoAdminTargetMPID may not be used in conjunction
             	**type**\: str
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminsourcemacaddress
             
@@ -2582,12 +2935,16 @@ class CISCORTTMONMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminsourcempid
             
             	This object indicates the source maintenance point ID.  It is only applicable to Y.1731 operation.  It will be set to zero for other types of opearations.  rttMonEchoAdminSourceMPID and rttMonEchoAdminSourceMacAddress may not be used in conjunction
             	**type**\: int
             
             	**range:** 0..8191
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminendpointlistname
             
@@ -2596,10 +2953,14 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminssm
             
             	This object specifies if Source Specific Multicast is to be added. This object is applicable to multicast probe only
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadmincontrolretry
             
@@ -2608,12 +2969,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..5
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmincontroltimeout
             
             	This object specifies the wait duration before control message timeout
             	**type**\: int
             
             	**range:** 1..10000
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -2624,10 +2989,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..10
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminenableburst
             
             	This object indicates that packets will be sent in burst
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminaggburstcycles
             
@@ -2636,12 +3005,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadminlossrationumframes
             
             	This object indicates the number of frames over which to calculate the frame loss ratio. This object is applicable  to Y1731 SLM probe only
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: rttmonechoadminavailnumframes
             
@@ -2650,10 +3023,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonechoadmintstampoptimization
             
             	This object specifies whether timestamp optimization is enabled.  When the value is 'true' then timestamp optimization is enabled.  The probe will utilize lower layer (Hardware/Packet Processor) timestamping values to improve accuracy of statistics.  This value can be set only for udp jitter operation with precision of microsecond
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -2944,6 +3321,8 @@ class CISCORTTMONMIB(Entity):
 
 
 
+
+
     class RttMonFileIOAdminTable(Entity):
         """
         A table of Round Trip Time (RTT) monitoring 'fileIO'
@@ -2960,6 +3339,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects that define specific configuration for 'fileIO' RttMonRttType conceptual Rtt control rows
         	**type**\: list of  		 :py:class:`RttMonFileIOAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonFileIOAdminTable.RttMonFileIOAdminEntry>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -3004,10 +3385,14 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonfileioadminfilepath
             
             	The fully qualified file path that will be the target of the RTT operation.  This value must match one of the rttMonApplPreConfigedName entries
             	**type**\: str
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -3015,6 +3400,8 @@ class CISCORTTMONMIB(Entity):
             
             	The size of the file to write/read from the File Server
             	**type**\:  :py:class:`RttMonFileIOAdminSize <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonFileIOAdminTable.RttMonFileIOAdminEntry.RttMonFileIOAdminSize>`
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -3024,6 +3411,8 @@ class CISCORTTMONMIB(Entity):
             
             	The File I/O action to be performed
             	**type**\:  :py:class:`RttMonFileIOAdminAction <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonFileIOAdminTable.RttMonFileIOAdminEntry.RttMonFileIOAdminAction>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -3113,6 +3502,8 @@ class CISCORTTMONMIB(Entity):
 
 
 
+
+
     class RttMonScriptAdminTable(Entity):
         """
         A table of Round Trip Time (RTT) monitoring 'script'
@@ -3129,6 +3520,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects that define specific configuration for 'script' RttMonRttType conceptual Rtt control rows
         	**type**\: list of  		 :py:class:`RttMonScriptAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonScriptAdminTable.RttMonScriptAdminEntry>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -3173,10 +3566,14 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonscriptadminname
             
             	This will be the Name of the Script that will be used to generate RTT operations.    This object must match one of the  rttMonApplPreConfigedName entries
             	**type**\: str
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -3184,6 +3581,8 @@ class CISCORTTMONMIB(Entity):
             
             	This will be the actual command line parameters passed to the rttMonScriptAdminName when being executed
             	**type**\: str
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -3217,6 +3616,8 @@ class CISCORTTMONMIB(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCORTTMONMIB.RttMonScriptAdminTable.RttMonScriptAdminEntry, ['rttmonctrladminindex', 'rttmonscriptadminname', 'rttmonscriptadmincmdlineparams'], name, value)
+
+
 
 
     class RttMonReactTriggerAdminTable(Entity):
@@ -3263,6 +3664,8 @@ class CISCORTTMONMIB(Entity):
         	A list of objects that will be triggered when a reaction condition is violated
         	**type**\: list of  		 :py:class:`RttMonReactTriggerAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTriggerAdminTable.RttMonReactTriggerAdminEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -3304,6 +3707,8 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonreacttriggeradminrttmonctrladminindex  (key)
             
             	This object points to a single conceptual Rtt control row.  If this row does not exist and this value is  triggered no action will result.  The conceptual Rtt control row will be triggered for the  rttMonCtrlOperRttLife length.  If this conceptual Rtt control row is already active, rttMonCtrlOperRttLife will not be updated, and its life will continue as previously  defined
@@ -3311,15 +3716,21 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonreacttriggeradminstatus
             
             	This object is used to create Trigger entries
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonreacttriggeroperstate
             
             	This object takes on the value active when its associated entry in the  rttMonReactTriggerAdminTable has been triggered.  When the associated entry in the rttMonReactTriggerAdminTable is not under a trigger state, this object will be pending.  When this object is in the active state this entry can not be retriggered
             	**type**\:  :py:class:`RttMonReactTriggerOperState <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTriggerAdminTable.RttMonReactTriggerAdminEntry.RttMonReactTriggerOperState>`
+            
+            	**config**\: False
             
             
 
@@ -3390,6 +3801,8 @@ class CISCORTTMONMIB(Entity):
 
 
 
+
+
     class RttMonEchoPathAdminTable(Entity):
         """
         A table to store the hop addresses in a Loose Source Routing
@@ -3407,6 +3820,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects that define intermediate hop's IP Address.  This entry can be added only if the rttMonCtrlAdminRttType is 'echo'. The entry gets deleted when the corresponding RTR entry, which has an index of rttMonCtrlAdminIndex, is deleted
         	**type**\: list of  		 :py:class:`RttMonEchoPathAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonEchoPathAdminTable.RttMonEchoPathAdminEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3452,6 +3867,8 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonechopathadminhopindex  (key)
             
             	Uniquely identifies a row in the rttMonEchoPathAdminTable. This number represents the hop address number in a specific  ping path. All the indicies should start from 1 and must be  contiguous ie., entries should be  (say rttMonCtrlAdminIndex = 1)  1.1, 1.2, 1.3, they cannot be 1.1, 1.2, 1.4
@@ -3459,10 +3876,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..8
             
+            	**config**\: False
+            
             .. attribute:: rttmonechopathadminhopaddress
             
             	A string which specifies the address of an intermediate hop's IP Address for a RTT 'echo' operation
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -3496,6 +3917,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonEchoPathAdminTable.RttMonEchoPathAdminEntry, ['rttmonctrladminindex', 'rttmonechopathadminhopindex', 'rttmonechopathadminhopaddress'], name, value)
 
 
+
+
     class RttMonGrpScheduleAdminTable(Entity):
         """
         A table of Round Trip Time (RTT) monitoring group scheduling
@@ -3512,6 +3935,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects that define a conceptual group scheduling control row
         	**type**\: list of  		 :py:class:`RttMonGrpScheduleAdminEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonGrpScheduleAdminTable.RttMonGrpScheduleAdminEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3552,6 +3977,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmongrpscheduleadminprobes
             
             	A string which holds the different probes which are to be group scheduled. The probes can be specified in the following forms. (a) Individual ID's with comma separated as 23,45,34. (b) Range form including hyphens with multiple ranges being     separated by a comma as 1\-10,12\-34. (c) Mix of the above two forms as 1,2,4\-10,12,15,19\-25.  Any whitespace in the string is considered an error. Duplicates and overlapping ranges as an example 1,2,3,2\-10 are considered fine. For a single range like 1\-20 the upper value (in this example 20) must be greater than lower value (1), otherwise it's treated as an error. The agent will not normalize the list e.g., it will not change 1,2,1\-10 or even 1,2,3,4,5,6.. to 1\-10
@@ -3559,12 +3986,16 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 0..200
             
+            	**config**\: False
+            
             .. attribute:: rttmongrpscheduleadminperiod
             
             	Specifies the time duration over which all the probes have to be scheduled
             	**type**\: int
             
             	**range:** 0..604800
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -3575,6 +4006,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..604800
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: rttmongrpscheduleadminlife
@@ -3583,6 +4016,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -3593,6 +4028,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2073600
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: rttmongrpscheduleadminstatus
@@ -3600,12 +4037,16 @@ class CISCORTTMONMIB(Entity):
             	The status of the conceptual RTT group schedule control row.  In order for this object to become active, the following row objects must be defined\:  \- rttMonGrpScheduleAdminProbes  \- rttMonGrpScheduleAdminPeriod All other objects can assume default values.  The conceptual RTT group schedule control row objects cannot be modified once this conceptual RTT group schedule control row has been created. Once this object is in 'active' status, it cannot be set to 'notInService'. When this object moves to 'active' state it will schedule the probes of the rttMonCtrlAdminTable which had been created using 'createAndWait'.  This object can be set to 'destroy' from any value at any time. When this object is set to 'destroy' it will stop all the probes of the rttMonCtrlAdminTable, which had been group scheduled by it earlier, before destroying the RTT group schedule control row
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: rttmongrpscheduleadminfreqmax
             
             	Specifies the max duration between initiating each RTT operation for all the probes specified in the group.  If this is 0 and rttMonGrpScheduleAdminFreqMin is also 0 then rttMonGrpScheduleAdminFrequency becomes the fixed frequency
             	**type**\: int
             
             	**range:** 0..604800
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -3616,6 +4057,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..604800
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: rttmongrpscheduleadminstarttime
@@ -3625,6 +4068,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..604800
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: rttmongrpscheduleadminadd
@@ -3632,15 +4077,21 @@ class CISCORTTMONMIB(Entity):
             	Addition of members to an existing group will be allowed if this object is set to TRUE (1). The members, IDs of which are mentioned in rttMonGrpScheduleAdminProbes object are added to the existing group
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmongrpscheduleadmindelete
             
             	Removal of members from an existing group will be allowed if this object is set to TRUE (1). The members, IDs of which are mentioned in rttMonGrpScheduleAdminProbes object are removed from the existing group
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmongrpscheduleadminreset
             
             	When this is set to true then all members of this group will be stopped and rescheduled using the previously set values of this group
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -3694,6 +4145,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonGrpScheduleAdminTable.RttMonGrpScheduleAdminEntry, ['rttmongrpscheduleadminindex', 'rttmongrpscheduleadminprobes', 'rttmongrpscheduleadminperiod', 'rttmongrpscheduleadminfrequency', 'rttmongrpscheduleadminlife', 'rttmongrpscheduleadminageout', 'rttmongrpscheduleadminstatus', 'rttmongrpscheduleadminfreqmax', 'rttmongrpscheduleadminfreqmin', 'rttmongrpscheduleadminstarttime', 'rttmongrpscheduleadminadd', 'rttmongrpscheduleadmindelete', 'rttmongrpscheduleadminreset'], name, value)
 
 
+
+
     class RttMplsVpnMonCtrlTable(Entity):
         """
         A table of Auto SAA L3 MPLS VPN definitions.
@@ -3718,6 +4171,8 @@ class CISCORTTMONMIB(Entity):
         
         	A base list of objects that define a conceptual Auto SAA L3 MPLS VPN control row
         	**type**\: list of  		 :py:class:`RttMplsVpnMonCtrlEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3758,10 +4213,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonctrlrtttype
             
             	The type of RTT operation to be performed for Auto SAA L3 MPLS VPN.  This value must be set in the same PDU of rttMplsVpnMonCtrlStatus.  This value must be set before setting any other parameter configuration of an Auto SAA L3 MPLS VPN
             	**type**\:  :py:class:`RttMplsVpnMonRttType <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMplsVpnMonRttType>`
+            
+            	**config**\: False
             
             .. attribute:: rttmplsvpnmonctrlvrfname
             
@@ -3770,6 +4229,8 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonctrltag
             
             	A string which is used by a managing application to identify the RTT target.  This string will be configured as rttMonCtrlAdminTag for all the operations configured by this Auto SAA L3 MPLS VPN.  The usage of this value in Auto SAA L3 MPLS VPN is same as rttMonCtrlAdminTag in RTT operation
@@ -3777,12 +4238,16 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonctrlthreshold
             
             	This object defines an administrative threshold limit.  This value will be configured as rttMonCtrlAdminThreshold for all the operations that will be configured by the current Auto SAA L3 MPLS VPN.  The usage of this value in Auto SAA L3 MPLS VPN is same as rttMonCtrlAdminThreshold
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -3793,6 +4258,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..604800000
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: rttmplsvpnmonctrlscaninterval
@@ -3801,6 +4268,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 1..70560
+            
+            	**config**\: False
             
             	**units**\: minutes
             
@@ -3811,12 +4280,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonctrlexp
             
             	This object represents the EXP value that needs to be put as precedence bit of an IP header
             	**type**\: int
             
             	**range:** 0..7
+            
+            	**config**\: False
             
             .. attribute:: rttmplsvpnmonctrlrequestsize
             
@@ -3825,6 +4298,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..16384
             
+            	**config**\: False
+            
             	**units**\: octets
             
             .. attribute:: rttmplsvpnmonctrlverifydata
@@ -3832,30 +4307,42 @@ class CISCORTTMONMIB(Entity):
             	When set to true, the resulting data in each RTT operation created by the current Auto SAA L3 MPLS VPN is compared with the expected data. This includes checking header information (if possible) and exact packet size.  Any mismatch will be recorded in the rttMonStatsCollectVerifyErrors object of each RTT operation created by the current Auto SAA L3 MPLS VPN
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonctrlstoragetype
             
             	The storage type of this conceptual row. When set to 'nonVolatile', this entry will be shown in 'show running' command and can be saved into Non\-volatile memory.  By Default the entry will not be saved into Non\-volatile memory.  This object can be set to either 'volatile' or 'nonVolatile'. Other values are not applicable for this conceptual row and are not supported
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             .. attribute:: rttmplsvpnmonctrlprobelist
             
             	This object holds the list of probes ID's that are created by the Auto SAA L3 MPLS VPN.  The probes will be specified in the following form. (a) Individual ID's with comma separated as 1,5,3. (b) Range form including hyphens with multiple ranges being     separated by comma as 1\-10,12\-34. (c) Mix of the above two forms as 1,2,4\-10,12,15,19\-25
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonctrlstatus
             
             	The status of the conceptual Auto SAA L3 MPLS VPN control row.  In order for this object to become active rttMplsVpnMonCtrlRttType,  rttMplsVpnMonCtrlVrfName and  rttMplsVpnMonSchedulePeriod objects must be defined. All other objects can assume default values.  If the object is set to 'createAndGo' rttMplsVpnMonCtrlRttType, rttMplsVpnMonCtrlVrfName and rttMplsVpnMonSchedulePeriod needs to be set along with rttMplsVpnMonCtrlStatus.  If the object is set to 'createAndWait' rttMplsVpnMonCtrlRttType and rttMplsVpnMonCtrlVrfName needs to be set along with rttMplsVpnMonCtrlStatus. rttMplsVpnMonSchedulePeriod needs to be specified before setting rttMplsVpnMonCtrlStatus to 'active'.  The following objects cannot be modified after creating the Auto SAA L3 MPLS VPN conceptual row.   \- rttMplsVpnMonCtrlRttType  \- rttMplsVpnMonCtrlVrfName  The following objects can be modified even after creating the Auto SAA L3 MPLS VPN conceptual row by setting this object to 'notInService'   \- All other writable objects in rttMplsVpnMonCtrlTable except    rttMplsVpnMonCtrlRttType and rttMplsVpnMonCtrlVrfName.  \- Objects in the rttMplsVpnMonTypeTable.  \- Objects in the rttMplsVpnMonScheduleTable.  The following objects can be modified as needed without setting this object to 'notInService' even after creating the Auto SAA L3 MPLS VPN conceptual row.   \- Objects in rttMplsVpnMonReactTable.  This object can be set to 'destroy' from any value at any time. When this object is set to 'destroy' it will stop and destroy all the probes created by this Auto SAA L3 MPLS VPN before destroying Auto SAA L3 MPLS VPN control row
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: rttmplsvpnmonctrllpd
             
             	When set to true, this implies that LPD (LSP Path Discovery) is enabled for this row.  The Auto SAA L3 MPLS VPN will find all the paths to each of the PE's and configure RTT operation with rttMonCtrlAdminRttType value as 'lspGroup'. The 'lspGroup' probe will walk through the list of set of information that uniquely identifies a path and send the LSP echo requests across them. All these LSP echo requests sent for 1st path, 2nd path etc. can be thought of as 'single probes' sent as a part of 'lspGroup'. These single probes will of type 'rttMplsVpnMonCtrlRttType'.  'lspGroup' probe is a superset of individual probes that will test multiple paths. For example Suppose there are 10 paths to the target. One 'lspGroup' probe will be created which will store all the information related to uniquely identify the 10 paths. When the 'lspGroup' probe will run it will sweep through the set of information for 1st path, 2nd path, 3rd path and so on till it has tested all the paths
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonctrllpdgrplist
             
             	This object holds the list of LPD Group IDs that are created for this Auto SAA L3 MPLS VPN row.  This object will be applicable only when LSP Path Discovery is enabled for this row.  The LPD Groups will be specified in the following form. (a) Individual ID's with comma separated as 1,5,3. (b) Range form including hyphens with multiple ranges being     separated by comma as 1\-10,12\-34. (c) Mix of the above two forms as 1,2,4\-10,12,15,19\-25
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmplsvpnmonctrllpdcomptime
             
@@ -3863,6 +4350,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 1..65535
+            
+            	**config**\: False
             
             	**units**\: minutes
             
@@ -3873,6 +4362,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..60000
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: rttmplsvpnmontypenumpackets
@@ -3882,6 +4373,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..60000
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmontypedestport
             
             	This object represents the target's port number to which the packets need to be sent.  This value will be configured as target port for all the operations that is going to be configured   The usage of this value is same as rttMonEchoAdminTargetPort in RTT operation. This object is applicable to jitter type.  If this object is not being set random port will be used as destination port
@@ -3889,10 +4382,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..65536
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmontypesecfreqtype
             
             	This object specifies the reaction type for which the rttMplsVpnMonTypeSecFreqValue should be applied.  The Value 'timeout' will cause secondary frequency to be set for frequency on timeout condition.  The Value 'connectionLoss' will cause secondary frequency to be set for frequency on connectionloss condition.  The Value 'both' will cause secondary frequency to be set for frequency on either of timeout/connectionloss condition.  Notifications must be configured on corresponding reaction type in order to rttMplsVpnMonTypeSecFreqValue get effect.  When LSP Path Discovery is enabled for this row the following rttMplsVpnMonReactLpdNotifyType notifications must be configured in order to rttMplsVpnMonTypeSecFreqValue get effect.   \- 'lpdGroupStatus' or 'lpdAll'.  Since the Frequency of the operation changes the stats will be collected in new bucket.  If any of the reaction type (timeout/connectionLoss) occurred for an operation configured by this Auto SAA L3 MPLS VPN and the following conditions are satisfied, the frequency of the operation will be changed to rttMplsVpnMonTypeSecFreqValue.    1) rttMplsVpnMonTypeSecFreqType is set for a reaction type   (timeout/connectionLoss).   2) A notification is configured for the same reaction type   (timeout/connectionLoss).  When LSP Path Discovery is enabled for this row, if any of the reaction type (timeout/connectionLoss) occurred for 'single probes' configured by this Auto SAA L3 MPLS VPN and the following conditions are satisfied, the secondary frequency rttMplsVpnMonTypeSecFreqValue will be applied to the 'lspGroup' probe.    1) rttMplsVpnMonTypeSecFreqType is set for a reaction type   (timeout/connectionLoss/both).   2) rttMplsVpnMonReactLpdNotifyType object must be set to   value of 'lpdGroupStatus' or 'lpdAll'.  The frequency of the individual operations will be restored to original frequency once the trap is sent
             	**type**\:  :py:class:`RttMplsVpnMonTypeSecFreqType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry.RttMplsVpnMonTypeSecFreqType>`
+            
+            	**config**\: False
             
             .. attribute:: rttmplsvpnmontypesecfreqvalue
             
@@ -3901,15 +4398,21 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..604800
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmontypelspselector
             
             	A string which specifies the address of the local host (127.X.X.X).  This object will be used as lsp\-selector in MPLS RTT operations configured by the Auto SAA L3 MPLS VPN.  When LSP Path Discovery is enabled for the row, this object will be used to indicate the base LSP selector value to be used in the LSP Path Discovery.  This value of this object is significant in MPLS load balancing scenario. This value will be used as one of the parameter in that load balancing
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmontypelspreplymode
             
             	This object specifies the reply mode for the LSP Echo requests originated by the operations configured by the Auto SAA L3 MPLS VPN.  This object is currently used by echo and pathEcho
             	**type**\:  :py:class:`RttMonLSPPingReplyMode <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonLSPPingReplyMode>`
+            
+            	**config**\: False
             
             .. attribute:: rttmplsvpnmontypelspttl
             
@@ -3918,12 +4421,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmontypelspreplydscp
             
             	This object specifies the DSCP value to be set in the IP header of the LSP echo reply packet. The value of this object will be in range of DiffServ codepoint values between 0 to 63.  Note\: This object cannot be set to value of 255. This default value specifies that DSCP is not set for this row
             	**type**\: int
             
             	**range:** 0..63 \| 255..None
+            
+            	**config**\: False
             
             .. attribute:: rttmplsvpnmontypelpdmaxsessions
             
@@ -3932,12 +4439,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..15
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmontypelpdsesstimeout
             
             	This object specifies the maximum allowed duration of a particular tree trace request.  If no response is received in configured time the request will be considered a failure
             	**type**\: int
             
             	**range:** 1..900
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -3948,6 +4459,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..604800000
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: rttmplsvpnmontypelpdechointerval
@@ -3957,6 +4470,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..3600000
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: rttmplsvpnmontypelpdechonullshim
@@ -3964,12 +4479,16 @@ class CISCORTTMONMIB(Entity):
             	This object specifies if the explicit\-null label is added to LSP echo requests which are sent while performing the LSP Path Discovery.  If set to TRUE all the probes configured as part of this control row will send the LSP echo requests with the explicit\-null label added
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmontypelpdscanperiod
             
             	This object specifies the scan time for the completion of LSP Path Discovery for all the PEs discovered for this control row. If the scan period is exceeded on completion of the LSP Path Discovery for all the PEs, the next discovery will start immediately else it will wait till expiry of scan period.  For example\: If the value is set to 30 minutes then on start of the LSP Path Discovery a timestamp will be taken say T1. At the end of the tree trace discovery one more timestamp will be taken again say T2. If (T2\-T1) is greater than 30, the next discovery will start immediately else next discovery  will wait for [30 \- (T2\-T1)].  Note\: If the object is set to a special value of '0', it will force immediate start of the next discovery on all neighbours without any delay
             	**type**\: int
             
             	**range:** 0..7200
+            
+            	**config**\: False
             
             	**units**\: minutes
             
@@ -3980,6 +4499,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonschedulerttstarttime
             
             	This is the time when this conceptual row will activate. rttMplsVpnMonSchedulePeriod object must be specified before setting this object.  This is the value of MIB\-II's sysUpTime in the future. When sysUpTime equals this value this object will cause the activation of a conceptual Auto SAA L3 MPLS VPN row.  When an agent has the capability to determine date and time, the agent should store this object as DateAndTime. This allows the agent to be able to activate conceptual Auto SAA L3 MPLS VPN row at the intended time.  If this object has value as 1, this means start the operation now itself. Value of 0 puts the operation in pending state
@@ -3987,12 +4508,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonscheduleperiod
             
             	Specifies the time duration over which all the probes created by the current Auto SAA L3 MPLS VPN have to be scheduled.  This object must be set first before setting rttMplsVpnMonScheduleRttStartTime
             	**type**\: int
             
             	**range:** 1..604800
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -4003,6 +4528,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..604800
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: rttmplsvpnmonreactconnectionenable
@@ -4010,15 +4537,21 @@ class CISCORTTMONMIB(Entity):
             	The value set for this will be applied as rttMonReactAdminConnectionEnable for individual probes created by the Auto SAA L3 MPLS VPN.  When this object is set to true, rttMonReactVar for individual probes created by the Auto SAA L3 MPLS VPN will be set to 'connectionLoss(8)'
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonreacttimeoutenable
             
             	The value set for this will be applied as rttMonReactAdminTimeoutEnable for individual probes created by the Auto SAA L3 MPLS VPN.  When this object is set to true, rttMonReactVar for individual probes created by the Auto SAA L3 MPLS VPN will be set to 'timeout(7)'
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonreactthresholdtype
             
             	The value corresponding to this object will be applied as rttMonReactAdminThresholdType for individual probes created by the Auto SAA L3 MPLS VPN.  The value corresponding to this object will be applied as rttMonReactThresholdType for individual probes created by the Auto SAA L3 MPLS VPN
             	**type**\:  :py:class:`RttMplsVpnMonReactThresholdType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry.RttMplsVpnMonReactThresholdType>`
+            
+            	**config**\: False
             
             .. attribute:: rttmplsvpnmonreactthresholdcount
             
@@ -4027,15 +4560,21 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..16
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonreactactiontype
             
             	The value corresponding to this object will be applied as rttMonReactAdminActionType of individual probes created by this Auto SAA L3 MPLS VPN.  The value corresponding to this object will be applied as rttMonReactActionType of individual probes created by this Auto SAA L3 MPLS VPN
             	**type**\:  :py:class:`RttMplsVpnMonReactActionType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry.RttMplsVpnMonReactActionType>`
             
+            	**config**\: False
+            
             .. attribute:: rttmplsvpnmonreactlpdnotifytype
             
             	This object specifies the type of LPD notifications to be generated for the current Auto SAA L3 MPLS VPN control row.  This object will be applicable only when LSP Path Discovery is enabled for this row.  There are two types of notifications supported for the LPD \- (a) rttMonLpdDiscoveryNotification \- This notification will     be sent on the failure of LSP Path Discovery to the     particular PE. Reversal of the failure will also result in     sending the notification. (b) rttMonLpdGrpStatusNotification \- Individual probes in an LPD     group will not generate notifications independently but will     be generating dependent on the state of the group. Any     individual probe can initiate the generation of a     notification, dependent on the state of the group.     Notifications are only generated if the failure/restoration     of an individual probe causes the state of the group to     change.  The Value 'none' will not cause any notifications to be sent.  The Value 'lpdPathDiscovery' will cause (a) to be sent.  The Value 'lpdGroupStatus' will cause (b) to be sent.  The Value 'lpdAll' will cause both (a) and (b) to sent depending on the failure conditions
             	**type**\:  :py:class:`RttMplsVpnMonReactLpdNotifyType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMplsVpnMonCtrlTable.RttMplsVpnMonCtrlEntry.RttMplsVpnMonReactLpdNotifyType>`
+            
+            	**config**\: False
             
             .. attribute:: rttmplsvpnmonreactlpdretrycount
             
@@ -4043,6 +4582,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 1..16
+            
+            	**config**\: False
             
             	**units**\: attempts
             
@@ -4378,6 +4919,8 @@ class CISCORTTMONMIB(Entity):
 
 
 
+
+
     class RttMonReactTable(Entity):
         """
         A table that contains the reaction configurations. Each
@@ -4396,6 +4939,8 @@ class CISCORTTMONMIB(Entity):
         
         	A base list of objects that define a conceptual reaction configuration control row
         	**type**\: list of  		 :py:class:`RttMonReactEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTable.RttMonReactEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4438,6 +4983,8 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonreactconfigindex  (key)
             
             	This object along with rttMonCtrlAdminIndex identifies a particular reaction\-configuration for a particular probe. This is a pseudo\-random number selected by the management station when creating a row via the rttMonReactStatus. If the pseudo\-random number is already in use an 'inconsistentValue' return code will be returned when set operation is attempted
@@ -4445,20 +4992,28 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonreactvar
             
             	This object specifies the type of reaction configured for a probe.  The reaction types 'rtt', 'timeout', and 'connectionLoss'  can be configured for all probe types.  The reaction type 'verifyError' can be configured for all  probe types except RTP probe type.  The reaction types 'jitterSDAvg', 'jitterDSAvg', 'jitterAvg',  'packetLateArrival', 'packetOutOfSequence',  'maxOfPositiveSD', 'maxOfNegativeSD', 'maxOfPositiveDS' and 'maxOfNegativeDS' can be configured for UDP jitter  and ICMP jitter probe types only.  The reaction types 'mos' and 'icpif' can be configured  for UDP jitter and ICMP jitter probe types only.  The reaction types 'packetLossDS', 'packetLossSD' and  'packetMIA' can be configured for UDP jitter, and  RTP probe types only.  The reaction types 'iaJitterDS', 'frameLossDS', 'mosLQDS',  'mosCQDS', 'rFactorDS', 'iaJitterSD', 'rFactorSD', 'mosCQSD'  can be configured for RTP probe type only.  The reaction types 'successivePacketLoss', 'maxOfLatencyDS',  'maxOfLatencySD', 'latencyDSAvg', 'latencySDAvg' and  'packetLoss' can be configured for ICMP jitter probe  type only
             	**type**\:  :py:class:`RttMonReactVar <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMonReactVar>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonreactthresholdtype
             
             	This object specifies the conditions under which the notification ( trap ) is sent.  never       \- rttMonReactOccurred is never set  immediate   \- rttMonReactOccurred is set to 'true' when the               value of parameter for which reaction is               configured ( e.g rtt, jitterAvg, packetLossSD,               mos etc ) violates the threshold.               Conversely, rttMonReactOccurred is set to 'false'               when the parameter ( e.g rtt, jitterAvg,               packetLossSD, mos etc ) is below the threshold               limits.  consecutive \- rttMonReactOccurred is set to true when the value               of parameter for which reaction is configured               ( e.g rtt, jitterAvg, packetLossSD, mos etc )               violates the threshold for configured consecutive               times.               Conversely, rttMonReactOccurred is set to false               when the value of parameter ( e.g rtt, jitterAvg               packetLossSD, mos etc ) is below the threshold               limits for the same number of consecutive               operations.  xOfy        \- rttMonReactOccurred is set to true when x               ( as specified by rttMonReactThresholdCountX )               out of the last y ( as specified by               rttMonReacthresholdCountY ) times the value of               parameter for which the reaction is configured               ( e.g rtt, jitterAvg, packetLossSD, mos etc )               violates the threshold.               Conversely, it is set to false when x, out of the               last y times the value of parameter               ( e.g rtt, jitterAvg, packetLossSD, mos ) is               below the threshold limits.               NOTE\: When x > y, the probe will never                     generate a reaction.  average    \- rttMonReactOccurred is set to true when the              average ( rttMonReactThresholdCountX times )              value of parameter for which reaction is               configured ( e.g rtt, jitterAvg, packetLossSD,              mos etc ) violates the threshold condition.              Conversely, it is set to false when the              average value of parameter ( e.g rtt, jitterAvg,              packetLossSD, mos etc ) is below the threshold              limits.  If this value is changed by a management station, rttMonReactOccurred is set to false, but no reaction is generated if the prior value of rttMonReactOccurred was true
             	**type**\:  :py:class:`RttMonReactThresholdType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTable.RttMonReactEntry.RttMonReactThresholdType>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonreactactiontype
             
             	Specifies what type(s), if any, of reaction(s) to generate if an operation violates one of the watched ( reaction\-configuration ) conditions\:  none               \- no reaction is generated trapOnly           \- a trap is generated triggerOnly        \- all trigger actions defined for this                      entry are initiated trapAndTrigger     \- both a trap and all trigger actions                      are initiated A trigger action is defined via the rttMonReactTriggerAdminTable
             	**type**\:  :py:class:`RttMonReactActionType <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonReactTable.RttMonReactEntry.RttMonReactActionType>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonreactthresholdrising
             
@@ -4467,12 +5022,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonreactthresholdfalling
             
             	This object defines a lower threshold limit. If the value ( e.g rtt, jitterAvg, packetLossSD etc ) falls below this limit and if the conditions specified in rttMonReactThresholdType are satisfied, a trap is generated.  Default value of rttMonReactThresholdFalling    'rtt' is 3000    'jitterAvg' is 100.    'jitterSDAvg' is 100.    'jitterDSAvg' 100.    'packetLossSD' is 10000.    'packetLossDS' is 10000.    'mos' is 500.    'icpif' is 93.    'packetMIA' is 10000.    'packetLateArrival' is 10000.    'packetOutOfSequence' is 10000.    'maxOfPositiveSD' is 10000.    'maxOfNegativeSD' is 10000.    'maxOfPositiveDS' is 10000.    'maxOfNegativeDS' is 10000.    'iaJitterDS' is 20.    'frameLossDS' is 10000.    'mosLQDS' is 310.    'mosCQDS' is 310.    'rFactorDS' is 60.    'successivePacketLoss' is 1000.    'maxOfLatencyDS' is 3000.    'maxOfLatencySD' is 3000.    'latencyDSAvg' is 3000.    'latencySDAvg' is 3000.    'packetLoss' is 10000.    'iaJitterSD' is 20.    'mosCQSD' is 310.    'rFactorSD' is 60.  This object is not applicable if the rttMonReactVar is 'timeout', 'connectionLoss' or 'verifyError'. For 'timeout', 'connectionLoss' and 'verifyError' default value of rttMonReactThresholdFalling will be 0
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: rttmonreactthresholdcountx
             
@@ -4481,12 +5040,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..16
             
+            	**config**\: False
+            
             .. attribute:: rttmonreactthresholdcounty
             
             	This object defines the 'y' value of the xOfy condition if rttMonReactThresholdType is 'xOfy'.  For other values of rttMonReactThresholdType, this object is not applicable
             	**type**\: int
             
             	**range:** 1..16
+            
+            	**config**\: False
             
             .. attribute:: rttmonreactvalue
             
@@ -4495,15 +5058,21 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonreactoccurred
             
             	This object is set to true when the configured threshold condition is violated as defined by rttMonReactThresholdType. It will be again set to 'false' if the condition reverses.  This object is set to true in the following conditions\:  \- rttMonReactVar is set to timeout and    rttMonCtrlOperTimeoutOccurred set to true.  \- rttMonReactVar is set to connectionLoss and    rttMonCtrlOperConnectionLostOccurred set to true.  \- rttMonReactVar is set to verifyError and    rttMonCtrlOperVerifyErrorOccurred is set to true.  \- For all other values of rttMonReactVar, if the    corresponding value exceeds the configured    rttMonReactThresholdRising.   This object is set to false in the following conditions\:  \- rttMonReactVar is set to timeout and    rttMonCtrlOperTimeoutOccurred set to false.  \- rttMonReactVar is set to connectionLoss and     rttMonCtrlOperConnectionLostOccurred set to false.  \- rttMonReactVar is set to verifyError and    rttMonCtrlOperVerifyErrorOccurred is set to false.  \- For all other values of rttMonReactVar, if the    corresponding value fall below the configured     rttMonReactThresholdFalling.  When the RttMonRttType is 'pathEcho' or 'pathJitter', this object is applied only to the  rttMonEchoAdminTargetAddress and not to intermediate hops to the Target
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmonreactstatus
             
             	This objects indicates the status of the conceptual RTT Reaction Control Row.Only CreateAndGo and destroy  operations are permitted on the row.  When this object moves to active state, the conceptual row having the Reaction configuration for the probe is monitored and the notifications are generated when the threshold violation takes place.  In order for this object to become active rttMonReactVar must be defined. All other objects assume the default value.  This object can be set to 'destroy' from any value at any time. When this object is set to 'destroy' no reaction configuration for the probes would exist. The reaction configuration for the probe is removed
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -4721,6 +5290,8 @@ class CISCORTTMONMIB(Entity):
 
 
 
+
+
     class RttMonGeneratedOperTable(Entity):
         """
         This table contains information about the generated
@@ -4734,6 +5305,8 @@ class CISCORTTMONMIB(Entity):
         
         	An entry in the Generated Oper table corresponding to a child or generated operation as part of a parent IP SLA operation
         	**type**\: list of  		 :py:class:`RttMonGeneratedOperEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonGeneratedOperTable.RttMonGeneratedOperEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4777,10 +5350,14 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmongeneratedoperrespipaddrtype  (key)
             
             	The type of Internet address, IPv4 or IPv6, of a responder for an IP SLA operation
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: rttmongeneratedoperrespipaddr  (key)
             
@@ -4789,12 +5366,16 @@ class CISCORTTMONMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: rttmongeneratedoperctrladminindex
             
             	This is a pseudo\-random number, auto\-generated based to identify a child operation based on a parent  operation started by the management station,when  creating a row via the rttMonCtrlAdminStatus object
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -4828,6 +5409,8 @@ class CISCORTTMONMIB(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCORTTMONMIB.RttMonGeneratedOperTable.RttMonGeneratedOperEntry, ['rttmonctrladminindex', 'rttmongeneratedoperrespipaddrtype', 'rttmongeneratedoperrespipaddr', 'rttmongeneratedoperctrladminindex'], name, value)
+
+
 
 
     class RttMonStatsCaptureTable(Entity):
@@ -4892,6 +5475,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects which accumulate the results of a series of RTT operations over a 60 minute time period.  The statistics capture table is a rollover table.  When rttMonStatsCaptureStartTimeIndex groups exceeds the  rttMonStatisticsAdminNumHourGroups value, the oldest  corresponding hourly group will be deleted and will be  replaced with the new rttMonStatsCaptureStartTimeIndex hourly group.    All other indices will fill to there maximum size.   The statistics capture table has five indices.  Each described as follows\:    \-  The first index correlates its entries to a       conceptual RTT control row via the        rttMonCtrlAdminIndex object.   \-  The second index is a rollover group and it        uniquely identifies a 60 minute group. (The        rttMonStatsCaptureStartTimeIndex object       is used to make this value unique.)   \-  When the RttMonRttType is 'pathEcho', the third        index uniquely identifies the paths in a        statistics period.  (The period is 60       minutes.)  A path will be created for each       unique path through the network.  Note\:  A       path that does not contain the target is       considered a different path than one which       uses the exact same path, but does contain the       target.  For all other values of RttMonRttType       this index will be one.   \-  When the RttMonRttType is 'pathEcho', the fourth        index uniquely identifies the hops in each path,        as grouped by the third index.  This index does        imply the order of the hops along the path to a        target.  For all other values of RttMonRttType       this index will be one.   \-  The fifth index uniquely creates a statistical       distribution bucket
         	**type**\: list of  		 :py:class:`RttMonStatsCaptureEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry>`
+        
+        	**config**\: False
         
         
 
@@ -4972,12 +5557,16 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscapturestarttimeindex  (key)
             
             	The time when this row was created.  This object is the second index of the  rttMonStatsCaptureTable Table.  The the number of rttMonStatsCaptureStartTimeIndex   groups exceeds the rttMonStatisticsAdminNumHourGroups value, the oldest rttMonStatsCaptureStartTimeIndex  group will be removed and replaced with the new entry.  When the RttMonRttType is 'pathEcho', this object also  uniquely defines a group of paths.  See the  rttMonStatsCaptureEntry object
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonstatscapturepathindex  (key)
             
@@ -4986,12 +5575,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..128
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscapturehopindex  (key)
             
             	When the RttMonRttType is 'pathEcho', this object uniquely defines a hop for a given value of  rttMonStatsCapturePathIndex.  For all other values of RttMonRttType, this object will be one.  For a particular value of rttMonStatsCapturePathIndex, the agent assigns the first instance of a hop a value of 1, then second instance a value of 2, and so on.  The sequence keeps incrementing until the number of  hops equals rttMonStatisticsAdminNumHops value, then no new hops are kept for the current rttMonStatsCapturePathIndex.  This value directly represents a hop along the path to a target, thus we can only support 30 hops.  This value shows the order along the path to a target
             	**type**\: int
             
             	**range:** 1..30
+            
+            	**config**\: False
             
             .. attribute:: rttmonstatscapturedistindex  (key)
             
@@ -5000,12 +5593,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..20
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscapturecompletions
             
             	The number of RTT operations that have completed without an error and without timing out.  This object has the special behavior as defined by the ROLLOVER NOTE in the DESCRIPTION of the ciscoRttMonMIB object
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: rttmonstatscaptureoverthresholds
             
@@ -5014,12 +5611,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscapturesumcompletiontime
             
             	The accumulated completion time of RTT operations which complete successfully
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -5030,6 +5631,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscapturesumcompletiontime2high
             
             	The high order 32 bits of the accumulated squares of completion times (in milliseconds) of RTT  operations which complete successfully.  See the rttMonStatsCaptureSumCompletionTime2Low object for a definition of Low/High Order
@@ -5037,12 +5640,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscapturecompletiontimemax
             
             	The maximum completion time of any RTT operation which completes successfully
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -5052,6 +5659,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -5105,6 +5714,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry, ['rttmonctrladminindex', 'rttmonstatscapturestarttimeindex', 'rttmonstatscapturepathindex', 'rttmonstatscapturehopindex', 'rttmonstatscapturedistindex', 'rttmonstatscapturecompletions', 'rttmonstatscaptureoverthresholds', 'rttmonstatscapturesumcompletiontime', 'rttmonstatscapturesumcompletiontime2low', 'rttmonstatscapturesumcompletiontime2high', 'rttmonstatscapturecompletiontimemax', 'rttmonstatscapturecompletiontimemin'], name, value)
 
 
+
+
     class RttMonStatsCollectTable(Entity):
         """
         The statistics collection database.
@@ -5120,6 +5731,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects which accumulate the results of a series of RTT operations over a 60 minute time period.  This entry has the exact same behavior as the  rttMonStatsCaptureEntry, except it does not keep statistical distribution information.  For a complete entry description see the rttMonStatsCaptureEntry object
         	**type**\: list of  		 :py:class:`RttMonStatsCollectEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCollectTable.RttMonStatsCollectEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5169,6 +5782,8 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscapturestarttimeindex  (key)
             
             	
@@ -5177,6 +5792,8 @@ class CISCORTTMONMIB(Entity):
             	**range:** 0..4294967295
             
             	**refers to**\:  :py:class:`rttmonstatscapturestarttimeindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonstatscapturepathindex  (key)
             
@@ -5187,6 +5804,8 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonstatscapturepathindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscapturehopindex  (key)
             
             	
@@ -5196,12 +5815,16 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonstatscapturehopindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscollectnumdisconnects
             
             	When the RttMonRttType is 'echo' or pathEcho', this object represents the number of times that the target or  hop along the path to a target became disconnected.  For all other values of RttMonRttType, this object will remain zero.  For connectionless protocols this has no meaning, and will consequently remain 0.  When rttMonEchoAdminProtocol is one of snaRUEcho, this is the number of times that an LU\-SSCP session was lost,  for snaLU0EchoAppl, snaLU2EchoAppl, snaLu62Echo, and for  snaLU62EchoAppl, this is the number of times that LU\-LU  session was lost.  Since this error does not indicate any information about the failure of an RTT operation, no response time  information for this instance will be recorded in the  appropriate objects.  If this error occurs and the rttMonStatsCapturePathIndex  cannot be determined, this error will be accumulated in  the source to target path, that will always exist.  This object has the special behavior as defined by the ROLLOVER NOTE in the DESCRIPTION of the ciscoRttMonMIB object
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: rttmonstatscollecttimeouts
             
@@ -5210,12 +5833,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscollectbusies
             
             	The number of occasions when a RTT operation could not be initiated because a previous RTT operation has not  been completed.  When the RttMonRttType is 'pathEcho' this can occur for both connection oriented protocols and connectionless protocols.  When the RttMonRttType is 'echo' this can only occur for connection oriented protocols such as SNA.   When the initiation of a new operation cannot be started, this object will be incremented and the operation will be omitted.  (The next operation will start at the next  Frequency).  Since, a RTT operation was never initiated,  the completion time of these operations is not  accumulated, nor do they increment  rttMonStatsCaptureCompletions.  When the RttMonRttType is 'pathEcho', and this error  occurs and the rttMonStatsCapturePathIndex cannot be  determined, this error will be accumulated in the source  to target path, that will always exist.  This object has the special behavior as defined by the ROLLOVER NOTE in the DESCRIPTION of the ciscoRttMonMIB object
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: rttmonstatscollectnoconnections
             
@@ -5224,12 +5851,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscollectdrops
             
             	The number of occasions when a RTT operation could not be initiated because some necessary internal resource  (for example memory, or SNA subsystem) was not available, or the operation completion could not be recognized.  Since a RTT operation was never initiated or was not recognized, the completion time of these operations  are not accumulated, nor do they increment  rttMonStatsCaptureCompletions (in the expected  Distribution Bucket).  When the RttMonRttType is 'pathEcho', and this error  occurs and the rttMonStatsCapturePathIndex cannot be  determined, this error will be accumulated in the  source to target path, that will always exist.  This object has the special behavior as defined by the ROLLOVER NOTE in the DESCRIPTION of the ciscoRttMonMIB object
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: rttmonstatscollectsequenceerrors
             
@@ -5238,6 +5869,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscollectverifyerrors
             
             	The number of RTT operation completions received with data that does not compare with the expected data.  The  completion time of these operations are not accumulated,  nor do they increment rttMonStatsCaptureCompletions (in the expected Distribution Bucket).  This object has the special behavior as defined by the ROLLOVER NOTE in the DESCRIPTION of the ciscoRttMonMIB object
@@ -5245,10 +5878,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscollectaddress
             
             	This object only applies when the RttMonRttType is 'echo', 'pathEcho', 'dlsw', 'udpEcho', 'tcpConnect'.   For all other values of the RttMonRttType, this will be  null.   The object is a string which specifies the address of  the target for the this RTT operation.  This address will be the address of the hop along the  path to the rttMonEchoAdminTargetAddress address,  including rttMonEchoAdminTargetAddress address, or just  the rttMonEchoAdminTargetAddress address, when the  path information is not collected.  This behavior is defined by the rttMonCtrlAdminRttType object.  The interpretation of this string depends on the type  of RTT operation selected, as specified by the  rttMonEchoAdminProtocol object
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmoncontrolenableerrors
             
@@ -5256,6 +5893,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -5266,6 +5905,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: rttmonstatscollectctrlenerrors
@@ -5275,12 +5916,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscollectretrieveerrors
             
             	The object is same as rttMonStatsRetrieveErrors, with corrected name for consistency.  The number of occasions when stats retrieval request failed. Currently it is used for multicast operation type.  This object has the special behavior as defined by the ROLLOVER NOTE in the DESCRIPTION of the ciscoRttMonMIB object
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             
 
@@ -5340,6 +5985,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonStatsCollectTable.RttMonStatsCollectEntry, ['rttmonctrladminindex', 'rttmonstatscapturestarttimeindex', 'rttmonstatscapturepathindex', 'rttmonstatscapturehopindex', 'rttmonstatscollectnumdisconnects', 'rttmonstatscollecttimeouts', 'rttmonstatscollectbusies', 'rttmonstatscollectnoconnections', 'rttmonstatscollectdrops', 'rttmonstatscollectsequenceerrors', 'rttmonstatscollectverifyerrors', 'rttmonstatscollectaddress', 'rttmoncontrolenableerrors', 'rttmonstatsretrieveerrors', 'rttmonstatscollectctrlenerrors', 'rttmonstatscollectretrieveerrors'], name, value)
 
 
+
+
     class RttMonStatsTotalsTable(Entity):
         """
         The statistics totals database.
@@ -5355,6 +6002,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects which accumulate the results of a series of RTT operations over a 60 minute time period.  This entry has the exact same behavior as the  rttMonStatsCaptureEntry, except it only keeps 60 minute group values.  For a complete entry description see the rttMonStatsCaptureEntry object
         	**type**\: list of  		 :py:class:`RttMonStatsTotalsEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsTotalsTable.RttMonStatsTotalsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5404,6 +6053,8 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatscapturestarttimeindex  (key)
             
             	
@@ -5413,6 +6064,8 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonstatscapturestarttimeindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonStatsCaptureTable.RttMonStatsCaptureEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatstotalselapsedtime
             
             	The length of time since this conceptual statistics row was created
@@ -5420,12 +6073,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonstatstotalsinitiations
             
             	The number of RTT operations that have been initiated.  This number includes all RTT operations which succeed  or fail for whatever reason.  This object has the special behavior as defined by the ROLLOVER NOTE in the DESCRIPTION of the ciscoRttMonMIB object
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             
 
@@ -5461,6 +6118,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonStatsTotalsTable.RttMonStatsTotalsEntry, ['rttmonctrladminindex', 'rttmonstatscapturestarttimeindex', 'rttmonstatstotalselapsedtime', 'rttmonstatstotalsinitiations'], name, value)
 
 
+
+
     class RttMonHTTPStatsTable(Entity):
         """
         The HTTP statistics collection database.
@@ -5478,6 +6137,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects which accumulate the results of a series of RTT operations over a 60 minute time period.  This entry is created only if the rttMonCtrlAdminRttType  is http. The operation of this table is same as that of rttMonStatsCaptureTable
         	**type**\: list of  		 :py:class:`RttMonHTTPStatsEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonHTTPStatsTable.RttMonHTTPStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5524,12 +6185,16 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonhttpstatsstarttimeindex  (key)
             
             	This is the time when this row was created. This index uniquely identifies a HTTP Stats row in the  rttMonHTTPStatsTable
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonhttpstatscompletions
             
@@ -5538,12 +6203,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonhttpstatsoverthresholds
             
             	The number of HTTP operations that violate threshold
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonhttpstatsrttsum
             
@@ -5552,12 +6221,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonhttpstatsrttsum2low
             
             	The sum of squares of the RTT's that are successfully measured (low order 32 bits)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonhttpstatsrttsum2high
             
@@ -5566,6 +6239,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonhttpstatsrttmin
             
             	The minimum RTT taken to perform HTTP operation
@@ -5573,12 +6248,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonhttpstatsrttmax
             
             	The maximum RTT taken to perform HTTP operation
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -5589,12 +6268,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonhttpstatstcpconnectrttsum
             
             	The sum of RTT taken to connect to the HTTP server
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonhttpstatstransactionrttsum
             
@@ -5603,12 +6286,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonhttpstatsmessagebodyoctetssum
             
             	The sum of the size of the message body received as a response to the HTTP request
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonhttpstatsdnsservertimeout
             
@@ -5617,12 +6304,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonhttpstatstcpconnecttimeout
             
             	The number of requests that could not connect to the the HTTP Server
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonhttpstatstransactiontimeout
             
@@ -5631,12 +6322,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonhttpstatsdnsqueryerror
             
             	The number of requests that had DNS Query errors
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonhttpstatshttperror
             
@@ -5645,6 +6340,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonhttpstatserror
             
             	The number of occasions when a HTTP operation could not be initiated because an internal error
@@ -5652,12 +6349,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonhttpstatsbusies
             
             	The number of occasions when an HTTP operation could not be initiated because a previous HTTP operation has not been completed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -5725,6 +6426,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonHTTPStatsTable.RttMonHTTPStatsEntry, ['rttmonctrladminindex', 'rttmonhttpstatsstarttimeindex', 'rttmonhttpstatscompletions', 'rttmonhttpstatsoverthresholds', 'rttmonhttpstatsrttsum', 'rttmonhttpstatsrttsum2low', 'rttmonhttpstatsrttsum2high', 'rttmonhttpstatsrttmin', 'rttmonhttpstatsrttmax', 'rttmonhttpstatsdnsrttsum', 'rttmonhttpstatstcpconnectrttsum', 'rttmonhttpstatstransactionrttsum', 'rttmonhttpstatsmessagebodyoctetssum', 'rttmonhttpstatsdnsservertimeout', 'rttmonhttpstatstcpconnecttimeout', 'rttmonhttpstatstransactiontimeout', 'rttmonhttpstatsdnsqueryerror', 'rttmonhttpstatshttperror', 'rttmonhttpstatserror', 'rttmonhttpstatsbusies'], name, value)
 
 
+
+
     class RttMonJitterStatsTable(Entity):
         """
         The Jitter statistics collection database.
@@ -5742,6 +6445,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects which accumulate the results of a series of RTT operations over a 60 minute time period.  This entry is created only if the rttMonCtrlAdminRttType  is jitter. The operation of this table is same as that of rttMonStatsCaptureTable
         	**type**\: list of  		 :py:class:`RttMonJitterStatsEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonJitterStatsTable.RttMonJitterStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -5788,12 +6493,16 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsstarttimeindex  (key)
             
             	The time when this row was created
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatscompletions
             
@@ -5802,12 +6511,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsoverthresholds
             
             	The number of jitter operations that violate threshold
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsnumofrtt
             
@@ -5816,12 +6529,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsrttsum
             
             	The sum of RTT's that are successfully measured (low order 32 bits). The high order 32 bits are stored in rttMonJitterStatsRTTSumHigh
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsrttsum2low
             
@@ -5830,12 +6547,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsrttsum2high
             
             	The sum of squares of RTT's that are successfully measured (high order 32 bits)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsrttmin
             
@@ -5844,12 +6565,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsrttmax
             
             	The maximum of RTT's that were successfully measured
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsminofpositivessd
             
@@ -5858,12 +6583,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsmaxofpositivessd
             
             	The maximum of absolute values of all positive jitter values from packets sent from source to destination
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsnumofpositivessd
             
@@ -5872,12 +6601,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatssumofpositivessd
             
             	The sum of all positive jitter values from packets sent from source to destination
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatssum2positivessdlow
             
@@ -5886,12 +6619,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatssum2positivessdhigh
             
             	The sum of square of RTT's of all positive jitter values from packets sent from source to destination (high order 32 bits)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsminofnegativessd
             
@@ -5900,12 +6637,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsmaxofnegativessd
             
             	The maximum of all negative jitter values from packets sent from source to destination
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsnumofnegativessd
             
@@ -5914,12 +6655,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatssumofnegativessd
             
             	The sum of RTT's of all negative jitter values from packets sent from source to destination
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatssum2negativessdlow
             
@@ -5928,12 +6673,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatssum2negativessdhigh
             
             	The sum of square of RTT's of all negative jitter values from packets sent from source to destination (high order 32 bits)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsminofpositivesds
             
@@ -5942,12 +6691,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsmaxofpositivesds
             
             	The maximum of all positive jitter values from packets sent from destination to source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsnumofpositivesds
             
@@ -5956,12 +6709,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatssumofpositivesds
             
             	The sum of RTT's of all positive jitter values from packets sent from destination to source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatssum2positivesdslow
             
@@ -5970,12 +6727,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatssum2positivesdshigh
             
             	The sum of squares of RTT's of all positive jitter values from packets sent from destination to source (high order 32 bits)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsminofnegativesds
             
@@ -5984,12 +6745,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsmaxofnegativesds
             
             	The maximum of all negative jitter values from packets sent from destination to source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsnumofnegativesds
             
@@ -5998,12 +6763,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatssumofnegativesds
             
             	The sum of RTT's of all negative jitter values from packets sent from destination to source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatssum2negativesdslow
             
@@ -6012,12 +6781,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatssum2negativesdshigh
             
             	The sum of squares of RTT's of all negative jitter values from packets sent from destination to source (high order 32 bits)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatspacketlosssd
             
@@ -6026,12 +6799,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatspacketlossds
             
             	The number of packets lost when sent from destination to source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatspacketoutofsequence
             
@@ -6040,12 +6817,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatspacketmia
             
             	The number of packets that are lost for which we cannot determine the direction
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatspacketlatearrival
             
@@ -6054,12 +6835,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatserror
             
             	The number of occasions when a jitter operation could not be initiated because an internal error
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsbusies
             
@@ -6068,12 +6853,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsowsumsd
             
             	The sum of one way times from source to destination (low order 32 bits). The high order 32 bits are stored in rttMonJitterStatsOWSumSDHigh
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsowsum2sdlow
             
@@ -6082,6 +6871,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsowsum2sdhigh
             
             	The sum of squares of one way times from source to destination (high order 32 bits)
@@ -6089,12 +6880,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsowminsd
             
             	The minimum of all one way times from source to destination. rttMonJitterStatsOWMinSD object is superseded by rttMonJitterStatsOWMinSDNew
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -6105,6 +6900,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: rttmonjitterstatsowsumds
@@ -6114,12 +6911,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsowsum2dslow
             
             	The sum of squares of one way times from destination to source (low order 32 bits)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsowsum2dshigh
             
@@ -6128,12 +6929,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsowminds
             
             	The minimum of all one way times from destination to source. rttMonJitterStatsOWMinDS object is superseded by rttMonJitterStatsOWMinDSNew
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -6144,6 +6949,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: deprecated
             
             .. attribute:: rttmonjitterstatsnumofow
@@ -6153,12 +6960,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsowminsdnew
             
             	The minimum of all one way times from source to destination. Replaces deprecated rttMonJitterStatsOWMinSD
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsowmaxsdnew
             
@@ -6167,12 +6978,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsowmindsnew
             
             	The minimum of all one way times from destination to source. Replaces deprecated rttMonJitterStatsOWMinDS
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsowmaxdsnew
             
@@ -6181,12 +6996,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsminofmos
             
             	The minimum of all MOS values for the jitter operations in hundreds.  This value will be 0 if   \- rttMonEchoAdminCodecType of the operation is notApplicable   \- the operation is not started   \- the operation is started but failed This value will be 1 for packet loss of 10% or more
             	**type**\: int
             
             	**range:** 0..None \| 100..500
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsmaxofmos
             
@@ -6195,12 +7014,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..None \| 100..500
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsminoficpif
             
             	The minimum of all ICPIF values for the jitter operations.  This value will be 93 for packet loss of 10% or more
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsmaxoficpif
             
@@ -6209,12 +7032,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsiajout
             
             	Interarrival Jitter (RFC 1889) at responder
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsiajin
             
@@ -6223,12 +7050,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsavgjitter
             
             	The average of positive and negative jitter values for SD and DS direction
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsavgjittersd
             
@@ -6237,12 +7068,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsavgjitterds
             
             	The average of positive and negative jitter values in DS direction
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsunsyncrts
             
@@ -6251,12 +7086,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsrttsumhigh
             
             	The sum of RTT's that are successfully measured (high order 32 bits). The low order 32 bits are  stored in rttMonJitterStatsRTTSum
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonjitterstatsowsumsdhigh
             
@@ -6265,12 +7104,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonjitterstatsowsumdshigh
             
             	The sum of one way times from destination to source (high order 32 bits). The low order 32 bits are stored in rttMonJitterStatsOWSumDS
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -6436,6 +7279,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonJitterStatsTable.RttMonJitterStatsEntry, ['rttmonctrladminindex', 'rttmonjitterstatsstarttimeindex', 'rttmonjitterstatscompletions', 'rttmonjitterstatsoverthresholds', 'rttmonjitterstatsnumofrtt', 'rttmonjitterstatsrttsum', 'rttmonjitterstatsrttsum2low', 'rttmonjitterstatsrttsum2high', 'rttmonjitterstatsrttmin', 'rttmonjitterstatsrttmax', 'rttmonjitterstatsminofpositivessd', 'rttmonjitterstatsmaxofpositivessd', 'rttmonjitterstatsnumofpositivessd', 'rttmonjitterstatssumofpositivessd', 'rttmonjitterstatssum2positivessdlow', 'rttmonjitterstatssum2positivessdhigh', 'rttmonjitterstatsminofnegativessd', 'rttmonjitterstatsmaxofnegativessd', 'rttmonjitterstatsnumofnegativessd', 'rttmonjitterstatssumofnegativessd', 'rttmonjitterstatssum2negativessdlow', 'rttmonjitterstatssum2negativessdhigh', 'rttmonjitterstatsminofpositivesds', 'rttmonjitterstatsmaxofpositivesds', 'rttmonjitterstatsnumofpositivesds', 'rttmonjitterstatssumofpositivesds', 'rttmonjitterstatssum2positivesdslow', 'rttmonjitterstatssum2positivesdshigh', 'rttmonjitterstatsminofnegativesds', 'rttmonjitterstatsmaxofnegativesds', 'rttmonjitterstatsnumofnegativesds', 'rttmonjitterstatssumofnegativesds', 'rttmonjitterstatssum2negativesdslow', 'rttmonjitterstatssum2negativesdshigh', 'rttmonjitterstatspacketlosssd', 'rttmonjitterstatspacketlossds', 'rttmonjitterstatspacketoutofsequence', 'rttmonjitterstatspacketmia', 'rttmonjitterstatspacketlatearrival', 'rttmonjitterstatserror', 'rttmonjitterstatsbusies', 'rttmonjitterstatsowsumsd', 'rttmonjitterstatsowsum2sdlow', 'rttmonjitterstatsowsum2sdhigh', 'rttmonjitterstatsowminsd', 'rttmonjitterstatsowmaxsd', 'rttmonjitterstatsowsumds', 'rttmonjitterstatsowsum2dslow', 'rttmonjitterstatsowsum2dshigh', 'rttmonjitterstatsowminds', 'rttmonjitterstatsowmaxds', 'rttmonjitterstatsnumofow', 'rttmonjitterstatsowminsdnew', 'rttmonjitterstatsowmaxsdnew', 'rttmonjitterstatsowmindsnew', 'rttmonjitterstatsowmaxdsnew', 'rttmonjitterstatsminofmos', 'rttmonjitterstatsmaxofmos', 'rttmonjitterstatsminoficpif', 'rttmonjitterstatsmaxoficpif', 'rttmonjitterstatsiajout', 'rttmonjitterstatsiajin', 'rttmonjitterstatsavgjitter', 'rttmonjitterstatsavgjittersd', 'rttmonjitterstatsavgjitterds', 'rttmonjitterstatsunsyncrts', 'rttmonjitterstatsrttsumhigh', 'rttmonjitterstatsowsumsdhigh', 'rttmonjitterstatsowsumdshigh'], name, value)
 
 
+
+
     class RttMonLpdGrpStatsTable(Entity):
         """
         The Auto SAA L3 MPLS VPN LPD Group Database.
@@ -6466,6 +7311,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects which accumulate the results of a set of RTT operations over a 60 minute time period.  The LPD group statistics table is a rollover table. When rttMonLpdGrpStatsStartTimeIndex groups exceeds the rttMplsVpnMonTypeLpdStatHours value, the oldest corresponding hourly group will be deleted and will be replaced with the new rttMonLpdGrpStatsStartTimeIndex hourly group.  The LPD group statistics table has two indices. Each described as follows\:  \- The first index correlates its entries to a LPD group via the    rttMonLpdGrpStatsGroupIndex object. \- The second index is a rollover group and it uniquely     identifies a 60 minute group. (The     rttMonLpdGrpStatsStartTimeIndex is used to make this value     unique.)
         	**type**\: list of  		 :py:class:`RttMonLpdGrpStatsEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLpdGrpStatsTable.RttMonLpdGrpStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -6522,6 +7369,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonlpdgrpstatsstarttimeindex  (key)
             
             	The time when this row was created.  This object is the second index of the rttMonLpdGrpStatsTable. When the number of rttMonLpdGrpStatsStartTimeIndex groups exceeds the rttMplsVpnMonTypeLpdStatHours value, the oldest rttMonLpdGrpStatsStartTimeIndex group will be removed and replaced with the new entry
@@ -6529,10 +7378,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlpdgrpstatstargetpe
             
             	The object is a string that specifies the address of the target PE for this LPD group
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonlpdgrpstatsnumofpass
             
@@ -6540,6 +7393,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: passes
             
@@ -6550,6 +7405,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**units**\: failures
             
             .. attribute:: rttmonlpdgrpstatsnumoftimeout
@@ -6558,6 +7415,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: timeouts
             
@@ -6568,6 +7427,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: rttmonlpdgrpstatsminrtt
@@ -6576,6 +7437,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -6586,6 +7449,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: rttmonlpdgrpstatsminnumpaths
@@ -6594,6 +7459,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: paths
             
@@ -6604,6 +7471,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             	**units**\: paths
             
             .. attribute:: rttmonlpdgrpstatslpdstarttime
@@ -6613,6 +7482,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: tenths of milliseconds
             
             .. attribute:: rttmonlpdgrpstatslpdfailoccurred
@@ -6620,10 +7491,14 @@ class CISCORTTMONMIB(Entity):
             	This object is set to true when the LSP Path Discovery to the target PE i.e. rttMonLpdGrpStatsTargetPE fails, and set to false when the LSP Path Discovery succeeds.  When this value changes and rttMplsVpnMonReactLpdNotifyType is set to 'lpdPathDiscovery' or 'lpdAll' a rttMonLpdDiscoveryNotification will be generated.  This object will be set to 'FALSE' on reset
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: rttmonlpdgrpstatslpdfailcause
             
             	This object identifies the cause of failure for the LSP Path Discovery last attempted. It will be only valid if rttMonLpdGrpStatsLPDFailOccurred is set to true.  This object will be set to 'unknown' on reset
             	**type**\:  :py:class:`RttMplsVpnMonLpdFailureSense <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMplsVpnMonLpdFailureSense>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonlpdgrpstatslpdcomptime
             
@@ -6632,12 +7507,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: rttmonlpdgrpstatsgroupstatus
             
             	This object identifies the LPD Group status.  When the LPD Group status changes and rttMplsVpnMonReactLpdNotifyType is set to 'lpdGroupStatus' or 'lpdAll' a rttMonLpdGrpStatusNotification will be generated.  When the LPD Group status value is 'unknown' or changes to 'unknown' this notification will not be generated.  When LSP Path Discovery is enabled for a particular row in rttMplsVpnMonCtrlTable, 'single probes' in the 'lspGroup' probe cannot generate notifications independently but will be generating depending on the state of the group. Notifications  are only generated if the failure/restoration of an individual probe causes the state of the LPD Group to change.  This object will be set to 'unknown' on reset
             	**type**\:  :py:class:`RttMplsVpnMonLpdGrpStatus <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttMplsVpnMonLpdGrpStatus>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonlpdgrpstatsgroupprobeindex
             
@@ -6646,6 +7525,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             	**units**\: identifier
             
             .. attribute:: rttmonlpdgrpstatspathids
@@ -6653,10 +7534,14 @@ class CISCORTTMONMIB(Entity):
             	A string which holds the list of information to uniquely identify the paths to the target PE. This information is used by the 'single probes' when testing the paths.  Following three parameters are needed to uniquely identify a  path   \- lsp\-selector (127.x.x.x)   \- outgoing\-interface (i/f)   \- label\-stack (s), if mutiple labels they will be colon (\:)     separated.  These parameters will be hyphen (\-) separated for a particular path. This set of information will be comma (,) separated for all the paths discovered as part of this LPD Group.  For example\: If there are 5 paths in the LPD group then this object will return all the identifier's to uniquely identify the path.  The output will look like '127.0.0.1\-Se3/0.1\-20\:18, 127.0.0.2\-Se3/0.1\-20,127.0.0.3\-Se3/0.1\-20,127.0.0.4\-Se3/0.1\-20, 127.0.0.5\-Se3/0.1\-20'.  This object will be set to '0' on reset
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rttmonlpdgrpstatsprobestatus
             
             	A string which holds the latest operation return code for all the set of 'single probes' which are part of the LPD group. The return codes will be comma separated and will follow the same sequence of probes as followed in 'rttMonLpdGrpStatsPathIds'. The latest operation return code will be mapped to 'up','down' or 'unkwown'.  'up' \- Probe state is up when the rttMonLatestRttOperSense value is 'ok'. 'down' \- Probe state is down when the rttMonLatestRttOperSense has value other then 'ok' and 'other'. 'unknown' \- Probe state is unkown when the rttMonLatestRttOperSense value is 'other'.  For example\: If there are 5 paths in the LPD group then this object output will look like 'ok,ok,ok,down,down'.  This object will be set to '0' on reset
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonlpdgrpstatsresettime
             
@@ -6664,6 +7549,8 @@ class CISCORTTMONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -6731,6 +7618,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonLpdGrpStatsTable.RttMonLpdGrpStatsEntry, ['rttmonlpdgrpstatsgroupindex', 'rttmonlpdgrpstatsstarttimeindex', 'rttmonlpdgrpstatstargetpe', 'rttmonlpdgrpstatsnumofpass', 'rttmonlpdgrpstatsnumoffail', 'rttmonlpdgrpstatsnumoftimeout', 'rttmonlpdgrpstatsavgrtt', 'rttmonlpdgrpstatsminrtt', 'rttmonlpdgrpstatsmaxrtt', 'rttmonlpdgrpstatsminnumpaths', 'rttmonlpdgrpstatsmaxnumpaths', 'rttmonlpdgrpstatslpdstarttime', 'rttmonlpdgrpstatslpdfailoccurred', 'rttmonlpdgrpstatslpdfailcause', 'rttmonlpdgrpstatslpdcomptime', 'rttmonlpdgrpstatsgroupstatus', 'rttmonlpdgrpstatsgroupprobeindex', 'rttmonlpdgrpstatspathids', 'rttmonlpdgrpstatsprobestatus', 'rttmonlpdgrpstatsresettime'], name, value)
 
 
+
+
     class RttMonHistoryCollectionTable(Entity):
         """
         The history collection database.
@@ -6757,6 +7646,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of history objects that are recorded for each RTT operation.  The history collection table has four indices.  Each  described as follows\:   \-  The first index correlates its entries to a        conceptual RTT control row via the        rttMonCtrlAdminIndex object.     \-  The second index uniquely identifies the results        of each 'life' as defined by the        rttMonCtrlOperRttLife object.     \-  The third index uniquely identifies the number of        buckets in a life.  A bucket will contain one        sample per bucket if the rttMonCtrlAdminRttType        object is set to any value       other than 'pathEcho'.  If the        rttMonCtrlAdminRttType object is set to        'pathEcho', a bucket will contain one sample per        hop along a path to the target (including the        target).     \-  The fourth index uniquely identifies the number of        samples in a bucket.   Again, if the        rttMonCtrlAdminRttType object is set to        'pathEcho', this value is associated with each        hop in an ascending order, thus for the        first hop on a path, this index will be 1, the        second will be 2 and so on.   For all other values       of rttMonCtrlAdminRttType this will be 1
         	**type**\: list of  		 :py:class:`RttMonHistoryCollectionEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonHistoryCollectionTable.RttMonHistoryCollectionEntry>`
+        
+        	**config**\: False
         
         
 
@@ -6825,12 +7716,16 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonhistorycollectionlifeindex  (key)
             
             	This uniquely defines a life for a conceptual history row.  For a particular value of rttMonHistoryCollectionLifeIndex, the agent assigns the first value of 1, the second value  of 2, and so on.  The sequence keeps incrementing,  despite older (lower) values being removed from the  table
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: rttmonhistorycollectionbucketindex  (key)
             
@@ -6839,12 +7734,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonhistorycollectionsampleindex  (key)
             
             	This uniquely defines a row for a given value of rttMonHistoryCollectionBucketIndex.  This object represents a hop along a path to the Target.  For a particular value of  rttMonHistoryCollectionBucketIndex, the agent assigns  the first value of 1, the second value of 2, and so on. The sequence keeps incrementing until the number of  samples equals rttMonHistoryAdminNumSamples, then no  new samples are created for the current  rttMonHistoryCollectionBucketIndex.  When the RttMonRttType is 'pathEcho', this value  directly represents the number of hops along a  path to a target, thus we can only support 512 hops. For all other values of RttMonRttType this object will be one
             	**type**\: int
             
             	**range:** 1..512
+            
+            	**config**\: False
             
             .. attribute:: rttmonhistorycollectionsampletime
             
@@ -6853,10 +7752,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonhistorycollectionaddress
             
             	When the RttMonRttType is 'echo' or 'pathEcho' this is a string which specifies the address of the target for the this RTT operation.  For all other values of RttMonRttType this string will be null.  This address will be the address of the hop along the path to the rttMonEchoAdminTargetAddress address, including rttMonEchoAdminTargetAddress address, or just the rttMonEchoAdminTargetAddress address, when the path information is not collected.  This behavior is defined by the rttMonCtrlAdminRttType object.  The interpretation of this string depends on the type of RTT operation selected, as specified by the rttMonEchoAdminProtocol object.  See rttMonEchoAdminTargetAddress for a complete description
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonhistorycollectioncompletiontime
             
@@ -6865,12 +7768,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: rttmonhistorycollectionsense
             
             	A sense code for the completion status of the RTT operation
             	**type**\:  :py:class:`RttResponseSense <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttResponseSense>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonhistorycollectionapplspecificsense
             
@@ -6879,10 +7786,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonhistorycollectionsensedescription
             
             	A sense description for the completion status of the last RTT operation when the  rttMonHistoryCollectionSense object is set to  'applicationSpecific'
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -6930,6 +7841,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonHistoryCollectionTable.RttMonHistoryCollectionEntry, ['rttmonctrladminindex', 'rttmonhistorycollectionlifeindex', 'rttmonhistorycollectionbucketindex', 'rttmonhistorycollectionsampleindex', 'rttmonhistorycollectionsampletime', 'rttmonhistorycollectionaddress', 'rttmonhistorycollectioncompletiontime', 'rttmonhistorycollectionsense', 'rttmonhistorycollectionapplspecificsense', 'rttmonhistorycollectionsensedescription'], name, value)
 
 
+
+
     class RttMonLatestHTTPOperTable(Entity):
         """
         A table which contains the status of latest HTTP RTT
@@ -6939,6 +7852,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects that record the latest HTTP RTT operation. This entry is created automatically after the  rttMonCtrlAdminEntry is created. Also the entry is  automatically deleted when rttMonCtrlAdminEntry is deleted
         	**type**\: list of  		 :py:class:`RttMonLatestHTTPOperEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLatestHTTPOperTable.RttMonLatestHTTPOperEntry>`
+        
+        	**config**\: False
         
         
 
@@ -6983,12 +7898,16 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatesthttpoperrtt
             
             	Round Trip Time taken to perform HTTP operation. This value is the sum of DNSRTT, TCPConnectRTT and TransactionRTT
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatesthttpoperdnsrtt
             
@@ -6997,12 +7916,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatesthttpopertcpconnectrtt
             
             	Round Trip Time taken to connect to the HTTP server
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatesthttpopertransactionrtt
             
@@ -7011,6 +7934,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatesthttpopermessagebodyoctets
             
             	The size of the message body received as a response to the HTTP request
@@ -7018,15 +7943,21 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatesthttpopersense
             
             	An application specific sense code for the completion status of the latest RTT operation
             	**type**\:  :py:class:`RttResponseSense <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttResponseSense>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatesthttperrorsensedescription
             
             	An sense description for the completion status of the latest RTT operation
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -7070,6 +8001,8 @@ class CISCORTTMONMIB(Entity):
                 self._perform_setattr(CISCORTTMONMIB.RttMonLatestHTTPOperTable.RttMonLatestHTTPOperEntry, ['rttmonctrladminindex', 'rttmonlatesthttpoperrtt', 'rttmonlatesthttpoperdnsrtt', 'rttmonlatesthttpopertcpconnectrtt', 'rttmonlatesthttpopertransactionrtt', 'rttmonlatesthttpopermessagebodyoctets', 'rttmonlatesthttpopersense', 'rttmonlatesthttperrorsensedescription'], name, value)
 
 
+
+
     class RttMonLatestJitterOperTable(Entity):
         """
         A table which contains the status of latest Jitter
@@ -7079,6 +8012,8 @@ class CISCORTTMONMIB(Entity):
         
         	A list of objects that record the latest Jitter operation
         	**type**\: list of  		 :py:class:`RttMonLatestJitterOperEntry <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLatestJitterOperTable.RttMonLatestJitterOperEntry>`
+        
+        	**config**\: False
         
         
 
@@ -7121,12 +8056,16 @@ class CISCORTTMONMIB(Entity):
             
             	**refers to**\:  :py:class:`rttmonctrladminindex <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonCtrlAdminTable.RttMonCtrlAdminEntry>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteropernumofrtt
             
             	The number of RTT's that were successfully measured
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperrttsum
             
@@ -7135,12 +8074,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperrttsum2
             
             	The sum of squares of RTT's that are successfully measured (low order 32 bits). The high order 32 bits are stored in rttMonLatestJitterOperRTTSum2High
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperrttmin
             
@@ -7149,12 +8092,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperrttmax
             
             	The maximum of RTT's that were successfully measured
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperminofpositivessd
             
@@ -7163,12 +8110,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteropermaxofpositivessd
             
             	The maximum of all positive jitter values from packets sent from source to destination
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteropernumofpositivessd
             
@@ -7177,12 +8128,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteropersumofpositivessd
             
             	The sum of RTT's of all positive jitter values from packets sent from source to destination
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteropersum2positivessd
             
@@ -7191,12 +8146,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperminofnegativessd
             
             	The minimum of absolute values of all negative jitter values from packets sent from source to destination
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteropermaxofnegativessd
             
@@ -7205,12 +8164,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteropernumofnegativessd
             
             	The sum of number of all negative jitter values from packets sent from source to destination
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteropersumofnegativessd
             
@@ -7219,12 +8182,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteropersum2negativessd
             
             	The sum of square of RTT's of all negative jitter values from packets sent from source to destination
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperminofpositivesds
             
@@ -7233,12 +8200,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteropermaxofpositivesds
             
             	The maximum of all positive jitter values from packets sent from destination to source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteropernumofpositivesds
             
@@ -7247,12 +8218,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteropersumofpositivesds
             
             	The sum of RTT's of all positive jitter values from packets sent from destination to source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteropersum2positivesds
             
@@ -7261,12 +8236,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperminofnegativesds
             
             	The minimum of all negative jitter values from packets sent from destination to source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteropermaxofnegativesds
             
@@ -7275,12 +8254,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteropernumofnegativesds
             
             	The sum of number of all negative jitter values from packets sent from destination to source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteropersumofnegativesds
             
@@ -7289,12 +8272,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteropersum2negativesds
             
             	The sum of squares of RTT's of all negative jitter values from packets sent from destination to source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperpacketlosssd
             
@@ -7303,12 +8290,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperpacketlossds
             
             	The number of packets lost when sent from destination to source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperpacketoutofsequence
             
@@ -7317,12 +8308,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperpacketmia
             
             	The number of packets that are lost for which we cannot determine the direction
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperpacketlatearrival
             
@@ -7331,15 +8326,21 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteropersense
             
             	An application specific sense code for the completion status of the latest Jitter RTT operation
             	**type**\:  :py:class:`RttResponseSense <ydk.models.cisco_ios_xe.CISCO_RTTMON_TC_MIB.RttResponseSense>`
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjittererrorsensedescription
             
             	An sense description for the completion status of the latest Jitter RTT operation
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperowsumsd
             
@@ -7348,12 +8349,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperowsum2sd
             
             	The sum of squares of one way latency from source to destination (low order 32 bits). The high order 32 bits are stored in rttMonLatestJitterOperOWSum2SDHigh
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperowminsd
             
@@ -7362,12 +8367,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperowmaxsd
             
             	The maximum of all one way latency from source to destination
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperowsumds
             
@@ -7376,12 +8385,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperowsum2ds
             
             	The sum of squares of one way latency from destination to source (low order 32 bits). The high order 32 bits are stored in rttMonLatestJitterOperOWSum2DSHigh
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperowminds
             
@@ -7390,12 +8403,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperowmaxds
             
             	The maximum of all one way latency from destination to source
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteropernumofow
             
@@ -7404,12 +8421,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteropermos
             
             	The MOS value for the latest jitter operation in hundreds. This value will be 0 if   \- rttMonEchoAdminCodecType of the operation is notApplicable   \- the operation is not started   \- the operation is started but failed This value will be 1 for packet loss of 10% or more
             	**type**\: int
             
             	**range:** 0..None \| 100..500
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteropericpif
             
@@ -7418,12 +8439,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperiajout
             
             	Interarrival Jitter (RC1889) at responder
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperiajin
             
@@ -7432,12 +8457,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperavgjitter
             
             	The average of positive and negative jitter values in SD and DS direction for latest operation
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperavgsdj
             
@@ -7446,12 +8475,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperavgdsj
             
             	The average of positive and negative jitter values from destination to source for latest operation
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperowavgsd
             
@@ -7460,6 +8493,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperowavgds
             
             	The average latency value from destination to source
@@ -7467,10 +8502,14 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperntpstate
             
             	A value of sync(1) means sender and responder was in sync with NTP. The NTP sync means the total of NTP offset  on sender and responder is within configured tolerance level
             	**type**\:  :py:class:`RttMonLatestJitterOperNTPState <ydk.models.cisco_ios_xe.CISCO_RTTMON_MIB.CISCORTTMONMIB.RttMonLatestJitterOperTable.RttMonLatestJitterOperEntry.RttMonLatestJitterOperNTPState>`
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperunsyncrts
             
@@ -7479,12 +8518,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperrttsumhigh
             
             	The sum of Jitter RTT's that are successfully measured. (high order 32 bits). The low order 32 bits are stored in rttMonLatestJitterOperRTTSum
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperrttsum2high
             
@@ -7493,12 +8536,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperowsumsdhigh
             
             	The sum of one way latency from source to destination (high order 32 bits). The low order 32 bits are stored in rttMonLatestJitterOperOWSumSD
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: rttmonlatestjitteroperowsum2sdhigh
             
@@ -7507,6 +8554,8 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperowsumdshigh
             
             	The sum of one way latency from destination to source (high order 32 bits). The low order 32 bits are stored  in rttMonLatestJitterOperOWSumDS
@@ -7514,12 +8563,16 @@ class CISCORTTMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: rttmonlatestjitteroperowsum2dshigh
             
             	The sum of squares of one way latency from destination to source (high order 32 bits). The low order 32 bits are stored in rttMonLatestJitterOperOWSum2DS
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -7685,7 +8738,11 @@ class CISCORTTMONMIB(Entity):
                 outOfSync = Enum.YLeaf(2, "outOfSync")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCORTTMONMIB()
         return self._top_entity
+
+
 

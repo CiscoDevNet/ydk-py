@@ -94,6 +94,7 @@ class MppAfIdBase(Identity):
         super(MppAfIdBase, self).__init__(ns, pref, tag)
 
 
+
 class ManagementPlaneProtection(Entity):
     """
     Management Plane Protection (MPP) operational
@@ -104,10 +105,14 @@ class ManagementPlaneProtection(Entity):
     	Management Plane Protection (MPP) outband interface data
     	**type**\:  :py:class:`Outband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband>`
     
+    	**config**\: False
+    
     .. attribute:: inband
     
     	Management Plane Protection (MPP) inband interface data
     	**type**\:  :py:class:`Inband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband>`
+    
+    	**config**\: False
     
     
 
@@ -152,10 +157,14 @@ class ManagementPlaneProtection(Entity):
         	Outband VRF information
         	**type**\:  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Vrf>`
         
+        	**config**\: False
+        
         .. attribute:: interfaces
         
         	List of inband/outband interfaces
         	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Interfaces>`
+        
+        	**config**\: False
         
         
 
@@ -199,6 +208,8 @@ class ManagementPlaneProtection(Entity):
             	Outband VRF name
             	**type**\: str
             
+            	**config**\: False
+            
             
 
             """
@@ -227,6 +238,7 @@ class ManagementPlaneProtection(Entity):
                 self._perform_setattr(ManagementPlaneProtection.Outband.Vrf, ['vrf_name'], name, value)
 
 
+
         class Interfaces(Entity):
             """
             List of inband/outband interfaces
@@ -235,6 +247,8 @@ class ManagementPlaneProtection(Entity):
             
             	MPP interface information
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Interfaces.Interface>`
+            
+            	**config**\: False
             
             
 
@@ -272,10 +286,14 @@ class ManagementPlaneProtection(Entity):
                 	Interface name, specify 'all' for all interfaces
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: protocol
                 
                 	MPP Interface protocols
                 	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol>`
+                
+                	**config**\: False
                 
                 
 
@@ -316,15 +334,21 @@ class ManagementPlaneProtection(Entity):
                     	MPP allow
                     	**type**\:  :py:class:`MppAllow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAllow>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_all_peers_allowed
                     
                     	If TRUE, all peers are allowed
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_address
                     
                     	List of peer addresses
                     	**type**\: list of  		 :py:class:`PeerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -366,6 +390,8 @@ class ManagementPlaneProtection(Entity):
                         	AFName
                         	**type**\:  :py:class:`MppAfIdBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAfIdBase>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
@@ -373,12 +399,16 @@ class ManagementPlaneProtection(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -411,6 +441,11 @@ class ManagementPlaneProtection(Entity):
                             self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
+
+
+
+
+
     class Inband(Entity):
         """
         Management Plane Protection (MPP) inband
@@ -420,6 +455,8 @@ class ManagementPlaneProtection(Entity):
         
         	List of inband/outband interfaces
         	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband.Interfaces>`
+        
+        	**config**\: False
         
         
 
@@ -459,6 +496,8 @@ class ManagementPlaneProtection(Entity):
             	MPP interface information
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband.Interfaces.Interface>`
             
+            	**config**\: False
+            
             
 
             """
@@ -495,10 +534,14 @@ class ManagementPlaneProtection(Entity):
                 	Interface name, specify 'all' for all interfaces
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: protocol
                 
                 	MPP Interface protocols
                 	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol>`
+                
+                	**config**\: False
                 
                 
 
@@ -539,15 +582,21 @@ class ManagementPlaneProtection(Entity):
                     	MPP allow
                     	**type**\:  :py:class:`MppAllow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAllow>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_all_peers_allowed
                     
                     	If TRUE, all peers are allowed
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_address
                     
                     	List of peer addresses
                     	**type**\: list of  		 :py:class:`PeerAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -589,6 +638,8 @@ class ManagementPlaneProtection(Entity):
                         	AFName
                         	**type**\:  :py:class:`MppAfIdBase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper.MppAfIdBase>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4_address
                         
                         	IPv4 address
@@ -596,12 +647,16 @@ class ManagementPlaneProtection(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6_address
                         
                         	IPv6 address
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -633,9 +688,16 @@ class ManagementPlaneProtection(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ManagementPlaneProtection()
         return self._top_entity
+
+
 
 class Ipv4(MppAfIdBase):
     """
@@ -652,6 +714,7 @@ class Ipv4(MppAfIdBase):
         super(Ipv4, self).__init__(ns, pref, tag)
 
 
+
 class Ipv6(MppAfIdBase):
     """
     IPv6 address family
@@ -665,5 +728,6 @@ class Ipv6(MppAfIdBase):
 
     def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", pref="Cisco-IOS-XR-lib-mpp-oper", tag="Cisco-IOS-XR-lib-mpp-oper:ipv6"):
         super(Ipv6, self).__init__(ns, pref, tag)
+
 
 

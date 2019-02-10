@@ -52,35 +52,49 @@ class L2tp(Entity):
     	L2TP control messages counters
     	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters>`
     
+    	**config**\: False
+    
     .. attribute:: tunnel_configurations
     
     	List of tunnel IDs
     	**type**\:  :py:class:`TunnelConfigurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.TunnelConfigurations>`
+    
+    	**config**\: False
     
     .. attribute:: counter_hist_fail
     
     	Failure events leading to disconnection
     	**type**\:  :py:class:`CounterHistFail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.CounterHistFail>`
     
+    	**config**\: False
+    
     .. attribute:: classes
     
     	List of L2TP class names
     	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Classes>`
+    
+    	**config**\: False
     
     .. attribute:: tunnels
     
     	List of tunnel IDs
     	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Tunnels>`
     
+    	**config**\: False
+    
     .. attribute:: sessions
     
     	List of session IDs
     	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Sessions>`
     
+    	**config**\: False
+    
     .. attribute:: session
     
     	L2TP control messages counters
     	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Session>`
+    
+    	**config**\: False
     
     
 
@@ -144,6 +158,8 @@ class L2tp(Entity):
         	L2TP control messages counters
         	**type**\:  :py:class:`Control <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control>`
         
+        	**config**\: False
+        
         
 
         """
@@ -182,10 +198,14 @@ class L2tp(Entity):
             	L2TP control tunnel messages counters
             	**type**\:  :py:class:`TunnelXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr>`
             
+            	**config**\: False
+            
             .. attribute:: tunnels
             
             	Table of tunnel IDs of control message counters
             	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels>`
+            
+            	**config**\: False
             
             
 
@@ -229,10 +249,14 @@ class L2tp(Entity):
                 	Tunnel authentication counters
                 	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication>`
                 
+                	**config**\: False
+                
                 .. attribute:: global_
                 
                 	Tunnel counters
                 	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Global>`
+                
+                	**config**\: False
                 
                 
 
@@ -276,45 +300,63 @@ class L2tp(Entity):
                     	Nonce AVP statistics
                     	**type**\:  :py:class:`NonceAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.NonceAvp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: common_digest
                     
                     	Common digest statistics
                     	**type**\:  :py:class:`CommonDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.CommonDigest>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: primary_digest
                     
                     	Primary digest statistics
                     	**type**\:  :py:class:`PrimaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: secondary_digest
                     
                     	Secondary digest statistics
                     	**type**\:  :py:class:`SecondaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: integrity_check
                     
                     	Integrity check statistics
                     	**type**\:  :py:class:`IntegrityCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_secret
                     
                     	Local secret statistics
                     	**type**\:  :py:class:`LocalSecret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.LocalSecret>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: challenge_avp
                     
                     	Challenge AVP statistics
                     	**type**\:  :py:class:`ChallengeAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: challenge_reponse
                     
                     	Challenge response statistics
                     	**type**\:  :py:class:`ChallengeReponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: overall_statistics
                     
                     	Overall statistics
                     	**type**\:  :py:class:`OverallStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Authentication.OverallStatistics>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -388,12 +430,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -402,12 +448,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -416,12 +466,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -430,12 +484,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -444,6 +502,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -451,12 +511,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -506,6 +570,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.NonceAvp, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class CommonDigest(Entity):
                         """
                         Common digest statistics
@@ -517,12 +582,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -531,12 +600,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -545,12 +618,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -559,12 +636,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -573,6 +654,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -580,12 +663,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -635,6 +722,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.CommonDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class PrimaryDigest(Entity):
                         """
                         Primary digest statistics
@@ -646,12 +734,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -660,12 +752,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -674,12 +770,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -688,12 +788,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -702,6 +806,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -709,12 +815,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -764,6 +874,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class SecondaryDigest(Entity):
                         """
                         Secondary digest statistics
@@ -775,12 +886,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -789,12 +904,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -803,12 +922,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -817,12 +940,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -831,6 +958,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -838,12 +967,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -893,6 +1026,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class IntegrityCheck(Entity):
                         """
                         Integrity check statistics
@@ -904,12 +1038,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -918,12 +1056,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -932,12 +1074,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -946,12 +1092,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -960,6 +1110,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -967,12 +1119,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1022,6 +1178,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class LocalSecret(Entity):
                         """
                         Local secret statistics
@@ -1033,12 +1190,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -1047,12 +1208,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -1061,12 +1226,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -1075,12 +1244,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -1089,6 +1262,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -1096,12 +1271,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1151,6 +1330,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.LocalSecret, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class ChallengeAvp(Entity):
                         """
                         Challenge AVP statistics
@@ -1162,12 +1342,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -1176,12 +1360,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -1190,12 +1378,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -1204,12 +1396,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -1218,6 +1414,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -1225,12 +1423,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1280,6 +1482,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class ChallengeReponse(Entity):
                         """
                         Challenge response statistics
@@ -1291,12 +1494,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -1305,12 +1512,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -1319,12 +1530,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -1333,12 +1548,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -1347,6 +1566,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -1354,12 +1575,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1409,6 +1634,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class OverallStatistics(Entity):
                         """
                         Overall statistics
@@ -1420,12 +1646,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -1434,12 +1664,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -1448,12 +1682,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -1462,12 +1700,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -1476,6 +1718,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -1483,12 +1727,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1538,6 +1786,8 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.OverallStatistics, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
+
                 class Global(Entity):
                     """
                     Tunnel counters
@@ -1547,20 +1797,28 @@ class L2tp(Entity):
                     	Transmit data
                     	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Global.Transmit>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: retransmit
                     
                     	Re transmit data
                     	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Global.Retransmit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: received
                     
                     	Received data
                     	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Global.Received>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop
                     
                     	Drop data
                     	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.TunnelXr.Global.Drop>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_transmit
                     
@@ -1569,12 +1827,16 @@ class L2tp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_retransmit
                     
                     	Total retransmit
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_received
                     
@@ -1583,12 +1845,16 @@ class L2tp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_drop
                     
                     	Total drop
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1651,12 +1917,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_requests
                         
@@ -1665,12 +1935,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_notifications
                         
@@ -1679,12 +1953,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hello_packets
                         
@@ -1693,12 +1971,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: outgoing_call_replies
                         
@@ -1707,12 +1989,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_requests
                         
@@ -1721,12 +2007,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_connected_packets
                         
@@ -1735,12 +2025,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wan_error_notify_packets
                         
@@ -1749,12 +2043,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: service_relay_requests
                         
@@ -1763,6 +2061,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
@@ -1770,12 +2070,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1841,6 +2145,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global.Transmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
                     class Retransmit(Entity):
                         """
                         Re transmit data
@@ -1852,12 +2157,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_requests
                         
@@ -1866,12 +2175,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_notifications
                         
@@ -1880,12 +2193,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hello_packets
                         
@@ -1894,12 +2211,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: outgoing_call_replies
                         
@@ -1908,12 +2229,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_requests
                         
@@ -1922,12 +2247,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_connected_packets
                         
@@ -1936,12 +2265,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wan_error_notify_packets
                         
@@ -1950,12 +2283,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: service_relay_requests
                         
@@ -1964,6 +2301,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
@@ -1971,12 +2310,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2042,6 +2385,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global.Retransmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
                     class Received(Entity):
                         """
                         Received data
@@ -2053,12 +2397,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_requests
                         
@@ -2067,12 +2415,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_notifications
                         
@@ -2081,12 +2433,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hello_packets
                         
@@ -2095,12 +2451,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: outgoing_call_replies
                         
@@ -2109,12 +2469,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_requests
                         
@@ -2123,12 +2487,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_connected_packets
                         
@@ -2137,12 +2505,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wan_error_notify_packets
                         
@@ -2151,12 +2523,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: service_relay_requests
                         
@@ -2165,6 +2541,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
@@ -2172,12 +2550,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2243,6 +2625,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global.Received, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
                     class Drop(Entity):
                         """
                         Drop data
@@ -2254,12 +2637,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_requests
                         
@@ -2268,12 +2655,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_notifications
                         
@@ -2282,12 +2673,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hello_packets
                         
@@ -2296,12 +2691,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: outgoing_call_replies
                         
@@ -2310,12 +2709,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_requests
                         
@@ -2324,12 +2727,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_connected_packets
                         
@@ -2338,12 +2745,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wan_error_notify_packets
                         
@@ -2352,12 +2763,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: service_relay_requests
                         
@@ -2366,6 +2781,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
@@ -2373,12 +2790,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2444,6 +2865,9 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global.Drop, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
+
+
             class Tunnels(Entity):
                 """
                 Table of tunnel IDs of control message counters
@@ -2452,6 +2876,8 @@ class L2tp(Entity):
                 
                 	L2TP tunnel control message counters
                 	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel>`
+                
+                	**config**\: False
                 
                 
 
@@ -2491,15 +2917,21 @@ class L2tp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: brief
                     
                     	L2TP control message local and remote addresses
                     	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel.Brief>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: global_
                     
                     	Global data
                     	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel.Global>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2548,6 +2980,8 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_address
                         
                         	Local IP address
@@ -2555,12 +2989,16 @@ class L2tp(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_address
                         
                         	Remote IP address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -2593,6 +3031,7 @@ class L2tp(Entity):
                             self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Brief, [u'remote_tunnel_id', u'local_address', u'remote_address'], name, value)
 
 
+
                     class Global(Entity):
                         """
                         Global data
@@ -2602,20 +3041,28 @@ class L2tp(Entity):
                         	Transmit data
                         	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel.Global.Transmit>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: retransmit
                         
                         	Re transmit data
                         	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: received
                         
                         	Received data
                         	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel.Global.Received>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: drop
                         
                         	Drop data
                         	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Counters.Control.Tunnels.Tunnel.Global.Drop>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_transmit
                         
@@ -2624,12 +3071,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_retransmit
                         
                         	Total retransmit
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_received
                         
@@ -2638,12 +3089,16 @@ class L2tp(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_drop
                         
                         	Total drop
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -2705,12 +3160,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_requests
                             
@@ -2719,12 +3178,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_notifications
                             
@@ -2733,12 +3196,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: hello_packets
                             
@@ -2747,12 +3214,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: outgoing_call_replies
                             
@@ -2761,12 +3232,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_requests
                             
@@ -2775,12 +3250,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_connected_packets
                             
@@ -2789,12 +3268,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: wan_error_notify_packets
                             
@@ -2803,12 +3286,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: service_relay_requests
                             
@@ -2817,6 +3304,8 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
@@ -2824,12 +3313,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2894,6 +3387,7 @@ class L2tp(Entity):
                                 self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global.Transmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
                         class Retransmit(Entity):
                             """
                             Re transmit data
@@ -2905,12 +3399,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_requests
                             
@@ -2919,12 +3417,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_notifications
                             
@@ -2933,12 +3435,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: hello_packets
                             
@@ -2947,12 +3453,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: outgoing_call_replies
                             
@@ -2961,12 +3471,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_requests
                             
@@ -2975,12 +3489,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_connected_packets
                             
@@ -2989,12 +3507,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: wan_error_notify_packets
                             
@@ -3003,12 +3525,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: service_relay_requests
                             
@@ -3017,6 +3543,8 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
@@ -3024,12 +3552,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3094,6 +3626,7 @@ class L2tp(Entity):
                                 self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
                         class Received(Entity):
                             """
                             Received data
@@ -3105,12 +3638,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_requests
                             
@@ -3119,12 +3656,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_notifications
                             
@@ -3133,12 +3674,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: hello_packets
                             
@@ -3147,12 +3692,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: outgoing_call_replies
                             
@@ -3161,12 +3710,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_requests
                             
@@ -3175,12 +3728,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_connected_packets
                             
@@ -3189,12 +3746,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: wan_error_notify_packets
                             
@@ -3203,12 +3764,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: service_relay_requests
                             
@@ -3217,6 +3782,8 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
@@ -3224,12 +3791,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3294,6 +3865,7 @@ class L2tp(Entity):
                                 self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global.Received, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
                         class Drop(Entity):
                             """
                             Drop data
@@ -3305,12 +3877,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_requests
                             
@@ -3319,12 +3895,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_notifications
                             
@@ -3333,12 +3913,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: hello_packets
                             
@@ -3347,12 +3931,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: outgoing_call_replies
                             
@@ -3361,12 +3949,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_requests
                             
@@ -3375,12 +3967,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_connected_packets
                             
@@ -3389,12 +3985,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: wan_error_notify_packets
                             
@@ -3403,12 +4003,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: service_relay_requests
                             
@@ -3417,6 +4021,8 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
@@ -3424,12 +4030,16 @@ class L2tp(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -3494,6 +4104,12 @@ class L2tp(Entity):
                                 self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global.Drop, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
+
+
+
+
+
     class TunnelConfigurations(Entity):
         """
         List of tunnel IDs
@@ -3502,6 +4118,8 @@ class L2tp(Entity):
         
         	L2TP tunnel information
         	**type**\: list of  		 :py:class:`TunnelConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.TunnelConfigurations.TunnelConfiguration>`
+        
+        	**config**\: False
         
         
 
@@ -3541,10 +4159,14 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: l2tp_class
             
             	L2Tp class data
             	**type**\:  :py:class:`L2tpClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.TunnelConfigurations.TunnelConfiguration.L2tpClass>`
+            
+            	**config**\: False
             
             .. attribute:: remote_tunnel_id
             
@@ -3552,6 +4174,8 @@ class L2tp(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -3598,12 +4222,16 @@ class L2tp(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: vrf_name
                 
                 	VRF name
                 	**type**\: str
                 
                 	**length:** 0..256
+                
+                	**config**\: False
                 
                 .. attribute:: receive_window_size
                 
@@ -3612,6 +4240,8 @@ class L2tp(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: class_name_xr
                 
                 	Class name
@@ -3619,10 +4249,14 @@ class L2tp(Entity):
                 
                 	**length:** 0..256
                 
+                	**config**\: False
+                
                 .. attribute:: digest_hash
                 
                 	Hash configured as MD5 or SHA1
                 	**type**\:  :py:class:`DigestHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.DigestHash>`
+                
+                	**config**\: False
                 
                 .. attribute:: password
                 
@@ -3631,12 +4265,16 @@ class L2tp(Entity):
                 
                 	**length:** 0..25
                 
+                	**config**\: False
+                
                 .. attribute:: encoded_password
                 
                 	Encoded password
                 	**type**\: str
                 
                 	**length:** 0..256
+                
+                	**config**\: False
                 
                 .. attribute:: host_name
                 
@@ -3645,6 +4283,8 @@ class L2tp(Entity):
                 
                 	**length:** 0..256
                 
+                	**config**\: False
+                
                 .. attribute:: accounting_method_list
                 
                 	Accounting List
@@ -3652,12 +4292,16 @@ class L2tp(Entity):
                 
                 	**length:** 0..256
                 
+                	**config**\: False
+                
                 .. attribute:: hello_timeout
                 
                 	Hello timeout value in seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -3668,6 +4312,8 @@ class L2tp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: retransmit_minimum_timeout
@@ -3676,6 +4322,8 @@ class L2tp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -3686,6 +4334,8 @@ class L2tp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: initial_retransmit_minimum_timeout
@@ -3694,6 +4344,8 @@ class L2tp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -3704,6 +4356,8 @@ class L2tp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: timeout_no_user
@@ -3713,12 +4367,16 @@ class L2tp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: retransmit_retries
                 
                 	Retransmit retries
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: initial_retransmit_retries
                 
@@ -3727,35 +4385,49 @@ class L2tp(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_authentication_enabled
                 
                 	True if authentication is enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: is_hidden
                 
                 	True if class is hidden
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_digest_enabled
                 
                 	True if digest authentication is enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: is_digest_check_enabled
                 
                 	True if digest check is enabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_congestion_control_enabled
                 
                 	True if congestion control is enabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_peer_address_checked
                 
                 	True if peer address is checked
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -3830,6 +4502,9 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.TunnelConfigurations.TunnelConfiguration.L2tpClass, [u'ip_tos', u'vrf_name', u'receive_window_size', u'class_name_xr', u'digest_hash', u'password', u'encoded_password', u'host_name', u'accounting_method_list', u'hello_timeout', u'setup_timeout', u'retransmit_minimum_timeout', u'retransmit_maximum_timeout', u'initial_retransmit_minimum_timeout', u'initial_retransmit_maximum_timeout', u'timeout_no_user', u'retransmit_retries', u'initial_retransmit_retries', u'is_authentication_enabled', u'is_hidden', u'is_digest_enabled', u'is_digest_check_enabled', u'is_congestion_control_enabled', u'is_peer_address_checked'], name, value)
 
 
+
+
+
     class CounterHistFail(Entity):
         """
         Failure events leading to disconnection
@@ -3841,12 +4516,16 @@ class L2tp(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tx_counters
         
         	Send side counters
         	**type**\: str
         
         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+        
+        	**config**\: False
         
         .. attribute:: rx_counters
         
@@ -3855,10 +4534,14 @@ class L2tp(Entity):
         
         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
         
+        	**config**\: False
+        
         .. attribute:: pkt_timeout
         
         	timeout events by packet
         	**type**\: list of  		 :py:class:`PktTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.CounterHistFail.PktTimeout>`
+        
+        	**config**\: False
         
         
 
@@ -3905,6 +4588,8 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             
 
             """
@@ -3933,6 +4618,8 @@ class L2tp(Entity):
                 self._perform_setattr(L2tp.CounterHistFail.PktTimeout, [u'entry'], name, value)
 
 
+
+
     class Classes(Entity):
         """
         List of L2TP class names
@@ -3941,6 +4628,8 @@ class L2tp(Entity):
         
         	L2TP class name
         	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Classes.Class>`
+        
+        	**config**\: False
         
         
 
@@ -3980,12 +4669,16 @@ class L2tp(Entity):
             
             	**length:** 1..31
             
+            	**config**\: False
+            
             .. attribute:: ip_tos
             
             	IP TOS
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: vrf_name
             
@@ -3994,12 +4687,16 @@ class L2tp(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: receive_window_size
             
             	Receive window size
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: class_name_xr
             
@@ -4008,10 +4705,14 @@ class L2tp(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: digest_hash
             
             	Hash configured as MD5 or SHA1
             	**type**\:  :py:class:`DigestHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.DigestHash>`
+            
+            	**config**\: False
             
             .. attribute:: password
             
@@ -4020,12 +4721,16 @@ class L2tp(Entity):
             
             	**length:** 0..25
             
+            	**config**\: False
+            
             .. attribute:: encoded_password
             
             	Encoded password
             	**type**\: str
             
             	**length:** 0..256
+            
+            	**config**\: False
             
             .. attribute:: host_name
             
@@ -4034,6 +4739,8 @@ class L2tp(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: accounting_method_list
             
             	Accounting List
@@ -4041,12 +4748,16 @@ class L2tp(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: hello_timeout
             
             	Hello timeout value in seconds
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -4057,6 +4768,8 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: second
             
             .. attribute:: retransmit_minimum_timeout
@@ -4065,6 +4778,8 @@ class L2tp(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -4075,6 +4790,8 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: second
             
             .. attribute:: initial_retransmit_minimum_timeout
@@ -4083,6 +4800,8 @@ class L2tp(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -4093,6 +4812,8 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: second
             
             .. attribute:: timeout_no_user
@@ -4102,12 +4823,16 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: retransmit_retries
             
             	Retransmit retries
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: initial_retransmit_retries
             
@@ -4116,35 +4841,49 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: is_authentication_enabled
             
             	True if authentication is enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_hidden
             
             	True if class is hidden
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_digest_enabled
             
             	True if digest authentication is enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_digest_check_enabled
             
             	True if digest check is enabled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_congestion_control_enabled
             
             	True if congestion control is enabled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_peer_address_checked
             
             	True if peer address is checked
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -4222,6 +4961,8 @@ class L2tp(Entity):
                 self._perform_setattr(L2tp.Classes.Class, ['class_name', u'ip_tos', u'vrf_name', u'receive_window_size', u'class_name_xr', u'digest_hash', u'password', u'encoded_password', u'host_name', u'accounting_method_list', u'hello_timeout', u'setup_timeout', u'retransmit_minimum_timeout', u'retransmit_maximum_timeout', u'initial_retransmit_minimum_timeout', u'initial_retransmit_maximum_timeout', u'timeout_no_user', u'retransmit_retries', u'initial_retransmit_retries', u'is_authentication_enabled', u'is_hidden', u'is_digest_enabled', u'is_digest_check_enabled', u'is_congestion_control_enabled', u'is_peer_address_checked'], name, value)
 
 
+
+
     class Tunnels(Entity):
         """
         List of tunnel IDs
@@ -4230,6 +4971,8 @@ class L2tp(Entity):
         
         	L2TP tunnel  information
         	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Tunnels.Tunnel>`
+        
+        	**config**\: False
         
         
 
@@ -4269,12 +5012,16 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_address
             
             	Local tunnel address
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: remote_address
             
@@ -4283,12 +5030,16 @@ class L2tp(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: local_port
             
             	Local port
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: remote_port
             
@@ -4297,6 +5048,8 @@ class L2tp(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: protocol
             
             	Protocol
@@ -4304,10 +5057,14 @@ class L2tp(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: is_pmtu_enabled
             
             	True if tunnel PMTU checking is enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: remote_tunnel_id
             
@@ -4316,12 +5073,16 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_tunnel_name
             
             	Local tunnel name
             	**type**\: str
             
             	**length:** 0..256
+            
+            	**config**\: False
             
             .. attribute:: remote_tunnel_name
             
@@ -4330,12 +5091,16 @@ class L2tp(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: class_name
             
             	L2TP class name
             	**type**\: str
             
             	**length:** 0..256
+            
+            	**config**\: False
             
             .. attribute:: active_sessions
             
@@ -4344,12 +5109,16 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sequence_ns
             
             	Sequence NS
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: sequence_nr
             
@@ -4358,12 +5127,16 @@ class L2tp(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: local_window_size
             
             	Local window size
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: remote_window_size
             
@@ -4372,12 +5145,16 @@ class L2tp(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: retransmission_time
             
             	Retransmission time in seconds
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -4388,6 +5165,8 @@ class L2tp(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             	**units**\: second
             
             .. attribute:: unsent_queue_size
@@ -4397,12 +5176,16 @@ class L2tp(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: unsent_maximum_queue_size
             
             	Unsent maximum queue size
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: resend_queue_size
             
@@ -4411,12 +5194,16 @@ class L2tp(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: resend_maximum_queue_size
             
             	Resend maximum queue size
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: order_queue_size
             
@@ -4425,12 +5212,16 @@ class L2tp(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: packet_queue_check
             
             	Current number session packet queue check
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: digest_secrets
             
@@ -4439,12 +5230,16 @@ class L2tp(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: resends
             
             	Total resends
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: zero_length_body_acknowledgement_sent
             
@@ -4453,12 +5248,16 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: total_out_of_order_drop_packets
             
             	Total out of order dropped packets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: total_out_of_order_reorder_packets
             
@@ -4467,6 +5266,8 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: total_peer_authentication_failures
             
             	Number of peer authentication failures
@@ -4474,20 +5275,28 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: is_tunnel_up
             
             	True if tunnel is up
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_congestion_control_enabled
             
             	True if congestion control is enabled else false
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: retransmit_time
             
             	Retransmit time distribution in seconds
             	**type**\: list of  		 :py:class:`RetransmitTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Tunnels.Tunnel.RetransmitTime>`
+            
+            	**config**\: False
             
             
 
@@ -4592,6 +5401,8 @@ class L2tp(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 
@@ -4621,6 +5432,9 @@ class L2tp(Entity):
                     self._perform_setattr(L2tp.Tunnels.Tunnel.RetransmitTime, [u'entry'], name, value)
 
 
+
+
+
     class Sessions(Entity):
         """
         List of session IDs
@@ -4629,6 +5443,8 @@ class L2tp(Entity):
         
         	L2TP information for a particular session
         	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Sessions.Session>`
+        
+        	**config**\: False
         
         
 
@@ -4668,6 +5484,8 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_session_id  (key)
             
             	Local session ID
@@ -4675,10 +5493,14 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: session_application_data
             
             	Session application data
             	**type**\:  :py:class:`SessionApplicationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Sessions.Session.SessionApplicationData>`
+            
+            	**config**\: False
             
             .. attribute:: local_ip_address
             
@@ -4687,12 +5509,16 @@ class L2tp(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: remote_ip_address
             
             	Remote session IP address
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: l2tp_sh_sess_udp_lport
             
@@ -4701,12 +5527,16 @@ class L2tp(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: l2tp_sh_sess_udp_rport
             
             	l2tp sh sess udp rport
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: protocol
             
@@ -4715,12 +5545,16 @@ class L2tp(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: remote_tunnel_id
             
             	Remote tunnel ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: call_serial_number
             
@@ -4729,12 +5563,16 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_tunnel_name
             
             	Local tunnel name
             	**type**\: str
             
             	**length:** 0..256
+            
+            	**config**\: False
             
             .. attribute:: remote_tunnel_name
             
@@ -4743,12 +5581,16 @@ class L2tp(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: remote_session_id
             
             	Remote session ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: l2tp_sh_sess_tie_breaker_enabled
             
@@ -4757,6 +5599,8 @@ class L2tp(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: l2tp_sh_sess_tie_breaker
             
             	l2tp sh sess tie breaker
@@ -4764,40 +5608,56 @@ class L2tp(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: is_session_manual
             
             	True if session is manual
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_session_up
             
             	True if session is up
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_udp_checksum_enabled
             
             	True if UDP checksum enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_sequencing_on
             
             	True if session sequence is on
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_session_state_established
             
             	True if session state is established
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_session_locally_initiated
             
             	True if session initiated locally
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_conditional_debug_enabled
             
             	True if conditional debugging is enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: unique_id
             
@@ -4806,12 +5666,16 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: interface_name
             
             	Interface name
             	**type**\: str
             
             	**length:** 0..256
+            
+            	**config**\: False
             
             
 
@@ -4898,10 +5762,14 @@ class L2tp(Entity):
                 	Xconnect data
                 	**type**\:  :py:class:`Xconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Sessions.Session.SessionApplicationData.Xconnect>`
                 
+                	**config**\: False
+                
                 .. attribute:: vpdn
                 
                 	VPDN data
                 	**type**\:  :py:class:`Vpdn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Sessions.Session.SessionApplicationData.Vpdn>`
+                
+                	**config**\: False
                 
                 .. attribute:: l2tp_sh_sess_app_type
                 
@@ -4909,6 +5777,8 @@ class L2tp(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -4954,6 +5824,8 @@ class L2tp(Entity):
                     	Circuit name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: sessionvc_id
                     
                     	Session VC ID
@@ -4961,25 +5833,35 @@ class L2tp(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_circuit_state_up
                     
                     	True if circuit state is up
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_local_circuit_state_up
                     
                     	True if local circuit state is up
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_remote_circuit_state_up
                     
                     	True if remote circuit state is up
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_protocol_tunneling
                     
                     	IPv6ProtocolTunneling
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -5018,6 +5900,7 @@ class L2tp(Entity):
                         self._perform_setattr(L2tp.Sessions.Session.SessionApplicationData.Xconnect, [u'circuit_name', u'sessionvc_id', u'is_circuit_state_up', u'is_local_circuit_state_up', u'is_remote_circuit_state_up', u'ipv6_protocol_tunneling'], name, value)
 
 
+
                 class Vpdn(Entity):
                     """
                     VPDN data
@@ -5027,12 +5910,16 @@ class L2tp(Entity):
                     	Session username
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name
                     
                     	Interface name
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     
 
@@ -5063,6 +5950,10 @@ class L2tp(Entity):
                         self._perform_setattr(L2tp.Sessions.Session.SessionApplicationData.Vpdn, [u'username', u'interface_name'], name, value)
 
 
+
+
+
+
     class Session(Entity):
         """
         L2TP control messages counters
@@ -5071,6 +5962,8 @@ class L2tp(Entity):
         
         	L2TP session unavailable  information
         	**type**\:  :py:class:`Unavailable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Session.Unavailable>`
+        
+        	**config**\: False
         
         
 
@@ -5112,6 +6005,8 @@ class L2tp(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             
 
             """
@@ -5139,9 +6034,13 @@ class L2tp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tp.Session.Unavailable, [u'sessions_on_hold'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = L2tp()
         return self._top_entity
+
+
 
 class L2tpv2(Entity):
     """
@@ -5152,45 +6051,63 @@ class L2tpv2(Entity):
     	L2TP control messages counters
     	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters>`
     
+    	**config**\: False
+    
     .. attribute:: statistics
     
     	L2TP v2 statistics information
     	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Statistics>`
+    
+    	**config**\: False
     
     .. attribute:: tunnel
     
     	L2TPv2 tunnel 
     	**type**\:  :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Tunnel>`
     
+    	**config**\: False
+    
     .. attribute:: tunnel_configurations
     
     	List of tunnel IDs
     	**type**\:  :py:class:`TunnelConfigurations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.TunnelConfigurations>`
+    
+    	**config**\: False
     
     .. attribute:: counter_hist_fail
     
     	Failure events leading to disconnection
     	**type**\:  :py:class:`CounterHistFail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.CounterHistFail>`
     
+    	**config**\: False
+    
     .. attribute:: classes
     
     	List of L2TP class names
     	**type**\:  :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Classes>`
+    
+    	**config**\: False
     
     .. attribute:: tunnels
     
     	List of tunnel IDs
     	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Tunnels>`
     
+    	**config**\: False
+    
     .. attribute:: sessions
     
     	List of session IDs
     	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Sessions>`
     
+    	**config**\: False
+    
     .. attribute:: session
     
     	L2TP control messages counters
     	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Session>`
+    
+    	**config**\: False
     
     
 
@@ -5262,10 +6179,14 @@ class L2tpv2(Entity):
         	L2TP forwarding messages counters
         	**type**\:  :py:class:`Forwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Forwarding>`
         
+        	**config**\: False
+        
         .. attribute:: control
         
         	L2TP control messages counters
         	**type**\:  :py:class:`Control <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control>`
+        
+        	**config**\: False
         
         
 
@@ -5309,6 +6230,8 @@ class L2tpv2(Entity):
             	List of class and session IDs
             	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Forwarding.Sessions>`
             
+            	**config**\: False
+            
             
 
             """
@@ -5346,6 +6269,8 @@ class L2tpv2(Entity):
                 
                 	L2TP information for a particular session
                 	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Forwarding.Sessions.Session>`
+                
+                	**config**\: False
                 
                 
 
@@ -5385,12 +6310,16 @@ class L2tpv2(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_id  (key)
                     
                     	Local session ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: remote_session_id
                     
@@ -5399,12 +6328,16 @@ class L2tpv2(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_packets
                     
                     	Number of packets sent in
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: out_packets
                     
@@ -5413,12 +6346,16 @@ class L2tpv2(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_bytes
                     
                     	Number of bytes sent in
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -5428,6 +6365,8 @@ class L2tpv2(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -5471,6 +6410,9 @@ class L2tpv2(Entity):
                         self._perform_setattr(L2tpv2.Counters.Forwarding.Sessions.Session, ['tunnel_id', 'session_id', u'remote_session_id', u'in_packets', u'out_packets', u'in_bytes', u'out_bytes'], name, value)
 
 
+
+
+
         class Control(Entity):
             """
             L2TP control messages counters
@@ -5480,10 +6422,14 @@ class L2tpv2(Entity):
             	L2TP control tunnel messages counters
             	**type**\:  :py:class:`TunnelXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr>`
             
+            	**config**\: False
+            
             .. attribute:: tunnels
             
             	Table of tunnel IDs of control message counters
             	**type**\:  :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels>`
+            
+            	**config**\: False
             
             
 
@@ -5527,10 +6473,14 @@ class L2tpv2(Entity):
                 	Tunnel authentication counters
                 	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication>`
                 
+                	**config**\: False
+                
                 .. attribute:: global_
                 
                 	Tunnel counters
                 	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Global>`
+                
+                	**config**\: False
                 
                 
 
@@ -5574,45 +6524,63 @@ class L2tpv2(Entity):
                     	Nonce AVP statistics
                     	**type**\:  :py:class:`NonceAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: common_digest
                     
                     	Common digest statistics
                     	**type**\:  :py:class:`CommonDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: primary_digest
                     
                     	Primary digest statistics
                     	**type**\:  :py:class:`PrimaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: secondary_digest
                     
                     	Secondary digest statistics
                     	**type**\:  :py:class:`SecondaryDigest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: integrity_check
                     
                     	Integrity check statistics
                     	**type**\:  :py:class:`IntegrityCheck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: local_secret
                     
                     	Local secret statistics
                     	**type**\:  :py:class:`LocalSecret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: challenge_avp
                     
                     	Challenge AVP statistics
                     	**type**\:  :py:class:`ChallengeAvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: challenge_reponse
                     
                     	Challenge response statistics
                     	**type**\:  :py:class:`ChallengeReponse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: overall_statistics
                     
                     	Overall statistics
                     	**type**\:  :py:class:`OverallStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5686,12 +6654,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -5700,12 +6672,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -5714,12 +6690,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -5728,12 +6708,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -5742,6 +6726,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -5749,12 +6735,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5804,6 +6794,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class CommonDigest(Entity):
                         """
                         Common digest statistics
@@ -5815,12 +6806,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -5829,12 +6824,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -5843,12 +6842,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -5857,12 +6860,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -5871,6 +6878,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -5878,12 +6887,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5933,6 +6946,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class PrimaryDigest(Entity):
                         """
                         Primary digest statistics
@@ -5944,12 +6958,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -5958,12 +6976,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -5972,12 +6994,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -5986,12 +7012,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -6000,6 +7030,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -6007,12 +7039,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6062,6 +7098,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class SecondaryDigest(Entity):
                         """
                         Secondary digest statistics
@@ -6073,12 +7110,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -6087,12 +7128,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -6101,12 +7146,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -6115,12 +7164,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -6129,6 +7182,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -6136,12 +7191,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6191,6 +7250,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class IntegrityCheck(Entity):
                         """
                         Integrity check statistics
@@ -6202,12 +7262,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -6216,12 +7280,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -6230,12 +7298,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -6244,12 +7316,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -6258,6 +7334,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -6265,12 +7343,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6320,6 +7402,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class LocalSecret(Entity):
                         """
                         Local secret statistics
@@ -6331,12 +7414,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -6345,12 +7432,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -6359,12 +7450,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -6373,12 +7468,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -6387,6 +7486,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -6394,12 +7495,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6449,6 +7554,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class ChallengeAvp(Entity):
                         """
                         Challenge AVP statistics
@@ -6460,12 +7566,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -6474,12 +7584,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -6488,12 +7602,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -6502,12 +7620,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -6516,6 +7638,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -6523,12 +7647,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6578,6 +7706,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class ChallengeReponse(Entity):
                         """
                         Challenge response statistics
@@ -6589,12 +7718,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -6603,12 +7736,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -6617,12 +7754,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -6631,12 +7772,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -6645,6 +7790,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -6652,12 +7799,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6707,6 +7858,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
                     class OverallStatistics(Entity):
                         """
                         Overall statistics
@@ -6718,12 +7870,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: bad_hash
                         
                         	Bad hash
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bad_length
                         
@@ -6732,12 +7888,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ignored
                         
                         	Ignored
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: missing
                         
@@ -6746,12 +7906,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: passed
                         
                         	Passed
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: failed
                         
@@ -6760,12 +7924,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: skipped
                         
                         	Skipped
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: generate_response_failures
                         
@@ -6774,6 +7942,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected
                         
                         	Unexpected
@@ -6781,12 +7951,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: unexpected_zlb
                         
                         	Unexpected ZLB
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -6836,6 +8010,8 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
 
 
+
+
                 class Global(Entity):
                     """
                     Tunnel counters
@@ -6845,20 +8021,28 @@ class L2tpv2(Entity):
                     	Transmit data
                     	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Global.Transmit>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: retransmit
                     
                     	Re transmit data
                     	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Global.Retransmit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: received
                     
                     	Received data
                     	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Global.Received>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop
                     
                     	Drop data
                     	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.TunnelXr.Global.Drop>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_transmit
                     
@@ -6867,12 +8051,16 @@ class L2tpv2(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_retransmit
                     
                     	Total retransmit
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_received
                     
@@ -6881,12 +8069,16 @@ class L2tpv2(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_drop
                     
                     	Total drop
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -6949,12 +8141,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_requests
                         
@@ -6963,12 +8159,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_notifications
                         
@@ -6977,12 +8177,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hello_packets
                         
@@ -6991,12 +8195,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: outgoing_call_replies
                         
@@ -7005,12 +8213,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_requests
                         
@@ -7019,12 +8231,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_connected_packets
                         
@@ -7033,12 +8249,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wan_error_notify_packets
                         
@@ -7047,12 +8267,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: service_relay_requests
                         
@@ -7061,6 +8285,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
@@ -7068,12 +8294,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7139,6 +8369,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global.Transmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
                     class Retransmit(Entity):
                         """
                         Re transmit data
@@ -7150,12 +8381,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_requests
                         
@@ -7164,12 +8399,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_notifications
                         
@@ -7178,12 +8417,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hello_packets
                         
@@ -7192,12 +8435,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: outgoing_call_replies
                         
@@ -7206,12 +8453,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_requests
                         
@@ -7220,12 +8471,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_connected_packets
                         
@@ -7234,12 +8489,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wan_error_notify_packets
                         
@@ -7248,12 +8507,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: service_relay_requests
                         
@@ -7262,6 +8525,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
@@ -7269,12 +8534,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7340,6 +8609,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global.Retransmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
                     class Received(Entity):
                         """
                         Received data
@@ -7351,12 +8621,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_requests
                         
@@ -7365,12 +8639,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_notifications
                         
@@ -7379,12 +8657,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hello_packets
                         
@@ -7393,12 +8675,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: outgoing_call_replies
                         
@@ -7407,12 +8693,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_requests
                         
@@ -7421,12 +8711,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_connected_packets
                         
@@ -7435,12 +8729,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wan_error_notify_packets
                         
@@ -7449,12 +8747,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: service_relay_requests
                         
@@ -7463,6 +8765,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
@@ -7470,12 +8774,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7541,6 +8849,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global.Received, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
                     class Drop(Entity):
                         """
                         Drop data
@@ -7552,12 +8861,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: zero_length_body_packets
                         
                         	Zero length body packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_requests
                         
@@ -7566,12 +8879,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_control_connection_replies
                         
                         	Start control connection replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: start_control_connection_notifications
                         
@@ -7580,12 +8897,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: stop_control_connection_notifications
                         
                         	Stop control connection notifications
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: hello_packets
                         
@@ -7594,12 +8915,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_requests
                         
                         	Outgoing call requests
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: outgoing_call_replies
                         
@@ -7608,12 +8933,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: outgoing_call_connected_packets
                         
                         	Outgoing call connected packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_requests
                         
@@ -7622,12 +8951,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: incoming_call_replies
                         
                         	Incoming call replies
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: incoming_call_connected_packets
                         
@@ -7636,12 +8969,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: call_disconnect_notify_packets
                         
                         	Call disconnect notify packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: wan_error_notify_packets
                         
@@ -7650,12 +8987,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: set_link_info_packets
                         
                         	Set link info packets
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: service_relay_requests
                         
@@ -7664,6 +9005,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_relay_replies
                         
                         	Service relay reply counts
@@ -7671,12 +9014,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: acknowledgement_packets
                         
                         	Packets acknowledgement
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -7742,6 +9089,9 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global.Drop, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
+
+
             class Tunnels(Entity):
                 """
                 Table of tunnel IDs of control message counters
@@ -7750,6 +9100,8 @@ class L2tpv2(Entity):
                 
                 	L2TP tunnel control message counters
                 	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel>`
+                
+                	**config**\: False
                 
                 
 
@@ -7789,15 +9141,21 @@ class L2tpv2(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: brief
                     
                     	L2TP control message local and remote addresses
                     	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel.Brief>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: global_
                     
                     	Global data
                     	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel.Global>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7846,6 +9204,8 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_address
                         
                         	Local IP address
@@ -7853,12 +9213,16 @@ class L2tpv2(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_address
                         
                         	Remote IP address
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -7891,6 +9255,7 @@ class L2tpv2(Entity):
                             self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Brief, [u'remote_tunnel_id', u'local_address', u'remote_address'], name, value)
 
 
+
                     class Global(Entity):
                         """
                         Global data
@@ -7900,20 +9265,28 @@ class L2tpv2(Entity):
                         	Transmit data
                         	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: retransmit
                         
                         	Re transmit data
                         	**type**\:  :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: received
                         
                         	Received data
                         	**type**\:  :py:class:`Received <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Received>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: drop
                         
                         	Drop data
                         	**type**\:  :py:class:`Drop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_transmit
                         
@@ -7922,12 +9295,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_retransmit
                         
                         	Total retransmit
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_received
                         
@@ -7936,12 +9313,16 @@ class L2tpv2(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_drop
                         
                         	Total drop
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -8003,12 +9384,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_requests
                             
@@ -8017,12 +9402,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_notifications
                             
@@ -8031,12 +9420,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: hello_packets
                             
@@ -8045,12 +9438,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: outgoing_call_replies
                             
@@ -8059,12 +9456,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_requests
                             
@@ -8073,12 +9474,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_connected_packets
                             
@@ -8087,12 +9492,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: wan_error_notify_packets
                             
@@ -8101,12 +9510,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: service_relay_requests
                             
@@ -8115,6 +9528,8 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
@@ -8122,12 +9537,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -8192,6 +9611,7 @@ class L2tpv2(Entity):
                                 self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
                         class Retransmit(Entity):
                             """
                             Re transmit data
@@ -8203,12 +9623,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_requests
                             
@@ -8217,12 +9641,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_notifications
                             
@@ -8231,12 +9659,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: hello_packets
                             
@@ -8245,12 +9677,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: outgoing_call_replies
                             
@@ -8259,12 +9695,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_requests
                             
@@ -8273,12 +9713,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_connected_packets
                             
@@ -8287,12 +9731,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: wan_error_notify_packets
                             
@@ -8301,12 +9749,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: service_relay_requests
                             
@@ -8315,6 +9767,8 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
@@ -8322,12 +9776,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -8392,6 +9850,7 @@ class L2tpv2(Entity):
                                 self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
                         class Received(Entity):
                             """
                             Received data
@@ -8403,12 +9862,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_requests
                             
@@ -8417,12 +9880,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_notifications
                             
@@ -8431,12 +9898,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: hello_packets
                             
@@ -8445,12 +9916,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: outgoing_call_replies
                             
@@ -8459,12 +9934,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_requests
                             
@@ -8473,12 +9952,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_connected_packets
                             
@@ -8487,12 +9970,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: wan_error_notify_packets
                             
@@ -8501,12 +9988,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: service_relay_requests
                             
@@ -8515,6 +10006,8 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
@@ -8522,12 +10015,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -8592,6 +10089,7 @@ class L2tpv2(Entity):
                                 self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Received, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
                         class Drop(Entity):
                             """
                             Drop data
@@ -8603,12 +10101,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: zero_length_body_packets
                             
                             	Zero length body packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_requests
                             
@@ -8617,12 +10119,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_control_connection_replies
                             
                             	Start control connection replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_control_connection_notifications
                             
@@ -8631,12 +10137,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: stop_control_connection_notifications
                             
                             	Stop control connection notifications
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: hello_packets
                             
@@ -8645,12 +10155,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_requests
                             
                             	Outgoing call requests
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: outgoing_call_replies
                             
@@ -8659,12 +10173,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: outgoing_call_connected_packets
                             
                             	Outgoing call connected packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_requests
                             
@@ -8673,12 +10191,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: incoming_call_replies
                             
                             	Incoming call replies
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: incoming_call_connected_packets
                             
@@ -8687,12 +10209,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: call_disconnect_notify_packets
                             
                             	Call disconnect notify packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: wan_error_notify_packets
                             
@@ -8701,12 +10227,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: set_link_info_packets
                             
                             	Set link info packets
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: service_relay_requests
                             
@@ -8715,6 +10245,8 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: service_relay_replies
                             
                             	Service relay reply counts
@@ -8722,12 +10254,16 @@ class L2tpv2(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: acknowledgement_packets
                             
                             	Packets acknowledgement
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -8792,6 +10328,12 @@ class L2tpv2(Entity):
                                 self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
 
 
+
+
+
+
+
+
     class Statistics(Entity):
         """
         L2TP v2 statistics information
@@ -8803,12 +10345,16 @@ class L2tpv2(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: sessions
         
         	Number of sessions
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: sent_packets
         
@@ -8817,6 +10363,8 @@ class L2tpv2(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: received_packets
         
         	Number of packets received
@@ -8824,12 +10372,16 @@ class L2tpv2(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: average_packet_processing_time
         
         	Average processing time for received packets  (in micro seconds)
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: microsecond
         
@@ -8840,12 +10392,16 @@ class L2tpv2(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: reorder_packets
         
         	Re order packets
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: reorder_deviation_packets
         
@@ -8854,12 +10410,16 @@ class L2tpv2(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: incoming_dropped_packets
         
         	In coming packets dropped
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: buffered_packets
         
@@ -8868,12 +10428,16 @@ class L2tpv2(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: netio_packets
         
         	Packets RX in netio
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -8923,6 +10487,7 @@ class L2tpv2(Entity):
             self._perform_setattr(L2tpv2.Statistics, [u'tunnels', u'sessions', u'sent_packets', u'received_packets', u'average_packet_processing_time', u'received_out_of_order_packets', u'reorder_packets', u'reorder_deviation_packets', u'incoming_dropped_packets', u'buffered_packets', u'netio_packets'], name, value)
 
 
+
     class Tunnel(Entity):
         """
         L2TPv2 tunnel 
@@ -8931,6 +10496,8 @@ class L2tpv2(Entity):
         
         	Tunnel accounting counters
         	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Tunnel.Accounting>`
+        
+        	**config**\: False
         
         
 
@@ -8969,6 +10536,8 @@ class L2tpv2(Entity):
             
             	Tunnel accounting statistics
             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Tunnel.Accounting.Statistics>`
+            
+            	**config**\: False
             
             
 
@@ -9010,12 +10579,16 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: start
                 
                 	Accounting start
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: stop
                 
@@ -9024,12 +10597,16 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: reject
                 
                 	Accounting reject
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: transport_failures
                 
@@ -9038,12 +10615,16 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: positive_acknowledgement
                 
                 	Positive acknowledgement
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: negative_acknowledgement
                 
@@ -9052,12 +10633,16 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: records_checkpointed
                 
                 	Total records checkpointed
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: records_failed_to_checkpoint
                 
@@ -9066,12 +10651,16 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: records_sent_from_queue
                 
                 	Records sent from queue
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: memory_failures
                 
@@ -9080,12 +10669,16 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: current_size
                 
                 	Current checkpoint size
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: records_recovered_from_checkpoint
                 
@@ -9094,6 +10687,8 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: records_fail_to_recover
                 
                 	Records fail to recover
@@ -9101,12 +10696,16 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: queue_statistics_size
                 
                 	Queue statistics size
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**config**\: False
                 
                 
 
@@ -9164,6 +10763,9 @@ class L2tpv2(Entity):
                     self._perform_setattr(L2tpv2.Tunnel.Accounting.Statistics, [u'records_sent_successfully', u'start', u'stop', u'reject', u'transport_failures', u'positive_acknowledgement', u'negative_acknowledgement', u'records_checkpointed', u'records_failed_to_checkpoint', u'records_sent_from_queue', u'memory_failures', u'current_size', u'records_recovered_from_checkpoint', u'records_fail_to_recover', u'queue_statistics_size'], name, value)
 
 
+
+
+
     class TunnelConfigurations(Entity):
         """
         List of tunnel IDs
@@ -9172,6 +10774,8 @@ class L2tpv2(Entity):
         
         	L2TP tunnel information
         	**type**\: list of  		 :py:class:`TunnelConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.TunnelConfigurations.TunnelConfiguration>`
+        
+        	**config**\: False
         
         
 
@@ -9211,10 +10815,14 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: l2tp_class
             
             	L2Tp class data
             	**type**\:  :py:class:`L2tpClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.TunnelConfigurations.TunnelConfiguration.L2tpClass>`
+            
+            	**config**\: False
             
             .. attribute:: remote_tunnel_id
             
@@ -9222,6 +10830,8 @@ class L2tpv2(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -9268,12 +10878,16 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: vrf_name
                 
                 	VRF name
                 	**type**\: str
                 
                 	**length:** 0..256
+                
+                	**config**\: False
                 
                 .. attribute:: receive_window_size
                 
@@ -9282,6 +10896,8 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: class_name_xr
                 
                 	Class name
@@ -9289,10 +10905,14 @@ class L2tpv2(Entity):
                 
                 	**length:** 0..256
                 
+                	**config**\: False
+                
                 .. attribute:: digest_hash
                 
                 	Hash configured as MD5 or SHA1
                 	**type**\:  :py:class:`DigestHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.DigestHash>`
+                
+                	**config**\: False
                 
                 .. attribute:: password
                 
@@ -9301,12 +10921,16 @@ class L2tpv2(Entity):
                 
                 	**length:** 0..25
                 
+                	**config**\: False
+                
                 .. attribute:: encoded_password
                 
                 	Encoded password
                 	**type**\: str
                 
                 	**length:** 0..256
+                
+                	**config**\: False
                 
                 .. attribute:: host_name
                 
@@ -9315,6 +10939,8 @@ class L2tpv2(Entity):
                 
                 	**length:** 0..256
                 
+                	**config**\: False
+                
                 .. attribute:: accounting_method_list
                 
                 	Accounting List
@@ -9322,12 +10948,16 @@ class L2tpv2(Entity):
                 
                 	**length:** 0..256
                 
+                	**config**\: False
+                
                 .. attribute:: hello_timeout
                 
                 	Hello timeout value in seconds
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -9338,6 +10968,8 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: retransmit_minimum_timeout
@@ -9346,6 +10978,8 @@ class L2tpv2(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -9356,6 +10990,8 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: initial_retransmit_minimum_timeout
@@ -9364,6 +11000,8 @@ class L2tpv2(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -9374,6 +11012,8 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: timeout_no_user
@@ -9383,12 +11023,16 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: retransmit_retries
                 
                 	Retransmit retries
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: initial_retransmit_retries
                 
@@ -9397,35 +11041,49 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_authentication_enabled
                 
                 	True if authentication is enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: is_hidden
                 
                 	True if class is hidden
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_digest_enabled
                 
                 	True if digest authentication is enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: is_digest_check_enabled
                 
                 	True if digest check is enabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_congestion_control_enabled
                 
                 	True if congestion control is enabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_peer_address_checked
                 
                 	True if peer address is checked
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -9500,6 +11158,9 @@ class L2tpv2(Entity):
                     self._perform_setattr(L2tpv2.TunnelConfigurations.TunnelConfiguration.L2tpClass, [u'ip_tos', u'vrf_name', u'receive_window_size', u'class_name_xr', u'digest_hash', u'password', u'encoded_password', u'host_name', u'accounting_method_list', u'hello_timeout', u'setup_timeout', u'retransmit_minimum_timeout', u'retransmit_maximum_timeout', u'initial_retransmit_minimum_timeout', u'initial_retransmit_maximum_timeout', u'timeout_no_user', u'retransmit_retries', u'initial_retransmit_retries', u'is_authentication_enabled', u'is_hidden', u'is_digest_enabled', u'is_digest_check_enabled', u'is_congestion_control_enabled', u'is_peer_address_checked'], name, value)
 
 
+
+
+
     class CounterHistFail(Entity):
         """
         Failure events leading to disconnection
@@ -9511,12 +11172,16 @@ class L2tpv2(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: tx_counters
         
         	Send side counters
         	**type**\: str
         
         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+        
+        	**config**\: False
         
         .. attribute:: rx_counters
         
@@ -9525,10 +11190,14 @@ class L2tpv2(Entity):
         
         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
         
+        	**config**\: False
+        
         .. attribute:: pkt_timeout
         
         	timeout events by packet
         	**type**\: list of  		 :py:class:`PktTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.CounterHistFail.PktTimeout>`
+        
+        	**config**\: False
         
         
 
@@ -9575,6 +11244,8 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             
 
             """
@@ -9603,6 +11274,8 @@ class L2tpv2(Entity):
                 self._perform_setattr(L2tpv2.CounterHistFail.PktTimeout, [u'entry'], name, value)
 
 
+
+
     class Classes(Entity):
         """
         List of L2TP class names
@@ -9611,6 +11284,8 @@ class L2tpv2(Entity):
         
         	L2TP class name
         	**type**\: list of  		 :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Classes.Class>`
+        
+        	**config**\: False
         
         
 
@@ -9650,12 +11325,16 @@ class L2tpv2(Entity):
             
             	**length:** 1..31
             
+            	**config**\: False
+            
             .. attribute:: ip_tos
             
             	IP TOS
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: vrf_name
             
@@ -9664,12 +11343,16 @@ class L2tpv2(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: receive_window_size
             
             	Receive window size
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: class_name_xr
             
@@ -9678,10 +11361,14 @@ class L2tpv2(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: digest_hash
             
             	Hash configured as MD5 or SHA1
             	**type**\:  :py:class:`DigestHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.DigestHash>`
+            
+            	**config**\: False
             
             .. attribute:: password
             
@@ -9690,12 +11377,16 @@ class L2tpv2(Entity):
             
             	**length:** 0..25
             
+            	**config**\: False
+            
             .. attribute:: encoded_password
             
             	Encoded password
             	**type**\: str
             
             	**length:** 0..256
+            
+            	**config**\: False
             
             .. attribute:: host_name
             
@@ -9704,6 +11395,8 @@ class L2tpv2(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: accounting_method_list
             
             	Accounting List
@@ -9711,12 +11404,16 @@ class L2tpv2(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: hello_timeout
             
             	Hello timeout value in seconds
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -9727,6 +11424,8 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: second
             
             .. attribute:: retransmit_minimum_timeout
@@ -9735,6 +11434,8 @@ class L2tpv2(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -9745,6 +11446,8 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: second
             
             .. attribute:: initial_retransmit_minimum_timeout
@@ -9753,6 +11456,8 @@ class L2tpv2(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -9763,6 +11468,8 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: second
             
             .. attribute:: timeout_no_user
@@ -9772,12 +11479,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: retransmit_retries
             
             	Retransmit retries
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: initial_retransmit_retries
             
@@ -9786,35 +11497,49 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: is_authentication_enabled
             
             	True if authentication is enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_hidden
             
             	True if class is hidden
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_digest_enabled
             
             	True if digest authentication is enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_digest_check_enabled
             
             	True if digest check is enabled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_congestion_control_enabled
             
             	True if congestion control is enabled
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_peer_address_checked
             
             	True if peer address is checked
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -9892,6 +11617,8 @@ class L2tpv2(Entity):
                 self._perform_setattr(L2tpv2.Classes.Class, ['class_name', u'ip_tos', u'vrf_name', u'receive_window_size', u'class_name_xr', u'digest_hash', u'password', u'encoded_password', u'host_name', u'accounting_method_list', u'hello_timeout', u'setup_timeout', u'retransmit_minimum_timeout', u'retransmit_maximum_timeout', u'initial_retransmit_minimum_timeout', u'initial_retransmit_maximum_timeout', u'timeout_no_user', u'retransmit_retries', u'initial_retransmit_retries', u'is_authentication_enabled', u'is_hidden', u'is_digest_enabled', u'is_digest_check_enabled', u'is_congestion_control_enabled', u'is_peer_address_checked'], name, value)
 
 
+
+
     class Tunnels(Entity):
         """
         List of tunnel IDs
@@ -9900,6 +11627,8 @@ class L2tpv2(Entity):
         
         	L2TP tunnel  information
         	**type**\: list of  		 :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Tunnels.Tunnel>`
+        
+        	**config**\: False
         
         
 
@@ -9939,12 +11668,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_address
             
             	Local tunnel address
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: remote_address
             
@@ -9953,12 +11686,16 @@ class L2tpv2(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: local_port
             
             	Local port
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: remote_port
             
@@ -9967,6 +11704,8 @@ class L2tpv2(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: protocol
             
             	Protocol
@@ -9974,10 +11713,14 @@ class L2tpv2(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: is_pmtu_enabled
             
             	True if tunnel PMTU checking is enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: remote_tunnel_id
             
@@ -9986,12 +11729,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_tunnel_name
             
             	Local tunnel name
             	**type**\: str
             
             	**length:** 0..256
+            
+            	**config**\: False
             
             .. attribute:: remote_tunnel_name
             
@@ -10000,12 +11747,16 @@ class L2tpv2(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: class_name
             
             	L2TP class name
             	**type**\: str
             
             	**length:** 0..256
+            
+            	**config**\: False
             
             .. attribute:: active_sessions
             
@@ -10014,12 +11765,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sequence_ns
             
             	Sequence NS
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: sequence_nr
             
@@ -10028,12 +11783,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: local_window_size
             
             	Local window size
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: remote_window_size
             
@@ -10042,12 +11801,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: retransmission_time
             
             	Retransmission time in seconds
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -10058,6 +11821,8 @@ class L2tpv2(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             	**units**\: second
             
             .. attribute:: unsent_queue_size
@@ -10067,12 +11832,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: unsent_maximum_queue_size
             
             	Unsent maximum queue size
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: resend_queue_size
             
@@ -10081,12 +11850,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: resend_maximum_queue_size
             
             	Resend maximum queue size
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: order_queue_size
             
@@ -10095,12 +11868,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: packet_queue_check
             
             	Current number session packet queue check
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: digest_secrets
             
@@ -10109,12 +11886,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: resends
             
             	Total resends
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: zero_length_body_acknowledgement_sent
             
@@ -10123,12 +11904,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: total_out_of_order_drop_packets
             
             	Total out of order dropped packets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: total_out_of_order_reorder_packets
             
@@ -10137,6 +11922,8 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: total_peer_authentication_failures
             
             	Number of peer authentication failures
@@ -10144,20 +11931,28 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: is_tunnel_up
             
             	True if tunnel is up
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_congestion_control_enabled
             
             	True if congestion control is enabled else false
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: retransmit_time
             
             	Retransmit time distribution in seconds
             	**type**\: list of  		 :py:class:`RetransmitTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Tunnels.Tunnel.RetransmitTime>`
+            
+            	**config**\: False
             
             
 
@@ -10262,6 +12057,8 @@ class L2tpv2(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 
@@ -10291,6 +12088,9 @@ class L2tpv2(Entity):
                     self._perform_setattr(L2tpv2.Tunnels.Tunnel.RetransmitTime, [u'entry'], name, value)
 
 
+
+
+
     class Sessions(Entity):
         """
         List of session IDs
@@ -10299,6 +12099,8 @@ class L2tpv2(Entity):
         
         	L2TP information for a particular session
         	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Sessions.Session>`
+        
+        	**config**\: False
         
         
 
@@ -10338,6 +12140,8 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_session_id  (key)
             
             	Local session ID
@@ -10345,10 +12149,14 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: session_application_data
             
             	Session application data
             	**type**\:  :py:class:`SessionApplicationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Sessions.Session.SessionApplicationData>`
+            
+            	**config**\: False
             
             .. attribute:: local_ip_address
             
@@ -10357,12 +12165,16 @@ class L2tpv2(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: remote_ip_address
             
             	Remote session IP address
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: l2tp_sh_sess_udp_lport
             
@@ -10371,12 +12183,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: l2tp_sh_sess_udp_rport
             
             	l2tp sh sess udp rport
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: protocol
             
@@ -10385,12 +12201,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: remote_tunnel_id
             
             	Remote tunnel ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: call_serial_number
             
@@ -10399,12 +12219,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: local_tunnel_name
             
             	Local tunnel name
             	**type**\: str
             
             	**length:** 0..256
+            
+            	**config**\: False
             
             .. attribute:: remote_tunnel_name
             
@@ -10413,12 +12237,16 @@ class L2tpv2(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: remote_session_id
             
             	Remote session ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: l2tp_sh_sess_tie_breaker_enabled
             
@@ -10427,6 +12255,8 @@ class L2tpv2(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: l2tp_sh_sess_tie_breaker
             
             	l2tp sh sess tie breaker
@@ -10434,40 +12264,56 @@ class L2tpv2(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: is_session_manual
             
             	True if session is manual
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_session_up
             
             	True if session is up
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_udp_checksum_enabled
             
             	True if UDP checksum enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_sequencing_on
             
             	True if session sequence is on
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_session_state_established
             
             	True if session state is established
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_session_locally_initiated
             
             	True if session initiated locally
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: is_conditional_debug_enabled
             
             	True if conditional debugging is enabled
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: unique_id
             
@@ -10476,12 +12322,16 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: interface_name
             
             	Interface name
             	**type**\: str
             
             	**length:** 0..256
+            
+            	**config**\: False
             
             
 
@@ -10568,10 +12418,14 @@ class L2tpv2(Entity):
                 	Xconnect data
                 	**type**\:  :py:class:`Xconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Sessions.Session.SessionApplicationData.Xconnect>`
                 
+                	**config**\: False
+                
                 .. attribute:: vpdn
                 
                 	VPDN data
                 	**type**\:  :py:class:`Vpdn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Sessions.Session.SessionApplicationData.Vpdn>`
+                
+                	**config**\: False
                 
                 .. attribute:: l2tp_sh_sess_app_type
                 
@@ -10579,6 +12433,8 @@ class L2tpv2(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -10624,6 +12480,8 @@ class L2tpv2(Entity):
                     	Circuit name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: sessionvc_id
                     
                     	Session VC ID
@@ -10631,25 +12489,35 @@ class L2tpv2(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_circuit_state_up
                     
                     	True if circuit state is up
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_local_circuit_state_up
                     
                     	True if local circuit state is up
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_remote_circuit_state_up
                     
                     	True if remote circuit state is up
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: ipv6_protocol_tunneling
                     
                     	IPv6ProtocolTunneling
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -10688,6 +12556,7 @@ class L2tpv2(Entity):
                         self._perform_setattr(L2tpv2.Sessions.Session.SessionApplicationData.Xconnect, [u'circuit_name', u'sessionvc_id', u'is_circuit_state_up', u'is_local_circuit_state_up', u'is_remote_circuit_state_up', u'ipv6_protocol_tunneling'], name, value)
 
 
+
                 class Vpdn(Entity):
                     """
                     VPDN data
@@ -10697,12 +12566,16 @@ class L2tpv2(Entity):
                     	Session username
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_name
                     
                     	Interface name
                     	**type**\: str
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                    
+                    	**config**\: False
                     
                     
 
@@ -10733,6 +12606,10 @@ class L2tpv2(Entity):
                         self._perform_setattr(L2tpv2.Sessions.Session.SessionApplicationData.Vpdn, [u'username', u'interface_name'], name, value)
 
 
+
+
+
+
     class Session(Entity):
         """
         L2TP control messages counters
@@ -10741,6 +12618,8 @@ class L2tpv2(Entity):
         
         	L2TP session unavailable  information
         	**type**\:  :py:class:`Unavailable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Session.Unavailable>`
+        
+        	**config**\: False
         
         
 
@@ -10782,6 +12661,8 @@ class L2tpv2(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             
 
             """
@@ -10809,7 +12690,11 @@ class L2tpv2(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tpv2.Session.Unavailable, [u'sessions_on_hold'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = L2tpv2()
         return self._top_entity
+
+
 

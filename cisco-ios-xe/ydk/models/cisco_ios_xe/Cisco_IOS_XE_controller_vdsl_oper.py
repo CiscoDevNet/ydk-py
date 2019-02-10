@@ -103,6 +103,8 @@ class VdslOperData(Entity):
     	VDSL controller information
     	**type**\: list of  		 :py:class:`VdslInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_controller_vdsl_oper.VdslOperData.VdslInfo>`
     
+    	**config**\: False
+    
     
 
     """
@@ -141,6 +143,8 @@ class VdslOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: subslot_num  (key)
         
         	Sub Slot number
@@ -148,45 +152,63 @@ class VdslOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: state
         
         	Controller database state
         	**type**\:  :py:class:`IdbStates <ydk.models.cisco_ios_xe.Cisco_IOS_XE_controller_vdsl_oper.IdbStates>`
+        
+        	**config**\: False
         
         .. attribute:: mode
         
         	Operational mode
         	**type**\:  :py:class:`ModeTc <ydk.models.cisco_ios_xe.Cisco_IOS_XE_controller_vdsl_oper.ModeTc>`
         
+        	**config**\: False
+        
         .. attribute:: modem_status
         
         	Modem status
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: trained_mode
         
         	Trained Mode
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: firmware_version
         
         	Firmware version
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: phy_version
         
         	PHY version
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: cpe_stats
         
         	XTU\-R customer\-premises equipment statistics
         	**type**\:  :py:class:`CpeStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_controller_vdsl_oper.VdslOperData.VdslInfo.CpeStats>`
         
+        	**config**\: False
+        
         .. attribute:: co_stats
         
         	XTU\-C central office statistics
         	**type**\:  :py:class:`CoStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_controller_vdsl_oper.VdslOperData.VdslInfo.CoStats>`
+        
+        	**config**\: False
         
         
 
@@ -247,15 +269,21 @@ class VdslOperData(Entity):
             	Chip vendor ID
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: line_attenuation
             
             	Line attenuation in decibels
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: noise_margin
             
             	Noise margin in decibels
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: attainable_rate
             
@@ -264,10 +292,14 @@ class VdslOperData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: actual_power
             
             	Actual power in decibel\-milliwatts
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: speed
             
@@ -275,6 +307,8 @@ class VdslOperData(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -313,6 +347,7 @@ class VdslOperData(Entity):
                 self._perform_setattr(VdslOperData.VdslInfo.CpeStats, ['chip_vendor', 'line_attenuation', 'noise_margin', 'attainable_rate', 'actual_power', 'speed'], name, value)
 
 
+
         class CoStats(Entity):
             """
             XTU\-C central office statistics
@@ -322,15 +357,21 @@ class VdslOperData(Entity):
             	Chip vendor ID
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: line_attenuation
             
             	Line attenuation in decibels
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: noise_margin
             
             	Noise margin in decibels
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: attainable_rate
             
@@ -339,10 +380,14 @@ class VdslOperData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: actual_power
             
             	Actual power in decibel\-milliwatts
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: speed
             
@@ -350,6 +395,8 @@ class VdslOperData(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -387,7 +434,11 @@ class VdslOperData(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(VdslOperData.VdslInfo.CoStats, ['chip_vendor', 'line_attenuation', 'noise_margin', 'attainable_rate', 'actual_power', 'speed'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = VdslOperData()
         return self._top_entity
+
+
 

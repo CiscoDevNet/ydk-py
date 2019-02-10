@@ -486,20 +486,28 @@ class AaaData(Entity):
     	Radius server statistics
     	**type**\: list of  		 :py:class:`AaaRadiusStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_aaa_oper.AaaData.AaaRadiusStats>`
     
+    	**config**\: False
+    
     .. attribute:: aaa_tacacs_stats
     
     	AAA TACACS server statistics
     	**type**\: list of  		 :py:class:`AaaTacacsStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_aaa_oper.AaaData.AaaTacacsStats>`
+    
+    	**config**\: False
     
     .. attribute:: aaa_ldap_counters
     
     	LDAP server counters
     	**type**\: list of  		 :py:class:`AaaLdapCounters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_aaa_oper.AaaData.AaaLdapCounters>`
     
+    	**config**\: False
+    
     .. attribute:: aaa_users
     
     	List of current users
     	**type**\: list of  		 :py:class:`AaaUsers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_aaa_oper.AaaData.AaaUsers>`
+    
+    	**config**\: False
     
     
 
@@ -540,6 +548,8 @@ class AaaData(Entity):
         	AAA group name in which the server is defined.  For public servers the group name is "PUBLIC GROUP" by default
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: radius_server_ip  (key)
         
         	Radius server IP address
@@ -553,12 +563,16 @@ class AaaData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: auth_port  (key)
         
         	Radius server auth\-port
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: acct_port  (key)
         
@@ -567,12 +581,16 @@ class AaaData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: authen_retried_access_requests
         
         	Authentication retried access requests
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: authen_access_accepts
         
@@ -581,12 +599,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: authen_access_rejects
         
         	Authentication access rejects
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: authen_timeout_access_requests
         
@@ -595,12 +617,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: author_retried_access_requests
         
         	Authorization retried access requests
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: author_access_accepts
         
@@ -609,12 +635,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: author_access_rejects
         
         	Authorization access rejects
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: author_timeout_access_requests
         
@@ -623,12 +653,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: connection_opens
         
         	Number of new connection requests sent to the RADIUS server
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: connection_closes
         
@@ -637,12 +671,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: connection_aborts
         
         	Number of connections aborted. These do not include connections that are closed gracefully
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: connection_failures
         
@@ -651,12 +689,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: connection_timeouts
         
         	Number of connection timeouts to the RADIUS server
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: authen_messages_sent
         
@@ -665,12 +707,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: author_messages_sent
         
         	Number of authorization messages sent to the RADIUS server
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: acct_messages_sent
         
@@ -679,12 +725,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: authen_messages_received
         
         	Number of authentication messages received by the RADIUS server
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: author_messages_received
         
@@ -693,12 +743,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: authen_errors_received
         
         	Number of authentication error messages received  from the RADIUS server
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: author_errors_received
         
@@ -707,6 +761,8 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: acct_errors_received
         
         	Number of accounting error messages received  from the RADIUS server
@@ -714,12 +770,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: stats_time
         
         	Time from which the statistics are valid. This field will be updated when a RADIUS server is configured and also when the RADIUS server statistics are cleared
         	**type**\: str
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        
+        	**config**\: False
         
         
 
@@ -799,6 +859,7 @@ class AaaData(Entity):
             self._perform_setattr(AaaData.AaaRadiusStats, ['group_name', 'radius_server_ip', 'auth_port', 'acct_port', 'authen_retried_access_requests', 'authen_access_accepts', 'authen_access_rejects', 'authen_timeout_access_requests', 'author_retried_access_requests', 'author_access_accepts', 'author_access_rejects', 'author_timeout_access_requests', 'connection_opens', 'connection_closes', 'connection_aborts', 'connection_failures', 'connection_timeouts', 'authen_messages_sent', 'author_messages_sent', 'acct_messages_sent', 'authen_messages_received', 'author_messages_received', 'authen_errors_received', 'author_errors_received', 'acct_errors_received', 'stats_time'], name, value)
 
 
+
     class AaaTacacsStats(Entity):
         """
         AAA TACACS server statistics
@@ -807,6 +868,8 @@ class AaaData(Entity):
         
         	AAA group name in which the server is defined. For public servers the group name is "PUBLIC GROUP" by default
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: tacacs_server_address  (key)
         
@@ -821,12 +884,16 @@ class AaaData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: port  (key)
         
         	TACACS server port
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: connection_opens
         
@@ -835,12 +902,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: connection_closes
         
         	Number of connection close requests sent to the server
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: connection_aborts
         
@@ -849,12 +920,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: connection_failures
         
         	Number of connection failures to the server
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: connection_timeouts
         
@@ -863,12 +938,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: messages_sent
         
         	Number of messages sent to the server
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: messages_received
         
@@ -877,6 +956,8 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: errors_received
         
         	Number of error messages received from the server
@@ -884,12 +965,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: stats_start_time
         
         	This attribute contains stats collection start time. Stats collection starts when the TACACS server is configured
         	**type**\: str
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        
+        	**config**\: False
         
         
 
@@ -941,6 +1026,7 @@ class AaaData(Entity):
             self._perform_setattr(AaaData.AaaTacacsStats, ['group_name', 'tacacs_server_address', 'port', 'connection_opens', 'connection_closes', 'connection_aborts', 'connection_failures', 'connection_timeouts', 'messages_sent', 'messages_received', 'errors_received', 'stats_start_time'], name, value)
 
 
+
     class AaaLdapCounters(Entity):
         """
         LDAP server counters
@@ -958,12 +1044,16 @@ class AaaData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: ldap_server_port  (key)
         
         	LDAP server listening port \- TCP
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: connection_opens
         
@@ -972,12 +1062,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: messages_sent
         
         	Number of messages sent to the LDAP server
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: messages_received
         
@@ -986,12 +1080,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: errors_received
         
         	Number of error messages received from the LDAP server
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: connection_closes
         
@@ -1000,12 +1098,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: connection_aborts
         
         	Number of connections aborted. These do not include connections that are close gracefully
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: connection_failures
         
@@ -1014,6 +1116,8 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: connection_timeouts
         
         	Number of connection timeouts to the LDAP server
@@ -1021,12 +1125,16 @@ class AaaData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: counters_start_time
         
         	This attribute contains LDAP counters collection start time. Counters collection starts when a LDAP server is configured. Counters collection will be reset when the LDAP server counters are cleared
         	**type**\: str
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        
+        	**config**\: False
         
         
 
@@ -1076,6 +1184,7 @@ class AaaData(Entity):
             self._perform_setattr(AaaData.AaaLdapCounters, ['ldap_server_address', 'ldap_server_port', 'connection_opens', 'messages_sent', 'messages_received', 'errors_received', 'connection_closes', 'connection_aborts', 'connection_failures', 'connection_timeouts', 'counters_start_time'], name, value)
 
 
+
     class AaaUsers(Entity):
         """
         List of current users
@@ -1085,10 +1194,14 @@ class AaaData(Entity):
         	The username used to logged into the device
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: aaa_sessions
         
         	Sessions associated with the users
         	**type**\: list of  		 :py:class:`AaaSessions <ydk.models.cisco_ios_xe.Cisco_IOS_XE_aaa_oper.AaaData.AaaUsers.AaaSessions>`
+        
+        	**config**\: False
         
         
 
@@ -1131,12 +1244,16 @@ class AaaData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: session_id
             
             	AAA Session ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ip_addr
             
@@ -1151,10 +1268,14 @@ class AaaData(Entity):
             
             			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: protocol
             
             	AAA protocol type Protocol used in this session
             	**type**\:  :py:class:`AaaSessProtType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_aaa_oper.AaaSessProtType>`
+            
+            	**config**\: False
             
             .. attribute:: login_time
             
@@ -1162,6 +1283,8 @@ class AaaData(Entity):
             	**type**\: str
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+            
+            	**config**\: False
             
             
 
@@ -1197,7 +1320,11 @@ class AaaData(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(AaaData.AaaUsers.AaaSessions, ['aaa_uid', 'session_id', 'ip_addr', 'protocol', 'login_time'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = AaaData()
         return self._top_entity
+
+
 

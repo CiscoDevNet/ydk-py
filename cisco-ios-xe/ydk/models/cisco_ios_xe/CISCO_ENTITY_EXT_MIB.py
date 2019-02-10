@@ -57,15 +57,21 @@ class CISCOENTITYEXTMIB(Entity):
     	The ceExtPhysicalProcessorTable extends the ENTITY\-MIB entPhysicalTable for modules (Non FRUs(Field Replacable Units) or FRUs)
     	**type**\:  :py:class:`CeExtPhysicalProcessorTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable>`
     
+    	**config**\: False
+    
     .. attribute:: ceextconfigregtable
     
     	The ceExtConfigRegTable extends the ENTITY\-MIB entPhysicalTable
     	**type**\:  :py:class:`CeExtConfigRegTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtConfigRegTable>`
     
+    	**config**\: False
+    
     .. attribute:: ceextentityledtable
     
     	A table containing information of LED on an entity
     	**type**\:  :py:class:`CeExtEntityLEDTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtEntityLEDTable>`
+    
+    	**config**\: False
     
     
 
@@ -114,6 +120,8 @@ class CISCOENTITYEXTMIB(Entity):
         
         	A ceExtPhysicalProcessorTable entry extends a corresponding entPhysicalTable entry of class module(entPhysicalClass = 'module').  A processor module or line card which  has a processor will have an entry in this table.  A processor module or line card having multiple processors and is a SMP(Symmetric multi processor) system will have only  one entry corresponding to all the processors  since the resources defined below are shared.  A processor module or line card having multiple processors and is not an SMP system would register the processors as separate entities.  Entries are created by the agent at the system power\-up or module insertion.  Entries are removed when the module is reset or removed
         	**type**\: list of  		 :py:class:`CeExtPhysicalProcessorEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable.CeExtPhysicalProcessorEntry>`
+        
+        	**config**\: False
         
         
 
@@ -176,12 +184,16 @@ class CISCOENTITYEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceextprocessorram
             
             	Total number of bytes of RAM available on the Processor
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -192,6 +204,8 @@ class CISCOENTITYEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: ceextnvramused
@@ -200,6 +214,8 @@ class CISCOENTITYEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -210,6 +226,8 @@ class CISCOENTITYEXTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: ceexthcprocessorram
@@ -218,6 +236,8 @@ class CISCOENTITYEXTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -259,6 +279,8 @@ class CISCOENTITYEXTMIB(Entity):
                 self._perform_setattr(CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable.CeExtPhysicalProcessorEntry, ['entphysicalindex', 'ceextprocessorram', 'ceextnvramsize', 'ceextnvramused', 'ceextprocessorramoverflow', 'ceexthcprocessorram'], name, value)
 
 
+
+
     class CeExtConfigRegTable(Entity):
         """
         The ceExtConfigRegTable extends
@@ -268,6 +290,8 @@ class CISCOENTITYEXTMIB(Entity):
         
         	A ceExtConfigRegTable entry extends a corresponding entPhysicalTable entry of class module which has a configuration register.  Entries are created by the agent at the system power\-up or module insertion.  Entries are removed when the module is reset or  removed
         	**type**\: list of  		 :py:class:`CeExtConfigRegEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtConfigRegTable.CeExtConfigRegEntry>`
+        
+        	**config**\: False
         
         
 
@@ -317,15 +341,21 @@ class CISCOENTITYEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceextconfigregister
             
             	The value of configuration register with which the processor module booted
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ceextconfigregnext
             
             	The value of configuration register in the processor module at next reboot. Just after  the reboot this has the same value as  ceExtConfigRegister
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: ceextsysbootimagelist
             
@@ -334,12 +364,16 @@ class CISCOENTITYEXTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: ceextkickstartimagelist
             
             	The list of system kickstart images which can be used for booting
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -377,6 +411,8 @@ class CISCOENTITYEXTMIB(Entity):
                 self._perform_setattr(CISCOENTITYEXTMIB.CeExtConfigRegTable.CeExtConfigRegEntry, ['entphysicalindex', 'ceextconfigregister', 'ceextconfigregnext', 'ceextsysbootimagelist', 'ceextkickstartimagelist'], name, value)
 
 
+
+
     class CeExtEntityLEDTable(Entity):
         """
         A table containing information of LED on an entity.
@@ -385,6 +421,8 @@ class CISCOENTITYEXTMIB(Entity):
         
         	An entry (conceptual row) in the ceExtEntityLEDTable, containing information about an LED on an entity, identified by  entPhysicalIndex
         	**type**\: list of  		 :py:class:`CeExtEntityLEDEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtEntityLEDTable.CeExtEntityLEDEntry>`
+        
+        	**config**\: False
         
         
 
@@ -428,15 +466,21 @@ class CISCOENTITYEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ceextentityledtype  (key)
             
             	The type of LED on this entity. 'status' \- indicates the entity status. 'system' \- indicates the overall system status.  'active' \- the redundancy status of a module, for e.g.            supervisor module.  'power'  \- indicates sufficient power availability for all             modules. 'battery'\- indicates the battery status
             	**type**\:  :py:class:`CeExtEntityLEDType <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtEntityLEDTable.CeExtEntityLEDEntry.CeExtEntityLEDType>`
             
+            	**config**\: False
+            
             .. attribute:: ceextentityledcolor
             
             	The color of the LED
             	**type**\:  :py:class:`CeExtEntityLEDColor <ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB.CISCOENTITYEXTMIB.CeExtEntityLEDTable.CeExtEntityLEDEntry.CeExtEntityLEDColor>`
+            
+            	**config**\: False
             
             
 
@@ -537,7 +581,11 @@ class CISCOENTITYEXTMIB(Entity):
                 battery = Enum.YLeaf(5, "battery")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOENTITYEXTMIB()
         return self._top_entity
+
+
 

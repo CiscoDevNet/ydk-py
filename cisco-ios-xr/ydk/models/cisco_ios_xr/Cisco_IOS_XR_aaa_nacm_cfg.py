@@ -236,6 +236,8 @@ class Nacm(Entity):
                 self._perform_setattr(Nacm.Groups.Group, ['group_name', 'user_name'], name, value)
 
 
+
+
     class RulelistClasses(Entity):
         """
         Contains all rule lists of NACM
@@ -375,6 +377,7 @@ class Nacm(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Nacm.RulelistClasses.RulelistClass.GroupNames, ['group_name'], name, value)
+
 
 
             class Rules(Entity):
@@ -549,6 +552,7 @@ class Nacm(Entity):
                             self._perform_setattr(Nacm.RulelistClasses.RulelistClass.Rules.Rule.RuleType, ['type', 'value'], name, value)
 
 
+
                     class AccessOperations(Entity):
                         """
                         Access operations associated with this rule
@@ -631,7 +635,14 @@ class Nacm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Nacm.RulelistClasses.RulelistClass.Rules.Rule.AccessOperations, ['create', 'read', 'update', 'delete', 'exec_', 'all'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Nacm()
         return self._top_entity
+
+
 

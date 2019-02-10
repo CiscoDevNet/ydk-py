@@ -427,6 +427,7 @@ class HardwareModule(Entity):
                             self._perform_setattr(HardwareModule.Node.Slot.Otdrs.Otdr.ModeAuto, ['loss_sensitivity', 'reflection_sensitivity'], name, value)
 
 
+
                     class ModeExpert(Entity):
                         """
                         Mode Expert
@@ -532,6 +533,9 @@ class HardwareModule(Entity):
                             self._perform_setattr(HardwareModule.Node.Slot.Otdrs.Otdr.ModeExpert, ['fiber_resolution', 'capture_length', 'pulse_width', 'measure_time', 'loss_sensitivity', 'capture_offset', 'span_length', 'reflection_sensitivity'], name, value)
 
 
+
+
+
             class OtdrThresholds(Entity):
                 """
                 Otdr Threshold
@@ -630,6 +634,8 @@ class HardwareModule(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(HardwareModule.Node.Slot.OtdrThresholds.OtdrThreshold, ['port', 'loss_abs_threshold', 'reflection_abs_threshold', 'orl_abs_threshold'], name, value)
+
+
 
 
             class Amplifier(Entity):
@@ -768,6 +774,8 @@ class HardwareModule(Entity):
                         self._perform_setattr(HardwareModule.Node.Slot.Amplifier.RemoteNode, ['local_ip_address', 'remote_ip_address', 'remote_slot_id'], name, value)
 
 
+
+
             class Psm(Entity):
                 """
                 PSM Configs
@@ -831,7 +839,12 @@ class HardwareModule(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModule.Node.Slot.Psm, ['mono_dir', 'auto_threshold', 'path_protection', 'section_protection', 'lockout_from'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = HardwareModule()
         return self._top_entity
+
+
 

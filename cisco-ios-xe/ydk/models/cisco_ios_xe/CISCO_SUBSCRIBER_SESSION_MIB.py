@@ -218,60 +218,84 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
     	
     	**type**\:  :py:class:`CsubJob <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJob>`
     
+    	**config**\: False
+    
     .. attribute:: csubaggthresh
     
     	
     	**type**\:  :py:class:`CsubAggThresh <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggThresh>`
+    
+    	**config**\: False
     
     .. attribute:: csubsessiontable
     
     	This table describes a list of subscriber sessions currently maintained by the system.  This table has a sparse dependent relationship on the ifTable, containing a row for each interface having an interface type describing a subscriber session
     	**type**\:  :py:class:`CsubSessionTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable>`
     
+    	**config**\: False
+    
     .. attribute:: csubsessionbytypetable
     
     	This table describes a list of subscriber sessions currently maintained by the system.  The tables sorts the subscriber sessions first by the subscriber session's type and second by the ifIndex assigned to the subscriber session
     	**type**\:  :py:class:`CsubSessionByTypeTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubSessionByTypeTable>`
+    
+    	**config**\: False
     
     .. attribute:: csubaggstatstable
     
     	This table contains sets of aggregated statistics relating to subscriber sessions, where each set has a unique scope of aggregation
     	**type**\:  :py:class:`CsubAggStatsTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: csubaggstatsinttable
     
     	This table contains aggregated subscriber session performance data collected for as much as a day's worth of 15\-minute measurement intervals.  This table has an expansion dependent relationship on the csubAggStatsTable, containing zero or more rows for each row contained by the csubAggStatsTable.  Observe that the collection and maintenance of aggregated subscriber performance data is OPTIONAL for all scopes of aggregation.  However, an implementation should maintain at least one interval for the 'scope of aggregation' that contains all subscriber sessions maintained by the system
     	**type**\:  :py:class:`CsubAggStatsIntTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsIntTable>`
+    
+    	**config**\: False
     
     .. attribute:: csubaggstatsthreshtable
     
     	Please enter the Table Description here
     	**type**\:  :py:class:`CsubAggStatsThreshTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsThreshTable>`
     
+    	**config**\: False
+    
     .. attribute:: csubjobtable
     
     	This table contains the subscriber session jobs submitted by the EMS/NMS
     	**type**\:  :py:class:`CsubJobTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable>`
+    
+    	**config**\: False
     
     .. attribute:: csubjobmatchparamstable
     
     	This table contains subscriber session job parameters describing match criteria.  This table has a sparse\-dependent relationship on the csubJobTable, containing a row for each job having a csubJobType of 'query' or 'clear'
     	**type**\:  :py:class:`CsubJobMatchParamsTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable>`
     
+    	**config**\: False
+    
     .. attribute:: csubjobqueryparamstable
     
     	This table contains subscriber session job parameters describing query parameters.  This table has a sparse\-dependent relationship on the csubJobTable, containing a row for each job having a csubJobType of 'query'
     	**type**\:  :py:class:`CsubJobQueryParamsTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobQueryParamsTable>`
+    
+    	**config**\: False
     
     .. attribute:: csubjobqueuetable
     
     	This table lists the subscriber session jobs currently pending in the subscriber session job queue
     	**type**\:  :py:class:`CsubJobQueueTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobQueueTable>`
     
+    	**config**\: False
+    
     .. attribute:: csubjobreporttable
     
     	This table contains the reports corresponding to subscriber session jobs that have a csubJobType of 'query' and csubJobState of 'finished'.  This table has an expansion dependent relationship on the csubJobTable, containing zero or more rows for each job
     	**type**\:  :py:class:`CsubJobReportTable <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobReportTable>`
+    
+    	**config**\: False
     
     
 
@@ -355,10 +379,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         	This object specifies whether the system generates a csubJobFinishedNotify notification when the system finishes processing a subscriber session job
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: csubjobindexedattributes
         
         	This object indicates which subscriber session identities the system maintains as searchable keys.  This value serves the EMS/NMS in configuring a subscriber session query, as at least one match criteria must be an 'indexed attribute'
         	**type**\:  :py:class:`SubSessionIdentities <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubSessionIdentities>`
+        
+        	**config**\: False
         
         .. attribute:: csubjobidnext
         
@@ -367,12 +395,16 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: csubjobmaxnumber
         
         	This object indicates the maximum number of outstanding subscriber session jobs the system can support.  If the csubJobTable contains a number of rows (i.e., the value of csubJobCount) equal to this value, then any attempt to create a new row will result in a response with an error\-status of 'resourceUnavailable'
         	**type**\: int
         
         	**range:** 1..4294967295
+        
+        	**config**\: False
         
         	**units**\: jobs
         
@@ -383,6 +415,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: csubjobcount
@@ -391,6 +425,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: jobs
         
@@ -432,6 +468,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJob, ['csubjobfinishednotifyenable', 'csubjobindexedattributes', 'csubjobidnext', 'csubjobmaxnumber', 'csubjobmaxlife', 'csubjobcount'], name, value)
 
 
+
     class CsubAggThresh(Entity):
         """
         
@@ -440,6 +477,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	This object enables or disables the generation of any of the csubAggStats\* threshold notifications
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -469,6 +508,7 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubAggThresh, ['csubaggstatsthreshnotifenable'], name, value)
 
 
+
     class CsubSessionTable(Entity):
         """
         This table describes a list of subscriber sessions currently
@@ -482,6 +522,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	This entry contains data describing a subscriber sessions, including its state, configuration, and collected identities.  An entry exists for a corresponding entry in the ifTable describing a subscriber session.  Currently, subscriber sessions must have one of the following ifType values\:      'ppp'     'ipSubscriberSession'     'l2SubscriberSession'  The system creates an entry when it establishes a subscriber session.  Likewise, the system destroys an entry when it terminates the corresponding subscriber session
         	**type**\: list of  		 :py:class:`CsubSessionEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable.CsubSessionEntry>`
+        
+        	**config**\: False
         
         
 
@@ -536,35 +578,49 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csubsessiontype
             
             	This object indicates the type of subscriber session
             	**type**\:  :py:class:`SubSessionType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubSessionType>`
+            
+            	**config**\: False
             
             .. attribute:: csubsessionipaddrassignment
             
             	This object indicates how the system assigns IP addresses to the subscriber\:      'none'         The system does not an involvement in (or is it aware         of) the assignment an subscriber IP addresses.  For         example, a system does not have an involvement in the         assignment of subscriber IP addresses for IP interface         subscriber sessions.      'other'         The system assigns subscriber IP addresses using a         method not recognized by this MIB module.      'static'         Subscriber IP addresses have been configured correctly         for the service domain.  The system does not have an         involvement in the assignment of the IP address.      'localPool'         The system assigns subscriber IP addresses from a         locally configured pool of IP addresses.      'dhcpv4'         The system assigns subscriber IP addresses are using the         DHCPv4.      'dhcpv6'         The system assigns subscriber IP addresses using the         DHCPv6.      'userProfileIpAddr'         The system assigns subscriber IP addresses from a user         profile.      'userProfileIpSubnet'         The system assigns the subscriber an IP subnet from a         user profile.      'userProfileNamedPool'         The system assigns subscriber IP addresses from a         locally configured named pool specified by a user         profile
             	**type**\:  :py:class:`CsubSessionIpAddrAssignment <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubSessionTable.CsubSessionEntry.CsubSessionIpAddrAssignment>`
             
+            	**config**\: False
+            
             .. attribute:: csubsessionstate
             
             	This object indicates the operational state of the subscriber session
             	**type**\:  :py:class:`SubSessionState <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: csubsessionauthenticated
             
             	This object indicates whether the system has successfully authenticated the subscriber session.      'false'         The subscriber session is operationally up, but in the         UNAUTHENTICATED state.      'true'         The subscriber session is operationally up, but in the         AUTHENTICATED state
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: csubsessionredundancymode
             
             	This object indicates the redundancy mode in which the subscriber session is operating
             	**type**\:  :py:class:`SubSessionRedundancyMode <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubSessionRedundancyMode>`
             
+            	**config**\: False
+            
             .. attribute:: csubsessioncreationtime
             
             	This object indicates when the subscriber session was created (i.e., when the subscriber session was initiated)
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubsessionderivedcfg
             
@@ -573,10 +629,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: csubsessionavailableidentities
             
             	This object indicates the subscriber identities that the system has successfully collected for the subscriber session.  Each bit in this bit string corresponds to a column in this table.  If the bit is '0', then the value of the corresponding column is invalid.  If the bit is '1', then the value of the corresponding column represents the value of the subscriber identity collected by the system.  The following list specifies the mappings between the bits and the columns\:      'subscriberLabel' => csubSessionSubscriberLabel     'macAddress'      => csubSessionMacAddress     'nativeVrf'       => csubSessionNativeVrf     'nativeIpAddress' => csubSessionNativeIpAddrType,                          csubSessionNativeIpAddr,                          csubSessionNativeIpMask     'nativeIpAddress2'=> csubSessionNativeIpAddrType2,                          csubSessionNativeIpAddr2,                          csubSessionNativeIpMask2                                      'domainVrf'       => csubSessionDomainVrf     'domainIpAddress' => csubSessionDomainIpAddrType,                          csubSessionDomainIpAddr,                          csubSessionDomainIpMask     'pbhk'            => csubSessionPbhk     'remoteId'        => csubSessionRemoteId     'circuitId'       => csubSessionCircuitId     'nasPort'         => csubSessionNasPort     'domain'          => csubSessionDomain     'username'        => csubSessionUsername     'acctSessionId'   => csubSessionAcctSessionId     'dnis'            => csubSessionDnis     'media'           => csubSessionMedia     'mlpNegotiated'   => csubSessionMlpNegotiated     'protocol'        => csubSessionProtocol     'dhcpClass'       => csubSessionDhcpClass     'tunnelName'      => csubSessionTunnelName  Observe that the bit 'ifIndex' should always be '1'.  This identity maps to the ifIndex assigned to the subscriber session.  Observe that the bit 'serviceName' maps to one or more instance of ccbptPolicyMap (defined by the CISCO\-CBP\-TARGET\-MIB)
             	**type**\:  :py:class:`SubSessionIdentities <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubSessionIdentities>`
+            
+            	**config**\: False
             
             .. attribute:: csubsessionsubscriberlabel
             
@@ -585,6 +645,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csubsessionmacaddress
             
             	This object indicates the MAC address of the subscriber.  This column is valid only if the 'macAddress' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
@@ -592,15 +654,21 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: csubsessionnativevrf
             
             	This object indicates the VRF originating the subscriber session.  This column is valid only if the 'nativeVrf' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubsessionnativeipaddrtype
             
             	This object indicates the type of IP address assigned to the subscriber on the customer\-facing side of the system.  This column is valid only if the 'nativeIpAddress' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: csubsessionnativeipaddr
             
@@ -609,6 +677,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: csubsessionnativeipmask
             
             	This object indicates the corresponding mask for the IP address assigned to the subscriber on the customer\-facing side of the system.  This column is valid only if the 'nativeIpAddress' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
@@ -616,15 +686,21 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: csubsessiondomainvrf
             
             	This object indicates the VRF to which the system transfers the subscriber session's traffic.  This column is valid only if the 'domainVrf' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubsessiondomainipaddrtype
             
             	This object indicates the type of IP address assigned to the subscriber on the service\-facing side of the system.  This column is valid only if the 'domainIpAddress' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: csubsessiondomainipaddr
             
@@ -633,6 +709,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: csubsessiondomainipmask
             
             	This object indicates the corresponding mask for the IP address assigned to the subscriber on the service\-facing side of the system.  This column is valid only if the 'domainIpAddress' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
@@ -640,35 +718,49 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: csubsessionpbhk
             
             	This object indicates the PBHK identifying the subscriber.  This column is valid only if the 'pbhk' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubsessionremoteid
             
             	This object indicates the Remote\-Id identifying the 'calling station' or AN supporting the circuit that provides access to the subscriber.  This column is valid only if the 'remoteId' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubsessioncircuitid
             
             	This object indicates the Circuit\-Id identifying the circuit supported by the 'calling station' or AN providing access to the subscriber.  This column is valid only if the 'circuitId' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubsessionnasport
             
             	This object indicates the NAS port\-identifier identifying the port on the NAS providing access to the subscriber.  This column is valid only if the 'nasPort' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubsessiondomain
             
             	This object indicates the domain associated with the subscriber.  This column is valid only if the 'domain' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubsessionusername
             
             	This object indicates the username identifying the subscriber.  This column is valid only if the 'username' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubsessionacctsessionid
             
@@ -677,55 +769,77 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csubsessiondnis
             
             	This object indicates the DNIS number dialed by the subscriber to access the 'calling station' or AN.  This column is valid only if the 'dnis' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubsessionmedia
             
             	This object indicates the type of media providing access to the subscriber.  This column is valid only if the 'media' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\:  :py:class:`SubscriberMediaType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubscriberMediaType>`
             
+            	**config**\: False
+            
             .. attribute:: csubsessionmlpnegotiated
             
             	This object indicates whether the subscriber session was established using multi\-link PPP negotiation.  This column is valid only if the 'mlpNegotiated' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: csubsessionprotocol
             
             	This object indicates the type of protocol providing access to the subscriber.  This column is valid only if the 'protocol' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\:  :py:class:`SubscriberProtocolType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubscriberProtocolType>`
             
+            	**config**\: False
+            
             .. attribute:: csubsessiondhcpclass
             
             	This object indicates the name of the class matching the DHCP DISCOVER message received from the subscriber.  This column is valid only if the 'dhcpClass' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubsessiontunnelname
             
             	This object indicates the name of the VPDN used to carry the subscriber session to the system.  This column is valid only if the 'tunnelName' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubsessionlocationidentifier
             
             	This object indicates the location of the subscriber
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubsessionserviceidentifier
             
             	This object indicates the name used to identify the services subscribed by a particular session
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubsessionlastchanged
             
             	This object indicates when the subscriber session is updated with new policy information
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubsessionnativeipaddrtype2
             
             	This object indicates the type of IP address assigned to the subscriber on the customer\-facing side of the system.  This column is valid only if the 'nativeIpAddress' bit of the corresponding instance of csubSessionAvailableIdentities is '1'.  In Dual stack scenarios both 'csubSessionNativeIpAddrType' and  'csubSessionNativeIpAddrType2' will be valid
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: csubsessionnativeipaddr2
             
@@ -734,12 +848,16 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: csubsessionnativeipmask2
             
             	This object indicates the corresponding mask for the IP address assigned to the subscriber on the customer\-facing side of the system.  This column is valid only if the 'nativeIpAddress' bit of the corresponding instance of csubSessionAvailableIdentities is '1'
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -954,6 +1072,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
 
 
 
+
+
     class CsubSessionByTypeTable(Entity):
         """
         This table describes a list of subscriber sessions currently
@@ -965,6 +1085,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	This entry identifies a subscriber session.  An entry exists for a corresponding entry in the ifTable describing a subscriber session.  Currently, subscriber sessions must have one of the following ifType values\:      'ppp'     'ipSubscriberSession'     'l2SubscriberSession'  The system creates an entry when it establishes a subscriber session.  Likewise, the system destroys an entry when it terminates the corresponding subscriber session
         	**type**\: list of  		 :py:class:`CsubSessionByTypeEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubSessionByTypeTable.CsubSessionByTypeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1014,12 +1136,16 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	This object indicates the type of the subscriber session
             	**type**\:  :py:class:`SubSessionType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubSessionType>`
             
+            	**config**\: False
+            
             .. attribute:: csubsessionifindex  (key)
             
             	This object indicates the ifIndex assigned to the subscriber session
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -1051,6 +1177,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubSessionByTypeTable.CsubSessionByTypeEntry, ['csubsessionbytype', 'csubsessionifindex'], name, value)
 
 
+
+
     class CsubAggStatsTable(Entity):
         """
         This table contains sets of aggregated statistics relating to
@@ -1061,6 +1189,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	An entry contains a set of aggregated statistics relating to those subscriber sessions that fall into a 'scope of  aggregation'.   A 'scope of aggregation' is the set of subscriber sessions  that meet specified criteria.  For example, a 'scope of  aggregation' may be the set of all PPPoE subscriber sessions  maintained by the system.  The following criteria define the  'scope of aggregation'\:   1)  Aggregation Point type          Aggregation point type identifies the format of the          csubAggStatsPoint for this entry.   2)  Aggregation Point          'Physical' Aggregation Point type case\:          In a distributed system, a 'node' represents a physical          entity capable of maintaining the context representing          a subscriber session.           If the 'scope of aggregation' specifies a physical          entity having an entPhysicalClass of 'chassis', then          the set of subscriber sessions in the 'scope of          aggregation' may contain the subscriber sessions maintained by all          the nodes contained in the system.           If the 'scope of aggregation' specifies a physical          entity having an entPhysicalClass of 'module' (e.g., a          line card), then the set of subscriber sessions in the          'scope of aggregation' may contain the subscriber          sessions maintained by the nodes contained by the          module.           If the 'scope of aggregation' specifies a physical          entity having an entPhysicalClass of 'cpu', then the          set of subscriber sessions in the 'scope of aggregation'          may contain the subscriber sessions maintained by the node          running on that processor.           Observe that a centralized system (i.e., a system          that essentially contains a single node) can only          support a 'scope of aggregation' that specifies a          physical entity classified as a 'chassis'.           If the scope of aggregation specifies 'interface',          then the scope is the set of subscriber sessions carried          by the interface identified the ifIndex value          represented in the csubAggStatsPoint value.   2)  Subscriber Session Type          If the 'scope of aggregation' specifies the value 'all'          for the subscriber session type, then the set of          subscriber sessions in the 'scope of aggregation' may          contain all subscriber sessions, regardless of type.           If the 'scope of aggregation' specifies a value other          than 'all' for the subscriber session type, then the          set of subscriber sessions in the 'scope of aggregation may          contain only those subscriber sessions of the specified          type.   Implementation Guidance  =======================  A system MUST maintain a set of statistics with a 'scope of  aggregation' that contains all subscriber sessions maintained  by the system.  The system creates this entry during the  initialization of the SNMP entity.   A system SHOULD maintain a set of statistics for each 'scope of  aggregation' containing subscriber sessions of each subscriber  session type the system is capable of providing access.  If the  system supports these sets of statistics, then it creates these  entries during the initialization of the SNMP entity.   A system MAY maintain sets of node\-specific statistics.  if the  system supports sets of node\-specific statistics, then it  creates the appropriate entries upon detection of a physical  entity (resulting from system restart or insertion) containing  those nodes.  Likewise, the system destroys these entries  upon removal of the physical entity
         	**type**\: list of  		 :py:class:`CsubAggStatsEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable.CsubAggStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1177,6 +1307,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	This object indicates format of the csubAggStatsPoint for this entry.   The format for the csubAggStatsPoint is as follows\:   csubAggStatsPointType      csubAggStatsPoint  \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-     \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-      'physical'                 PhysicalIndex      'interface'                InterfaceIndex
             	**type**\:  :py:class:`CsubAggStatsPointType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable.CsubAggStatsEntry.CsubAggStatsPointType>`
             
+            	**config**\: False
+            
             .. attribute:: csubaggstatspoint  (key)
             
             	This object should be read with csubAggStatsPointType always.  This object indicates one of the determining factors affecting  the 'scope of aggregation' for the set of statistics contained  by the row.   The value indicated by this object should be interpreted as the  identifier for the point type specific base table.   For point types of 'physical', the type specific base table is  the entPhysicalTable and this value is a PhysicalIndex.  For  point types of 'interface', the type specific base table is  the ifTable and this value is an InterfaceIndex.   If this column indicates a physical entity which has an  entPhysicalClass of 'chassis', then the 'scope of aggregation'  may includes those subscriber sessions maintained by all nodes  contained by the system.   If this column indicates a physical entity which has an  entPhysicalClass of  'module' (e.g., a line card), then the  'scope of aggregation' may include those subscriber sessions  maintained by the nodes contained by the module.   If this column indicates a physical entity which has an  entPhysicalClass of 'cpu', then the 'scope of aggregation' may  include those subscriber sessions maintained by the node  running on the processor.   Aggregation points with entPhysicalTable / ifTable overlap\:  For interfaces which map directly to physical 'port' class  entities in the entPhysicalTable, the preferred representation  as aggregation points is the 'physical' point type and  PhysicalIndex identifier
@@ -1184,10 +1316,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csubaggstatssessiontype  (key)
             
             	This object indicates one of the determining factors affecting the 'scope of aggregation' for the statistics contained by the row.  If the value of this column is 'all', then the 'scope of aggregation' may include all subscriber sessions, regardless of type.  If the value of this column is not 'all', then the 'scope of aggregation' may include subscriber sessions of the indicated subscriber session type
             	**type**\:  :py:class:`SubSessionType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubSessionType>`
+            
+            	**config**\: False
             
             .. attribute:: csubaggstatspendingsessions
             
@@ -1195,6 +1331,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1205,6 +1343,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatsauthsessions
@@ -1213,6 +1353,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1223,6 +1365,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatslightweightsessions
@@ -1231,6 +1375,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1241,6 +1387,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatshighupsessions
@@ -1249,6 +1397,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1259,6 +1409,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: csubaggstatsavgsessionrpm
@@ -1267,6 +1419,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions per minute
             
@@ -1277,6 +1431,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: sessions per hour
             
             .. attribute:: csubaggstatsthrottleengagements
@@ -1285,6 +1441,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: engagements
             
@@ -1295,6 +1453,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatstotalfailedsessions
@@ -1303,6 +1463,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1313,6 +1475,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatstotalauthsessions
@@ -1321,6 +1485,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1331,6 +1497,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatstotallightweightsessions
@@ -1339,6 +1507,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1349,6 +1519,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatsdaycreatedsessions
@@ -1357,6 +1529,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1367,6 +1541,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatsdayupsessions
@@ -1375,6 +1551,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1385,6 +1563,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatsdaydiscsessions
@@ -1393,6 +1573,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1403,6 +1585,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..899
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: csubaggstatscurrvalidintervals
@@ -1411,6 +1595,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..96
+            
+            	**config**\: False
             
             	**units**\: intervals
             
@@ -1421,6 +1607,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..96
             
+            	**config**\: False
+            
             	**units**\: intervals
             
             .. attribute:: csubaggstatscurrflowsup
@@ -1429,6 +1617,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..96
+            
+            	**config**\: False
             
             	**units**\: intervals
             
@@ -1439,6 +1629,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatscurrfailedsessions
@@ -1447,6 +1639,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1457,6 +1651,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatscurrauthsessions
@@ -1465,6 +1661,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1475,12 +1673,16 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatsdiscontinuitytime
             
             	The date and time (as determined by the system's clock) of the most recent occurrence of an event affecting the  continuity of the aggregation statistics for this aggregation  point
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1609,6 +1811,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
 
 
 
+
+
     class CsubAggStatsIntTable(Entity):
         """
         This table contains aggregated subscriber session performance
@@ -1629,6 +1833,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	An entry contains the aggregated subscriber session performance data collected over a single 15\-minute measurement interval within a 'scope of aggregation'.  For further details regarding 'scope of aggregation', see the descriptive text associated with the csubAggStatsEntry
         	**type**\: list of  		 :py:class:`CsubAggStatsIntEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsIntTable.CsubAggStatsIntEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1670,6 +1876,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	
             	**type**\:  :py:class:`CsubAggStatsPointType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable.CsubAggStatsEntry.CsubAggStatsPointType>`
             
+            	**config**\: False
+            
             .. attribute:: csubaggstatspoint  (key)
             
             	
@@ -1679,10 +1887,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`csubaggstatspoint <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsTable.CsubAggStatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csubaggstatssessiontype  (key)
             
             	
             	**type**\:  :py:class:`SubSessionType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubSessionType>`
+            
+            	**config**\: False
             
             .. attribute:: csubaggstatsintnumber  (key)
             
@@ -1691,10 +1903,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 1..96
             
+            	**config**\: False
+            
             .. attribute:: csubaggstatsintvalid
             
             	This object indicates whether the data for the 15\-minute measurement interval is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: csubaggstatsintcreatedsessions
             
@@ -1702,6 +1918,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1712,6 +1930,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatsintupsessions
@@ -1720,6 +1940,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1730,6 +1952,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: sessions
             
             .. attribute:: csubaggstatsintdiscsessions
@@ -1738,6 +1962,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: sessions
             
@@ -1787,6 +2013,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsIntTable.CsubAggStatsIntEntry, ['csubaggstatspointtype', 'csubaggstatspoint', 'csubaggstatssessiontype', 'csubaggstatsintnumber', 'csubaggstatsintvalid', 'csubaggstatsintcreatedsessions', 'csubaggstatsintfailedsessions', 'csubaggstatsintupsessions', 'csubaggstatsintauthsessions', 'csubaggstatsintdiscsessions'], name, value)
 
 
+
+
     class CsubAggStatsThreshTable(Entity):
         """
         Please enter the Table Description here.
@@ -1795,6 +2023,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	A row in this table exists for each row in the csubAggStatsTable. Each row defines the set of thresholds and evaluation attributes for an aggregation point
         	**type**\: list of  		 :py:class:`CsubAggStatsThreshEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsThreshTable.CsubAggStatsThreshEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1837,12 +2067,16 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csubsessionfallingthresh
             
             	This threshold, if non\-zero, indicates the falling threshold for the value of csubAggStatsUpSessions for the aggregation point, When the current sample of csubAggStatsUpSessions is less than or equal to this threshold, and the value of csubAggStatsUpSessions for the last sample interval was greater than this thershold, the csubSessionFallingNotif is triggered.           If the value of this threshold is 0, the threshold is not evaluated
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: csubsessiondeltapercentfallingthresh
             
@@ -1851,12 +2085,16 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..100
             
+            	**config**\: False
+            
             .. attribute:: csubsessionthreshevalinterval
             
             	The value of this object sets the number of seconds between samples for threshold evaluation. For implementations capable of per\-session event evaluation of thresholds this object represents the maximum number of seconds between samples
             	**type**\: int
             
             	**range:** 0..900
+            
+            	**config**\: False
             
             
 
@@ -1892,6 +2130,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubAggStatsThreshTable.CsubAggStatsThreshEntry, ['csubsessionrisingthresh', 'csubsessionfallingthresh', 'csubsessiondeltapercentfallingthresh', 'csubsessionthreshevalinterval'], name, value)
 
 
+
+
     class CsubJobTable(Entity):
         """
         This table contains the subscriber session jobs submitted by
@@ -1901,6 +2141,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	An entry describing a subscriber session job.  At this time, subscriber session jobs can perform one of two tasks\:  \- Subscriber Session Query     This type of job invokes the report generator, which builds     a list of subscriber sessions matching criteria specified by     the corresponding row in the csubJobMatchParamsTable.  The     list built by the report generator must conform to     parameters specified by the corresponding row in     csubJobQueryParamsTable, which at this time only affects     sorting order.  \- Subscriber Session Clear     This type of job causes the system to terminate those     subscriber sessions matching criteria specified by the     corresponding row in the csubJobMatchParamsTable.  The following procedure summarizes how the EMS/NMS can start and monitor a subscriber session job\:  1)  The EMS/NMS must start by reading csubJobIdNext.  If it is     zero, continue polling csubJobIdNext until it is non\-zero.  2)  The EMS/NMS creates a row in the csubJobTable using the     instance identifier retrieved in the last step.  Since every     object contained by the entry with a MAX\-ACCESS of      'read\-create' specifies a default value, it makes little     difference whether the EMS/NMS employs create\-and\-wait or     create\-and\-go semantics.  3)  The EMS/NMS sets the type of subscriber session job by     setting the corresponding instance of csubJobType.  4a) If the job is a 'query', then the EMS/NMS must configure     the query before starting it by setting columns contained     by the corresponding rows in the csubJobMatchParamsTable and     csubJobQueryParamsTable.  4b) If job is a 'clear', then the EMS/NMS must configure     the job before starting it by setting columns contained by     the corresponding row in the csubJobMatchParamsTable.  5)  The EMS/NMS can now start the job by setting the      corresponding instance of csubJobControl to 'start'.  6)  The EMS/NMS can monitor the progress of the job by polling     the corresponding instance of csubJobState.  It can also     wait for a csubJobFinishedNotify notification.  When the     state of the job transitions to 'finished', then the system     has finished executing the job.  7)  The EMS/NMS can determine the final status of the job by     reading the corresponding instance of csubJobFinishedReason.     If job is a 'query' and the corresponding instance of     csubJobFinishedReason is 'normal', then the EMS/NMS can     safely read the report by retrieving the corresponding     rows from the csubJobReportTable.  8a) After a job has finished, the EMS/NMS has the option of     destroying it.  It can do this by simply setting the     corresponding instance of  csubJobStatus to 'destroy'.     Alternatively, the EMS/NMS may retain the job and execute it     again in the future (by returning to step 5).  Additionally,     nothing would prevent the EMS/NMS from changing the job's     type, which causes the automatic destruction of the     corresponding report.  8b) If the job is a 'query' and the EMS/NMS opts to retain the     job, then it may consider releasing the corresponding report     after reading it.  It can do this by setting the     corresponding instance of csubJobControl to 'release'
         	**type**\: list of  		 :py:class:`CsubJobEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2010,30 +2252,42 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csubjobstatus
             
             	This object specifies the status of the subscriber session job.  The following columns must be valid before activating a subscriber session job\:      \- csubJobStorage     \- csubJobType     \- csubJobControl  However, these objects specify a default value.  Thus, it is possible to use create\-and\-go semantics without setting any additional columns.  An implementation must allow the EMS/NMS to modify any column when this column is 'active', including columns defined in tables that have a one\-to\-one or sparse dependent relationship on this table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: csubjobstorage
             
             	This object specifies what happens to the subscriber session job upon restart
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: csubjobtype
             
             	This object specifies the type of subscriber session job\:  'noop'     This type of job does nothing and simply serves as a     convenient default value for newly created jobs, thereby     allowing create\-and\-go row creation without having to     specify the type of job.  'query'     This type of job starts a subscriber session query.  The     system searches for any subscriber sessions matching the     configured criteria and sorts them into a resulting     report.      Upon activation of a subscriber session with this value,     the system automatically creates corresponding rows in     the csubJobMatchParamsTable and csubQueryParamsTable.  'clear'     This type of job causes the system to terminated all     subscriber sessions matching configured criteria.      Upon activation of a subscriber session with this value,     the system automatically creates a corresponding row in     the csubJobMatchParamsTable
             	**type**\:  :py:class:`CsubJobType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry.CsubJobType>`
+            
+            	**config**\: False
             
             .. attribute:: csubjobcontrol
             
             	This object specifies an action relating to the subscriber session job\:      'noop'         This action does nothing.      'start'         If the corresponding instance of csubJobType is 'noop',         then this action simply causes the system to set the         corresponding instances of csubJobState and         csubJobFinishedReason to 'finished' and 'normal',         respectively.          If the corresponding instance of csubJobType is not         'noop' and the system is not executing a subscriber         session job, then this action causes the system         immediately execute the subscriber session job.          If the corresponding instance of csubJobType is not         'noop' and the system is already executing a subscriber         session job, then this action causes the system to put         the job on the subscriber session job queue.      'abort'         If the subscriber session job is in the subscriber         session job queue, then this action causes the system to         remove the job from the queue.          If the system is executing the subscriber session job,         then this action causes the system to stop the job.      'release'         This action causes the system to destroy any         corresponding rows in the csubJobReportTable.          The system only accepts this action for a previously         executed subscriber session job having a corresponding         instance of csubJobType set to 'query'.  Any attempt to         issue this action under other circumstances will result         in a response indicating an  error\-status of         'inconsistentValue'.  When read, this column is always 'noop'
             	**type**\:  :py:class:`CsubJobControl <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry.CsubJobControl>`
             
+            	**config**\: False
+            
             .. attribute:: csubjobstate
             
             	This object indicates the current state of the subscriber session job\:      'idle'         This state indicates that the system has not executed         the subscriber session job since it was created.      'pending'         This state indicates that the subscriber session job is         waiting in the subscriber session job queue.      'inProgress'         This state indicates that the system is executing the         subscriber session job.  Observe that the system may         execute more than one subscriber session job at a time.      'finished'         This state indicates that the system has executed the         subscriber session job and it has finished.  The         corresponding instance of csubJobFinishedReason         indicates further details regarding the reason why the         job finished
             	**type**\:  :py:class:`CsubJobState <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry.CsubJobState>`
+            
+            	**config**\: False
             
             .. attribute:: csubjobstartedtime
             
@@ -2042,6 +2296,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csubjobfinishedtime
             
             	This object indicates the value of sysUpTime when the system finished executing the subscriber session job, for whatever reason.  This value will be '0' when the corresponding instance of csubJobState is 'idle', 'pending', or 'inProgress'
@@ -2049,10 +2305,14 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csubjobfinishedreason
             
             	This object indicates the reason why the system finished executing the subscriber session job\:      'invalid'         Indicates that the corresponding instance of         csubJobState is either 'idle', 'pending', or         'inProgress'.      'other'         Indicates that the system finished executing the         subscriber session job abnormally for a reason not         recognized by this MIB module.      'normal'         Indicates that the system finished executing the         subscriber session job with no problems.      'aborted'         Indicates that the system finished executing the         subscriber session job as the result of the EMS/NMS         writing 'abort' to the corresponding instance of         csubJobControl.      'insufficientResources'         Indicates that the system finished executing the         subscriber session job abnormally due to insufficient         resources to continue.      'error'         Indicates that the system encountered an error that         prevented it from completing the job
             	**type**\:  :py:class:`CsubJobFinishedReason <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry.CsubJobFinishedReason>`
+            
+            	**config**\: False
             
             
 
@@ -2388,6 +2648,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
 
 
 
+
+
     class CsubJobMatchParamsTable(Entity):
         """
         This table contains subscriber session job parameters
@@ -2401,6 +2663,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	An entry describes a set of subscriber session match criteria. The set contains those subscriber session identities specified by csubJobMatchIdentities.  If the corresponding row in the csubJobTable has a csubJobType of 'query', then the system builds a report containing those subscriber sessions matching these criteria.  If the corresponding row in the csubJobTable has a csubJobType of 'clear', then the system terminates those subscriber sessions matching these criteria.  The system automatically creates an entry when the EMS/NMS sets the corresponding instance of csubJobType to 'query' or 'clear'. Likewise, the system automatically destroys an entry under the following circumstances\:  1)  The EMS/NMS destroys the corresponding row in the     csubJobTable.  2)  The EMS/NMS sets the corresponding instance of csubJobType     to 'noop'
         	**type**\: list of  		 :py:class:`CsubJobMatchParamsEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable.CsubJobMatchParamsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2463,15 +2727,21 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`csubjobid <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchidentities
             
             	This object specifies the subscriber identities that the system uses to determine the subscriber sessions the job executes on.  Each bit in this bit string corresponds to one or more columns in this table.  If the bit is '0', then the value of the corresponding columns are invalid.  If the bit is '1', then the value of corresponding columns are valid.  The following list specifies the mappings between the bits and the columns\:      'subscriberLabel' => csubJobMatchSubscriberLabel     'macAddress'      => csubJobMatchMacAddress     'nativeVrf'       => csubJobMatchNativeVrf     'nativeIpAddress' => csubJobMatchNativeIpAddrType,                          csubJobMatchNativeIpAddr,                          csubJobMatchNativeIpMask,     'domainVrf'       => csubJobMatchDomainVrf     'domainIpAddress' => csubJobMatchDomainIpAddrType,                          csubJobMatchDomainIpAddr,                          csubJobMatchDomainIpMask     'pbhk'            => csubJobMatchPbhk     'remoteId'        => csubJobMatchRemoteId     'circuitId'       => csubJobMatchCircuitId     'nasPort'         => csubJobMatchNasPort     'domain'          => csubJobMatchDomain     'username'        => csubJobMatchUsername     'acctSessionId'   => csubJobMatchAcctSessionId     'dnis'            => csubJobMatchDnis     'media'           => csubJobMatchMedia     'mlpNegotiated'   => csubJobMatchMlpNegotiated     'protocol'        => csubJobMatchProtocol     'serviceName'     => csubJobMatchServiceName     'dhcpClass'       => csubJobMatchDhcpClass     'tunnelName'      => csubJobMatchTunnelName  Observe that the bit 'ifIndex' has no meaning, as subscriber session jobs do not match against this subscriber session identity
             	**type**\:  :py:class:`SubSessionIdentities <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubSessionIdentities>`
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchotherparams
             
             	This object specifies other parameters relating to subscriber sessions a subscriber session job may match against.  Each bit in this bit string corresponds to a column in this table.  If the bit is '0', then the value of the corresponding column is invalid.  If the bit is '1', then the value of the corresponding column represents the value of the parameter identity the system should match against for the corresponding subscriber session job.  The following list specifies the mappings between bits and the columns\:      'danglingDuration' => csubJobMatchDanglingDuration     'state'            => csubJobMatchState     'authenticated'    => csubJobMatchAuthenticated     'redundancyMode'   => csubJobMatchRedundancyMode
             	**type**\:  :py:class:`CsubJobMatchOtherParams <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable.CsubJobMatchParamsEntry.CsubJobMatchOtherParams>`
+            
+            	**config**\: False
             
             .. attribute:: csubjobmatchsubscriberlabel
             
@@ -2480,6 +2750,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchmacaddress
             
             	This object specifies the MAC address that the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'macAddress' bit of the corresponding instance of csubJobMatchIdentities is '1'
@@ -2487,15 +2759,21 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchnativevrf
             
             	This object specifies the native VRF the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'nativeVrf' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchnativeipaddrtype
             
             	This object specifies the type of Internet address specified by csubJobMatchNativeIpAddr and csubJobMatchNativeIpMask.  This value is valid only if the 'nativeIpAddress' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: csubjobmatchnativeipaddr
             
@@ -2504,6 +2782,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchnativeipmask
             
             	This object specifies the mask used when matching the native IP address against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'nativeIpAddress' bit of the corresponding instance of csubJobMatchIdentities is '1'
@@ -2511,15 +2791,21 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchdomainvrf
             
             	This object specifies the domain VRF the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'domainVrf' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchdomainipaddrtype
             
             	This object specifies the type of Internet address specified by csubJobMatchDomainIpAddr and csubJobMatchDomainIpMask.  This value is valid only if the 'domainIpAddress' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: csubjobmatchdomainipaddr
             
@@ -2528,6 +2814,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchdomainipmask
             
             	This object specifies the mask used when matching the domain IP address against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'domainIpAddress' bit of the corresponding instance of csubJobMatchIdentities is '1'
@@ -2535,35 +2823,49 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchpbhk
             
             	This object specifies the PBHK that the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'pbhk' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubjobmatchremoteid
             
             	This object specifies the Remote\-Id the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'remoteId' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchcircuitid
             
             	This object specifies the Circuit\-Id the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'circuitId' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubjobmatchnasport
             
             	This object specifies the NAS port\-identifier the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'nasPort' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchdomain
             
             	This object specifies the domain the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'domain' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchusername
             
             	This object specifies the username the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'username' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubjobmatchacctsessionid
             
@@ -2572,40 +2874,56 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchdnis
             
             	This object specifies the DNIS number the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'dnis' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubjobmatchmedia
             
             	This object specifies the media type the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'media' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\:  :py:class:`SubscriberMediaType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubscriberMediaType>`
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchmlpnegotiated
             
             	This object specifies the MLP negotiated flag the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'mlpNegotiated' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: csubjobmatchprotocol
             
             	This object specifies the protocol type the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'protocol' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\:  :py:class:`SubscriberProtocolType <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubscriberProtocolType>`
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchservicename
             
             	This object specifies the service name the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'serviceName' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubjobmatchdhcpclass
             
             	This object specifies the DHCP class name the system matches against subscriber sessions in the process of executing a subscriber session job.  This value is valid only if the 'dhcpClass' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchtunnelname
             
             	This object specifies the tunnel name the system matches against subscriber session in the process of executing a subscriber session job.  This value is valid only if the 'tunnelName' bit of the corresponding instance of csubJobMatchIdentities is '1'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: csubjobmatchdanglingduration
             
@@ -2614,20 +2932,28 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 0..3600
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchstate
             
             	This object specifies the state of a subscriber session in order for the system to consider a match in the process of executing a subscriber session job.  The value 'other' is not valid and an implementation should not allow it to be written to this column.  This value is valid only if the 'state' bit of the corresponding instance of csubJobMatchOtherParams is '1'
             	**type**\:  :py:class:`SubSessionState <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubSessionState>`
+            
+            	**config**\: False
             
             .. attribute:: csubjobmatchauthenticated
             
             	This object specifies whether a subscriber session should be unauthenticated for the system to consider a match in the process of executing a subscriber session job.  If this column is 'false', then the subscriber session job matches subscriber sessions that are unauthenticated.  If this column is 'true', then the subscriber session job matches subscriber session that are authenticated.  This value is valid only if the 'authenticated' bit of the corresponding instance of csubJobMatchParams is '1'
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: csubjobmatchredundancymode
             
             	This object specifies the redudancy mode of the subscriber session in order for the system to consider a match in the process of executing a subscriber session job.  The value 'other' is not valid and an implementation should not allow it to be written to this column.  This value is valid only if the 'redundancyMode' bit of the corresponding instance of csubJobMatchOtherParams is '1'
             	**type**\:  :py:class:`SubSessionRedundancyMode <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_TC_MIB.SubSessionRedundancyMode>`
+            
+            	**config**\: False
             
             
 
@@ -2717,6 +3043,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobMatchParamsTable.CsubJobMatchParamsEntry, ['csubjobid', 'csubjobmatchidentities', 'csubjobmatchotherparams', 'csubjobmatchsubscriberlabel', 'csubjobmatchmacaddress', 'csubjobmatchnativevrf', 'csubjobmatchnativeipaddrtype', 'csubjobmatchnativeipaddr', 'csubjobmatchnativeipmask', 'csubjobmatchdomainvrf', 'csubjobmatchdomainipaddrtype', 'csubjobmatchdomainipaddr', 'csubjobmatchdomainipmask', 'csubjobmatchpbhk', 'csubjobmatchremoteid', 'csubjobmatchcircuitid', 'csubjobmatchnasport', 'csubjobmatchdomain', 'csubjobmatchusername', 'csubjobmatchacctsessionid', 'csubjobmatchdnis', 'csubjobmatchmedia', 'csubjobmatchmlpnegotiated', 'csubjobmatchprotocol', 'csubjobmatchservicename', 'csubjobmatchdhcpclass', 'csubjobmatchtunnelname', 'csubjobmatchdanglingduration', 'csubjobmatchstate', 'csubjobmatchauthenticated', 'csubjobmatchredundancymode'], name, value)
 
 
+
+
     class CsubJobQueryParamsTable(Entity):
         """
         This table contains subscriber session job parameters
@@ -2730,6 +3058,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	An entry describes a set of subscriber session query parameters.  The system automatically creates an entry when the EMS/NMS sets the corresponding instance of csubJobType to 'query'.  Likewise, the system automatically destroys an entry under the following circumstances\:  1)  The EMS/NMS destroys the corresponding row in the csubJobTable.  2)  The EMS/NMS sets the corresponding instance of csubJobType to     'noop' or 'clear'
         	**type**\: list of  		 :py:class:`CsubJobQueryParamsEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobQueryParamsTable.CsubJobQueryParamsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2782,20 +3112,28 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`csubjobid <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csubjobquerysortkey1
             
             	This object specifies the first subscriber identity that the system uses when sorting subscriber sessions into the final report corresponding to a subscriber session query.  It is not valid to set this column to 'other' or 'ifIndex'
             	**type**\:  :py:class:`SubSessionIdentity <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubSessionIdentity>`
+            
+            	**config**\: False
             
             .. attribute:: csubjobquerysortkey2
             
             	This object specifies the second subscriber identity that the system uses when sorting subscriber sessions into the final report corresponding to a subscriber session query.  If it is the desire to have the final report sorted on a single subscriber identity, then this column should be 'other'
             	**type**\:  :py:class:`SubSessionIdentity <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubSessionIdentity>`
             
+            	**config**\: False
+            
             .. attribute:: csubjobquerysortkey3
             
             	This object specifies the third subscriber identity that the system uses when sorting subscriber sessions into the final report corresponding to a subscriber session query.  If it is the desire to have the final report sorted on one or two subscriber identities, then this column should be 'other'
             	**type**\:  :py:class:`SubSessionIdentity <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_IDENTITY_TC_MIB.SubSessionIdentity>`
+            
+            	**config**\: False
             
             .. attribute:: csubjobqueryresultingreportsize
             
@@ -2803,6 +3141,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2840,6 +3180,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobQueryParamsTable.CsubJobQueryParamsEntry, ['csubjobid', 'csubjobquerysortkey1', 'csubjobquerysortkey2', 'csubjobquerysortkey3', 'csubjobqueryresultingreportsize'], name, value)
 
 
+
+
     class CsubJobQueueTable(Entity):
         """
         This table lists the subscriber session jobs currently pending
@@ -2849,6 +3191,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	An entry describing an subscriber session job in the subscriber session job queue.  The system creates an entry in this table when it places a subscriber session job on the subscriber session job queue.  It does this when the EMS/NMS sets an instance of csubJobControl to 'start' and the system is already executing a subscriber session job.  Likewise, the system destroys an entry when it removes it from the queue.  This occurs under the following circumstances\:  1)  The system has finished executing a job, for whatever     reason, and is ready to start executing the job at the head     of the queue.  2)  The EMS/NMS has set an instance of csubJobControl to 'abort'     for a job that was on the queue
         	**type**\: list of  		 :py:class:`CsubJobQueueEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobQueueTable.CsubJobQueueEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2903,12 +3247,16 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csubjobqueuejobid
             
             	This object indicates the identifier associated with the subscriber session job
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2940,6 +3288,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
                 self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobQueueTable.CsubJobQueueEntry, ['csubjobqueuenumber', 'csubjobqueuejobid'], name, value)
 
 
+
+
     class CsubJobReportTable(Entity):
         """
         This table contains the reports corresponding to subscriber
@@ -2953,6 +3303,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
         
         	An entry describes a subscriber session that satisfied the match criteria specified by the corresponding job.  The system creates an entry for each subscriber session that satisfied the specified match criteria of a subscriber session job having a csubJobType of 'query'.  However, it does not create these entries until after the system has successfully executed the subscriber session job.  The system destroys an entry under the following circumstances\:  1)  The corresponding subscriber session job has been destroyed     by the EMS/NMS.  2)  The value of csubJobMaxLife is non\-zero and the age of the     report has reached the specified maximum life.  3)  The EMS/NMS has set the corresponding instance of     csubJobControl to 'release'.  4)  The EMS/NMS has restarted the corresponding subscriber     session job (i.e., has set the corresponding instance of     csubJobControl to 'start')
         	**type**\: list of  		 :py:class:`CsubJobReportEntry <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobReportTable.CsubJobReportEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3016,6 +3368,8 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`csubjobid <ydk.models.cisco_ios_xe.CISCO_SUBSCRIBER_SESSION_MIB.CISCOSUBSCRIBERSESSIONMIB.CsubJobTable.CsubJobEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csubjobreportid  (key)
             
             	This object indicates an arbitrary, positive, integer\-value that uniquely identifies this entry in a report.  This auxiliary value is necessary, as the corresponding subscriber session job can specify up to three subscriber identities on which to sort the subscriber sessions that end up in the final report
@@ -3023,12 +3377,16 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: csubjobreportsession
             
             	This object indicates the ifIndex\-value assigned to the subscriber session that satisfied the match criteria specified by the corresponding subscriber session job having a csubJobType of 'query'
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             
 
@@ -3061,7 +3419,11 @@ class CISCOSUBSCRIBERSESSIONMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSUBSCRIBERSESSIONMIB.CsubJobReportTable.CsubJobReportEntry, ['csubjobid', 'csubjobreportid', 'csubjobreportsession'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOSUBSCRIBERSESSIONMIB()
         return self._top_entity
+
+
 

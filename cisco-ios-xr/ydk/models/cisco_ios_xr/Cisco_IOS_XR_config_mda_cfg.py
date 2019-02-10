@@ -69,11 +69,6 @@ class ActiveNodes(Entity):
         
         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
-        .. attribute:: watchdog_node_threshold
-        
-        	watchdog node threshold
-        	**type**\:  :py:class:`WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.WatchdogNodeThreshold>`
-        
         .. attribute:: ltrace
         
         	Ltrace Memory configuration
@@ -88,6 +83,11 @@ class ActiveNodes(Entity):
         
         	Per\-node SSRP configuration data
         	**type**\:  :py:class:`SsrpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.SsrpGroup>`
+        
+        .. attribute:: watchdog_node_threshold
+        
+        	watchdog node threshold
+        	**type**\:  :py:class:`WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.WatchdogNodeThreshold>`
         
         .. attribute:: lpts_local
         
@@ -109,15 +109,11 @@ class ActiveNodes(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['node_name']
-            self._child_classes = OrderedDict([("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("watchdog_node_threshold", ActiveNodes.ActiveNode.WatchdogNodeThreshold)), ("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", ActiveNodes.ActiveNode.Ltrace)), ("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", ActiveNodes.ActiveNode.ClockInterface)), ("Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group", ("ssrp_group", ActiveNodes.ActiveNode.SsrpGroup)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", ActiveNodes.ActiveNode.LptsLocal))])
+            self._child_classes = OrderedDict([("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", ActiveNodes.ActiveNode.Ltrace)), ("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", ActiveNodes.ActiveNode.ClockInterface)), ("Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group", ("ssrp_group", ActiveNodes.ActiveNode.SsrpGroup)), ("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("watchdog_node_threshold", ActiveNodes.ActiveNode.WatchdogNodeThreshold)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", ActiveNodes.ActiveNode.LptsLocal))])
             self._leafs = OrderedDict([
                 ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
             ])
             self.node_name = None
-
-            self.watchdog_node_threshold = ActiveNodes.ActiveNode.WatchdogNodeThreshold()
-            self.watchdog_node_threshold.parent = self
-            self._children_name_map["watchdog_node_threshold"] = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
 
             self.ltrace = ActiveNodes.ActiveNode.Ltrace()
             self.ltrace.parent = self
@@ -131,6 +127,10 @@ class ActiveNodes(Entity):
             self.ssrp_group.parent = self
             self._children_name_map["ssrp_group"] = "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp-group"
 
+            self.watchdog_node_threshold = ActiveNodes.ActiveNode.WatchdogNodeThreshold()
+            self.watchdog_node_threshold.parent = self
+            self._children_name_map["watchdog_node_threshold"] = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
+
             self.lpts_local = ActiveNodes.ActiveNode.LptsLocal()
             self.lpts_local.parent = self
             self._children_name_map["lpts_local"] = "Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local"
@@ -140,164 +140,6 @@ class ActiveNodes(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(ActiveNodes.ActiveNode, [u'node_name'], name, value)
-
-
-        class WatchdogNodeThreshold(Entity):
-            """
-            watchdog node threshold
-            
-            .. attribute:: disk_threshold
-            
-            	Disk thresholds
-            	**type**\:  :py:class:`DiskThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold>`
-            
-            .. attribute:: memory_threshold
-            
-            	Memory thresholds
-            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold>`
-            
-            
-
-            """
-
-            _prefix = 'watchd-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(ActiveNodes.ActiveNode.WatchdogNodeThreshold, self).__init__()
-
-                self.yang_name = "watchdog-node-threshold"
-                self.yang_parent_name = "active-node"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("disk-threshold", ("disk_threshold", ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold)), ("memory-threshold", ("memory_threshold", ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold))])
-                self._leafs = OrderedDict()
-
-                self.disk_threshold = ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold()
-                self.disk_threshold.parent = self
-                self._children_name_map["disk_threshold"] = "disk-threshold"
-
-                self.memory_threshold = ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold()
-                self.memory_threshold.parent = self
-                self._children_name_map["memory_threshold"] = "memory-threshold"
-                self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(ActiveNodes.ActiveNode.WatchdogNodeThreshold, [], name, value)
-
-
-            class DiskThreshold(Entity):
-                """
-                Disk thresholds
-                
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\: int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\: int
-                
-                	**range:** 4..40
-                
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\: int
-                
-                	**range:** 3..40
-                
-                
-
-                """
-
-                _prefix = 'watchd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold, self).__init__()
-
-                    self.yang_name = "disk-threshold"
-                    self.yang_parent_name = "watchdog-node-threshold"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('minor', (YLeaf(YType.uint32, 'minor'), ['int'])),
-                        ('severe', (YLeaf(YType.uint32, 'severe'), ['int'])),
-                        ('critical', (YLeaf(YType.uint32, 'critical'), ['int'])),
-                    ])
-                    self.minor = None
-                    self.severe = None
-                    self.critical = None
-                    self._segment_path = lambda: "disk-threshold"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold, ['minor', 'severe', 'critical'], name, value)
-
-
-            class MemoryThreshold(Entity):
-                """
-                Memory thresholds
-                
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\: int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\: int
-                
-                	**range:** 4..40
-                
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\: int
-                
-                	**range:** 3..40
-                
-                
-
-                """
-
-                _prefix = 'watchd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold, self).__init__()
-
-                    self.yang_name = "memory-threshold"
-                    self.yang_parent_name = "watchdog-node-threshold"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('minor', (YLeaf(YType.uint32, 'minor'), ['int'])),
-                        ('severe', (YLeaf(YType.uint32, 'severe'), ['int'])),
-                        ('critical', (YLeaf(YType.uint32, 'critical'), ['int'])),
-                    ])
-                    self.minor = None
-                    self.severe = None
-                    self.critical = None
-                    self._segment_path = lambda: "memory-threshold"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
 
 
         class Ltrace(Entity):
@@ -378,6 +220,8 @@ class ActiveNodes(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ActiveNodes.ActiveNode.Ltrace.AllocationParams, ['mode', 'scale_factor'], name, value)
+
+
 
 
         class ClockInterface(Entity):
@@ -666,6 +510,7 @@ class ActiveNodes(Entity):
                                 self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
 
 
+
                         class InputQualityLevel(Entity):
                             """
                             Set the input quality level
@@ -721,6 +566,8 @@ class ActiveNodes(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+
+
 
 
                     class SyncController(Entity):
@@ -1120,6 +967,13 @@ class ActiveNodes(Entity):
                                         self._perform_setattr(ActiveNodes.ActiveNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode.PortMode, ['option1', 'option2', 'option3', 'option4', 'option5'], name, value)
 
 
+
+
+
+
+
+
+
         class SsrpGroup(Entity):
             """
             Per\-node SSRP configuration data
@@ -1235,6 +1089,170 @@ class ActiveNodes(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ActiveNodes.ActiveNode.SsrpGroup.Groups.Group, ['group_id', 'profile'], name, value)
+
+
+
+
+
+        class WatchdogNodeThreshold(Entity):
+            """
+            watchdog node threshold
+            
+            .. attribute:: disk_threshold
+            
+            	Disk thresholds
+            	**type**\:  :py:class:`DiskThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold>`
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'watchd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(ActiveNodes.ActiveNode.WatchdogNodeThreshold, self).__init__()
+
+                self.yang_name = "watchdog-node-threshold"
+                self.yang_parent_name = "active-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("disk-threshold", ("disk_threshold", ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold)), ("memory-threshold", ("memory_threshold", ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold))])
+                self._leafs = OrderedDict()
+
+                self.disk_threshold = ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold()
+                self.disk_threshold.parent = self
+                self._children_name_map["disk_threshold"] = "disk-threshold"
+
+                self.memory_threshold = ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+                self._children_name_map["memory_threshold"] = "memory-threshold"
+                self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ActiveNodes.ActiveNode.WatchdogNodeThreshold, [], name, value)
+
+
+            class DiskThreshold(Entity):
+                """
+                Disk thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\: int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\: int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'watchd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold, self).__init__()
+
+                    self.yang_name = "disk-threshold"
+                    self.yang_parent_name = "watchdog-node-threshold"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('minor', (YLeaf(YType.uint32, 'minor'), ['int'])),
+                        ('severe', (YLeaf(YType.uint32, 'severe'), ['int'])),
+                        ('critical', (YLeaf(YType.uint32, 'critical'), ['int'])),
+                    ])
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
+                    self._segment_path = lambda: "disk-threshold"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ActiveNodes.ActiveNode.WatchdogNodeThreshold.DiskThreshold, ['minor', 'severe', 'critical'], name, value)
+
+
+
+            class MemoryThreshold(Entity):
+                """
+                Memory thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\: int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\: int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'watchd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold, self).__init__()
+
+                    self.yang_name = "memory-threshold"
+                    self.yang_parent_name = "watchdog-node-threshold"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('minor', (YLeaf(YType.uint32, 'minor'), ['int'])),
+                        ('severe', (YLeaf(YType.uint32, 'severe'), ['int'])),
+                        ('critical', (YLeaf(YType.uint32, 'critical'), ['int'])),
+                    ])
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
+                    self._segment_path = lambda: "memory-threshold"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ActiveNodes.ActiveNode.WatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
+
+
 
 
         class LptsLocal(Entity):
@@ -1457,6 +1475,10 @@ class ActiveNodes(Entity):
                                 self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows.NpFlow, ['flow_type', 'np_rate'], name, value)
 
 
+
+
+
+
             class DynamicFlowsTables(Entity):
                 """
                 Node specific Pre IFIB (Internal Forwarding
@@ -1579,6 +1601,9 @@ class ActiveNodes(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable.FlowType, ['flow_type', 'max'], name, value)
+
+
+
 
 
             class IpolicerLocal(Entity):
@@ -1762,9 +1787,17 @@ class ActiveNodes(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences, ['precedence'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ActiveNodes()
         return self._top_entity
+
+
 
 class PreconfiguredNodes(Entity):
     """
@@ -1813,11 +1846,6 @@ class PreconfiguredNodes(Entity):
         
         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
-        .. attribute:: watchdog_node_threshold
-        
-        	watchdog node threshold
-        	**type**\:  :py:class:`WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold>`
-        
         .. attribute:: ltrace
         
         	Ltrace Memory configuration
@@ -1827,6 +1855,11 @@ class PreconfiguredNodes(Entity):
         
         	Configuration for a clock interface
         	**type**\:  :py:class:`ClockInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.ClockInterface>`
+        
+        .. attribute:: watchdog_node_threshold
+        
+        	watchdog node threshold
+        	**type**\:  :py:class:`WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold>`
         
         .. attribute:: lpts_local
         
@@ -1848,15 +1881,11 @@ class PreconfiguredNodes(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['node_name']
-            self._child_classes = OrderedDict([("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold)), ("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", PreconfiguredNodes.PreconfiguredNode.Ltrace)), ("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", PreconfiguredNodes.PreconfiguredNode.ClockInterface)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal))])
+            self._child_classes = OrderedDict([("Cisco-IOS-XR-infra-ltrace-cfg:ltrace", ("ltrace", PreconfiguredNodes.PreconfiguredNode.Ltrace)), ("Cisco-IOS-XR-freqsync-cfg:clock-interface", ("clock_interface", PreconfiguredNodes.PreconfiguredNode.ClockInterface)), ("Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold", ("watchdog_node_threshold", PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:lpts-local", ("lpts_local", PreconfiguredNodes.PreconfiguredNode.LptsLocal))])
             self._leafs = OrderedDict([
                 ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
             ])
             self.node_name = None
-
-            self.watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold()
-            self.watchdog_node_threshold.parent = self
-            self._children_name_map["watchdog_node_threshold"] = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
 
             self.ltrace = PreconfiguredNodes.PreconfiguredNode.Ltrace()
             self.ltrace.parent = self
@@ -1865,6 +1894,10 @@ class PreconfiguredNodes(Entity):
             self.clock_interface = PreconfiguredNodes.PreconfiguredNode.ClockInterface()
             self.clock_interface.parent = self
             self._children_name_map["clock_interface"] = "Cisco-IOS-XR-freqsync-cfg:clock-interface"
+
+            self.watchdog_node_threshold = PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold()
+            self.watchdog_node_threshold.parent = self
+            self._children_name_map["watchdog_node_threshold"] = "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
 
             self.lpts_local = PreconfiguredNodes.PreconfiguredNode.LptsLocal()
             self.lpts_local.parent = self
@@ -1875,164 +1908,6 @@ class PreconfiguredNodes(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(PreconfiguredNodes.PreconfiguredNode, [u'node_name'], name, value)
-
-
-        class WatchdogNodeThreshold(Entity):
-            """
-            watchdog node threshold
-            
-            .. attribute:: disk_threshold
-            
-            	Disk thresholds
-            	**type**\:  :py:class:`DiskThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold>`
-            
-            .. attribute:: memory_threshold
-            
-            	Memory thresholds
-            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold>`
-            
-            
-
-            """
-
-            _prefix = 'watchd-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold, self).__init__()
-
-                self.yang_name = "watchdog-node-threshold"
-                self.yang_parent_name = "preconfigured-node"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("disk-threshold", ("disk_threshold", PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold)), ("memory-threshold", ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold))])
-                self._leafs = OrderedDict()
-
-                self.disk_threshold = PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold()
-                self.disk_threshold.parent = self
-                self._children_name_map["disk_threshold"] = "disk-threshold"
-
-                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold()
-                self.memory_threshold.parent = self
-                self._children_name_map["memory_threshold"] = "memory-threshold"
-                self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold, [], name, value)
-
-
-            class DiskThreshold(Entity):
-                """
-                Disk thresholds
-                
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\: int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\: int
-                
-                	**range:** 4..40
-                
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\: int
-                
-                	**range:** 3..40
-                
-                
-
-                """
-
-                _prefix = 'watchd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold, self).__init__()
-
-                    self.yang_name = "disk-threshold"
-                    self.yang_parent_name = "watchdog-node-threshold"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('minor', (YLeaf(YType.uint32, 'minor'), ['int'])),
-                        ('severe', (YLeaf(YType.uint32, 'severe'), ['int'])),
-                        ('critical', (YLeaf(YType.uint32, 'critical'), ['int'])),
-                    ])
-                    self.minor = None
-                    self.severe = None
-                    self.critical = None
-                    self._segment_path = lambda: "disk-threshold"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold, ['minor', 'severe', 'critical'], name, value)
-
-
-            class MemoryThreshold(Entity):
-                """
-                Memory thresholds
-                
-                .. attribute:: minor
-                
-                	Threshold, Range(5, 40)
-                	**type**\: int
-                
-                	**range:** 5..40
-                
-                .. attribute:: severe
-                
-                	Threshold, Range(4, minor)
-                	**type**\: int
-                
-                	**range:** 4..40
-                
-                .. attribute:: critical
-                
-                	Threshold, Range(3, severe)
-                	**type**\: int
-                
-                	**range:** 3..40
-                
-                
-
-                """
-
-                _prefix = 'watchd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold, self).__init__()
-
-                    self.yang_name = "memory-threshold"
-                    self.yang_parent_name = "watchdog-node-threshold"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('minor', (YLeaf(YType.uint32, 'minor'), ['int'])),
-                        ('severe', (YLeaf(YType.uint32, 'severe'), ['int'])),
-                        ('critical', (YLeaf(YType.uint32, 'critical'), ['int'])),
-                    ])
-                    self.minor = None
-                    self.severe = None
-                    self.critical = None
-                    self._segment_path = lambda: "memory-threshold"
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
 
 
         class Ltrace(Entity):
@@ -2113,6 +1988,8 @@ class PreconfiguredNodes(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams, ['mode', 'scale_factor'], name, value)
+
+
 
 
         class ClockInterface(Entity):
@@ -2401,6 +2278,7 @@ class PreconfiguredNodes(Entity):
                                 self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
 
 
+
                         class InputQualityLevel(Entity):
                             """
                             Set the input quality level
@@ -2456,6 +2334,8 @@ class PreconfiguredNodes(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
+
+
 
 
                     class SyncController(Entity):
@@ -2855,6 +2735,174 @@ class PreconfiguredNodes(Entity):
                                         self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.ClockInterface.Clocks.Clock.SyncController.TransportMode.FrequencyMode.PortMode, ['option1', 'option2', 'option3', 'option4', 'option5'], name, value)
 
 
+
+
+
+
+
+
+
+        class WatchdogNodeThreshold(Entity):
+            """
+            watchdog node threshold
+            
+            .. attribute:: disk_threshold
+            
+            	Disk thresholds
+            	**type**\:  :py:class:`DiskThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold>`
+            
+            .. attribute:: memory_threshold
+            
+            	Memory thresholds
+            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold>`
+            
+            
+
+            """
+
+            _prefix = 'watchd-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold, self).__init__()
+
+                self.yang_name = "watchdog-node-threshold"
+                self.yang_parent_name = "preconfigured-node"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("disk-threshold", ("disk_threshold", PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold)), ("memory-threshold", ("memory_threshold", PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold))])
+                self._leafs = OrderedDict()
+
+                self.disk_threshold = PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold()
+                self.disk_threshold.parent = self
+                self._children_name_map["disk_threshold"] = "disk-threshold"
+
+                self.memory_threshold = PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold()
+                self.memory_threshold.parent = self
+                self._children_name_map["memory_threshold"] = "memory-threshold"
+                self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog-node-threshold"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold, [], name, value)
+
+
+            class DiskThreshold(Entity):
+                """
+                Disk thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\: int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\: int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'watchd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold, self).__init__()
+
+                    self.yang_name = "disk-threshold"
+                    self.yang_parent_name = "watchdog-node-threshold"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('minor', (YLeaf(YType.uint32, 'minor'), ['int'])),
+                        ('severe', (YLeaf(YType.uint32, 'severe'), ['int'])),
+                        ('critical', (YLeaf(YType.uint32, 'critical'), ['int'])),
+                    ])
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
+                    self._segment_path = lambda: "disk-threshold"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.DiskThreshold, ['minor', 'severe', 'critical'], name, value)
+
+
+
+            class MemoryThreshold(Entity):
+                """
+                Memory thresholds
+                
+                .. attribute:: minor
+                
+                	Threshold, Range(5, 40)
+                	**type**\: int
+                
+                	**range:** 5..40
+                
+                .. attribute:: severe
+                
+                	Threshold, Range(4, minor)
+                	**type**\: int
+                
+                	**range:** 4..40
+                
+                .. attribute:: critical
+                
+                	Threshold, Range(3, severe)
+                	**type**\: int
+                
+                	**range:** 3..40
+                
+                
+
+                """
+
+                _prefix = 'watchd-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold, self).__init__()
+
+                    self.yang_name = "memory-threshold"
+                    self.yang_parent_name = "watchdog-node-threshold"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('minor', (YLeaf(YType.uint32, 'minor'), ['int'])),
+                        ('severe', (YLeaf(YType.uint32, 'severe'), ['int'])),
+                        ('critical', (YLeaf(YType.uint32, 'critical'), ['int'])),
+                    ])
+                    self.minor = None
+                    self.severe = None
+                    self.critical = None
+                    self._segment_path = lambda: "memory-threshold"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.WatchdogNodeThreshold.MemoryThreshold, ['minor', 'severe', 'critical'], name, value)
+
+
+
+
         class LptsLocal(Entity):
             """
             lpts node specific configuration commands
@@ -3075,6 +3123,10 @@ class PreconfiguredNodes(Entity):
                                 self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.NpFlows.NpFlow, ['flow_type', 'np_rate'], name, value)
 
 
+
+
+
+
             class DynamicFlowsTables(Entity):
                 """
                 Node specific Pre IFIB (Internal Forwarding
@@ -3197,6 +3249,9 @@ class PreconfiguredNodes(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.DynamicFlowsTables.DynamicFlowsTable.FlowType, ['flow_type', 'max'], name, value)
+
+
+
 
 
             class IpolicerLocal(Entity):
@@ -3380,7 +3435,15 @@ class PreconfiguredNodes(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences, ['precedence'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = PreconfiguredNodes()
         return self._top_entity
+
+
 

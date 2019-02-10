@@ -259,30 +259,42 @@ class Sam(Entity):
     	SAM system information
     	**type**\:  :py:class:`SystemInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.SystemInformation>`
     
+    	**config**\: False
+    
     .. attribute:: log_contents
     
     	SAM log content table information
     	**type**\:  :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents>`
+    
+    	**config**\: False
     
     .. attribute:: devices
     
     	Certificate device table information
     	**type**\:  :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices>`
     
+    	**config**\: False
+    
     .. attribute:: packages
     
     	SAM certificate information  package
     	**type**\:  :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages>`
+    
+    	**config**\: False
     
     .. attribute:: certificate_revocations
     
     	Certificate revocation list index table information
     	**type**\:  :py:class:`CertificateRevocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations>`
     
+    	**config**\: False
+    
     .. attribute:: certificate_revocation_list_summary
     
     	Certificate revocation list summary information 
     	**type**\:  :py:class:`CertificateRevocationListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary>`
+    
+    	**config**\: False
     
     
 
@@ -342,6 +354,8 @@ class Sam(Entity):
         	True if SAM status information runs
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: prompt_interval
         
         	Prompt interval atreboot time in seconds
@@ -349,12 +363,16 @@ class Sam(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: second
         
         .. attribute:: is_default_response
         
         	True if promptdefault response is true
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -385,7 +403,8 @@ class Sam(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Sam.SystemInformation, [u'is_running', u'prompt_interval', u'is_default_response'], name, value)
+            self._perform_setattr(Sam.SystemInformation, ['is_running', 'prompt_interval', 'is_default_response'], name, value)
+
 
 
     class LogContents(Entity):
@@ -396,6 +415,8 @@ class Sam(Entity):
         
         	Number of lines for SAM log message
         	**type**\: list of  		 :py:class:`LogContent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent>`
+        
+        	**config**\: False
         
         
 
@@ -435,12 +456,16 @@ class Sam(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: total_entries
             
             	Total log entries available
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: entries_shown
             
@@ -449,10 +474,14 @@ class Sam(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: logs
             
             	SAM logs
             	**type**\: list of  		 :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent.Logs>`
+            
+            	**config**\: False
             
             
 
@@ -485,7 +514,7 @@ class Sam(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sam.LogContents.LogContent, ['number_of_lines', u'total_entries', u'entries_shown'], name, value)
+                self._perform_setattr(Sam.LogContents.LogContent, ['number_of_lines', 'total_entries', 'entries_shown'], name, value)
 
 
             class Logs(Entity):
@@ -497,15 +526,21 @@ class Sam(Entity):
                 	Log time
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: code
                 
                 	Log code
                 	**type**\:  :py:class:`LogCode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogCode>`
                 
+                	**config**\: False
+                
                 .. attribute:: target_device
                 
                 	Target device
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: index
                 
@@ -514,20 +549,28 @@ class Sam(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: error
                 
                 	Log error message
                 	**type**\:  :py:class:`LogError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogError>`
+                
+                	**config**\: False
                 
                 .. attribute:: issuer
                 
                 	Issuer of the certificate
                 	**type**\:  :py:class:`CertificateIssuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.CertificateIssuer>`
                 
+                	**config**\: False
+                
                 .. attribute:: serial_no
                 
                 	Serial number
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: sam_table_index
                 
@@ -536,20 +579,28 @@ class Sam(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: update_time
                 
                 	Last update time of the certificate
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: source_device
                 
                 	source device name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: table
                 
                 	Log table information
                 	**type**\:  :py:class:`LogTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogTables>`
+                
+                	**config**\: False
                 
                 
 
@@ -595,7 +646,10 @@ class Sam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sam.LogContents.LogContent.Logs, [u'time', u'code', u'target_device', u'index', u'error', u'issuer', u'serial_no', u'sam_table_index', u'update_time', u'source_device', u'table'], name, value)
+                    self._perform_setattr(Sam.LogContents.LogContent.Logs, ['time', 'code', 'target_device', 'index', 'error', 'issuer', 'serial_no', 'sam_table_index', 'update_time', 'source_device', 'table'], name, value)
+
+
+
 
 
     class Devices(Entity):
@@ -606,6 +660,8 @@ class Sam(Entity):
         
         	Certificate table device information
         	**type**\: list of  		 :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device>`
+        
+        	**config**\: False
         
         
 
@@ -645,10 +701,14 @@ class Sam(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: certificate
             
             	Certificate table information
             	**type**\:  :py:class:`Certificate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate>`
+            
+            	**config**\: False
             
             
 
@@ -691,10 +751,14 @@ class Sam(Entity):
                 	Certificate table brief information
                 	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.Brief>`
                 
+                	**config**\: False
+                
                 .. attribute:: certificate_indexes
                 
                 	Certificate detail index table information
                 	**type**\:  :py:class:`CertificateIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes>`
+                
+                	**config**\: False
                 
                 
 
@@ -737,10 +801,14 @@ class Sam(Entity):
                     	Certificate flags
                     	**type**\:  :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.Brief.CertificateFlags>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: location
                     
                     	Certificate location
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: certificate_index
                     
@@ -748,6 +816,8 @@ class Sam(Entity):
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -779,7 +849,7 @@ class Sam(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sam.Devices.Device.Certificate.Brief, [u'location', u'certificate_index'], name, value)
+                        self._perform_setattr(Sam.Devices.Device.Certificate.Brief, ['location', 'certificate_index'], name, value)
 
 
                     class CertificateFlags(Entity):
@@ -791,20 +861,28 @@ class Sam(Entity):
                         	Trusted flag
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_revoked
                         
                         	Revoked flag
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_expired
                         
                         	Expired flag
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_validated
                         
                         	Validated flag
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -836,7 +914,9 @@ class Sam(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sam.Devices.Device.Certificate.Brief.CertificateFlags, [u'is_trusted', u'is_revoked', u'is_expired', u'is_validated'], name, value)
+                            self._perform_setattr(Sam.Devices.Device.Certificate.Brief.CertificateFlags, ['is_trusted', 'is_revoked', 'is_expired', 'is_validated'], name, value)
+
+
 
 
                 class CertificateIndexes(Entity):
@@ -847,6 +927,8 @@ class Sam(Entity):
                     
                     	Certificate detail index information
                     	**type**\: list of  		 :py:class:`CertificateIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -885,10 +967,14 @@ class Sam(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: detail
                         
                         	Certificate table detail information
                         	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -930,10 +1016,14 @@ class Sam(Entity):
                             	Certificate flags
                             	**type**\:  :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: location
                             
                             	Certificate location
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: certificate_index
                             
@@ -941,6 +1031,8 @@ class Sam(Entity):
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -972,7 +1064,7 @@ class Sam(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail, [u'location', u'certificate_index'], name, value)
+                                self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail, ['location', 'certificate_index'], name, value)
 
 
                             class CertificateFlags(Entity):
@@ -984,20 +1076,28 @@ class Sam(Entity):
                                 	Trusted flag
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_revoked
                                 
                                 	Revoked flag
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: is_expired
                                 
                                 	Expired flag
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_validated
                                 
                                 	Validated flag
                                 	**type**\: bool
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1029,7 +1129,14 @@ class Sam(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags, [u'is_trusted', u'is_revoked', u'is_expired', u'is_validated'], name, value)
+                                    self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags, ['is_trusted', 'is_revoked', 'is_expired', 'is_validated'], name, value)
+
+
+
+
+
+
+
 
 
     class Packages(Entity):
@@ -1040,6 +1147,8 @@ class Sam(Entity):
         
         	SAM certificate information for a specific package
         	**type**\: list of  		 :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages.Package>`
+        
+        	**config**\: False
         
         
 
@@ -1078,15 +1187,21 @@ class Sam(Entity):
             	Specify package name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: certificate_flags
             
             	Certificate flags
             	**type**\:  :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages.Package.CertificateFlags>`
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Certificate location
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: certificate_index
             
@@ -1094,6 +1209,8 @@ class Sam(Entity):
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             
 
@@ -1128,7 +1245,7 @@ class Sam(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sam.Packages.Package, ['package_name', u'location', u'certificate_index'], name, value)
+                self._perform_setattr(Sam.Packages.Package, ['package_name', 'location', 'certificate_index'], name, value)
 
 
             class CertificateFlags(Entity):
@@ -1140,20 +1257,28 @@ class Sam(Entity):
                 	Trusted flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_revoked
                 
                 	Revoked flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: is_expired
                 
                 	Expired flag
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: is_validated
                 
                 	Validated flag
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -1185,7 +1310,10 @@ class Sam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sam.Packages.Package.CertificateFlags, [u'is_trusted', u'is_revoked', u'is_expired', u'is_validated'], name, value)
+                    self._perform_setattr(Sam.Packages.Package.CertificateFlags, ['is_trusted', 'is_revoked', 'is_expired', 'is_validated'], name, value)
+
+
+
 
 
     class CertificateRevocations(Entity):
@@ -1197,6 +1325,8 @@ class Sam(Entity):
         
         	Certificate revocation list index information
         	**type**\: list of  		 :py:class:`CertificateRevocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation>`
+        
+        	**config**\: False
         
         
 
@@ -1236,10 +1366,14 @@ class Sam(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: certificate_revocation_list_detail
             
             	Certificate revocation list detail information
             	**type**\:  :py:class:`CertificateRevocationListDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail>`
+            
+            	**config**\: False
             
             
 
@@ -1282,6 +1416,8 @@ class Sam(Entity):
                 	Issuer name
                 	**type**\:  :py:class:`Issuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer>`
                 
+                	**config**\: False
+                
                 .. attribute:: crl_index
                 
                 	 CRL index
@@ -1289,10 +1425,14 @@ class Sam(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: updates
                 
                 	Updated time of CRL is displayed
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1324,7 +1464,7 @@ class Sam(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail, [u'crl_index', u'updates'], name, value)
+                    self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail, ['crl_index', 'updates'], name, value)
 
 
                 class Issuer(Entity):
@@ -1336,15 +1476,21 @@ class Sam(Entity):
                     	Common name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: organization
                     
                     	Organization
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: country
                     
                     	Country
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1374,7 +1520,11 @@ class Sam(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer, [u'common_name', u'organization', u'country'], name, value)
+                        self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer, ['common_name', 'organization', 'country'], name, value)
+
+
+
+
 
 
     class CertificateRevocationListSummary(Entity):
@@ -1386,6 +1536,8 @@ class Sam(Entity):
         	Issuer name
         	**type**\:  :py:class:`Issuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary.Issuer>`
         
+        	**config**\: False
+        
         .. attribute:: crl_index
         
         	 CRL index
@@ -1393,10 +1545,14 @@ class Sam(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: updates
         
         	Updated time of CRL is displayed
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -1429,7 +1585,7 @@ class Sam(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Sam.CertificateRevocationListSummary, [u'crl_index', u'updates'], name, value)
+            self._perform_setattr(Sam.CertificateRevocationListSummary, ['crl_index', 'updates'], name, value)
 
 
         class Issuer(Entity):
@@ -1441,15 +1597,21 @@ class Sam(Entity):
             	Common name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: organization
             
             	Organization
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: country
             
             	Country
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1480,9 +1642,13 @@ class Sam(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sam.CertificateRevocationListSummary.Issuer, [u'common_name', u'organization', u'country'], name, value)
+                self._perform_setattr(Sam.CertificateRevocationListSummary.Issuer, ['common_name', 'organization', 'country'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = Sam()
         return self._top_entity
+
+
 

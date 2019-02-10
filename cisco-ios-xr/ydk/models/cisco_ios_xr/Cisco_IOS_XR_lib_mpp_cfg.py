@@ -571,6 +571,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -648,6 +650,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -775,6 +780,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -852,6 +859,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class TftpProtocol(Entity):
@@ -1070,6 +1082,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -1147,6 +1161,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -1274,6 +1291,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -1351,6 +1370,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class NetconfProtocol(Entity):
@@ -1569,6 +1593,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -1646,6 +1672,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -1773,6 +1802,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -1850,6 +1881,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class XrXml(Entity):
@@ -2068,6 +2104,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -2145,6 +2183,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -2272,6 +2313,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -2349,6 +2392,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class SshProtocol(Entity):
@@ -2567,6 +2615,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -2644,6 +2694,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -2771,6 +2824,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -2848,6 +2903,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class SnmpProtocol(Entity):
@@ -3066,6 +3126,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -3143,6 +3205,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -3270,6 +3335,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -3347,6 +3414,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class TelnetProtocol(Entity):
@@ -3565,6 +3637,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -3642,6 +3716,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -3769,6 +3846,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -3846,6 +3925,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class AllProtocols(Entity):
@@ -4064,6 +4148,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -4141,6 +4227,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -4268,6 +4357,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -4345,6 +4436,13 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
+
+
 
 
                 class AllInterfaces(Entity):
@@ -4669,6 +4767,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -4748,6 +4848,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -4878,6 +4981,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -4957,6 +5062,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class TftpProtocol(Entity):
@@ -5180,6 +5290,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -5259,6 +5371,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -5389,6 +5504,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -5468,6 +5585,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class NetconfProtocol(Entity):
@@ -5691,6 +5813,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -5770,6 +5894,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -5900,6 +6027,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -5979,6 +6108,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class XrXml(Entity):
@@ -6202,6 +6336,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -6281,6 +6417,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -6411,6 +6550,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -6490,6 +6631,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class SshProtocol(Entity):
@@ -6713,6 +6859,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -6792,6 +6940,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -6922,6 +7073,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -7001,6 +7154,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class SnmpProtocol(Entity):
@@ -7224,6 +7382,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -7303,6 +7463,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -7433,6 +7596,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -7512,6 +7677,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class TelnetProtocol(Entity):
@@ -7735,6 +7905,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -7814,6 +7986,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -7944,6 +8119,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -8023,6 +8200,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class AllProtocols(Entity):
@@ -8246,6 +8428,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -8325,6 +8509,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -8455,6 +8642,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -8534,6 +8723,14 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
+
+
+
 
 
         class Inband(Entity):
@@ -8984,6 +9181,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -9061,6 +9260,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -9188,6 +9390,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -9265,6 +9469,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class TftpProtocol(Entity):
@@ -9483,6 +9692,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -9560,6 +9771,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -9687,6 +9901,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -9764,6 +9980,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class NetconfProtocol(Entity):
@@ -9982,6 +10203,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -10059,6 +10282,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -10186,6 +10412,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -10263,6 +10491,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class XrXml(Entity):
@@ -10481,6 +10714,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -10558,6 +10793,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -10685,6 +10923,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -10762,6 +11002,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class SshProtocol(Entity):
@@ -10980,6 +11225,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -11057,6 +11304,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -11184,6 +11434,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -11261,6 +11513,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class SnmpProtocol(Entity):
@@ -11479,6 +11736,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -11556,6 +11815,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -11683,6 +11945,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -11760,6 +12024,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class TelnetProtocol(Entity):
@@ -11978,6 +12247,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -12055,6 +12326,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -12182,6 +12456,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -12259,6 +12535,11 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                         class AllProtocols(Entity):
@@ -12477,6 +12758,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -12554,6 +12837,9 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                                 class PeerV6(Entity):
@@ -12681,6 +12967,8 @@ class ControlPlane(Entity):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                     class PeerPrefixes(Entity):
                                         """
                                         Configure peer addresses with prefix
@@ -12758,6 +13046,13 @@ class ControlPlane(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
+
+
 
 
                 class AllInterfaces(Entity):
@@ -13082,6 +13377,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -13161,6 +13458,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -13291,6 +13591,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -13370,6 +13672,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class TftpProtocol(Entity):
@@ -13593,6 +13900,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -13672,6 +13981,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -13802,6 +14114,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -13881,6 +14195,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class NetconfProtocol(Entity):
@@ -14104,6 +14423,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -14183,6 +14504,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -14313,6 +14637,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -14392,6 +14718,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class XrXml(Entity):
@@ -14615,6 +14946,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -14694,6 +15027,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -14824,6 +15160,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -14903,6 +15241,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class SshProtocol(Entity):
@@ -15126,6 +15469,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -15205,6 +15550,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -15335,6 +15683,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -15414,6 +15764,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class SnmpProtocol(Entity):
@@ -15637,6 +15992,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -15716,6 +16073,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -15846,6 +16206,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -15925,6 +16287,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class TelnetProtocol(Entity):
@@ -16148,6 +16515,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -16227,6 +16596,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -16357,6 +16729,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -16436,6 +16810,11 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
 
 
                     class AllProtocols(Entity):
@@ -16659,6 +17038,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -16738,6 +17119,9 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
 
 
                             class PeerV6(Entity):
@@ -16868,6 +17252,8 @@ class ControlPlane(Entity):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
 
 
+
+
                                 class PeerPrefixes(Entity):
                                     """
                                     Configure peer addresses with prefix
@@ -16947,6 +17333,14 @@ class ControlPlane(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
+
+
+
+
+
+
+
+
 
 
         class Tpa(Entity):
@@ -17251,6 +17645,8 @@ class ControlPlane(Entity):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table.TpaAllow, ['local_port', 'protocol', 'interface_name', 'remote_address', 'remote_address_prefix', 'local_address', 'local_address_prefix'], name, value)
 
 
+
+
                         class Ipv6Table(Entity):
                             """
                             IPv6 configuration
@@ -17383,7 +17779,16 @@ class ControlPlane(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table.TpaAllow, ['local_port', 'protocol', 'interface_name', 'remote_address', 'remote_address_prefix', 'local_address', 'local_address_prefix'], name, value)
 
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ControlPlane()
         return self._top_entity
+
+
 

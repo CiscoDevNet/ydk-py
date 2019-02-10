@@ -169,7 +169,11 @@ class Vty(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Vty.VtyPools.VtyPool, ['pool_name', 'first_vty', 'last_vty', 'line_template', 'none'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Vty()
         return self._top_entity
+
+
 

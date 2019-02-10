@@ -449,6 +449,7 @@ class AtmClpTransparentNoScr(ObjectIdentity):
         super(AtmClpTransparentNoScr, self).__init__(ns, pref, tag)
 
 
+
 class AtmNoClpScr(ObjectIdentity):
     """
     This traffic descriptor type is for no CLP
@@ -471,6 +472,7 @@ class AtmNoClpScr(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmNoClpScr"):
         super(AtmNoClpScr, self).__init__(ns, pref, tag)
+
 
 
 class AtmClpTransparentScr(ObjectIdentity):
@@ -507,6 +509,7 @@ class AtmClpTransparentScr(ObjectIdentity):
         super(AtmClpTransparentScr, self).__init__(ns, pref, tag)
 
 
+
 class AtmNoClpNoScr(ObjectIdentity):
     """
     This traffic descriptor type is for no CLP
@@ -528,6 +531,7 @@ class AtmNoClpNoScr(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmNoClpNoScr"):
         super(AtmNoClpNoScr, self).__init__(ns, pref, tag)
+
 
 
 class AtmClpNoTaggingScr(ObjectIdentity):
@@ -552,6 +556,7 @@ class AtmClpNoTaggingScr(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpNoTaggingScr"):
         super(AtmClpNoTaggingScr, self).__init__(ns, pref, tag)
+
 
 
 class AtmNoClpTaggingNoScr(ObjectIdentity):
@@ -581,6 +586,7 @@ class AtmNoClpTaggingNoScr(ObjectIdentity):
         super(AtmNoClpTaggingNoScr, self).__init__(ns, pref, tag)
 
 
+
 class AtmClpNoTaggingMcr(ObjectIdentity):
     """
     This traffic descriptor type is for CLP with
@@ -602,6 +608,7 @@ class AtmClpNoTaggingMcr(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpNoTaggingMcr"):
         super(AtmClpNoTaggingMcr, self).__init__(ns, pref, tag)
+
 
 
 class AtmClpNoTaggingScrCdvt(ObjectIdentity):
@@ -632,6 +639,7 @@ class AtmClpNoTaggingScrCdvt(ObjectIdentity):
         super(AtmClpNoTaggingScrCdvt, self).__init__(ns, pref, tag)
 
 
+
 class AtmNoTrafficDescriptor(ObjectIdentity):
     """
     This identifies the no ATM traffic
@@ -648,6 +656,7 @@ class AtmNoTrafficDescriptor(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmNoTrafficDescriptor"):
         super(AtmNoTrafficDescriptor, self).__init__(ns, pref, tag)
+
 
 
 class AtmClpTaggingNoScr(ObjectIdentity):
@@ -673,6 +682,7 @@ class AtmClpTaggingNoScr(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpTaggingNoScr"):
         super(AtmClpTaggingNoScr, self).__init__(ns, pref, tag)
+
 
 
 class AtmNoClpScrCdvt(ObjectIdentity):
@@ -705,6 +715,7 @@ class AtmNoClpScrCdvt(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmNoClpScrCdvt"):
         super(AtmNoClpScrCdvt, self).__init__(ns, pref, tag)
+
 
 
 class AtmNoClpNoScrCdvt(ObjectIdentity):
@@ -741,6 +752,7 @@ class AtmNoClpNoScrCdvt(ObjectIdentity):
         super(AtmNoClpNoScrCdvt, self).__init__(ns, pref, tag)
 
 
+
 class AtmClpTaggingScr(ObjectIdentity):
     """
     This traffic descriptor type is for CLP with
@@ -766,6 +778,7 @@ class AtmClpTaggingScr(ObjectIdentity):
         super(AtmClpTaggingScr, self).__init__(ns, pref, tag)
 
 
+
 class AtmClpNoTaggingNoScr(ObjectIdentity):
     """
     This traffic descriptor is for CLP without
@@ -788,6 +801,7 @@ class AtmClpNoTaggingNoScr(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpNoTaggingNoScr"):
         super(AtmClpNoTaggingNoScr, self).__init__(ns, pref, tag)
+
 
 
 class AtmClpTaggingScrCdvt(ObjectIdentity):
@@ -817,5 +831,6 @@ class AtmClpTaggingScrCdvt(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpTaggingScrCdvt"):
         super(AtmClpTaggingScrCdvt, self).__init__(ns, pref, tag)
+
 
 

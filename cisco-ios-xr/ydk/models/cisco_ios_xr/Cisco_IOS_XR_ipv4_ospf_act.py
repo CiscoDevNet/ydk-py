@@ -136,9 +136,13 @@ class ClearOspfRoutes(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfRoutes.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfRoutes()
         return self._top_entity
+
+
 
 class ClearOspfRedistribution(Entity):
     """
@@ -259,9 +263,13 @@ class ClearOspfRedistribution(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfRedistribution.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfRedistribution()
         return self._top_entity
+
+
 
 class ClearOspfStatistics(Entity):
     """
@@ -408,9 +416,13 @@ class ClearOspfStatistics(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfStatistics.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfStatistics()
         return self._top_entity
+
+
 
 class ClearOspfStatisticsNeighbor(Entity):
     """
@@ -531,6 +543,7 @@ class ClearOspfStatisticsNeighbor(Entity):
                 self._perform_setattr(ClearOspfStatisticsNeighbor.Input.Instance, ['instance_identifier'], name, value)
 
 
+
         class Neighbor(Entity):
             """
             
@@ -578,9 +591,13 @@ class ClearOspfStatisticsNeighbor(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfStatisticsNeighbor.Input.Neighbor, ['neighbor_id', 'interface_name'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfStatisticsNeighbor()
         return self._top_entity
+
+
 
 class ClearOspfStatisticsInterface(Entity):
     """
@@ -701,6 +718,7 @@ class ClearOspfStatisticsInterface(Entity):
                 self._perform_setattr(ClearOspfStatisticsInterface.Input.Instance, ['instance_identifier'], name, value)
 
 
+
         class Interface(Entity):
             """
             
@@ -739,9 +757,13 @@ class ClearOspfStatisticsInterface(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfStatisticsInterface.Input.Interface, ['interface_name'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfStatisticsInterface()
         return self._top_entity
+
+
 
 class ClearOspfProcess(Entity):
     """
@@ -862,9 +884,13 @@ class ClearOspfProcess(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearOspfProcess.Input.Instance, ['instance_identifier'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfProcess()
         return self._top_entity
+
+
 
 class ClearOspfInstanceVrf(Entity):
     """
@@ -1173,6 +1199,7 @@ class ClearOspfInstanceVrf(Entity):
                             self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Interface, ['interface_name'], name, value)
 
 
+
                     class Neighbor(Entity):
                         """
                         Neighbor statistics per interface or neighbor id
@@ -1258,6 +1285,10 @@ class ClearOspfInstanceVrf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.Vrf.Stats.Neighbor.Interface, ['interface_name'], name, value)
+
+
+
+
 
 
             class All(Entity):
@@ -1421,6 +1452,7 @@ class ClearOspfInstanceVrf(Entity):
                             self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.All.Stats.Interface, ['interface_name'], name, value)
 
 
+
                     class Neighbor(Entity):
                         """
                         Neighbor statistics per interface or neighbor id
@@ -1506,6 +1538,10 @@ class ClearOspfInstanceVrf(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.All.Stats.Neighbor.Interface, ['interface_name'], name, value)
+
+
+
+
 
 
             class AllInclusive(Entity):
@@ -1669,6 +1705,7 @@ class ClearOspfInstanceVrf(Entity):
                             self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Interface, ['interface_name'], name, value)
 
 
+
                     class Neighbor(Entity):
                         """
                         Neighbor statistics per interface or neighbor id
@@ -1755,7 +1792,15 @@ class ClearOspfInstanceVrf(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ClearOspfInstanceVrf.Input.Instance.AllInclusive.Stats.Neighbor.Interface, ['interface_name'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ClearOspfInstanceVrf()
         return self._top_entity
+
+
 

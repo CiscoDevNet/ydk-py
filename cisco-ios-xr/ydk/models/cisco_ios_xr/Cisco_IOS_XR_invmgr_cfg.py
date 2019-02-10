@@ -102,7 +102,10 @@ class InventoryConfigurations(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(InventoryConfigurations.Entity, ['name', 'name_xr'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = InventoryConfigurations()
         return self._top_entity
+
+
 

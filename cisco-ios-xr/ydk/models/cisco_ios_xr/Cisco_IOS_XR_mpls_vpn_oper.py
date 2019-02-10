@@ -105,10 +105,14 @@ class L3vpn(Entity):
     	Invalid VRF Table (VRFs that are forward referenced)
     	**type**\:  :py:class:`InvalidVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3vpn.InvalidVrfs>`
     
+    	**config**\: False
+    
     .. attribute:: vrfs
     
     	VRF Table
     	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3vpn.Vrfs>`
+    
+    	**config**\: False
     
     
 
@@ -153,6 +157,8 @@ class L3vpn(Entity):
         	Invalid VRF (VRF that is forward referenced)
         	**type**\: list of  		 :py:class:`InvalidVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3vpn.InvalidVrfs.InvalidVrf>`
         
+        	**config**\: False
+        
         
 
         """
@@ -189,35 +195,49 @@ class L3vpn(Entity):
             	The Name for an invalid VRF
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: vrf_name_xr
             
             	VRF Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: vrf_description
             
             	VRF Description
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: route_distinguisher
             
             	Route Distinguisher
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: is_big_vrf
             
             	VRF mode information
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: interface
             
             	Interfaces in VRF
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3vpn.InvalidVrfs.InvalidVrf.Interface>`
             
+            	**config**\: False
+            
             .. attribute:: af
             
             	AF/SAF information
             	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3vpn.InvalidVrfs.InvalidVrf.Af>`
+            
+            	**config**\: False
             
             
 
@@ -255,7 +275,7 @@ class L3vpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf, ['vrf_name', 'vrf_name_xr', 'vrf_description', 'route_distinguisher', 'is_big_vrf'], name, value)
+                self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf, ['vrf_name', u'vrf_name_xr', u'vrf_description', u'route_distinguisher', u'is_big_vrf'], name, value)
 
 
             class Interface(Entity):
@@ -266,6 +286,8 @@ class L3vpn(Entity):
                 
                 	Interface Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -291,7 +313,8 @@ class L3vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Interface, ['interface_name'], name, value)
+                    self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Interface, [u'interface_name'], name, value)
+
 
 
             class Af(Entity):
@@ -303,25 +326,35 @@ class L3vpn(Entity):
                 	AF name
                 	**type**\:  :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
                 
+                	**config**\: False
+                
                 .. attribute:: saf_name
                 
                 	SAF name
                 	**type**\:  :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
+                
+                	**config**\: False
                 
                 .. attribute:: import_route_policy
                 
                 	Import Route Policy
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: export_route_policy
                 
                 	Export Route Policy
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: route_target
                 
                 	Route Targets
                 	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget>`
+                
+                	**config**\: False
                 
                 
 
@@ -355,7 +388,7 @@ class L3vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Af, ['af_name', 'saf_name', 'import_route_policy', 'export_route_policy'], name, value)
+                    self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Af, [u'af_name', u'saf_name', u'import_route_policy', u'export_route_policy'], name, value)
 
 
                 class RouteTarget(Entity):
@@ -367,20 +400,28 @@ class L3vpn(Entity):
                     	Route Target Type
                     	**type**\:  :py:class:`MplsVpnRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRt>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_target_value
                     
                     	Route Target Value
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: af_name
                     
                     	AF name
                     	**type**\:  :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: saf_name
                     
                     	SAF name
                     	**type**\:  :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -412,7 +453,11 @@ class L3vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, ['route_target_type', 'route_target_value', 'af_name', 'saf_name'], name, value)
+                        self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, [u'route_target_type', u'route_target_value', u'af_name', u'saf_name'], name, value)
+
+
+
+
 
 
     class Vrfs(Entity):
@@ -423,6 +468,8 @@ class L3vpn(Entity):
         
         	VRF
         	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3vpn.Vrfs.Vrf>`
+        
+        	**config**\: False
         
         
 
@@ -460,35 +507,49 @@ class L3vpn(Entity):
             	The Name for a VRF
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: vrf_name_xr
             
             	VRF Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: vrf_description
             
             	VRF Description
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: route_distinguisher
             
             	Route Distinguisher
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: is_big_vrf
             
             	VRF mode information
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: interface
             
             	Interfaces in VRF
             	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3vpn.Vrfs.Vrf.Interface>`
             
+            	**config**\: False
+            
             .. attribute:: af
             
             	AF/SAF information
             	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3vpn.Vrfs.Vrf.Af>`
+            
+            	**config**\: False
             
             
 
@@ -526,7 +587,7 @@ class L3vpn(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L3vpn.Vrfs.Vrf, ['vrf_name', 'vrf_name_xr', 'vrf_description', 'route_distinguisher', 'is_big_vrf'], name, value)
+                self._perform_setattr(L3vpn.Vrfs.Vrf, ['vrf_name', u'vrf_name_xr', u'vrf_description', u'route_distinguisher', u'is_big_vrf'], name, value)
 
 
             class Interface(Entity):
@@ -537,6 +598,8 @@ class L3vpn(Entity):
                 
                 	Interface Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -562,7 +625,8 @@ class L3vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L3vpn.Vrfs.Vrf.Interface, ['interface_name'], name, value)
+                    self._perform_setattr(L3vpn.Vrfs.Vrf.Interface, [u'interface_name'], name, value)
+
 
 
             class Af(Entity):
@@ -574,25 +638,35 @@ class L3vpn(Entity):
                 	AF name
                 	**type**\:  :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
                 
+                	**config**\: False
+                
                 .. attribute:: saf_name
                 
                 	SAF name
                 	**type**\:  :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
+                
+                	**config**\: False
                 
                 .. attribute:: import_route_policy
                 
                 	Import Route Policy
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: export_route_policy
                 
                 	Export Route Policy
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: route_target
                 
                 	Route Targets
                 	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.L3vpn.Vrfs.Vrf.Af.RouteTarget>`
+                
+                	**config**\: False
                 
                 
 
@@ -626,7 +700,7 @@ class L3vpn(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L3vpn.Vrfs.Vrf.Af, ['af_name', 'saf_name', 'import_route_policy', 'export_route_policy'], name, value)
+                    self._perform_setattr(L3vpn.Vrfs.Vrf.Af, [u'af_name', u'saf_name', u'import_route_policy', u'export_route_policy'], name, value)
 
 
                 class RouteTarget(Entity):
@@ -638,20 +712,28 @@ class L3vpn(Entity):
                     	Route Target Type
                     	**type**\:  :py:class:`MplsVpnRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnRt>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_target_value
                     
                     	Route Target Value
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: af_name
                     
                     	AF name
                     	**type**\:  :py:class:`MplsVpnAfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnAfi>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: saf_name
                     
                     	SAF name
                     	**type**\:  :py:class:`MplsVpnSafi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper.MplsVpnSafi>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -683,9 +765,15 @@ class L3vpn(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L3vpn.Vrfs.Vrf.Af.RouteTarget, ['route_target_type', 'route_target_value', 'af_name', 'saf_name'], name, value)
+                        self._perform_setattr(L3vpn.Vrfs.Vrf.Af.RouteTarget, [u'route_target_type', u'route_target_value', u'af_name', u'saf_name'], name, value)
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = L3vpn()
         return self._top_entity
+
+
 

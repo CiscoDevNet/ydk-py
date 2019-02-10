@@ -50,20 +50,28 @@ class CISCOHSRPEXTMIB(Entity):
     	A table containing information about tracked interfaces per HSRP group
     	**type**\:  :py:class:`CHsrpExtIfTrackedTable <ydk.models.cisco_ios_xe.CISCO_HSRP_EXT_MIB.CISCOHSRPEXTMIB.CHsrpExtIfTrackedTable>`
     
+    	**config**\: False
+    
     .. attribute:: chsrpextsecaddrtable
     
     	A table containing information about secondary HSRP IP Addresses per interface and group
     	**type**\:  :py:class:`CHsrpExtSecAddrTable <ydk.models.cisco_ios_xe.CISCO_HSRP_EXT_MIB.CISCOHSRPEXTMIB.CHsrpExtSecAddrTable>`
+    
+    	**config**\: False
     
     .. attribute:: chsrpextifstandbytable
     
     	A table containing information about standby interfaces per HSRP group
     	**type**\:  :py:class:`CHsrpExtIfStandbyTable <ydk.models.cisco_ios_xe.CISCO_HSRP_EXT_MIB.CISCOHSRPEXTMIB.CHsrpExtIfStandbyTable>`
     
+    	**config**\: False
+    
     .. attribute:: chsrpextiftable
     
     	HSRP\-specific configurations for each physical interface
     	**type**\:  :py:class:`CHsrpExtIfTable <ydk.models.cisco_ios_xe.CISCO_HSRP_EXT_MIB.CISCOHSRPEXTMIB.CHsrpExtIfTable>`
+    
+    	**config**\: False
     
     
 
@@ -115,6 +123,8 @@ class CISCOHSRPEXTMIB(Entity):
         
         	Each row of this table allows the tracking of one interface of the HSRP group which is identified by the (ifIndex, cHsrpGrpNumber) values in this table's INDEX clause. Weight(priority) is given to each and every interface tracked.  When a tracked interface is unavailable, the HSRP priority of the router is decreased. i.e cHsrpGrpPriority value assigned  to an HSRP group will reduce by the value assigned to cHsrpExtIfTrackedPriority. This reduces the likelihood  of a router with a failed key interface becoming the  active router.  Setting cHsrpExtIfTrackedRowStatus to active starts the tracking of cHsrpExtIfTracked by the HSRP group.  The value of cHsrpExtIfTrackedRowStatus may be set  to destroy at any time.  Entries may not be created via SNMP without explicitly setting cHsrpExtIfTrackedRowStatus to either 'createAndGo'  or 'createAndWait'.  Entries can be created and modified via the management protocol or by the device's local management interface.  If the row is not active, and a local management interface command modifies that row, the row may transition to active state.  A row entry in the cHsrpExtIfTrackedTable can not be created unless the corresponding row in the cHsrpGrpTable has been  created. If that corresponding row in cHsrpGrpTable is  deleted, the interfaces it tracks also get deleted.  A row which is not in active state will timeout after a configurable period (five minutes by default). This timeout period can be changed by setting cHsrpConfigTimeout
         	**type**\: list of  		 :py:class:`CHsrpExtIfTrackedEntry <ydk.models.cisco_ios_xe.CISCO_HSRP_EXT_MIB.CISCOHSRPEXTMIB.CHsrpExtIfTrackedTable.CHsrpExtIfTrackedEntry>`
+        
+        	**config**\: False
         
         
 
@@ -190,6 +200,8 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: chsrpgrpnumber  (key)
             
             	
@@ -199,12 +211,16 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`chsrpgrpnumber <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.CHsrpGrpTable.CHsrpGrpEntry>`
             
+            	**config**\: False
+            
             .. attribute:: chsrpextiftracked  (key)
             
             	The ifIndex value of the tracked interface
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: chsrpextiftrackedpriority
             
@@ -213,15 +229,21 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: chsrpextiftrackedrowstatus
             
             	The control that allows modification, creation, and deletion of entries. For detailed rules see the DESCRIPTION for cHsrpExtIfTrackedEntry
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: chsrpextiftrackedipnone
             
             	This object specifies the disable HSRP IPv4 virtual IP address
             	**type**\: bool
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -263,6 +285,8 @@ class CISCOHSRPEXTMIB(Entity):
                 self._perform_setattr(CISCOHSRPEXTMIB.CHsrpExtIfTrackedTable.CHsrpExtIfTrackedEntry, ['ifindex', 'chsrpgrpnumber', 'chsrpextiftracked', 'chsrpextiftrackedpriority', 'chsrpextiftrackedrowstatus', 'chsrpextiftrackedipnone'], name, value)
 
 
+
+
     class CHsrpExtSecAddrTable(Entity):
         """
         A table containing information about secondary HSRP IP
@@ -272,6 +296,8 @@ class CISCOHSRPEXTMIB(Entity):
         
         	The CHsrpExtSecAddrEntry allows creation of secondary IP Addresses for each cHsrpGrpEntry row.  Secondary addresses can be added by setting  cHsrpExtSecAddrRowStatus to be active. The value of cHsrpExtSecAddrRowStatus may be set to destroy at any time.  Entries may not be created via SNMP without explicitly setting cHsrpExtSecAddrRowStatus to either 'createAndGo' or 'createAndWait'.  Entries can be created and modified via the management protocol or by the device's local management interface.  If the row is not active, and a local management interface command modifies that row, the row may transition to active state.  A row which is not in active state will timeout after a configurable period (five minutes by default). This timeout period can be changed by setting cHsrpConfigTimeout.  Before creation of a cHsrpExtSecAddrEntry row, either cHsrpGrpConfiguredVirtualIpAddr or  cHsrpGrpLearnedVirtualIpAddr must have a valid IP Address. This is because a secondary ip address cannot be created unless the primary ip address has already been set.  To create a new cHsrpExtSecAddrEntry row, a management  station should choose the ifIndex of the interface which is to  be added as part of an HSRP group. Also, an HSRP group number  and a cHsrpExtSecAddrAddress should be chosen.  Deleting a {ifIndex, cHsrpGrpNumber} row in the cHsrpGrpTable will delete all corresponding rows in the cHsrpExtSecAddrTable. Deleting a primary address value in the cHsrpGrpEntry row will delete all secondary addresses for the same {ifIndex, cHsrpGrpNumber} pair
         	**type**\: list of  		 :py:class:`CHsrpExtSecAddrEntry <ydk.models.cisco_ios_xe.CISCO_HSRP_EXT_MIB.CISCOHSRPEXTMIB.CHsrpExtSecAddrTable.CHsrpExtSecAddrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -352,6 +378,8 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: chsrpgrpnumber  (key)
             
             	
@@ -361,6 +389,8 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`chsrpgrpnumber <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.CHsrpGrpTable.CHsrpGrpEntry>`
             
+            	**config**\: False
+            
             .. attribute:: chsrpextsecaddraddress  (key)
             
             	A secondary IpAddress for the {ifIndex, cHsrpGrpNumber} pair. As explained in the DESCRIPTION for cHsrpExtSecAddrEntry, a primary address must exist before a secondary address for  the same {ifIndex, cHsrpGrpNumber} pair can be created
@@ -368,10 +398,14 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: chsrpextsecaddrrowstatus
             
             	The control that allows modification, creation, and deletion of entries. For detailed rules see the DESCRIPTION for cHsrpExtSecAddrEntry
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -407,6 +441,8 @@ class CISCOHSRPEXTMIB(Entity):
                 self._perform_setattr(CISCOHSRPEXTMIB.CHsrpExtSecAddrTable.CHsrpExtSecAddrEntry, ['ifindex', 'chsrpgrpnumber', 'chsrpextsecaddraddress', 'chsrpextsecaddrrowstatus'], name, value)
 
 
+
+
     class CHsrpExtIfStandbyTable(Entity):
         """
         A table containing information about standby
@@ -416,6 +452,8 @@ class CISCOHSRPEXTMIB(Entity):
         
         	The cHsrpExtIfStandbyEntry allows an HSRP group interface to track one or more standby interfaces.  To create a new cHsrpExtIfStandbyEntry row, a management station should choose the ifIndex of the interface which is to be added as part of an HSRP group. Also, an HSRP group number and a cHsrpExtIfStandbyIndex should be chosen
         	**type**\: list of  		 :py:class:`CHsrpExtIfStandbyEntry <ydk.models.cisco_ios_xe.CISCO_HSRP_EXT_MIB.CISCOHSRPEXTMIB.CHsrpExtIfStandbyTable.CHsrpExtIfStandbyEntry>`
+        
+        	**config**\: False
         
         
 
@@ -464,6 +502,8 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: chsrpgrpnumber  (key)
             
             	
@@ -473,6 +513,8 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`chsrpgrpnumber <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.CHsrpGrpTable.CHsrpGrpEntry>`
             
+            	**config**\: False
+            
             .. attribute:: chsrpextifstandbyindex  (key)
             
             	This object defines the index of the standby table
@@ -480,10 +522,14 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**range:** 1..4
             
+            	**config**\: False
+            
             .. attribute:: chsrpextifstandbydestaddrtype
             
             	This object specifies the type of Internet address denoted by cHsrpExtIfStandbyDestAddr
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: chsrpextifstandbydestaddr
             
@@ -492,10 +538,14 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: chsrpextifstandbysourceaddrtype
             
             	This object specifies the type of Internet address denoted by cHsrpExtIfStandbySourceAddr
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: chsrpextifstandbysourceaddr
             
@@ -504,10 +554,14 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: chsrpextifstandbyrowstatus
             
             	The control that allows modification, creation, and deletion of entries. Entries may not be created via SNMP without explicitly setting cHsrpExtIfStandbyRowStatus to either 'createAndGo' or 'createAndWait'
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -551,6 +605,8 @@ class CISCOHSRPEXTMIB(Entity):
                 self._perform_setattr(CISCOHSRPEXTMIB.CHsrpExtIfStandbyTable.CHsrpExtIfStandbyEntry, ['ifindex', 'chsrpgrpnumber', 'chsrpextifstandbyindex', 'chsrpextifstandbydestaddrtype', 'chsrpextifstandbydestaddr', 'chsrpextifstandbysourceaddrtype', 'chsrpextifstandbysourceaddr', 'chsrpextifstandbyrowstatus'], name, value)
 
 
+
+
     class CHsrpExtIfTable(Entity):
         """
         HSRP\-specific configurations for each physical interface.
@@ -559,6 +615,8 @@ class CISCOHSRPEXTMIB(Entity):
         
         	If HSRP entries on this interface must use the BIA (Burned In Address), there must be an entry for the interface in this  table. Entries of this table are only accessible if HSRP has  been enabled i.e entries can not be created if HSRP is not enabled. Also, the interfaces should be of IEEE 802 ones (Ethernet, Token Ring, FDDI,VLAN, LANE, TR\-LANE).  Setting cHsrpExtIfRowStatus to active initiates the entry with default value for cHsrpExtIfUseBIA as FALSE. The value of cHsrpExtIfRowStatus may be set to destroy at any time. If the row is not initiated, it is similar to having cHsrpExtIfUseBIA as FALSE.  Entries may not be created via SNMP without explicitly setting cHsrpExtIfRowStatus to either 'createAndGo' or 'createAndWait'.  Entries can be created and modified via the management protocol or by the device's local management interface.  If the row is not active, and a local management interface command modifies that row, the row may transition to active state.  A row which is not in active state will timeout after a configurable period (five minutes by default). This timeout period can be changed by setting cHsrpConfigTimeout
         	**type**\: list of  		 :py:class:`CHsrpExtIfEntry <ydk.models.cisco_ios_xe.CISCO_HSRP_EXT_MIB.CISCOHSRPEXTMIB.CHsrpExtIfTable.CHsrpExtIfEntry>`
+        
+        	**config**\: False
         
         
 
@@ -625,15 +683,21 @@ class CISCOHSRPEXTMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: chsrpextifusebia
             
             	If set to TRUE, the HSRP Group MAC Address for all groups on this  interface will be the burned\-in\-address. Otherwise, this will be determined by ciscoHsrpGroupNumber. In case of sub\-interfaces, UseBIA applies to all sub\-interfaces on an  interface and to all groups on those sub\-interfaces
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: chsrpextifrowstatus
             
             	The control that allows modification, creation, and deletion of entries. For detailed rules see the DESCRIPTION for cHsrpExtIfEntry
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -666,7 +730,11 @@ class CISCOHSRPEXTMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOHSRPEXTMIB.CHsrpExtIfTable.CHsrpExtIfEntry, ['ifindex', 'chsrpextifusebia', 'chsrpextifrowstatus'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOHSRPEXTMIB()
         return self._top_entity
+
+
 

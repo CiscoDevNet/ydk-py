@@ -61,3 +61,5 @@ class LawfulIntercept(Entity):
         self._top_entity = LawfulIntercept()
         return self._top_entity
 
+
+

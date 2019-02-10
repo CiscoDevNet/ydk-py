@@ -25,6 +25,8 @@ class MemoryUsageProcesses(Entity):
     	The list of software processes on the device
     	**type**\: list of  		 :py:class:`MemoryUsageProcess <ydk.models.cisco_ios_xe.Cisco_IOS_XE_process_memory_oper.MemoryUsageProcesses.MemoryUsageProcess>`
     
+    	**config**\: False
+    
     
 
     """
@@ -63,10 +65,14 @@ class MemoryUsageProcesses(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: name  (key)
         
         	The name of the process
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: tty
         
@@ -75,12 +81,16 @@ class MemoryUsageProcesses(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: allocated_memory
         
         	Total memory allocated to this process (bytes)
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         	**units**\: bytes
         
@@ -91,6 +101,8 @@ class MemoryUsageProcesses(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         	**units**\: bytes
         
         .. attribute:: holding_memory
@@ -99,6 +111,8 @@ class MemoryUsageProcesses(Entity):
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         	**units**\: bytes
         
@@ -109,12 +123,16 @@ class MemoryUsageProcesses(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: ret_buffers
         
         	Return Buffers of this process (bytes)
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -157,7 +175,10 @@ class MemoryUsageProcesses(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(MemoryUsageProcesses.MemoryUsageProcess, ['pid', 'name', 'tty', 'allocated_memory', 'freed_memory', 'holding_memory', 'get_buffers', 'ret_buffers'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = MemoryUsageProcesses()
         return self._top_entity
+
+
 

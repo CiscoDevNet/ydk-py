@@ -35,40 +35,56 @@ class MPLSTESTDMIB(Entity):
     	
     	**type**\:  :py:class:`MplsTeScalars <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTeScalars>`
     
+    	**config**\: False
+    
     .. attribute:: mplsteobjects
     
     	
     	**type**\:  :py:class:`MplsTeObjects <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTeObjects>`
+    
+    	**config**\: False
     
     .. attribute:: mplstunneltable
     
     	The mplsTunnelTable allows new MPLS tunnels to be created between an LSR and a remote endpoint, and existing tunnels to be reconfigured or removed. Note that only point\-to\-point tunnel segments are supported, although multipoint\-to\-point and point\- to\-multipoint connections are supported by an LSR acting as a cross\-connect.  Each MPLS tunnel can thus have one out\-segment originating at this LSR and/or one in\-segment terminating at this LSR
     	**type**\:  :py:class:`MplsTunnelTable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable>`
     
+    	**config**\: False
+    
     .. attribute:: mplstunnelhoptable
     
     	The mplsTunnelHopTable is used to indicate the hops, strict or loose, for an instance of an MPLS tunnel defined in mplsTunnelTable, when it is established via signalling, for the outgoing direction of the tunnel. Thus at a transit LSR, this table contains the desired path of the tunnel from this LSR onwards. Each row in this table is indexed by mplsTunnelHopListIndex which corresponds to a group of hop lists or path options.  Each row also has a secondary index mplsTunnelHopIndex, which indicates a group of hops (also known as a path option). Finally, the third index, mplsTunnelHopIndex indicates the specific hop information for a path option. In case we want to specify a particular interface on the originating LSR of an outgoing tunnel by which we want packets to exit the LSR, we specify this as the first hop for this tunnel in mplsTunnelHopTable
     	**type**\:  :py:class:`MplsTunnelHopTable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelHopTable>`
+    
+    	**config**\: False
     
     .. attribute:: mplstunnelresourcetable
     
     	The mplsTunnelResourceTable allows a manager to specify which resources are desired for an MPLS tunnel.  This table also allows several tunnels to point to a single entry in this table, implying that these tunnels should share resources
     	**type**\:  :py:class:`MplsTunnelResourceTable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelResourceTable>`
     
+    	**config**\: False
+    
     .. attribute:: mplstunnelarhoptable
     
     	The mplsTunnelARHopTable is used to indicate the hops for an MPLS tunnel defined in mplsTunnelTable, as reported by the MPLS signalling protocol. Thus at a transit LSR, this table (if the table is supported and if the signaling protocol is recording actual route information) contains the actual route of the whole tunnel. If the signaling protocol is not recording the actual route, this table MAY report the information from the mplsTunnelHopTable or the mplsTunnelCHopTable.  Each row in this table is indexed by mplsTunnelARHopListIndex. Each row also has a secondary index mplsTunnelARHopIndex, corresponding to the next hop that this row corresponds to.  Please note that since the information necessary to build entries within this table is not provided by some MPLS signalling protocols, implementation of this table is optional. Furthermore, since the information in this table is actually provided by the MPLS signalling protocol after the path has been set\-up, the entries in this table are provided only for observation, and hence, all variables in this table are accessible exclusively as read\- only.  Note also that the contents of this table may change while it is being read because of re\-routing activities. A network administrator may verify that the actual route read is consistent by reference to the mplsTunnelLastPathChange object
     	**type**\:  :py:class:`MplsTunnelARHopTable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelARHopTable>`
+    
+    	**config**\: False
     
     .. attribute:: mplstunnelchoptable
     
     	The mplsTunnelCHopTable is used to indicate the hops, strict or loose, for an MPLS tunnel defined in mplsTunnelTable, as computed by a constraint\- based routing protocol, based on the mplsTunnelHopTable for the outgoing direction of the tunnel. Thus at a transit LSR, this table (if the table is supported) MAY contain the path computed by the CSPF engine on (or on behalf of) this LSR. Each row in this table is indexed by mplsTunnelCHopListIndex.  Each row also has a secondary index mplsTunnelCHopIndex, corresponding to the next hop that this row corresponds to. In case we want to specify a particular interface on the originating LSR of an outgoing tunnel by which we want packets to exit the LSR, we specify this as the first hop for this tunnel in mplsTunnelCHopTable.  Please note that since the information necessary to build entries within this table may not be supported by some LSRs, implementation of this table is optional. Furthermore, since the information in this table describes the path computed by the CSPF engine the entries in this table are read\-only
     	**type**\:  :py:class:`MplsTunnelCHopTable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelCHopTable>`
     
+    	**config**\: False
+    
     .. attribute:: mplstunnelcrldprestable
     
     	The mplsTunnelCRLDPResTable allows a manager to specify which CR\-LDP\-specific resources are desired for an MPLS tunnel if that tunnel is signaled using CR\-LDP. Note that these attributes are in addition to those specified in mplsTunnelResourceTable. This table also allows several tunnels to point to a single entry in this table, implying that these tunnels should share resources
     	**type**\:  :py:class:`MplsTunnelCRLDPResTable <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelCRLDPResTable>`
+    
+    	**config**\: False
     
     
 
@@ -138,6 +154,8 @@ class MPLSTESTDMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: mplstunnelactive
         
         	The number of tunnels active on this device. A tunnel is considered active if the mplsTunnelOperStatus is up(1)
@@ -145,10 +163,14 @@ class MPLSTESTDMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: mplstunneltedistproto
         
         	The traffic engineering distribution protocol(s) used by this LSR. Note that an LSR may support more than one distribution protocol simultaneously
         	**type**\:  :py:class:`MplsTunnelTEDistProto <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTeScalars.MplsTunnelTEDistProto>`
+        
+        	**config**\: False
         
         .. attribute:: mplstunnelmaxhops
         
@@ -157,12 +179,16 @@ class MPLSTESTDMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: mplstunnelnotificationmaxrate
         
         	This variable indicates the maximum number of notifications issued per second. If events occur more rapidly, the implementation may simply fail to emit these notifications during that period, or may queue them until an appropriate time. A value of 0 means no throttling is applied and events may be notified at the rate at which they occur
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -197,7 +223,8 @@ class MPLSTESTDMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSTESTDMIB.MplsTeScalars, [u'mplstunnelconfigured', u'mplstunnelactive', u'mplstunneltedistproto', u'mplstunnelmaxhops', u'mplstunnelnotificationmaxrate'], name, value)
+            self._perform_setattr(MPLSTESTDMIB.MplsTeScalars, ['mplstunnelconfigured', 'mplstunnelactive', 'mplstunneltedistproto', 'mplstunnelmaxhops', 'mplstunnelnotificationmaxrate'], name, value)
+
 
 
     class MplsTeObjects(Entity):
@@ -211,12 +238,16 @@ class MPLSTESTDMIB(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: mplstunnelhoplistindexnext
         
         	This object contains an appropriate value to be used for mplsTunnelHopListIndex when creating entries in the mplsTunnelHopTable.  If the number of unassigned entries is exhausted, a retrieval operation will return a value of 0.  This object may also return a value of 0 when the LSR is unable to accept conceptual row creation, for example, if the mplsTunnelHopTable is implemented as read\-only. To obtain the value of mplsTunnelHopListIndex for a new entry in the mplsTunnelHopTable, the manager issues a management protocol retrieval operation to obtain the current value of mplsTunnelHopIndex.  When the SET is performed to create a row in the mplsTunnelHopTable, the Command Responder (agent) must determine whether the value is indeed still unused; Two Network Management Applications may attempt to create a row (configuration entry) simultaneously and use the same value. If it is currently unused, the SET succeeds and the Command Responder (agent) changes the value of this object, according to an implementation\-specific algorithm. If the value is in use, however, the SET fails.  The Network Management Application must then re\-read this variable to obtain a new usable value
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: mplstunnelresourceindexnext
         
@@ -225,10 +256,14 @@ class MPLSTESTDMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         .. attribute:: mplstunnelnotificationenable
         
         	If this object is true, then it enables the generation of mplsTunnelUp and mplsTunnelDown traps, otherwise these traps are not emitted
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -261,7 +296,8 @@ class MPLSTESTDMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSTESTDMIB.MplsTeObjects, [u'mplstunnelindexnext', u'mplstunnelhoplistindexnext', u'mplstunnelresourceindexnext', u'mplstunnelnotificationenable'], name, value)
+            self._perform_setattr(MPLSTESTDMIB.MplsTeObjects, ['mplstunnelindexnext', 'mplstunnelhoplistindexnext', 'mplstunnelresourceindexnext', 'mplstunnelnotificationenable'], name, value)
+
 
 
     class MplsTunnelTable(Entity):
@@ -280,6 +316,8 @@ class MPLSTESTDMIB(Entity):
         
         	An entry in this table represents an MPLS tunnel. An entry can be created by a network administrator or by an SNMP agent as instructed by an MPLS signalling protocol. Whenever a new entry is created with mplsTunnelIsIf set to true(1), then a corresponding entry is created in ifTable as well (see RFC 2863). The ifType of this entry is mplsTunnel(150).  A tunnel entry needs to be uniquely identified across a MPLS network. Indices mplsTunnelIndex and mplsTunnelInstance uniquely identify a tunnel on the LSR originating the tunnel.  To uniquely identify a tunnel across an MPLS network requires index mplsTunnelIngressLSRId.  The last index mplsTunnelEgressLSRId is useful in identifying all instances of a tunnel that terminate on the same egress LSR
         	**type**\: list of  		 :py:class:`MplsTunnelEntry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry>`
+        
+        	**config**\: False
         
         
 
@@ -336,12 +374,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelinstance  (key)
             
             	Uniquely identifies a particular instance of a tunnel between a pair of ingress and egress LSRs. It is useful to identify multiple instances of tunnels for the purposes of backup and parallel tunnels. When the MPLS signaling protocol is rsvp(2) this value SHOULD be equal to the LSP Id of the Sender Template object. When the signaling protocol is crldp(3) there is no equivalent signaling object
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelingresslsrid  (key)
             
@@ -350,6 +392,8 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelegresslsrid  (key)
             
             	Identity of the egress LSR associated with this tunnel instance
@@ -357,20 +401,28 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelname
             
             	The canonical name assigned to the tunnel. This name can be used to refer to the tunnel on the LSR's console port.  If mplsTunnelIsIf is set to true then the ifName of the interface corresponding to this tunnel should have a value equal to mplsTunnelName.  Also see the description of ifName in RFC 2863
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: mplstunneldescr
             
             	A textual string containing information about the tunnel.  If there is no description this object contains a zero length string. This object is may not be signaled by MPLS signaling protocols, consequentally the value of this object at transit and egress LSRs MAY be automatically generated or absent
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelisif
             
             	Denotes whether or not this tunnel corresponds to an interface represented in the interfaces group table. Note that if this variable is set to true then the ifName of the interface corresponding to this tunnel should have a value equal to mplsTunnelName.  Also see the description of ifName in RFC 2863.  This object is meaningful only at the ingress and egress LSRs
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelifindex
             
@@ -379,15 +431,21 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelowner
             
             	Denotes the entity that created and is responsible for managing this tunnel. This column is automatically filled by the agent on creation of a row
             	**type**\:  :py:class:`MplsOwner <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsOwner>`
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelrole
             
             	This value signifies the role that this tunnel entry/instance represents. This value MUST be set to head(1) at the originating point of the tunnel. This value MUST be set to transit(2) at transit points along the tunnel, if transit points are supported. This value MUST be set to tail(3) at the terminating point of the tunnel if tunnel tails are supported.  The value headTail(4) is provided for tunnels that begin and end on the same LSR
             	**type**\:  :py:class:`MplsTunnelRole <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry.MplsTunnelRole>`
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelxcpointer
             
@@ -396,10 +454,14 @@ class MPLSTESTDMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelsignallingproto
             
             	The signalling protocol, if any, used to setup this tunnel
             	**type**\:  :py:class:`MplsTunnelSignallingProto <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry.MplsTunnelSignallingProto>`
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelsetupprio
             
@@ -408,6 +470,8 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelholdingprio
             
             	Indicates the holding priority for this tunnel
@@ -415,15 +479,21 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..7
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelsessionattributes
             
             	This bit mask indicates optional session values for this tunnel. The following describes these bit fields\:  fastRerouteThis flag indicates that the any tunnel hop may choose to reroute this tunnel without tearing it down.  This flag permits transit routers to use a local repair mechanism which may result in violation of the explicit routing of this tunnel. When a fault is detected on an adjacent downstream link or node, a transit router can re\-route traffic for fast service restoration.  mergingPermitted This flag permits transit routers to merge this session with other RSVP sessions for the purpose of reducing resource overhead on downstream transit routers, thereby providing better network scaling.  isPersistent  Indicates whether this tunnel should be restored automatically after a failure occurs.  isPinned   This flag indicates whether the loose\- routed hops of this tunnel are to be pinned.  recordRouteThis flag indicates whether or not the signalling protocol should remember the tunnel path after it has been signaled
             	**type**\:  :py:class:`MplsTunnelSessionAttributes <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry.MplsTunnelSessionAttributes>`
             
+            	**config**\: False
+            
             .. attribute:: mplstunnellocalprotectinuse
             
             	Indicates that the local repair mechanism is in use to maintain this tunnel (usually in the face of an outage of the link it was previously routed over)
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelresourcepointer
             
@@ -432,12 +502,16 @@ class MPLSTESTDMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelprimaryinstance
             
             	Specifies the instance index of the primary instance of this tunnel. More details of the definition of tunnel instances and the primary tunnel instance can be found in the description of the TEXTUAL\-CONVENTION MplsTunnelInstanceIndex
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelinstancepriority
             
@@ -446,12 +520,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelhoptableindex
             
             	Index into the mplsTunnelHopTable entry that specifies the explicit route hops for this tunnel. This object is meaningful only at the head\-end of the tunnel
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelpathinuse
             
@@ -460,12 +538,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelarhoptableindex
             
             	Index into the mplsTunnelARHopTable entry that specifies the actual hops traversed by the tunnel. This is automatically updated by the agent when the actual hops becomes available
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelchoptableindex
             
@@ -474,12 +556,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelincludeanyaffinity
             
             	A link satisfies the include\-any constraint if and only if the constraint is zero, or the link and the constraint have a resource class in common
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelincludeallaffinity
             
@@ -488,12 +574,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelexcludeanyaffinity
             
             	A link satisfies the exclude\-any constraint if and only if the link contains none of the administrative groups specified in the constraint
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplstunneltotaluptime
             
@@ -502,12 +592,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelinstanceuptime
             
             	This value identifies the total time that this tunnel instance's operStatus has been Up(1)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelprimaryuptime
             
@@ -516,12 +610,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelpathchanges
             
             	Specifies the number of times the actual path for this tunnel instance has changed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplstunnellastpathchange
             
@@ -530,12 +628,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelcreationtime
             
             	Specifies the value of SysUpTime when the first instance of this tunnel came into existence. That is, when the value of mplsTunnelOperStatus was first set to up(1)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelstatetransitions
             
@@ -544,25 +646,35 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunneladminstatus
             
             	Indicates the desired operational status of this tunnel
             	**type**\:  :py:class:`MplsTunnelAdminStatus <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry.MplsTunnelAdminStatus>`
+            
+            	**config**\: False
             
             .. attribute:: mplstunneloperstatus
             
             	Indicates the actual operational status of this tunnel, which is typically but not limited to, a function of the state of individual segments of this tunnel
             	**type**\:  :py:class:`MplsTunnelOperStatus <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry.MplsTunnelOperStatus>`
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelrowstatus
             
             	This variable is used to create, modify, and/or delete a row in this table.  When a row in this table is in active(1) state, no objects in that row can be modified by the agent except mplsTunnelAdminStatus, mplsTunnelRowStatus and mplsTunnelStorageType
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelstoragetype
             
             	The storage type for this tunnel entry. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelperfpackets
             
@@ -571,12 +683,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelperfhcpackets
             
             	High capacity counter for number of packets forwarded by the tunnel. 
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelperferrors
             
@@ -585,6 +701,8 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelperfbytes
             
             	Number of bytes forwarded by the tunnel. This object should represents the 32\-bit value of the least significant part of the 64\-bit value if both mplsTunnelPerfHCBytes is returned
@@ -592,12 +710,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelperfhcbytes
             
             	High capacity counter for number of bytes forwarded by the tunnel
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -706,7 +828,7 @@ class MPLSTESTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry, [u'mplstunnelindex', u'mplstunnelinstance', u'mplstunnelingresslsrid', u'mplstunnelegresslsrid', u'mplstunnelname', u'mplstunneldescr', u'mplstunnelisif', u'mplstunnelifindex', u'mplstunnelowner', u'mplstunnelrole', u'mplstunnelxcpointer', u'mplstunnelsignallingproto', u'mplstunnelsetupprio', u'mplstunnelholdingprio', u'mplstunnelsessionattributes', u'mplstunnellocalprotectinuse', u'mplstunnelresourcepointer', u'mplstunnelprimaryinstance', u'mplstunnelinstancepriority', u'mplstunnelhoptableindex', u'mplstunnelpathinuse', u'mplstunnelarhoptableindex', u'mplstunnelchoptableindex', u'mplstunnelincludeanyaffinity', u'mplstunnelincludeallaffinity', u'mplstunnelexcludeanyaffinity', u'mplstunneltotaluptime', u'mplstunnelinstanceuptime', u'mplstunnelprimaryuptime', u'mplstunnelpathchanges', u'mplstunnellastpathchange', u'mplstunnelcreationtime', u'mplstunnelstatetransitions', u'mplstunneladminstatus', u'mplstunneloperstatus', u'mplstunnelrowstatus', u'mplstunnelstoragetype', u'mplstunnelperfpackets', u'mplstunnelperfhcpackets', u'mplstunnelperferrors', u'mplstunnelperfbytes', u'mplstunnelperfhcbytes'], name, value)
+                self._perform_setattr(MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry, ['mplstunnelindex', 'mplstunnelinstance', 'mplstunnelingresslsrid', 'mplstunnelegresslsrid', 'mplstunnelname', 'mplstunneldescr', 'mplstunnelisif', 'mplstunnelifindex', 'mplstunnelowner', 'mplstunnelrole', 'mplstunnelxcpointer', 'mplstunnelsignallingproto', 'mplstunnelsetupprio', 'mplstunnelholdingprio', 'mplstunnelsessionattributes', 'mplstunnellocalprotectinuse', 'mplstunnelresourcepointer', 'mplstunnelprimaryinstance', 'mplstunnelinstancepriority', 'mplstunnelhoptableindex', 'mplstunnelpathinuse', 'mplstunnelarhoptableindex', 'mplstunnelchoptableindex', 'mplstunnelincludeanyaffinity', 'mplstunnelincludeallaffinity', 'mplstunnelexcludeanyaffinity', 'mplstunneltotaluptime', 'mplstunnelinstanceuptime', 'mplstunnelprimaryuptime', 'mplstunnelpathchanges', 'mplstunnellastpathchange', 'mplstunnelcreationtime', 'mplstunnelstatetransitions', 'mplstunneladminstatus', 'mplstunneloperstatus', 'mplstunnelrowstatus', 'mplstunnelstoragetype', 'mplstunnelperfpackets', 'mplstunnelperfhcpackets', 'mplstunnelperferrors', 'mplstunnelperfbytes', 'mplstunnelperfhcbytes'], name, value)
 
             class MplsTunnelAdminStatus(Enum):
                 """
@@ -845,6 +967,8 @@ class MPLSTESTDMIB(Entity):
 
 
 
+
+
     class MplsTunnelHopTable(Entity):
         """
         The mplsTunnelHopTable is used to indicate the hops,
@@ -870,6 +994,8 @@ class MPLSTESTDMIB(Entity):
         
         	An entry in this table represents a tunnel hop.  An entry is created by a network administrator for signaled ERLSP set up by an MPLS signalling protocol
         	**type**\: list of  		 :py:class:`MplsTunnelHopEntry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelHopTable.MplsTunnelHopEntry>`
+        
+        	**config**\: False
         
         
 
@@ -912,12 +1038,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelhoppathoptionindex  (key)
             
             	Secondary index into this table identifying a particular group of hops representing a particular configured path. This is otherwise known as a path option
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelhopindex  (key)
             
@@ -926,10 +1056,14 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelhopaddrtype
             
             	The Hop Address Type of this tunnel hop.  The value of this object cannot be changed if the value of the corresponding mplsTunnelHopRowStatus object is 'active'.  Note that lspid(5) is a valid option only for tunnels signaled via CRLDP
             	**type**\:  :py:class:`TeHopAddressType <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.TeHopAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelhopipaddr
             
@@ -938,12 +1072,16 @@ class MPLSTESTDMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelhopipprefixlen
             
             	If mplsTunnelHopAddrType is set to ipv4(1) or ipv6(2), then this value will contain an appropriate prefix length for the IP address in object mplsTunnelHopIpAddr. Otherwise this value is irrelevant and should be ignored
             	**type**\: int
             
             	**range:** 0..2040
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelhopasnumber
             
@@ -952,12 +1090,16 @@ class MPLSTESTDMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelhopaddrunnum
             
             	If mplsTunnelHopAddrType is set to unnum(4), then this value will contain the interface identifier of the unnumbered interface for this hop. This object should be used in conjunction with mplsTunnelHopIpAddress which would contain the LSR Router ID in this case. Otherwise the agent should set this object to zero\-length string and the manager should ignore this
             	**type**\: str
             
             	**length:** 4
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelhoplspid
             
@@ -966,35 +1108,49 @@ class MPLSTESTDMIB(Entity):
             
             	**length:** 2 \| 6
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelhoptype
             
             	Denotes whether this tunnel hop is routed in a strict or loose fashion. The value of this object has no meaning if the mplsTunnelHopInclude object is set to 'false'
             	**type**\:  :py:class:`MplsTunnelHopType <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelHopTable.MplsTunnelHopEntry.MplsTunnelHopType>`
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelhopinclude
             
             	If this value is set to true, then this indicates that this hop must be included in the tunnel's path. If this value is set to 'false', then this hop must be avoided when calculating the path for this tunnel. The default value of this object is 'true', so that by default all indicated hops are included in the CSPF path computation. If this object is set to 'false' the value of mplsTunnelHopType should be ignored
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelhoppathoptionname
             
             	The description of this series of hops as they relate to the specified path option. The value of this object SHOULD be the same for each hop in the series that comprises a path option
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelhopentrypathcomp
             
             	If this value is set to dynamic, then the user should only specify the source and destination of the path and expect that the CSPF will calculate the remainder of the path.  If this value is set to explicit, the user should specify the entire path for the tunnel to take.  This path may contain strict or loose hops.  Each hop along a specific path SHOULD have this object set to the same value
             	**type**\:  :py:class:`MplsTunnelHopEntryPathComp <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelHopTable.MplsTunnelHopEntry.MplsTunnelHopEntryPathComp>`
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelhoprowstatus
             
             	This variable is used to create, modify, and/or delete a row in this table.  When a row in this table is in active(1) state, no objects in that row can be modified by the agent except mplsTunnelHopRowStatus and mplsTunnelHopStorageType
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelhopstoragetype
             
             	The storage type for this Hop entry. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -1049,7 +1205,7 @@ class MPLSTESTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSTESTDMIB.MplsTunnelHopTable.MplsTunnelHopEntry, [u'mplstunnelhoplistindex', u'mplstunnelhoppathoptionindex', u'mplstunnelhopindex', u'mplstunnelhopaddrtype', u'mplstunnelhopipaddr', u'mplstunnelhopipprefixlen', u'mplstunnelhopasnumber', u'mplstunnelhopaddrunnum', u'mplstunnelhoplspid', u'mplstunnelhoptype', u'mplstunnelhopinclude', u'mplstunnelhoppathoptionname', u'mplstunnelhopentrypathcomp', u'mplstunnelhoprowstatus', u'mplstunnelhopstoragetype'], name, value)
+                self._perform_setattr(MPLSTESTDMIB.MplsTunnelHopTable.MplsTunnelHopEntry, ['mplstunnelhoplistindex', 'mplstunnelhoppathoptionindex', 'mplstunnelhopindex', 'mplstunnelhopaddrtype', 'mplstunnelhopipaddr', 'mplstunnelhopipprefixlen', 'mplstunnelhopasnumber', 'mplstunnelhopaddrunnum', 'mplstunnelhoplspid', 'mplstunnelhoptype', 'mplstunnelhopinclude', 'mplstunnelhoppathoptionname', 'mplstunnelhopentrypathcomp', 'mplstunnelhoprowstatus', 'mplstunnelhopstoragetype'], name, value)
 
             class MplsTunnelHopEntryPathComp(Enum):
                 """
@@ -1106,6 +1262,8 @@ class MPLSTESTDMIB(Entity):
 
 
 
+
+
     class MplsTunnelResourceTable(Entity):
         """
         The mplsTunnelResourceTable allows a manager to
@@ -1118,6 +1276,8 @@ class MPLSTESTDMIB(Entity):
         
         	An entry in this table represents a set of resources for an MPLS tunnel.  An entry can be created by a network administrator or by an SNMP agent as instructed by any MPLS signalling protocol. An entry in this table referenced by a tunnel instance with zero mplsTunnelInstance value indicates a configured set of resource parameter. An entry referenced by a tunnel instance with a non\-zero mplsTunnelInstance reflects the in\-use resource parameters for the tunnel instance which may have been negotiated or modified by the MPLS signaling protocols
         	**type**\: list of  		 :py:class:`MplsTunnelResourceEntry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelResourceTable.MplsTunnelResourceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1168,12 +1328,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelresourcemaxrate
             
             	The maximum rate in bits/second.  Note that setting mplsTunnelResourceMaxRate, mplsTunnelResourceMeanRate, and mplsTunnelResourceMaxBurstSize to 0 indicates best\- effort treatment
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: kilobits per second
             
@@ -1184,6 +1348,8 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: kilobits per second
             
             .. attribute:: mplstunnelresourcemaxburstsize
@@ -1192,6 +1358,8 @@ class MPLSTESTDMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -1202,6 +1370,8 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: mplstunnelresourceexburstsize
@@ -1211,12 +1381,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: mplstunnelresourcefrequency
             
             	The granularity of the availability of committed rate.  The implementations which do not implement this variable must return unspecified(1) for this value and must not allow a user to set this value
             	**type**\:  :py:class:`MplsTunnelResourceFrequency <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelResourceTable.MplsTunnelResourceEntry.MplsTunnelResourceFrequency>`
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelresourceweight
             
@@ -1225,15 +1399,21 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelresourcerowstatus
             
             	This variable is used to create, modify, and/or delete a row in this table.  When a row in this table is in active(1) state, no objects in that row can be modified by the agent except mplsTunnelResourceRowStatus and mplsTunnelResourceStorageType
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelresourcestoragetype
             
             	The storage type for this Hop entry. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -1278,7 +1458,7 @@ class MPLSTESTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSTESTDMIB.MplsTunnelResourceTable.MplsTunnelResourceEntry, [u'mplstunnelresourceindex', u'mplstunnelresourcemaxrate', u'mplstunnelresourcemeanrate', u'mplstunnelresourcemaxburstsize', u'mplstunnelresourcemeanburstsize', u'mplstunnelresourceexburstsize', u'mplstunnelresourcefrequency', u'mplstunnelresourceweight', u'mplstunnelresourcerowstatus', u'mplstunnelresourcestoragetype'], name, value)
+                self._perform_setattr(MPLSTESTDMIB.MplsTunnelResourceTable.MplsTunnelResourceEntry, ['mplstunnelresourceindex', 'mplstunnelresourcemaxrate', 'mplstunnelresourcemeanrate', 'mplstunnelresourcemaxburstsize', 'mplstunnelresourcemeanburstsize', 'mplstunnelresourceexburstsize', 'mplstunnelresourcefrequency', 'mplstunnelresourceweight', 'mplstunnelresourcerowstatus', 'mplstunnelresourcestoragetype'], name, value)
 
             class MplsTunnelResourceFrequency(Enum):
                 """
@@ -1305,6 +1485,8 @@ class MPLSTESTDMIB(Entity):
                 frequent = Enum.YLeaf(2, "frequent")
 
                 veryFrequent = Enum.YLeaf(3, "veryFrequent")
+
+
 
 
 
@@ -1348,6 +1530,8 @@ class MPLSTESTDMIB(Entity):
         	An entry in this table represents a tunnel hop.  An entry is created by the agent for signaled ERLSP set up by an MPLS signalling protocol
         	**type**\: list of  		 :py:class:`MplsTunnelARHopEntry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelARHopTable.MplsTunnelARHopEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -1388,6 +1572,8 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelarhopindex  (key)
             
             	Secondary index into this table identifying the particular hop
@@ -1395,10 +1581,14 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelarhopaddrtype
             
             	The Hop Address Type of this tunnel hop.  Note that lspid(5) is a valid option only for tunnels signaled via CRLDP
             	**type**\:  :py:class:`TeHopAddressType <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.TeHopAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelarhopipaddr
             
@@ -1407,6 +1597,8 @@ class MPLSTESTDMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelarhopaddrunnum
             
             	If mplsTunnelARHopAddrType is set to unnum(4), then this value will contain the interface identifier of the unnumbered interface for this hop. This object should be used in conjunction with mplsTunnelARHopIpAddr which would contain the LSR Router ID in this case. Otherwise the agent should set this object to zero\-length string and the manager should ignore this
@@ -1414,12 +1606,16 @@ class MPLSTESTDMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelarhoplspid
             
             	If mplsTunnelARHopAddrType is set to lspid(5), then this value will contain the LSP ID of this hop. This object is otherwise insignificant and should contain a value of 0 to indicate this fact
             	**type**\: str
             
             	**length:** 2 \| 6
+            
+            	**config**\: False
             
             
 
@@ -1456,7 +1652,9 @@ class MPLSTESTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSTESTDMIB.MplsTunnelARHopTable.MplsTunnelARHopEntry, [u'mplstunnelarhoplistindex', u'mplstunnelarhopindex', u'mplstunnelarhopaddrtype', u'mplstunnelarhopipaddr', u'mplstunnelarhopaddrunnum', u'mplstunnelarhoplspid'], name, value)
+                self._perform_setattr(MPLSTESTDMIB.MplsTunnelARHopTable.MplsTunnelARHopEntry, ['mplstunnelarhoplistindex', 'mplstunnelarhopindex', 'mplstunnelarhopaddrtype', 'mplstunnelarhopipaddr', 'mplstunnelarhopaddrunnum', 'mplstunnelarhoplspid'], name, value)
+
+
 
 
     class MplsTunnelCHopTable(Entity):
@@ -1491,6 +1689,8 @@ class MPLSTESTDMIB(Entity):
         
         	An entry in this table represents a tunnel hop.  An entry in this table is created by a path computation engine using CSPF techniques applied to the information collected by routing protocols and the hops specified in the corresponding mplsTunnelHopTable
         	**type**\: list of  		 :py:class:`MplsTunnelCHopEntry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelCHopTable.MplsTunnelCHopEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1535,6 +1735,8 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelchopindex  (key)
             
             	Secondary index into this table identifying the particular hop
@@ -1542,10 +1744,14 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelchopaddrtype
             
             	The Hop Address Type of this tunnel hop.  Note that lspid(5) is a valid option only for tunnels signaled via CRLDP
             	**type**\:  :py:class:`TeHopAddressType <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.TeHopAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelchopipaddr
             
@@ -1554,12 +1760,16 @@ class MPLSTESTDMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelchopipprefixlen
             
             	If mplsTunnelCHopAddrType is set to ipv4(1) or ipv6(2), then this value will contain an appropriate prefix length for the IP address in object mplsTunnelCHopIpAddr. Otherwise this value is irrelevant and should be ignored
             	**type**\: int
             
             	**range:** 0..2040
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelchopasnumber
             
@@ -1568,12 +1778,16 @@ class MPLSTESTDMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelchopaddrunnum
             
             	If mplsTunnelCHopAddrType is set to unnum(4), then this value will contain the unnumbered interface identifier of this hop. This object should be used in conjunction with mplsTunnelCHopIpAddr which would contain the LSR Router ID in this case. Otherwise the agent should set this object to zero\- length string and the manager should ignore this
             	**type**\: str
             
             	**length:** 4
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelchoplspid
             
@@ -1582,10 +1796,14 @@ class MPLSTESTDMIB(Entity):
             
             	**length:** 2 \| 6
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelchoptype
             
             	Denotes whether this is tunnel hop is routed in a strict or loose fashion
             	**type**\:  :py:class:`MplsTunnelCHopType <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelCHopTable.MplsTunnelCHopEntry.MplsTunnelCHopType>`
+            
+            	**config**\: False
             
             
 
@@ -1628,7 +1846,7 @@ class MPLSTESTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSTESTDMIB.MplsTunnelCHopTable.MplsTunnelCHopEntry, [u'mplstunnelchoplistindex', u'mplstunnelchopindex', u'mplstunnelchopaddrtype', u'mplstunnelchopipaddr', u'mplstunnelchopipprefixlen', u'mplstunnelchopasnumber', u'mplstunnelchopaddrunnum', u'mplstunnelchoplspid', u'mplstunnelchoptype'], name, value)
+                self._perform_setattr(MPLSTESTDMIB.MplsTunnelCHopTable.MplsTunnelCHopEntry, ['mplstunnelchoplistindex', 'mplstunnelchopindex', 'mplstunnelchopaddrtype', 'mplstunnelchopipaddr', 'mplstunnelchopipprefixlen', 'mplstunnelchopasnumber', 'mplstunnelchopaddrunnum', 'mplstunnelchoplspid', 'mplstunnelchoptype'], name, value)
 
             class MplsTunnelCHopType(Enum):
                 """
@@ -1650,6 +1868,8 @@ class MPLSTESTDMIB(Entity):
 
 
 
+
+
     class MplsTunnelCRLDPResTable(Entity):
         """
         The mplsTunnelCRLDPResTable allows a manager to
@@ -1665,6 +1885,8 @@ class MPLSTESTDMIB(Entity):
         
         	An entry in this table represents a set of resources for an MPLS tunnel established using CRLDP (mplsTunnelSignallingProto equal to crldp (3)). An entry can be created by a network administrator or by an SNMP agent as instructed by any MPLS signalling protocol
         	**type**\: list of  		 :py:class:`MplsTunnelCRLDPResEntry <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1711,12 +1933,16 @@ class MPLSTESTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplstunnelresourceindex <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelResourceTable.MplsTunnelResourceEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelcrldpresmeanburstsize
             
             	The mean burst size in bytes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -1727,12 +1953,16 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: mplstunnelcrldpresfrequency
             
             	The granularity of the availability of committed rate
             	**type**\:  :py:class:`MplsTunnelCRLDPResFrequency <ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB.MPLSTESTDMIB.MplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry.MplsTunnelCRLDPResFrequency>`
+            
+            	**config**\: False
             
             .. attribute:: mplstunnelcrldpresweight
             
@@ -1741,6 +1971,8 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelcrldpresflags
             
             	The value of the 1 byte Flags conveyed as part of the traffic parameters during the establishment of the CRLSP. The bits in this object are to be interpreted as follows.  +\-\-+\-\-+\-\-+\-\-+\-\-+\-\-+\-\-+\-\-+ \| Res \|F6\|F5\|F4\|F3\|F2\|F1\| +\-\-+\-\-+\-\-+\-\-+\-\-+\-\-+\-\-+\-\-+  Res \- These bits are reserved. Zero on transmission. Ignored on receipt. F1 \- Corresponds to the PDR. F2 \- Corresponds to the PBS. F3 \- Corresponds to the CDR. F4 \- Corresponds to the CBS. F5 \- Corresponds to the EBS. F6 \- Corresponds to the Weight.  Each flag if is a Negotiable Flag corresponding to a Traffic Parameter. The Negotiable Flag value zero denotes Not Negotiable and value one denotes Negotiable
@@ -1748,15 +1980,21 @@ class MPLSTESTDMIB(Entity):
             
             	**range:** 0..63
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelcrldpresrowstatus
             
             	This variable is used to create, modify, and/or delete a row in this table.  When a row in this table is in active(1) state, no objects in that row can be modified by the agent except mplsTunnelCRLDPResRowStatus and mplsTunnelCRLDPResStorageType
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: mplstunnelcrldpresstoragetype
             
             	The storage type for this CR\-LDP Resource entry. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -1797,7 +2035,7 @@ class MPLSTESTDMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSTESTDMIB.MplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry, [u'mplstunnelresourceindex', u'mplstunnelcrldpresmeanburstsize', u'mplstunnelcrldpresexburstsize', u'mplstunnelcrldpresfrequency', u'mplstunnelcrldpresweight', u'mplstunnelcrldpresflags', u'mplstunnelcrldpresrowstatus', u'mplstunnelcrldpresstoragetype'], name, value)
+                self._perform_setattr(MPLSTESTDMIB.MplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry, ['mplstunnelresourceindex', 'mplstunnelcrldpresmeanburstsize', 'mplstunnelcrldpresexburstsize', 'mplstunnelcrldpresfrequency', 'mplstunnelcrldpresweight', 'mplstunnelcrldpresflags', 'mplstunnelcrldpresrowstatus', 'mplstunnelcrldpresstoragetype'], name, value)
 
             class MplsTunnelCRLDPResFrequency(Enum):
                 """
@@ -1822,7 +2060,11 @@ class MPLSTESTDMIB(Entity):
                 veryFrequent = Enum.YLeaf(3, "veryFrequent")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = MPLSTESTDMIB()
         return self._top_entity
+
+
 

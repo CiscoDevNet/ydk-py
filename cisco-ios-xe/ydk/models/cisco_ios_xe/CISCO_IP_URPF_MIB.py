@@ -81,25 +81,35 @@ class CISCOIPURPFMIB(Entity):
     	
     	**type**\:  :py:class:`CipUrpfScalar <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfScalar>`
     
+    	**config**\: False
+    
     .. attribute:: cipurpftable
     
     	This table contains summary information for the managed device on URPF dropping
     	**type**\:  :py:class:`CipUrpfTable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfTable>`
+    
+    	**config**\: False
     
     .. attribute:: cipurpfifmontable
     
     	This table contains information on URPF dropping on an interface
     	**type**\:  :py:class:`CipUrpfIfMonTable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfIfMonTable>`
     
+    	**config**\: False
+    
     .. attribute:: cipurpfvrfiftable
     
     	This table contains statistics information for interfaces performing URPF using VRF table to determine reachability
     	**type**\:  :py:class:`CipUrpfVrfIfTable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfVrfIfTable>`
     
+    	**config**\: False
+    
     .. attribute:: cipurpfvrftable
     
     	This table enables indexing URPF drop statistics by Virtual Routing and Forwarding instances
     	**type**\:  :py:class:`CipUrpfVrfTable <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfVrfTable>`
+    
+    	**config**\: False
     
     
 
@@ -157,6 +167,8 @@ class CISCOIPURPFMIB(Entity):
         
         	**range:** 1..600
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: cipurpfcomputeinterval
@@ -166,6 +178,8 @@ class CISCOIPURPFMIB(Entity):
         
         	**range:** 1..120
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: cipurpfdropnotifyholddowntime
@@ -174,6 +188,8 @@ class CISCOIPURPFMIB(Entity):
         	**type**\: int
         
         	**range:** 1..1000
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -206,7 +222,8 @@ class CISCOIPURPFMIB(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPURPFMIB.CipUrpfScalar, ['cipurpfdropratewindow', 'cipurpfcomputeinterval', 'cipurpfdropnotifyholddowntime'], name, value)
+            self._perform_setattr(CISCOIPURPFMIB.CipUrpfScalar, [u'cipurpfdropratewindow', u'cipurpfcomputeinterval', u'cipurpfdropnotifyholddowntime'], name, value)
+
 
 
     class CipUrpfTable(Entity):
@@ -218,6 +235,8 @@ class CISCOIPURPFMIB(Entity):
         
         	If the managed device supports URPF dropping, a row exists for each IP version type (v4 and v6). A row contains summary information on URPF dropping over the entire managed device
         	**type**\: list of  		 :py:class:`CipUrpfEntry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfTable.CipUrpfEntry>`
+        
+        	**config**\: False
         
         
 
@@ -258,12 +277,16 @@ class CISCOIPURPFMIB(Entity):
             	Specifies the version of IP forwarding on an interface to which the table row URPF counts, rates, and configuration apply
             	**type**\:  :py:class:`CipUrpfIpVersion <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfTable.CipUrpfEntry.CipUrpfIpVersion>`
             
+            	**config**\: False
+            
             .. attribute:: cipurpfdrops
             
             	Sum of dropped IP version cipUrpfIpVersion packets failing a URPF check. This value is the sum of drops of packets  received on all interfaces of the managed device
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -273,6 +296,8 @@ class CISCOIPURPFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets per second
             
@@ -305,7 +330,7 @@ class CISCOIPURPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.CipUrpfTable.CipUrpfEntry, ['cipurpfipversion', 'cipurpfdrops', 'cipurpfdroprate'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.CipUrpfTable.CipUrpfEntry, [u'cipurpfipversion', u'cipurpfdrops', u'cipurpfdroprate'], name, value)
 
             class CipUrpfIpVersion(Enum):
                 """
@@ -329,6 +354,8 @@ class CISCOIPURPFMIB(Entity):
 
 
 
+
+
     class CipUrpfIfMonTable(Entity):
         """
         This table contains information on URPF dropping on
@@ -338,6 +365,8 @@ class CISCOIPURPFMIB(Entity):
         
         	If IPv4 packet forwarding is configured on an interface, and is configured to perform URPF checking, a row appears in this table with indices [ifIndex][ipv4]. If IPv4 packet forwarding is deconfigured, or URPF checking is deconfigured, the row disappears.  If IPv6 packet forwarding is configured on an interface, and is configured to perform URPF checking, a row appears in the table with indices [ifIndex][ipv6].  If IPv6 packet forwarding is deconfigured, or URPF checking is deconfigured, the row disappears
         	**type**\: list of  		 :py:class:`CipUrpfIfMonEntry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry>`
+        
+        	**config**\: False
         
         
 
@@ -389,10 +418,14 @@ class CISCOIPURPFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cipurpfifipversion  (key)
             
             	Specifies the version of IP forwarding on an interface to which the table row URPF counts, rates, and  configuration apply
             	**type**\:  :py:class:`CipUrpfIfIpVersion <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry.CipUrpfIfIpVersion>`
+            
+            	**config**\: False
             
             .. attribute:: cipurpfifdrops
             
@@ -400,6 +433,8 @@ class CISCOIPURPFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -410,6 +445,8 @@ class CISCOIPURPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cipurpfifdroprate
@@ -418,6 +455,8 @@ class CISCOIPURPFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets/second
             
@@ -428,10 +467,14 @@ class CISCOIPURPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cipurpfifdropratenotifyenable
             
             	This object specifies whether the system produces the cipUrpfIfDropRateNotify notification as a result of URPF  dropping of version cipUrpfIfIpVersion IP packets on this  interface. A false value prevents such notifications from  being generated by this system
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cipurpfifnotifydropratethreshold
             
@@ -440,6 +483,8 @@ class CISCOIPURPFMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets/second
             
             .. attribute:: cipurpfifnotifydrholddownreset
@@ -447,15 +492,21 @@ class CISCOIPURPFMIB(Entity):
             	Setting this object to true causes the five\-minute hold\-down timer for emitting URPF drop rate  notifications for IP version cipUrpfIfIpVersion on  the interface to be short\-circuited.  If a notification  is due and would be emitted for the interface if the  five\-minutes elapsed, setting this object will cause  the notification to be sent.  This is a trigger, and doesn't hold information. It is set and an action is performed. Therefore a get for  this object always returns false
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cipurpfifcheckstrict
             
             	Interface configuration indicating the strictness of the reachability check performed  on the interface. \- strict\: check that source addr is reachable via            the interface it came in on. \- loose \: check that source addr is reachable via            some interface on the device
             	**type**\:  :py:class:`CipUrpfIfCheckStrict <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry.CipUrpfIfCheckStrict>`
             
+            	**config**\: False
+            
             .. attribute:: cipurpfifwhichroutetableid
             
             	Interface configuration indicating the routing table consulted for the reachability check\: \- default\: the non\-private routing table for of the             managed system. \- vrf   \: a particular VPN routing table
             	**type**\:  :py:class:`CipUrpfIfWhichRouteTableID <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry.CipUrpfIfWhichRouteTableID>`
+            
+            	**config**\: False
             
             .. attribute:: cipurpfifvrfname
             
@@ -463,6 +514,8 @@ class CISCOIPURPFMIB(Entity):
             	**type**\: str
             
             	**length:** 0..32
+            
+            	**config**\: False
             
             
 
@@ -511,7 +564,7 @@ class CISCOIPURPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry, ['ifindex', 'cipurpfifipversion', 'cipurpfifdrops', 'cipurpfifsuppresseddrops', 'cipurpfifdroprate', 'cipurpfifdiscontinuitytime', 'cipurpfifdropratenotifyenable', 'cipurpfifnotifydropratethreshold', 'cipurpfifnotifydrholddownreset', 'cipurpfifcheckstrict', 'cipurpfifwhichroutetableid', 'cipurpfifvrfname'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.CipUrpfIfMonTable.CipUrpfIfMonEntry, [u'ifindex', u'cipurpfifipversion', u'cipurpfifdrops', u'cipurpfifsuppresseddrops', u'cipurpfifdroprate', u'cipurpfifdiscontinuitytime', u'cipurpfifdropratenotifyenable', u'cipurpfifnotifydropratethreshold', u'cipurpfifnotifydrholddownreset', u'cipurpfifcheckstrict', u'cipurpfifwhichroutetableid', u'cipurpfifvrfname'], name, value)
 
             class CipUrpfIfCheckStrict(Enum):
                 """
@@ -589,6 +642,8 @@ class CISCOIPURPFMIB(Entity):
 
 
 
+
+
     class CipUrpfVrfIfTable(Entity):
         """
         This table contains statistics information for interfaces
@@ -598,6 +653,8 @@ class CISCOIPURPFMIB(Entity):
         
         	An entry exists for a VRF and interface if and only if the VRF associated with the interface is configured  to perform IP URPF checking using the routing  table for the VRF
         	**type**\: list of  		 :py:class:`CipUrpfVrfIfEntry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfVrfIfTable.CipUrpfVrfIfEntry>`
+        
+        	**config**\: False
         
         
 
@@ -642,6 +699,8 @@ class CISCOIPURPFMIB(Entity):
             
             	**refers to**\:  :py:class:`cipurpfvrfname <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfVrfTable.CipUrpfVrfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: ifindex  (key)
             
             	
@@ -651,12 +710,16 @@ class CISCOIPURPFMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cipurpfvrfifdrops
             
             	The number of packets failing the URPF check for a VRF on the interface and dropped by the managed device.  Discontinuities in the value of this variable can occur  at re\-initialization of the management system, and at  other times as indicated by the values of  cipUrpfVrfIfDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -666,6 +729,8 @@ class CISCOIPURPFMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -698,7 +763,9 @@ class CISCOIPURPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.CipUrpfVrfIfTable.CipUrpfVrfIfEntry, ['cipurpfvrfname', 'ifindex', 'cipurpfvrfifdrops', 'cipurpfvrfifdiscontinuitytime'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.CipUrpfVrfIfTable.CipUrpfVrfIfEntry, [u'cipurpfvrfname', u'ifindex', u'cipurpfvrfifdrops', u'cipurpfvrfifdiscontinuitytime'], name, value)
+
+
 
 
     class CipUrpfVrfTable(Entity):
@@ -710,6 +777,8 @@ class CISCOIPURPFMIB(Entity):
         
         	An entry exists for a VRF if and only if the VRF is associated with an interface that is configured to perform IP URPF checking using the routing table  for that VRF
         	**type**\: list of  		 :py:class:`CipUrpfVrfEntry <ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB.CISCOIPURPFMIB.CipUrpfVrfTable.CipUrpfVrfEntry>`
+        
+        	**config**\: False
         
         
 
@@ -752,6 +821,8 @@ class CISCOIPURPFMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             
 
             """
@@ -777,9 +848,13 @@ class CISCOIPURPFMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPURPFMIB.CipUrpfVrfTable.CipUrpfVrfEntry, ['cipurpfvrfname'], name, value)
+                self._perform_setattr(CISCOIPURPFMIB.CipUrpfVrfTable.CipUrpfVrfEntry, [u'cipurpfvrfname'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = CISCOIPURPFMIB()
         return self._top_entity
+
+
 

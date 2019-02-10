@@ -63,6 +63,7 @@ class Dot3ErrorInitError(ObjectIdentity):
         super(Dot3ErrorInitError, self).__init__(ns, pref, tag)
 
 
+
 class Dot3TestTdr(ObjectIdentity):
     """
     \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
@@ -106,6 +107,7 @@ class Dot3TestTdr(ObjectIdentity):
         super(Dot3TestTdr, self).__init__(ns, pref, tag)
 
 
+
 class Dot3ErrorLoopbackError(ObjectIdentity):
     """
     \*\*\*\*\*\*\*\* THIS IDENTITY IS DEPRECATED \*\*\*\*\*\*\*
@@ -128,6 +130,7 @@ class Dot3ErrorLoopbackError(ObjectIdentity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:EtherLike-MIB", pref="EtherLike-MIB", tag="EtherLike-MIB:dot3ErrorLoopbackError"):
         super(Dot3ErrorLoopbackError, self).__init__(ns, pref, tag)
+
 
 
 class Dot3TestLoopBack(ObjectIdentity):
@@ -167,6 +170,7 @@ class Dot3TestLoopBack(ObjectIdentity):
         super(Dot3TestLoopBack, self).__init__(ns, pref, tag)
 
 
+
 class EtherLikeMIB(Entity):
     """
     
@@ -176,25 +180,35 @@ class EtherLikeMIB(Entity):
     	Statistics for a collection of ethernet\-like interfaces attached to a particular system. There will be one row in this table for each ethernet\-like interface in the system
     	**type**\:  :py:class:`Dot3StatsTable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: dot3colltable
     
     	A collection of collision histograms for a particular set of interfaces
     	**type**\:  :py:class:`Dot3CollTable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3CollTable>`
+    
+    	**config**\: False
     
     .. attribute:: dot3controltable
     
     	A table of descriptive and status information about the MAC Control sublayer on the ethernet\-like interfaces attached to a particular system.  There will be one row in this table for each ethernet\-like interface in the system which implements the MAC Control sublayer.  If some, but not all, of the ethernet\-like interfaces in the system implement the MAC Control sublayer, there will be fewer rows in this table than in the dot3StatsTable
     	**type**\:  :py:class:`Dot3ControlTable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3ControlTable>`
     
+    	**config**\: False
+    
     .. attribute:: dot3pausetable
     
     	A table of descriptive and status information about the MAC Control PAUSE function on the ethernet\-like interfaces attached to a particular system. There will be one row in this table for each ethernet\-like interface in the system which supports the MAC Control PAUSE function (i.e., the 'pause' bit in the corresponding instance of dot3ControlFunctionsSupported is set).  If some, but not all, of the ethernet\-like interfaces in the system implement the MAC Control PAUSE function (for example, if some interfaces only support half\-duplex), there will be fewer rows in this table than in the dot3StatsTable
     	**type**\:  :py:class:`Dot3PauseTable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3PauseTable>`
     
+    	**config**\: False
+    
     .. attribute:: dot3hcstatstable
     
     	A table containing 64\-bit versions of error counters from the dot3StatsTable.  The 32\-bit versions of these counters may roll over quite quickly on higher speed ethernet interfaces. The counters that have 64\-bit versions in this table are the counters that apply to full\-duplex interfaces, since 10 Gb/s and faster ethernet\-like interfaces do not support half\-duplex, and very few 1000 Mb/s ethernet\-like interfaces support half\-duplex.  Entries in this table are recommended for interfaces capable of operating at 1000 Mb/s or faster, and are required for interfaces capable of operating at 10 Gb/s or faster.  Lower speed ethernet\-like interfaces do not need entries in this table, in which case there may be fewer entries in this table than in the dot3StatsTable. However, implementations containing interfaces with a mix of speeds may choose to implement entries in this table for all ethernet\-like interfaces
     	**type**\:  :py:class:`Dot3HCStatsTable <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3HCStatsTable>`
+    
+    	**config**\: False
     
     
 
@@ -253,6 +267,8 @@ class EtherLikeMIB(Entity):
         	Statistics for a particular interface to an ethernet\-like medium
         	**type**\: list of  		 :py:class:`Dot3StatsEntry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -292,12 +308,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: dot3statsalignmenterrors
             
             	A count of frames received on a particular interface that are not an integral number of octets in length and do not pass the FCS check.  The count represented by an instance of this object is incremented when the alignmentError status is returned by the MAC service to the LLC (or other MAC user). Received frames for which multiple error conditions pertain are, according to the conventions of IEEE 802.3 Layer Management, counted exclusively according to the error status presented to the LLC.  This counter does not increment for group encoding schemes greater than 4 bits per group.  For interfaces operating at 10 Gb/s, this counter can roll over in less than 5 minutes if it is incrementing at its maximum rate.  Since that amount of time could be less than a management station's poll cycle time, in order to avoid a loss of information, a management station is advised to poll the dot3HCStatsAlignmentErrors object for 10 Gb/s or faster interfaces.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot3statsfcserrors
             
@@ -306,12 +326,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot3statssinglecollisionframes
             
             	A count of frames that are involved in a single collision, and are subsequently transmitted successfully.  A frame that is counted by an instance of this object is also counted by the corresponding instance of either the ifOutUcastPkts, ifOutMulticastPkts, or ifOutBroadcastPkts, and is not counted by the corresponding instance of the dot3StatsMultipleCollisionFrames object.  This counter does not increment when the interface is operating in full\-duplex mode.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot3statsmultiplecollisionframes
             
@@ -320,12 +344,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot3statssqetesterrors
             
             	A count of times that the SQE TEST ERROR is received on a particular interface. The SQE TEST ERROR is set in accordance with the rules for verification of the SQE detection mechanism in the PLS Carrier Sense Function as described in IEEE Std. 802.3, 2000 Edition, section 7.2.4.6.  This counter does not increment on interfaces operating at speeds greater than 10 Mb/s, or on interfaces operating in full\-duplex mode.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot3statsdeferredtransmissions
             
@@ -334,12 +362,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot3statslatecollisions
             
             	The number of times that a collision is detected on a particular interface later than one slotTime into the transmission of a packet.  A (late) collision included in a count represented by an instance of this object is also considered as a (generic) collision for purposes of other collision\-related statistics.  This counter does not increment when the interface is operating in full\-duplex mode.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot3statsexcessivecollisions
             
@@ -348,12 +380,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot3statsinternalmactransmiterrors
             
             	A count of frames for which transmission on a particular interface fails due to an internal MAC sublayer transmit error. A frame is only counted by an instance of this object if it is not counted by the corresponding instance of either the dot3StatsLateCollisions object, the dot3StatsExcessiveCollisions object, or the dot3StatsCarrierSenseErrors object.  The precise meaning of the count represented by an instance of this object is implementation\- specific.  In particular, an instance of this object may represent a count of transmission errors on a particular interface that are not otherwise counted.  For interfaces operating at 10 Gb/s, this counter can roll over in less than 5 minutes if it is incrementing at its maximum rate.  Since that amount of time could be less than a management station's poll cycle time, in order to avoid a loss of information, a management station is advised to poll the dot3HCStatsInternalMacTransmitErrors object for 10 Gb/s or faster interfaces.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot3statscarriersenseerrors
             
@@ -362,12 +398,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot3statsframetoolongs
             
             	A count of frames received on a particular interface that exceed the maximum permitted frame size.  The count represented by an instance of this object is incremented when the frameTooLong status is returned by the MAC service to the LLC (or other MAC user). Received frames for which multiple error conditions pertain are, according to the conventions of IEEE 802.3 Layer Management, counted exclusively according to the error status presented to the LLC.  For interfaces operating at 10 Gb/s, this counter can roll over in less than 80 minutes if it is incrementing at its maximum rate.  Since that amount of time could be less than a management station's poll cycle time, in order to avoid a loss of information, a management station is advised to poll the dot3HCStatsFrameTooLongs object for 10 Gb/s or faster interfaces.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot3statsinternalmacreceiveerrors
             
@@ -376,12 +416,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot3statsetherchipset
             
             	\*\*\*\*\*\*\*\* THIS OBJECT IS DEPRECATED \*\*\*\*\*\*\*\*  This object contains an OBJECT IDENTIFIER which identifies the chipset used to realize the interface. Ethernet\-like interfaces are typically built out of several different chips. The MIB implementor is presented with a decision of which chip to identify via this object. The implementor should identify the chip which is usually called the Medium Access Control chip. If no such chip is easily identifiable, the implementor should identify the chip which actually gathers the transmit and receive statistics and error indications. This would allow a manager station to correlate the statistics and the chip generating them, giving it the ability to take into account any known anomalies in the chip.  This object has been deprecated.  Implementation feedback indicates that it is of limited use for debugging network problems in the field, and the administrative overhead involved in maintaining a registry of chipset OIDs is not justified
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -392,20 +436,28 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot3statsduplexstatus
             
             	The current mode of operation of the MAC entity.  'unknown' indicates that the current duplex mode could not be determined.  Management control of the duplex mode is accomplished through the MAU MIB.  When an interface does not support autonegotiation, or when autonegotiation is not enabled, the duplex mode is controlled using ifMauDefaultType.  When autonegotiation is supported and enabled, duplex mode is controlled using ifMauAutoNegAdvertisedBits.  In either case, the currently operating duplex mode is reflected both in this object and in ifMauType.  Note that this object provides redundant information with ifMauType.  Normally, redundant objects are discouraged.  However, in this instance, it allows a management application to determine the duplex status of an interface without having to know every possible value of ifMauType.  This was felt to be sufficiently valuable to justify the redundancy
             	**type**\:  :py:class:`Dot3StatsDuplexStatus <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry.Dot3StatsDuplexStatus>`
+            
+            	**config**\: False
             
             .. attribute:: dot3statsratecontrolability
             
             	'true' for interfaces operating at speeds above 1000 Mb/s that support Rate Control through lowering the average data rate of the MAC sublayer, with frame granularity, and 'false' otherwise
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: dot3statsratecontrolstatus
             
             	The current Rate Control mode of operation of the MAC sublayer of this interface
             	**type**\:  :py:class:`Dot3StatsRateControlStatus <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry.Dot3StatsRateControlStatus>`
+            
+            	**config**\: False
             
             
 
@@ -553,6 +605,8 @@ class EtherLikeMIB(Entity):
 
 
 
+
+
     class Dot3CollTable(Entity):
         """
         A collection of collision histograms for a
@@ -562,6 +616,8 @@ class EtherLikeMIB(Entity):
         
         	A cell in the histogram of per\-frame collisions for a particular interface.  An instance of this object represents the frequency of individual MAC frames for which the transmission (successful or otherwise) on a particular interface is accompanied by a particular number of media collisions
         	**type**\: list of  		 :py:class:`Dot3CollEntry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3CollTable.Dot3CollEntry>`
+        
+        	**config**\: False
         
         
 
@@ -609,6 +665,8 @@ class EtherLikeMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: dot3collcount  (key)
             
             	The number of per\-frame media collisions for which a particular collision histogram cell represents the frequency on a particular interface
@@ -616,12 +674,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 1..16
             
+            	**config**\: False
+            
             .. attribute:: dot3collfrequencies
             
             	A count of individual MAC frames for which the transmission (successful or otherwise) on a particular interface occurs after the frame has experienced exactly the number of collisions in the associated dot3CollCount object.  For example, a frame which is transmitted on interface 77 after experiencing exactly 4 collisions would be indicated by incrementing only dot3CollFrequencies.77.4. No other instance of dot3CollFrequencies would be incremented in this example.  This counter does not increment when the interface is operating in full\-duplex mode.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -655,6 +717,8 @@ class EtherLikeMIB(Entity):
                 self._perform_setattr(EtherLikeMIB.Dot3CollTable.Dot3CollEntry, [u'ifindex', u'dot3collcount', u'dot3collfrequencies'], name, value)
 
 
+
+
     class Dot3ControlTable(Entity):
         """
         A table of descriptive and status information
@@ -672,6 +736,8 @@ class EtherLikeMIB(Entity):
         
         	An entry in the table, containing information about the MAC Control sublayer on a single ethernet\-like interface
         	**type**\: list of  		 :py:class:`Dot3ControlEntry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3ControlTable.Dot3ControlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -715,10 +781,14 @@ class EtherLikeMIB(Entity):
             
             	**refers to**\:  :py:class:`dot3statsindex <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: dot3controlfunctionssupported
             
             	A list of the possible MAC Control functions implemented for this interface
             	**type**\:  :py:class:`Dot3ControlFunctionsSupported <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3ControlTable.Dot3ControlEntry.Dot3ControlFunctionsSupported>`
+            
+            	**config**\: False
             
             .. attribute:: dot3controlinunknownopcodes
             
@@ -727,12 +797,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot3hccontrolinunknownopcodes
             
             	A count of MAC Control frames received on this interface that contain an opcode that is not supported by this device.  This counter is a 64 bit version of dot3ControlInUnknownOpcodes.  It should be used on interfaces operating at 10 Gb/s or faster.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -768,6 +842,8 @@ class EtherLikeMIB(Entity):
                 self._perform_setattr(EtherLikeMIB.Dot3ControlTable.Dot3ControlEntry, [u'dot3statsindex', u'dot3controlfunctionssupported', u'dot3controlinunknownopcodes', u'dot3hccontrolinunknownopcodes'], name, value)
 
 
+
+
     class Dot3PauseTable(Entity):
         """
         A table of descriptive and status information
@@ -789,6 +865,8 @@ class EtherLikeMIB(Entity):
         
         	An entry in the table, containing information about the MAC Control PAUSE function on a single ethernet\-like interface
         	**type**\: list of  		 :py:class:`Dot3PauseEntry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3PauseTable.Dot3PauseEntry>`
+        
+        	**config**\: False
         
         
 
@@ -832,15 +910,21 @@ class EtherLikeMIB(Entity):
             
             	**refers to**\:  :py:class:`dot3statsindex <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: dot3pauseadminmode
             
             	This object is used to configure the default administrative PAUSE mode for this interface.  This object represents the administratively\-configured PAUSE mode for this interface.  If auto\-negotiation is not enabled or is not implemented for the active MAU attached to this interface, the value of this object determines the operational PAUSE mode of the interface whenever it is operating in full\-duplex mode.  In this case, a set to this object will force the interface into the specified mode.  If auto\-negotiation is implemented and enabled for the MAU attached to this interface, the PAUSE mode for this interface is determined by auto\-negotiation, and the value of this object denotes the mode to which the interface will automatically revert if/when auto\-negotiation is later disabled.  Note that when auto\-negotiation is running, administrative control of the PAUSE mode may be accomplished using the ifMauAutoNegCapAdvertisedBits object in the MAU\-MIB.  Note that the value of this object is ignored when the interface is not operating in full\-duplex mode.  An attempt to set this object to 'enabledXmit(2)' or 'enabledRcv(3)' will fail on interfaces that do not support operation at greater than 100 Mb/s
             	**type**\:  :py:class:`Dot3PauseAdminMode <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3PauseTable.Dot3PauseEntry.Dot3PauseAdminMode>`
             
+            	**config**\: False
+            
             .. attribute:: dot3pauseopermode
             
             	This object reflects the PAUSE mode currently in use on this interface, as determined by either (1) the result of the auto\-negotiation function or (2) if auto\-negotiation is not enabled or is not implemented for the active MAU attached to this interface, by the value of dot3PauseAdminMode.  Interfaces operating at 100 Mb/s or less will never return 'enabledXmit(2)' or 'enabledRcv(3)'.  Interfaces operating in half\-duplex mode will always return 'disabled(1)'.  Interfaces on which auto\-negotiation is enabled but not yet completed should return the value 'disabled(1)'
             	**type**\:  :py:class:`Dot3PauseOperMode <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3PauseTable.Dot3PauseEntry.Dot3PauseOperMode>`
+            
+            	**config**\: False
             
             .. attribute:: dot3inpauseframes
             
@@ -849,12 +933,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: dot3outpauseframes
             
             	A count of MAC Control frames transmitted on this interface with an opcode indicating the PAUSE operation.  This counter does not increment when the interface is operating in half\-duplex mode.  For interfaces operating at 10 Gb/s, this counter can roll over in less than 5 minutes if it is incrementing at its maximum rate.  Since that amount of time could be less than a management station's poll cycle time, in order to avoid a loss of information, a management station is advised to poll the dot3HCOutPauseFrames object for 10 Gb/s or faster interfaces.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: dot3hcinpauseframes
             
@@ -863,12 +951,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: dot3hcoutpauseframes
             
             	A count of MAC Control frames transmitted on this interface with an opcode indicating the PAUSE operation.  This counter does not increment when the interface is operating in half\-duplex mode.  This counter is a 64 bit version of dot3OutPauseFrames.  It should be used on interfaces operating at 10 Gb/s or faster.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -1044,6 +1136,8 @@ class EtherLikeMIB(Entity):
 
 
 
+
+
     class Dot3HCStatsTable(Entity):
         """
         A table containing 64\-bit versions of error
@@ -1073,6 +1167,8 @@ class EtherLikeMIB(Entity):
         
         	An entry containing 64\-bit statistics for a single ethernet\-like interface
         	**type**\: list of  		 :py:class:`Dot3HCStatsEntry <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3HCStatsTable.Dot3HCStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1115,12 +1211,16 @@ class EtherLikeMIB(Entity):
             
             	**refers to**\:  :py:class:`dot3statsindex <ydk.models.cisco_ios_xe.EtherLike_MIB.EtherLikeMIB.Dot3StatsTable.Dot3StatsEntry>`
             
+            	**config**\: False
+            
             .. attribute:: dot3hcstatsalignmenterrors
             
             	A count of frames received on a particular interface that are not an integral number of octets in length and do not pass the FCS check.  The count represented by an instance of this object is incremented when the alignmentError status is returned by the MAC service to the LLC (or other MAC user). Received frames for which multiple error conditions pertain are, according to the conventions of IEEE 802.3 Layer Management, counted exclusively according to the error status presented to the LLC.  This counter does not increment for group encoding schemes greater than 4 bits per group.  This counter is a 64 bit version of dot3StatsAlignmentErrors.  It should be used on interfaces operating at 10 Gb/s or faster.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: dot3hcstatsfcserrors
             
@@ -1129,12 +1229,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: dot3hcstatsinternalmactransmiterrors
             
             	A count of frames for which transmission on a particular interface fails due to an internal MAC sublayer transmit error. A frame is only counted by an instance of this object if it is not counted by the corresponding instance of either the dot3StatsLateCollisions object, the dot3StatsExcessiveCollisions object, or the dot3StatsCarrierSenseErrors object.  The precise meaning of the count represented by an instance of this object is implementation\- specific.  In particular, an instance of this object may represent a count of transmission errors on a particular interface that are not otherwise counted.  This counter is a 64 bit version of dot3StatsInternalMacTransmitErrors.  It should be used on interfaces operating at 10 Gb/s or faster.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: dot3hcstatsframetoolongs
             
@@ -1143,6 +1247,8 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: dot3hcstatsinternalmacreceiveerrors
             
             	A count of frames for which reception on a particular interface fails due to an internal MAC sublayer receive error. A frame is only counted by an instance of this object if it is not counted by the corresponding instance of either the dot3StatsFrameTooLongs object, the dot3StatsAlignmentErrors object, or the dot3StatsFCSErrors object.  The precise meaning of the count represented by an instance of this object is implementation\- specific.  In particular, an instance of this object may represent a count of receive errors on a particular interface that are not otherwise counted.  This counter is a 64 bit version of dot3StatsInternalMacReceiveErrors.  It should be used on interfaces operating at 10 Gb/s or faster.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
@@ -1150,12 +1256,16 @@ class EtherLikeMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: dot3hcstatssymbolerrors
             
             	For an interface operating at 100 Mb/s, the number of times there was an invalid data symbol when a valid carrier was present.  For an interface operating in half\-duplex mode at 1000 Mb/s, the number of times the receiving media is non\-idle (a carrier event) for a period of time equal to or greater than slotTime, and during which there was at least one occurrence of an event that causes the PHY to indicate 'Data reception error' or 'carrier extend error' on the GMII.  For an interface operating in full\-duplex mode at 1000 Mb/s, the number of times the receiving media is non\-idle (a carrier event) for a period of time equal to or greater than minFrameSize, and during which there was at least one occurrence of an event that causes the PHY to indicate 'Data reception error' on the GMII.  For an interface operating at 10 Gb/s, the number of times the receiving media is non\-idle (a carrier event) for a period of time equal to or greater than minFrameSize, and during which there was at least one occurrence of an event that causes the PHY to indicate 'Receive Error' on the XGMII.  The count represented by an instance of this object is incremented at most once per carrier event, even if multiple symbol errors occur during the carrier event.  This count does not increment if a collision is present.  This counter is a 64 bit version of dot3StatsSymbolErrors.  It should be used on interfaces operating at 10 Gb/s or faster.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of ifCounterDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -1196,7 +1306,11 @@ class EtherLikeMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(EtherLikeMIB.Dot3HCStatsTable.Dot3HCStatsEntry, [u'dot3statsindex', u'dot3hcstatsalignmenterrors', u'dot3hcstatsfcserrors', u'dot3hcstatsinternalmactransmiterrors', u'dot3hcstatsframetoolongs', u'dot3hcstatsinternalmacreceiveerrors', u'dot3hcstatssymbolerrors'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = EtherLikeMIB()
         return self._top_entity
+
+
 

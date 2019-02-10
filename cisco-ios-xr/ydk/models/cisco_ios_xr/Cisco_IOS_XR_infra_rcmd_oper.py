@@ -923,40 +923,56 @@ class Rcmd(Entity):
     	Operational data for OSPF
     	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf>`
     
+    	**config**\: False
+    
     .. attribute:: server
     
     	Server Info
     	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server>`
+    
+    	**config**\: False
     
     .. attribute:: node
     
     	Node Info
     	**type**\:  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Node>`
     
+    	**config**\: False
+    
     .. attribute:: isis
     
     	Operational data for ISIS
     	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis>`
+    
+    	**config**\: False
     
     .. attribute:: memory
     
     	Memory Info
     	**type**\:  :py:class:`Memory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Memory>`
     
+    	**config**\: False
+    
     .. attribute:: ldp
     
     	LDP data
     	**type**\:  :py:class:`Ldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp>`
+    
+    	**config**\: False
     
     .. attribute:: intf
     
     	Interface data
     	**type**\:  :py:class:`Intf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Intf>`
     
+    	**config**\: False
+    
     .. attribute:: process
     
     	Process information
     	**type**\:  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process>`
+    
+    	**config**\: False
     
     
 
@@ -1024,6 +1040,8 @@ class Rcmd(Entity):
         	Operational data
         	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances>`
         
+        	**config**\: False
+        
         
 
         """
@@ -1061,6 +1079,8 @@ class Rcmd(Entity):
             
             	Operational data for a particular instance
             	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance>`
+            
+            	**config**\: False
             
             
 
@@ -1100,55 +1120,77 @@ class Rcmd(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: ipfrr_event_summaries
                 
                 	OSPF IP\-FRR events summary data
                 	**type**\:  :py:class:`IpfrrEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries>`
+                
+                	**config**\: False
                 
                 .. attribute:: prefix_event_statistics
                 
                 	OSPF Prefix events summary data
                 	**type**\:  :py:class:`PrefixEventStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: spf_run_summaries
                 
                 	OSPF SPF run summary data
                 	**type**\:  :py:class:`SpfRunSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipfrr_event_offlines
                 
                 	OSPF IP\-FRR Event offline data
                 	**type**\:  :py:class:`IpfrrEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines>`
                 
+                	**config**\: False
+                
                 .. attribute:: spf_run_offlines
                 
                 	OSPF SPF run offline data
                 	**type**\:  :py:class:`SpfRunOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines>`
+                
+                	**config**\: False
                 
                 .. attribute:: summary_external_event_summaries
                 
                 	OSPF Summary\-External Prefix events summary data
                 	**type**\:  :py:class:`SummaryExternalEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries>`
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_event_summaries
                 
                 	OSPF Prefix events summary data
                 	**type**\:  :py:class:`PrefixEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries>`
+                
+                	**config**\: False
                 
                 .. attribute:: summary_external_event_offlines
                 
                 	OSPF Summary\-External Prefix events offline data
                 	**type**\:  :py:class:`SummaryExternalEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines>`
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_event_offlines
                 
                 	OSPF Prefix events offline data
                 	**type**\:  :py:class:`PrefixEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines>`
                 
+                	**config**\: False
+                
                 .. attribute:: summary_external_event_statistics
                 
                 	Summary\-External prefix monitoring statistics
                 	**type**\:  :py:class:`SummaryExternalEventStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventStatistics>`
+                
+                	**config**\: False
                 
                 
 
@@ -1227,6 +1269,8 @@ class Rcmd(Entity):
                     	IP\-FRR Event data
                     	**type**\: list of  		 :py:class:`IpfrrEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -1264,6 +1308,8 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: event_id_xr
                         
                         	IP\-Frr Event ID
@@ -1271,10 +1317,14 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_time
                         
                         	Trigger time  (eg\: Apr 24 13\:16\:04.961)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: trigger_spf_run
                         
@@ -1283,12 +1333,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: wait_time
                         
                         	Waiting Time (in milliseconds)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -1297,12 +1351,16 @@ class Rcmd(Entity):
                         	Start Time offset from trigger time (in milliseconds)
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         	**units**\: millisecond
                         
                         .. attribute:: duration
                         
                         	Duration for the calculation (in milliseconds)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -1313,12 +1371,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_routes
                         
                         	Cumulative Number of Routes for all priorities
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: fully_protected_routes
                         
@@ -1327,6 +1389,8 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: partially_protected_routes
                         
                         	Cumulative Number of Partially Protected Routes
@@ -1334,10 +1398,14 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: coverage
                         
                         	Coverage in percentage for all priorities
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         	**units**\: percentage
                         
@@ -1346,10 +1414,14 @@ class Rcmd(Entity):
                         	IP\-Frr Statistics categorized by priority
                         	**type**\: list of  		 :py:class:`IpfrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_node
                         
                         	Remote Node Information
                         	**type**\: list of  		 :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1412,12 +1484,16 @@ class Rcmd(Entity):
                             	Priority
                             	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_routes
                             
                             	Total Number of Routes
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: fully_protected_routes
                             
@@ -1426,6 +1502,8 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: partially_protected_routes
                             
                             	Partially Protected Routes
@@ -1433,10 +1511,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: coverage
                             
                             	Coverage in percentage
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: percentage
                             
@@ -1445,6 +1527,8 @@ class Rcmd(Entity):
                             	Local LFA Coverage in percentage
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: remote_lfa_coverage
@@ -1452,12 +1536,16 @@ class Rcmd(Entity):
                             	Remote LFA Coverage in percentage
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: below_threshold
                             
                             	Covearge is below Configured Threshold
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -1500,6 +1588,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic, ['priority', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage', 'local_lfa_coverage', 'remote_lfa_coverage', 'below_threshold'], name, value)
 
 
+
                         class RemoteNode(Entity):
                             """
                             Remote Node Information
@@ -1511,10 +1600,14 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_name
                             
                             	Interface Name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: neighbour_address
                             
@@ -1523,6 +1616,8 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: path_count
                             
                             	Number of paths protected by this Remote Node
@@ -1530,15 +1625,21 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: in_use_time
                             
                             	Inuse time of the Remote Node (eg\: Apr 24 13\:16 \:04.961)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: primary_path
                             
                             	Protected Primary Paths
                             	**type**\: list of  		 :py:class:`PrimaryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1586,12 +1687,16 @@ class Rcmd(Entity):
                                 	Interface Name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: neighbour_address
                                 
                                 	Nexthop Address
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1622,6 +1727,10 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath, ['interface_name', 'neighbour_address'], name, value)
 
 
+
+
+
+
                 class PrefixEventStatistics(Entity):
                     """
                     OSPF Prefix events summary data
@@ -1630,6 +1739,8 @@ class Rcmd(Entity):
                     
                     	Prefix Event statistics
                     	**type**\: list of  		 :py:class:`PrefixEventStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1674,12 +1785,16 @@ class Rcmd(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix
                         
                         	Prefix
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: prefix_lenth
                         
@@ -1688,25 +1803,35 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_event_time
                         
                         	Last event trigger time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: last_priority
                         
                         	Last event processed priority
                         	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_route_type
                         
                         	Last event Route Type
                         	**type**\:  :py:class:`RcmdShowRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_change_type
                         
                         	Last event Add/Delete
                         	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: last_cost
                         
@@ -1715,12 +1840,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: critical_priority
                         
                         	No. of times processed under Critical Priority
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: high_priority
                         
@@ -1729,12 +1858,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: medium_priority
                         
                         	No. of times processed under Medium Priority
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: low_priority
                         
@@ -1743,12 +1876,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: add_count
                         
                         	No. of times route gets Added
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: modify_count
                         
@@ -1757,6 +1894,8 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: delete_count
                         
                         	No. of times route gets Deleted
@@ -1764,12 +1903,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_exceed_count
                         
                         	No. of times threshold got exceeded
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1828,6 +1971,8 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic, ['prefix_info', 'prefix', 'prefix_lenth', 'last_event_time', 'last_priority', 'last_route_type', 'last_change_type', 'last_cost', 'critical_priority', 'high_priority', 'medium_priority', 'low_priority', 'add_count', 'modify_count', 'delete_count', 'threshold_exceed_count'], name, value)
 
 
+
+
                 class SpfRunSummaries(Entity):
                     """
                     OSPF SPF run summary data
@@ -1836,6 +1981,8 @@ class Rcmd(Entity):
                     
                     	SPF Event data
                     	**type**\: list of  		 :py:class:`SpfRunSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1874,20 +2021,28 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: spf_summary
                         
                         	SPF summary information
                         	**type**\:  :py:class:`SpfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: dijkstra_run
                         
                         	List of Dijkstra runs
                         	**type**\: list of  		 :py:class:`DijkstraRun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: inter_area_and_external
                         
                         	Inter\-area & external calculation information
                         	**type**\: list of  		 :py:class:`InterAreaAndExternal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1932,30 +2087,42 @@ class Rcmd(Entity):
                             	SPF state
                             	**type**\:  :py:class:`RcmdSpfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfState>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_data_complete
                             
                             	Whether the event has all information
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: threshold_exceeded
                             
                             	Threshold exceeded
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: trigger_time
                             
                             	Trigger time (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_time
                             
                             	Start time (offset from event trigger time in ss .msec)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: duration
                             
                             	Duration of complete SPF calculation (in ss .msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: total_dijkstra_runs
                             
@@ -1964,12 +2131,16 @@ class Rcmd(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_inter_area_and_external_batches
                             
                             	Total number of inter\-area/external computation batches
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: total_type12lsa_changes
                             
@@ -1978,6 +2149,8 @@ class Rcmd(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_type357lsa_changes
                             
                             	Total number of Type 3/5/7 LSA changes processed
@@ -1985,10 +2158,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: priority_summary
                             
                             	Convergence information summary on per\-priority basis
                             	**type**\: list of  		 :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2047,30 +2224,42 @@ class Rcmd(Entity):
                                 	Route statistics
                                 	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ip_convergence_time
                                 
                                 	Convergence time for IP route programming
                                 	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mpls_convergence_time
                                 
                                 	Convergence time for MPLS label programming
                                 	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
                                 	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: threshold_exceeded
                                 
                                 	Threshold exceeded
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: frr_statistic
                                 
                                 	Fast Re\-Route Statistics
                                 	**type**\: list of  		 :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2126,12 +2315,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: deletes
                                     
                                     	Deleted
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: modifies
                                     
@@ -2140,12 +2333,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: reachables
                                     
                                     	Reachable
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: unreachables
                                     
@@ -2154,12 +2351,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: touches
                                     
                                     	Touched
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2198,6 +2399,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
 
+
                                 class IpConvergenceTime(Entity):
                                     """
                                     Convergence time for IP route programming
@@ -2207,12 +2409,16 @@ class Rcmd(Entity):
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: maximum_time
                                     
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -2221,10 +2427,14 @@ class Rcmd(Entity):
                                     	Linecard node name which took the maximum time
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fastest_node_name
                                     
                                     	Linecard node name which took the minimum time
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2259,6 +2469,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                 class MplsConvergenceTime(Entity):
                                     """
                                     Convergence time for MPLS label programming
@@ -2268,12 +2479,16 @@ class Rcmd(Entity):
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: maximum_time
                                     
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -2282,10 +2497,14 @@ class Rcmd(Entity):
                                     	Linecard node name which took the maximum time
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fastest_node_name
                                     
                                     	Linecard node name which took the minimum time
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2320,6 +2539,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                 class FrrStatistic(Entity):
                                     """
                                     Fast Re\-Route Statistics
@@ -2331,12 +2551,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fully_protected_routes
                                     
                                     	Fully Protected Routes
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: partially_protected_routes
                                     
@@ -2345,10 +2569,14 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: coverage
                                     
                                     	Coverage in percentage
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: percentage
                                     
@@ -2385,6 +2613,9 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
 
+
+
+
                         class DijkstraRun(Entity):
                             """
                             List of Dijkstra runs
@@ -2396,6 +2627,8 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: area_id
                             
                             	Area ID
@@ -2403,20 +2636,28 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold_exceeded
                             
                             	Threshold exceeded
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: trigger_time
                             
                             	Trigger time (in hh\:mm\:ss.msec)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_time
                             
                             	Start time (offset from event trigger time in ss .msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: wait_time
                             
@@ -2425,25 +2666,35 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: duration
                             
                             	Duration of Dijktra calculation (in ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: trigger_lsa
                             
                             	LSA that triggered the Dijkstra run
                             	**type**\: list of  		 :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: priority
                             
                             	Convergence information on per\-priority basis
                             	**type**\: list of  		 :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_processed
                             
                             	List of type 1/2 LSA changes processed
                             	**type**\: list of  		 :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2499,15 +2750,21 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sequence_number
                                 
                                 	Sequence Number
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_type
                                 
                                 	LSA type
                                 	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: origin_router_id
                                 
@@ -2516,15 +2773,21 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: change_type
                                 
                                 	Add, Delete, Modify
                                 	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: reception_time
                                 
                                 	Reception Time on router (in hh\:mm\:ss.msec)
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2563,6 +2826,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
                             class Priority(Entity):
                                 """
                                 Convergence information on per\-priority basis
@@ -2572,20 +2836,28 @@ class Rcmd(Entity):
                                 	Summary of the priority
                                 	**type**\:  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: convergence_timeline
                                 
                                 	Convergence timeline details
                                 	**type**\: list of  		 :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: leaf_networks_added
                                 
                                 	List of Leaf Networks Added
                                 	**type**\: list of  		 :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksAdded>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: leaf_networks_deleted
                                 
                                 	List of Leaf Networks Deleted
                                 	**type**\: list of  		 :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksDeleted>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2628,30 +2900,42 @@ class Rcmd(Entity):
                                     	Route statistics
                                     	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ip_convergence_time
                                     
                                     	Convergence time for IP route programming
                                     	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mpls_convergence_time
                                     
                                     	Convergence time for MPLS label programming
                                     	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: level
                                     
                                     	Critical, High, Medium or Low
                                     	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: threshold_exceeded
                                     
                                     	Threshold exceeded
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: frr_statistic
                                     
                                     	Fast Re\-Route Statistics
                                     	**type**\: list of  		 :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2707,12 +2991,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: deletes
                                         
                                         	Deleted
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: modifies
                                         
@@ -2721,12 +3009,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: reachables
                                         
                                         	Reachable
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: unreachables
                                         
@@ -2735,12 +3027,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: touches
                                         
                                         	Touched
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2779,6 +3075,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
 
+
                                     class IpConvergenceTime(Entity):
                                         """
                                         Convergence time for IP route programming
@@ -2788,12 +3085,16 @@ class Rcmd(Entity):
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: maximum_time
                                         
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: millisecond
                                         
@@ -2802,10 +3103,14 @@ class Rcmd(Entity):
                                         	Linecard node name which took the maximum time
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fastest_node_name
                                         
                                         	Linecard node name which took the minimum time
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2840,6 +3145,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                     class MplsConvergenceTime(Entity):
                                         """
                                         Convergence time for MPLS label programming
@@ -2849,12 +3155,16 @@ class Rcmd(Entity):
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: maximum_time
                                         
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: millisecond
                                         
@@ -2863,10 +3173,14 @@ class Rcmd(Entity):
                                         	Linecard node name which took the maximum time
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fastest_node_name
                                         
                                         	Linecard node name which took the minimum time
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2901,6 +3215,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                     class FrrStatistic(Entity):
                                         """
                                         Fast Re\-Route Statistics
@@ -2912,12 +3227,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fully_protected_routes
                                         
                                         	Fully Protected Routes
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: partially_protected_routes
                                         
@@ -2926,10 +3245,14 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: coverage
                                         
                                         	Coverage in percentage
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: percentage
                                         
@@ -2966,6 +3289,8 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
 
+
+
                                 class ConvergenceTimeline(Entity):
                                     """
                                     Convergence timeline details
@@ -2975,50 +3300,70 @@ class Rcmd(Entity):
                                     	Route origin (routing protocol)
                                     	**type**\:  :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ri_bv4_enter
                                     
                                     	Entry point of IPv4 RIB
                                     	**type**\:  :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ri_bv4_exit
                                     
                                     	Exit point from IPv4 RIB to FIBs
                                     	**type**\:  :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ri_bv4_redistribute
                                     
                                     	Route Redistribute point from IPv4 RIB to LDP
                                     	**type**\:  :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ldp_enter
                                     
                                     	Entry point of LDP
                                     	**type**\:  :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ldp_exit
                                     
                                     	Exit point of LDP to LSD
                                     	**type**\:  :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpExit>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: lsd_enter
                                     
                                     	Entry point of LSD
                                     	**type**\:  :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsd_exit
                                     
                                     	Exit point of LSD to FIBs
                                     	**type**\:  :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdExit>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: lc_ip
                                     
                                     	List of Linecards' completion point for IP routes
                                     	**type**\: list of  		 :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lc_mpls
                                     
                                     	List of Linecards' completion point for MPLS labels
                                     	**type**\: list of  		 :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3088,15 +3433,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3129,6 +3480,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class RiBv4Enter(Entity):
                                         """
                                         Entry point of IPv4 RIB
@@ -3138,15 +3490,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3179,6 +3537,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class RiBv4Exit(Entity):
                                         """
                                         Exit point from IPv4 RIB to FIBs
@@ -3188,15 +3547,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3229,6 +3594,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class RiBv4Redistribute(Entity):
                                         """
                                         Route Redistribute point from IPv4 RIB to LDP
@@ -3238,15 +3604,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3279,6 +3651,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LdpEnter(Entity):
                                         """
                                         Entry point of LDP
@@ -3288,15 +3661,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3329,6 +3708,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LdpExit(Entity):
                                         """
                                         Exit point of LDP to LSD
@@ -3338,15 +3718,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3379,6 +3765,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpExit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LsdEnter(Entity):
                                         """
                                         Entry point of LSD
@@ -3388,15 +3775,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3429,6 +3822,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LsdExit(Entity):
                                         """
                                         Exit point of LSD to FIBs
@@ -3438,15 +3832,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3479,6 +3879,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdExit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LcIp(Entity):
                                         """
                                         List of Linecards' completion point for IP
@@ -3489,15 +3890,21 @@ class Rcmd(Entity):
                                         	Completion point of FIB
                                         	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: node_name
                                         
                                         	Linecard node name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
                                         	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3541,15 +3948,21 @@ class Rcmd(Entity):
                                             	First route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: end_time
                                             
                                             	Last route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: duration
                                             
                                             	Duration of processing (in ss.msec)
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3582,6 +3995,8 @@ class Rcmd(Entity):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
+
                                     class LcMpls(Entity):
                                         """
                                         List of Linecards' completion point for MPLS
@@ -3592,15 +4007,21 @@ class Rcmd(Entity):
                                         	Completion point of FIB
                                         	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: node_name
                                         
                                         	Linecard node name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
                                         	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -3644,15 +4065,21 @@ class Rcmd(Entity):
                                             	First route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: end_time
                                             
                                             	Last route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: duration
                                             
                                             	Duration of processing (in ss.msec)
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -3685,6 +4112,9 @@ class Rcmd(Entity):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
+
+
                                 class LeafNetworksAdded(Entity):
                                     """
                                     List of Leaf Networks Added
@@ -3696,12 +4126,16 @@ class Rcmd(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: net_mask
                                     
                                     	Mask
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3732,6 +4166,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksAdded, ['address', 'net_mask'], name, value)
 
 
+
                                 class LeafNetworksDeleted(Entity):
                                     """
                                     List of Leaf Networks Deleted
@@ -3743,12 +4178,16 @@ class Rcmd(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: net_mask
                                     
                                     	Mask
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -3779,6 +4218,8 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksDeleted, ['address', 'net_mask'], name, value)
 
 
+
+
                             class LsaProcessed(Entity):
                                 """
                                 List of type 1/2 LSA changes processed
@@ -3790,15 +4231,21 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sequence_number
                                 
                                 	Sequence Number
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_type
                                 
                                 	LSA type
                                 	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: origin_router_id
                                 
@@ -3807,15 +4254,21 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: change_type
                                 
                                 	Add, Delete, Modify
                                 	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: reception_time
                                 
                                 	Reception Time on router (in hh\:mm\:ss.msec)
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3854,6 +4307,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
+
                         class InterAreaAndExternal(Entity):
                             """
                             Inter\-area & external calculation information
@@ -3862,6 +4317,8 @@ class Rcmd(Entity):
                             
                             	Convergence information on a per\-priority basis
                             	**type**\: list of  		 :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -3898,20 +4355,28 @@ class Rcmd(Entity):
                                 	Summary of the priority
                                 	**type**\:  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: convergence_timeline
                                 
                                 	Convergence timeline details
                                 	**type**\: list of  		 :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: leaf_networks_added
                                 
                                 	List of Leaf Networks Added
                                 	**type**\: list of  		 :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksAdded>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: leaf_networks_deleted
                                 
                                 	List of Leaf Networks Deleted
                                 	**type**\: list of  		 :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksDeleted>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -3954,25 +4419,35 @@ class Rcmd(Entity):
                                     	Route statistics
                                     	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ip_convergence_time
                                     
                                     	Convergence time for IP route programming
                                     	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mpls_convergence_time
                                     
                                     	Convergence time for MPLS label programming
                                     	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: level
                                     
                                     	Critical, High, Medium or Low
                                     	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: threshold_exceeded
                                     
                                     	Threshold exceeded
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: type3ls_as
                                     
@@ -3981,6 +4456,8 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type4ls_as
                                     
                                     	Number of Type 4 LSA
@@ -3988,12 +4465,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type57ls_as
                                     
                                     	Number of Type 5/7 LSA
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4053,12 +4534,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: deletes
                                         
                                         	Deleted
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: modifies
                                         
@@ -4067,12 +4552,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: reachables
                                         
                                         	Reachable
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: unreachables
                                         
@@ -4081,12 +4570,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: touches
                                         
                                         	Touched
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4125,6 +4618,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
 
+
                                     class IpConvergenceTime(Entity):
                                         """
                                         Convergence time for IP route programming
@@ -4134,12 +4628,16 @@ class Rcmd(Entity):
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: maximum_time
                                         
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: millisecond
                                         
@@ -4148,10 +4646,14 @@ class Rcmd(Entity):
                                         	Linecard node name which took the maximum time
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fastest_node_name
                                         
                                         	Linecard node name which took the minimum time
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4186,6 +4688,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                     class MplsConvergenceTime(Entity):
                                         """
                                         Convergence time for MPLS label programming
@@ -4195,12 +4698,16 @@ class Rcmd(Entity):
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: maximum_time
                                         
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: millisecond
                                         
@@ -4209,10 +4716,14 @@ class Rcmd(Entity):
                                         	Linecard node name which took the maximum time
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fastest_node_name
                                         
                                         	Linecard node name which took the minimum time
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4247,6 +4758,8 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
+
                                 class ConvergenceTimeline(Entity):
                                     """
                                     Convergence timeline details
@@ -4256,50 +4769,70 @@ class Rcmd(Entity):
                                     	Route origin (routing protocol)
                                     	**type**\:  :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ri_bv4_enter
                                     
                                     	Entry point of IPv4 RIB
                                     	**type**\:  :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ri_bv4_exit
                                     
                                     	Exit point from IPv4 RIB to FIBs
                                     	**type**\:  :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ri_bv4_redistribute
                                     
                                     	Route Redistribute point from IPv4 RIB to LDP
                                     	**type**\:  :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ldp_enter
                                     
                                     	Entry point of LDP
                                     	**type**\:  :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ldp_exit
                                     
                                     	Exit point of LDP to LSD
                                     	**type**\:  :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: lsd_enter
                                     
                                     	Entry point of LSD
                                     	**type**\:  :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsd_exit
                                     
                                     	Exit point of LSD to FIBs
                                     	**type**\:  :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: lc_ip
                                     
                                     	List of Linecards' completion point for IP routes
                                     	**type**\: list of  		 :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lc_mpls
                                     
                                     	List of Linecards' completion point for MPLS labels
                                     	**type**\: list of  		 :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -4369,15 +4902,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4410,6 +4949,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class RiBv4Enter(Entity):
                                         """
                                         Entry point of IPv4 RIB
@@ -4419,15 +4959,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4460,6 +5006,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class RiBv4Exit(Entity):
                                         """
                                         Exit point from IPv4 RIB to FIBs
@@ -4469,15 +5016,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4510,6 +5063,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class RiBv4Redistribute(Entity):
                                         """
                                         Route Redistribute point from IPv4 RIB to LDP
@@ -4519,15 +5073,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4560,6 +5120,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LdpEnter(Entity):
                                         """
                                         Entry point of LDP
@@ -4569,15 +5130,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4610,6 +5177,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LdpExit(Entity):
                                         """
                                         Exit point of LDP to LSD
@@ -4619,15 +5187,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4660,6 +5234,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LsdEnter(Entity):
                                         """
                                         Entry point of LSD
@@ -4669,15 +5244,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4710,6 +5291,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LsdExit(Entity):
                                         """
                                         Exit point of LSD to FIBs
@@ -4719,15 +5301,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4760,6 +5348,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LcIp(Entity):
                                         """
                                         List of Linecards' completion point for IP
@@ -4770,15 +5359,21 @@ class Rcmd(Entity):
                                         	Completion point of FIB
                                         	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: node_name
                                         
                                         	Linecard node name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
                                         	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4822,15 +5417,21 @@ class Rcmd(Entity):
                                             	First route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: end_time
                                             
                                             	Last route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: duration
                                             
                                             	Duration of processing (in ss.msec)
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4863,6 +5464,8 @@ class Rcmd(Entity):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
+
                                     class LcMpls(Entity):
                                         """
                                         List of Linecards' completion point for MPLS
@@ -4873,15 +5476,21 @@ class Rcmd(Entity):
                                         	Completion point of FIB
                                         	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: node_name
                                         
                                         	Linecard node name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
                                         	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -4925,15 +5534,21 @@ class Rcmd(Entity):
                                             	First route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: end_time
                                             
                                             	Last route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: duration
                                             
                                             	Duration of processing (in ss.msec)
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -4966,6 +5581,9 @@ class Rcmd(Entity):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
+
+
                                 class LeafNetworksAdded(Entity):
                                     """
                                     List of Leaf Networks Added
@@ -4977,12 +5595,16 @@ class Rcmd(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: net_mask
                                     
                                     	Mask
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5013,6 +5635,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksAdded, ['address', 'net_mask'], name, value)
 
 
+
                                 class LeafNetworksDeleted(Entity):
                                     """
                                     List of Leaf Networks Deleted
@@ -5024,12 +5647,16 @@ class Rcmd(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: net_mask
                                     
                                     	Mask
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5060,6 +5687,11 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksDeleted, ['address', 'net_mask'], name, value)
 
 
+
+
+
+
+
                 class IpfrrEventOfflines(Entity):
                     """
                     OSPF IP\-FRR Event offline data
@@ -5068,6 +5700,8 @@ class Rcmd(Entity):
                     
                     	Offline operational data for particular OSPF IP\-FRR Event
                     	**type**\: list of  		 :py:class:`IpfrrEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5107,6 +5741,8 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: event_id_xr
                         
                         	IP\-Frr Event ID
@@ -5114,10 +5750,14 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_time
                         
                         	Trigger time  (eg\: Apr 24 13\:16\:04.961)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: trigger_spf_run
                         
@@ -5126,12 +5766,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: wait_time
                         
                         	Waiting Time (in milliseconds)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -5140,12 +5784,16 @@ class Rcmd(Entity):
                         	Start Time offset from trigger time (in milliseconds)
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         	**units**\: millisecond
                         
                         .. attribute:: duration
                         
                         	Duration for the calculation (in milliseconds)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -5156,12 +5804,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_routes
                         
                         	Cumulative Number of Routes for all priorities
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: fully_protected_routes
                         
@@ -5170,6 +5822,8 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: partially_protected_routes
                         
                         	Cumulative Number of Partially Protected Routes
@@ -5177,10 +5831,14 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: coverage
                         
                         	Coverage in percentage for all priorities
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         	**units**\: percentage
                         
@@ -5189,10 +5847,14 @@ class Rcmd(Entity):
                         	IP\-Frr Statistics categorized by priority
                         	**type**\: list of  		 :py:class:`IpfrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_node
                         
                         	Remote Node Information
                         	**type**\: list of  		 :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5255,12 +5917,16 @@ class Rcmd(Entity):
                             	Priority
                             	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_routes
                             
                             	Total Number of Routes
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: fully_protected_routes
                             
@@ -5269,6 +5935,8 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: partially_protected_routes
                             
                             	Partially Protected Routes
@@ -5276,10 +5944,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: coverage
                             
                             	Coverage in percentage
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: percentage
                             
@@ -5288,6 +5960,8 @@ class Rcmd(Entity):
                             	Local LFA Coverage in percentage
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: remote_lfa_coverage
@@ -5295,12 +5969,16 @@ class Rcmd(Entity):
                             	Remote LFA Coverage in percentage
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: below_threshold
                             
                             	Covearge is below Configured Threshold
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -5343,6 +6021,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic, ['priority', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage', 'local_lfa_coverage', 'remote_lfa_coverage', 'below_threshold'], name, value)
 
 
+
                         class RemoteNode(Entity):
                             """
                             Remote Node Information
@@ -5354,10 +6033,14 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_name
                             
                             	Interface Name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: neighbour_address
                             
@@ -5366,6 +6049,8 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: path_count
                             
                             	Number of paths protected by this Remote Node
@@ -5373,15 +6058,21 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: in_use_time
                             
                             	Inuse time of the Remote Node (eg\: Apr 24 13\:16 \:04.961)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: primary_path
                             
                             	Protected Primary Paths
                             	**type**\: list of  		 :py:class:`PrimaryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5429,12 +6120,16 @@ class Rcmd(Entity):
                                 	Interface Name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: neighbour_address
                                 
                                 	Nexthop Address
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5465,6 +6160,10 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath, ['interface_name', 'neighbour_address'], name, value)
 
 
+
+
+
+
                 class SpfRunOfflines(Entity):
                     """
                     OSPF SPF run offline data
@@ -5473,6 +6172,8 @@ class Rcmd(Entity):
                     
                     	Offline operational data for particular OSPF SPF run
                     	**type**\: list of  		 :py:class:`SpfRunOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5512,20 +6213,28 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: spf_summary
                         
                         	SPF summary information
                         	**type**\:  :py:class:`SpfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: dijkstra_run
                         
                         	List of Dijkstra runs
                         	**type**\: list of  		 :py:class:`DijkstraRun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: inter_area_and_external
                         
                         	Inter\-area & external calculation information
                         	**type**\: list of  		 :py:class:`InterAreaAndExternal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -5570,30 +6279,42 @@ class Rcmd(Entity):
                             	SPF state
                             	**type**\:  :py:class:`RcmdSpfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfState>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_data_complete
                             
                             	Whether the event has all information
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: threshold_exceeded
                             
                             	Threshold exceeded
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: trigger_time
                             
                             	Trigger time (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_time
                             
                             	Start time (offset from event trigger time in ss .msec)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: duration
                             
                             	Duration of complete SPF calculation (in ss .msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: total_dijkstra_runs
                             
@@ -5602,12 +6323,16 @@ class Rcmd(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_inter_area_and_external_batches
                             
                             	Total number of inter\-area/external computation batches
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: total_type12lsa_changes
                             
@@ -5616,6 +6341,8 @@ class Rcmd(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_type357lsa_changes
                             
                             	Total number of Type 3/5/7 LSA changes processed
@@ -5623,10 +6350,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: priority_summary
                             
                             	Convergence information summary on per\-priority basis
                             	**type**\: list of  		 :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -5685,30 +6416,42 @@ class Rcmd(Entity):
                                 	Route statistics
                                 	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ip_convergence_time
                                 
                                 	Convergence time for IP route programming
                                 	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mpls_convergence_time
                                 
                                 	Convergence time for MPLS label programming
                                 	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
                                 	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: threshold_exceeded
                                 
                                 	Threshold exceeded
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: frr_statistic
                                 
                                 	Fast Re\-Route Statistics
                                 	**type**\: list of  		 :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -5764,12 +6507,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: deletes
                                     
                                     	Deleted
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: modifies
                                     
@@ -5778,12 +6525,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: reachables
                                     
                                     	Reachable
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: unreachables
                                     
@@ -5792,12 +6543,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: touches
                                     
                                     	Touched
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5836,6 +6591,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
 
+
                                 class IpConvergenceTime(Entity):
                                     """
                                     Convergence time for IP route programming
@@ -5845,12 +6601,16 @@ class Rcmd(Entity):
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: maximum_time
                                     
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -5859,10 +6619,14 @@ class Rcmd(Entity):
                                     	Linecard node name which took the maximum time
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fastest_node_name
                                     
                                     	Linecard node name which took the minimum time
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5897,6 +6661,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                 class MplsConvergenceTime(Entity):
                                     """
                                     Convergence time for MPLS label programming
@@ -5906,12 +6671,16 @@ class Rcmd(Entity):
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: maximum_time
                                     
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -5920,10 +6689,14 @@ class Rcmd(Entity):
                                     	Linecard node name which took the maximum time
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fastest_node_name
                                     
                                     	Linecard node name which took the minimum time
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -5958,6 +6731,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                 class FrrStatistic(Entity):
                                     """
                                     Fast Re\-Route Statistics
@@ -5969,12 +6743,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fully_protected_routes
                                     
                                     	Fully Protected Routes
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: partially_protected_routes
                                     
@@ -5983,10 +6761,14 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: coverage
                                     
                                     	Coverage in percentage
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: percentage
                                     
@@ -6023,6 +6805,9 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
 
+
+
+
                         class DijkstraRun(Entity):
                             """
                             List of Dijkstra runs
@@ -6034,6 +6819,8 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: area_id
                             
                             	Area ID
@@ -6041,20 +6828,28 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold_exceeded
                             
                             	Threshold exceeded
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: trigger_time
                             
                             	Trigger time (in hh\:mm\:ss.msec)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: start_time
                             
                             	Start time (offset from event trigger time in ss .msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: wait_time
                             
@@ -6063,25 +6858,35 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: duration
                             
                             	Duration of Dijktra calculation (in ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: trigger_lsa
                             
                             	LSA that triggered the Dijkstra run
                             	**type**\: list of  		 :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: priority
                             
                             	Convergence information on per\-priority basis
                             	**type**\: list of  		 :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_processed
                             
                             	List of type 1/2 LSA changes processed
                             	**type**\: list of  		 :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6137,15 +6942,21 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sequence_number
                                 
                                 	Sequence Number
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_type
                                 
                                 	LSA type
                                 	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: origin_router_id
                                 
@@ -6154,15 +6965,21 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: change_type
                                 
                                 	Add, Delete, Modify
                                 	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: reception_time
                                 
                                 	Reception Time on router (in hh\:mm\:ss.msec)
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6201,6 +7018,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
                             class Priority(Entity):
                                 """
                                 Convergence information on per\-priority basis
@@ -6210,20 +7028,28 @@ class Rcmd(Entity):
                                 	Summary of the priority
                                 	**type**\:  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: convergence_timeline
                                 
                                 	Convergence timeline details
                                 	**type**\: list of  		 :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: leaf_networks_added
                                 
                                 	List of Leaf Networks Added
                                 	**type**\: list of  		 :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksAdded>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: leaf_networks_deleted
                                 
                                 	List of Leaf Networks Deleted
                                 	**type**\: list of  		 :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksDeleted>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6266,30 +7092,42 @@ class Rcmd(Entity):
                                     	Route statistics
                                     	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ip_convergence_time
                                     
                                     	Convergence time for IP route programming
                                     	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mpls_convergence_time
                                     
                                     	Convergence time for MPLS label programming
                                     	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: level
                                     
                                     	Critical, High, Medium or Low
                                     	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: threshold_exceeded
                                     
                                     	Threshold exceeded
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: frr_statistic
                                     
                                     	Fast Re\-Route Statistics
                                     	**type**\: list of  		 :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6345,12 +7183,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: deletes
                                         
                                         	Deleted
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: modifies
                                         
@@ -6359,12 +7201,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: reachables
                                         
                                         	Reachable
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: unreachables
                                         
@@ -6373,12 +7219,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: touches
                                         
                                         	Touched
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6417,6 +7267,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
 
+
                                     class IpConvergenceTime(Entity):
                                         """
                                         Convergence time for IP route programming
@@ -6426,12 +7277,16 @@ class Rcmd(Entity):
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: maximum_time
                                         
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: millisecond
                                         
@@ -6440,10 +7295,14 @@ class Rcmd(Entity):
                                         	Linecard node name which took the maximum time
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fastest_node_name
                                         
                                         	Linecard node name which took the minimum time
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6478,6 +7337,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                     class MplsConvergenceTime(Entity):
                                         """
                                         Convergence time for MPLS label programming
@@ -6487,12 +7347,16 @@ class Rcmd(Entity):
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: maximum_time
                                         
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: millisecond
                                         
@@ -6501,10 +7365,14 @@ class Rcmd(Entity):
                                         	Linecard node name which took the maximum time
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fastest_node_name
                                         
                                         	Linecard node name which took the minimum time
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6539,6 +7407,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                     class FrrStatistic(Entity):
                                         """
                                         Fast Re\-Route Statistics
@@ -6550,12 +7419,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fully_protected_routes
                                         
                                         	Fully Protected Routes
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: partially_protected_routes
                                         
@@ -6564,10 +7437,14 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: coverage
                                         
                                         	Coverage in percentage
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: percentage
                                         
@@ -6604,6 +7481,8 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
 
+
+
                                 class ConvergenceTimeline(Entity):
                                     """
                                     Convergence timeline details
@@ -6613,50 +7492,70 @@ class Rcmd(Entity):
                                     	Route origin (routing protocol)
                                     	**type**\:  :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ri_bv4_enter
                                     
                                     	Entry point of IPv4 RIB
                                     	**type**\:  :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ri_bv4_exit
                                     
                                     	Exit point from IPv4 RIB to FIBs
                                     	**type**\:  :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ri_bv4_redistribute
                                     
                                     	Route Redistribute point from IPv4 RIB to LDP
                                     	**type**\:  :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ldp_enter
                                     
                                     	Entry point of LDP
                                     	**type**\:  :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ldp_exit
                                     
                                     	Exit point of LDP to LSD
                                     	**type**\:  :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpExit>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: lsd_enter
                                     
                                     	Entry point of LSD
                                     	**type**\:  :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsd_exit
                                     
                                     	Exit point of LSD to FIBs
                                     	**type**\:  :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdExit>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: lc_ip
                                     
                                     	List of Linecards' completion point for IP routes
                                     	**type**\: list of  		 :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lc_mpls
                                     
                                     	List of Linecards' completion point for MPLS labels
                                     	**type**\: list of  		 :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6726,15 +7625,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6767,6 +7672,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class RiBv4Enter(Entity):
                                         """
                                         Entry point of IPv4 RIB
@@ -6776,15 +7682,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6817,6 +7729,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class RiBv4Exit(Entity):
                                         """
                                         Exit point from IPv4 RIB to FIBs
@@ -6826,15 +7739,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6867,6 +7786,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class RiBv4Redistribute(Entity):
                                         """
                                         Route Redistribute point from IPv4 RIB to LDP
@@ -6876,15 +7796,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6917,6 +7843,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LdpEnter(Entity):
                                         """
                                         Entry point of LDP
@@ -6926,15 +7853,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -6967,6 +7900,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LdpExit(Entity):
                                         """
                                         Exit point of LDP to LSD
@@ -6976,15 +7910,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7017,6 +7957,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpExit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LsdEnter(Entity):
                                         """
                                         Entry point of LSD
@@ -7026,15 +7967,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7067,6 +8014,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LsdExit(Entity):
                                         """
                                         Exit point of LSD to FIBs
@@ -7076,15 +8024,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7117,6 +8071,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdExit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LcIp(Entity):
                                         """
                                         List of Linecards' completion point for IP
@@ -7127,15 +8082,21 @@ class Rcmd(Entity):
                                         	Completion point of FIB
                                         	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: node_name
                                         
                                         	Linecard node name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
                                         	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7179,15 +8140,21 @@ class Rcmd(Entity):
                                             	First route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: end_time
                                             
                                             	Last route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: duration
                                             
                                             	Duration of processing (in ss.msec)
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7220,6 +8187,8 @@ class Rcmd(Entity):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
+
                                     class LcMpls(Entity):
                                         """
                                         List of Linecards' completion point for MPLS
@@ -7230,15 +8199,21 @@ class Rcmd(Entity):
                                         	Completion point of FIB
                                         	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: node_name
                                         
                                         	Linecard node name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
                                         	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7282,15 +8257,21 @@ class Rcmd(Entity):
                                             	First route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: end_time
                                             
                                             	Last route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: duration
                                             
                                             	Duration of processing (in ss.msec)
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -7323,6 +8304,9 @@ class Rcmd(Entity):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
+
+
                                 class LeafNetworksAdded(Entity):
                                     """
                                     List of Leaf Networks Added
@@ -7334,12 +8318,16 @@ class Rcmd(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: net_mask
                                     
                                     	Mask
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7370,6 +8358,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksAdded, ['address', 'net_mask'], name, value)
 
 
+
                                 class LeafNetworksDeleted(Entity):
                                     """
                                     List of Leaf Networks Deleted
@@ -7381,12 +8370,16 @@ class Rcmd(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: net_mask
                                     
                                     	Mask
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7417,6 +8410,8 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksDeleted, ['address', 'net_mask'], name, value)
 
 
+
+
                             class LsaProcessed(Entity):
                                 """
                                 List of type 1/2 LSA changes processed
@@ -7428,15 +8423,21 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sequence_number
                                 
                                 	Sequence Number
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsa_type
                                 
                                 	LSA type
                                 	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: origin_router_id
                                 
@@ -7445,15 +8446,21 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: change_type
                                 
                                 	Add, Delete, Modify
                                 	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: reception_time
                                 
                                 	Reception Time on router (in hh\:mm\:ss.msec)
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7492,6 +8499,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
+
                         class InterAreaAndExternal(Entity):
                             """
                             Inter\-area & external calculation information
@@ -7500,6 +8509,8 @@ class Rcmd(Entity):
                             
                             	Convergence information on a per\-priority basis
                             	**type**\: list of  		 :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7536,20 +8547,28 @@ class Rcmd(Entity):
                                 	Summary of the priority
                                 	**type**\:  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: convergence_timeline
                                 
                                 	Convergence timeline details
                                 	**type**\: list of  		 :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: leaf_networks_added
                                 
                                 	List of Leaf Networks Added
                                 	**type**\: list of  		 :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksAdded>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: leaf_networks_deleted
                                 
                                 	List of Leaf Networks Deleted
                                 	**type**\: list of  		 :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksDeleted>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7592,25 +8611,35 @@ class Rcmd(Entity):
                                     	Route statistics
                                     	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ip_convergence_time
                                     
                                     	Convergence time for IP route programming
                                     	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: mpls_convergence_time
                                     
                                     	Convergence time for MPLS label programming
                                     	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: level
                                     
                                     	Critical, High, Medium or Low
                                     	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: threshold_exceeded
                                     
                                     	Threshold exceeded
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: type3ls_as
                                     
@@ -7619,6 +8648,8 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type4ls_as
                                     
                                     	Number of Type 4 LSA
@@ -7626,12 +8657,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: type57ls_as
                                     
                                     	Number of Type 5/7 LSA
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7691,12 +8726,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: deletes
                                         
                                         	Deleted
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: modifies
                                         
@@ -7705,12 +8744,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: reachables
                                         
                                         	Reachable
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: unreachables
                                         
@@ -7719,12 +8762,16 @@ class Rcmd(Entity):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: touches
                                         
                                         	Touched
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7763,6 +8810,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
 
+
                                     class IpConvergenceTime(Entity):
                                         """
                                         Convergence time for IP route programming
@@ -7772,12 +8820,16 @@ class Rcmd(Entity):
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: maximum_time
                                         
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: millisecond
                                         
@@ -7786,10 +8838,14 @@ class Rcmd(Entity):
                                         	Linecard node name which took the maximum time
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fastest_node_name
                                         
                                         	Linecard node name which took the minimum time
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7824,6 +8880,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                     class MplsConvergenceTime(Entity):
                                         """
                                         Convergence time for MPLS label programming
@@ -7833,12 +8890,16 @@ class Rcmd(Entity):
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: millisecond
                                         
                                         .. attribute:: maximum_time
                                         
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: millisecond
                                         
@@ -7847,10 +8908,14 @@ class Rcmd(Entity):
                                         	Linecard node name which took the maximum time
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: fastest_node_name
                                         
                                         	Linecard node name which took the minimum time
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7885,6 +8950,8 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
+
                                 class ConvergenceTimeline(Entity):
                                     """
                                     Convergence timeline details
@@ -7894,50 +8961,70 @@ class Rcmd(Entity):
                                     	Route origin (routing protocol)
                                     	**type**\:  :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ri_bv4_enter
                                     
                                     	Entry point of IPv4 RIB
                                     	**type**\:  :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ri_bv4_exit
                                     
                                     	Exit point from IPv4 RIB to FIBs
                                     	**type**\:  :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ri_bv4_redistribute
                                     
                                     	Route Redistribute point from IPv4 RIB to LDP
                                     	**type**\:  :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ldp_enter
                                     
                                     	Entry point of LDP
                                     	**type**\:  :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: ldp_exit
                                     
                                     	Exit point of LDP to LSD
                                     	**type**\:  :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: lsd_enter
                                     
                                     	Entry point of LSD
                                     	**type**\:  :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lsd_exit
                                     
                                     	Exit point of LSD to FIBs
                                     	**type**\:  :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: lc_ip
                                     
                                     	List of Linecards' completion point for IP routes
                                     	**type**\: list of  		 :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: lc_mpls
                                     
                                     	List of Linecards' completion point for MPLS labels
                                     	**type**\: list of  		 :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8007,15 +9094,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8048,6 +9141,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class RiBv4Enter(Entity):
                                         """
                                         Entry point of IPv4 RIB
@@ -8057,15 +9151,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8098,6 +9198,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class RiBv4Exit(Entity):
                                         """
                                         Exit point from IPv4 RIB to FIBs
@@ -8107,15 +9208,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8148,6 +9255,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class RiBv4Redistribute(Entity):
                                         """
                                         Route Redistribute point from IPv4 RIB to LDP
@@ -8157,15 +9265,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8198,6 +9312,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LdpEnter(Entity):
                                         """
                                         Entry point of LDP
@@ -8207,15 +9322,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8248,6 +9369,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LdpExit(Entity):
                                         """
                                         Exit point of LDP to LSD
@@ -8257,15 +9379,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8298,6 +9426,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LsdEnter(Entity):
                                         """
                                         Entry point of LSD
@@ -8307,15 +9436,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8348,6 +9483,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LsdExit(Entity):
                                         """
                                         Exit point of LSD to FIBs
@@ -8357,15 +9493,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8398,6 +9540,7 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                     class LcIp(Entity):
                                         """
                                         List of Linecards' completion point for IP
@@ -8408,15 +9551,21 @@ class Rcmd(Entity):
                                         	Completion point of FIB
                                         	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: node_name
                                         
                                         	Linecard node name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
                                         	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8460,15 +9609,21 @@ class Rcmd(Entity):
                                             	First route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: end_time
                                             
                                             	Last route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: duration
                                             
                                             	Duration of processing (in ss.msec)
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -8501,6 +9656,8 @@ class Rcmd(Entity):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
+
                                     class LcMpls(Entity):
                                         """
                                         List of Linecards' completion point for MPLS
@@ -8511,15 +9668,21 @@ class Rcmd(Entity):
                                         	Completion point of FIB
                                         	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: node_name
                                         
                                         	Linecard node name
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
                                         	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -8563,15 +9726,21 @@ class Rcmd(Entity):
                                             	First route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: end_time
                                             
                                             	Last route process time relative to event trigger time (in ss.msec)
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: duration
                                             
                                             	Duration of processing (in ss.msec)
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -8604,6 +9773,9 @@ class Rcmd(Entity):
                                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
+
+
                                 class LeafNetworksAdded(Entity):
                                     """
                                     List of Leaf Networks Added
@@ -8615,12 +9787,16 @@ class Rcmd(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: net_mask
                                     
                                     	Mask
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8651,6 +9827,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksAdded, ['address', 'net_mask'], name, value)
 
 
+
                                 class LeafNetworksDeleted(Entity):
                                     """
                                     List of Leaf Networks Deleted
@@ -8662,12 +9839,16 @@ class Rcmd(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: net_mask
                                     
                                     	Mask
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8698,6 +9879,11 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksDeleted, ['address', 'net_mask'], name, value)
 
 
+
+
+
+
+
                 class SummaryExternalEventSummaries(Entity):
                     """
                     OSPF Summary\-External Prefix events summary
@@ -8707,6 +9893,8 @@ class Rcmd(Entity):
                     
                     	OSPF Summary\-External Prefix Event data
                     	**type**\: list of  		 :py:class:`SummaryExternalEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -8745,15 +9933,21 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_convergence_time
                         
                         	Convergence time for IP route programming
                         	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mpls_convergence_time
                         
                         	Convergence time for MPLS label programming
                         	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.MplsConvergenceTime>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: prefix
                         
@@ -8762,12 +9956,16 @@ class Rcmd(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_lenth
                         
                         	Prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: spf_run_no
                         
@@ -8776,6 +9974,8 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipfrr_event_id
                         
                         	Referenced IP\-FRR Event ID (0 \- Not Applicable)
@@ -8783,30 +9983,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_exceeded
                         
                         	Threshold exceeded
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: priority
                         
                         	Event processed priority
                         	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: change_type
                         
                         	Event Add/Delete
                         	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
                         	**type**\:  :py:class:`RcmdShowRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
                         	**type**\:  :py:class:`RcmdShowRoutePathChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: cost
                         
@@ -8815,30 +10027,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_time
                         
                         	Event trigger time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: path
                         
                         	Path information
                         	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_lsa
                         
                         	LSA that triggered this event
                         	**type**\: list of  		 :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_line
                         
                         	Timeline information
                         	**type**\: list of  		 :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsa_processed
                         
                         	List of LSAs processed
                         	**type**\: list of  		 :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -8911,12 +10135,16 @@ class Rcmd(Entity):
                             	Minimum time(in seconds.milliseconds)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: millisecond
                             
                             .. attribute:: maximum_time
                             
                             	Maximum time(in seconds.milliseconds)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -8925,10 +10153,14 @@ class Rcmd(Entity):
                             	Linecard node name which took the maximum time
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fastest_node_name
                             
                             	Linecard node name which took the minimum time
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -8963,6 +10195,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                         class MplsConvergenceTime(Entity):
                             """
                             Convergence time for MPLS label programming
@@ -8972,12 +10205,16 @@ class Rcmd(Entity):
                             	Minimum time(in seconds.milliseconds)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: millisecond
                             
                             .. attribute:: maximum_time
                             
                             	Maximum time(in seconds.milliseconds)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -8986,10 +10223,14 @@ class Rcmd(Entity):
                             	Linecard node name which took the maximum time
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fastest_node_name
                             
                             	Linecard node name which took the minimum time
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -9024,6 +10265,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                         class Path(Entity):
                             """
                             Path information
@@ -9033,6 +10275,8 @@ class Rcmd(Entity):
                             	Interface Name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: neighbour_address
                             
                             	Nexthop Address
@@ -9040,10 +10284,14 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Event Add/Delete
                             	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: path_metric
                             
@@ -9052,10 +10300,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lfa_path
                             
                             	Backup Path Informatoin
                             	**type**\: list of  		 :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -9101,10 +10353,14 @@ class Rcmd(Entity):
                                 	Type of LFA
                                 	**type**\:  :py:class:`RcmdShowIpfrrLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfa>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_name
                                 
                                 	Interface Name
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -9113,10 +10369,14 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
                                 	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: path_metric
                                 
@@ -9125,12 +10385,16 @@ class Rcmd(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: remote_node_id
                                 
                                 	Remote Node ID, in case of Remote LFA
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9169,6 +10433,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath, ['lfa_type', 'interface_name', 'neighbour_address', 'change_type', 'path_metric', 'remote_node_id'], name, value)
 
 
+
+
                         class TriggerLsa(Entity):
                             """
                             LSA that triggered this event
@@ -9180,15 +10446,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_type
                             
                             	LSA type
                             	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: origin_router_id
                             
@@ -9197,15 +10469,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -9244,6 +10522,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
                         class TimeLine(Entity):
                             """
                             Timeline information
@@ -9253,50 +10532,70 @@ class Rcmd(Entity):
                             	Route origin (routing protocol)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ri_bv4_enter
                             
                             	Entry point of IPv4 RIB
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ri_bv4_exit
                             
                             	Exit point from IPv4 RIB to FIBs
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ri_bv4_redistribute
                             
                             	Route Redistribute point from IPv4 RIB to LDP
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ldp_enter
                             
                             	Entry point of LDP
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ldp_exit
                             
                             	Exit point of LDP to LSD
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: lsd_enter
                             
                             	Entry point of LSD
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsd_exit
                             
                             	Exit point of LSD to FIBs
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: lc_ip
                             
                             	List of Linecards' completion point for IP routes
                             	**type**\: list of  		 :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lc_mpls
                             
                             	List of Linecards' completion point for MPLS labels
                             	**type**\: list of  		 :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -9352,15 +10651,21 @@ class Rcmd(Entity):
                                 	Linecard node name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
                                 	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fib_complete
                                 
                                 	Completion point of FIB
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9393,6 +10698,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp, ['node_name', 'speed', 'fib_complete'], name, value)
 
 
+
                             class LcMpls(Entity):
                                 """
                                 List of Linecards' completion point for MPLS
@@ -9403,15 +10709,21 @@ class Rcmd(Entity):
                                 	Linecard node name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
                                 	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fib_complete
                                 
                                 	Completion point of FIB
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9444,6 +10756,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls, ['node_name', 'speed', 'fib_complete'], name, value)
 
 
+
+
                         class LsaProcessed(Entity):
                             """
                             List of LSAs processed
@@ -9455,15 +10769,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_type
                             
                             	LSA type
                             	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: origin_router_id
                             
@@ -9472,15 +10792,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -9519,6 +10845,9 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
+
+
                 class PrefixEventSummaries(Entity):
                     """
                     OSPF Prefix events summary data
@@ -9527,6 +10856,8 @@ class Rcmd(Entity):
                     
                     	OSPF Prefix Event data
                     	**type**\: list of  		 :py:class:`PrefixEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -9565,15 +10896,21 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_convergence_time
                         
                         	Convergence time for IP route programming
                         	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mpls_convergence_time
                         
                         	Convergence time for MPLS label programming
                         	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: prefix
                         
@@ -9582,12 +10919,16 @@ class Rcmd(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_lenth
                         
                         	Prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: spf_run_no
                         
@@ -9596,6 +10937,8 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipfrr_event_id
                         
                         	Referenced IP\-FRR Event ID (0 \- Not Applicable)
@@ -9603,30 +10946,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_exceeded
                         
                         	Threshold exceeded
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: priority
                         
                         	Event processed priority
                         	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: change_type
                         
                         	Event Add/Delete
                         	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
                         	**type**\:  :py:class:`RcmdShowRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
                         	**type**\:  :py:class:`RcmdShowRoutePathChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: cost
                         
@@ -9635,30 +10990,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_time
                         
                         	Event trigger time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: path
                         
                         	Path information
                         	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_lsa
                         
                         	LSA that triggered this event
                         	**type**\: list of  		 :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_line
                         
                         	Timeline information
                         	**type**\: list of  		 :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsa_processed
                         
                         	List of LSAs processed
                         	**type**\: list of  		 :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -9731,12 +11098,16 @@ class Rcmd(Entity):
                             	Minimum time(in seconds.milliseconds)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: millisecond
                             
                             .. attribute:: maximum_time
                             
                             	Maximum time(in seconds.milliseconds)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -9745,10 +11116,14 @@ class Rcmd(Entity):
                             	Linecard node name which took the maximum time
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fastest_node_name
                             
                             	Linecard node name which took the minimum time
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -9783,6 +11158,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                         class MplsConvergenceTime(Entity):
                             """
                             Convergence time for MPLS label programming
@@ -9792,12 +11168,16 @@ class Rcmd(Entity):
                             	Minimum time(in seconds.milliseconds)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: millisecond
                             
                             .. attribute:: maximum_time
                             
                             	Maximum time(in seconds.milliseconds)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -9806,10 +11186,14 @@ class Rcmd(Entity):
                             	Linecard node name which took the maximum time
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fastest_node_name
                             
                             	Linecard node name which took the minimum time
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -9844,6 +11228,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                         class Path(Entity):
                             """
                             Path information
@@ -9853,6 +11238,8 @@ class Rcmd(Entity):
                             	Interface Name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: neighbour_address
                             
                             	Nexthop Address
@@ -9860,10 +11247,14 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Event Add/Delete
                             	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: path_metric
                             
@@ -9872,10 +11263,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lfa_path
                             
                             	Backup Path Informatoin
                             	**type**\: list of  		 :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -9921,10 +11316,14 @@ class Rcmd(Entity):
                                 	Type of LFA
                                 	**type**\:  :py:class:`RcmdShowIpfrrLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfa>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_name
                                 
                                 	Interface Name
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -9933,10 +11332,14 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
                                 	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: path_metric
                                 
@@ -9945,12 +11348,16 @@ class Rcmd(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: remote_node_id
                                 
                                 	Remote Node ID, in case of Remote LFA
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9989,6 +11396,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath, ['lfa_type', 'interface_name', 'neighbour_address', 'change_type', 'path_metric', 'remote_node_id'], name, value)
 
 
+
+
                         class TriggerLsa(Entity):
                             """
                             LSA that triggered this event
@@ -10000,15 +11409,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_type
                             
                             	LSA type
                             	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: origin_router_id
                             
@@ -10017,15 +11432,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -10064,6 +11485,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
                         class TimeLine(Entity):
                             """
                             Timeline information
@@ -10073,50 +11495,70 @@ class Rcmd(Entity):
                             	Route origin (routing protocol)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ri_bv4_enter
                             
                             	Entry point of IPv4 RIB
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ri_bv4_exit
                             
                             	Exit point from IPv4 RIB to FIBs
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ri_bv4_redistribute
                             
                             	Route Redistribute point from IPv4 RIB to LDP
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ldp_enter
                             
                             	Entry point of LDP
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ldp_exit
                             
                             	Exit point of LDP to LSD
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: lsd_enter
                             
                             	Entry point of LSD
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsd_exit
                             
                             	Exit point of LSD to FIBs
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: lc_ip
                             
                             	List of Linecards' completion point for IP routes
                             	**type**\: list of  		 :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lc_mpls
                             
                             	List of Linecards' completion point for MPLS labels
                             	**type**\: list of  		 :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -10172,15 +11614,21 @@ class Rcmd(Entity):
                                 	Linecard node name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
                                 	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fib_complete
                                 
                                 	Completion point of FIB
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10213,6 +11661,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp, ['node_name', 'speed', 'fib_complete'], name, value)
 
 
+
                             class LcMpls(Entity):
                                 """
                                 List of Linecards' completion point for MPLS
@@ -10223,15 +11672,21 @@ class Rcmd(Entity):
                                 	Linecard node name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
                                 	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fib_complete
                                 
                                 	Completion point of FIB
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10264,6 +11719,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls, ['node_name', 'speed', 'fib_complete'], name, value)
 
 
+
+
                         class LsaProcessed(Entity):
                             """
                             List of LSAs processed
@@ -10275,15 +11732,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_type
                             
                             	LSA type
                             	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: origin_router_id
                             
@@ -10292,15 +11755,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -10339,6 +11808,9 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
+
+
                 class SummaryExternalEventOfflines(Entity):
                     """
                     OSPF Summary\-External Prefix events offline
@@ -10348,6 +11820,8 @@ class Rcmd(Entity):
                     
                     	Offline operational data for particular OSPF Prefix Event
                     	**type**\: list of  		 :py:class:`SummaryExternalEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -10387,15 +11861,21 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_convergence_time
                         
                         	Convergence time for IP route programming
                         	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mpls_convergence_time
                         
                         	Convergence time for MPLS label programming
                         	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.MplsConvergenceTime>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: prefix
                         
@@ -10404,12 +11884,16 @@ class Rcmd(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_lenth
                         
                         	Prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: spf_run_no
                         
@@ -10418,6 +11902,8 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipfrr_event_id
                         
                         	Referenced IP\-FRR Event ID (0 \- Not Applicable)
@@ -10425,30 +11911,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_exceeded
                         
                         	Threshold exceeded
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: priority
                         
                         	Event processed priority
                         	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: change_type
                         
                         	Event Add/Delete
                         	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
                         	**type**\:  :py:class:`RcmdShowRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
                         	**type**\:  :py:class:`RcmdShowRoutePathChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: cost
                         
@@ -10457,30 +11955,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_time
                         
                         	Event trigger time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: path
                         
                         	Path information
                         	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_lsa
                         
                         	LSA that triggered this event
                         	**type**\: list of  		 :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_line
                         
                         	Timeline information
                         	**type**\: list of  		 :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsa_processed
                         
                         	List of LSAs processed
                         	**type**\: list of  		 :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -10553,12 +12063,16 @@ class Rcmd(Entity):
                             	Minimum time(in seconds.milliseconds)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: millisecond
                             
                             .. attribute:: maximum_time
                             
                             	Maximum time(in seconds.milliseconds)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -10567,10 +12081,14 @@ class Rcmd(Entity):
                             	Linecard node name which took the maximum time
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fastest_node_name
                             
                             	Linecard node name which took the minimum time
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -10605,6 +12123,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                         class MplsConvergenceTime(Entity):
                             """
                             Convergence time for MPLS label programming
@@ -10614,12 +12133,16 @@ class Rcmd(Entity):
                             	Minimum time(in seconds.milliseconds)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: millisecond
                             
                             .. attribute:: maximum_time
                             
                             	Maximum time(in seconds.milliseconds)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -10628,10 +12151,14 @@ class Rcmd(Entity):
                             	Linecard node name which took the maximum time
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fastest_node_name
                             
                             	Linecard node name which took the minimum time
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -10666,6 +12193,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                         class Path(Entity):
                             """
                             Path information
@@ -10675,6 +12203,8 @@ class Rcmd(Entity):
                             	Interface Name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: neighbour_address
                             
                             	Nexthop Address
@@ -10682,10 +12212,14 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Event Add/Delete
                             	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: path_metric
                             
@@ -10694,10 +12228,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lfa_path
                             
                             	Backup Path Informatoin
                             	**type**\: list of  		 :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -10743,10 +12281,14 @@ class Rcmd(Entity):
                                 	Type of LFA
                                 	**type**\:  :py:class:`RcmdShowIpfrrLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfa>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_name
                                 
                                 	Interface Name
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -10755,10 +12297,14 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
                                 	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: path_metric
                                 
@@ -10767,12 +12313,16 @@ class Rcmd(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: remote_node_id
                                 
                                 	Remote Node ID, in case of Remote LFA
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -10811,6 +12361,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath, ['lfa_type', 'interface_name', 'neighbour_address', 'change_type', 'path_metric', 'remote_node_id'], name, value)
 
 
+
+
                         class TriggerLsa(Entity):
                             """
                             LSA that triggered this event
@@ -10822,15 +12374,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_type
                             
                             	LSA type
                             	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: origin_router_id
                             
@@ -10839,15 +12397,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -10886,6 +12450,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
                         class TimeLine(Entity):
                             """
                             Timeline information
@@ -10895,50 +12460,70 @@ class Rcmd(Entity):
                             	Route origin (routing protocol)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ri_bv4_enter
                             
                             	Entry point of IPv4 RIB
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ri_bv4_exit
                             
                             	Exit point from IPv4 RIB to FIBs
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ri_bv4_redistribute
                             
                             	Route Redistribute point from IPv4 RIB to LDP
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ldp_enter
                             
                             	Entry point of LDP
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ldp_exit
                             
                             	Exit point of LDP to LSD
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: lsd_enter
                             
                             	Entry point of LSD
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsd_exit
                             
                             	Exit point of LSD to FIBs
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: lc_ip
                             
                             	List of Linecards' completion point for IP routes
                             	**type**\: list of  		 :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lc_mpls
                             
                             	List of Linecards' completion point for MPLS labels
                             	**type**\: list of  		 :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -10994,15 +12579,21 @@ class Rcmd(Entity):
                                 	Linecard node name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
                                 	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fib_complete
                                 
                                 	Completion point of FIB
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11035,6 +12626,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp, ['node_name', 'speed', 'fib_complete'], name, value)
 
 
+
                             class LcMpls(Entity):
                                 """
                                 List of Linecards' completion point for MPLS
@@ -11045,15 +12637,21 @@ class Rcmd(Entity):
                                 	Linecard node name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
                                 	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fib_complete
                                 
                                 	Completion point of FIB
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11086,6 +12684,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls, ['node_name', 'speed', 'fib_complete'], name, value)
 
 
+
+
                         class LsaProcessed(Entity):
                             """
                             List of LSAs processed
@@ -11097,15 +12697,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_type
                             
                             	LSA type
                             	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: origin_router_id
                             
@@ -11114,15 +12720,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -11161,6 +12773,9 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
+
+
                 class PrefixEventOfflines(Entity):
                     """
                     OSPF Prefix events offline data
@@ -11169,6 +12784,8 @@ class Rcmd(Entity):
                     
                     	Offline operational data for particular OSPF Prefix Event
                     	**type**\: list of  		 :py:class:`PrefixEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -11208,15 +12825,21 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_convergence_time
                         
                         	Convergence time for IP route programming
                         	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mpls_convergence_time
                         
                         	Convergence time for MPLS label programming
                         	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: prefix
                         
@@ -11225,12 +12848,16 @@ class Rcmd(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_lenth
                         
                         	Prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: spf_run_no
                         
@@ -11239,6 +12866,8 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipfrr_event_id
                         
                         	Referenced IP\-FRR Event ID (0 \- Not Applicable)
@@ -11246,30 +12875,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_exceeded
                         
                         	Threshold exceeded
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: priority
                         
                         	Event processed priority
                         	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: change_type
                         
                         	Event Add/Delete
                         	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
                         	**type**\:  :py:class:`RcmdShowRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
                         	**type**\:  :py:class:`RcmdShowRoutePathChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: cost
                         
@@ -11278,30 +12919,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_time
                         
                         	Event trigger time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: path
                         
                         	Path information
                         	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_lsa
                         
                         	LSA that triggered this event
                         	**type**\: list of  		 :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_line
                         
                         	Timeline information
                         	**type**\: list of  		 :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsa_processed
                         
                         	List of LSAs processed
                         	**type**\: list of  		 :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -11374,12 +13027,16 @@ class Rcmd(Entity):
                             	Minimum time(in seconds.milliseconds)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: millisecond
                             
                             .. attribute:: maximum_time
                             
                             	Maximum time(in seconds.milliseconds)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -11388,10 +13045,14 @@ class Rcmd(Entity):
                             	Linecard node name which took the maximum time
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fastest_node_name
                             
                             	Linecard node name which took the minimum time
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -11426,6 +13087,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                         class MplsConvergenceTime(Entity):
                             """
                             Convergence time for MPLS label programming
@@ -11435,12 +13097,16 @@ class Rcmd(Entity):
                             	Minimum time(in seconds.milliseconds)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: millisecond
                             
                             .. attribute:: maximum_time
                             
                             	Maximum time(in seconds.milliseconds)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -11449,10 +13115,14 @@ class Rcmd(Entity):
                             	Linecard node name which took the maximum time
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fastest_node_name
                             
                             	Linecard node name which took the minimum time
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -11487,6 +13157,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                         class Path(Entity):
                             """
                             Path information
@@ -11496,6 +13167,8 @@ class Rcmd(Entity):
                             	Interface Name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: neighbour_address
                             
                             	Nexthop Address
@@ -11503,10 +13176,14 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Event Add/Delete
                             	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: path_metric
                             
@@ -11515,10 +13192,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lfa_path
                             
                             	Backup Path Informatoin
                             	**type**\: list of  		 :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -11564,10 +13245,14 @@ class Rcmd(Entity):
                                 	Type of LFA
                                 	**type**\:  :py:class:`RcmdShowIpfrrLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfa>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_name
                                 
                                 	Interface Name
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -11576,10 +13261,14 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
                                 	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: path_metric
                                 
@@ -11588,12 +13277,16 @@ class Rcmd(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: remote_node_id
                                 
                                 	Remote Node ID, in case of Remote LFA
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11632,6 +13325,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath, ['lfa_type', 'interface_name', 'neighbour_address', 'change_type', 'path_metric', 'remote_node_id'], name, value)
 
 
+
+
                         class TriggerLsa(Entity):
                             """
                             LSA that triggered this event
@@ -11643,15 +13338,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_type
                             
                             	LSA type
                             	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: origin_router_id
                             
@@ -11660,15 +13361,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -11707,6 +13414,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
                         class TimeLine(Entity):
                             """
                             Timeline information
@@ -11716,50 +13424,70 @@ class Rcmd(Entity):
                             	Route origin (routing protocol)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ri_bv4_enter
                             
                             	Entry point of IPv4 RIB
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ri_bv4_exit
                             
                             	Exit point from IPv4 RIB to FIBs
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ri_bv4_redistribute
                             
                             	Route Redistribute point from IPv4 RIB to LDP
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ldp_enter
                             
                             	Entry point of LDP
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ldp_exit
                             
                             	Exit point of LDP to LSD
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: lsd_enter
                             
                             	Entry point of LSD
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsd_exit
                             
                             	Exit point of LSD to FIBs
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: lc_ip
                             
                             	List of Linecards' completion point for IP routes
                             	**type**\: list of  		 :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lc_mpls
                             
                             	List of Linecards' completion point for MPLS labels
                             	**type**\: list of  		 :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -11815,15 +13543,21 @@ class Rcmd(Entity):
                                 	Linecard node name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
                                 	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fib_complete
                                 
                                 	Completion point of FIB
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11856,6 +13590,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp, ['node_name', 'speed', 'fib_complete'], name, value)
 
 
+
                             class LcMpls(Entity):
                                 """
                                 List of Linecards' completion point for MPLS
@@ -11866,15 +13601,21 @@ class Rcmd(Entity):
                                 	Linecard node name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
                                 	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fib_complete
                                 
                                 	Completion point of FIB
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -11907,6 +13648,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls, ['node_name', 'speed', 'fib_complete'], name, value)
 
 
+
+
                         class LsaProcessed(Entity):
                             """
                             List of LSAs processed
@@ -11918,15 +13661,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_type
                             
                             	LSA type
                             	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: origin_router_id
                             
@@ -11935,15 +13684,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -11982,6 +13737,9 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
+
+
                 class SummaryExternalEventStatistics(Entity):
                     """
                     Summary\-External prefix monitoring statistics
@@ -11993,12 +13751,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: inter_area_added
                     
                     	Total IA Routes Added
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: inter_area_modified
                     
@@ -12007,12 +13769,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: inter_area_deleted
                     
                     	Total IA Routes Deleted
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: inter_area_critical
                     
@@ -12021,12 +13787,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: inter_area_high
                     
                     	Total IA Routes High
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: inter_area_medium
                     
@@ -12035,12 +13805,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: inter_area_low
                     
                     	Total IA Routes Low
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: external_routes
                     
@@ -12049,12 +13823,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: external_added
                     
                     	Total Ext Routes Added
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: external_modified
                     
@@ -12063,12 +13841,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: external_deleted
                     
                     	Total Ext Routes Deleted
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: external_critical
                     
@@ -12077,12 +13859,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: external_high
                     
                     	Total Ext Routes High
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: external_medium
                     
@@ -12091,12 +13877,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: external_low
                     
                     	Total Ext Routes Low
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -12155,6 +13945,10 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ospf.Instances.Instance.SummaryExternalEventStatistics, ['inter_area_routes', 'inter_area_added', 'inter_area_modified', 'inter_area_deleted', 'inter_area_critical', 'inter_area_high', 'inter_area_medium', 'inter_area_low', 'external_routes', 'external_added', 'external_modified', 'external_deleted', 'external_critical', 'external_high', 'external_medium', 'external_low'], name, value)
 
 
+
+
+
+
     class Server(Entity):
         """
         Server Info
@@ -12164,10 +13958,14 @@ class Rcmd(Entity):
         	Server Info
         	**type**\:  :py:class:`Normal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal>`
         
+        	**config**\: False
+        
         .. attribute:: detail
         
         	Server Info
         	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail>`
+        
+        	**config**\: False
         
         
 
@@ -12211,10 +14009,14 @@ class Rcmd(Entity):
             	Configured Hostname
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: status
             
             	Server Status
             	**type**\:  :py:class:`RcmdBagEnableDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnableDisable>`
+            
+            	**config**\: False
             
             .. attribute:: max_events
             
@@ -12223,12 +14025,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: event_buffer_size
             
             	Event Buffer Size
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: monitoring_interval
             
@@ -12237,12 +14043,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: next_interval
             
             	Time for next processing
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: max_interface_count
             
@@ -12251,12 +14061,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: interface_count
             
             	Interface events count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: node_rp_count
             
@@ -12265,12 +14079,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_lc_count
             
             	LC count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: diag_node_count
             
@@ -12279,12 +14097,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: disabled_node_count
             
             	Disabled Node count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: in_active_node_count
             
@@ -12293,20 +14115,28 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: last_process_start_time
             
             	Last Processing Start Time
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: last_process_duration
             
             	Last Processing Duration
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_process_state
             
             	Process state
             	**type**\:  :py:class:`RcmdShowPrcsState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowPrcsState>`
+            
+            	**config**\: False
             
             .. attribute:: process_count
             
@@ -12315,6 +14145,8 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: spf_process_count
             
             	SPF Processing count
@@ -12322,30 +14154,42 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: reports_archive_path
             
             	Reports Archival Path
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: reports_archive_node
             
             	Reports Archival Node (Applicable for local location)
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_archival_status
             
             	Last Archival Status
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: last_archival_error
             
             	Last Archival Error
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_archival_error_time
             
             	Last Archival Status
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: archive_count
             
@@ -12354,25 +14198,35 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diagnostics_archive_path
             
             	Diagnostics Archival Path
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: diagnostics_archive_node
             
             	Diagnostics Archival Node (Applicable for local location)
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: protocol_config
             
             	Protocol level configuration
             	**type**\: list of  		 :py:class:`ProtocolConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal.ProtocolConfig>`
             
+            	**config**\: False
+            
             .. attribute:: server_detail
             
             	Detailed Information
             	**type**\: list of  		 :py:class:`ServerDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal.ServerDetail>`
+            
+            	**config**\: False
             
             
 
@@ -12464,10 +14318,14 @@ class Rcmd(Entity):
                 	Protocol Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: priority
                 
                 	Priority level configuration
                 	**type**\: list of  		 :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal.ProtocolConfig.Priority>`
+                
+                	**config**\: False
                 
                 
 
@@ -12508,6 +14366,8 @@ class Rcmd(Entity):
                     	Priority Level
                     	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: threshold
                     
                     	threshold value
@@ -12515,10 +14375,14 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: disable
                     
                     	Enable/Disable cfg
                     	**type**\:  :py:class:`RcmdBoolYesNo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -12552,6 +14416,8 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Server.Normal.ProtocolConfig.Priority, ['priority_name', 'threshold', 'disable'], name, value)
 
 
+
+
             class ServerDetail(Entity):
                 """
                 Detailed Information
@@ -12563,6 +14429,8 @@ class Rcmd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: memory_suspend
                 
                 	Memory Suspend
@@ -12570,10 +14438,14 @@ class Rcmd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: trace_information
                 
                 	Trace Information
                 	**type**\: list of  		 :py:class:`TraceInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal.ServerDetail.TraceInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -12616,12 +14488,16 @@ class Rcmd(Entity):
                     	Configured Hostname
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_stats
                     
                     	Server Total Status
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_run_stats
                     
@@ -12630,12 +14506,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: error_stats
                     
                     	Server Error Status
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -12671,6 +14551,9 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Server.Normal.ServerDetail.TraceInformation, ['trace_name', 'total_stats', 'last_run_stats', 'error_stats'], name, value)
 
 
+
+
+
         class Detail(Entity):
             """
             Server Info
@@ -12680,10 +14563,14 @@ class Rcmd(Entity):
             	Configured Hostname
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: status
             
             	Server Status
             	**type**\:  :py:class:`RcmdBagEnableDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnableDisable>`
+            
+            	**config**\: False
             
             .. attribute:: max_events
             
@@ -12692,12 +14579,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: event_buffer_size
             
             	Event Buffer Size
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: monitoring_interval
             
@@ -12706,12 +14597,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: next_interval
             
             	Time for next processing
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: max_interface_count
             
@@ -12720,12 +14615,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: interface_count
             
             	Interface events count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: node_rp_count
             
@@ -12734,12 +14633,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_lc_count
             
             	LC count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: diag_node_count
             
@@ -12748,12 +14651,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: disabled_node_count
             
             	Disabled Node count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: in_active_node_count
             
@@ -12762,20 +14669,28 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: last_process_start_time
             
             	Last Processing Start Time
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: last_process_duration
             
             	Last Processing Duration
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_process_state
             
             	Process state
             	**type**\:  :py:class:`RcmdShowPrcsState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowPrcsState>`
+            
+            	**config**\: False
             
             .. attribute:: process_count
             
@@ -12784,6 +14699,8 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: spf_process_count
             
             	SPF Processing count
@@ -12791,30 +14708,42 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: reports_archive_path
             
             	Reports Archival Path
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: reports_archive_node
             
             	Reports Archival Node (Applicable for local location)
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_archival_status
             
             	Last Archival Status
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: last_archival_error
             
             	Last Archival Error
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_archival_error_time
             
             	Last Archival Status
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: archive_count
             
@@ -12823,25 +14752,35 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: diagnostics_archive_path
             
             	Diagnostics Archival Path
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: diagnostics_archive_node
             
             	Diagnostics Archival Node (Applicable for local location)
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: protocol_config
             
             	Protocol level configuration
             	**type**\: list of  		 :py:class:`ProtocolConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail.ProtocolConfig>`
             
+            	**config**\: False
+            
             .. attribute:: server_detail
             
             	Detailed Information
             	**type**\: list of  		 :py:class:`ServerDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail.ServerDetail>`
+            
+            	**config**\: False
             
             
 
@@ -12933,10 +14872,14 @@ class Rcmd(Entity):
                 	Protocol Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: priority
                 
                 	Priority level configuration
                 	**type**\: list of  		 :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail.ProtocolConfig.Priority>`
+                
+                	**config**\: False
                 
                 
 
@@ -12977,6 +14920,8 @@ class Rcmd(Entity):
                     	Priority Level
                     	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: threshold
                     
                     	threshold value
@@ -12984,10 +14929,14 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: disable
                     
                     	Enable/Disable cfg
                     	**type**\:  :py:class:`RcmdBoolYesNo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -13021,6 +14970,8 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Server.Detail.ProtocolConfig.Priority, ['priority_name', 'threshold', 'disable'], name, value)
 
 
+
+
             class ServerDetail(Entity):
                 """
                 Detailed Information
@@ -13032,6 +14983,8 @@ class Rcmd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: memory_suspend
                 
                 	Memory Suspend
@@ -13039,10 +14992,14 @@ class Rcmd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: trace_information
                 
                 	Trace Information
                 	**type**\: list of  		 :py:class:`TraceInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail.ServerDetail.TraceInformation>`
+                
+                	**config**\: False
                 
                 
 
@@ -13085,12 +15042,16 @@ class Rcmd(Entity):
                     	Configured Hostname
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_stats
                     
                     	Server Total Status
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: last_run_stats
                     
@@ -13099,12 +15060,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: error_stats
                     
                     	Server Error Status
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -13140,6 +15105,10 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Server.Detail.ServerDetail.TraceInformation, ['trace_name', 'total_stats', 'last_run_stats', 'error_stats'], name, value)
 
 
+
+
+
+
     class Node(Entity):
         """
         Node Info
@@ -13148,6 +15117,8 @@ class Rcmd(Entity):
         
         	Node Info
         	**type**\: list of  		 :py:class:`NodeInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Node.NodeInformation>`
+        
+        	**config**\: False
         
         
 
@@ -13187,10 +15158,14 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_name
             
             	Node Name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rack_id
             
@@ -13199,20 +15174,28 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: last_update_time
             
             	Last Updated Time
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: fwd_referenced
             
             	Forward Referenced
             	**type**\:  :py:class:`RcmdBoolYesNo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo>`
             
+            	**config**\: False
+            
             .. attribute:: node_type
             
             	Node Type
             	**type**\:  :py:class:`RcmdShowNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowNode>`
+            
+            	**config**\: False
             
             .. attribute:: software_state
             
@@ -13221,6 +15204,8 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: card_state
             
             	Card State
@@ -13228,15 +15213,21 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: node_state
             
             	Node State
             	**type**\:  :py:class:`RcmdBoolYesNo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo>`
             
+            	**config**\: False
+            
             .. attribute:: status
             
             	Status
             	**type**\:  :py:class:`RcmdBagEnblDsbl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnblDsbl>`
+            
+            	**config**\: False
             
             .. attribute:: diag_mode
             
@@ -13245,12 +15236,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: redundancy_state
             
             	Redundancy State
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -13302,6 +15297,8 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Node.NodeInformation, ['node_id', 'node_name', 'rack_id', 'last_update_time', 'fwd_referenced', 'node_type', 'software_state', 'card_state', 'node_state', 'status', 'diag_mode', 'redundancy_state'], name, value)
 
 
+
+
     class Isis(Entity):
         """
         Operational data for ISIS
@@ -13310,6 +15307,8 @@ class Rcmd(Entity):
         
         	Operational data
         	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances>`
+        
+        	**config**\: False
         
         
 
@@ -13349,6 +15348,8 @@ class Rcmd(Entity):
             	Operational data for a particular instance
             	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance>`
             
+            	**config**\: False
+            
             
 
             """
@@ -13387,45 +15388,63 @@ class Rcmd(Entity):
                 
                 	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
+                	**config**\: False
+                
                 .. attribute:: ipfrr_event_summaries
                 
                 	ISIS IP\-FRR events summary data
                 	**type**\:  :py:class:`IpfrrEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries>`
+                
+                	**config**\: False
                 
                 .. attribute:: prefix_event_statistics
                 
                 	ISIS Prefix events statistics data
                 	**type**\:  :py:class:`PrefixEventStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: spf_run_summaries
                 
                 	ISIS SPF run summary data
                 	**type**\:  :py:class:`SpfRunSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipfrr_event_offlines
                 
                 	ISIS IP\-FRR Event offline data
                 	**type**\:  :py:class:`IpfrrEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines>`
                 
+                	**config**\: False
+                
                 .. attribute:: spf_run_offlines
                 
                 	ISIS SPF run offline data
                 	**type**\:  :py:class:`SpfRunOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines>`
+                
+                	**config**\: False
                 
                 .. attribute:: prefix_event_summaries
                 
                 	ISIS Prefix events summary data
                 	**type**\:  :py:class:`PrefixEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries>`
                 
+                	**config**\: False
+                
                 .. attribute:: prefix_event_offlines
                 
                 	ISIS Prefix events offline data
                 	**type**\:  :py:class:`PrefixEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines>`
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_regenerateds
                 
                 	Regenerated LSP data
                 	**type**\:  :py:class:`LspRegenerateds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.LspRegenerateds>`
+                
+                	**config**\: False
                 
                 
 
@@ -13496,6 +15515,8 @@ class Rcmd(Entity):
                     	IP\-FRR Event data
                     	**type**\: list of  		 :py:class:`IpfrrEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -13533,6 +15554,8 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: event_id_xr
                         
                         	IP\-Frr Event ID
@@ -13540,10 +15563,14 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_time
                         
                         	Trigger time  (eg\: Apr 24 13\:16\:04.961)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: trigger_spf_run
                         
@@ -13552,12 +15579,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: wait_time
                         
                         	Waiting Time (in milliseconds)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -13566,12 +15597,16 @@ class Rcmd(Entity):
                         	Start Time offset from trigger time (in milliseconds)
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         	**units**\: millisecond
                         
                         .. attribute:: duration
                         
                         	Duration for the calculation (in milliseconds)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -13582,12 +15617,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_routes
                         
                         	Cumulative Number of Routes for all priorities
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: fully_protected_routes
                         
@@ -13596,6 +15635,8 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: partially_protected_routes
                         
                         	Cumulative Number of Partially Protected Routes
@@ -13603,10 +15644,14 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: coverage
                         
                         	Coverage in percentage for all priorities
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         	**units**\: percentage
                         
@@ -13615,10 +15660,14 @@ class Rcmd(Entity):
                         	IP\-Frr Statistics categorized by priority
                         	**type**\: list of  		 :py:class:`IpfrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_node
                         
                         	Remote Node Information
                         	**type**\: list of  		 :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -13681,12 +15730,16 @@ class Rcmd(Entity):
                             	Priority
                             	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_routes
                             
                             	Total Number of Routes
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: fully_protected_routes
                             
@@ -13695,6 +15748,8 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: partially_protected_routes
                             
                             	Partially Protected Routes
@@ -13702,10 +15757,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: coverage
                             
                             	Coverage in percentage
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: percentage
                             
@@ -13714,6 +15773,8 @@ class Rcmd(Entity):
                             	Local LFA Coverage in percentage
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: remote_lfa_coverage
@@ -13721,12 +15782,16 @@ class Rcmd(Entity):
                             	Remote LFA Coverage in percentage
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: below_threshold
                             
                             	Covearge is below Configured Threshold
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -13769,6 +15834,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic, ['priority', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage', 'local_lfa_coverage', 'remote_lfa_coverage', 'below_threshold'], name, value)
 
 
+
                         class RemoteNode(Entity):
                             """
                             Remote Node Information
@@ -13780,10 +15846,14 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_name
                             
                             	Interface Name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: neighbour_address
                             
@@ -13792,6 +15862,8 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: path_count
                             
                             	Number of paths protected by this Remote Node
@@ -13799,15 +15871,21 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: in_use_time
                             
                             	Inuse time of the Remote Node (eg\: Apr 24 13\:16 \:04.961)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: primary_path
                             
                             	Protected Primary Paths
                             	**type**\: list of  		 :py:class:`PrimaryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -13855,12 +15933,16 @@ class Rcmd(Entity):
                                 	Interface Name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: neighbour_address
                                 
                                 	Nexthop Address
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -13891,6 +15973,10 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath, ['interface_name', 'neighbour_address'], name, value)
 
 
+
+
+
+
                 class PrefixEventStatistics(Entity):
                     """
                     ISIS Prefix events statistics data
@@ -13899,6 +15985,8 @@ class Rcmd(Entity):
                     
                     	Monitoring Statistics
                     	**type**\: list of  		 :py:class:`PrefixEventStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -13943,12 +16031,16 @@ class Rcmd(Entity):
                         
                         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix
                         
                         	Prefix
                         	**type**\: str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: prefix_lenth
                         
@@ -13957,25 +16049,35 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_event_time
                         
                         	Last event trigger time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: last_priority
                         
                         	Last event processed priority
                         	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_route_type
                         
                         	Last event Route Type
                         	**type**\:  :py:class:`RcmdShowRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_change_type
                         
                         	Last event Add/Delete
                         	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: last_cost
                         
@@ -13984,12 +16086,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: critical_priority
                         
                         	No. of times processed under Critical Priority
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: high_priority
                         
@@ -13998,12 +16104,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: medium_priority
                         
                         	No. of times processed under Medium Priority
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: low_priority
                         
@@ -14012,12 +16122,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: add_count
                         
                         	No. of times route gets Added
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: modify_count
                         
@@ -14026,6 +16140,8 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: delete_count
                         
                         	No. of times route gets Deleted
@@ -14033,12 +16149,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_exceed_count
                         
                         	No. of times threshold got exceeded
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -14097,6 +16217,8 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic, ['prefix_info', 'prefix', 'prefix_lenth', 'last_event_time', 'last_priority', 'last_route_type', 'last_change_type', 'last_cost', 'critical_priority', 'high_priority', 'medium_priority', 'low_priority', 'add_count', 'modify_count', 'delete_count', 'threshold_exceed_count'], name, value)
 
 
+
+
                 class SpfRunSummaries(Entity):
                     """
                     ISIS SPF run summary data
@@ -14105,6 +16227,8 @@ class Rcmd(Entity):
                     
                     	SPF Event data
                     	**type**\: list of  		 :py:class:`SpfRunSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -14143,20 +16267,28 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: spf_summary
                         
                         	SPF summary information
                         	**type**\:  :py:class:`SpfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: node_statistics
                         
                         	SPF Node statistics
                         	**type**\:  :py:class:`NodeStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.NodeStatistics>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_time
                         
                         	Start time (offset from event trigger time in ss .msec)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: wait_time
                         
@@ -14165,30 +16297,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reason
                         
                         	Trigger reasons for SPF run. Example\: pr^ \- periodic, cr^ \- clear (Check the documentation for the entire list)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: trigger_lsp
                         
                         	Trigger LSP
                         	**type**\: list of  		 :py:class:`TriggerLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: priority
                         
                         	Convergence information on per\-priority basis
                         	**type**\: list of  		 :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: lsp_processed
                         
                         	List of LSP changes processed
                         	**type**\: list of  		 :py:class:`LspProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsp_regenerated
                         
                         	List of LSP regenerated
                         	**type**\: list of  		 :py:class:`LspRegenerated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspRegenerated>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -14247,40 +16391,56 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: isis_level
                             
                             	ISIS Level
                             	**type**\:  :py:class:`RcmdIsisLvl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvl>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: type
                             
                             	Type of SPF
                             	**type**\:  :py:class:`RcmdIsisSpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisSpf>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold_exceeded
                             
                             	Threshold exceeded
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: state
                             
                             	SPF state
                             	**type**\:  :py:class:`RcmdSpfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfState>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_data_complete
                             
                             	Whether the event has all information
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: trigger_time
                             
                             	Trigger time (in hh\:mm\:ss.msec)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: duration
                             
                             	Duration of SPF calculation (in ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: total_lsp_changes
                             
@@ -14289,10 +16449,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: priority_summary
                             
                             	Convergence information summary on per\-priority basis
                             	**type**\: list of  		 :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -14349,30 +16513,42 @@ class Rcmd(Entity):
                                 	Route statistics
                                 	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ip_convergence_time
                                 
                                 	Convergence time for IP route programming
                                 	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mpls_convergence_time
                                 
                                 	Convergence time for MPLS label programming
                                 	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
                                 	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: threshold_exceeded
                                 
                                 	Threshold exceeded
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: frr_statistic
                                 
                                 	Fast Re\-Route Statistics
                                 	**type**\: list of  		 :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14428,12 +16604,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: deletes
                                     
                                     	Deleted
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: modifies
                                     
@@ -14442,12 +16622,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: reachables
                                     
                                     	Reachable
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: unreachables
                                     
@@ -14456,12 +16640,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: touches
                                     
                                     	Touched
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -14500,6 +16688,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
 
+
                                 class IpConvergenceTime(Entity):
                                     """
                                     Convergence time for IP route programming
@@ -14509,12 +16698,16 @@ class Rcmd(Entity):
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: maximum_time
                                     
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -14523,10 +16716,14 @@ class Rcmd(Entity):
                                     	Linecard node name which took the maximum time
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fastest_node_name
                                     
                                     	Linecard node name which took the minimum time
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -14561,6 +16758,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                 class MplsConvergenceTime(Entity):
                                     """
                                     Convergence time for MPLS label programming
@@ -14570,12 +16768,16 @@ class Rcmd(Entity):
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: maximum_time
                                     
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -14584,10 +16786,14 @@ class Rcmd(Entity):
                                     	Linecard node name which took the maximum time
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fastest_node_name
                                     
                                     	Linecard node name which took the minimum time
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -14622,6 +16828,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                 class FrrStatistic(Entity):
                                     """
                                     Fast Re\-Route Statistics
@@ -14633,12 +16840,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fully_protected_routes
                                     
                                     	Fully Protected Routes
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: partially_protected_routes
                                     
@@ -14647,10 +16858,14 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: coverage
                                     
                                     	Coverage in percentage
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: percentage
                                     
@@ -14687,6 +16902,9 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
 
+
+
+
                         class NodeStatistics(Entity):
                             """
                             SPF Node statistics
@@ -14698,12 +16916,16 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: deletes
                             
                             	Deleted
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: modifies
                             
@@ -14712,12 +16934,16 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: reachables
                             
                             	Reachable
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: unreachables
                             
@@ -14726,12 +16952,16 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: touches
                             
                             	Touched
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -14770,6 +17000,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.NodeStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
 
+
                         class TriggerLsp(Entity):
                             """
                             Trigger LSP
@@ -14779,6 +17010,8 @@ class Rcmd(Entity):
                             	LSP ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
@@ -14786,15 +17019,21 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -14829,6 +17068,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp, ['lsp_id', 'sequence_number', 'change_type', 'reception_time'], name, value)
 
 
+
                         class Priority(Entity):
                             """
                             Convergence information on per\-priority basis
@@ -14838,20 +17078,28 @@ class Rcmd(Entity):
                             	Summary of the priority
                             	**type**\:  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: convergence_timeline
                             
                             	Convergence timeline details
                             	**type**\: list of  		 :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: leaf_networks_added
                             
                             	List of Leaf Networks Added
                             	**type**\: list of  		 :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksAdded>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: leaf_networks_deleted
                             
                             	List of Leaf Networks Deleted
                             	**type**\: list of  		 :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksDeleted>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -14894,30 +17142,42 @@ class Rcmd(Entity):
                                 	Route statistics
                                 	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ip_convergence_time
                                 
                                 	Convergence time for IP route programming
                                 	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.IpConvergenceTime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mpls_convergence_time
                                 
                                 	Convergence time for MPLS label programming
                                 	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
                                 	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: threshold_exceeded
                                 
                                 	Threshold exceeded
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: frr_statistic
                                 
                                 	Fast Re\-Route Statistics
                                 	**type**\: list of  		 :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -14973,12 +17233,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: deletes
                                     
                                     	Deleted
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: modifies
                                     
@@ -14987,12 +17251,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: reachables
                                     
                                     	Reachable
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: unreachables
                                     
@@ -15001,12 +17269,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: touches
                                     
                                     	Touched
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15045,6 +17317,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
 
+
                                 class IpConvergenceTime(Entity):
                                     """
                                     Convergence time for IP route programming
@@ -15054,12 +17327,16 @@ class Rcmd(Entity):
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: maximum_time
                                     
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -15068,10 +17345,14 @@ class Rcmd(Entity):
                                     	Linecard node name which took the maximum time
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fastest_node_name
                                     
                                     	Linecard node name which took the minimum time
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15106,6 +17387,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                 class MplsConvergenceTime(Entity):
                                     """
                                     Convergence time for MPLS label programming
@@ -15115,12 +17397,16 @@ class Rcmd(Entity):
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: maximum_time
                                     
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -15129,10 +17415,14 @@ class Rcmd(Entity):
                                     	Linecard node name which took the maximum time
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fastest_node_name
                                     
                                     	Linecard node name which took the minimum time
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15167,6 +17457,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                 class FrrStatistic(Entity):
                                     """
                                     Fast Re\-Route Statistics
@@ -15178,12 +17469,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fully_protected_routes
                                     
                                     	Fully Protected Routes
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: partially_protected_routes
                                     
@@ -15192,10 +17487,14 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: coverage
                                     
                                     	Coverage in percentage
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: percentage
                                     
@@ -15232,6 +17531,8 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
 
+
+
                             class ConvergenceTimeline(Entity):
                                 """
                                 Convergence timeline details
@@ -15241,50 +17542,70 @@ class Rcmd(Entity):
                                 	Route origin (routing protocol)
                                 	**type**\:  :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ri_bv4_enter
                                 
                                 	Entry point of IPv4 RIB
                                 	**type**\:  :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ri_bv4_exit
                                 
                                 	Exit point from IPv4 RIB to FIBs
                                 	**type**\:  :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ri_bv4_redistribute
                                 
                                 	Route Redistribute point from IPv4 RIB to LDP
                                 	**type**\:  :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ldp_enter
                                 
                                 	Entry point of LDP
                                 	**type**\:  :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpEnter>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ldp_exit
                                 
                                 	Exit point of LDP to LSD
                                 	**type**\:  :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpExit>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: lsd_enter
                                 
                                 	Entry point of LSD
                                 	**type**\:  :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdEnter>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsd_exit
                                 
                                 	Exit point of LSD to FIBs
                                 	**type**\:  :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdExit>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: lc_ip
                                 
                                 	List of Linecards' completion point for IP routes
                                 	**type**\: list of  		 :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lc_mpls
                                 
                                 	List of Linecards' completion point for MPLS labels
                                 	**type**\: list of  		 :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15354,15 +17675,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15395,6 +17722,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class RiBv4Enter(Entity):
                                     """
                                     Entry point of IPv4 RIB
@@ -15404,15 +17732,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15445,6 +17779,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class RiBv4Exit(Entity):
                                     """
                                     Exit point from IPv4 RIB to FIBs
@@ -15454,15 +17789,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15495,6 +17836,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class RiBv4Redistribute(Entity):
                                     """
                                     Route Redistribute point from IPv4 RIB to LDP
@@ -15504,15 +17846,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15545,6 +17893,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class LdpEnter(Entity):
                                     """
                                     Entry point of LDP
@@ -15554,15 +17903,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15595,6 +17950,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpEnter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class LdpExit(Entity):
                                     """
                                     Exit point of LDP to LSD
@@ -15604,15 +17960,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15645,6 +18007,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpExit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class LsdEnter(Entity):
                                     """
                                     Entry point of LSD
@@ -15654,15 +18017,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15695,6 +18064,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdEnter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class LsdExit(Entity):
                                     """
                                     Exit point of LSD to FIBs
@@ -15704,15 +18074,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15745,6 +18121,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdExit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class LcIp(Entity):
                                     """
                                     List of Linecards' completion point for IP
@@ -15755,15 +18132,21 @@ class Rcmd(Entity):
                                     	Completion point of FIB
                                     	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp.FibComplete>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: node_name
                                     
                                     	Linecard node name
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: speed
                                     
                                     	Relative convergence speed
                                     	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15807,15 +18190,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -15848,6 +18237,8 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
+
                                 class LcMpls(Entity):
                                     """
                                     List of Linecards' completion point for MPLS
@@ -15858,15 +18249,21 @@ class Rcmd(Entity):
                                     	Completion point of FIB
                                     	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: node_name
                                     
                                     	Linecard node name
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: speed
                                     
                                     	Relative convergence speed
                                     	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -15910,15 +18307,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -15951,6 +18354,9 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
+
+
                             class LeafNetworksAdded(Entity):
                                 """
                                 List of Leaf Networks Added
@@ -15962,12 +18368,16 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: net_mask
                                 
                                 	Mask
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -15998,6 +18408,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksAdded, ['address', 'net_mask'], name, value)
 
 
+
                             class LeafNetworksDeleted(Entity):
                                 """
                                 List of Leaf Networks Deleted
@@ -16009,12 +18420,16 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: net_mask
                                 
                                 	Mask
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16045,6 +18460,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksDeleted, ['address', 'net_mask'], name, value)
 
 
+
+
                         class LspProcessed(Entity):
                             """
                             List of LSP changes processed
@@ -16054,6 +18471,8 @@ class Rcmd(Entity):
                             	LSP ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
@@ -16061,15 +18480,21 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -16104,6 +18529,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed, ['lsp_id', 'sequence_number', 'change_type', 'reception_time'], name, value)
 
 
+
                         class LspRegenerated(Entity):
                             """
                             List of LSP regenerated
@@ -16115,10 +18541,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsp_id
                             
                             	LSP ID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: sequence_number
                             
@@ -16127,15 +18557,21 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: isis_level
                             
                             	ISIS Level
                             	**type**\:  :py:class:`RcmdIsisLvl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvl>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: spf_run_number
                             
@@ -16144,10 +18580,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: reason
                             
                             	Trigger reasons for LSP regeneration. Example\: pr^ \- periodic, cr^ \- clear (Check the documentation for the entire list)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -16188,6 +18628,9 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspRegenerated, ['serial_number_xr', 'lsp_id', 'sequence_number', 'reception_time', 'isis_level', 'spf_run_number', 'reason'], name, value)
 
 
+
+
+
                 class IpfrrEventOfflines(Entity):
                     """
                     ISIS IP\-FRR Event offline data
@@ -16196,6 +18639,8 @@ class Rcmd(Entity):
                     
                     	Offline operational data for particular ISIS IP\-FRR Event
                     	**type**\: list of  		 :py:class:`IpfrrEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -16235,6 +18680,8 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: event_id_xr
                         
                         	IP\-Frr Event ID
@@ -16242,10 +18689,14 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_time
                         
                         	Trigger time  (eg\: Apr 24 13\:16\:04.961)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: trigger_spf_run
                         
@@ -16254,12 +18705,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: wait_time
                         
                         	Waiting Time (in milliseconds)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -16268,12 +18723,16 @@ class Rcmd(Entity):
                         	Start Time offset from trigger time (in milliseconds)
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         	**units**\: millisecond
                         
                         .. attribute:: duration
                         
                         	Duration for the calculation (in milliseconds)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         	**units**\: millisecond
                         
@@ -16284,12 +18743,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_routes
                         
                         	Cumulative Number of Routes for all priorities
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: fully_protected_routes
                         
@@ -16298,6 +18761,8 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: partially_protected_routes
                         
                         	Cumulative Number of Partially Protected Routes
@@ -16305,10 +18770,14 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: coverage
                         
                         	Coverage in percentage for all priorities
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         	**units**\: percentage
                         
@@ -16317,10 +18786,14 @@ class Rcmd(Entity):
                         	IP\-Frr Statistics categorized by priority
                         	**type**\: list of  		 :py:class:`IpfrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_node
                         
                         	Remote Node Information
                         	**type**\: list of  		 :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -16383,12 +18856,16 @@ class Rcmd(Entity):
                             	Priority
                             	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_routes
                             
                             	Total Number of Routes
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: fully_protected_routes
                             
@@ -16397,6 +18874,8 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: partially_protected_routes
                             
                             	Partially Protected Routes
@@ -16404,10 +18883,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: coverage
                             
                             	Coverage in percentage
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: percentage
                             
@@ -16416,6 +18899,8 @@ class Rcmd(Entity):
                             	Local LFA Coverage in percentage
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: remote_lfa_coverage
@@ -16423,12 +18908,16 @@ class Rcmd(Entity):
                             	Remote LFA Coverage in percentage
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: percentage
                             
                             .. attribute:: below_threshold
                             
                             	Covearge is below Configured Threshold
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             
 
@@ -16471,6 +18960,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic, ['priority', 'total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage', 'local_lfa_coverage', 'remote_lfa_coverage', 'below_threshold'], name, value)
 
 
+
                         class RemoteNode(Entity):
                             """
                             Remote Node Information
@@ -16482,10 +18972,14 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_name
                             
                             	Interface Name
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: neighbour_address
                             
@@ -16494,6 +18988,8 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: path_count
                             
                             	Number of paths protected by this Remote Node
@@ -16501,15 +18997,21 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: in_use_time
                             
                             	Inuse time of the Remote Node (eg\: Apr 24 13\:16 \:04.961)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: primary_path
                             
                             	Protected Primary Paths
                             	**type**\: list of  		 :py:class:`PrimaryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -16557,12 +19059,16 @@ class Rcmd(Entity):
                                 	Interface Name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: neighbour_address
                                 
                                 	Nexthop Address
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16593,6 +19099,10 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath, ['interface_name', 'neighbour_address'], name, value)
 
 
+
+
+
+
                 class SpfRunOfflines(Entity):
                     """
                     ISIS SPF run offline data
@@ -16601,6 +19111,8 @@ class Rcmd(Entity):
                     
                     	Offline operational data for particular ISIS SPF run
                     	**type**\: list of  		 :py:class:`SpfRunOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -16640,20 +19152,28 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: spf_summary
                         
                         	SPF summary information
                         	**type**\:  :py:class:`SpfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: node_statistics
                         
                         	SPF Node statistics
                         	**type**\:  :py:class:`NodeStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.NodeStatistics>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_time
                         
                         	Start time (offset from event trigger time in ss .msec)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: wait_time
                         
@@ -16662,30 +19182,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reason
                         
                         	Trigger reasons for SPF run. Example\: pr^ \- periodic, cr^ \- clear (Check the documentation for the entire list)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: trigger_lsp
                         
                         	Trigger LSP
                         	**type**\: list of  		 :py:class:`TriggerLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: priority
                         
                         	Convergence information on per\-priority basis
                         	**type**\: list of  		 :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: lsp_processed
                         
                         	List of LSP changes processed
                         	**type**\: list of  		 :py:class:`LspProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsp_regenerated
                         
                         	List of LSP regenerated
                         	**type**\: list of  		 :py:class:`LspRegenerated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspRegenerated>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -16744,40 +19276,56 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: isis_level
                             
                             	ISIS Level
                             	**type**\:  :py:class:`RcmdIsisLvl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvl>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: type
                             
                             	Type of SPF
                             	**type**\:  :py:class:`RcmdIsisSpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisSpf>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold_exceeded
                             
                             	Threshold exceeded
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: state
                             
                             	SPF state
                             	**type**\:  :py:class:`RcmdSpfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfState>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_data_complete
                             
                             	Whether the event has all information
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: trigger_time
                             
                             	Trigger time (in hh\:mm\:ss.msec)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: duration
                             
                             	Duration of SPF calculation (in ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: total_lsp_changes
                             
@@ -16786,10 +19334,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: priority_summary
                             
                             	Convergence information summary on per\-priority basis
                             	**type**\: list of  		 :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -16846,30 +19398,42 @@ class Rcmd(Entity):
                                 	Route statistics
                                 	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ip_convergence_time
                                 
                                 	Convergence time for IP route programming
                                 	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mpls_convergence_time
                                 
                                 	Convergence time for MPLS label programming
                                 	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
                                 	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: threshold_exceeded
                                 
                                 	Threshold exceeded
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: frr_statistic
                                 
                                 	Fast Re\-Route Statistics
                                 	**type**\: list of  		 :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -16925,12 +19489,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: deletes
                                     
                                     	Deleted
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: modifies
                                     
@@ -16939,12 +19507,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: reachables
                                     
                                     	Reachable
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: unreachables
                                     
@@ -16953,12 +19525,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: touches
                                     
                                     	Touched
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -16997,6 +19573,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
 
+
                                 class IpConvergenceTime(Entity):
                                     """
                                     Convergence time for IP route programming
@@ -17006,12 +19583,16 @@ class Rcmd(Entity):
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: maximum_time
                                     
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -17020,10 +19601,14 @@ class Rcmd(Entity):
                                     	Linecard node name which took the maximum time
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fastest_node_name
                                     
                                     	Linecard node name which took the minimum time
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -17058,6 +19643,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                 class MplsConvergenceTime(Entity):
                                     """
                                     Convergence time for MPLS label programming
@@ -17067,12 +19653,16 @@ class Rcmd(Entity):
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: maximum_time
                                     
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -17081,10 +19671,14 @@ class Rcmd(Entity):
                                     	Linecard node name which took the maximum time
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fastest_node_name
                                     
                                     	Linecard node name which took the minimum time
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -17119,6 +19713,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                 class FrrStatistic(Entity):
                                     """
                                     Fast Re\-Route Statistics
@@ -17130,12 +19725,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fully_protected_routes
                                     
                                     	Fully Protected Routes
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: partially_protected_routes
                                     
@@ -17144,10 +19743,14 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: coverage
                                     
                                     	Coverage in percentage
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: percentage
                                     
@@ -17184,6 +19787,9 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
 
+
+
+
                         class NodeStatistics(Entity):
                             """
                             SPF Node statistics
@@ -17195,12 +19801,16 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: deletes
                             
                             	Deleted
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: modifies
                             
@@ -17209,12 +19819,16 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: reachables
                             
                             	Reachable
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: unreachables
                             
@@ -17223,12 +19837,16 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: touches
                             
                             	Touched
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -17267,6 +19885,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.NodeStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
 
+
                         class TriggerLsp(Entity):
                             """
                             Trigger LSP
@@ -17276,6 +19895,8 @@ class Rcmd(Entity):
                             	LSP ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
@@ -17283,15 +19904,21 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -17326,6 +19953,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp, ['lsp_id', 'sequence_number', 'change_type', 'reception_time'], name, value)
 
 
+
                         class Priority(Entity):
                             """
                             Convergence information on per\-priority basis
@@ -17335,20 +19963,28 @@ class Rcmd(Entity):
                             	Summary of the priority
                             	**type**\:  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: convergence_timeline
                             
                             	Convergence timeline details
                             	**type**\: list of  		 :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: leaf_networks_added
                             
                             	List of Leaf Networks Added
                             	**type**\: list of  		 :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksAdded>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: leaf_networks_deleted
                             
                             	List of Leaf Networks Deleted
                             	**type**\: list of  		 :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksDeleted>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -17391,30 +20027,42 @@ class Rcmd(Entity):
                                 	Route statistics
                                 	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ip_convergence_time
                                 
                                 	Convergence time for IP route programming
                                 	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.IpConvergenceTime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: mpls_convergence_time
                                 
                                 	Convergence time for MPLS label programming
                                 	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
                                 	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: threshold_exceeded
                                 
                                 	Threshold exceeded
                                 	**type**\: bool
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: frr_statistic
                                 
                                 	Fast Re\-Route Statistics
                                 	**type**\: list of  		 :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -17470,12 +20118,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: deletes
                                     
                                     	Deleted
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: modifies
                                     
@@ -17484,12 +20136,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: reachables
                                     
                                     	Reachable
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: unreachables
                                     
@@ -17498,12 +20154,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: touches
                                     
                                     	Touched
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -17542,6 +20202,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics, ['adds', 'deletes', 'modifies', 'reachables', 'unreachables', 'touches'], name, value)
 
 
+
                                 class IpConvergenceTime(Entity):
                                     """
                                     Convergence time for IP route programming
@@ -17551,12 +20212,16 @@ class Rcmd(Entity):
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: maximum_time
                                     
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -17565,10 +20230,14 @@ class Rcmd(Entity):
                                     	Linecard node name which took the maximum time
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fastest_node_name
                                     
                                     	Linecard node name which took the minimum time
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -17603,6 +20272,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                 class MplsConvergenceTime(Entity):
                                     """
                                     Convergence time for MPLS label programming
@@ -17612,12 +20282,16 @@ class Rcmd(Entity):
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: maximum_time
                                     
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: millisecond
                                     
@@ -17626,10 +20300,14 @@ class Rcmd(Entity):
                                     	Linecard node name which took the maximum time
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fastest_node_name
                                     
                                     	Linecard node name which took the minimum time
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -17664,6 +20342,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                                 class FrrStatistic(Entity):
                                     """
                                     Fast Re\-Route Statistics
@@ -17675,12 +20354,16 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fully_protected_routes
                                     
                                     	Fully Protected Routes
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: partially_protected_routes
                                     
@@ -17689,10 +20372,14 @@ class Rcmd(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: coverage
                                     
                                     	Coverage in percentage
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: percentage
                                     
@@ -17729,6 +20416,8 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic, ['total_routes', 'fully_protected_routes', 'partially_protected_routes', 'coverage'], name, value)
 
 
+
+
                             class ConvergenceTimeline(Entity):
                                 """
                                 Convergence timeline details
@@ -17738,50 +20427,70 @@ class Rcmd(Entity):
                                 	Route origin (routing protocol)
                                 	**type**\:  :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ri_bv4_enter
                                 
                                 	Entry point of IPv4 RIB
                                 	**type**\:  :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ri_bv4_exit
                                 
                                 	Exit point from IPv4 RIB to FIBs
                                 	**type**\:  :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ri_bv4_redistribute
                                 
                                 	Route Redistribute point from IPv4 RIB to LDP
                                 	**type**\:  :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ldp_enter
                                 
                                 	Entry point of LDP
                                 	**type**\:  :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpEnter>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ldp_exit
                                 
                                 	Exit point of LDP to LSD
                                 	**type**\:  :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpExit>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: lsd_enter
                                 
                                 	Entry point of LSD
                                 	**type**\:  :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdEnter>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lsd_exit
                                 
                                 	Exit point of LSD to FIBs
                                 	**type**\:  :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdExit>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: lc_ip
                                 
                                 	List of Linecards' completion point for IP routes
                                 	**type**\: list of  		 :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: lc_mpls
                                 
                                 	List of Linecards' completion point for MPLS labels
                                 	**type**\: list of  		 :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -17851,15 +20560,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -17892,6 +20607,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class RiBv4Enter(Entity):
                                     """
                                     Entry point of IPv4 RIB
@@ -17901,15 +20617,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -17942,6 +20664,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class RiBv4Exit(Entity):
                                     """
                                     Exit point from IPv4 RIB to FIBs
@@ -17951,15 +20674,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -17992,6 +20721,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class RiBv4Redistribute(Entity):
                                     """
                                     Route Redistribute point from IPv4 RIB to LDP
@@ -18001,15 +20731,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -18042,6 +20778,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class LdpEnter(Entity):
                                     """
                                     Entry point of LDP
@@ -18051,15 +20788,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -18092,6 +20835,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpEnter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class LdpExit(Entity):
                                     """
                                     Exit point of LDP to LSD
@@ -18101,15 +20845,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -18142,6 +20892,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpExit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class LsdEnter(Entity):
                                     """
                                     Entry point of LSD
@@ -18151,15 +20902,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -18192,6 +20949,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdEnter, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class LsdExit(Entity):
                                     """
                                     Exit point of LSD to FIBs
@@ -18201,15 +20959,21 @@ class Rcmd(Entity):
                                     	First route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: end_time
                                     
                                     	Last route process time relative to event trigger time (in ss.msec)
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: duration
                                     
                                     	Duration of processing (in ss.msec)
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -18242,6 +21006,7 @@ class Rcmd(Entity):
                                         self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdExit, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
                                 class LcIp(Entity):
                                     """
                                     List of Linecards' completion point for IP
@@ -18252,15 +21017,21 @@ class Rcmd(Entity):
                                     	Completion point of FIB
                                     	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp.FibComplete>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: node_name
                                     
                                     	Linecard node name
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: speed
                                     
                                     	Relative convergence speed
                                     	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -18304,15 +21075,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -18345,6 +21122,8 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
+
                                 class LcMpls(Entity):
                                     """
                                     List of Linecards' completion point for MPLS
@@ -18355,15 +21134,21 @@ class Rcmd(Entity):
                                     	Completion point of FIB
                                     	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: node_name
                                     
                                     	Linecard node name
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: speed
                                     
                                     	Relative convergence speed
                                     	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -18407,15 +21192,21 @@ class Rcmd(Entity):
                                         	First route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: end_time
                                         
                                         	Last route process time relative to event trigger time (in ss.msec)
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: duration
                                         
                                         	Duration of processing (in ss.msec)
                                         	**type**\: str
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -18448,6 +21239,9 @@ class Rcmd(Entity):
                                             self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls.FibComplete, ['start_time', 'end_time', 'duration'], name, value)
 
 
+
+
+
                             class LeafNetworksAdded(Entity):
                                 """
                                 List of Leaf Networks Added
@@ -18459,12 +21253,16 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: net_mask
                                 
                                 	Mask
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -18495,6 +21293,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksAdded, ['address', 'net_mask'], name, value)
 
 
+
                             class LeafNetworksDeleted(Entity):
                                 """
                                 List of Leaf Networks Deleted
@@ -18506,12 +21305,16 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: net_mask
                                 
                                 	Mask
                                 	**type**\: int
                                 
                                 	**range:** 0..255
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -18542,6 +21345,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksDeleted, ['address', 'net_mask'], name, value)
 
 
+
+
                         class LspProcessed(Entity):
                             """
                             List of LSP changes processed
@@ -18551,6 +21356,8 @@ class Rcmd(Entity):
                             	LSP ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
@@ -18558,15 +21365,21 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -18601,6 +21414,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed, ['lsp_id', 'sequence_number', 'change_type', 'reception_time'], name, value)
 
 
+
                         class LspRegenerated(Entity):
                             """
                             List of LSP regenerated
@@ -18612,10 +21426,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsp_id
                             
                             	LSP ID
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: sequence_number
                             
@@ -18624,15 +21442,21 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: isis_level
                             
                             	ISIS Level
                             	**type**\:  :py:class:`RcmdIsisLvl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvl>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: spf_run_number
                             
@@ -18641,10 +21465,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: reason
                             
                             	Trigger reasons for LSP regeneration. Example\: pr^ \- periodic, cr^ \- clear (Check the documentation for the entire list)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -18685,6 +21513,9 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspRegenerated, ['serial_number_xr', 'lsp_id', 'sequence_number', 'reception_time', 'isis_level', 'spf_run_number', 'reason'], name, value)
 
 
+
+
+
                 class PrefixEventSummaries(Entity):
                     """
                     ISIS Prefix events summary data
@@ -18693,6 +21524,8 @@ class Rcmd(Entity):
                     
                     	Prefix Event data
                     	**type**\: list of  		 :py:class:`PrefixEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -18731,15 +21564,21 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_convergence_time
                         
                         	Convergence time for IP route programming
                         	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mpls_convergence_time
                         
                         	Convergence time for MPLS label programming
                         	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: prefix
                         
@@ -18748,12 +21587,16 @@ class Rcmd(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_lenth
                         
                         	Prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: spf_run_no
                         
@@ -18762,6 +21605,8 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipfrr_event_id
                         
                         	Referenced IP\-FRR Event ID (0 \- Not Applicable)
@@ -18769,30 +21614,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_exceeded
                         
                         	Threshold exceeded
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: priority
                         
                         	Event processed priority
                         	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: change_type
                         
                         	Event Add/Delete
                         	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
                         	**type**\:  :py:class:`RcmdShowRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
                         	**type**\:  :py:class:`RcmdShowRoutePathChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: cost
                         
@@ -18801,30 +21658,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_time
                         
                         	Event trigger time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: path
                         
                         	Path information
                         	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_lsa
                         
                         	LSA that triggered this event
                         	**type**\: list of  		 :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_line
                         
                         	Timeline information
                         	**type**\: list of  		 :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsa_processed
                         
                         	List of LSAs processed
                         	**type**\: list of  		 :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -18897,12 +21766,16 @@ class Rcmd(Entity):
                             	Minimum time(in seconds.milliseconds)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: millisecond
                             
                             .. attribute:: maximum_time
                             
                             	Maximum time(in seconds.milliseconds)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -18911,10 +21784,14 @@ class Rcmd(Entity):
                             	Linecard node name which took the maximum time
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fastest_node_name
                             
                             	Linecard node name which took the minimum time
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -18949,6 +21826,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                         class MplsConvergenceTime(Entity):
                             """
                             Convergence time for MPLS label programming
@@ -18958,12 +21836,16 @@ class Rcmd(Entity):
                             	Minimum time(in seconds.milliseconds)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: millisecond
                             
                             .. attribute:: maximum_time
                             
                             	Maximum time(in seconds.milliseconds)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -18972,10 +21854,14 @@ class Rcmd(Entity):
                             	Linecard node name which took the maximum time
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fastest_node_name
                             
                             	Linecard node name which took the minimum time
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -19010,6 +21896,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                         class Path(Entity):
                             """
                             Path information
@@ -19019,6 +21906,8 @@ class Rcmd(Entity):
                             	Interface Name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: neighbour_address
                             
                             	Nexthop Address
@@ -19026,10 +21915,14 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Event Add/Delete
                             	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: path_metric
                             
@@ -19038,10 +21931,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lfa_path
                             
                             	Backup Path Informatoin
                             	**type**\: list of  		 :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -19087,10 +21984,14 @@ class Rcmd(Entity):
                                 	Type of LFA
                                 	**type**\:  :py:class:`RcmdShowIpfrrLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfa>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_name
                                 
                                 	Interface Name
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -19099,10 +22000,14 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
                                 	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: path_metric
                                 
@@ -19111,12 +22016,16 @@ class Rcmd(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: remote_node_id
                                 
                                 	Remote Node ID, in case of Remote LFA
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -19155,6 +22064,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath, ['lfa_type', 'interface_name', 'neighbour_address', 'change_type', 'path_metric', 'remote_node_id'], name, value)
 
 
+
+
                         class TriggerLsa(Entity):
                             """
                             LSA that triggered this event
@@ -19166,15 +22077,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_type
                             
                             	LSA type
                             	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: origin_router_id
                             
@@ -19183,15 +22100,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -19230,6 +22153,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
                         class TimeLine(Entity):
                             """
                             Timeline information
@@ -19239,50 +22163,70 @@ class Rcmd(Entity):
                             	Route origin (routing protocol)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ri_bv4_enter
                             
                             	Entry point of IPv4 RIB
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ri_bv4_exit
                             
                             	Exit point from IPv4 RIB to FIBs
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ri_bv4_redistribute
                             
                             	Route Redistribute point from IPv4 RIB to LDP
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ldp_enter
                             
                             	Entry point of LDP
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ldp_exit
                             
                             	Exit point of LDP to LSD
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: lsd_enter
                             
                             	Entry point of LSD
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsd_exit
                             
                             	Exit point of LSD to FIBs
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: lc_ip
                             
                             	List of Linecards' completion point for IP routes
                             	**type**\: list of  		 :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lc_mpls
                             
                             	List of Linecards' completion point for MPLS labels
                             	**type**\: list of  		 :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -19338,15 +22282,21 @@ class Rcmd(Entity):
                                 	Linecard node name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
                                 	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fib_complete
                                 
                                 	Completion point of FIB
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -19379,6 +22329,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp, ['node_name', 'speed', 'fib_complete'], name, value)
 
 
+
                             class LcMpls(Entity):
                                 """
                                 List of Linecards' completion point for MPLS
@@ -19389,15 +22340,21 @@ class Rcmd(Entity):
                                 	Linecard node name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
                                 	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fib_complete
                                 
                                 	Completion point of FIB
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -19430,6 +22387,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls, ['node_name', 'speed', 'fib_complete'], name, value)
 
 
+
+
                         class LsaProcessed(Entity):
                             """
                             List of LSAs processed
@@ -19441,15 +22400,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_type
                             
                             	LSA type
                             	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: origin_router_id
                             
@@ -19458,15 +22423,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -19505,6 +22476,9 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
+
+
                 class PrefixEventOfflines(Entity):
                     """
                     ISIS Prefix events offline data
@@ -19513,6 +22487,8 @@ class Rcmd(Entity):
                     
                     	Offline operational data for particular ISIS Prefix Event
                     	**type**\: list of  		 :py:class:`PrefixEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -19552,15 +22528,21 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ip_convergence_time
                         
                         	Convergence time for IP route programming
                         	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mpls_convergence_time
                         
                         	Convergence time for MPLS label programming
                         	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: prefix
                         
@@ -19569,12 +22551,16 @@ class Rcmd(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: prefix_lenth
                         
                         	Prefix length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: spf_run_no
                         
@@ -19583,6 +22569,8 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipfrr_event_id
                         
                         	Referenced IP\-FRR Event ID (0 \- Not Applicable)
@@ -19590,30 +22578,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_exceeded
                         
                         	Threshold exceeded
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         .. attribute:: priority
                         
                         	Event processed priority
                         	**type**\:  :py:class:`RcmdPriorityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevel>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: change_type
                         
                         	Event Add/Delete
                         	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
                         	**type**\:  :py:class:`RcmdShowRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoute>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
                         	**type**\:  :py:class:`RcmdShowRoutePathChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChange>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: cost
                         
@@ -19622,30 +22622,42 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_time
                         
                         	Event trigger time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: path
                         
                         	Path information
                         	**type**\: list of  		 :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: trigger_lsa
                         
                         	LSA that triggered this event
                         	**type**\: list of  		 :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: time_line
                         
                         	Timeline information
                         	**type**\: list of  		 :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsa_processed
                         
                         	List of LSAs processed
                         	**type**\: list of  		 :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -19718,12 +22730,16 @@ class Rcmd(Entity):
                             	Minimum time(in seconds.milliseconds)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: millisecond
                             
                             .. attribute:: maximum_time
                             
                             	Maximum time(in seconds.milliseconds)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -19732,10 +22748,14 @@ class Rcmd(Entity):
                             	Linecard node name which took the maximum time
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fastest_node_name
                             
                             	Linecard node name which took the minimum time
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -19770,6 +22790,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                         class MplsConvergenceTime(Entity):
                             """
                             Convergence time for MPLS label programming
@@ -19779,12 +22800,16 @@ class Rcmd(Entity):
                             	Minimum time(in seconds.milliseconds)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             	**units**\: millisecond
                             
                             .. attribute:: maximum_time
                             
                             	Maximum time(in seconds.milliseconds)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             	**units**\: millisecond
                             
@@ -19793,10 +22818,14 @@ class Rcmd(Entity):
                             	Linecard node name which took the maximum time
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fastest_node_name
                             
                             	Linecard node name which took the minimum time
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -19831,6 +22860,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime, ['minimum_time', 'maximum_time', 'slowest_node_name', 'fastest_node_name'], name, value)
 
 
+
                         class Path(Entity):
                             """
                             Path information
@@ -19840,6 +22870,8 @@ class Rcmd(Entity):
                             	Interface Name
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: neighbour_address
                             
                             	Nexthop Address
@@ -19847,10 +22879,14 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Event Add/Delete
                             	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: path_metric
                             
@@ -19859,10 +22895,14 @@ class Rcmd(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lfa_path
                             
                             	Backup Path Informatoin
                             	**type**\: list of  		 :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -19908,10 +22948,14 @@ class Rcmd(Entity):
                                 	Type of LFA
                                 	**type**\:  :py:class:`RcmdShowIpfrrLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfa>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: interface_name
                                 
                                 	Interface Name
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -19920,10 +22964,14 @@ class Rcmd(Entity):
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
                                 	**type**\:  :py:class:`RcmdChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChange>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: path_metric
                                 
@@ -19932,12 +22980,16 @@ class Rcmd(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: remote_node_id
                                 
                                 	Remote Node ID, in case of Remote LFA
                                 	**type**\: str
                                 
                                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -19976,6 +23028,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath, ['lfa_type', 'interface_name', 'neighbour_address', 'change_type', 'path_metric', 'remote_node_id'], name, value)
 
 
+
+
                         class TriggerLsa(Entity):
                             """
                             LSA that triggered this event
@@ -19987,15 +23041,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_type
                             
                             	LSA type
                             	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: origin_router_id
                             
@@ -20004,15 +23064,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -20051,6 +23117,7 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
                         class TimeLine(Entity):
                             """
                             Timeline information
@@ -20060,50 +23127,70 @@ class Rcmd(Entity):
                             	Route origin (routing protocol)
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ri_bv4_enter
                             
                             	Entry point of IPv4 RIB
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ri_bv4_exit
                             
                             	Exit point from IPv4 RIB to FIBs
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ri_bv4_redistribute
                             
                             	Route Redistribute point from IPv4 RIB to LDP
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: ldp_enter
                             
                             	Entry point of LDP
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: ldp_exit
                             
                             	Exit point of LDP to LSD
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: lsd_enter
                             
                             	Entry point of LSD
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsd_exit
                             
                             	Exit point of LSD to FIBs
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: lc_ip
                             
                             	List of Linecards' completion point for IP routes
                             	**type**\: list of  		 :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: lc_mpls
                             
                             	List of Linecards' completion point for MPLS labels
                             	**type**\: list of  		 :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -20159,15 +23246,21 @@ class Rcmd(Entity):
                                 	Linecard node name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
                                 	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fib_complete
                                 
                                 	Completion point of FIB
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -20200,6 +23293,7 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp, ['node_name', 'speed', 'fib_complete'], name, value)
 
 
+
                             class LcMpls(Entity):
                                 """
                                 List of Linecards' completion point for MPLS
@@ -20210,15 +23304,21 @@ class Rcmd(Entity):
                                 	Linecard node name
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
                                 	**type**\:  :py:class:`RcmdLinecardSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeed>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fib_complete
                                 
                                 	Completion point of FIB
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -20251,6 +23351,8 @@ class Rcmd(Entity):
                                     self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls, ['node_name', 'speed', 'fib_complete'], name, value)
 
 
+
+
                         class LsaProcessed(Entity):
                             """
                             List of LSAs processed
@@ -20262,15 +23364,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: sequence_number
                             
                             	Sequence Number
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lsa_type
                             
                             	LSA type
                             	**type**\:  :py:class:`RcmdLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsa>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: origin_router_id
                             
@@ -20279,15 +23387,21 @@ class Rcmd(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
                             	**type**\:  :py:class:`RcmdLsChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: reception_time
                             
                             	Reception Time on router (in hh\:mm\:ss.msec)
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -20326,6 +23440,9 @@ class Rcmd(Entity):
                                 self._perform_setattr(Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed, ['lsa_id', 'sequence_number', 'lsa_type', 'origin_router_id', 'change_type', 'reception_time'], name, value)
 
 
+
+
+
                 class LspRegenerateds(Entity):
                     """
                     Regenerated LSP data
@@ -20334,6 +23451,8 @@ class Rcmd(Entity):
                     
                     	Regenerated LSP data
                     	**type**\: list of  		 :py:class:`LspRegenerated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.LspRegenerateds.LspRegenerated>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -20372,6 +23491,8 @@ class Rcmd(Entity):
                         
                         	**range:** 1..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: serial_number_xr
                         
                         	Serial Number of the session event
@@ -20379,10 +23500,14 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: lsp_id
                         
                         	LSP ID
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: sequence_number
                         
@@ -20391,15 +23516,21 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reception_time
                         
                         	Reception Time on router (in hh\:mm\:ss.msec)
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: isis_level
                         
                         	ISIS Level
                         	**type**\:  :py:class:`RcmdIsisLvl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvl>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: spf_run_number
                         
@@ -20408,10 +23539,14 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: reason
                         
                         	Trigger reasons for LSP regeneration. Example\: pr^ \- periodic, cr^ \- clear (Check the documentation for the entire list)
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -20454,6 +23589,11 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Isis.Instances.Instance.LspRegenerateds.LspRegenerated, ['serial_number', 'serial_number_xr', 'lsp_id', 'sequence_number', 'reception_time', 'isis_level', 'spf_run_number', 'reason'], name, value)
 
 
+
+
+
+
+
     class Memory(Entity):
         """
         Memory Info
@@ -20463,15 +23603,21 @@ class Rcmd(Entity):
         	Memory Info
         	**type**\: list of  		 :py:class:`MemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Memory.MemoryInfo>`
         
+        	**config**\: False
+        
         .. attribute:: edm_memory_info
         
         	Memory Info
         	**type**\: list of  		 :py:class:`EdmMemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Memory.EdmMemoryInfo>`
         
+        	**config**\: False
+        
         .. attribute:: string_memory_info
         
         	Memory Info
         	**type**\: list of  		 :py:class:`StringMemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Memory.StringMemoryInfo>`
+        
+        	**config**\: False
         
         
 
@@ -20511,12 +23657,16 @@ class Rcmd(Entity):
             	Structure Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: size
             
             	Size of the datastructure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: current_count
             
@@ -20525,12 +23675,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: alloc_fails
             
             	Allocation Fails
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: alloc_count
             
@@ -20539,6 +23693,8 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: freed_count
             
             	Freed Count
@@ -20546,10 +23702,14 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: memory_type
             
             	Memory Type
             	**type**\:  :py:class:`RcmdShowMem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowMem>`
+            
+            	**config**\: False
             
             
 
@@ -20591,6 +23751,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Memory.MemoryInfo, ['structure_name', 'size', 'current_count', 'alloc_fails', 'alloc_count', 'freed_count', 'memory_type'], name, value)
 
 
+
         class EdmMemoryInfo(Entity):
             """
             Memory Info
@@ -20602,12 +23763,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: total
             
             	Total request
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: success
             
@@ -20616,12 +23781,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: failure
             
             	Cache\-hit failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -20657,6 +23826,7 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Memory.EdmMemoryInfo, ['size', 'total', 'success', 'failure'], name, value)
 
 
+
         class StringMemoryInfo(Entity):
             """
             Memory Info
@@ -20668,12 +23838,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: total
             
             	Total request
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: success
             
@@ -20682,12 +23856,16 @@ class Rcmd(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: failure
             
             	Cache\-hit failure
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -20723,6 +23901,8 @@ class Rcmd(Entity):
                 self._perform_setattr(Rcmd.Memory.StringMemoryInfo, ['size', 'total', 'success', 'failure'], name, value)
 
 
+
+
     class Ldp(Entity):
         """
         LDP data
@@ -20732,15 +23912,21 @@ class Rcmd(Entity):
         	Session Events
         	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.Sessions>`
         
+        	**config**\: False
+        
         .. attribute:: remote_lfa_s
         
         	Remote LFA Coverage Events
         	**type**\:  :py:class:`RemoteLfaS <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS>`
         
+        	**config**\: False
+        
         .. attribute:: remote_lfa_summaries
         
         	Remote LFA Coverage Events
         	**type**\:  :py:class:`RemoteLfaSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries>`
+        
+        	**config**\: False
         
         
 
@@ -20788,6 +23974,8 @@ class Rcmd(Entity):
             	Session
             	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.Sessions.Session>`
             
+            	**config**\: False
+            
             
 
             """
@@ -20826,6 +24014,8 @@ class Rcmd(Entity):
                 
                 	**range:** 1..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: event_id_xr
                 
                 	Event ID
@@ -20833,15 +24023,21 @@ class Rcmd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: event_type
                 
                 	Type of event
                 	**type**\:  :py:class:`RcmdLdpEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLdpEvent>`
                 
+                	**config**\: False
+                
                 .. attribute:: event_time
                 
                 	Event Time
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: lsr_id
                 
@@ -20850,10 +24046,14 @@ class Rcmd(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Interface Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: address
                 
@@ -20862,10 +24062,14 @@ class Rcmd(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Adjacency Session Status
                 	**type**\:  :py:class:`RcmdShowLdpNeighbourStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpNeighbourStatus>`
+                
+                	**config**\: False
                 
                 
 
@@ -20909,6 +24113,8 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Ldp.Sessions.Session, ['event_id', 'event_id_xr', 'event_type', 'event_time', 'lsr_id', 'interface_name', 'address', 'state'], name, value)
 
 
+
+
         class RemoteLfaS(Entity):
             """
             Remote LFA Coverage Events
@@ -20917,6 +24123,8 @@ class Rcmd(Entity):
             
             	RemoteLFA
             	**type**\: list of  		 :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS.RemoteLfa>`
+            
+            	**config**\: False
             
             
 
@@ -20956,6 +24164,8 @@ class Rcmd(Entity):
                 
                 	**range:** 1..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: event_id_xr
                 
                 	LDP\-rLFA Event ID
@@ -20963,20 +24173,28 @@ class Rcmd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: end_of_calculation_time
                 
                 	End of IGP LFA Calculation Time (eg\: Apr 24 13 \:16\:04.961)
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: igp_protocol
                 
                 	IGP Protocol
                 	**type**\:  :py:class:`RcmdProtocolId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolId>`
                 
+                	**config**\: False
+                
                 .. attribute:: process_name
                 
                 	Process Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ipfrr_event_id
                 
@@ -20985,25 +24203,35 @@ class Rcmd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: below_threshold
                 
                 	Coverage Below Threshold
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: session_statistic
                 
                 	RLFA Statistics categorized by session state
                 	**type**\: list of  		 :py:class:`SessionStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_node
                 
                 	Remote Node Information
                 	**type**\: list of  		 :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS.RemoteLfa.RemoteNode>`
                 
+                	**config**\: False
+                
                 .. attribute:: logs
                 
                 	Logs Information
                 	**type**\: list of  		 :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs>`
+                
+                	**config**\: False
                 
                 
 
@@ -21058,12 +24286,16 @@ class Rcmd(Entity):
                     	Session State
                     	**type**\:  :py:class:`RcmdShowLdpSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_count
                     
                     	LDP Session Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: route_count
                     
@@ -21072,12 +24304,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: path_count
                     
                     	Total Path Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: remote_label_count
                     
@@ -21086,6 +24322,8 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: protected_route_count
                     
                     	Protected Route Count
@@ -21093,12 +24331,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: protected_path_count
                     
                     	Protected Path Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -21139,6 +24381,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic, ['session_state', 'session_count', 'route_count', 'path_count', 'remote_label_count', 'protected_route_count', 'protected_path_count'], name, value)
 
 
+
                 class RemoteNode(Entity):
                     """
                     Remote Node Information
@@ -21150,12 +24393,16 @@ class Rcmd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: lsr_id
                     
                     	Label Space Router ID
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: transport_address
                     
@@ -21164,15 +24411,21 @@ class Rcmd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_use_time
                     
                     	Inuse time of the Session
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_state
                     
                     	Session State
                     	**type**\:  :py:class:`RcmdShowLdpSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: route_count
                     
@@ -21181,12 +24434,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: path_count
                     
                     	Total Path Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: remote_label_count
                     
@@ -21195,6 +24452,8 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: protected_route_count
                     
                     	Protected Route Count
@@ -21202,12 +24461,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: protected_path_count
                     
                     	Protected Path Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -21254,6 +24517,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ldp.RemoteLfaS.RemoteLfa.RemoteNode, ['remote_node_id', 'lsr_id', 'transport_address', 'in_use_time', 'session_state', 'route_count', 'path_count', 'remote_label_count', 'protected_route_count', 'protected_path_count'], name, value)
 
 
+
                 class Logs(Entity):
                     """
                     Logs Information
@@ -21263,10 +24527,14 @@ class Rcmd(Entity):
                     	Event Time (eg\: Apr 24 13\:16\:04.961)
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: label_coverage_state
                     
                     	Label Coverage State
                     	**type**\:  :py:class:`RcmdShowLdpConvState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpConvState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: route_count
                     
@@ -21275,12 +24543,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_label_count
                     
                     	Remote Label Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -21315,6 +24587,9 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs, ['log_time', 'label_coverage_state', 'route_count', 'remote_label_count'], name, value)
 
 
+
+
+
         class RemoteLfaSummaries(Entity):
             """
             Remote LFA Coverage Events
@@ -21323,6 +24598,8 @@ class Rcmd(Entity):
             
             	Summary operational data for Remote LFA
             	**type**\: list of  		 :py:class:`RemoteLfaSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary>`
+            
+            	**config**\: False
             
             
 
@@ -21362,6 +24639,8 @@ class Rcmd(Entity):
                 
                 	**range:** 1..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: event_id_xr
                 
                 	LDP\-rLFA Event ID
@@ -21369,20 +24648,28 @@ class Rcmd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: end_of_calculation_time
                 
                 	End of IGP LFA Calculation Time (eg\: Apr 24 13 \:16\:04.961)
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: igp_protocol
                 
                 	IGP Protocol
                 	**type**\:  :py:class:`RcmdProtocolId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolId>`
                 
+                	**config**\: False
+                
                 .. attribute:: process_name
                 
                 	Process Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: ipfrr_event_id
                 
@@ -21391,25 +24678,35 @@ class Rcmd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: below_threshold
                 
                 	Coverage Below Threshold
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: session_statistic
                 
                 	RLFA Statistics categorized by session state
                 	**type**\: list of  		 :py:class:`SessionStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic>`
                 
+                	**config**\: False
+                
                 .. attribute:: remote_node
                 
                 	Remote Node Information
                 	**type**\: list of  		 :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.RemoteNode>`
                 
+                	**config**\: False
+                
                 .. attribute:: logs
                 
                 	Logs Information
                 	**type**\: list of  		 :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs>`
+                
+                	**config**\: False
                 
                 
 
@@ -21464,12 +24761,16 @@ class Rcmd(Entity):
                     	Session State
                     	**type**\:  :py:class:`RcmdShowLdpSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_count
                     
                     	LDP Session Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: route_count
                     
@@ -21478,12 +24779,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: path_count
                     
                     	Total Path Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: remote_label_count
                     
@@ -21492,6 +24797,8 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: protected_route_count
                     
                     	Protected Route Count
@@ -21499,12 +24806,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: protected_path_count
                     
                     	Protected Path Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -21545,6 +24856,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic, ['session_state', 'session_count', 'route_count', 'path_count', 'remote_label_count', 'protected_route_count', 'protected_path_count'], name, value)
 
 
+
                 class RemoteNode(Entity):
                     """
                     Remote Node Information
@@ -21556,12 +24868,16 @@ class Rcmd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: lsr_id
                     
                     	Label Space Router ID
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: transport_address
                     
@@ -21570,15 +24886,21 @@ class Rcmd(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: in_use_time
                     
                     	Inuse time of the Session
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_state
                     
                     	Session State
                     	**type**\:  :py:class:`RcmdShowLdpSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: route_count
                     
@@ -21587,12 +24909,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: path_count
                     
                     	Total Path Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: remote_label_count
                     
@@ -21601,6 +24927,8 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: protected_route_count
                     
                     	Protected Route Count
@@ -21608,12 +24936,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: protected_path_count
                     
                     	Protected Path Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -21660,6 +24992,7 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.RemoteNode, ['remote_node_id', 'lsr_id', 'transport_address', 'in_use_time', 'session_state', 'route_count', 'path_count', 'remote_label_count', 'protected_route_count', 'protected_path_count'], name, value)
 
 
+
                 class Logs(Entity):
                     """
                     Logs Information
@@ -21669,10 +25002,14 @@ class Rcmd(Entity):
                     	Event Time (eg\: Apr 24 13\:16\:04.961)
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: label_coverage_state
                     
                     	Label Coverage State
                     	**type**\:  :py:class:`RcmdShowLdpConvState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpConvState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: route_count
                     
@@ -21681,12 +25018,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_label_count
                     
                     	Remote Label Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -21721,6 +25062,10 @@ class Rcmd(Entity):
                         self._perform_setattr(Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs, ['log_time', 'label_coverage_state', 'route_count', 'remote_label_count'], name, value)
 
 
+
+
+
+
     class Intf(Entity):
         """
         Interface data
@@ -21729,6 +25074,8 @@ class Rcmd(Entity):
         
         	Events
         	**type**\:  :py:class:`Events <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Intf.Events>`
+        
+        	**config**\: False
         
         
 
@@ -21768,6 +25115,8 @@ class Rcmd(Entity):
             	Events
             	**type**\: list of  		 :py:class:`Event <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Intf.Events.Event>`
             
+            	**config**\: False
+            
             
 
             """
@@ -21806,6 +25155,8 @@ class Rcmd(Entity):
                 
                 	**range:** 1..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sequence_no
                 
                 	Sequence No
@@ -21813,25 +25164,35 @@ class Rcmd(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Interface Name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: component
                 
                 	Component info
                 	**type**\:  :py:class:`RcmdShowCompId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowCompId>`
                 
+                	**config**\: False
+                
                 .. attribute:: event_type
                 
                 	Event Info
                 	**type**\:  :py:class:`RcmdShowIntfEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIntfEvent>`
                 
+                	**config**\: False
+                
                 .. attribute:: event_time
                 
                 	Event Time
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: primary_address
                 
@@ -21839,6 +25200,8 @@ class Rcmd(Entity):
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 
 
@@ -21880,6 +25243,9 @@ class Rcmd(Entity):
                     self._perform_setattr(Rcmd.Intf.Events.Event, ['event_no', 'sequence_no', 'interface_name', 'component', 'event_type', 'event_time', 'primary_address'], name, value)
 
 
+
+
+
     class Process(Entity):
         """
         Process information
@@ -21889,15 +25255,21 @@ class Rcmd(Entity):
         	ISIS Process Information
         	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis>`
         
+        	**config**\: False
+        
         .. attribute:: ospf
         
         	OSPF Process Information
         	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf>`
         
+        	**config**\: False
+        
         .. attribute:: ldp
         
         	LDP Process Information
         	**type**\:  :py:class:`Ldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp>`
+        
+        	**config**\: False
         
         
 
@@ -21945,6 +25317,8 @@ class Rcmd(Entity):
             	Process Information
             	**type**\: list of  		 :py:class:`Process_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process_>`
             
+            	**config**\: False
+            
             
 
             """
@@ -21981,15 +25355,21 @@ class Rcmd(Entity):
                 	Protocol id
                 	**type**\:  :py:class:`RcmdProtocolId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolId>`
                 
+                	**config**\: False
+                
                 .. attribute:: process_name
                 
                 	Process Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: instance_name
                 
                 	Instance/VRF Name
                 	**type**\: list of  		 :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process_.InstanceName>`
+                
+                	**config**\: False
                 
                 
 
@@ -22032,10 +25412,14 @@ class Rcmd(Entity):
                     	Instance Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_update_time
                     
                     	Last Updated Time
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_spf_nos
                     
@@ -22044,12 +25428,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_change_spf_nos
                     
                     	Route change spf nos
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: no_route_change_spf_nos
                     
@@ -22058,12 +25446,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: not_interested_spf_nos
                     
                     	Not Interested SPF nos
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: lsp_regeneration_count
                     
@@ -22072,12 +25464,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lsp_regeneration_serial
                     
                     	Last Serial
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: arch_spf_event
                     
@@ -22086,6 +25482,8 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: arch_lsp_regeneration
                     
                     	Archive Lsp regen
@@ -22093,10 +25491,14 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: instance
                     
                     	Instance Information
                     	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process_.InstanceName.Instance>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -22157,25 +25559,35 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: instance_state
                         
                         	Instance State
                         	**type**\:  :py:class:`RcmdShowInstState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: instance_deleted
                         
                         	Instance Deleted
                         	**type**\:  :py:class:`RcmdBoolYesNo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: fwd_referenced
                         
                         	Forward Referenced
                         	**type**\:  :py:class:`RcmdBoolYesNo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_update_time
                         
                         	Last Updated Time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: node_id
                         
@@ -22184,12 +25596,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: spf_offset
                         
                         	SPF Offset
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_spf_nos
                         
@@ -22198,12 +25614,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: arch_spf_run
                         
                         	spf run can be archived
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: route_change_spf_nos
                         
@@ -22212,12 +25632,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: no_route_change_spf_nos
                         
                         	No Route change spf nos
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: not_interested_spf_nos
                         
@@ -22226,12 +25650,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_spt_nos
                         
                         	Total spt nos
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -22285,6 +25713,10 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Process.Isis.Process_.InstanceName.Instance, ['instance_id', 'instance_state', 'instance_deleted', 'fwd_referenced', 'last_update_time', 'node_id', 'spf_offset', 'total_spf_nos', 'arch_spf_run', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'total_spt_nos'], name, value)
 
 
+
+
+
+
         class Ospf(Entity):
             """
             OSPF Process Information
@@ -22293,6 +25725,8 @@ class Rcmd(Entity):
             
             	Process Information
             	**type**\: list of  		 :py:class:`Process_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process_>`
+            
+            	**config**\: False
             
             
 
@@ -22330,15 +25764,21 @@ class Rcmd(Entity):
                 	Protocol id
                 	**type**\:  :py:class:`RcmdProtocolId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolId>`
                 
+                	**config**\: False
+                
                 .. attribute:: process_name
                 
                 	Process Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: instance_name
                 
                 	Instance/VRF Name
                 	**type**\: list of  		 :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process_.InstanceName>`
+                
+                	**config**\: False
                 
                 
 
@@ -22381,10 +25821,14 @@ class Rcmd(Entity):
                     	Instance Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_update_time
                     
                     	Last Updated Time
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_spf_nos
                     
@@ -22393,12 +25837,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_change_spf_nos
                     
                     	Route change spf nos
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: no_route_change_spf_nos
                     
@@ -22407,12 +25855,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: not_interested_spf_nos
                     
                     	Not Interested SPF nos
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: lsp_regeneration_count
                     
@@ -22421,12 +25873,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lsp_regeneration_serial
                     
                     	Last Serial
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: arch_spf_event
                     
@@ -22435,6 +25891,8 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: arch_lsp_regeneration
                     
                     	Archive Lsp regen
@@ -22442,10 +25900,14 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: instance
                     
                     	Instance Information
                     	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process_.InstanceName.Instance>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -22506,25 +25968,35 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: instance_state
                         
                         	Instance State
                         	**type**\:  :py:class:`RcmdShowInstState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: instance_deleted
                         
                         	Instance Deleted
                         	**type**\:  :py:class:`RcmdBoolYesNo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: fwd_referenced
                         
                         	Forward Referenced
                         	**type**\:  :py:class:`RcmdBoolYesNo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_update_time
                         
                         	Last Updated Time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: node_id
                         
@@ -22533,12 +26005,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: spf_offset
                         
                         	SPF Offset
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_spf_nos
                         
@@ -22547,12 +26023,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: arch_spf_run
                         
                         	spf run can be archived
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: route_change_spf_nos
                         
@@ -22561,12 +26041,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: no_route_change_spf_nos
                         
                         	No Route change spf nos
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: not_interested_spf_nos
                         
@@ -22575,12 +26059,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_spt_nos
                         
                         	Total spt nos
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -22634,6 +26122,10 @@ class Rcmd(Entity):
                             self._perform_setattr(Rcmd.Process.Ospf.Process_.InstanceName.Instance, ['instance_id', 'instance_state', 'instance_deleted', 'fwd_referenced', 'last_update_time', 'node_id', 'spf_offset', 'total_spf_nos', 'arch_spf_run', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'total_spt_nos'], name, value)
 
 
+
+
+
+
         class Ldp(Entity):
             """
             LDP Process Information
@@ -22642,6 +26134,8 @@ class Rcmd(Entity):
             
             	Process Information
             	**type**\: list of  		 :py:class:`Process_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process_>`
+            
+            	**config**\: False
             
             
 
@@ -22679,15 +26173,21 @@ class Rcmd(Entity):
                 	Protocol id
                 	**type**\:  :py:class:`RcmdProtocolId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolId>`
                 
+                	**config**\: False
+                
                 .. attribute:: process_name
                 
                 	Process Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: instance_name
                 
                 	Instance/VRF Name
                 	**type**\: list of  		 :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process_.InstanceName>`
+                
+                	**config**\: False
                 
                 
 
@@ -22730,10 +26230,14 @@ class Rcmd(Entity):
                     	Instance Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_update_time
                     
                     	Last Updated Time
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: total_spf_nos
                     
@@ -22742,12 +26246,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: route_change_spf_nos
                     
                     	Route change spf nos
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: no_route_change_spf_nos
                     
@@ -22756,12 +26264,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: not_interested_spf_nos
                     
                     	Not Interested SPF nos
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: lsp_regeneration_count
                     
@@ -22770,12 +26282,16 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: lsp_regeneration_serial
                     
                     	Last Serial
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: arch_spf_event
                     
@@ -22784,6 +26300,8 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: arch_lsp_regeneration
                     
                     	Archive Lsp regen
@@ -22791,10 +26309,14 @@ class Rcmd(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: instance
                     
                     	Instance Information
                     	**type**\: list of  		 :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process_.InstanceName.Instance>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -22855,25 +26377,35 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: instance_state
                         
                         	Instance State
                         	**type**\:  :py:class:`RcmdShowInstState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstState>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: instance_deleted
                         
                         	Instance Deleted
                         	**type**\:  :py:class:`RcmdBoolYesNo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: fwd_referenced
                         
                         	Forward Referenced
                         	**type**\:  :py:class:`RcmdBoolYesNo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: last_update_time
                         
                         	Last Updated Time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: node_id
                         
@@ -22882,12 +26414,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: spf_offset
                         
                         	SPF Offset
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: total_spf_nos
                         
@@ -22896,12 +26432,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: arch_spf_run
                         
                         	spf run can be archived
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: route_change_spf_nos
                         
@@ -22910,12 +26450,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: no_route_change_spf_nos
                         
                         	No Route change spf nos
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: not_interested_spf_nos
                         
@@ -22924,12 +26468,16 @@ class Rcmd(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_spt_nos
                         
                         	Total spt nos
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -22982,7 +26530,14 @@ class Rcmd(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rcmd.Process.Ldp.Process_.InstanceName.Instance, ['instance_id', 'instance_state', 'instance_deleted', 'fwd_referenced', 'last_update_time', 'node_id', 'spf_offset', 'total_spf_nos', 'arch_spf_run', 'route_change_spf_nos', 'no_route_change_spf_nos', 'not_interested_spf_nos', 'total_spt_nos'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Rcmd()
         return self._top_entity
+
+
 

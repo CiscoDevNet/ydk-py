@@ -24,15 +24,21 @@ class SNMPTARGETMIB(Entity):
     	
     	**type**\:  :py:class:`SnmpTargetObjects <ydk.models.cisco_ios_xe.SNMP_TARGET_MIB.SNMPTARGETMIB.SnmpTargetObjects>`
     
+    	**config**\: False
+    
     .. attribute:: snmptargetaddrtable
     
     	A table of transport addresses to be used in the generation of SNMP messages
     	**type**\:  :py:class:`SnmpTargetAddrTable <ydk.models.cisco_ios_xe.SNMP_TARGET_MIB.SNMPTARGETMIB.SnmpTargetAddrTable>`
     
+    	**config**\: False
+    
     .. attribute:: snmptargetparamstable
     
     	A table of SNMP target information to be used in the generation of SNMP messages
     	**type**\:  :py:class:`SnmpTargetParamsTable <ydk.models.cisco_ios_xe.SNMP_TARGET_MIB.SNMPTARGETMIB.SnmpTargetParamsTable>`
+    
+    	**config**\: False
     
     
 
@@ -82,6 +88,8 @@ class SNMPTARGETMIB(Entity):
         
         	**range:** 0..2147483647
         
+        	**config**\: False
+        
         .. attribute:: snmpunavailablecontexts
         
         	The total number of packets received by the SNMP engine which were dropped because the context contained in the message was unavailable
@@ -89,12 +97,16 @@ class SNMPTARGETMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: snmpunknowncontexts
         
         	The total number of packets received by the SNMP engine which were dropped because the context contained in the message was unknown
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -128,6 +140,7 @@ class SNMPTARGETMIB(Entity):
             self._perform_setattr(SNMPTARGETMIB.SnmpTargetObjects, [u'snmptargetspinlock', u'snmpunavailablecontexts', u'snmpunknowncontexts'], name, value)
 
 
+
     class SnmpTargetAddrTable(Entity):
         """
         A table of transport addresses to be used in the generation
@@ -137,6 +150,8 @@ class SNMPTARGETMIB(Entity):
         
         	A transport address to be used in the generation of SNMP operations.  Entries in the snmpTargetAddrTable are created and deleted using the snmpTargetAddrRowStatus object
         	**type**\: list of  		 :py:class:`SnmpTargetAddrEntry <ydk.models.cisco_ios_xe.SNMP_TARGET_MIB.SNMPTARGETMIB.SnmpTargetAddrTable.SnmpTargetAddrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -180,12 +195,16 @@ class SNMPTARGETMIB(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: snmptargetaddrtdomain
             
             	This object indicates the transport type of the address contained in the snmpTargetAddrTAddress object
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: snmptargetaddrtaddress
             
@@ -194,12 +213,16 @@ class SNMPTARGETMIB(Entity):
             
             	**length:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: snmptargetaddrtimeout
             
             	This object should reflect the expected maximum round trip time for communicating with the transport address defined by this row.  When a message is sent to this address, and a response (if one is expected) is not received within this time period, an implementation may assume that the response will not be delivered.  Note that the time interval that an application waits for a response may actually be derived from the value of this object.  The method for deriving the actual time interval is implementation dependent.  One such method      is to derive the expected round trip time based on a particular retransmission algorithm and on the number of timeouts which have occurred.  The type of message may also be considered when deriving expected round trip times for retransmissions.  For example, if a message is being sent with a securityLevel that indicates both authentication and privacy, the derived value may be increased to compensate for extra processing time spent during authentication and encryption processing
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: snmptargetaddrretrycount
             
@@ -208,10 +231,14 @@ class SNMPTARGETMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: snmptargetaddrtaglist
             
             	This object contains a list of tag values which are used to select target addresses for a particular operation
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: snmptargetaddrparams
             
@@ -220,15 +247,21 @@ class SNMPTARGETMIB(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: snmptargetaddrstoragetype
             
             	The storage type for this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: snmptargetaddrrowstatus
             
             	The status of this conceptual row.  To create a row in this table, a manager must set this object to either createAndGo(4) or createAndWait(5).  Until instances of all corresponding columns are appropriately configured, the value of the corresponding instance of the snmpTargetAddrRowStatus column is 'notReady'.  In particular, a newly created row cannot be made active until the corresponding instances of snmpTargetAddrTDomain, snmpTargetAddrTAddress, and snmpTargetAddrParams have all been set.  The following objects may not be modified while the value of this object is active(1)\:     \- snmpTargetAddrTDomain     \- snmpTargetAddrTAddress An attempt to set these objects while the value of snmpTargetAddrRowStatus is active(1) will result in an inconsistentValue error
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -274,6 +307,8 @@ class SNMPTARGETMIB(Entity):
                 self._perform_setattr(SNMPTARGETMIB.SnmpTargetAddrTable.SnmpTargetAddrEntry, [u'snmptargetaddrname', u'snmptargetaddrtdomain', u'snmptargetaddrtaddress', u'snmptargetaddrtimeout', u'snmptargetaddrretrycount', u'snmptargetaddrtaglist', u'snmptargetaddrparams', u'snmptargetaddrstoragetype', u'snmptargetaddrrowstatus'], name, value)
 
 
+
+
     class SnmpTargetParamsTable(Entity):
         """
         A table of SNMP target information to be used
@@ -283,6 +318,8 @@ class SNMPTARGETMIB(Entity):
         
         	A set of SNMP target information.  Entries in the snmpTargetParamsTable are created and deleted using the snmpTargetParamsRowStatus object
         	**type**\: list of  		 :py:class:`SnmpTargetParamsEntry <ydk.models.cisco_ios_xe.SNMP_TARGET_MIB.SNMPTARGETMIB.SnmpTargetParamsTable.SnmpTargetParamsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -325,12 +362,16 @@ class SNMPTARGETMIB(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: snmptargetparamsmpmodel
             
             	The Message Processing Model to be used when generating SNMP messages using this entry
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: snmptargetparamssecuritymodel
             
@@ -339,25 +380,35 @@ class SNMPTARGETMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: snmptargetparamssecurityname
             
             	The securityName which identifies the Principal on whose behalf SNMP messages will be generated using this entry
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: snmptargetparamssecuritylevel
             
             	The Level of Security to be used when generating SNMP messages using this entry
             	**type**\:  :py:class:`SnmpSecurityLevel <ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB.SnmpSecurityLevel>`
             
+            	**config**\: False
+            
             .. attribute:: snmptargetparamsstoragetype
             
             	The storage type for this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: snmptargetparamsrowstatus
             
             	The status of this conceptual row.  To create a row in this table, a manager must set this object to either createAndGo(4) or createAndWait(5).  Until instances of all corresponding columns are appropriately configured, the value of the corresponding instance of the snmpTargetParamsRowStatus column is 'notReady'.  In particular, a newly created row cannot be made      active until the corresponding snmpTargetParamsMPModel, snmpTargetParamsSecurityModel, snmpTargetParamsSecurityName, and snmpTargetParamsSecurityLevel have all been set. The following objects may not be modified while the value of this object is active(1)\:     \- snmpTargetParamsMPModel     \- snmpTargetParamsSecurityModel     \- snmpTargetParamsSecurityName     \- snmpTargetParamsSecurityLevel An attempt to set these objects while the value of snmpTargetParamsRowStatus is active(1) will result in an inconsistentValue error
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -398,7 +449,11 @@ class SNMPTARGETMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPTARGETMIB.SnmpTargetParamsTable.SnmpTargetParamsEntry, [u'snmptargetparamsname', u'snmptargetparamsmpmodel', u'snmptargetparamssecuritymodel', u'snmptargetparamssecurityname', u'snmptargetparamssecuritylevel', u'snmptargetparamsstoragetype', u'snmptargetparamsrowstatus'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = SNMPTARGETMIB()
         return self._top_entity
+
+
 

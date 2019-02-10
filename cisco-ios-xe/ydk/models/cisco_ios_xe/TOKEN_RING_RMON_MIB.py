@@ -44,50 +44,70 @@ class TOKENRINGRMONMIB(Entity):
     	A list of Mac\-Layer Token Ring statistics      entries
     	**type**\:  :py:class:`TokenRingMLStatsTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingMLStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: tokenringpstatstable
     
     	A list of promiscuous Token Ring statistics entries
     	**type**\:  :py:class:`TokenRingPStatsTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingPStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: tokenringmlhistorytable
     
     	A list of Mac\-Layer Token Ring statistics      entries
     	**type**\:  :py:class:`TokenRingMLHistoryTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingMLHistoryTable>`
     
+    	**config**\: False
+    
     .. attribute:: tokenringphistorytable
     
     	A list of promiscuous Token Ring statistics entries
     	**type**\:  :py:class:`TokenRingPHistoryTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingPHistoryTable>`
+    
+    	**config**\: False
     
     .. attribute:: ringstationcontroltable
     
     	A list of ringStation table control entries
     	**type**\:  :py:class:`RingStationControlTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationControlTable>`
     
+    	**config**\: False
+    
     .. attribute:: ringstationtable
     
     	A list of ring station entries.  An entry will exist for each station that is now or has      previously been detected as physically present on this ring
     	**type**\:  :py:class:`RingStationTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationTable>`
+    
+    	**config**\: False
     
     .. attribute:: ringstationordertable
     
     	A list of ring station entries for stations in the ring poll, ordered by their ring\-order
     	**type**\:  :py:class:`RingStationOrderTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationOrderTable>`
     
+    	**config**\: False
+    
     .. attribute:: ringstationconfigcontroltable
     
     	A list of ring station configuration control entries
     	**type**\:  :py:class:`RingStationConfigControlTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationConfigControlTable>`
+    
+    	**config**\: False
     
     .. attribute:: ringstationconfigtable
     
     	A list of configuration entries for stations on a ring monitored by this probe
     	**type**\:  :py:class:`RingStationConfigTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationConfigTable>`
     
+    	**config**\: False
+    
     .. attribute:: sourceroutingstatstable
     
     	A list of source routing statistics entries
     	**type**\:  :py:class:`SourceRoutingStatsTable <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.SourceRoutingStatsTable>`
+    
+    	**config**\: False
     
     
 
@@ -168,6 +188,8 @@ class TOKENRINGRMONMIB(Entity):
         	A collection of Mac\-Layer statistics kept for a particular Token Ring interface
         	**type**\: list of  		 :py:class:`TokenRingMLStatsEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingMLStatsTable.TokenRingMLStatsEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -206,12 +228,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatsdatasource
             
             	This object identifies the source of the data that this tokenRingMLStats entry is configured to analyze.  This source can be any tokenRing interface on this device.  In order to identify a particular interface, this object shall identify the instance of the ifIndex object, defined in MIB\-II [3], for the desired interface.  For example, if an entry were to receive data from interface #1, this object would be set to ifIndex.1.  The statistics in this group reflect all error reports on the local network segment attached to the identified interface.  This object may not be modified if the associated tokenRingMLStatsStatus object is equal to valid(1)
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatsdropevents
             
@@ -220,12 +246,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatsmacoctets
             
             	The total number of octets of data in MAC packets (excluding those that were not good frames) received on the network (excluding framing bits but including FCS octets)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatsmacpkts
             
@@ -234,12 +264,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatsringpurgeevents
             
             	The total number of times that the ring enters the ring purge state from normal ring state.  The ring purge state that comes in response to the claim token or beacon state is not counted
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatsringpurgepkts
             
@@ -248,12 +282,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatsbeaconevents
             
             	The total number of times that the ring enters a beaconing state (beaconFrameStreamingState, beaconBitStreamingState,      beaconSetRecoveryModeState, or beaconRingSignalLossState) from a non\-beaconing state.  Note that a change of the source address of the beacon packet does not constitute a new beacon event
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatsbeacontime
             
@@ -262,12 +300,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatsbeaconpkts
             
             	The total number of beacon MAC packets detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatsclaimtokenevents
             
@@ -276,12 +318,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatsclaimtokenpkts
             
             	The total number of claim token MAC packets detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatsnaunchanges
             
@@ -290,12 +336,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatslineerrors
             
             	The total number of line errors reported in error reporting packets detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatsinternalerrors
             
@@ -304,12 +354,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatsbursterrors
             
             	The total number of burst errors reported in error reporting packets detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatsacerrors
             
@@ -318,12 +372,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatsaborterrors
             
             	The total number of abort delimiters reported in error reporting packets detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatslostframeerrors
             
@@ -332,12 +390,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatscongestionerrors
             
             	The total number of receive congestion errors reported in error reporting packets detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatsframecopiederrors
             
@@ -346,12 +408,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatsfrequencyerrors
             
             	The total number of frequency errors reported in error reporting packets detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatstokenerrors
             
@@ -360,12 +426,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatssofterrorreports
             
             	The total number of soft error report frames detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatsringpollevents
             
@@ -374,15 +444,21 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatsowner
             
             	The entity that configured this entry and is therefore using the resources assigned to it
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatsstatus
             
             	The status of this tokenRingMLStats entry
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlstatsdroppedframes
             
@@ -391,12 +467,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlstatscreatetime
             
             	The value of sysUpTime when this control entry was last activated. This can be used by the management station to ensure that the table has not been deleted and recreated between polls
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -478,7 +558,9 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLStatsTable.TokenRingMLStatsEntry, [u'tokenringmlstatsindex', u'tokenringmlstatsdatasource', u'tokenringmlstatsdropevents', u'tokenringmlstatsmacoctets', u'tokenringmlstatsmacpkts', u'tokenringmlstatsringpurgeevents', u'tokenringmlstatsringpurgepkts', u'tokenringmlstatsbeaconevents', u'tokenringmlstatsbeacontime', u'tokenringmlstatsbeaconpkts', u'tokenringmlstatsclaimtokenevents', u'tokenringmlstatsclaimtokenpkts', u'tokenringmlstatsnaunchanges', u'tokenringmlstatslineerrors', u'tokenringmlstatsinternalerrors', u'tokenringmlstatsbursterrors', u'tokenringmlstatsacerrors', u'tokenringmlstatsaborterrors', u'tokenringmlstatslostframeerrors', u'tokenringmlstatscongestionerrors', u'tokenringmlstatsframecopiederrors', u'tokenringmlstatsfrequencyerrors', u'tokenringmlstatstokenerrors', u'tokenringmlstatssofterrorreports', u'tokenringmlstatsringpollevents', u'tokenringmlstatsowner', u'tokenringmlstatsstatus', u'tokenringmlstatsdroppedframes', u'tokenringmlstatscreatetime'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLStatsTable.TokenRingMLStatsEntry, [u'tokenringmlstatsindex', u'tokenringmlstatsdatasource', u'tokenringmlstatsdropevents', u'tokenringmlstatsmacoctets', u'tokenringmlstatsmacpkts', u'tokenringmlstatsringpurgeevents', u'tokenringmlstatsringpurgepkts', u'tokenringmlstatsbeaconevents', u'tokenringmlstatsbeacontime', u'tokenringmlstatsbeaconpkts', u'tokenringmlstatsclaimtokenevents', u'tokenringmlstatsclaimtokenpkts', u'tokenringmlstatsnaunchanges', u'tokenringmlstatslineerrors', u'tokenringmlstatsinternalerrors', u'tokenringmlstatsbursterrors', u'tokenringmlstatsacerrors', u'tokenringmlstatsaborterrors', u'tokenringmlstatslostframeerrors', u'tokenringmlstatscongestionerrors', u'tokenringmlstatsframecopiederrors', u'tokenringmlstatsfrequencyerrors', u'tokenringmlstatstokenerrors', u'tokenringmlstatssofterrorreports', u'tokenringmlstatsringpollevents', u'tokenringmlstatsowner', u'tokenringmlstatsstatus', 'tokenringmlstatsdroppedframes', 'tokenringmlstatscreatetime'], name, value)
+
+
 
 
     class TokenRingPStatsTable(Entity):
@@ -490,6 +572,8 @@ class TOKENRINGRMONMIB(Entity):
         
         	A collection of promiscuous statistics kept for non\-MAC packets on a particular Token Ring interface
         	**type**\: list of  		 :py:class:`TokenRingPStatsEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingPStatsTable.TokenRingPStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -530,12 +614,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: tokenringpstatsdatasource
             
             	This object identifies the source of the data that this tokenRingPStats entry is configured to analyze.  This source can be any tokenRing interface on this device.  In order to identify a particular interface, this object shall identify the instance of the ifIndex object, defined in MIB\-II [3], for the desired interface.  For example, if an entry were to receive data from interface #1, this object would be set to ifIndex.1.  The statistics in this group reflect all non\-MAC packets on the local network segment attached to the identified interface.  This object may not be modified if the associated tokenRingPStatsStatus object is equal to valid(1)
             	**type**\: str
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            
+            	**config**\: False
             
             .. attribute:: tokenringpstatsdropevents
             
@@ -544,12 +632,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringpstatsdataoctets
             
             	The total number of octets of data in good frames received on the network (excluding framing bits but including FCS octets) in non\-MAC packets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringpstatsdatapkts
             
@@ -558,12 +650,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringpstatsdatabroadcastpkts
             
             	The total number of good non\-MAC frames received that were directed to an LLC broadcast address (0xFFFFFFFFFFFF or 0xC000FFFFFFFF)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringpstatsdatamulticastpkts
             
@@ -572,12 +668,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringpstatsdatapkts18to63octets
             
             	The total number of good non\-MAC frames received that were between 18 and 63 octets in length inclusive, excluding framing bits but including FCS octets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringpstatsdatapkts64to127octets
             
@@ -586,12 +686,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringpstatsdatapkts128to255octets
             
             	The total number of good non\-MAC frames received that were between 128 and 255 octets in length inclusive, excluding framing bits but including FCS octets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringpstatsdatapkts256to511octets
             
@@ -600,12 +704,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringpstatsdatapkts512to1023octets
             
             	The total number of good non\-MAC frames received that were between 512 and 1023 octets in length inclusive, excluding framing bits but including FCS octets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringpstatsdatapkts1024to2047octets
             
@@ -614,12 +722,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringpstatsdatapkts2048to4095octets
             
             	The total number of good non\-MAC frames received that were between 2048 and 4095 octets in length inclusive, excluding framing bits but including FCS octets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringpstatsdatapkts4096to8191octets
             
@@ -628,12 +740,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringpstatsdatapkts8192to18000octets
             
             	The total number of good non\-MAC frames received that were between 8192 and 18000 octets in length inclusive, excluding framing bits but including FCS octets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringpstatsdatapktsgreaterthan18000octets
             
@@ -642,15 +758,21 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringpstatsowner
             
             	The entity that configured this entry and is therefore using the resources assigned to it
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: tokenringpstatsstatus
             
             	The status of this tokenRingPStats entry
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             .. attribute:: tokenringpstatsdroppedframes
             
@@ -659,12 +781,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringpstatscreatetime
             
             	The value of sysUpTime when this control entry was last activated. This can be used by the management station to ensure that the table has not been deleted and recreated between polls
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -730,7 +856,9 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.TokenRingPStatsTable.TokenRingPStatsEntry, [u'tokenringpstatsindex', u'tokenringpstatsdatasource', u'tokenringpstatsdropevents', u'tokenringpstatsdataoctets', u'tokenringpstatsdatapkts', u'tokenringpstatsdatabroadcastpkts', u'tokenringpstatsdatamulticastpkts', u'tokenringpstatsdatapkts18to63octets', u'tokenringpstatsdatapkts64to127octets', u'tokenringpstatsdatapkts128to255octets', u'tokenringpstatsdatapkts256to511octets', u'tokenringpstatsdatapkts512to1023octets', u'tokenringpstatsdatapkts1024to2047octets', u'tokenringpstatsdatapkts2048to4095octets', u'tokenringpstatsdatapkts4096to8191octets', u'tokenringpstatsdatapkts8192to18000octets', u'tokenringpstatsdatapktsgreaterthan18000octets', u'tokenringpstatsowner', u'tokenringpstatsstatus', u'tokenringpstatsdroppedframes', u'tokenringpstatscreatetime'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.TokenRingPStatsTable.TokenRingPStatsEntry, [u'tokenringpstatsindex', u'tokenringpstatsdatasource', u'tokenringpstatsdropevents', u'tokenringpstatsdataoctets', u'tokenringpstatsdatapkts', u'tokenringpstatsdatabroadcastpkts', u'tokenringpstatsdatamulticastpkts', u'tokenringpstatsdatapkts18to63octets', u'tokenringpstatsdatapkts64to127octets', u'tokenringpstatsdatapkts128to255octets', u'tokenringpstatsdatapkts256to511octets', u'tokenringpstatsdatapkts512to1023octets', u'tokenringpstatsdatapkts1024to2047octets', u'tokenringpstatsdatapkts2048to4095octets', u'tokenringpstatsdatapkts4096to8191octets', u'tokenringpstatsdatapkts8192to18000octets', u'tokenringpstatsdatapktsgreaterthan18000octets', u'tokenringpstatsowner', u'tokenringpstatsstatus', 'tokenringpstatsdroppedframes', 'tokenringpstatscreatetime'], name, value)
+
+
 
 
     class TokenRingMLHistoryTable(Entity):
@@ -747,6 +875,8 @@ class TOKENRINGRMONMIB(Entity):
         
         	A collection of Mac\-Layer statistics kept for a particular Token Ring interface
         	**type**\: list of  		 :py:class:`TokenRingMLHistoryEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingMLHistoryTable.TokenRingMLHistoryEntry>`
+        
+        	**config**\: False
         
         
 
@@ -786,12 +916,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistorysampleindex  (key)
             
             	An index that uniquely identifies the particular Mac\-Layer sample this entry represents among all Mac\-Layer samples associated with the same historyControlEntry.  This index starts at 1 and increases by one as each new sample is taken
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlhistoryintervalstart
             
@@ -800,12 +934,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistorydropevents
             
             	The total number of events in which packets were      dropped by the probe due to lack of resources during this sampling interval.  Note that this number is not necessarily the number of packets dropped, it is just the number of times this condition has been detected
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlhistorymacoctets
             
@@ -814,12 +952,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistorymacpkts
             
             	The total number of MAC packets (excluding those that were not good frames) received during this sampling interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlhistoryringpurgeevents
             
@@ -828,12 +970,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistoryringpurgepkts
             
             	The total number of Ring Purge MAC packets detected by the probe during this sampling      interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlhistorybeaconevents
             
@@ -842,12 +988,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistorybeacontime
             
             	The amount of time that the ring has been in the beaconing state during this sampling interval
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlhistorybeaconpkts
             
@@ -856,12 +1006,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistoryclaimtokenevents
             
             	The total number of times that the ring enters the claim token state from normal ring state or ring purge state during this sampling interval. The claim token state that comes from the beacon state is not counted
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlhistoryclaimtokenpkts
             
@@ -870,12 +1024,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistorynaunchanges
             
             	The total number of NAUN changes detected by the probe during this sampling interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlhistorylineerrors
             
@@ -884,12 +1042,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistoryinternalerrors
             
             	The total number of adapter internal errors reported in error reporting packets detected by the probe during this sampling interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlhistorybursterrors
             
@@ -898,12 +1060,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistoryacerrors
             
             	The total number of AC (Address Copied) errors reported in error reporting packets detected by the probe during this sampling interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlhistoryaborterrors
             
@@ -912,12 +1078,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistorylostframeerrors
             
             	The total number of lost frame errors reported in error reporting packets detected by the probe during this sampling interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlhistorycongestionerrors
             
@@ -926,12 +1096,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistoryframecopiederrors
             
             	The total number of frame copied errors reported in error reporting packets detected by the probe during this sampling interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlhistoryfrequencyerrors
             
@@ -940,12 +1114,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistorytokenerrors
             
             	The total number of token errors reported in error reporting packets detected by the probe during this sampling interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringmlhistorysofterrorreports
             
@@ -954,6 +1132,8 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistoryringpollevents
             
             	The total number of ring poll events detected by the probe during this sampling interval
@@ -961,12 +1141,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringmlhistoryactivestations
             
             	The maximum number of active stations on the ring detected by the probe during this sampling      interval
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             
 
@@ -1047,6 +1231,8 @@ class TOKENRINGRMONMIB(Entity):
                 self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLHistoryTable.TokenRingMLHistoryEntry, [u'tokenringmlhistoryindex', u'tokenringmlhistorysampleindex', u'tokenringmlhistoryintervalstart', u'tokenringmlhistorydropevents', u'tokenringmlhistorymacoctets', u'tokenringmlhistorymacpkts', u'tokenringmlhistoryringpurgeevents', u'tokenringmlhistoryringpurgepkts', u'tokenringmlhistorybeaconevents', u'tokenringmlhistorybeacontime', u'tokenringmlhistorybeaconpkts', u'tokenringmlhistoryclaimtokenevents', u'tokenringmlhistoryclaimtokenpkts', u'tokenringmlhistorynaunchanges', u'tokenringmlhistorylineerrors', u'tokenringmlhistoryinternalerrors', u'tokenringmlhistorybursterrors', u'tokenringmlhistoryacerrors', u'tokenringmlhistoryaborterrors', u'tokenringmlhistorylostframeerrors', u'tokenringmlhistorycongestionerrors', u'tokenringmlhistoryframecopiederrors', u'tokenringmlhistoryfrequencyerrors', u'tokenringmlhistorytokenerrors', u'tokenringmlhistorysofterrorreports', u'tokenringmlhistoryringpollevents', u'tokenringmlhistoryactivestations'], name, value)
 
 
+
+
     class TokenRingPHistoryTable(Entity):
         """
         A list of promiscuous Token Ring statistics
@@ -1056,6 +1242,8 @@ class TOKENRINGRMONMIB(Entity):
         
         	A collection of promiscuous statistics kept for a particular Token Ring interface
         	**type**\: list of  		 :py:class:`TokenRingPHistoryEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.TokenRingPHistoryTable.TokenRingPHistoryEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1095,12 +1283,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: tokenringphistorysampleindex  (key)
             
             	An index that uniquely identifies the particular sample this entry represents among all samples associated with the same historyControlEntry. This index starts at 1 and increases by one as each new sample is taken
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: tokenringphistoryintervalstart
             
@@ -1109,12 +1301,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringphistorydropevents
             
             	The total number of events in which packets were dropped by the probe due to lack of resources during this sampling interval.  Note that this number is not necessarily the number of packets dropped, it is just the number of times this condition has been detected
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringphistorydataoctets
             
@@ -1123,12 +1319,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringphistorydatapkts
             
             	The total number of good non\-MAC frames received during this sampling interval
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringphistorydatabroadcastpkts
             
@@ -1137,12 +1337,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringphistorydatamulticastpkts
             
             	The total number of good non\-MAC frames received during this sampling interval that were directed to a local or global multicast or functional address.  Note that this number does not include packets directed to the broadcast address
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringphistorydatapkts18to63octets
             
@@ -1151,12 +1355,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringphistorydatapkts64to127octets
             
             	The total number of good non\-MAC frames received during this sampling interval that were between 64 and 127 octets in length inclusive, excluding framing bits but including FCS octets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringphistorydatapkts128to255octets
             
@@ -1165,12 +1373,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringphistorydatapkts256to511octets
             
             	The total number of good non\-MAC frames received during this sampling interval that were between      256 and 511 octets in length inclusive, excluding framing bits but including FCS octets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringphistorydatapkts512to1023octets
             
@@ -1179,12 +1391,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringphistorydatapkts1024to2047octets
             
             	The total number of good non\-MAC frames received during this sampling interval that were between 1024 and 2047 octets in length inclusive, excluding framing bits but including FCS octets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringphistorydatapkts2048to4095octets
             
@@ -1193,12 +1409,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringphistorydatapkts4096to8191octets
             
             	The total number of good non\-MAC frames received during this sampling interval that were between 4096 and 8191 octets in length inclusive, excluding framing bits but including FCS octets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: tokenringphistorydatapkts8192to18000octets
             
@@ -1207,12 +1427,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: tokenringphistorydatapktsgreaterthan18000octets
             
             	The total number of good non\-MAC frames received during this sampling interval that were greater than 18000 octets in length, excluding framing bits but including FCS octets
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1275,6 +1499,8 @@ class TOKENRINGRMONMIB(Entity):
                 self._perform_setattr(TOKENRINGRMONMIB.TokenRingPHistoryTable.TokenRingPHistoryEntry, [u'tokenringphistoryindex', u'tokenringphistorysampleindex', u'tokenringphistoryintervalstart', u'tokenringphistorydropevents', u'tokenringphistorydataoctets', u'tokenringphistorydatapkts', u'tokenringphistorydatabroadcastpkts', u'tokenringphistorydatamulticastpkts', u'tokenringphistorydatapkts18to63octets', u'tokenringphistorydatapkts64to127octets', u'tokenringphistorydatapkts128to255octets', u'tokenringphistorydatapkts256to511octets', u'tokenringphistorydatapkts512to1023octets', u'tokenringphistorydatapkts1024to2047octets', u'tokenringphistorydatapkts2048to4095octets', u'tokenringphistorydatapkts4096to8191octets', u'tokenringphistorydatapkts8192to18000octets', u'tokenringphistorydatapktsgreaterthan18000octets'], name, value)
 
 
+
+
     class RingStationControlTable(Entity):
         """
         A list of ringStation table control entries.
@@ -1283,6 +1509,8 @@ class TOKENRINGRMONMIB(Entity):
         
         	A list of parameters that set up the discovery of stations on a particular interface and the collection of statistics about these stations
         	**type**\: list of  		 :py:class:`RingStationControlEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationControlTable.RingStationControlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1323,12 +1551,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: ringstationcontroltablesize
             
             	The number of ringStationEntries in the ringStationTable associated with this ringStationControlEntry
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: ringstationcontrolactivestations
             
@@ -1337,10 +1569,14 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ringstationcontrolringstate
             
             	The current status of this ring
             	**type**\:  :py:class:`RingStationControlRingState <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationControlTable.RingStationControlEntry.RingStationControlRingState>`
+            
+            	**config**\: False
             
             .. attribute:: ringstationcontrolbeaconsender
             
@@ -1349,12 +1585,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**length:** 6
             
+            	**config**\: False
+            
             .. attribute:: ringstationcontrolbeaconnaun
             
             	The address of the NAUN in the last beacon frame received by the probe on this ring.  If no beacon frames have been received, this object shall be equal to six octets of zero
             	**type**\: str
             
             	**length:** 6
+            
+            	**config**\: False
             
             .. attribute:: ringstationcontrolactivemonitor
             
@@ -1363,6 +1603,8 @@ class TOKENRINGRMONMIB(Entity):
             
             	**length:** 6
             
+            	**config**\: False
+            
             .. attribute:: ringstationcontrolorderchanges
             
             	The number of add and delete events in the ringStationOrderTable optionally associated with this ringStationControlEntry
@@ -1370,15 +1612,21 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ringstationcontrolowner
             
             	The entity that configured this entry and is therefore using the resources assigned to it
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ringstationcontrolstatus
             
             	The status of this ringStationControl entry.  If this object is not equal to valid(1), all associated entries in the ringStationTable shall be deleted by the agent
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ringstationcontroldroppedframes
             
@@ -1387,12 +1635,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ringstationcontrolcreatetime
             
             	The value of sysUpTime when this control entry was last activated. This can be used by the management station to ensure that the table has not been deleted and recreated between polls
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1440,7 +1692,7 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.RingStationControlTable.RingStationControlEntry, [u'ringstationcontrolifindex', u'ringstationcontroltablesize', u'ringstationcontrolactivestations', u'ringstationcontrolringstate', u'ringstationcontrolbeaconsender', u'ringstationcontrolbeaconnaun', u'ringstationcontrolactivemonitor', u'ringstationcontrolorderchanges', u'ringstationcontrolowner', u'ringstationcontrolstatus', u'ringstationcontroldroppedframes', u'ringstationcontrolcreatetime'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.RingStationControlTable.RingStationControlEntry, [u'ringstationcontrolifindex', u'ringstationcontroltablesize', u'ringstationcontrolactivestations', u'ringstationcontrolringstate', u'ringstationcontrolbeaconsender', u'ringstationcontrolbeaconnaun', u'ringstationcontrolactivemonitor', u'ringstationcontrolorderchanges', u'ringstationcontrolowner', u'ringstationcontrolstatus', 'ringstationcontroldroppedframes', 'ringstationcontrolcreatetime'], name, value)
 
             class RingStationControlRingState(Enum):
                 """
@@ -1480,6 +1732,8 @@ class TOKENRINGRMONMIB(Entity):
 
 
 
+
+
     class RingStationTable(Entity):
         """
         A list of ring station entries.  An entry will
@@ -1496,6 +1750,8 @@ class TOKENRINGRMONMIB(Entity):
         
         	A collection of statistics for a particular station that has been discovered on a ring monitored by this device
         	**type**\: list of  		 :py:class:`RingStationEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationTable.RingStationEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1536,12 +1792,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ringstationmacaddress  (key)
             
             	The physical address of this station
             	**type**\: str
             
             	**length:** 6
+            
+            	**config**\: False
             
             .. attribute:: ringstationlastnaun
             
@@ -1550,10 +1810,14 @@ class TOKENRINGRMONMIB(Entity):
             
             	**length:** 6
             
+            	**config**\: False
+            
             .. attribute:: ringstationstationstatus
             
             	The status of this station on the ring
             	**type**\:  :py:class:`RingStationStationStatus <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationTable.RingStationEntry.RingStationStationStatus>`
+            
+            	**config**\: False
             
             .. attribute:: ringstationlastentertime
             
@@ -1562,12 +1826,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ringstationlastexittime
             
             	The value of sysUpTime at the time the probe detected that this station last exited the ring. If the time is unknown, this value shall be zero
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ringstationduplicateaddresses
             
@@ -1576,12 +1844,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ringstationinlineerrors
             
             	The total number of line errors reported by this station in error reporting packets detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ringstationoutlineerrors
             
@@ -1590,12 +1862,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ringstationinternalerrors
             
             	The total number of adapter internal errors reported by this station in error reporting packets detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ringstationinbursterrors
             
@@ -1604,12 +1880,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ringstationoutbursterrors
             
             	The total number of burst errors reported in error reporting packets sent by the nearest active downstream neighbor of this station and detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ringstationacerrors
             
@@ -1618,12 +1898,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ringstationaborterrors
             
             	The total number of abort delimiters reported by this station in error reporting packets detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ringstationlostframeerrors
             
@@ -1632,12 +1916,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ringstationcongestionerrors
             
             	The total number of receive congestion errors reported by this station in error reporting packets detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ringstationframecopiederrors
             
@@ -1646,12 +1934,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ringstationfrequencyerrors
             
             	The total number of frequency errors reported by this station in error reporting packets detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ringstationtokenerrors
             
@@ -1660,12 +1952,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ringstationinbeaconerrors
             
             	The total number of beacon frames sent by this station and detected by the probe
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: ringstationoutbeaconerrors
             
@@ -1674,12 +1970,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ringstationinsertions
             
             	The number of times the probe detected this station inserting onto the ring
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1771,6 +2071,8 @@ class TOKENRINGRMONMIB(Entity):
 
 
 
+
+
     class RingStationOrderTable(Entity):
         """
         A list of ring station entries for stations in
@@ -1780,6 +2082,8 @@ class TOKENRINGRMONMIB(Entity):
         
         	A collection of statistics for a particular      station that is active on a ring monitored by this device.  This table will contain information for every interface that has a ringStationControlStatus equal to valid
         	**type**\: list of  		 :py:class:`RingStationOrderEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationOrderTable.RingStationOrderEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1827,6 +2131,8 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ringstationorderorderindex  (key)
             
             	This index denotes the location of this station with respect to other stations on the ring.  This index is one more than the number of hops downstream that this station is from the rmon probe.  The rmon probe itself gets the value one
@@ -1834,12 +2140,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ringstationordermacaddress
             
             	The physical address of this station
             	**type**\: str
             
             	**length:** 6
+            
+            	**config**\: False
             
             
 
@@ -1872,6 +2182,8 @@ class TOKENRINGRMONMIB(Entity):
                 self._perform_setattr(TOKENRINGRMONMIB.RingStationOrderTable.RingStationOrderEntry, [u'ringstationorderifindex', u'ringstationorderorderindex', u'ringstationordermacaddress'], name, value)
 
 
+
+
     class RingStationConfigControlTable(Entity):
         """
         A list of ring station configuration control
@@ -1881,6 +2193,8 @@ class TOKENRINGRMONMIB(Entity):
         
         	This entry controls active management of stations by the probe.  One entry exists in this table for each active station in the ringStationTable
         	**type**\: list of  		 :py:class:`RingStationConfigControlEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationConfigControlTable.RingStationConfigControlEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1921,6 +2235,8 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ringstationconfigcontrolmacaddress  (key)
             
             	The physical address of this station
@@ -1928,15 +2244,21 @@ class TOKENRINGRMONMIB(Entity):
             
             	**length:** 6
             
+            	**config**\: False
+            
             .. attribute:: ringstationconfigcontrolremove
             
             	Setting this object to `removing(2)' causes a Remove Station MAC frame to be sent.  The agent will set this object to `stable(1)' after processing the request
             	**type**\:  :py:class:`RingStationConfigControlRemove <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationConfigControlTable.RingStationConfigControlEntry.RingStationConfigControlRemove>`
             
+            	**config**\: False
+            
             .. attribute:: ringstationconfigcontrolupdatestats
             
             	Setting this object to `updating(2)' causes the configuration information associate with this entry to be updated.  The agent will set this object to `stable(1)' after processing the request
             	**type**\:  :py:class:`RingStationConfigControlUpdateStats <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationConfigControlTable.RingStationConfigControlEntry.RingStationConfigControlUpdateStats>`
+            
+            	**config**\: False
             
             
 
@@ -2019,6 +2341,8 @@ class TOKENRINGRMONMIB(Entity):
 
 
 
+
+
     class RingStationConfigTable(Entity):
         """
         A list of configuration entries for stations on a
@@ -2028,6 +2352,8 @@ class TOKENRINGRMONMIB(Entity):
         
         	A collection of statistics for a particular station that has been discovered on a ring monitored by this probe
         	**type**\: list of  		 :py:class:`RingStationConfigEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.RingStationConfigTable.RingStationConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2068,12 +2394,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: ringstationconfigmacaddress  (key)
             
             	The physical address of this station
             	**type**\: str
             
             	**length:** 6
+            
+            	**config**\: False
             
             .. attribute:: ringstationconfigupdatetime
             
@@ -2082,12 +2412,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ringstationconfiglocation
             
             	The assigned physical location of this station
             	**type**\: str
             
             	**length:** 4
+            
+            	**config**\: False
             
             .. attribute:: ringstationconfigmicrocode
             
@@ -2096,6 +2430,8 @@ class TOKENRINGRMONMIB(Entity):
             
             	**length:** 10
             
+            	**config**\: False
+            
             .. attribute:: ringstationconfiggroupaddress
             
             	The low\-order 4 octets of the group address recognized by this station
@@ -2103,12 +2439,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             .. attribute:: ringstationconfigfunctionaladdress
             
             	the functional addresses recognized by this station
             	**type**\: str
             
             	**length:** 4
+            
+            	**config**\: False
             
             
 
@@ -2149,6 +2489,8 @@ class TOKENRINGRMONMIB(Entity):
                 self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigTable.RingStationConfigEntry, [u'ringstationconfigifindex', u'ringstationconfigmacaddress', u'ringstationconfigupdatetime', u'ringstationconfiglocation', u'ringstationconfigmicrocode', u'ringstationconfiggroupaddress', u'ringstationconfigfunctionaladdress'], name, value)
 
 
+
+
     class SourceRoutingStatsTable(Entity):
         """
         A list of source routing statistics entries.
@@ -2157,6 +2499,8 @@ class TOKENRINGRMONMIB(Entity):
         
         	A collection of source routing statistics kept for a particular Token Ring interface
         	**type**\: list of  		 :py:class:`SourceRoutingStatsEntry <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.TOKENRINGRMONMIB.SourceRoutingStatsTable.SourceRoutingStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2196,12 +2540,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstatsringnumber
             
             	The ring number of the ring monitored by this entry.  When any object in this entry is created, the probe will attempt to discover the ring number.  Only after the ring number is discovered will this object be created.  After creating an object in this entry, the management station should poll this object to detect when it is created.  Only after this object is created can the management station set the sourceRoutingStatsStatus entry to valid(1)
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: sourceroutingstatsinframes
             
@@ -2210,12 +2558,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstatsoutframes
             
             	The count of frames sent from this ring to another ring
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sourceroutingstatsthroughframes
             
@@ -2224,12 +2576,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstatsallroutesbroadcastframes
             
             	The total number of good frames received that were All Routes Broadcast
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sourceroutingstatssingleroutebroadcastframes
             
@@ -2238,12 +2594,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstatsinoctets
             
             	The count of octets in good frames sent into this ring from another ring
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sourceroutingstatsoutoctets
             
@@ -2252,12 +2612,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstatsthroughoctets
             
             	The count of octets in good frames sent another ring, through this ring, to another ring
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sourceroutingstatsallroutesbroadcastoctets
             
@@ -2266,12 +2630,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstatssingleroutesbroadcastoctets
             
             	The total number of octets in good frames received that were Single Route Broadcast
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sourceroutingstatslocalllcframes
             
@@ -2280,12 +2648,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstats1hopframes
             
             	The total number of frames received whose route had 1 hop, were not All Route Broadcast Frames, and whose source or destination were on this ring (i.e. frames that had a RIF field and had this ring number in the first or last entry of the RIF field)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sourceroutingstats2hopsframes
             
@@ -2294,12 +2666,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstats3hopsframes
             
             	The total number of frames received whose route had 3 hops, were not All Route Broadcast Frames, and whose source or destination were on this ring (i.e. frames that had a RIF field and had this ring number in the first or last entry of the RIF field)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sourceroutingstats4hopsframes
             
@@ -2308,12 +2684,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstats5hopsframes
             
             	The total number of frames received whose route had 5 hops, were not All Route Broadcast Frames, and whose source or destination were on this ring (i.e. frames that had a RIF field and had this ring number in the first or last entry of the RIF field)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sourceroutingstats6hopsframes
             
@@ -2322,12 +2702,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstats7hopsframes
             
             	The total number of frames received whose route had 7 hops, were not All Route Broadcast Frames, and whose source or destination were on this ring (i.e. frames that had a RIF field and had this ring number in the first or last entry of the RIF field)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sourceroutingstats8hopsframes
             
@@ -2336,6 +2720,8 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstatsmorethan8hopsframes
             
             	The total number of frames received whose route had more than 8 hops, were not All Route Broadcast Frames, and whose source or destination were on this ring (i.e. frames that had a RIF field and had this ring number in the first or last entry of the RIF field)
@@ -2343,15 +2729,21 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstatsowner
             
             	The entity that configured this entry and is therefore using the resources assigned to it
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstatsstatus
             
             	The status of this sourceRoutingStats entry
             	**type**\:  :py:class:`EntryStatus <ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB.EntryStatus>`
+            
+            	**config**\: False
             
             .. attribute:: sourceroutingstatsdroppedframes
             
@@ -2360,12 +2752,16 @@ class TOKENRINGRMONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sourceroutingstatscreatetime
             
             	The value of sysUpTime when this control entry was last activated. This can be used by the management station to ensure that the table has not been deleted and recreated between polls
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -2441,9 +2837,13 @@ class TOKENRINGRMONMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TOKENRINGRMONMIB.SourceRoutingStatsTable.SourceRoutingStatsEntry, [u'sourceroutingstatsifindex', u'sourceroutingstatsringnumber', u'sourceroutingstatsinframes', u'sourceroutingstatsoutframes', u'sourceroutingstatsthroughframes', u'sourceroutingstatsallroutesbroadcastframes', u'sourceroutingstatssingleroutebroadcastframes', u'sourceroutingstatsinoctets', u'sourceroutingstatsoutoctets', u'sourceroutingstatsthroughoctets', u'sourceroutingstatsallroutesbroadcastoctets', u'sourceroutingstatssingleroutesbroadcastoctets', u'sourceroutingstatslocalllcframes', u'sourceroutingstats1hopframes', u'sourceroutingstats2hopsframes', u'sourceroutingstats3hopsframes', u'sourceroutingstats4hopsframes', u'sourceroutingstats5hopsframes', u'sourceroutingstats6hopsframes', u'sourceroutingstats7hopsframes', u'sourceroutingstats8hopsframes', u'sourceroutingstatsmorethan8hopsframes', u'sourceroutingstatsowner', u'sourceroutingstatsstatus', u'sourceroutingstatsdroppedframes', u'sourceroutingstatscreatetime'], name, value)
+                self._perform_setattr(TOKENRINGRMONMIB.SourceRoutingStatsTable.SourceRoutingStatsEntry, [u'sourceroutingstatsifindex', u'sourceroutingstatsringnumber', u'sourceroutingstatsinframes', u'sourceroutingstatsoutframes', u'sourceroutingstatsthroughframes', u'sourceroutingstatsallroutesbroadcastframes', u'sourceroutingstatssingleroutebroadcastframes', u'sourceroutingstatsinoctets', u'sourceroutingstatsoutoctets', u'sourceroutingstatsthroughoctets', u'sourceroutingstatsallroutesbroadcastoctets', u'sourceroutingstatssingleroutesbroadcastoctets', u'sourceroutingstatslocalllcframes', u'sourceroutingstats1hopframes', u'sourceroutingstats2hopsframes', u'sourceroutingstats3hopsframes', u'sourceroutingstats4hopsframes', u'sourceroutingstats5hopsframes', u'sourceroutingstats6hopsframes', u'sourceroutingstats7hopsframes', u'sourceroutingstats8hopsframes', u'sourceroutingstatsmorethan8hopsframes', u'sourceroutingstatsowner', u'sourceroutingstatsstatus', 'sourceroutingstatsdroppedframes', 'sourceroutingstatscreatetime'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = TOKENRINGRMONMIB()
         return self._top_entity
+
+
 

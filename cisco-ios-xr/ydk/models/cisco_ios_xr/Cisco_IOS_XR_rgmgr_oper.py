@@ -31,6 +31,8 @@ class RedundancyGroupManager(Entity):
     	Redundancy group manager data
     	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_oper.RedundancyGroupManager.Controllers>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,6 +70,8 @@ class RedundancyGroupManager(Entity):
         
         	Display redundancy group by controller name
         	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_oper.RedundancyGroupManager.Controllers.Controller>`
+        
+        	**config**\: False
         
         
 
@@ -107,12 +111,16 @@ class RedundancyGroupManager(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: multi_router_aps_group_number
             
             	Configured interchassis redundancy group number
             	**type**\: str
             
             	**length:** 0..64
+            
+            	**config**\: False
             
             .. attribute:: controller_name_xr
             
@@ -121,12 +129,16 @@ class RedundancyGroupManager(Entity):
             
             	**length:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: controller_handle
             
             	Handle of controller being backed up
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+            
+            	**config**\: False
             
             .. attribute:: backup_interface_name
             
@@ -135,12 +147,16 @@ class RedundancyGroupManager(Entity):
             
             	**length:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: backup_interface_handle
             
             	Backup interface handle
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+            
+            	**config**\: False
             
             .. attribute:: backup_interface_next_hop_ip_address
             
@@ -149,12 +165,16 @@ class RedundancyGroupManager(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: inter_chassis_group_state
             
             	Configured interchassis redundancy group state
             	**type**\: str
             
             	**length:** 0..64
+            
+            	**config**\: False
             
             
 
@@ -195,9 +215,13 @@ class RedundancyGroupManager(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RedundancyGroupManager.Controllers.Controller, ['controller_name', 'multi_router_aps_group_number', 'controller_name_xr', 'controller_handle', 'backup_interface_name', 'backup_interface_handle', 'backup_interface_next_hop_ip_address', 'inter_chassis_group_state'], name, value)
+                self._perform_setattr(RedundancyGroupManager.Controllers.Controller, ['controller_name', u'multi_router_aps_group_number', u'controller_name_xr', u'controller_handle', u'backup_interface_name', u'backup_interface_handle', u'backup_interface_next_hop_ip_address', u'inter_chassis_group_state'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = RedundancyGroupManager()
         return self._top_entity
+
+
 

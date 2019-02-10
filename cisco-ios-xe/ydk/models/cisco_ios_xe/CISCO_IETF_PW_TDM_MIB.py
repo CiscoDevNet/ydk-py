@@ -30,30 +30,42 @@ class CISCOIETFPWTDMMIB(Entity):
     	
     	**type**\:  :py:class:`CpwCTDMObjects <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMObjects>`
     
+    	**config**\: False
+    
     .. attribute:: cpwctdmtable
     
     	This table contains basic information including ifIndex, and pointers to entries in the relevant TDM config tables for this TDM PW
     	**type**\:  :py:class:`CpwCTDMTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMTable>`
+    
+    	**config**\: False
     
     .. attribute:: cpwctdmcfgtable
     
     	This table contains a set of parameters that may be referenced by one or more TDM PWs in cpwCTDMTable
     	**type**\:  :py:class:`CpwCTDMCfgTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMCfgTable>`
     
+    	**config**\: False
+    
     .. attribute:: cpwctdmperfcurrenttable
     
     	This table provides TDM PW performance information. This includes current 15 minute interval counts.   The table includes counters that work together to integrate errors and the lack of errors on the TDM PW. An error is caused by a missing packet. Missing packet can be a result of, packet loss in the network, (uncorrectable) packet out of sequence, packet length error, jitter buffer overflow, and jitter buffer underflow. The result is declaring whether or not the TDM PW is in Loss of Packet (LOPS) state
     	**type**\:  :py:class:`CpwCTDMPerfCurrentTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable>`
+    
+    	**config**\: False
     
     .. attribute:: cpwctdmperfintervaltable
     
     	This table provides performance information per TDM PW similar to the cpwCTDMPerfCurrentTable above. However, these counts represent historical 15 minute intervals. Typically, this table will have a maximum of 96 entries for a 24 hour period, but is not limited to this
     	**type**\:  :py:class:`CpwCTDMPerfIntervalTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable>`
     
+    	**config**\: False
+    
     .. attribute:: cpwctdmperf1dayintervaltable
     
     	This table provides performance information per TDM PW similar to the cpwCTDMPerfIntervalTable above. However, these counters represent historical 1 day intervals up to one full month. The table consists of real time data, as such it is not persistence across re\-boot
     	**type**\:  :py:class:`CpwCTDMPerf1DayIntervalTable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable>`
+    
+    	**config**\: False
     
     
 
@@ -115,6 +127,8 @@ class CISCOIETFPWTDMMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         
 
         """
@@ -143,6 +157,7 @@ class CISCOIETFPWTDMMIB(Entity):
             self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMObjects, ['cpwctdmcfgindexnext'], name, value)
 
 
+
     class CpwCTDMTable(Entity):
         """
         This table contains basic information including ifIndex,
@@ -153,6 +168,8 @@ class CISCOIETFPWTDMMIB(Entity):
         
         	This table is indexed by the same index that was created for the associated entry in the VC Table (in the CISCO\-IETF\-PW\-MIB).    \- The CpwVcIndex.  An entry is created in this table by the agent for every entry in the cpwVcTable with a cpwVcType equal to one of the following\: e1Satop(12), t1Satop(13), e3Satop(14), t3Satop(15), basicCesPsn(16), basicTdmIp(17),  tdmCasCesPsn(18), tdmCasTdmIp(19)
         	**type**\: list of  		 :py:class:`CpwCTDMEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMTable.CpwCTDMEntry>`
+        
+        	**config**\: False
         
         
 
@@ -205,12 +222,16 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmrate
             
             	The parameter represents the bit\-rate of the TDM service in multiples of the 'basic' 64 Kbit/s rate. It complements the definition of cpwVcType used in CISCO\-IETF\-PW\-MIB. For structure\-agnostic the following should be used\: a) Satop E1 \- 32 b) Satop T1 emulation\:    i)   MUST be set to 24 in the basic emulation mode    ii)  MUST be set to 25 for the 'Octet\-aligned T1'         emulation mode c) Satop E3 \- 535 d) Satop T3 \- 699 For all kinds of structure\-aware emulation, this parameter MUST be set to N where N is the number of DS0 channels in the corresponding attachment circuit
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: cpwctdmifindex
             
@@ -219,12 +240,16 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cpwcgentdmcfgindex
             
             	Index to the generic parameters in the TDM configuration table that appears in this MIB module. It is likely that multiple TDM PWs of the same characteristic will share a single TDM Cfg entry
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cpwcreltdmcfgindex
             
@@ -233,10 +258,14 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmconfigerror
             
             	Any of the bits are set if the local configuration is not compatible with the peer configuration as available from the various parameters options.  \-tdmTypeIncompatible bit is set if the local configuration is not carrying the same TDM type as the peer configuration.  \-peerRtpIncompatible bit is set if the local configuration is configured to send RTP packets for this PW, and the remote is not capable of accepting RTP packets.  \-peerPayloadSizeIncompatible bit is set if the local configuration is not carrying the same Payload Size as the peer configuration
             	**type**\:  :py:class:`CpwCTDMConfigError <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMTable.CpwCTDMEntry.CpwCTDMConfigError>`
+            
+            	**config**\: False
             
             .. attribute:: cpwctdmtimeelapsed
             
@@ -244,6 +273,8 @@ class CISCOIETFPWTDMMIB(Entity):
             	**type**\: int
             
             	**range:** 1..900
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -254,6 +285,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..96
             
+            	**config**\: False
+            
             	**units**\: minutes
             
             .. attribute:: cpwctdmvaliddayintervals
@@ -263,6 +296,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..30
             
+            	**config**\: False
+            
             	**units**\: days
             
             .. attribute:: cpwctdmcurrentindications
@@ -270,10 +305,14 @@ class CISCOIETFPWTDMMIB(Entity):
             	The following defects should be detected and reported upon request\:  \-Stray packets MAY be detected by the PSN and multiplexing layers. Stray packets MUST be discarded by the CE\-bound IWF and their detection MUST NOT affect mechanisms for detection of packet loss.  \-Malformed packets are detected by mismatch between the expected packet size (taking the value of the L bit into account) and the actual packet size inferred from the PSN and multiplexing layers. Malformed in\-order packets MUST be discarded by the CE\-bound IWF and replacement data generated as for lost packets.  \-Excessive packet loss rate is detected by computing the average packet loss rate over the value of cpwCTDMAvePktLossTimeWindow and comparing it with a preconfigured threshold [SATOP].  \-Buffer overrun is detected in the normal operation state when the CE bound IWF's jitter buffer cannot accommodate newly arrived packets.  \-Remote packet loss is indicated by reception of packets  with their R bit set.  \-Packet misorder is detected by looking at the Sequence number provided by the control word.  \-TDM Fault, if L bit in the control word is set, it indicates that TDM data carried in the payload is invalid due an attachment circuit fault.  When the L bit is set the payload MAY be omitted in order to conserve bandwidth.  Note\: the algorithm used to capture these indications is implementation specific
             	**type**\:  :py:class:`CpwCTDMCurrentIndications <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMTable.CpwCTDMEntry.CpwCTDMCurrentIndications>`
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmlatchedindications
             
             	The state of TDM indicators when the TDM PW last declared an error second (either as ES, SES or a second with errors inside a UAS) condition. At this time, only LOPS can create a failure. Since indicators other than LOPS are useful, all are latched here. For bit definitions, see cpwCTDMCurrentIndications above.  Note\: the algorithm used to latch these indications when entering a defect state is implementation specific
             	**type**\:  :py:class:`CpwCTDMLatchedIndications <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMTable.CpwCTDMEntry.CpwCTDMLatchedIndications>`
+            
+            	**config**\: False
             
             .. attribute:: cpwctdmlastestimestamp
             
@@ -281,6 +320,8 @@ class CISCOIETFPWTDMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -332,6 +373,8 @@ class CISCOIETFPWTDMMIB(Entity):
                 self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMTable.CpwCTDMEntry, ['cpwvcindex', 'cpwctdmrate', 'cpwctdmifindex', 'cpwcgentdmcfgindex', 'cpwcreltdmcfgindex', 'cpwctdmconfigerror', 'cpwctdmtimeelapsed', 'cpwctdmvalidintervals', 'cpwctdmvaliddayintervals', 'cpwctdmcurrentindications', 'cpwctdmlatchedindications', 'cpwctdmlastestimestamp'], name, value)
 
 
+
+
     class CpwCTDMCfgTable(Entity):
         """
         This table contains a set of parameters that may be
@@ -341,6 +384,8 @@ class CISCOIETFPWTDMMIB(Entity):
         
         	These parameters define the characteristics of a TDM PW. They are grouped here to ease NMS burden. Once an entry is created here it may be re\-used by many PWs
         	**type**\: list of  		 :py:class:`CpwCTDMCfgEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry>`
+        
+        	**config**\: False
         
         
 
@@ -383,10 +428,14 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmcfgconferr
             
             	This object indicates the various configuration errors, illegal settings within the cpwCTDMCfg table. The errors can be due to several reasons, like Payload size mismatch or Jitter Buffer depth value mistmatch.   payloadSize \- This bit is set if there is Payload size               mismatch between the local and peer               configurations.  jtrBfrDepth \- This bit is set if there is Jitter Buffer               depth value mistmatch. other       \- This bit is set if the error is not due to               payloadSize and jtrBfrDepth mismatch
             	**type**\:  :py:class:`CpwCTDMCfgConfErr <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry.CpwCTDMCfgConfErr>`
+            
+            	**config**\: False
             
             .. attribute:: cpwctdmcfgpayloadsize
             
@@ -395,6 +444,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: bytes
             
             .. attribute:: cpwctdmcfgpktreorder
@@ -402,10 +453,14 @@ class CISCOIETFPWTDMMIB(Entity):
             	If set to true, CE bound packets are queued in the jitter buffer, out of order packets are re\-ordered. The maximum sequence number differential (i.e., the range in which re\-sequencing can occur) is dependant on the depth of the jitter buffer. See cpwCTDMCfgJtrBfrDepth
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmcfgrtphdrused
             
             	If the value of this object is set to false, then a RTP header is not pre\-pended to the TDM packet
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cpwctdmcfgjtrbfrdepth
             
@@ -414,6 +469,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: microsecond
             
             .. attribute:: cpwctdmcfgpayloadsuppression
@@ -421,12 +478,16 @@ class CISCOIETFPWTDMMIB(Entity):
             	This object indicates whether the Payload suppression is eanbled or disabled. Payload MAY be omitted in order to conserve bandwidth.  enable  \- Payload suppression is allowed. disable \- No Payload suppresion under any condition
             	**type**\:  :py:class:`CpwCTDMCfgPayloadSuppression <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry.CpwCTDMCfgPayloadSuppression>`
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmcfgconsecpktsinsynch
             
             	The number of consecutive packets with sequential sequence numbers that are required to exit the Loss of Packets (LOPS) state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -437,6 +498,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cpwctdmcfgsetup2synchtimeout
@@ -446,6 +509,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: millisecond
             
             .. attribute:: cpwctdmcfgpktreplacepolicy
@@ -453,12 +518,16 @@ class CISCOIETFPWTDMMIB(Entity):
             	This parameter determines the value to be played when CE bound packets have over/underflow the jitter buffer, or are missing for any reason. This AIS (Alarm Indication Signal) pattern is sent (played) on the TDM line.  ais                    \- AIS (Alarm Indication Signal)                          pattern is sent (played) on                          the TDM line.  implementationSpecific \- Implementation specific pattern is                          sent on the TDM line
             	**type**\:  :py:class:`CpwCTDMCfgPktReplacePolicy <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry.CpwCTDMCfgPktReplacePolicy>`
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmcfgavepktlosstimewindow
             
             	The length of time over which the average packet loss rate should be computed to detect Excessive packet loss rate
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: millisecond
             
@@ -469,12 +538,16 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmcfgalarmthreshold
             
             	Alarms are only reported when the defect state persists for the length of time specified by this object. The object's unit is millisec
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -485,6 +558,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: cpwctdmcfgmissingpktstoses
@@ -494,6 +569,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cpwctdmcfgtimestampmode
@@ -501,15 +578,21 @@ class CISCOIETFPWTDMMIB(Entity):
             	Timestamp generation MAY be used in one of the following modes\: 1. Absolute mode\: the PSN\-bound IWF sets timestamps  using the clock recovered from the incoming TDM attachment  circuit. As a consequence, the timestamps are closely  correlated with the sequence numbers. All TDM   implementations that support usage of the RTP header MUST  support this mode. 2. Differential mode\: Both IWFs have access to a common  high\-quality timing source, and this source is used for  timestamp generation. Support of this mode is OPTIONAL
             	**type**\:  :py:class:`CpwCTDMCfgTimestampMode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMCfgTable.CpwCTDMCfgEntry.CpwCTDMCfgTimestampMode>`
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmcfgstoragetype
             
             	This variable indicates the storage type for this row. The following are the read\-write objects in permanent(4) rows, that an agent must allow to be writable\: cpwCTDMCfgPayloadSize, cpwCTDMCfgPktReorder, cpwCTDMCfgRtpHdrUsed, cpwCTDMCfgJtrBfrDepth, cpwCTDMCfgPayloadSuppression, cpwCTDMCfgConfErr
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmcfgrowstatus
             
             	The status of this conceptual row.  To create a row in this table, a manager must set this object to either createAndGo(4) or createAndWait(5).  All of the columnar objects have to be set to valid values before the row can be activated. Default value will be automatically provisioned if for those objects not specified during row creation.  No objects in cascading tables have to be populated with related data before the row can be activated.  The following objects cannot be modified if the RowStatus is active\: cpwCTDMCfgPayloadSize, cpwCTDMCfgRtpHdrUsed, cpwCTDMCfgJtrBfrDepth, and cpwCTDMCfgPayloadSuppression.  If the RowStatus is active, the following parameters can be modified\:  cpwCTDMCfgConfErr, cpwCTDMCfgPktReorder,  cpwCTDMCfgConsecPktsInSynch, cpwCTDMCfgConsecMissPktsOutSynch, cpwCTDMCfgSetUp2SynchTimeOut, cpwCTDMCfgPktReplacePolicy, cpwCTDMCfgAvePktLossTimeWindow,  cpwCTDMCfgExcessivePktLossThreshold, cpwCTDMCfgAlarmThreshold, cpwCTDMCfgClearAlarmThreshold, cpwCTDMCfgMissingPktsToSes, cpwCTDMCfgTimestampMode, cpwCTDMCfgStorageType.  A row may be deleted by setting the RowStatus to 'destroy'
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -674,6 +757,8 @@ class CISCOIETFPWTDMMIB(Entity):
 
 
 
+
+
     class CpwCTDMPerfCurrentTable(Entity):
         """
         This table provides TDM PW performance information.
@@ -692,6 +777,8 @@ class CISCOIETFPWTDMMIB(Entity):
         
         	An entry in this table is created by the agent for every cpwCTDMTable entry. After 15 minutes, the contents of this table entry are copied to a new entry in the cpwCTDMPerfInterval table and the counts in this entry are reset to zero
         	**type**\: list of  		 :py:class:`CpwCTDMPerfCurrentEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable.CpwCTDMPerfCurrentEntry>`
+        
+        	**config**\: False
         
         
 
@@ -737,12 +824,16 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmperfcurrentmissingpkts
             
             	Number of missing packets (as detected via control word sequence number gaps)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -753,6 +844,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cpwctdmperfcurrentjtrbfrunderruns
@@ -762,12 +855,16 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmperfcurrentmisorderdropped
             
             	Number of packets detected out of order(via control word sequence numbers), and could not be re\-ordered, or could not fit in the jitter buffer
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -778,6 +875,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cpwctdmperfcurrentess
@@ -786,6 +885,8 @@ class CISCOIETFPWTDMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -796,6 +897,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cpwctdmperfcurrentuass
@@ -805,6 +908,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cpwctdmperfcurrentfc
@@ -813,6 +918,8 @@ class CISCOIETFPWTDMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -860,6 +967,8 @@ class CISCOIETFPWTDMMIB(Entity):
                 self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMPerfCurrentTable.CpwCTDMPerfCurrentEntry, ['cpwvcindex', 'cpwctdmperfcurrentmissingpkts', 'cpwctdmperfcurrentpktsreorder', 'cpwctdmperfcurrentjtrbfrunderruns', 'cpwctdmperfcurrentmisorderdropped', 'cpwctdmperfcurrentmalformedpkt', 'cpwctdmperfcurrentess', 'cpwctdmperfcurrentsess', 'cpwctdmperfcurrentuass', 'cpwctdmperfcurrentfc'], name, value)
 
 
+
+
     class CpwCTDMPerfIntervalTable(Entity):
         """
         This table provides performance information per TDM PW
@@ -872,6 +981,8 @@ class CISCOIETFPWTDMMIB(Entity):
         
         	An entry in this table is created by the agent for every cpwCTDMPerfCurrentEntry that is 15 minutes old. The contents of the Current entry are copied to the new entry here. The Current entry, then resets its counts to zero for the next current 15 minute interval
         	**type**\: list of  		 :py:class:`CpwCTDMPerfIntervalEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable.CpwCTDMPerfIntervalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -917,6 +1028,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmperfintervalnumber  (key)
             
             	This object indicates a number (normally between 1 and 96 to cover a 24 hour period) which identifies the interval for which the set of statistics is available. The interval identified by 1 is the most recently completed 15 minute interval, and the interval identified by N is the interval immediately preceding the one identified by N\-1. The minimum range of N is 1 through 4.The default range is 1 through 32. The maximum value of N is 1 through 96
@@ -924,10 +1037,14 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmperfintervalvaliddata
             
             	This variable indicates if the data for this interval is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cpwctdmperfintervalduration
             
@@ -935,6 +1052,8 @@ class CISCOIETFPWTDMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -945,6 +1064,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cpwctdmperfintervalpktsreorder
@@ -953,6 +1074,8 @@ class CISCOIETFPWTDMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -963,12 +1086,16 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmperfintervalmisorderdropped
             
             	Number of packets detected out of order(via control word sequence numbers), and could not be re\-ordered, or could not fit in the jitter buffer
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -979,6 +1106,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cpwctdmperfintervaless
@@ -987,6 +1116,8 @@ class CISCOIETFPWTDMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -997,12 +1128,16 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmperfintervaluass
             
             	The counter associated with the number of Unavailable Seconds encountered
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1012,6 +1147,8 @@ class CISCOIETFPWTDMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1065,6 +1202,8 @@ class CISCOIETFPWTDMMIB(Entity):
                 self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMPerfIntervalTable.CpwCTDMPerfIntervalEntry, ['cpwvcindex', 'cpwctdmperfintervalnumber', 'cpwctdmperfintervalvaliddata', 'cpwctdmperfintervalduration', 'cpwctdmperfintervalmissingpkts', 'cpwctdmperfintervalpktsreorder', 'cpwctdmperfintervaljtrbfrunderruns', 'cpwctdmperfintervalmisorderdropped', 'cpwctdmperfintervalmalformedpkt', 'cpwctdmperfintervaless', 'cpwctdmperfintervalsess', 'cpwctdmperfintervaluass', 'cpwctdmperfintervalfc'], name, value)
 
 
+
+
     class CpwCTDMPerf1DayIntervalTable(Entity):
         """
         This table provides performance information per TDM PW
@@ -1077,6 +1216,8 @@ class CISCOIETFPWTDMMIB(Entity):
         
         	An entry is created in this table by the agent for every entry in the cpwCTDMTable table
         	**type**\: list of  		 :py:class:`CpwCTDMPerf1DayIntervalEntry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable.CpwCTDMPerf1DayIntervalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1119,6 +1260,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.CpwVcTable.CpwVcEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmperf1dayintervalnumber  (key)
             
             	The number of interval, where 1 indicates current day measured period and 2 and above indicate previous days respectively
@@ -1126,10 +1269,14 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmperf1dayintervalvaliddata
             
             	This variable indicates if the data for this interval is valid
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cpwctdmperf1dayintervalduration
             
@@ -1137,6 +1284,8 @@ class CISCOIETFPWTDMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1147,6 +1296,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cpwctdmperf1dayintervalpktsreorder
@@ -1155,6 +1306,8 @@ class CISCOIETFPWTDMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -1165,12 +1318,16 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cpwctdmperf1dayintervalmisorderdropped
             
             	Number of packets detected out of order(via control word sequence numbers), and could not be re\-ordered, or could not fit in the jitter buffer
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -1181,6 +1338,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cpwctdmperf1dayintervaless
@@ -1189,6 +1348,8 @@ class CISCOIETFPWTDMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1199,6 +1360,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cpwctdmperf1dayintervaluass
@@ -1208,6 +1371,8 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cpwctdmperf1dayintervalfc
@@ -1216,6 +1381,8 @@ class CISCOIETFPWTDMMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1268,7 +1435,11 @@ class CISCOIETFPWTDMMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWTDMMIB.CpwCTDMPerf1DayIntervalTable.CpwCTDMPerf1DayIntervalEntry, ['cpwvcindex', 'cpwctdmperf1dayintervalnumber', 'cpwctdmperf1dayintervalvaliddata', 'cpwctdmperf1dayintervalduration', 'cpwctdmperf1dayintervalmissingpkts', 'cpwctdmperf1dayintervalpktsreorder', 'cpwctdmperf1dayintervaljtrbfrunderruns', 'cpwctdmperf1dayintervalmisorderdropped', 'cpwctdmperf1dayintervalmalformedpkt', 'cpwctdmperf1dayintervaless', 'cpwctdmperf1dayintervalsess', 'cpwctdmperf1dayintervaluass', 'cpwctdmperf1dayintervalfc'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOIETFPWTDMMIB()
         return self._top_entity
+
+
 

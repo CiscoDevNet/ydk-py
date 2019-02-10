@@ -46,6 +46,8 @@ class CfmStatistics(Entity):
     	CFM statistics
     	**type**\:  :py:class:`CfmMeps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cfm_oper.CfmStatistics.CfmMeps>`
     
+    	**config**\: False
+    
     
 
     """
@@ -84,6 +86,8 @@ class CfmStatistics(Entity):
         	The list of MEP entries in the system
         	**type**\: list of  		 :py:class:`CfmMep <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cfm_oper.CfmStatistics.CfmMeps.CfmMep>`
         
+        	**config**\: False
+        
         
 
         """
@@ -120,10 +124,14 @@ class CfmStatistics(Entity):
             	The name of the Domain corresponding the the MEP
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: ma_name  (key)
             
             	The name of the MA corresponding the the MEP
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: mpid  (key)
             
@@ -132,10 +140,14 @@ class CfmStatistics(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: last_cleared
             
             	Info on when the stats were last cleared
             	**type**\:  :py:class:`LastCleared <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cfm_oper.CfmStatistics.CfmMeps.CfmMep.LastCleared>`
+            
+            	**config**\: False
             
             .. attribute:: ccm_transmitted
             
@@ -144,12 +156,16 @@ class CfmStatistics(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ccm_seq_errors
             
             	The number of CCM sequence number errors detected
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: ltr_unexpected
             
@@ -158,12 +174,16 @@ class CfmStatistics(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: lbr_transmitted
             
             	The number of loopback reply packets transmitted from the local MEP
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: lbr_seq_errors
             
@@ -172,6 +192,8 @@ class CfmStatistics(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: lbr_received_ok
             
             	The number of valid loopback reply packets received
@@ -179,12 +201,16 @@ class CfmStatistics(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: lbr_received_bad
             
             	The number of loopback reply packets received  with corrupted data pattern
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -245,12 +271,16 @@ class CfmStatistics(Entity):
                 	Never been cleared
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
+                	**config**\: False
+                
                 .. attribute:: time
                 
                 	Date and time of the last time stats were cleared
                 	**type**\: str
                 
                 	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                
+                	**config**\: False
                 
                 
 
@@ -280,7 +310,12 @@ class CfmStatistics(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(CfmStatistics.CfmMeps.CfmMep.LastCleared, ['never', 'time'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = CfmStatistics()
         return self._top_entity
+
+
 

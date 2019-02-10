@@ -95,6 +95,8 @@ class TransceiverOperData(Entity):
     	List of transceiver instance, keyed by name
     	**type**\: list of  		 :py:class:`Transceiver <ydk.models.cisco_ios_xe.Cisco_IOS_XE_transceiver_oper.TransceiverOperData.Transceiver>`
     
+    	**config**\: False
+    
     
 
     """
@@ -131,70 +133,98 @@ class TransceiverOperData(Entity):
         	Port name
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: enabled
         
         	Turns power on/off to the transceiver
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: present
         
         	Transceiver is present on the port
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: identifier
         
         	Indicates the type of optical transceiver used on this port
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: connector
         
         	Connector type used on this port
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: ethernet_pmd
         
         	Ethernet PMD (physical medium dependent sublayer) that the transceiver supports. The SFF/QSFP MSAs have registers for this and CFP MSA has similar
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: vendor
         
         	Full name of transceiver vendor
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: vendor_part
         
         	Transceiver vendor's part number
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: vendor_rev
         
         	Transceiver vendor's revision number
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: serial_no
         
         	Transceiver serial number
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: fault_condition
         
         	Indicates if a fault condition exists in the transceiver
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: date
         
         	Representation of the transceiver date
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: sonet
         
         	SONET/SDH application code supported by the port
         	**type**\:  :py:class:`XcvrSonetCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_transceiver_oper.XcvrSonetCode>`
         
+        	**config**\: False
+        
         .. attribute:: otn
         
         	OTN application code supported by the port
         	**type**\:  :py:class:`XcvrOtnCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_transceiver_oper.XcvrOtnCode>`
+        
+        	**config**\: False
         
         .. attribute:: internal_temp
         
@@ -203,25 +233,35 @@ class TransceiverOperData(Entity):
         
         	**range:** \-92233720368547758.08..92233720368547758.07
         
+        	**config**\: False
+        
         .. attribute:: output_power
         
         	The output optical power of overall transceiver(dBm)
         	**type**\:  :py:class:`OutputPower <ydk.models.cisco_ios_xe.Cisco_IOS_XE_transceiver_oper.TransceiverOperData.Transceiver.OutputPower>`
+        
+        	**config**\: False
         
         .. attribute:: input_power
         
         	The input optical power of overall transceiver(dBm)
         	**type**\:  :py:class:`InputPower <ydk.models.cisco_ios_xe.Cisco_IOS_XE_transceiver_oper.TransceiverOperData.Transceiver.InputPower>`
         
+        	**config**\: False
+        
         .. attribute:: laser_bias_current
         
         	The current applied by the system to the transmit laser to achieve the output power(mA)
         	**type**\:  :py:class:`LaserBiasCurrent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_transceiver_oper.TransceiverOperData.Transceiver.LaserBiasCurrent>`
         
+        	**config**\: False
+        
         .. attribute:: xcvr_physical_channel
         
         	List of physical channel for transceiver
         	**type**\: list of  		 :py:class:`XcvrPhysicalChannel <ydk.models.cisco_ios_xe.Cisco_IOS_XE_transceiver_oper.TransceiverOperData.Transceiver.XcvrPhysicalChannel>`
+        
+        	**config**\: False
         
         
 
@@ -304,12 +344,16 @@ class TransceiverOperData(Entity):
             
             	**range:** \-92233720368547758.08..92233720368547758.07
             
+            	**config**\: False
+            
             .. attribute:: avg
             
             	Average value
             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
             
             	**range:** \-92233720368547758.08..92233720368547758.07
+            
+            	**config**\: False
             
             .. attribute:: max
             
@@ -318,12 +362,16 @@ class TransceiverOperData(Entity):
             
             	**range:** \-92233720368547758.08..92233720368547758.07
             
+            	**config**\: False
+            
             .. attribute:: min
             
             	Minimum value
             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
             
             	**range:** \-92233720368547758.08..92233720368547758.07
+            
+            	**config**\: False
             
             
 
@@ -358,6 +406,7 @@ class TransceiverOperData(Entity):
                 self._perform_setattr(TransceiverOperData.Transceiver.OutputPower, ['instant', 'avg', 'max', 'min'], name, value)
 
 
+
         class InputPower(Entity):
             """
             The input optical power of overall transceiver(dBm)
@@ -369,12 +418,16 @@ class TransceiverOperData(Entity):
             
             	**range:** \-92233720368547758.08..92233720368547758.07
             
+            	**config**\: False
+            
             .. attribute:: avg
             
             	Average value
             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
             
             	**range:** \-92233720368547758.08..92233720368547758.07
+            
+            	**config**\: False
             
             .. attribute:: max
             
@@ -383,12 +436,16 @@ class TransceiverOperData(Entity):
             
             	**range:** \-92233720368547758.08..92233720368547758.07
             
+            	**config**\: False
+            
             .. attribute:: min
             
             	Minimum value
             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
             
             	**range:** \-92233720368547758.08..92233720368547758.07
+            
+            	**config**\: False
             
             
 
@@ -423,6 +480,7 @@ class TransceiverOperData(Entity):
                 self._perform_setattr(TransceiverOperData.Transceiver.InputPower, ['instant', 'avg', 'max', 'min'], name, value)
 
 
+
         class LaserBiasCurrent(Entity):
             """
             The current applied by the system to the transmit laser to achieve the output power(mA)
@@ -434,12 +492,16 @@ class TransceiverOperData(Entity):
             
             	**range:** \-92233720368547758.08..92233720368547758.07
             
+            	**config**\: False
+            
             .. attribute:: avg
             
             	Average value
             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
             
             	**range:** \-92233720368547758.08..92233720368547758.07
+            
+            	**config**\: False
             
             .. attribute:: max
             
@@ -448,12 +510,16 @@ class TransceiverOperData(Entity):
             
             	**range:** \-92233720368547758.08..92233720368547758.07
             
+            	**config**\: False
+            
             .. attribute:: min
             
             	Minimum value
             	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
             
             	**range:** \-92233720368547758.08..92233720368547758.07
+            
+            	**config**\: False
             
             
 
@@ -488,6 +554,7 @@ class TransceiverOperData(Entity):
                 self._perform_setattr(TransceiverOperData.Transceiver.LaserBiasCurrent, ['instant', 'avg', 'max', 'min'], name, value)
 
 
+
         class XcvrPhysicalChannel(Entity):
             """
             List of physical channel for transceiver
@@ -499,15 +566,21 @@ class TransceiverOperData(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: description
             
             	Text description for the client physical channel
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: tx_laser
             
             	Enable (true) or disable (false) the transmit label for the channel
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: target_output_power
             
@@ -516,6 +589,8 @@ class TransceiverOperData(Entity):
             
             	**range:** \-92233720368547758.08..92233720368547758.07
             
+            	**config**\: False
+            
             .. attribute:: output_frequency
             
             	The frequency in MHz of the individual physical channel
@@ -523,20 +598,28 @@ class TransceiverOperData(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: output_power
             
             	The output optical power of a physical channel(dBm)
             	**type**\:  :py:class:`OutputPower <ydk.models.cisco_ios_xe.Cisco_IOS_XE_transceiver_oper.TransceiverOperData.Transceiver.XcvrPhysicalChannel.OutputPower>`
+            
+            	**config**\: False
             
             .. attribute:: input_power
             
             	The input optical power of a physical channel(dBm)
             	**type**\:  :py:class:`InputPower <ydk.models.cisco_ios_xe.Cisco_IOS_XE_transceiver_oper.TransceiverOperData.Transceiver.XcvrPhysicalChannel.InputPower>`
             
+            	**config**\: False
+            
             .. attribute:: laser_bias_current
             
             	The current applied by the system to the transmit laser to achieve the output power(mA)
             	**type**\:  :py:class:`LaserBiasCurrent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_transceiver_oper.TransceiverOperData.Transceiver.XcvrPhysicalChannel.LaserBiasCurrent>`
+            
+            	**config**\: False
             
             
 
@@ -596,12 +679,16 @@ class TransceiverOperData(Entity):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
+                	**config**\: False
+                
                 .. attribute:: avg
                 
                 	Average value
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**config**\: False
                 
                 .. attribute:: max
                 
@@ -610,12 +697,16 @@ class TransceiverOperData(Entity):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
+                	**config**\: False
+                
                 .. attribute:: min
                 
                 	Minimum value
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**config**\: False
                 
                 
 
@@ -650,6 +741,7 @@ class TransceiverOperData(Entity):
                     self._perform_setattr(TransceiverOperData.Transceiver.XcvrPhysicalChannel.OutputPower, ['instant', 'avg', 'max', 'min'], name, value)
 
 
+
             class InputPower(Entity):
                 """
                 The input optical power of a physical channel(dBm)
@@ -661,12 +753,16 @@ class TransceiverOperData(Entity):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
+                	**config**\: False
+                
                 .. attribute:: avg
                 
                 	Average value
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**config**\: False
                 
                 .. attribute:: max
                 
@@ -675,12 +771,16 @@ class TransceiverOperData(Entity):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
+                	**config**\: False
+                
                 .. attribute:: min
                 
                 	Minimum value
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**config**\: False
                 
                 
 
@@ -715,6 +815,7 @@ class TransceiverOperData(Entity):
                     self._perform_setattr(TransceiverOperData.Transceiver.XcvrPhysicalChannel.InputPower, ['instant', 'avg', 'max', 'min'], name, value)
 
 
+
             class LaserBiasCurrent(Entity):
                 """
                 The current applied by the system to the transmit laser to achieve the output power(mA)
@@ -726,12 +827,16 @@ class TransceiverOperData(Entity):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
+                	**config**\: False
+                
                 .. attribute:: avg
                 
                 	Average value
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**config**\: False
                 
                 .. attribute:: max
                 
@@ -740,12 +845,16 @@ class TransceiverOperData(Entity):
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
+                	**config**\: False
+                
                 .. attribute:: min
                 
                 	Minimum value
                 	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                	**config**\: False
                 
                 
 
@@ -779,7 +888,12 @@ class TransceiverOperData(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(TransceiverOperData.Transceiver.XcvrPhysicalChannel.LaserBiasCurrent, ['instant', 'avg', 'max', 'min'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = TransceiverOperData()
         return self._top_entity
+
+
 

@@ -25,17 +25,17 @@ class Lpts(Entity):
     """
     lpts configuration commands
     
-    .. attribute:: punt
-    
-    	Configure penalty timeout value
-    	**type**\:  :py:class:`Punt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt>`
-    
     .. attribute:: ipolicer
     
     	Pre IFiB Configuration 
     	**type**\:  :py:class:`Ipolicer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Ipolicer>`
     
     	**presence node**\: True
+    
+    .. attribute:: punt
+    
+    	Configure penalty timeout value
+    	**type**\:  :py:class:`Punt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt>`
     
     
 
@@ -53,498 +53,20 @@ class Lpts(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt", ("punt", Lpts.Punt)), ("Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer", ("ipolicer", Lpts.Ipolicer))])
+        self._child_classes = OrderedDict([("Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer", ("ipolicer", Lpts.Ipolicer)), ("Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt", ("punt", Lpts.Punt))])
         self._leafs = OrderedDict()
+
+        self.ipolicer = None
+        self._children_name_map["ipolicer"] = "Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer"
 
         self.punt = Lpts.Punt()
         self.punt.parent = self
         self._children_name_map["punt"] = "Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt"
-
-        self.ipolicer = None
-        self._children_name_map["ipolicer"] = "Cisco-IOS-XR-lpts-pre-ifib-cfg:ipolicer"
         self._segment_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts"
         self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Lpts, [], name, value)
-
-
-    class Punt(Entity):
-        """
-        Configure penalty timeout value
-        
-        .. attribute:: flowtrap
-        
-        	excessive punt flow trap configuration commands
-        	**type**\:  :py:class:`Flowtrap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap>`
-        
-        
-
-        """
-
-        _prefix = 'lpts-punt-flowtrap-cfg'
-        _revision = '2017-09-07'
-
-        def __init__(self):
-            super(Lpts.Punt, self).__init__()
-
-            self.yang_name = "punt"
-            self.yang_parent_name = "lpts"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([("flowtrap", ("flowtrap", Lpts.Punt.Flowtrap))])
-            self._leafs = OrderedDict()
-
-            self.flowtrap = Lpts.Punt.Flowtrap()
-            self.flowtrap.parent = self
-            self._children_name_map["flowtrap"] = "flowtrap"
-            self._segment_path = lambda: "Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt"
-            self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/%s" % self._segment_path()
-            self._is_frozen = True
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Lpts.Punt, [], name, value)
-
-
-        class Flowtrap(Entity):
-            """
-            excessive punt flow trap configuration commands
-            
-            .. attribute:: penalty_rates
-            
-            	Configure penalty policing rate
-            	**type**\:  :py:class:`PenaltyRates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyRates>`
-            
-            .. attribute:: penalty_timeouts
-            
-            	Configure penalty timeout value
-            	**type**\:  :py:class:`PenaltyTimeouts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyTimeouts>`
-            
-            .. attribute:: exclude
-            
-            	Exclude an item from all traps
-            	**type**\:  :py:class:`Exclude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.Exclude>`
-            
-            .. attribute:: max_flow_gap
-            
-            	Maximum flow gap in milliseconds
-            	**type**\: int
-            
-            	**range:** 1..60000
-            
-            .. attribute:: et_size
-            
-            	Should be power of 2. Any one of 1,2,4,8,16,32 ,64,128
-            	**type**\: int
-            
-            	**range:** 1..128
-            
-            .. attribute:: eviction_threshold
-            
-            	Eviction threshold, should be less than report\-threshold
-            	**type**\: int
-            
-            	**range:** 1..65535
-            
-            .. attribute:: report_threshold
-            
-            	Threshold to cross for a flow to be considered as bad actor flow
-            	**type**\: int
-            
-            	**range:** 1..65535
-            
-            .. attribute:: non_subscriber_interfaces
-            
-            	Enable trap based on source mac on non\-subscriber interface
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: sample_prob
-            
-            	Probability of packets to be sampled
-            	**type**\: str
-            
-            	**length:** 1..32
-            
-            .. attribute:: eviction_search_limit
-            
-            	Eviction search limit, should be less than trap\-size
-            	**type**\: int
-            
-            	**range:** 1..128
-            
-            .. attribute:: routing_protocols_enable
-            
-            	Allow routing protocols to pass through copp sampler
-            	**type**\: bool
-            
-            .. attribute:: subscriber_interfaces
-            
-            	Enable the trap on subscriber interfaces
-            	**type**\: bool
-            
-            .. attribute:: interface_based_flow
-            
-            	Identify flow based on interface and flowtype
-            	**type**\: bool
-            
-            .. attribute:: dampening
-            
-            	Dampening period for a bad actor flow in milliseconds
-            	**type**\: int
-            
-            	**range:** 5000..60000
-            
-            
-
-            """
-
-            _prefix = 'lpts-punt-flowtrap-cfg'
-            _revision = '2017-09-07'
-
-            def __init__(self):
-                super(Lpts.Punt.Flowtrap, self).__init__()
-
-                self.yang_name = "flowtrap"
-                self.yang_parent_name = "punt"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("penalty-rates", ("penalty_rates", Lpts.Punt.Flowtrap.PenaltyRates)), ("penalty-timeouts", ("penalty_timeouts", Lpts.Punt.Flowtrap.PenaltyTimeouts)), ("exclude", ("exclude", Lpts.Punt.Flowtrap.Exclude))])
-                self._leafs = OrderedDict([
-                    ('max_flow_gap', (YLeaf(YType.uint32, 'max-flow-gap'), ['int'])),
-                    ('et_size', (YLeaf(YType.uint32, 'et-size'), ['int'])),
-                    ('eviction_threshold', (YLeaf(YType.uint32, 'eviction-threshold'), ['int'])),
-                    ('report_threshold', (YLeaf(YType.uint16, 'report-threshold'), ['int'])),
-                    ('non_subscriber_interfaces', (YLeaf(YType.uint32, 'non-subscriber-interfaces'), ['int'])),
-                    ('sample_prob', (YLeaf(YType.str, 'sample-prob'), ['str'])),
-                    ('eviction_search_limit', (YLeaf(YType.uint32, 'eviction-search-limit'), ['int'])),
-                    ('routing_protocols_enable', (YLeaf(YType.boolean, 'routing-protocols-enable'), ['bool'])),
-                    ('subscriber_interfaces', (YLeaf(YType.boolean, 'subscriber-interfaces'), ['bool'])),
-                    ('interface_based_flow', (YLeaf(YType.boolean, 'interface-based-flow'), ['bool'])),
-                    ('dampening', (YLeaf(YType.uint32, 'dampening'), ['int'])),
-                ])
-                self.max_flow_gap = None
-                self.et_size = None
-                self.eviction_threshold = None
-                self.report_threshold = None
-                self.non_subscriber_interfaces = None
-                self.sample_prob = None
-                self.eviction_search_limit = None
-                self.routing_protocols_enable = None
-                self.subscriber_interfaces = None
-                self.interface_based_flow = None
-                self.dampening = None
-
-                self.penalty_rates = Lpts.Punt.Flowtrap.PenaltyRates()
-                self.penalty_rates.parent = self
-                self._children_name_map["penalty_rates"] = "penalty-rates"
-
-                self.penalty_timeouts = Lpts.Punt.Flowtrap.PenaltyTimeouts()
-                self.penalty_timeouts.parent = self
-                self._children_name_map["penalty_timeouts"] = "penalty-timeouts"
-
-                self.exclude = Lpts.Punt.Flowtrap.Exclude()
-                self.exclude.parent = self
-                self._children_name_map["exclude"] = "exclude"
-                self._segment_path = lambda: "flowtrap"
-                self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/%s" % self._segment_path()
-                self._is_frozen = True
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Lpts.Punt.Flowtrap, ['max_flow_gap', 'et_size', 'eviction_threshold', 'report_threshold', 'non_subscriber_interfaces', 'sample_prob', 'eviction_search_limit', 'routing_protocols_enable', 'subscriber_interfaces', 'interface_based_flow', 'dampening'], name, value)
-
-
-            class PenaltyRates(Entity):
-                """
-                Configure penalty policing rate
-                
-                .. attribute:: penalty_rate
-                
-                	none
-                	**type**\: list of  		 :py:class:`PenaltyRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate>`
-                
-                
-
-                """
-
-                _prefix = 'lpts-punt-flowtrap-cfg'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(Lpts.Punt.Flowtrap.PenaltyRates, self).__init__()
-
-                    self.yang_name = "penalty-rates"
-                    self.yang_parent_name = "flowtrap"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("penalty-rate", ("penalty_rate", Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate))])
-                    self._leafs = OrderedDict()
-
-                    self.penalty_rate = YList(self)
-                    self._segment_path = lambda: "penalty-rates"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Lpts.Punt.Flowtrap.PenaltyRates, [], name, value)
-
-
-                class PenaltyRate(Entity):
-                    """
-                    none
-                    
-                    .. attribute:: protocol_name  (key)
-                    
-                    	none
-                    	**type**\:  :py:class:`LptsPuntFlowtrapProtoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg.LptsPuntFlowtrapProtoId>`
-                    
-                    .. attribute:: rate
-                    
-                    	Penalty policer rate in packets\-per\-second
-                    	**type**\: int
-                    
-                    	**range:** 2..100
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'lpts-punt-flowtrap-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate, self).__init__()
-
-                        self.yang_name = "penalty-rate"
-                        self.yang_parent_name = "penalty-rates"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = ['protocol_name']
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('protocol_name', (YLeaf(YType.enumeration, 'protocol-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg', 'LptsPuntFlowtrapProtoId', '')])),
-                            ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
-                        ])
-                        self.protocol_name = None
-                        self.rate = None
-                        self._segment_path = lambda: "penalty-rate" + "[protocol-name='" + str(self.protocol_name) + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/penalty-rates/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate, ['protocol_name', 'rate'], name, value)
-
-
-            class PenaltyTimeouts(Entity):
-                """
-                Configure penalty timeout value
-                
-                .. attribute:: penalty_timeout
-                
-                	none
-                	**type**\: list of  		 :py:class:`PenaltyTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout>`
-                
-                
-
-                """
-
-                _prefix = 'lpts-punt-flowtrap-cfg'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(Lpts.Punt.Flowtrap.PenaltyTimeouts, self).__init__()
-
-                    self.yang_name = "penalty-timeouts"
-                    self.yang_parent_name = "flowtrap"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("penalty-timeout", ("penalty_timeout", Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout))])
-                    self._leafs = OrderedDict()
-
-                    self.penalty_timeout = YList(self)
-                    self._segment_path = lambda: "penalty-timeouts"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Lpts.Punt.Flowtrap.PenaltyTimeouts, [], name, value)
-
-
-                class PenaltyTimeout(Entity):
-                    """
-                    none
-                    
-                    .. attribute:: protocol_name  (key)
-                    
-                    	none
-                    	**type**\:  :py:class:`LptsPuntFlowtrapProtoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg.LptsPuntFlowtrapProtoId>`
-                    
-                    .. attribute:: timeout
-                    
-                    	Timeout value in minutes
-                    	**type**\: int
-                    
-                    	**range:** 1..1000
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    """
-
-                    _prefix = 'lpts-punt-flowtrap-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout, self).__init__()
-
-                        self.yang_name = "penalty-timeout"
-                        self.yang_parent_name = "penalty-timeouts"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = ['protocol_name']
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('protocol_name', (YLeaf(YType.enumeration, 'protocol-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg', 'LptsPuntFlowtrapProtoId', '')])),
-                            ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
-                        ])
-                        self.protocol_name = None
-                        self.timeout = None
-                        self._segment_path = lambda: "penalty-timeout" + "[protocol-name='" + str(self.protocol_name) + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/penalty-timeouts/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout, ['protocol_name', 'timeout'], name, value)
-
-
-            class Exclude(Entity):
-                """
-                Exclude an item from all traps
-                
-                .. attribute:: interface_names
-                
-                	none
-                	**type**\:  :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.Exclude.InterfaceNames>`
-                
-                
-
-                """
-
-                _prefix = 'lpts-punt-flowtrap-cfg'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(Lpts.Punt.Flowtrap.Exclude, self).__init__()
-
-                    self.yang_name = "exclude"
-                    self.yang_parent_name = "flowtrap"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("interface-names", ("interface_names", Lpts.Punt.Flowtrap.Exclude.InterfaceNames))])
-                    self._leafs = OrderedDict()
-
-                    self.interface_names = Lpts.Punt.Flowtrap.Exclude.InterfaceNames()
-                    self.interface_names.parent = self
-                    self._children_name_map["interface_names"] = "interface-names"
-                    self._segment_path = lambda: "exclude"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/%s" % self._segment_path()
-                    self._is_frozen = True
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Lpts.Punt.Flowtrap.Exclude, [], name, value)
-
-
-                class InterfaceNames(Entity):
-                    """
-                    none
-                    
-                    .. attribute:: interface_name
-                    
-                    	Name of interface to exclude from all traps
-                    	**type**\: list of  		 :py:class:`InterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'lpts-punt-flowtrap-cfg'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(Lpts.Punt.Flowtrap.Exclude.InterfaceNames, self).__init__()
-
-                        self.yang_name = "interface-names"
-                        self.yang_parent_name = "exclude"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("interface-name", ("interface_name", Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName))])
-                        self._leafs = OrderedDict()
-
-                        self.interface_name = YList(self)
-                        self._segment_path = lambda: "interface-names"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/exclude/%s" % self._segment_path()
-                        self._is_frozen = True
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Lpts.Punt.Flowtrap.Exclude.InterfaceNames, [], name, value)
-
-
-                    class InterfaceName(Entity):
-                        """
-                        Name of interface to exclude from all traps
-                        
-                        .. attribute:: ifname  (key)
-                        
-                        	Name of interface to exclude from all traps
-                        	**type**\: str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
-                        
-                        .. attribute:: id1
-                        
-                        	Enabled or disabled
-                        	**type**\: bool
-                        
-                        	**mandatory**\: True
-                        
-                        
-
-                        """
-
-                        _prefix = 'lpts-punt-flowtrap-cfg'
-                        _revision = '2017-09-07'
-
-                        def __init__(self):
-                            super(Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName, self).__init__()
-
-                            self.yang_name = "interface-name"
-                            self.yang_parent_name = "interface-names"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self.ylist_key_names = ['ifname']
-                            self._child_classes = OrderedDict([])
-                            self._leafs = OrderedDict([
-                                ('ifname', (YLeaf(YType.str, 'ifname'), ['str'])),
-                                ('id1', (YLeaf(YType.boolean, 'id1'), ['bool'])),
-                            ])
-                            self.ifname = None
-                            self.id1 = None
-                            self._segment_path = lambda: "interface-name" + "[ifname='" + str(self.ifname) + "']"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/exclude/interface-names/%s" % self._segment_path()
-                            self._is_frozen = True
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName, ['ifname', 'id1'], name, value)
 
 
     class Ipolicer(Entity):
@@ -853,6 +375,12 @@ class Lpts(Entity):
                                     self._perform_setattr(Lpts.Ipolicer.Acls.Acl.AfiTypes.AfiType.VrfNames.VrfName, ['vrf_name', 'acl_rate'], name, value)
 
 
+
+
+
+
+
+
         class Flows(Entity):
             """
             Table for Flows
@@ -985,7 +513,500 @@ class Lpts(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lpts.Ipolicer.Flows.Flow.Precedences, ['precedence'], name, value)
 
+
+
+
+
+
+    class Punt(Entity):
+        """
+        Configure penalty timeout value
+        
+        .. attribute:: flowtrap
+        
+        	excessive punt flow trap configuration commands
+        	**type**\:  :py:class:`Flowtrap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap>`
+        
+        
+
+        """
+
+        _prefix = 'lpts-punt-flowtrap-cfg'
+        _revision = '2017-09-07'
+
+        def __init__(self):
+            super(Lpts.Punt, self).__init__()
+
+            self.yang_name = "punt"
+            self.yang_parent_name = "lpts"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("flowtrap", ("flowtrap", Lpts.Punt.Flowtrap))])
+            self._leafs = OrderedDict()
+
+            self.flowtrap = Lpts.Punt.Flowtrap()
+            self.flowtrap.parent = self
+            self._children_name_map["flowtrap"] = "flowtrap"
+            self._segment_path = lambda: "Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt"
+            self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Lpts.Punt, [], name, value)
+
+
+        class Flowtrap(Entity):
+            """
+            excessive punt flow trap configuration commands
+            
+            .. attribute:: penalty_rates
+            
+            	Configure penalty policing rate
+            	**type**\:  :py:class:`PenaltyRates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyRates>`
+            
+            .. attribute:: penalty_timeouts
+            
+            	Configure penalty timeout value
+            	**type**\:  :py:class:`PenaltyTimeouts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyTimeouts>`
+            
+            .. attribute:: exclude
+            
+            	Exclude an item from all traps
+            	**type**\:  :py:class:`Exclude <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.Exclude>`
+            
+            .. attribute:: max_flow_gap
+            
+            	Maximum flow gap in milliseconds
+            	**type**\: int
+            
+            	**range:** 1..60000
+            
+            .. attribute:: et_size
+            
+            	Should be power of 2. Any one of 1,2,4,8,16,32 ,64,128
+            	**type**\: int
+            
+            	**range:** 1..128
+            
+            .. attribute:: eviction_threshold
+            
+            	Eviction threshold, should be less than report\-threshold
+            	**type**\: int
+            
+            	**range:** 1..65535
+            
+            .. attribute:: report_threshold
+            
+            	Threshold to cross for a flow to be considered as bad actor flow
+            	**type**\: int
+            
+            	**range:** 1..65535
+            
+            .. attribute:: non_subscriber_interfaces
+            
+            	Enable trap based on source mac on non\-subscriber interface
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: sample_prob
+            
+            	Probability of packets to be sampled
+            	**type**\: str
+            
+            	**length:** 1..32
+            
+            .. attribute:: eviction_search_limit
+            
+            	Eviction search limit, should be less than trap\-size
+            	**type**\: int
+            
+            	**range:** 1..128
+            
+            .. attribute:: routing_protocols_enable
+            
+            	Allow routing protocols to pass through copp sampler
+            	**type**\: bool
+            
+            .. attribute:: subscriber_interfaces
+            
+            	Enable the trap on subscriber interfaces
+            	**type**\: bool
+            
+            .. attribute:: interface_based_flow
+            
+            	Identify flow based on interface and flowtype
+            	**type**\: bool
+            
+            .. attribute:: dampening
+            
+            	Dampening period for a bad actor flow in milliseconds
+            	**type**\: int
+            
+            	**range:** 5000..60000
+            
+            
+
+            """
+
+            _prefix = 'lpts-punt-flowtrap-cfg'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(Lpts.Punt.Flowtrap, self).__init__()
+
+                self.yang_name = "flowtrap"
+                self.yang_parent_name = "punt"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("penalty-rates", ("penalty_rates", Lpts.Punt.Flowtrap.PenaltyRates)), ("penalty-timeouts", ("penalty_timeouts", Lpts.Punt.Flowtrap.PenaltyTimeouts)), ("exclude", ("exclude", Lpts.Punt.Flowtrap.Exclude))])
+                self._leafs = OrderedDict([
+                    ('max_flow_gap', (YLeaf(YType.uint32, 'max-flow-gap'), ['int'])),
+                    ('et_size', (YLeaf(YType.uint32, 'et-size'), ['int'])),
+                    ('eviction_threshold', (YLeaf(YType.uint32, 'eviction-threshold'), ['int'])),
+                    ('report_threshold', (YLeaf(YType.uint16, 'report-threshold'), ['int'])),
+                    ('non_subscriber_interfaces', (YLeaf(YType.uint32, 'non-subscriber-interfaces'), ['int'])),
+                    ('sample_prob', (YLeaf(YType.str, 'sample-prob'), ['str'])),
+                    ('eviction_search_limit', (YLeaf(YType.uint32, 'eviction-search-limit'), ['int'])),
+                    ('routing_protocols_enable', (YLeaf(YType.boolean, 'routing-protocols-enable'), ['bool'])),
+                    ('subscriber_interfaces', (YLeaf(YType.boolean, 'subscriber-interfaces'), ['bool'])),
+                    ('interface_based_flow', (YLeaf(YType.boolean, 'interface-based-flow'), ['bool'])),
+                    ('dampening', (YLeaf(YType.uint32, 'dampening'), ['int'])),
+                ])
+                self.max_flow_gap = None
+                self.et_size = None
+                self.eviction_threshold = None
+                self.report_threshold = None
+                self.non_subscriber_interfaces = None
+                self.sample_prob = None
+                self.eviction_search_limit = None
+                self.routing_protocols_enable = None
+                self.subscriber_interfaces = None
+                self.interface_based_flow = None
+                self.dampening = None
+
+                self.penalty_rates = Lpts.Punt.Flowtrap.PenaltyRates()
+                self.penalty_rates.parent = self
+                self._children_name_map["penalty_rates"] = "penalty-rates"
+
+                self.penalty_timeouts = Lpts.Punt.Flowtrap.PenaltyTimeouts()
+                self.penalty_timeouts.parent = self
+                self._children_name_map["penalty_timeouts"] = "penalty-timeouts"
+
+                self.exclude = Lpts.Punt.Flowtrap.Exclude()
+                self.exclude.parent = self
+                self._children_name_map["exclude"] = "exclude"
+                self._segment_path = lambda: "flowtrap"
+                self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Lpts.Punt.Flowtrap, ['max_flow_gap', 'et_size', 'eviction_threshold', 'report_threshold', 'non_subscriber_interfaces', 'sample_prob', 'eviction_search_limit', 'routing_protocols_enable', 'subscriber_interfaces', 'interface_based_flow', 'dampening'], name, value)
+
+
+            class PenaltyRates(Entity):
+                """
+                Configure penalty policing rate
+                
+                .. attribute:: penalty_rate
+                
+                	none
+                	**type**\: list of  		 :py:class:`PenaltyRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate>`
+                
+                
+
+                """
+
+                _prefix = 'lpts-punt-flowtrap-cfg'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(Lpts.Punt.Flowtrap.PenaltyRates, self).__init__()
+
+                    self.yang_name = "penalty-rates"
+                    self.yang_parent_name = "flowtrap"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("penalty-rate", ("penalty_rate", Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate))])
+                    self._leafs = OrderedDict()
+
+                    self.penalty_rate = YList(self)
+                    self._segment_path = lambda: "penalty-rates"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Lpts.Punt.Flowtrap.PenaltyRates, [], name, value)
+
+
+                class PenaltyRate(Entity):
+                    """
+                    none
+                    
+                    .. attribute:: protocol_name  (key)
+                    
+                    	none
+                    	**type**\:  :py:class:`LptsPuntFlowtrapProtoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg.LptsPuntFlowtrapProtoId>`
+                    
+                    .. attribute:: rate
+                    
+                    	Penalty policer rate in packets\-per\-second
+                    	**type**\: int
+                    
+                    	**range:** 2..100
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'lpts-punt-flowtrap-cfg'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate, self).__init__()
+
+                        self.yang_name = "penalty-rate"
+                        self.yang_parent_name = "penalty-rates"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['protocol_name']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('protocol_name', (YLeaf(YType.enumeration, 'protocol-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg', 'LptsPuntFlowtrapProtoId', '')])),
+                            ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
+                        ])
+                        self.protocol_name = None
+                        self.rate = None
+                        self._segment_path = lambda: "penalty-rate" + "[protocol-name='" + str(self.protocol_name) + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/penalty-rates/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Lpts.Punt.Flowtrap.PenaltyRates.PenaltyRate, ['protocol_name', 'rate'], name, value)
+
+
+
+
+            class PenaltyTimeouts(Entity):
+                """
+                Configure penalty timeout value
+                
+                .. attribute:: penalty_timeout
+                
+                	none
+                	**type**\: list of  		 :py:class:`PenaltyTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout>`
+                
+                
+
+                """
+
+                _prefix = 'lpts-punt-flowtrap-cfg'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(Lpts.Punt.Flowtrap.PenaltyTimeouts, self).__init__()
+
+                    self.yang_name = "penalty-timeouts"
+                    self.yang_parent_name = "flowtrap"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("penalty-timeout", ("penalty_timeout", Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout))])
+                    self._leafs = OrderedDict()
+
+                    self.penalty_timeout = YList(self)
+                    self._segment_path = lambda: "penalty-timeouts"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Lpts.Punt.Flowtrap.PenaltyTimeouts, [], name, value)
+
+
+                class PenaltyTimeout(Entity):
+                    """
+                    none
+                    
+                    .. attribute:: protocol_name  (key)
+                    
+                    	none
+                    	**type**\:  :py:class:`LptsPuntFlowtrapProtoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg.LptsPuntFlowtrapProtoId>`
+                    
+                    .. attribute:: timeout
+                    
+                    	Timeout value in minutes
+                    	**type**\: int
+                    
+                    	**range:** 1..1000
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'lpts-punt-flowtrap-cfg'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout, self).__init__()
+
+                        self.yang_name = "penalty-timeout"
+                        self.yang_parent_name = "penalty-timeouts"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = ['protocol_name']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('protocol_name', (YLeaf(YType.enumeration, 'protocol-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg', 'LptsPuntFlowtrapProtoId', '')])),
+                            ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                        ])
+                        self.protocol_name = None
+                        self.timeout = None
+                        self._segment_path = lambda: "penalty-timeout" + "[protocol-name='" + str(self.protocol_name) + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/penalty-timeouts/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Lpts.Punt.Flowtrap.PenaltyTimeouts.PenaltyTimeout, ['protocol_name', 'timeout'], name, value)
+
+
+
+
+            class Exclude(Entity):
+                """
+                Exclude an item from all traps
+                
+                .. attribute:: interface_names
+                
+                	none
+                	**type**\:  :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.Exclude.InterfaceNames>`
+                
+                
+
+                """
+
+                _prefix = 'lpts-punt-flowtrap-cfg'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(Lpts.Punt.Flowtrap.Exclude, self).__init__()
+
+                    self.yang_name = "exclude"
+                    self.yang_parent_name = "flowtrap"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("interface-names", ("interface_names", Lpts.Punt.Flowtrap.Exclude.InterfaceNames))])
+                    self._leafs = OrderedDict()
+
+                    self.interface_names = Lpts.Punt.Flowtrap.Exclude.InterfaceNames()
+                    self.interface_names.parent = self
+                    self._children_name_map["interface_names"] = "interface-names"
+                    self._segment_path = lambda: "exclude"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Lpts.Punt.Flowtrap.Exclude, [], name, value)
+
+
+                class InterfaceNames(Entity):
+                    """
+                    none
+                    
+                    .. attribute:: interface_name
+                    
+                    	Name of interface to exclude from all traps
+                    	**type**\: list of  		 :py:class:`InterfaceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_lib_cfg.Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'lpts-punt-flowtrap-cfg'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(Lpts.Punt.Flowtrap.Exclude.InterfaceNames, self).__init__()
+
+                        self.yang_name = "interface-names"
+                        self.yang_parent_name = "exclude"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("interface-name", ("interface_name", Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName))])
+                        self._leafs = OrderedDict()
+
+                        self.interface_name = YList(self)
+                        self._segment_path = lambda: "interface-names"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/exclude/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Lpts.Punt.Flowtrap.Exclude.InterfaceNames, [], name, value)
+
+
+                    class InterfaceName(Entity):
+                        """
+                        Name of interface to exclude from all traps
+                        
+                        .. attribute:: ifname  (key)
+                        
+                        	Name of interface to exclude from all traps
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        .. attribute:: id1
+                        
+                        	Enabled or disabled
+                        	**type**\: bool
+                        
+                        	**mandatory**\: True
+                        
+                        
+
+                        """
+
+                        _prefix = 'lpts-punt-flowtrap-cfg'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName, self).__init__()
+
+                            self.yang_name = "interface-name"
+                            self.yang_parent_name = "interface-names"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = ['ifname']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('ifname', (YLeaf(YType.str, 'ifname'), ['str'])),
+                                ('id1', (YLeaf(YType.boolean, 'id1'), ['bool'])),
+                            ])
+                            self.ifname = None
+                            self.id1 = None
+                            self._segment_path = lambda: "interface-name" + "[ifname='" + str(self.ifname) + "']"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-lpts-lib-cfg:lpts/Cisco-IOS-XR-lpts-punt-flowtrap-cfg:punt/flowtrap/exclude/interface-names/%s" % self._segment_path()
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Lpts.Punt.Flowtrap.Exclude.InterfaceNames.InterfaceName, ['ifname', 'id1'], name, value)
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Lpts()
         return self._top_entity
+
+
 

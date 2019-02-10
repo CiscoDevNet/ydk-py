@@ -23,20 +23,28 @@ class FRAMERELAYDTEMIB(Entity):
     	
     	**type**\:  :py:class:`FrameRelayTrapControl <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrameRelayTrapControl>`
     
+    	**config**\: False
+    
     .. attribute:: frdlcmitable
     
     	The Parameters for the Data Link Connection Management Interface for the frame relay service on this interface
     	**type**\:  :py:class:`FrDlcmiTable <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable>`
+    
+    	**config**\: False
     
     .. attribute:: frcircuittable
     
     	A table containing information about specific Data Link Connections (DLC) or virtual circuits
     	**type**\:  :py:class:`FrCircuitTable <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrCircuitTable>`
     
+    	**config**\: False
+    
     .. attribute:: frerrtable
     
     	A table containing information about Errors on the Frame Relay interface.  Discontinuities in the counters contained in this table are the same as apply to the ifEntry associated with the Interface
     	**type**\:  :py:class:`FrErrTable <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrErrTable>`
+    
+    	**config**\: False
     
     
 
@@ -88,12 +96,16 @@ class FRAMERELAYDTEMIB(Entity):
         	This variable indicates whether the system produces the frDLCIStatusChange trap
         	**type**\:  :py:class:`FrTrapState <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrameRelayTrapControl.FrTrapState>`
         
+        	**config**\: False
+        
         .. attribute:: frtrapmaxrate
         
         	This variable indicates the number of milliseconds that must elapse between trap emissions.  If events occur more rapidly, the impementation may simply fail to trap, or may queue traps until an appropriate time
         	**type**\: int
         
         	**range:** 0..3600000
+        
+        	**config**\: False
         
         
 
@@ -144,6 +156,7 @@ class FRAMERELAYDTEMIB(Entity):
 
 
 
+
     class FrDlcmiTable(Entity):
         """
         The Parameters for the Data Link Connection Management
@@ -154,6 +167,8 @@ class FRAMERELAYDTEMIB(Entity):
         
         	The Parameters for a particular Data Link Connection Management Interface
         	**type**\: list of  		 :py:class:`FrDlcmiEntry <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry>`
+        
+        	**config**\: False
         
         
 
@@ -194,20 +209,28 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: frdlcmistate
             
             	This variable states which Data Link Connection Management scheme is active (and by implication, what DLCI it uses) on the Frame Relay interface
             	**type**\:  :py:class:`FrDlcmiState <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiState>`
+            
+            	**config**\: False
             
             .. attribute:: frdlcmiaddress
             
             	This variable states which address format is in use on the Frame Relay interface
             	**type**\:  :py:class:`FrDlcmiAddress <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiAddress>`
             
+            	**config**\: False
+            
             .. attribute:: frdlcmiaddresslen
             
             	This variable states the address length in octets.  In the case of Q922 format, the length indicates the entire length of the address including the control portion
             	**type**\:  :py:class:`FrDlcmiAddressLen <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiAddressLen>`
+            
+            	**config**\: False
             
             .. attribute:: frdlcmipollinginterval
             
@@ -215,6 +238,8 @@ class FRAMERELAYDTEMIB(Entity):
             	**type**\: int
             
             	**range:** 5..30
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -225,12 +250,16 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 1..255
             
+            	**config**\: False
+            
             .. attribute:: frdlcmierrorthreshold
             
             	This is the maximum number of unanswered Status Enquiries the equipment shall accept before declaring the interface down
             	**type**\: int
             
             	**range:** 1..10
+            
+            	**config**\: False
             
             .. attribute:: frdlcmimonitoredevents
             
@@ -239,6 +268,8 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 1..10
             
+            	**config**\: False
+            
             .. attribute:: frdlcmimaxsupportedvcs
             
             	The maximum number of Virtual Circuits allowed for this interface.  Usually dictated by the Frame Relay network.  In response to a SET, if a value less than zero or higher than the agent's maximal capability is configured, the agent should respond badValue
@@ -246,20 +277,28 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 0..8388607
             
+            	**config**\: False
+            
             .. attribute:: frdlcmimulticast
             
             	This indicates whether the Frame Relay interface is using a multicast service
             	**type**\:  :py:class:`FrDlcmiMulticast <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiMulticast>`
+            
+            	**config**\: False
             
             .. attribute:: frdlcmistatus
             
             	This indicates the status of the Frame Relay interface as determined by the performance of the dlcmi.  If no dlcmi is running, the Frame Relay interface will stay in the running state indefinitely
             	**type**\:  :py:class:`FrDlcmiStatus <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry.FrDlcmiStatus>`
             
+            	**config**\: False
+            
             .. attribute:: frdlcmirowstatus
             
             	SNMP Version 2 Row Status Variable.  Writable objects in the table may be written in any RowStatus state
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -448,6 +487,8 @@ class FRAMERELAYDTEMIB(Entity):
 
 
 
+
+
     class FrCircuitTable(Entity):
         """
         A table containing information about specific Data
@@ -457,6 +498,8 @@ class FRAMERELAYDTEMIB(Entity):
         
         	The information regarding a single Data Link Connection.  Discontinuities in the counters contained in this table are indicated by the value in frCircuitCreationTime
         	**type**\: list of  		 :py:class:`FrCircuitEntry <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrCircuitTable.FrCircuitEntry>`
+        
+        	**config**\: False
         
         
 
@@ -499,6 +542,8 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: frcircuitdlci  (key)
             
             	The Data Link Connection Identifier for this virtual circuit
@@ -506,10 +551,14 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 0..8388607
             
+            	**config**\: False
+            
             .. attribute:: frcircuitstate
             
             	Indicates whether the particular virtual circuit is operational.  In the absence of a Data Link Connection Management Interface, virtual circuit entries (rows) may be created by setting virtual circuit state to 'active', or deleted by changing Circuit state to 'invalid'.  Whether or not the row actually disappears is left to the implementation, so this object may actually read as 'invalid' for some arbitrary length of time.  It is also legal to set the state of a virtual circuit to 'inactive' to temporarily disable a given circuit.  The use of 'invalid' is deprecated in this SNMP Version 2 MIB, in favor of frCircuitRowStatus
             	**type**\:  :py:class:`FrCircuitState <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrCircuitTable.FrCircuitEntry.FrCircuitState>`
+            
+            	**config**\: False
             
             .. attribute:: frcircuitreceivedfecns
             
@@ -518,12 +567,16 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: frcircuitreceivedbecns
             
             	Number of frames received from the network indicating backward congestion since the virtual circuit was created.  This occurs when the remote DTE sets the BECN flag, or when a switch in the network receives the frame from a trunk whose transmission queue is congested
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: frcircuitsentframes
             
@@ -532,12 +585,16 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: frcircuitsentoctets
             
             	The number of octets sent from this virtual circuit since it was created.  Octets counted are the full frame relay header and the payload, but do not include the flag characters or CRC
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: frcircuitreceivedframes
             
@@ -546,12 +603,16 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: frcircuitreceivedoctets
             
             	Number of octets received over this virtual circuit since it was created.  Octets counted include the full frame relay header, but do not include the flag characters or the CRC
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: frcircuitcreationtime
             
@@ -560,12 +621,16 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: frcircuitlasttimechange
             
             	The value of sysUpTime when last there was a change in the virtual circuit state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: frcircuitcommittedburst
             
@@ -574,12 +639,16 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: frcircuitexcessburst
             
             	This variable indicates the maximum amount of uncommitted data bits that the network will attempt to deliver over the measurement interval.  By default, if not configured when creating the entry, the Excess Information Burst Size is set to the value of ifSpeed
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             .. attribute:: frcircuitthroughput
             
@@ -588,15 +657,21 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: frcircuitmulticast
             
             	This indicates whether this VC is used as a unicast VC (i.e. not multicast) or the type of multicast service subscribed to
             	**type**\:  :py:class:`FrCircuitMulticast <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrCircuitTable.FrCircuitEntry.FrCircuitMulticast>`
             
+            	**config**\: False
+            
             .. attribute:: frcircuittype
             
             	Indication of whether the VC was manually created (static), or dynamically created (dynamic) via the data link control management interface
             	**type**\:  :py:class:`FrCircuitType <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrCircuitTable.FrCircuitEntry.FrCircuitType>`
+            
+            	**config**\: False
             
             .. attribute:: frcircuitdiscards
             
@@ -605,12 +680,16 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: frcircuitreceiveddes
             
             	Number of frames received from the network indicating that they were eligible for discard since the virtual circuit was created.  This occurs when the remote DTE sets the DE flag, or when in remote DTE's switch detects that the frame was received as Excess Burst data
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: frcircuitsentdes
             
@@ -619,6 +698,8 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: frcircuitlogicalifindex
             
             	Normally the same value as frDlcmiIfIndex, but different when an implementation associates a virtual ifEntry with a DLC or set of DLCs in order to associate higher layer objects such as the ipAddrEntry with a subset of the virtual circuits on a Frame Relay interface. The type of such ifEntries is defined by the higher layer object; for example, if PPP/Frame Relay is implemented, the ifType of this ifEntry would be PPP. If it is not so defined, as would be the case with an ipAddrEntry, it should be of type Other
@@ -626,10 +707,14 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: frcircuitrowstatus
             
             	This object is used to create a new row or modify or destroy an existing row in the manner described in the definition of the RowStatus textual convention. Writable objects in the table may be written in any RowStatus state
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -794,6 +879,8 @@ class FRAMERELAYDTEMIB(Entity):
 
 
 
+
+
     class FrErrTable(Entity):
         """
         A table containing information about Errors on the
@@ -805,6 +892,8 @@ class FRAMERELAYDTEMIB(Entity):
         
         	The error information for a single frame relay interface
         	**type**\: list of  		 :py:class:`FrErrEntry <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrErrTable.FrErrEntry>`
+        
+        	**config**\: False
         
         
 
@@ -845,10 +934,14 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: frerrtype
             
             	The type of error that was last seen  on  this interface\:  receiveShort\: frame was not long enough to allow         demultiplexing \- the address field was incomplete,         or for virtual circuits using Multiprotocol over         Frame Relay, the protocol identifier was missing         or incomplete.  receiveLong\: frame exceeded maximum length configured for this              interface.  illegalAddress\: address field did not match configured format.  unknownAddress\: frame received on a virtual circuit which was not                 active or administratively disabled.  dlcmiProtoErr\: unspecified error occurred when attempting to                interpret link maintenance frame.  dlcmiUnknownIE\: link maintenance frame contained an Information                 Element type which is not valid for the                 configured link maintenance protocol.  dlcmiSequenceErr\: link maintenance frame contained a sequence                   number other than the expected value.  dlcmiUnknownRpt\: link maintenance frame contained a Report Type                  Information Element whose value was not valid                  for the configured link maintenance protocol.  noErrorSinceReset\: no errors have been detected since the last                    cold start or warm start
             	**type**\:  :py:class:`FrErrType <ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB.FRAMERELAYDTEMIB.FrErrTable.FrErrEntry.FrErrType>`
+            
+            	**config**\: False
             
             .. attribute:: frerrdata
             
@@ -857,12 +950,16 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**length:** 1..1600
             
+            	**config**\: False
+            
             .. attribute:: frerrtime
             
             	The value of sysUpTime at which the error was detected
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: frerrfaults
             
@@ -871,12 +968,16 @@ class FRAMERELAYDTEMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: frerrfaulttime
             
             	The value of sysUpTime at the time when the interface was taken down due to excessive errors.  Excessive errors is defined as the time when a DLCMI exceeds the frDlcmiErrorThreshold number of errors within frDlcmiMonitoredEvents. See FrDlcmiEntry for further details
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1008,7 +1109,11 @@ class FRAMERELAYDTEMIB(Entity):
                 noErrorSinceReset = Enum.YLeaf(10, "noErrorSinceReset")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = FRAMERELAYDTEMIB()
         return self._top_entity
+
+
 

@@ -26,6 +26,8 @@ class Instmgr(Entity):
     	show traceable processes
     	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_instmgr.Instmgr.Trace>`
     
+    	**config**\: False
+    
     
 
     """
@@ -62,10 +64,14 @@ class Instmgr(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: location
         
         	
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_instmgr.Instmgr.Trace.Location>`
+        
+        	**config**\: False
         
         
 
@@ -106,10 +112,14 @@ class Instmgr(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: all_options
             
             	
             	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_instmgr.Instmgr.Trace.Location.AllOptions>`
+            
+            	**config**\: False
             
             
 
@@ -149,10 +159,14 @@ class Instmgr(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: trace_blocks
                 
                 	
                 	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_instmgr.Instmgr.Trace.Location.AllOptions.TraceBlocks>`
+                
+                	**config**\: False
                 
                 
 
@@ -192,6 +206,8 @@ class Instmgr(Entity):
                     	Trace output block
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -218,7 +234,13 @@ class Instmgr(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Instmgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Instmgr()
         return self._top_entity
+
+
 

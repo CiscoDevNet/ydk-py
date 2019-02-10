@@ -416,6 +416,8 @@ class Ntp(Entity):
                 self._perform_setattr(Ntp.AdminTypes.AdminType, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'burst', 'iburst'], name, value)
 
 
+
+
     class PeerVrfs(Entity):
         """
         Configures NTP Peers or Servers
@@ -693,6 +695,9 @@ class Ntp(Entity):
                             self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'source_interface', 'burst', 'iburst'], name, value)
 
 
+
+
+
             class PeerIpv6s(Entity):
                 """
                 Configuration NTP Peers or Servers of IPV6
@@ -884,6 +889,11 @@ class Ntp(Entity):
                             self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'source_interface', 'burst', 'iburst', 'address_ipv6'], name, value)
 
 
+
+
+
+
+
     class DscpIpv4(Entity):
         """
          Set IP DSCP value for outgoing NTP IPV4 packets
@@ -937,6 +947,7 @@ class Ntp(Entity):
             self._perform_setattr(Ntp.DscpIpv4, ['mode', 'dscp_or_precedence_value'], name, value)
 
 
+
     class DscpIpv6(Entity):
         """
          Set IP DSCP value for outgoing NTP IPV6 packets
@@ -988,6 +999,7 @@ class Ntp(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.DscpIpv6, ['mode', 'dscp_or_precedence_value'], name, value)
+
 
 
     class Sources(Entity):
@@ -1074,6 +1086,8 @@ class Ntp(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ntp.Sources.Source, ['vrf_name', 'source_interface'], name, value)
+
+
 
 
     class Drift(Entity):
@@ -1168,6 +1182,8 @@ class Ntp(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ntp.Drift.File, ['location', 'filename'], name, value)
+
+
 
 
     class Authentication(Entity):
@@ -1309,6 +1325,8 @@ class Ntp(Entity):
                     self._perform_setattr(Ntp.Authentication.Keys.Key, ['key_number', 'authentication_key'], name, value)
 
 
+
+
         class TrustedKeys(Entity):
             """
             Key numbers for trusted time sources
@@ -1384,6 +1402,9 @@ class Ntp(Entity):
                     self._perform_setattr(Ntp.Authentication.TrustedKeys.TrustedKey, ['key_number'], name, value)
 
 
+
+
+
     class Passive(Entity):
         """
         Configure NTP passive associations
@@ -1419,6 +1440,7 @@ class Ntp(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.Passive, ['enable'], name, value)
+
 
 
     class InterfaceTables(Entity):
@@ -1691,6 +1713,8 @@ class Ntp(Entity):
                                 self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient, ['ip_address'], name, value)
 
 
+
+
                     class MulticastServers(Entity):
                         """
                         Configures multicast server peers
@@ -1795,6 +1819,9 @@ class Ntp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer, ['ip_address', 'authentication_key', 'version', 'ttl'], name, value)
+
+
+
 
 
                 class InterfaceBroadcast(Entity):
@@ -1940,6 +1967,12 @@ class Ntp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers.BroadcastServer, ['broadcast_type', 'address', 'authentication_key', 'ntp_version'], name, value)
+
+
+
+
+
+
 
 
     class AccessGroupTables(Entity):
@@ -2111,7 +2144,13 @@ class Ntp(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup, ['access_group_type', 'access_list_name'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Ntp()
         return self._top_entity
+
+
 

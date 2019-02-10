@@ -195,40 +195,56 @@ class CISCOMEDIAGATEWAYMIB(Entity):
     	This table contains the global media gateway parameters information. It supports the modification of the global media gateway  parameters
     	**type**\:  :py:class:`CMediaGwTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable>`
     
+    	**config**\: False
+    
     .. attribute:: cmgwsignalprotocoltable
     
     	This table contains the available signaling protocols that are supported by the media gateway for communication with MGCs
     	**type**\:  :py:class:`CmgwSignalProtocolTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable>`
+    
+    	**config**\: False
     
     .. attribute:: cmediagwipconfigtable
     
     	This table contains a list of media gateway IP address and the IP address associated interface information.  If IP address associated interface is PVC, only  aal5 control PVC or aal5 bearer PVC are valid.        When the PVC is aal5 control, the IP address is used to  communicate to MGC; when the PVC is aal5 bearer, the IP address is used to communicate to other gateway. The PVC information is kept in cwAtmChanExtConfigTable\:  cwacChanPvcType\:      aal5/aal2/aal1  cwacChanApplication\:  control/bearer/signaling  If IP address associated interface is not PVC, refer to the  IP addresses associated interface table for the usage of IP address
     	**type**\:  :py:class:`CMediaGwIpConfigTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable>`
     
+    	**config**\: False
+    
     .. attribute:: cmediagwdomainnameconfigtable
     
     	This table provides the domain names which are configured by  users.  The domain names can be used to represent IP addresses  for\:     gateway     External DNS name server     MGC (call agent) 
     	**type**\:  :py:class:`CMediaGwDomainNameConfigTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable>`
+    
+    	**config**\: False
     
     .. attribute:: cmediagwdnsipconfigtable
     
     	There is only one DNS name server on a gateway and the domain name of the DNS name server is put on  cMediaGwDomainNameConfigTable with 'dnsServer (2)'.  There could be multi IP addresses are associated with the DNS name server, this table is used to store these IP  addresses.  If any domain name using external resolution, the last entry of this table is not allowed to be deleted
     	**type**\:  :py:class:`CMediaGwDnsIpConfigTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable>`
     
+    	**config**\: False
+    
     .. attribute:: cmgwliftable
     
     	This table is for managing LIF (Logical Interface)  in a media gateway.   LIF is a logical interface which groups the TDM  DSx1s associated with a set of packet resource partitions  (PVCs) in a media gateway.  LIF is used for\: 1. VoIP switching  2. VoATM switching 
     	**type**\:  :py:class:`CmgwLifTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CmgwLifTable>`
+    
+    	**config**\: False
     
     .. attribute:: cmediagwcallcontrolconfigtable
     
     	This table defines general call control attributes for the media gateway
     	**type**\:  :py:class:`CMediaGwCallControlConfigTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable>`
     
+    	**config**\: False
+    
     .. attribute:: cmediagwrscstatstable
     
     	This table stores the gateway resource statistics information
     	**type**\:  :py:class:`CMediaGwRscStatsTable <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable>`
+    
+    	**config**\: False
     
     
 
@@ -299,6 +315,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         	A Media Gateway Entry.   At system power\-up, an entry is created by the agent  if the system detects a media gateway module has been added  to the system, and an entry is deleted if the entry associated media gateway module has been removed from the system
         	**type**\: list of  		 :py:class:`CMediaGwEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -341,12 +359,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cmgwdomainname
             
             	This object is used to represent a domain name under which    the Media Gateway could also be registered in a DNS name server.   The value of this object reflects the value of  cmgwConfigDomainName from the entry with a value of  'gateway(1)' for object cmgwConfigDomainNameEntity of  cMediaGwDomainNameConfigTable.  If there is no entry in cMediaGwDomainNameConfigTable with 'gateway(1)' of cmgwConfigDomainNameEntity, then the value of this object will be empty string
             	**type**\: str
             
             	**length:** 0..64
+            
+            	**config**\: False
             
             .. attribute:: cmgwphysicalindex
             
@@ -355,15 +377,21 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cmgwservicestate
             
             	This object indicates the current service state of the Media  Gateway. This object is controlled by 'cmgwAdminState'  object
             	**type**\:  :py:class:`CGwServiceState <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CGwServiceState>`
             
+            	**config**\: False
+            
             .. attribute:: cmgwadminstate
             
             	This object is used to change the service state of  the Media Gateway from inService to outOfService or from  outOfService to inService.  The resulting service state of the gateway is represented   by 'cmgwServiceState'
             	**type**\:  :py:class:`CGwAdminState <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CGwAdminState>`
+            
+            	**config**\: False
             
             .. attribute:: cmgwgracetime
             
@@ -372,6 +400,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** \-1..65535
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cmgwvtmappingmode
@@ -379,20 +409,28 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             	This object is used to represent the VT (sonet Virtual Tributary) counting.  standard \- standard counting (based on Bellcore TR253) titan    \- TITAN5500 counting (based on Tellabs TITAN 5500)  Note\: 'titan' is valid only if sonet line medium type        (sonetMediumType of SONET\-MIB) is 'sonet' and        sonet path payload type (cspSonetPathPayload of       CISCO\-SONET\-MIB) is 'vt15vc11'
             	**type**\:  :py:class:`CmgwVtMappingMode <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry.CmgwVtMappingMode>`
             
+            	**config**\: False
+            
             .. attribute:: cmgwsrcfilterenabled
             
             	This object is used to enable or disable the source IP and port filtering with MGC for security consideration as follows\:   'true'  \- source IP and port filter is enabled    'false' \- source IP and port filter is disable 
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cmgwlawinterceptenabled
             
             	This object is used to enable or disable the lawful intercept for government. as follows\:   'true'  \- enable lawful intercept   'false' \- disable lawful intercept
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cmgwv23enabled
             
             	This object is to enable or disable V23 tone. Setting the object value to 'true', will cause VXSM (Voice Switching Service Module) to detect V23 tone
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -437,7 +475,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry, [u'cmgwindex', u'cmgwdomainname', u'cmgwphysicalindex', u'cmgwservicestate', u'cmgwadminstate', u'cmgwgracetime', u'cmgwvtmappingmode', u'cmgwsrcfilterenabled', u'cmgwlawinterceptenabled', u'cmgwv23enabled'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry, ['cmgwindex', 'cmgwdomainname', 'cmgwphysicalindex', 'cmgwservicestate', 'cmgwadminstate', 'cmgwgracetime', 'cmgwvtmappingmode', 'cmgwsrcfilterenabled', 'cmgwlawinterceptenabled', 'cmgwv23enabled'], name, value)
 
             class CmgwVtMappingMode(Enum):
                 """
@@ -471,6 +509,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
 
 
+
+
     class CmgwSignalProtocolTable(Entity):
         """
         This table contains the available signaling protocols that
@@ -481,6 +521,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         
         	Each entry represents an signaling protocol supported by the media gateway
         	**type**\: list of  		 :py:class:`CmgwSignalProtocolEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable.CmgwSignalProtocolEntry>`
+        
+        	**config**\: False
         
         
 
@@ -523,6 +565,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cmgwsignalprotocolindex  (key)
             
             	An index that uniquely identifies an entry in cmgwSignalProtocolTable
@@ -530,10 +574,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: cmgwsignalprotocol
             
             	This object is used to represent the protocol type. other \- None of the following types. mgcp  \- Media Gateway Control Protocol h248 \- Media Gateway Control (ITU H.248) tgcp \- Trunking Gateway Control Protocol
             	**type**\:  :py:class:`CmgwSignalProtocol <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable.CmgwSignalProtocolEntry.CmgwSignalProtocol>`
+            
+            	**config**\: False
             
             .. attribute:: cmgwsignalprotocolversion
             
@@ -542,12 +590,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**length:** 1..16
             
+            	**config**\: False
+            
             .. attribute:: cmgwsignalprotocolport
             
             	This object is used to represent the UDP port associated  with the protocol. If the value of cmgwSignalProtocol is 'mgcp(2)' and the value of cmgwSignalProtcolVersion is '1.0', the default value of this object is '2727'.  If the value of cmgwSignalProtocol is 'h248(3)' and the value of cmgwSignalProtcolVersion is '1.0', the default value of this object is '2944'
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             .. attribute:: cmgwsignalmgcprotocolport
             
@@ -556,6 +608,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: cmgwsignalprotocolpreference
             
             	This object specifies the preference of the signal protocol  supported in the media gateway.  If this object is set to 0, the corresponding signal protocol will not be used by the gateway.   The value of this object is unique within the corresponding gateway. The entry with lower value has higher preference
@@ -563,12 +617,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cmgwsignalprotocolconfigver
             
             	This object specifies the protocol version used by the gateway in the messages to MGC in order to exchange the service capabilities.  For example cmgwSignalProtocol is 'h248(3)' and this object can be string '1' or '1.0', '2' or '2.0'.   'MAX' is a special string indicating the gateway will use the highest protocol version supported in the  gateway, but it can be changed to lower version after  it negotiates with MGC. The final negotiated protocol version will be indicated in cmgwSignalProtocolVersion.  The version strings other than 'MAX' can be specified for the gateway to communicate with the MGC which doesn't support service capabilities negotiation. For example if a MGC supports only version 1.0 MGCP, this object should be set to '1' to instruct the gateway using MGCP  version 1.0 format messages to communicate with MGC. 
             	**type**\: str
             
             	**length:** 1..16
+            
+            	**config**\: False
             
             
 
@@ -609,7 +667,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable.CmgwSignalProtocolEntry, [u'cmgwindex', u'cmgwsignalprotocolindex', u'cmgwsignalprotocol', u'cmgwsignalprotocolversion', u'cmgwsignalprotocolport', u'cmgwsignalmgcprotocolport', u'cmgwsignalprotocolpreference', u'cmgwsignalprotocolconfigver'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CmgwSignalProtocolTable.CmgwSignalProtocolEntry, ['cmgwindex', 'cmgwsignalprotocolindex', 'cmgwsignalprotocol', 'cmgwsignalprotocolversion', 'cmgwsignalprotocolport', 'cmgwsignalmgcprotocolport', 'cmgwsignalprotocolpreference', 'cmgwsignalprotocolconfigver'], name, value)
 
             class CmgwSignalProtocol(Enum):
                 """
@@ -645,6 +703,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
 
 
+
+
     class CMediaGwIpConfigTable(Entity):
         """
         This table contains a list of media gateway IP address and
@@ -667,6 +727,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         
         	A Media Gateway IP configuration entry.  Each entry represents a media gateway IP address for MGCs to communicate with the media gateway
         	**type**\: list of  		 :py:class:`CMediaGwIpConfigEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable.CMediaGwIpConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -710,12 +772,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cmgwipconfigindex  (key)
             
             	A unique index to identify each media gateway IP address
             	**type**\: int
             
             	**range:** 1..64
+            
+            	**config**\: False
             
             .. attribute:: cmgwipconfigifindex
             
@@ -724,12 +790,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cmgwipconfigvpi
             
             	This object represents VPI of the PVC which is associated to the IP address. If the IP address is not associated to PVC, the value  of this object is set to \-1
             	**type**\: int
             
             	**range:** \-1..4095
+            
+            	**config**\: False
             
             .. attribute:: cmgwipconfigvci
             
@@ -738,10 +808,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** \-1..65535
             
+            	**config**\: False
+            
             .. attribute:: cmgwipconfigaddrtype
             
             	This object is the IP address type
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cmgwipconfigaddress
             
@@ -750,6 +824,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cmgwipconfigsubnetmask
             
             	This object is used to specify the number of leading one    bits which from the mask to be logical\-ANDed with the media   gateway address before being compared to the value in the  cmgwIpCofigAddress.  Any assignment (implicit or otherwise) of an instance of this object to a value x must be rejected if the bitwise logical\-AND of the mask formed from x with the value  of the corresponding instance of the cmgwIpCofigAddress  object is not equal to cmgwIpCofigAddress
@@ -757,20 +833,28 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 0..2040
             
+            	**config**\: False
+            
             .. attribute:: cmgwipconfigdefaultgwip
             
             	This object specifies cmgwIpConfigAddress of the entry will become the default gateway address. This object can be set to 'true' for only one entry in the table
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cmgwipconfigforremotemapping
             
             	This object specifies whether the address defined in cmgwIpConfigAddress is the address mapping at the remote end of this PVC.   If this object is set to 'true', the address defined in cmgwIpConfigAddress is for the remote end of the PVC. If this object is set to 'false', the address defined in cmgwIpConfigAddress is for the local end of the PVC
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cmgwipconfigrowstatus
             
             	This object is used to add and delete an entry.  When an entry of the table is created, the following  objects are mandatory\:     cmgwIpConfigIfIndex     cmgwIpConfigVpi     cmgwIpConfigVci     cmgwIpConfigAddress     cmgwIpConfigSubnetMask  These objects can not be modified after the value of this object is set to 'active'.  Modification can only be done by deleting and re\-adding the  entry again.  After the system verify the validity of the data, it will set the cmgwIpConfigRowStatus to 'active'
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -817,7 +901,9 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable.CMediaGwIpConfigEntry, [u'cmgwindex', u'cmgwipconfigindex', u'cmgwipconfigifindex', u'cmgwipconfigvpi', u'cmgwipconfigvci', u'cmgwipconfigaddrtype', u'cmgwipconfigaddress', u'cmgwipconfigsubnetmask', u'cmgwipconfigdefaultgwip', u'cmgwipconfigforremotemapping', u'cmgwipconfigrowstatus'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwIpConfigTable.CMediaGwIpConfigEntry, ['cmgwindex', 'cmgwipconfigindex', 'cmgwipconfigifindex', 'cmgwipconfigvpi', 'cmgwipconfigvci', 'cmgwipconfigaddrtype', 'cmgwipconfigaddress', 'cmgwipconfigsubnetmask', 'cmgwipconfigdefaultgwip', 'cmgwipconfigforremotemapping', 'cmgwipconfigrowstatus'], name, value)
+
+
 
 
     class CMediaGwDomainNameConfigTable(Entity):
@@ -834,6 +920,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         
         	Each entry represents a domain name used in the system.  Creation and deletion are supported. Modification is prohibited
         	**type**\: list of  		 :py:class:`CMediaGwDomainNameConfigEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable.CMediaGwDomainNameConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -878,6 +966,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cmgwconfigdomainnameindex  (key)
             
             	An index that is uniquely identifies a domain name configured in the system
@@ -885,10 +975,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 1..128
             
+            	**config**\: False
+            
             .. attribute:: cmgwconfigdomainnameentity
             
             	This object indicates which entity to use this domain name.  gateway(1)   \- The domain name of media gateway.                With the same cmgwIndex, there is one and                 only one entry allowed with the value                 'gateway(1)' of this object.  dnsServer(2) \- The domain name of DNS name server that is used                 by Media gateway to find Internet Network                 Address from a DNS name.  mgc(3)       \- The domain name of a MGC (Media Gateway                Controller) associated with the media                 gateway. 
             	**type**\:  :py:class:`CmgwConfigDomainNameEntity <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable.CMediaGwDomainNameConfigEntry.CmgwConfigDomainNameEntity>`
+            
+            	**config**\: False
             
             .. attribute:: cmgwconfigdomainname
             
@@ -897,10 +991,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: cmgwconfigdomainnamerowstatus
             
             	This object is used to add and delete an entry.  When an entry is created, the following objects are mandatory\:      cmgwConfigDomainName      cmgwConfigDomainNameEntity  When deleting domain name of DNS name server (cmgwConfigDomainNameEntity is dnsServer (2)), the  cMediaGwDnsIpConfigTable should be empty.  Adding/deleting entry with cmgwConfigDomainNameEntity of 'mgc' will cause adding/deleting entry in  cMgcConfigTable (CISCO\-MGC\-MIB) automatically.  The cmgwConfigDomainName and cmgwConfigDomainNameEntity can not be modified if the value of this object is 'active'. 
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -935,7 +1033,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable.CMediaGwDomainNameConfigEntry, [u'cmgwindex', u'cmgwconfigdomainnameindex', u'cmgwconfigdomainnameentity', u'cmgwconfigdomainname', u'cmgwconfigdomainnamerowstatus'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwDomainNameConfigTable.CMediaGwDomainNameConfigEntry, ['cmgwindex', 'cmgwconfigdomainnameindex', 'cmgwconfigdomainnameentity', 'cmgwconfigdomainname', 'cmgwconfigdomainnamerowstatus'], name, value)
 
             class CmgwConfigDomainNameEntity(Enum):
                 """
@@ -979,6 +1077,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
 
 
+
+
     class CMediaGwDnsIpConfigTable(Entity):
         """
         There is only one DNS name server on a gateway
@@ -996,6 +1096,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         
         	Each entry represents an IP address of the DNS name  server
         	**type**\: list of  		 :py:class:`CMediaGwDnsIpConfigEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable.CMediaGwDnsIpConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1038,12 +1140,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cmgwdnsipindex  (key)
             
             	An index that uniquely identifies an IP address of DNS name server
             	**type**\: int
             
             	**range:** 1..6
+            
+            	**config**\: False
             
             .. attribute:: cmgwdnsdomainname
             
@@ -1052,10 +1158,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: cmgwdnsiptype
             
             	DNS name server IP address type
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cmgwdnsip
             
@@ -1064,10 +1174,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cmgwdnsiprowstatus
             
             	This object is used to add and delete an entry.  When an entry of the table is created, the value of this object should be set to 'createAndGo' and the following objects are mandatory\:     cmgwDnsIp  When the user wants to delete the entry, the value of this object should be set to 'destroy'.  The entry can not be modified if the value of this  object is 'active'
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1104,7 +1218,9 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable.CMediaGwDnsIpConfigEntry, [u'cmgwindex', u'cmgwdnsipindex', u'cmgwdnsdomainname', u'cmgwdnsiptype', u'cmgwdnsip', u'cmgwdnsiprowstatus'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwDnsIpConfigTable.CMediaGwDnsIpConfigEntry, ['cmgwindex', 'cmgwdnsipindex', 'cmgwdnsdomainname', 'cmgwdnsiptype', 'cmgwdnsip', 'cmgwdnsiprowstatus'], name, value)
+
+
 
 
     class CmgwLifTable(Entity):
@@ -1124,6 +1240,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         
         	An entry of this table is created by the media gateway when it supports the VoIP/VoATM application
         	**type**\: list of  		 :py:class:`CmgwLifEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CmgwLifTable.CmgwLifEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1166,12 +1284,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cmgwlifnumber  (key)
             
             	An index that uniquely identifies a LIF in the  media gateway
             	**type**\: int
             
             	**range:** 1..255
+            
+            	**config**\: False
             
             .. attribute:: cmgwlifpvccount
             
@@ -1180,12 +1302,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 0..10000
             
+            	**config**\: False
+            
             .. attribute:: cmgwlifvoiceifcount
             
             	This object represents the total number of Voice Interfaces within this LIF.  When users associate/disassociate a Voice Interface with a LIF by giving a non\-zero/zero value of  ccasVoiceCfgLifNumber for the DS0 group in  ccasVoiceExtCfgTable, the value of this object will be  incremented/decremented accordingly.   The value zero means there is no Voice Interface associated with the LIF
             	**type**\: int
             
             	**range:** 0..1000
+            
+            	**config**\: False
             
             
 
@@ -1218,7 +1344,9 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CmgwLifTable.CmgwLifEntry, [u'cmgwindex', u'cmgwlifnumber', u'cmgwlifpvccount', u'cmgwlifvoiceifcount'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CmgwLifTable.CmgwLifEntry, ['cmgwindex', 'cmgwlifnumber', 'cmgwlifpvccount', 'cmgwlifvoiceifcount'], name, value)
+
+
 
 
     class CMediaGwCallControlConfigTable(Entity):
@@ -1230,6 +1358,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         
         	One entry for each media gateway which supports call control  protocol
         	**type**\: list of  		 :py:class:`CMediaGwCallControlConfigEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1272,12 +1402,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cmediagwcccfgcontroltos
             
             	This object specifies Type Of Service (TOS) field of IP header for the signaling control packet in VoIP application
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: cmediagwcccfgbearertos
             
@@ -1286,12 +1420,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cmediagwcccfgntepayload
             
             	This object specifies NTE (Named Telephony Events) payload type
             	**type**\: int
             
             	**range:** 96..127
+            
+            	**config**\: False
             
             .. attribute:: cmediagwcccfgnsepayload
             
@@ -1300,12 +1438,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 98..117
             
+            	**config**\: False
+            
             .. attribute:: cmediagwcccfgnseresptimer
             
             	This object specifies Network Signaling Event (NSE) timeout value
             	**type**\: int
             
             	**range:** 250..10000
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -1314,12 +1456,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             	The object specifies the jitter buffer mode applied to a VBD (Voice Band Data) call connection.  adaptive \- means to use cMediaGwCcCfgVbdJitterNomDelay as            the initial jitter buffers size and let the DSP            pick the optimal value of the jitter buffer            size between the range of            cMediaGwCcCfgVbcJitterMaxDelay and            cMediaGwCcCfgVbcJitterMinDelay.  fixed \- means to use a constant jitter buffer size         which is specified by cMediaGwCcCfgVbdJitterNomDelay
             	**type**\:  :py:class:`CCallControlJitterDelayMode <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CCallControlJitterDelayMode>`
             
+            	**config**\: False
+            
             .. attribute:: cmediagwcccfgvbdjittermaxdelay
             
             	This object specifies the maximum jitter buffer size  in VBD (Voice Band Data)
             	**type**\: int
             
             	**range:** 20..135
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -1330,6 +1476,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 5..135
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: cmediagwcccfgvbdjittermindelay
@@ -1338,6 +1486,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             	**type**\: int
             
             	**range:** 0..135
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -1348,10 +1498,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: cmediagwcccfgdescrinfoenabled
             
             	This object specifies whether the media gateway supports descriptive suffix of the name schema for terminations.  There are two parts in name schema of termination, prefix and suffix. For example the name schema for a DS (Digital Subscriber) termination, can be 'DS/OC3\_2/DS1\_6/DS0\_24'. It represents DS type termination in 2nd OC3 line,  6th DS1 and 24th DS0 channel. In this example, 'DS' is  the prefix, 'OC3\_2/DS1\_6/DS0\_24' is the suffix.  The name schema in above example has a descriptive suffix. The non\-descriptive suffix for the same termination is  '2/6/24' and name schema becomes 'DS/2/6/24'.  This object can not be modified if there is any termination existing in the media gateway
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cmediagwcccfgdsnameprefix
             
@@ -1360,12 +1514,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: cmediagwcccfgrtpnameprefix
             
             	This object specifies the prefix of the name schema for RTP (Real\-Time Transport Protocol) terminations. The value of this object must be unique among the  following objects\:        cMediaGwCcCfgDsNamePrefix        cMediaGwCcCfgRtpNamePrefix        cMediaGwCcCfgAal2SvcNamePrefix        cMediaGwCcCfgAal2SvcNamePrefix        cMediaGwCcCfgDefRtpNamePrefix This object can not be modified when there is any RTP termination type existing in the media gateway. It is default to 'RTP'
             	**type**\: str
             
             	**length:** 1..64
+            
+            	**config**\: False
             
             .. attribute:: cmediagwcccfgaal1svcnameprefix
             
@@ -1374,6 +1532,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: cmediagwcccfgaal2svcnameprefix
             
             	This object specifies the prefix of the name schema for voice over AAL2 SVC (Switched Virtual Circuit) terminations. The value of this object must be unique among the  following objects\:        cMediaGwCcCfgDsNamePrefix        cMediaGwCcCfgRtpNamePrefix        cMediaGwCcCfgAal2SvcNamePrefix        cMediaGwCcCfgAal2SvcNamePrefix        cMediaGwCcCfgDefRtpNamePrefix This object can not be modified when there is any AAL2 SVC termination type existing in the media gateway. It is default to 'AAL2/SVC'
@@ -1381,15 +1541,21 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: cmediagwcccfgclusterenabled
             
             	This object specifies the condition of the cluster generation in the call control.  A cluster is a group of endpoints that share a particular bearer possibility for connections among each other.  disabled(1) \- The generation of the cluster attribute               is disabled. enabled(2) \- Unconditionally generate the cluster              attribute. conditionalEnabled(3) \- The generation of the cluster                attribute is upon MGC request
             	**type**\:  :py:class:`CMediaGwCcCfgClusterEnabled <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry.CMediaGwCcCfgClusterEnabled>`
             
+            	**config**\: False
+            
             .. attribute:: cmediagwcccfgdefbearertraffic
             
             	This object specifies the combination of the network type (IP/ATM), virtual circuit type (PVC/SVC) and ATM adaptation layer type (AAL1/AAL2/AAL5) for the connection used in transporting bearer traffic.      ipPvcAal5 (1) \- The bearer traffic is transported in                     IP network, through Permanent Virtual                     Circuit(PVC) over AAL5 adaptation layer.     atmPvcAal2 (2) \- The bearer traffic is transported in                      ATM network, through Permanent Virtual                      Circuit(PVC) over AAL2 adaptation layer.     atmSvcAal2 (3) \- The bearer traffic is transported in                      ATM network, through Switching Virtual                      Circuit(SVC) over AAL2 adaptation layer.     atmSvcAal1 (4) \- The bearer traffic is transported in                      ATM network, through Switching Virtual                      Circuit(SVC) over AAL1 adaptation layer.  In MGCP, if the call agent specifies the bear traffic type  in the local connection options (CRCX request),  configuration of this object will have no effect,  otherwise the value of this object will be used when  media gateway sending CRCX response
             	**type**\:  :py:class:`CMediaGwCcCfgDefBearerTraffic <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry.CMediaGwCcCfgDefBearerTraffic>`
+            
+            	**config**\: False
             
             .. attribute:: cmediagwcccfgdefrtpnameprefix
             
@@ -1397,6 +1563,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             	**type**\: str
             
             	**length:** 1..64
+            
+            	**config**\: False
             
             
 
@@ -1459,7 +1627,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry, [u'cmgwindex', u'cmediagwcccfgcontroltos', u'cmediagwcccfgbearertos', u'cmediagwcccfgntepayload', u'cmediagwcccfgnsepayload', u'cmediagwcccfgnseresptimer', u'cmediagwcccfgvbdjitterdelaymode', u'cmediagwcccfgvbdjittermaxdelay', u'cmediagwcccfgvbdjitternomdelay', u'cmediagwcccfgvbdjittermindelay', u'cmediagwcccfgdefaulttoneplanid', u'cmediagwcccfgdescrinfoenabled', u'cmediagwcccfgdsnameprefix', u'cmediagwcccfgrtpnameprefix', u'cmediagwcccfgaal1svcnameprefix', u'cmediagwcccfgaal2svcnameprefix', u'cmediagwcccfgclusterenabled', u'cmediagwcccfgdefbearertraffic', u'cmediagwcccfgdefrtpnameprefix'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwCallControlConfigTable.CMediaGwCallControlConfigEntry, ['cmgwindex', 'cmediagwcccfgcontroltos', 'cmediagwcccfgbearertos', 'cmediagwcccfgntepayload', 'cmediagwcccfgnsepayload', 'cmediagwcccfgnseresptimer', 'cmediagwcccfgvbdjitterdelaymode', 'cmediagwcccfgvbdjittermaxdelay', 'cmediagwcccfgvbdjitternomdelay', 'cmediagwcccfgvbdjittermindelay', 'cmediagwcccfgdefaulttoneplanid', 'cmediagwcccfgdescrinfoenabled', 'cmediagwcccfgdsnameprefix', 'cmediagwcccfgrtpnameprefix', 'cmediagwcccfgaal1svcnameprefix', 'cmediagwcccfgaal2svcnameprefix', 'cmediagwcccfgclusterenabled', 'cmediagwcccfgdefbearertraffic', 'cmediagwcccfgdefrtpnameprefix'], name, value)
 
             class CMediaGwCcCfgClusterEnabled(Enum):
                 """
@@ -1566,6 +1734,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
 
 
 
+
+
     class CMediaGwRscStatsTable(Entity):
         """
         This table stores the gateway resource statistics
@@ -1575,6 +1745,8 @@ class CISCOMEDIAGATEWAYMIB(Entity):
         
         	Each entry stores the statistics information for a specific resource
         	**type**\: list of  		 :py:class:`CMediaGwRscStatsEntry <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable.CMediaGwRscStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1617,10 +1789,14 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**refers to**\:  :py:class:`cmgwindex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwTable.CMediaGwEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cmgwrscstatsindex  (key)
             
             	An index that uniquely identifies a specific gateway resource
             	**type**\:  :py:class:`CmgwRscStatsIndex <ydk.models.cisco_ios_xe.CISCO_MEDIA_GATEWAY_MIB.CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable.CMediaGwRscStatsEntry.CmgwRscStatsIndex>`
+            
+            	**config**\: False
             
             .. attribute:: cmgwrscmaximumutilization
             
@@ -1629,12 +1805,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cmgwrscminimumutilization
             
             	This object indicates the minimum utilization of the resource over the interval specified by the 'cmgwRscSinceLastReset'
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cmgwrscaverageutilization
             
@@ -1643,12 +1823,16 @@ class CISCOMEDIAGATEWAYMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cmgwrscsincelastreset
             
             	The elapsed time (in seconds) from the last periodic reset.  The following objects are reset at the last reset\:      'cmgwRscMaximumUtilization'     'cmgwRscMinimumUtilization'     'cmgwRscAverageUtilization'
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1687,7 +1871,7 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable.CMediaGwRscStatsEntry, [u'cmgwindex', u'cmgwrscstatsindex', u'cmgwrscmaximumutilization', u'cmgwrscminimumutilization', u'cmgwrscaverageutilization', u'cmgwrscsincelastreset'], name, value)
+                self._perform_setattr(CISCOMEDIAGATEWAYMIB.CMediaGwRscStatsTable.CMediaGwRscStatsEntry, ['cmgwindex', 'cmgwrscstatsindex', 'cmgwrscmaximumutilization', 'cmgwrscminimumutilization', 'cmgwrscaverageutilization', 'cmgwrscsincelastreset'], name, value)
 
             class CmgwRscStatsIndex(Enum):
                 """
@@ -1768,7 +1952,11 @@ class CISCOMEDIAGATEWAYMIB(Entity):
                 mblkipcbuffer = Enum.YLeaf(17, "mblkipcbuffer")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOMEDIAGATEWAYMIB()
         return self._top_entity
+
+
 

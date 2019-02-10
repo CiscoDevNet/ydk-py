@@ -164,65 +164,91 @@ class CISCOSONETMIB(Entity):
     	
     	**type**\:  :py:class:`CsApsConfig <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsApsConfig>`
     
+    	**config**\: False
+    
     .. attribute:: csnotifications
     
     	
     	**type**\:  :py:class:`CsNotifications <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsNotifications>`
+    
+    	**config**\: False
     
     .. attribute:: csconfigtable
     
     	The SONET/SDH configuration table. This table has objects  for configuring sonet lines
     	**type**\:  :py:class:`CsConfigTable <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable>`
     
+    	**config**\: False
+    
     .. attribute:: csapsconfigtable
     
     	This table contains objects to configure APS  (Automatic Protection Switching) feature in a SONET  Line. APS is the ability to configure a pair of SONET  lines for redundancy so that the hardware will  automatically switch the active line from working line to the protection line or vice versa, within 60ms,  when the active line fails
     	**type**\:  :py:class:`CsApsConfigTable <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsApsConfigTable>`
+    
+    	**config**\: False
     
     .. attribute:: csstotaltable
     
     	The SONET/SDH Section Total table. It contains the  cumulative sum of the various statistics for the 24 hour period preceding the current interval. The object  'sonetMediumValidIntervals' from RFC2558 contains the number of 15 minute intervals that have elapsed since the line is enabled. 
     	**type**\:  :py:class:`CssTotalTable <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CssTotalTable>`
     
+    	**config**\: False
+    
     .. attribute:: csstracetable
     
     	The SONET/SDH Section Trace table. This table contains  objects for tracing the sonet section
     	**type**\:  :py:class:`CssTraceTable <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CssTraceTable>`
+    
+    	**config**\: False
     
     .. attribute:: csltotaltable
     
     	The SONET/SDH Line Total table. It contains the  cumulative sum of the various statistics for the 24  hour period preceding the current interval. The object  'sonetMediumValidIntervals' from RFC2558 contains the  number of 15 minute intervals that have elapsed since the line is enabled
     	**type**\:  :py:class:`CslTotalTable <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CslTotalTable>`
     
+    	**config**\: False
+    
     .. attribute:: cslfarendtotaltable
     
     	The SONET/SDH Far End Line Total table. It contains the  cumulative sum of the various statistics for the 24 hour  period preceding the current interval. The object  'sonetMediumValidIntervals' from RFC2558 contains the  number of 15 minute intervals that have elapsed since the  line is enabled
     	**type**\:  :py:class:`CslFarEndTotalTable <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CslFarEndTotalTable>`
+    
+    	**config**\: False
     
     .. attribute:: csptotaltable
     
     	The SONET/SDH Path Total table. It contains the cumulative  sum of the various statistics for the 24 hour period  preceding the current interval.The object  'sonetMediumValidIntervals' from RFC2558 contains the number of 15 minute intervals that have elapsed since the line is  enabled
     	**type**\:  :py:class:`CspTotalTable <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CspTotalTable>`
     
+    	**config**\: False
+    
     .. attribute:: cspfarendtotaltable
     
     	The SONET/SDH Far End Path Total table. Far End is the  remote end of the line. The table contains the cumulative sum of the various statistics for the 24 hour period  preceding the current interval. The object  'sonetMediumValidIntervals' from RFC2558 contains the number of 15 minute intervals that have elapsed since the line is enabled. 
     	**type**\:  :py:class:`CspFarEndTotalTable <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CspFarEndTotalTable>`
+    
+    	**config**\: False
     
     .. attribute:: csptracetable
     
     	The SONET/SDH Path Trace table. This table contains objects  for tracing the sonet path
     	**type**\:  :py:class:`CspTraceTable <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CspTraceTable>`
     
+    	**config**\: False
+    
     .. attribute:: csstatstable
     
     	The SONET/SDH Section statistics table. This table  maintains the number of times the line encountered Loss of Signal(LOS), Loss of frame(LOF), Alarm Indication  signals(AISs), Remote failure indications(RFIs)
     	**type**\:  :py:class:`CsStatsTable <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: csau4tug3configtable
     
     	This table contains objects to configure the VC( Virtual Container) related properties of a TUG\-3 within a AU\-4  paths.  This table allows creation of following multiplexing structure\: STM\-1/AU\-4/TUG\-3/TU\-3/DS3 STM\-1/AU\-4/TUG\-3/TU\-3/E3 STM\-1/AU\-4/TUG\-3/TUG\-2/TU\-11/DS1 STM\-1/AU\-4/TUG\-3/TUG\-2/TU\-12/E1  Three entries are created in this table for a given AU\-4  path when cspSonetPathPayload object is set to one of the  following\:     vt15vc11(4),     vt2vc12(5),     ds3(3),     e3(8),     vtStructured(9)
     	**type**\:  :py:class:`CsAu4Tug3ConfigTable <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsAu4Tug3ConfigTable>`
+    
+    	**config**\: False
     
     
 
@@ -310,10 +336,14 @@ class CISCOSONETMIB(Entity):
         	The object indicates the APS line failure code. This is the failure encountered by the APS line. Refer to CsApsLineFailureCode TC for failure code definitions. The object is used for notifications
         	**type**\:  :py:class:`CsApsLineFailureCode <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CsApsLineFailureCode>`
         
+        	**config**\: False
+        
         .. attribute:: csapslineswitchreason
         
         	This object indicates the APS line switch reason. When the working line on one end fails, its other end is told to do an APS switch.  Refer to CsApsLineSwitchReason TC for more information. The object is used for notifications
         	**type**\:  :py:class:`CsApsLineSwitchReason <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CsApsLineSwitchReason>`
+        
+        	**config**\: False
         
         
 
@@ -345,6 +375,7 @@ class CISCOSONETMIB(Entity):
             self._perform_setattr(CISCOSONETMIB.CsApsConfig, ['csapslinefailurecode', 'csapslineswitchreason'], name, value)
 
 
+
     class CsNotifications(Entity):
         """
         
@@ -353,6 +384,8 @@ class CISCOSONETMIB(Entity):
         
         	This object controls if the generation of  ciscoSonetSectionStatusChange, ciscoSonetLineStatusChange,  ciscoSonetPathStatusChange and ciscoSonetVTStatusChange notifications is enabled. If the value of this object is 'true(1)', then all notifications in this MIB are enabled; otherwise they are disabled
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -382,6 +415,7 @@ class CISCOSONETMIB(Entity):
             self._perform_setattr(CISCOSONETMIB.CsNotifications, ['csnotificationsenabled'], name, value)
 
 
+
     class CsConfigTable(Entity):
         """
         The SONET/SDH configuration table. This table has objects 
@@ -391,6 +425,8 @@ class CISCOSONETMIB(Entity):
         
         	An entry in the table. There is an entry for each SONET line  in the table. Entries are automatically created for an  ifType value of sonet(39). 'ifAdminStatus' from the ifTable  must be used to enable or disable a line. A line is in  disabled(down) state unless provisioned 'up' using  'ifAdminStatus'
         	**type**\: list of  		 :py:class:`CsConfigEntry <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable.CsConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -437,60 +473,84 @@ class CISCOSONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csconfigloopbacktype
             
             	This object specifies the desired loopback mode configuration of the SONET line. The possible values of this objects are follows\:  noLoopback \:           Not in the loopback state.   lineLocal \:          The signal transmitted from this interface         is connected to the associated incoming         receiver. This ensures that the SONET frame         transmitted from the interface is received back         at the interface. lineRemote \:         The signal received at the interface is looped         back out to the associated transmitter.         This ensures that the remote equipment that         originated the signal receives it back. The          signal may undergo degradation as a result of         the characteristics of the transmission          medium
             	**type**\:  :py:class:`CsConfigLoopbackType <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable.CsConfigEntry.CsConfigLoopbackType>`
+            
+            	**config**\: False
             
             .. attribute:: csconfigxmtclocksource
             
             	Specifies the source of the transmit clock.  loopTiming\: indicates that the recovered receive              clock is used as the transmit clock.  localTiming\: indicates that a local clock source is              used or that an external clock is               attached to the box containing the               interface. 
             	**type**\:  :py:class:`CsConfigXmtClockSource <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable.CsConfigEntry.CsConfigXmtClockSource>`
             
+            	**config**\: False
+            
             .. attribute:: csconfigframescramble
             
             	This object is used to disable or enable the Scrambling option in SONET line
             	**type**\:  :py:class:`CsConfigFrameScramble <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable.CsConfigEntry.CsConfigFrameScramble>`
+            
+            	**config**\: False
             
             .. attribute:: csconfigtype
             
             	This object represents the configured line type. Sts is SONET format. Stm is SDH format.      sonetSts3c   \: OC3 concatenated     sonetStm1    \: European standard OC3     sonetSts12c  \: OC12 concatenated     sonetStm4    \: European standard OC12     sonetSts48c  \: OC48 concatenated     sonetStm16   \: European standard OC48      sonetSts192c \: OC\-192 concatenated     sonetStm64   \: European standard OC\-192     sonetSts3    \: OC3 (unconcatenated)     
             	**type**\:  :py:class:`CsConfigType <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable.CsConfigEntry.CsConfigType>`
             
+            	**config**\: False
+            
             .. attribute:: csconfigrdivtype
             
             	This object specifies the type of RDI\-V (Remote Defect Indication \- Virtual Tributary/Container) sent by this  Network Element (NE) to the remote Network Element.        onebit     \: use 1 bit RDI\-V       threebit   \: use 3 bit enhanced RDI\-V.  Default is onebit
             	**type**\:  :py:class:`CsConfigRDIVType <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable.CsConfigEntry.CsConfigRDIVType>`
+            
+            	**config**\: False
             
             .. attribute:: csconfigrdiptype
             
             	This object represents the type of RDI\-P (Remote Defect Indication \- Path) sent by this Network Element (NE) to remote Network Element.        onebit     \: use 1 bit RDI\-P       threebit   \: use 3 bit enhanced RDI\-P.  Default is onebit
             	**type**\:  :py:class:`CsConfigRDIPType <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable.CsConfigEntry.CsConfigRDIPType>`
             
+            	**config**\: False
+            
             .. attribute:: cstributarytype
             
             	Type of the tributary carried within the SONET/SDH signal.  vt15vc11    \: carries T1 signal vt2vc12     \: carries E1 signal
             	**type**\:  :py:class:`CsTributaryType <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable.CsConfigEntry.CsTributaryType>`
+            
+            	**config**\: False
             
             .. attribute:: cstributarymappingtype
             
             	This object represents the VT/VC mapping type.  asynchronous\:    In this mode, the channel structure of                   DS1/E1 is neither visible nor preserved.  byteSynchronous\: In this mode, the DS0 signals inside the                  VT/VC can be found and extracted from the                  frame.  Default is asynchronous(1)
             	**type**\:  :py:class:`CsTributaryMappingType <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable.CsConfigEntry.CsTributaryMappingType>`
             
+            	**config**\: False
+            
             .. attribute:: cstributaryframingtype
             
             	This object represents the framing type to be assigned to the virtual tributaries in byte sync mapping mode.        notApplicable  \:  If VT mapping is not byteSynchronous(2).       dsx1ESF        \:  Extended Superframe Format       dsx1D4         \:  Superframe Format  Default is dsx1ESF(3) if csTributaryMappingType is  byteSynchronous(2). For asynchronous(1) mapping, the default is  notApplicable(1).  The value notApplicable(1) can not be set
             	**type**\:  :py:class:`CsTributaryFramingType <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable.CsConfigEntry.CsTributaryFramingType>`
+            
+            	**config**\: False
             
             .. attribute:: cssignallingtransportmode
             
             	This object represents the mode used to transport DS0  signalling information for T1 byteSynchronous mapping (GR253). In signallingTransferMode(2), the robbed\-bit signalling is  transferred to the VT header. In clearMode(3), only the  framing bit is transferred to the VT header.       Default is signallingTransferMode(2) if csTributaryMappingType  is byteSynchronous. For asynchronous mapping, it is  notApplicable(1).  The value notApplicable(1) can not be set
             	**type**\:  :py:class:`CsSignallingTransportMode <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable.CsConfigEntry.CsSignallingTransportMode>`
             
+            	**config**\: False
+            
             .. attribute:: cstributarygroupingtype
             
             	This object represents the method used to group VCs into an STM\-1 signal. Applicable only to SDH.    au3Grouping\: STM1<\-AU\-3<\-TUG\-2<\-TU\-12<\-VC12 or                STM1<\-AU\-3<\-TUG\-2<\-TU\-11<\-VC11.    au4Grouping\: STM1<\-AU\-4<\-TUG\-3<\-TUG\-2<\-TU\-12<\-VC12 or                STM1<\-AU\-4<\-TUG\-3<\-TUG\-2<\-TU\-11<\-VC11.  Default is au3Grouping(2) for SDH and notApplicable(1) for SONET
             	**type**\:  :py:class:`CsTributaryGroupingType <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsConfigTable.CsConfigEntry.CsTributaryGroupingType>`
+            
+            	**config**\: False
             
             
 
@@ -923,6 +983,8 @@ class CISCOSONETMIB(Entity):
 
 
 
+
+
     class CsApsConfigTable(Entity):
         """
         This table contains objects to configure APS 
@@ -937,6 +999,8 @@ class CISCOSONETMIB(Entity):
         
         	An entry is created when an APS pair is configured. To create an entry, the following objects must be  specified\: csApsWorkingIndex, csApsProtectionIndex, csApsEnable,   csApsArchMode. The protection line must not be active, i.e, ifAdminStatus must be 'down',  while configuring  APS. An entry is created by setting the value of  'csApsEnable' to csApsEnabled (2) and deleted by  setting it to csApsDisabled (1). Once a line is  configured as working line or protection line, it  remains in that role until APS is disabled on that  sonet line pair. It remains in the  working/protection  role even after the card is reset
         	**type**\: list of  		 :py:class:`CsApsConfigEntry <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsApsConfigTable.CsApsConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -988,6 +1052,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: csapsprotectionindex
             
             	The protection line indicates that it will become the active line when an APS switch occurs (APS switch could occur because of a failure on the working line). For G.783 AnnexB, This index refers to Working Section 2
@@ -995,20 +1061,28 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: csapsenable
             
             	This object is used to enable or disable the APS feature on the working/protection line pairs. When enabled, the hardware will automatically switch the active line  from the working line to the protection line within 60ms, or vice versa
             	**type**\:  :py:class:`CsApsEnable <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsApsConfigTable.CsApsConfigEntry.CsApsEnable>`
+            
+            	**config**\: False
             
             .. attribute:: csapsarchmode
             
             	This object is used to configure APS architecture mode on the working/protection line pairs.   All of the following are supported on single slot.  oneToOne(2) is not  supported across 2 slots,i.e. the   working and protection slot numbers must be the same in   oneToOne(2).   onePlusOne \: This can be supported on the same card  and across 2 cards.  This mode means that the transmit and receive signals  go only over the active line(which could be working or   protection line). (straight cable implied)   oneToOne \: This is supported only on the same card  This mode means that the transmit and receive signals  go over the working and protection lines.  (straight cable implied)   anexBOnePlusOne \: This can be supported on the same card  and across 2 cards.  This mode is like the onePlusOne mode, except that the  'csApsDirection' can only be bi\-directional.  (straight cable implied)   ycableOnePlusOneNok1k2\: With Y\-cable ignore K1K2 bytes.  This mode is the Y\-cable redundancy mode.   straightOnePlusOneNok1k2 \: With straight cable, ignore                              K1K2 bytes. This mode is like                             onePlusOne, but with K1, K2                              bytes ignored
             	**type**\:  :py:class:`CsApsArchMode <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsApsConfigTable.CsApsConfigEntry.CsApsArchMode>`
             
+            	**config**\: False
+            
             .. attribute:: csapsactiveline
             
             	This object indicates which line is currently active.  It could be the working line(Section 1 for Annex B), the protection line(Section 2 for Annex B) or none if neither working nor protection line is active.  This object reflects the status of receive direction
             	**type**\:  :py:class:`CsApsActiveLine <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsApsConfigTable.CsApsConfigEntry.CsApsActiveLine>`
+            
+            	**config**\: False
             
             .. attribute:: csapssigfaultber
             
@@ -1017,12 +1091,16 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 3..5
             
+            	**config**\: False
+            
             .. attribute:: csapssigdegradeber
             
             	This object contains the Bit Error Rate threshold for Signal Degrade detection on the working line. Once this threshold is exceeded, an APS switch will occur. This value is 10 to \-n where n is between 5 and 9
             	**type**\: int
             
             	**range:** 5..9
+            
+            	**config**\: False
             
             .. attribute:: csapswaittorestore
             
@@ -1031,6 +1109,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 1..12
             
+            	**config**\: False
+            
             	**units**\: minutes
             
             .. attribute:: csapsdirection
@@ -1038,40 +1118,56 @@ class CISCOSONETMIB(Entity):
             	This object is used to configure the switching  direction which this APS line supports.   Unidirectional \: APS switch only in one direction. Bidirectional  \: APS switch in both ends of the line
             	**type**\:  :py:class:`CsApsDirection <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsApsConfigTable.CsApsConfigEntry.CsApsDirection>`
             
+            	**config**\: False
+            
             .. attribute:: csapsrevertive
             
             	This object is used to configure the APS revertive or nonrevertive option.   revertive \:    Will switch the working line back to active state after   the Wait\-To\-restore interval has expired and the    working line Signal\-Fault/Signal\-Degrade has been    cleared. Please refer to 'csApsWaitToRestore' for    description of Wait\-To\-Restore interval. nonrevertive \:    The  protection line continues to be the active line,   The active line does not switch to the working line
             	**type**\:  :py:class:`CsApsRevertive <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsApsConfigTable.CsApsConfigEntry.CsApsRevertive>`
+            
+            	**config**\: False
             
             .. attribute:: csapsdirectionoperational
             
             	This object shows the actual APS direction that is  implemented on the Near End terminal. APS direction  configured through csApsDirection is negotiated with the Far End and APS direction setting acceptable to  both ends is operational at the Near End
             	**type**\:  :py:class:`CsApsDirectionOperational <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsApsConfigTable.CsApsConfigEntry.CsApsDirectionOperational>`
             
+            	**config**\: False
+            
             .. attribute:: csapsarchmodeoperational
             
             	This object shows the actual APS architecture mode that is implemented on the Near End terminal. APS architecture mode configured through csApsArchMode object is  negotiated with the Far End through APS channel.  Architecture mode acceptable to both the Near End and  the Far End terminals is then operational at the Near  End. This value can be different than the APS  Architecture mode configured
             	**type**\:  :py:class:`CsApsArchModeOperational <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsApsConfigTable.CsApsConfigEntry.CsApsArchModeOperational>`
+            
+            	**config**\: False
             
             .. attribute:: csapschannelprotocol
             
             	This object allows to configure APS channel protocol to  be implemented at Near End terminal.  K1 and K2 overhead bytes in a SONET signal are used as an APS channel. This channel is used to carry APS protocol.  Possible values\: bellcore(1) \: Implements APS channel protocol as defined               in bellcore document GR\-253\-CORE. itu(2) \: Implements APS channel protocol as defined in           ITU document G.783
             	**type**\:  :py:class:`CsApsChannelProtocol <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsApsConfigTable.CsApsConfigEntry.CsApsChannelProtocol>`
             
+            	**config**\: False
+            
             .. attribute:: csapsfailurestatus
             
             	This object indicates APS line failure status
             	**type**\:  :py:class:`CsApsLineFailureStatus <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CsApsLineFailureStatus>`
+            
+            	**config**\: False
             
             .. attribute:: csapsswitchreason
             
             	This object indicates APS line switch reason
             	**type**\:  :py:class:`CsApsLineSwitchReason <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CsApsLineSwitchReason>`
             
+            	**config**\: False
+            
             .. attribute:: csapsprimarysection
             
             	This object indicates which working section is the APS primary section. In G.783 AnnexB, the K1/K2 Bytes are received on the secondary Section. All the Switch Requests are for a switch from the primary section to the secondary section. The object csApsActiveline will indicate which section is currently carrying the traffic.  Once the switch request clears normally, traffic is maintained on the section to which it was switched by making that section the primary section.   Possible values\:  workingSection1(1)\: Working Section 1 is Primary Section workingSection2(2)\: Working Section 2 is Primary Section none(3)           \: none
             	**type**\:  :py:class:`CsApsPrimarySection <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsApsConfigTable.CsApsConfigEntry.CsApsPrimarySection>`
+            
+            	**config**\: False
             
             
 
@@ -1472,6 +1568,8 @@ class CISCOSONETMIB(Entity):
 
 
 
+
+
     class CssTotalTable(Entity):
         """
         The SONET/SDH Section Total table. It contains the 
@@ -1485,6 +1583,8 @@ class CISCOSONETMIB(Entity):
         
         	An entry in the SONET/SDH Section Total table. Entries are created automatically for sonet lines
         	**type**\: list of  		 :py:class:`CssTotalEntry <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CssTotalTable.CssTotalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1527,12 +1627,16 @@ class CISCOSONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csstotaless
             
             	The number of Errored Seconds encountered by a SONET/SDH Section in the last 24 hours
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: errored seconds
             
@@ -1543,6 +1647,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: severely errored seconds
             
             .. attribute:: csstotalsefss
@@ -1552,6 +1658,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: severely errored framing seconds
             
             .. attribute:: csstotalcvs
@@ -1560,6 +1668,8 @@ class CISCOSONETMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: coding violations
             
@@ -1599,6 +1709,8 @@ class CISCOSONETMIB(Entity):
                 self._perform_setattr(CISCOSONETMIB.CssTotalTable.CssTotalEntry, ['ifindex', 'csstotaless', 'csstotalsess', 'csstotalsefss', 'csstotalcvs'], name, value)
 
 
+
+
     class CssTraceTable(Entity):
         """
         The SONET/SDH Section Trace table. This table contains 
@@ -1608,6 +1720,8 @@ class CISCOSONETMIB(Entity):
         
         	An entry in the trace table. Entries exist for active sonet lines. The objects in this table are used to verify  continued connection between the two ends of the line
         	**type**\: list of  		 :py:class:`CssTraceEntry <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CssTraceTable.CssTraceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1651,12 +1765,16 @@ class CISCOSONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csstracetotransmit
             
             	Sonet Section Trace To Transmit. This is string that is transmitted to perform Sonet section trace  diagnostics. The trace string is  repetitively  transmited so that a trace receiving terminal can  verify its continued connection to the intended  transmitter. The default value is a zero\-length string. Unless this object is set to a non\-zero length string,  tracing will not be performed
             	**type**\: str
             
             	**length:** 0 \| 16 \| 64
+            
+            	**config**\: False
             
             .. attribute:: csstracetoexpect
             
@@ -1665,10 +1783,14 @@ class CISCOSONETMIB(Entity):
             
             	**length:** 0 \| 16 \| 64
             
+            	**config**\: False
+            
             .. attribute:: csstracefailure
             
             	The value of this object is set to 'true' when Sonet  Section received trace does not match the  'cssTraceToExpect'
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: csstracereceived
             
@@ -1676,6 +1798,8 @@ class CISCOSONETMIB(Entity):
             	**type**\: str
             
             	**length:** 0 \| 16 \| 64
+            
+            	**config**\: False
             
             
 
@@ -1713,6 +1837,8 @@ class CISCOSONETMIB(Entity):
                 self._perform_setattr(CISCOSONETMIB.CssTraceTable.CssTraceEntry, ['ifindex', 'csstracetotransmit', 'csstracetoexpect', 'csstracefailure', 'csstracereceived'], name, value)
 
 
+
+
     class CslTotalTable(Entity):
         """
         The SONET/SDH Line Total table. It contains the 
@@ -1726,6 +1852,8 @@ class CISCOSONETMIB(Entity):
         
         	An entry in the SONET/SDH Line Total table. Entries are created automatically for sonet lines
         	**type**\: list of  		 :py:class:`CslTotalEntry <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CslTotalTable.CslTotalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1768,12 +1896,16 @@ class CISCOSONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csltotaless
             
             	The number of Errored Seconds encountered by a SONET/SDH Line in the last 24 hours
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: errored seconds
             
@@ -1784,6 +1916,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: severely errored seconds
             
             .. attribute:: csltotalcvs
@@ -1793,6 +1927,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: coding violations
             
             .. attribute:: csltotaluass
@@ -1801,6 +1937,8 @@ class CISCOSONETMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: unavailable seconds
             
@@ -1840,6 +1978,8 @@ class CISCOSONETMIB(Entity):
                 self._perform_setattr(CISCOSONETMIB.CslTotalTable.CslTotalEntry, ['ifindex', 'csltotaless', 'csltotalsess', 'csltotalcvs', 'csltotaluass'], name, value)
 
 
+
+
     class CslFarEndTotalTable(Entity):
         """
         The SONET/SDH Far End Line Total table. It contains the 
@@ -1853,6 +1993,8 @@ class CISCOSONETMIB(Entity):
         
         	An entry in the SONET/SDH Far End Line Total table. Entries are created automatically for sonet lines
         	**type**\: list of  		 :py:class:`CslFarEndTotalEntry <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CslFarEndTotalTable.CslFarEndTotalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1895,12 +2037,16 @@ class CISCOSONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cslfarendtotaless
             
             	The number of Errored Seconds encountered by a SONET/SDH Far End Line in the last 24 hours
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: errored seconds
             
@@ -1911,6 +2057,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: severely errored seconds
             
             .. attribute:: cslfarendtotalcvs
@@ -1920,6 +2068,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: coding violations
             
             .. attribute:: cslfarendtotaluass
@@ -1928,6 +2078,8 @@ class CISCOSONETMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: unavailable seconds
             
@@ -1967,6 +2119,8 @@ class CISCOSONETMIB(Entity):
                 self._perform_setattr(CISCOSONETMIB.CslFarEndTotalTable.CslFarEndTotalEntry, ['ifindex', 'cslfarendtotaless', 'cslfarendtotalsess', 'cslfarendtotalcvs', 'cslfarendtotaluass'], name, value)
 
 
+
+
     class CspTotalTable(Entity):
         """
         The SONET/SDH Path Total table. It contains the cumulative 
@@ -1980,6 +2134,8 @@ class CISCOSONETMIB(Entity):
         
         	An entry in the SONET/SDH Path Total table. Entries are created automatically for sonet lines
         	**type**\: list of  		 :py:class:`CspTotalEntry <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CspTotalTable.CspTotalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2022,12 +2178,16 @@ class CISCOSONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csptotaless
             
             	The number of Errored Seconds encountered by a SONET/SDH Path in the last 24 hours
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: errored seconds
             
@@ -2038,6 +2198,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: severely errored seconds
             
             .. attribute:: csptotalcvs
@@ -2047,6 +2209,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: coding violations
             
             .. attribute:: csptotaluass
@@ -2055,6 +2219,8 @@ class CISCOSONETMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: unavailable seconds
             
@@ -2094,6 +2260,8 @@ class CISCOSONETMIB(Entity):
                 self._perform_setattr(CISCOSONETMIB.CspTotalTable.CspTotalEntry, ['ifindex', 'csptotaless', 'csptotalsess', 'csptotalcvs', 'csptotaluass'], name, value)
 
 
+
+
     class CspFarEndTotalTable(Entity):
         """
         The SONET/SDH Far End Path Total table. Far End is the 
@@ -2108,6 +2276,8 @@ class CISCOSONETMIB(Entity):
         
         	An entry in the SONET/SDH Far End Path Total table.  Entries are created automatically for sonet lines
         	**type**\: list of  		 :py:class:`CspFarEndTotalEntry <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CspFarEndTotalTable.CspFarEndTotalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2150,12 +2320,16 @@ class CISCOSONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cspfarendtotaless
             
             	The number of Errored Seconds encountered by a SONET/SDH far end path in the last 24 hours
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: errored seconds
             
@@ -2166,6 +2340,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: severely errored seconds
             
             .. attribute:: cspfarendtotalcvs
@@ -2175,6 +2351,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: coding violations
             
             .. attribute:: cspfarendtotaluass
@@ -2183,6 +2361,8 @@ class CISCOSONETMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: unavailable seconds
             
@@ -2222,6 +2402,8 @@ class CISCOSONETMIB(Entity):
                 self._perform_setattr(CISCOSONETMIB.CspFarEndTotalTable.CspFarEndTotalEntry, ['ifindex', 'cspfarendtotaless', 'cspfarendtotalsess', 'cspfarendtotalcvs', 'cspfarendtotaluass'], name, value)
 
 
+
+
     class CspTraceTable(Entity):
         """
         The SONET/SDH Path Trace table. This table contains objects 
@@ -2231,6 +2413,8 @@ class CISCOSONETMIB(Entity):
         
         	An entry in the SONET/SDH Path Trace table. The entries  exist for active sonet lines. The objects in this table are  used to verify continued connection between the two ends of the line
         	**type**\: list of  		 :py:class:`CspTraceEntry <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CspTraceTable.CspTraceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2275,12 +2459,16 @@ class CISCOSONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csptracetotransmit
             
             	Sonet Path Trace To Transmit. The trace string is  repetitively transmited so that a trace receiving terminal  can verify its continued receiving terminal can verify its  continued connection to the intended transmitter. The  default value is a zero\-length string. Unless this object  is set to a non\-zero length string, tracing will not be  performed
             	**type**\: str
             
             	**length:** 0 \| 16 \| 64
+            
+            	**config**\: False
             
             .. attribute:: csptracetoexpect
             
@@ -2289,10 +2477,14 @@ class CISCOSONETMIB(Entity):
             
             	**length:** 0 \| 16 \| 64
             
+            	**config**\: False
+            
             .. attribute:: csptracefailure
             
             	The value of this object is set to 'true' when Sonet Path  received trace does not match the 'cspTraceToExpect'
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: csptracereceived
             
@@ -2300,6 +2492,8 @@ class CISCOSONETMIB(Entity):
             	**type**\: str
             
             	**length:** 0 \| 16 \| 64
+            
+            	**config**\: False
             
             
 
@@ -2337,6 +2531,8 @@ class CISCOSONETMIB(Entity):
                 self._perform_setattr(CISCOSONETMIB.CspTraceTable.CspTraceEntry, ['ifindex', 'csptracetotransmit', 'csptracetoexpect', 'csptracefailure', 'csptracereceived'], name, value)
 
 
+
+
     class CsStatsTable(Entity):
         """
         The SONET/SDH Section statistics table. This table 
@@ -2348,6 +2544,8 @@ class CISCOSONETMIB(Entity):
         
         	An entry in the SONET/SDH statistics table. These are  realtime statistics for the Sonet section, line and path layers. The statistics are gathered for each sonet line.  An entry is created automatically and is indexed by  ifIndex
         	**type**\: list of  		 :py:class:`CsStatsEntry <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsStatsTable.CsStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2393,12 +2591,16 @@ class CISCOSONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cssloss
             
             	The number of Loss of signals(LOS) encountered by a  SONET/SDH Section. A high value for this object may  indicate a problem with the Sonet Section layer
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: loss of signals
             
@@ -2409,6 +2611,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: loss of frames
             
             .. attribute:: cslaiss
@@ -2417,6 +2621,8 @@ class CISCOSONETMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: alarm indication signals
             
@@ -2427,6 +2633,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: remote failure indications
             
             .. attribute:: cspaiss
@@ -2436,6 +2644,8 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: alarm indication signals
             
             .. attribute:: csprfis
@@ -2444,6 +2654,8 @@ class CISCOSONETMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: remote failure indications
             
@@ -2487,6 +2699,8 @@ class CISCOSONETMIB(Entity):
                 self._perform_setattr(CISCOSONETMIB.CsStatsTable.CsStatsEntry, ['ifindex', 'cssloss', 'csslofs', 'cslaiss', 'cslrfis', 'cspaiss', 'csprfis'], name, value)
 
 
+
+
     class CsAu4Tug3ConfigTable(Entity):
         """
         This table contains objects to configure the VC( Virtual
@@ -2513,6 +2727,8 @@ class CISCOSONETMIB(Entity):
         
         	There is an entry in this table for each TUG\-3 within a  AU\-4 SDH path that supports SDH virtual container VC\-4. The ifIndex value represents an entry in ifTable with ifType = sonetPath(50).The ifTable entry applicable for this entry belongs to AU\-4 path
         	**type**\: list of  		 :py:class:`CsAu4Tug3ConfigEntry <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsAu4Tug3ConfigTable.CsAu4Tug3ConfigEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2558,6 +2774,8 @@ class CISCOSONETMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: csau4tug3  (key)
             
             	This object represents the TUG\-3 number
@@ -2565,10 +2783,14 @@ class CISCOSONETMIB(Entity):
             
             	**range:** 1..3
             
+            	**config**\: False
+            
             .. attribute:: csau4tug3payload
             
             	This object is used for configuring the payload for the tributary group.  The possible values are \:  vc11   \: When set to 'vc11' following things are done\:        \- 28 entries created in ifTable for TU\-11 with           ifType = sonetVT(51)        \- 28 entries created in ifTable for DS1 with           ifType = ds1(18)           STM1<\-AU\-4<\-TUG\-3<\-TUG\-2<\-TU\-11<\-VC11  vc12   \: When set to 'vc12' following things are done\:        \- 21 entries created in ifTable for TU\-12 with           ifType = sonetVT(51)        \- 21 entries created in ifTable for E1 with           ifType = ds1(18)           STM1<\-AU\-4<\-TUG\-3<\-TUG\-2<\-TU\-12<\-VC12  tu3ds3 \: When set to 'tu3ds3' following things are done\:        \- 1 entry created in ifTable for TU\-3 with           ifType = sonetVT(51)        \- 1 entry created in ifTable for DS3 with           ifType = ds3(30)           STM1<\-AU\-4<\-TUG\-3<\-TU\-3<\-VC3  tu3e3  \: When set to 'tu3e3' following things are done\:        \- 1 entry created in ifTable for TU\-3 with           ifType = sonetVT(51)        \- 1 entry created in ifTable for E3 with           ifType = ds3(30)           STM1<\-AU\-4<\-TUG\-3<\-TU\-3<\-VC3  The value 'other' can not be set
             	**type**\:  :py:class:`CsAu4Tug3Payload <ydk.models.cisco_ios_xe.CISCO_SONET_MIB.CISCOSONETMIB.CsAu4Tug3ConfigTable.CsAu4Tug3ConfigEntry.CsAu4Tug3Payload>`
+            
+            	**config**\: False
             
             
 
@@ -2684,7 +2906,11 @@ class CISCOSONETMIB(Entity):
                 tu3e3 = Enum.YLeaf(5, "tu3e3")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOSONETMIB()
         return self._top_entity
+
+
 

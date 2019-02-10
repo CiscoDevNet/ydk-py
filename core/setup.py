@@ -14,8 +14,10 @@
 # limitations under the License.
 # ------------------------------------------------------------------
 
-"""Setup for YDK
 """
+Setup for YDK core package
+"""
+
 from __future__ import print_function
 import os
 import subprocess
@@ -24,19 +26,13 @@ import sysconfig
 from setuptools.command.build_ext import build_ext
 from setuptools import setup, Extension, find_packages
 
+# Define and modify version number and package name here
 
-NMSP_PKG_NAME = "$PACKAGE$"
-NMSP_PKG_VERSION = "$VERSION$"
-NMSP_PKG_DEPENDENCIES = ["$DEPENDENCY$"]
-
-# Define and modify version number and package name here,
-# Namespace packages are share same prefix: "ydk-models"
 NAME = 'ydk'
 
-VERSION = '0.8.0'
+VERSION = '0.8.1'
 
 INSTALL_REQUIREMENTS = ['pybind11>=2.1.1']
-
 
 LONG_DESCRIPTION = '''
                    The YANG Development Kit (YDK) is a Software Development Kit
@@ -48,10 +44,8 @@ LONG_DESCRIPTION = '''
                     bundles that are based on YANG models.
                    '''
 
-
 YDK_PACKAGES = find_packages(exclude=['contrib', 'docs*', 'tests*',
                                       'ncclient', 'samples'])
-
 
 class CMakeExtension(Extension):
     def __init__(self, name, sourcedir=''):

@@ -55,25 +55,35 @@ class MPLSL3VPNSTDMIB(Entity):
     	
     	**type**\:  :py:class:`MplsL3VpnScalars <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnScalars>`
     
+    	**config**\: False
+    
     .. attribute:: mplsl3vpnifconftable
     
     	This table specifies per\-interface MPLS capability and associated information
     	**type**\:  :py:class:`MplsL3VpnIfConfTable <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable>`
+    
+    	**config**\: False
     
     .. attribute:: mplsl3vpnvrftable
     
     	This table specifies per\-interface MPLS L3VPN VRF Table capability and associated information. Entries in this table define VRF routing instances associated with MPLS/VPN interfaces.  Note that multiple interfaces can belong to the same VRF instance.  The collection of all VRF instances comprises an actual VPN
     	**type**\:  :py:class:`MplsL3VpnVrfTable <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable>`
     
+    	**config**\: False
+    
     .. attribute:: mplsl3vpnvrfrttable
     
     	This table specifies per\-VRF route target association. Each entry identifies a connectivity policy supported as part of a VPN
     	**type**\:  :py:class:`MplsL3VpnVrfRTTable <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfRTTable>`
     
+    	**config**\: False
+    
     .. attribute:: mplsl3vpnvrfrtetable
     
     	This table specifies per\-interface MPLS L3VPN VRF Table routing information.  Entries in this table define VRF routing entries associated with the specified MPLS/VPN interfaces.  Note  that this table contains both BGP and Interior Gateway Protocol IGP routes, as both may appear in the same VRF
     	**type**\:  :py:class:`MplsL3VpnVrfRteTable <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable>`
+    
+    	**config**\: False
     
     
 
@@ -131,12 +141,16 @@ class MPLSL3VPNSTDMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: mplsl3vpnactivevrfs
         
         	The number of VRFs that are active on this node. That is, those VRFs whose corresponding mplsL3VpnVrfOperStatus object value is equal to operational (1)
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: mplsl3vpnconnectedinterfaces
         
@@ -145,10 +159,14 @@ class MPLSL3VPNSTDMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: mplsl3vpnnotificationenable
         
         	If this object is true, then it enables the generation of all notifications defined in this MIB.  This object's value should be preserved across agent reboots
         	**type**\: bool
+        
+        	**config**\: False
         
         .. attribute:: mplsl3vpnvrfconfmaxpossrts
         
@@ -157,12 +175,16 @@ class MPLSL3VPNSTDMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: mplsl3vpnvrfconfrtemxthrshtime
         
         	Denotes the interval in seconds, at which the route max threshold notification may be reissued after the maximum value has been exceeded (or has been reached if mplsL3VpnVrfConfMaxRoutes and mplsL3VpnVrfConfHighRteThresh are equal) and the initial notification has been issued.  This value is intended to prevent continuous generation of notifications by an agent in the event that routes are continually added to a VRF after it has reached its maximum value.  If this value is set to 0, the agent should only issue a single notification at the time that the maximum threshold has been reached, and should not issue any more notifications until the value of routes has fallen below the configured threshold value.  This is the recommended default behavior
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -172,6 +194,8 @@ class MPLSL3VPNSTDMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -213,6 +237,7 @@ class MPLSL3VPNSTDMIB(Entity):
             self._perform_setattr(MPLSL3VPNSTDMIB.MplsL3VpnScalars, ['mplsl3vpnconfiguredvrfs', 'mplsl3vpnactivevrfs', 'mplsl3vpnconnectedinterfaces', 'mplsl3vpnnotificationenable', 'mplsl3vpnvrfconfmaxpossrts', 'mplsl3vpnvrfconfrtemxthrshtime', 'mplsl3vpnilllblrcvthrsh'], name, value)
 
 
+
     class MplsL3VpnIfConfTable(Entity):
         """
         This table specifies per\-interface MPLS capability
@@ -222,6 +247,8 @@ class MPLSL3VPNSTDMIB(Entity):
         
         	An entry in this table is created by an LSR for every interface capable of supporting MPLS L3VPN. Each entry in this table is meant to correspond to an entry in the Interfaces Table
         	**type**\: list of  		 :py:class:`MplsL3VpnIfConfEntry <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable.MplsL3VpnIfConfEntry>`
+        
+        	**config**\: False
         
         
 
@@ -266,6 +293,8 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsl3vpnvrfname <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnifconfindex  (key)
             
             	This is a unique index for an entry in the mplsL3VpnIfConfTable.  A non\-zero index for an entry indicates the ifIndex for the corresponding interface entry in the MPLS\-VPN\-layer in the ifTable. Note that this table does not necessarily correspond one\-to\-one with all entries in the Interface MIB having an ifType of MPLS\-layer; rather, only those that are enabled for MPLS L3VPN functionality
@@ -273,25 +302,35 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnifvpnclassification
             
             	Denotes whether this link participates in a carrier's carrier, enterprise, or inter\-provider scenario
             	**type**\:  :py:class:`MplsL3VpnIfVpnClassification <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable.MplsL3VpnIfConfEntry.MplsL3VpnIfVpnClassification>`
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnifvpnroutedistprotocol
             
             	Denotes the route distribution protocol across the PE\-CE link.  Note that more than one routing protocol may be enabled at the same time; thus, this object is specified as a bitmask.  For example, static(5) and ospf(2) are a typical configuration
             	**type**\:  :py:class:`MplsL3VpnIfVpnRouteDistProtocol <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnIfConfTable.MplsL3VpnIfConfEntry.MplsL3VpnIfVpnRouteDistProtocol>`
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnifconfstoragetype
             
             	The storage type for this VPN If entry. Conceptual rows having the value 'permanent' need not allow write access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnifconfrowstatus
             
             	This variable is used to create, modify, and/or delete a row in this table.  Rows in this table signify that the specified interface is associated with this VRF.  If the row creation operation succeeds, the interface will have been associated with the specified VRF, otherwise the agent MUST not allow the association.  If the agent only allows read\-only operations on this table, it MUST create entries in this table as they are created on the device.  When a row in this table is in active(1) state, no objects in that row can be modified except mplsL3VpnIfConfStorageType and mplsL3VpnIfConfRowStatus
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -356,6 +395,8 @@ class MPLSL3VPNSTDMIB(Entity):
 
 
 
+
+
     class MplsL3VpnVrfTable(Entity):
         """
         This table specifies per\-interface MPLS L3VPN
@@ -370,6 +411,8 @@ class MPLSL3VPNSTDMIB(Entity):
         
         	An entry in this table is created by an LSR for every VRF capable of supporting MPLS L3VPN.  The indexing provides an ordering of VRFs per\-VPN interface
         	**type**\: list of  		 :py:class:`MplsL3VpnVrfEntry <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry>`
+        
+        	**config**\: False
         
         
 
@@ -412,6 +455,8 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**length:** 0..31
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfvpnid
             
             	The VPN ID as specified in [RFC2685].  If a VPN ID has not been specified for this VRF, then this variable SHOULD be set to a zero\-length OCTET STRING
@@ -419,10 +464,14 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**length:** 0 \| 7
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfdescription
             
             	The human\-readable description of this VRF
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfrd
             
@@ -431,6 +480,8 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfcreationtime
             
             	The time at which this VRF entry was created
@@ -438,10 +489,14 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfoperstatus
             
             	Denotes whether or not a VRF is operational.  A VRF is up(1) when there is at least one interface associated with the VRF whose ifOperStatus is up(1).  A VRF is down(2) when\: a. There does not exist at least one interface whose    ifOperStatus is up(1). b. There are no interfaces associated with the VRF
             	**type**\:  :py:class:`MplsL3VpnVrfOperStatus <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry.MplsL3VpnVrfOperStatus>`
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfactiveinterfaces
             
@@ -450,12 +505,16 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfassociatedinterfaces
             
             	Total number of interfaces connected to this VRF (independent of ifOperStatus type)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfconfmidrtethresh
             
@@ -464,12 +523,16 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfconfhighrtethresh
             
             	Denotes high\-level water marker for the number of routes that this VRF may hold
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfconfmaxroutes
             
@@ -478,6 +541,8 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfconflastchanged
             
             	The value of sysUpTime at the time of the last change of this table entry, which includes changes of VRF parameters defined in this table or addition or deletion of interfaces associated with this VRF
@@ -485,20 +550,28 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfconfrowstatus
             
             	This variable is used to create, modify, and/or delete a row in this table.  When a row in this table is in active(1) state, no objects in that row can be modified except mplsL3VpnVrfConfAdminStatus, mplsL3VpnVrfConfRowStatus, and mplsL3VpnVrfConfStorageType
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfconfadminstatus
             
             	Indicates the desired operational status of this VRF
             	**type**\:  :py:class:`MplsL3VpnVrfConfAdminStatus <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry.MplsL3VpnVrfConfAdminStatus>`
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfconfstoragetype
             
             	The storage type for this VPN VRF entry. Conceptual rows having the value 'permanent' need not allow write access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfsecillegallblvltns
             
@@ -507,12 +580,16 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfsecdiscontinuitytime
             
             	The value of sysUpTime on the most recent occasion at which any one or more of this entry's counters suffered a discontinuity.  If no such discontinuities have occurred since the last re\-initialization of the local management subsystem, then this object contains a zero value
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfperfroutesadded
             
@@ -521,12 +598,16 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfperfroutesdeleted
             
             	Indicates the number of routes removed from this VPN/VRF.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of mplsL3VpnVrfPerfDiscTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfperfcurrnumroutes
             
@@ -535,6 +616,8 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfperfroutesdropped
             
             	This counter should be incremented when the number of routes contained by the specified VRF exceeds or attempts to exceed the maximum allowed value as indicated by mplsL3VpnVrfMaxRouteThreshold.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of mplsL3VpnVrfPerfDiscTime
@@ -542,12 +625,16 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfperfdisctime
             
             	The value of sysUpTime on the most recent occasion at which any one or more of this entry's counters suffered a discontinuity.  If no such discontinuities have occurred since the last re\-initialization of the local management subsystem, then this object contains a zero value
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -671,6 +758,8 @@ class MPLSL3VPNSTDMIB(Entity):
 
 
 
+
+
     class MplsL3VpnVrfRTTable(Entity):
         """
         This table specifies per\-VRF route target association.
@@ -681,6 +770,8 @@ class MPLSL3VPNSTDMIB(Entity):
         
         	An entry in this table is created by an LSR for each route target configured for a VRF supporting a MPLS L3VPN instance.  The indexing provides an ordering per\-VRF instance.  See [RFC4364] for a complete definition of a route target
         	**type**\: list of  		 :py:class:`MplsL3VpnVrfRTEntry <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfRTTable.MplsL3VpnVrfRTEntry>`
+        
+        	**config**\: False
         
         
 
@@ -726,6 +817,8 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsl3vpnvrfname <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrtindex  (key)
             
             	Auxiliary index for route targets configured for a particular VRF
@@ -733,10 +826,14 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrttype  (key)
             
             	The route target distribution type
             	**type**\:  :py:class:`MplsL3VpnRtType <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MplsL3VpnRtType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfrt
             
@@ -745,20 +842,28 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrtdescr
             
             	Description of the route target
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfrtrowstatus
             
             	This variable is used to create, modify, and/or delete a row in this table.  When a row in this table is in active(1) state, no objects in that row can be modified except mplsL3VpnVrfRTRowStatus
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrtstoragetype
             
             	The storage type for this VPN route target (RT) entry. Conceptual rows having the value 'permanent' need not allow write access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            	**config**\: False
             
             
 
@@ -800,6 +905,8 @@ class MPLSL3VPNSTDMIB(Entity):
                 self._perform_setattr(MPLSL3VPNSTDMIB.MplsL3VpnVrfRTTable.MplsL3VpnVrfRTEntry, ['mplsl3vpnvrfname', 'mplsl3vpnvrfrtindex', 'mplsl3vpnvrfrttype', 'mplsl3vpnvrfrt', 'mplsl3vpnvrfrtdescr', 'mplsl3vpnvrfrtrowstatus', 'mplsl3vpnvrfrtstoragetype'], name, value)
 
 
+
+
     class MplsL3VpnVrfRteTable(Entity):
         """
         This table specifies per\-interface MPLS L3VPN VRF Table
@@ -813,6 +920,8 @@ class MPLSL3VPNSTDMIB(Entity):
         
         	An entry in this table is created by an LSR for every route present configured (either dynamically or statically) within the context of a specific VRF capable of supporting MPLS/BGP VPN.  The indexing provides an ordering of VRFs per\-VPN interface.  Implementers need to be aware that there are quite a few index objects that together can exceed the size allowed for an Object Identifier (OID).  So implementers must make sure that OIDs of column instances in this table will have no more than 128 sub\-identifiers, otherwise they cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3
         	**type**\: list of  		 :py:class:`MplsL3VpnVrfRteEntry <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable.MplsL3VpnVrfRteEntry>`
+        
+        	**config**\: False
         
         
 
@@ -865,10 +974,14 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**refers to**\:  :py:class:`mplsl3vpnvrfname <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfTable.MplsL3VpnVrfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrteinetcidrdesttype  (key)
             
             	The type of the mplsL3VpnVrfRteInetCidrDest address, as defined in the InetAddress MIB.  Only those address types that may appear in an actual routing table are allowed as values of this object
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfrteinetcidrdest  (key)
             
@@ -877,12 +990,16 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrteinetcidrpfxlen  (key)
             
             	Indicates the number of leading one bits that form the  mask to be logical\-ANDed with the destination address before being compared to the value in the mplsL3VpnVrfRteInetCidrDest field.  The values for the index objects mplsL3VpnVrfRteInetCidrDest and mplsL3VpnVrfRteInetCidrPfxLen must be consistent.  When the value of mplsL3VpnVrfRteInetCidrDest is x, then the bitwise logical\-AND of x with the value of the mask formed from the corresponding index object mplsL3VpnVrfRteInetCidrPfxLen MUST be equal to x.  If not, then the index pair is not consistent and an inconsistentName error must be returned on SET or CREATE requests
             	**type**\: int
             
             	**range:** 0..128
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfrteinetcidrpolicy  (key)
             
@@ -891,10 +1008,14 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrteinetcidrnhoptype  (key)
             
             	The type of the mplsL3VpnVrfRteInetCidrNextHop address, as defined in the InetAddress MIB.  Value should be set to unknown(0) for non\-remote routes.  Only those address types that may appear in an actual routing table are allowed as values of this object
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfrteinetcidrnexthop  (key)
             
@@ -903,6 +1024,8 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrteinetcidrifindex
             
             	The ifIndex value that identifies the local interface through which the next hop of this route should be reached.  A value of 0 is valid and represents the scenario where no interface is specified
@@ -910,15 +1033,21 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrteinetcidrtype
             
             	The type of route.  Note that local(3) refers to a route for which the next hop is the final destination; remote(4) refers to a route for which the next hop is not the final destination.  Routes that do not result in traffic forwarding or rejection should not be displayed even if the implementation keeps them stored internally.  reject(2) refers to a route that, if matched, discards the message as unreachable and returns a notification (e.g., ICMP error) to the message sender.  This is used in some protocols as a means of correctly aggregating routes.  blackhole(5) refers to a route that, if matched, discards the message silently
             	**type**\:  :py:class:`MplsL3VpnVrfRteInetCidrType <ydk.models.cisco_ios_xe.MPLS_L3VPN_STD_MIB.MPLSL3VPNSTDMIB.MplsL3VpnVrfRteTable.MplsL3VpnVrfRteEntry.MplsL3VpnVrfRteInetCidrType>`
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrteinetcidrproto
             
             	The routing mechanism via which this route was learned. Inclusion of values for gateway routing protocols is not intended to imply that hosts should support those protocols
             	**type**\:  :py:class:`IANAipRouteProtocol <ydk.models.cisco_ios_xe.IANA_RTPROTO_MIB.IANAipRouteProtocol>`
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfrteinetcidrage
             
@@ -927,12 +1056,16 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrteinetcidrnexthopas
             
             	The Autonomous System Number of the next hop.  The semantics of this object are determined by the routing protocol specified in the route's mplsL3VpnVrfRteInetCidrProto value.  When this object is unknown or not relevant, its value should be set to zero
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfrteinetcidrmetric1
             
@@ -941,12 +1074,16 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** \-1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrteinetcidrmetric2
             
             	An alternate routing metric for this route.  The semantics of this metric are determined by the routing protocol specified in the route's mplsL3VpnVrfRteInetCidrProto value.  If this metric is not used, its value should be set to \-1
             	**type**\: int
             
             	**range:** \-1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfrteinetcidrmetric3
             
@@ -955,12 +1092,16 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** \-1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrteinetcidrmetric4
             
             	An alternate routing metric for this route.  The semantics of this metric are determined by the routing protocol specified in the route's mplsL3VpnVrfRteInetCidrProto value.  If this metric is not used, its value should be set to \-1
             	**type**\: int
             
             	**range:** \-1..2147483647
+            
+            	**config**\: False
             
             .. attribute:: mplsl3vpnvrfrteinetcidrmetric5
             
@@ -969,6 +1110,8 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**range:** \-1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrtexcpointer
             
             	Index into mplsXCTable that identifies which cross\- connect entry is associated with this VRF route entry by containing the mplsXCIndex of that cross\-connect entry. The string containing the single\-octet 0x00 indicates that a label stack is not associated with this route entry.  This can be the case because the label bindings have not yet been established, or because some change in the agent has removed them.  When the label stack associated with this VRF route is created, it MUST establish the associated cross\-connect entry in the mplsXCTable and then set that index to the value of this object.  Changes to the cross\-connect object in the mplsXCTable MUST automatically be reflected in the value of this object.  If this object represents a static routing entry, then the manager must ensure that this entry is maintained consistently in the corresponding mplsXCTable as well
@@ -976,10 +1119,14 @@ class MPLSL3VPNSTDMIB(Entity):
             
             	**length:** 1..24
             
+            	**config**\: False
+            
             .. attribute:: mplsl3vpnvrfrteinetcidrstatus
             
             	The row status variable, used according to row installation and removal conventions.  A row entry cannot be modified when the status is marked as active(1)
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -1099,7 +1246,11 @@ class MPLSL3VPNSTDMIB(Entity):
                 blackhole = Enum.YLeaf(5, "blackhole")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = MPLSL3VPNSTDMIB()
         return self._top_entity
+
+
 

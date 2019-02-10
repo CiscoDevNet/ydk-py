@@ -120,10 +120,14 @@ class AlarmLogger(Entity):
     	Describes buffer utilization and parameters configured
     	**type**\:  :py:class:`BufferStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.BufferStatus>`
     
+    	**config**\: False
+    
     .. attribute:: alarms
     
     	Table that contains the database of logged alarms
     	**type**\:  :py:class:`Alarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms>`
+    
+    	**config**\: False
     
     
 
@@ -170,6 +174,8 @@ class AlarmLogger(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: byte
         
         .. attribute:: max_log_buffer_size
@@ -178,6 +184,8 @@ class AlarmLogger(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: byte
         
@@ -188,6 +196,8 @@ class AlarmLogger(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: capacity_threshold
         
         	Percentage of the buffer utilization which, when exceeded, triggers the  generation of a notification for the clients of the XML agent
@@ -195,12 +205,16 @@ class AlarmLogger(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**units**\: percentage
         
         .. attribute:: severity_filter
         
         	Severity Filter
         	**type**\:  :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity>`
+        
+        	**config**\: False
         
         
 
@@ -235,7 +249,8 @@ class AlarmLogger(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(AlarmLogger.BufferStatus, ['log_buffer_size', 'max_log_buffer_size', 'record_count', 'capacity_threshold', 'severity_filter'], name, value)
+            self._perform_setattr(AlarmLogger.BufferStatus, [u'log_buffer_size', u'max_log_buffer_size', u'record_count', u'capacity_threshold', u'severity_filter'], name, value)
+
 
 
     class Alarms(Entity):
@@ -247,6 +262,8 @@ class AlarmLogger(Entity):
         
         	One of the logged alarms
         	**type**\: list of  		 :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms.Alarm>`
+        
+        	**config**\: False
         
         
 
@@ -286,10 +303,14 @@ class AlarmLogger(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: source_id
             
             	Source Identifier(Location).Indicates the node in which the alarm was generated
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: timestamp
             
@@ -298,6 +319,8 @@ class AlarmLogger(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: millisecond
             
             .. attribute:: category
@@ -305,25 +328,35 @@ class AlarmLogger(Entity):
             	Category of the alarm
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: group
             
             	Group of messages to which this alarm belongs to
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: code
             
             	Alarm code which further qualifies the alarm within a message group
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: severity
             
             	Severity of the alarm
             	**type**\:  :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity>`
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	State of the alarm (bistate alarms only)
             	**type**\:  :py:class:`AlAlarmBistate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistate>`
+            
+            	**config**\: False
             
             .. attribute:: correlation_id
             
@@ -332,15 +365,21 @@ class AlarmLogger(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: is_admin
             
             	Indicates the event id admin\-level
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: additional_text
             
             	Full text of the Alarm
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -387,9 +426,13 @@ class AlarmLogger(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AlarmLogger.Alarms.Alarm, ['event_id', 'source_id', 'timestamp', 'category', 'group', 'code', 'severity', 'state', 'correlation_id', 'is_admin', 'additional_text'], name, value)
+                self._perform_setattr(AlarmLogger.Alarms.Alarm, ['event_id', u'source_id', u'timestamp', u'category', u'group', u'code', u'severity', u'state', u'correlation_id', u'is_admin', u'additional_text'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = AlarmLogger()
         return self._top_entity
+
+
 

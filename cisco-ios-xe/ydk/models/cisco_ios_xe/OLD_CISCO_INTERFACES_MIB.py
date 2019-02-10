@@ -21,12 +21,16 @@ class OLDCISCOINTERFACESMIB(Entity):
     	A list of interface entries
     	**type**\:  :py:class:`LifTable <ydk.models.cisco_ios_xe.OLD_CISCO_INTERFACES_MIB.OLDCISCOINTERFACESMIB.LifTable>`
     
+    	**config**\: False
+    
     	**status**\: obsolete
     
     .. attribute:: lfsiptable
     
     	A list of card entries for 4T, HSSI, Mx serial or FSIP
     	**type**\:  :py:class:`LFSIPTable <ydk.models.cisco_ios_xe.OLD_CISCO_INTERFACES_MIB.OLDCISCOINTERFACESMIB.LFSIPTable>`
+    
+    	**config**\: False
     
     	**status**\: obsolete
     
@@ -71,6 +75,8 @@ class OLDCISCOINTERFACESMIB(Entity):
         	A collection of additional objects in the cisco interface
         	**type**\: list of  		 :py:class:`LifEntry <ydk.models.cisco_ios_xe.OLD_CISCO_INTERFACES_MIB.OLDCISCOINTERFACESMIB.LifTable.LifEntry>`
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         
@@ -113,10 +119,14 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.RFC1213_MIB.RFC1213MIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: locifhardtype
             
             	Returns the type of interface
             	**type**\: str
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -127,6 +137,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: lociflastin
@@ -135,6 +147,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -145,6 +159,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: lociflastouthang
@@ -153,6 +169,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -163,6 +181,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifinpktssec
@@ -171,6 +191,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -181,6 +203,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifoutpktssec
@@ -189,6 +213,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -199,6 +225,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifingiants
@@ -207,6 +235,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -217,6 +247,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifinframe
@@ -225,6 +257,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -235,6 +269,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifinignored
@@ -243,6 +279,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -253,6 +291,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifresets
@@ -261,6 +301,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -271,6 +313,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifkeep
@@ -280,12 +324,16 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifreason
             
             	Reason for interface last status change
             	**type**\: str
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -296,6 +344,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifreliab
@@ -304,6 +354,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -314,6 +366,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifload
@@ -322,6 +376,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -332,6 +388,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifinputqueuedrops
@@ -340,6 +398,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -350,12 +410,16 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifdescr
             
             	User configurable interface description
             	**type**\: str
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -366,6 +430,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifslowoutpkts
@@ -374,6 +440,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -384,6 +452,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifslowoutoctets
@@ -392,6 +462,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -402,6 +474,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: lociffastoutpkts
@@ -410,6 +484,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -420,6 +496,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: lociffastoutoctets
@@ -428,6 +506,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -438,6 +518,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifotheroutpkts
@@ -446,6 +528,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -456,6 +540,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifotheroutoctets
@@ -464,6 +550,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -474,6 +562,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifipoutpkts
@@ -482,6 +572,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -492,6 +584,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifipoutoctets
@@ -500,6 +594,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -510,6 +606,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifdecnetoutpkts
@@ -518,6 +616,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -528,6 +628,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifdecnetoutoctets
@@ -536,6 +638,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -546,6 +650,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifxnsoutpkts
@@ -554,6 +660,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -564,6 +672,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifxnsoutoctets
@@ -572,6 +682,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -582,6 +694,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifclnsoutpkts
@@ -590,6 +704,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -600,6 +716,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifclnsoutoctets
@@ -608,6 +726,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -618,6 +738,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifappletalkoutpkts
@@ -626,6 +748,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -636,6 +760,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifappletalkoutoctets
@@ -644,6 +770,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -654,6 +782,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifnovelloutpkts
@@ -662,6 +792,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -672,6 +804,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifnovelloutoctets
@@ -680,6 +814,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -690,6 +826,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifapollooutpkts
@@ -698,6 +836,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -708,6 +848,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifapollooutoctets
@@ -716,6 +858,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -726,6 +870,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifvinesoutpkts
@@ -734,6 +880,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -744,6 +892,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifvinesoutoctets
@@ -752,6 +902,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -762,6 +914,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifbridgedoutpkts
@@ -770,6 +924,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -780,6 +936,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifbridgedoutoctets
@@ -788,6 +946,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -798,6 +958,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifsrboutpkts
@@ -806,6 +968,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -816,6 +980,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifsrboutoctets
@@ -824,6 +990,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -834,6 +1002,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifchaosoutpkts
@@ -842,6 +1012,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -852,6 +1024,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifchaosoutoctets
@@ -860,6 +1034,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -870,6 +1046,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifpupoutpkts
@@ -878,6 +1056,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -888,6 +1068,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifpupoutoctets
@@ -896,6 +1078,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -906,6 +1090,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifmopoutpkts
@@ -914,6 +1100,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -924,6 +1112,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifmopoutoctets
@@ -932,6 +1122,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -942,6 +1134,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: lociflanmanoutpkts
@@ -950,6 +1144,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -960,6 +1156,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: lociflanmanoutoctets
@@ -968,6 +1166,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -978,6 +1178,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifstunoutpkts
@@ -986,6 +1188,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -996,6 +1200,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifstunoutoctets
@@ -1004,6 +1210,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1014,6 +1222,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifspanoutpkts
@@ -1022,6 +1232,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1032,6 +1244,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifspanoutoctets
@@ -1040,6 +1254,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1050,6 +1266,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifarpoutpkts
@@ -1058,6 +1276,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1068,6 +1288,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifarpoutoctets
@@ -1076,6 +1298,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1086,6 +1310,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifprobeoutpkts
@@ -1094,6 +1320,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1104,6 +1332,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifprobeoutoctets
@@ -1113,6 +1343,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: locifdribbleinputs
@@ -1121,6 +1353,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1377,6 +1611,8 @@ class OLDCISCOINTERFACESMIB(Entity):
                 self._perform_setattr(OLDCISCOINTERFACESMIB.LifTable.LifEntry, ['ifindex', 'locifhardtype', 'lociflineprot', 'lociflastin', 'lociflastout', 'lociflastouthang', 'locifinbitssec', 'locifinpktssec', 'locifoutbitssec', 'locifoutpktssec', 'locifinrunts', 'locifingiants', 'locifincrc', 'locifinframe', 'locifinoverrun', 'locifinignored', 'locifinabort', 'locifresets', 'locifrestarts', 'locifkeep', 'locifreason', 'locifcartrans', 'locifreliab', 'locifdelay', 'locifload', 'locifcollisions', 'locifinputqueuedrops', 'locifoutputqueuedrops', 'locifdescr', 'locifslowinpkts', 'locifslowoutpkts', 'locifslowinoctets', 'locifslowoutoctets', 'lociffastinpkts', 'lociffastoutpkts', 'lociffastinoctets', 'lociffastoutoctets', 'locifotherinpkts', 'locifotheroutpkts', 'locifotherinoctets', 'locifotheroutoctets', 'locifipinpkts', 'locifipoutpkts', 'locifipinoctets', 'locifipoutoctets', 'locifdecnetinpkts', 'locifdecnetoutpkts', 'locifdecnetinoctets', 'locifdecnetoutoctets', 'locifxnsinpkts', 'locifxnsoutpkts', 'locifxnsinoctets', 'locifxnsoutoctets', 'locifclnsinpkts', 'locifclnsoutpkts', 'locifclnsinoctets', 'locifclnsoutoctets', 'locifappletalkinpkts', 'locifappletalkoutpkts', 'locifappletalkinoctets', 'locifappletalkoutoctets', 'locifnovellinpkts', 'locifnovelloutpkts', 'locifnovellinoctets', 'locifnovelloutoctets', 'locifapolloinpkts', 'locifapollooutpkts', 'locifapolloinoctets', 'locifapollooutoctets', 'locifvinesinpkts', 'locifvinesoutpkts', 'locifvinesinoctets', 'locifvinesoutoctets', 'locifbridgedinpkts', 'locifbridgedoutpkts', 'locifbridgedinoctets', 'locifbridgedoutoctets', 'locifsrbinpkts', 'locifsrboutpkts', 'locifsrbinoctets', 'locifsrboutoctets', 'locifchaosinpkts', 'locifchaosoutpkts', 'locifchaosinoctets', 'locifchaosoutoctets', 'locifpupinpkts', 'locifpupoutpkts', 'locifpupinoctets', 'locifpupoutoctets', 'locifmopinpkts', 'locifmopoutpkts', 'locifmopinoctets', 'locifmopoutoctets', 'lociflanmaninpkts', 'lociflanmanoutpkts', 'lociflanmaninoctets', 'lociflanmanoutoctets', 'locifstuninpkts', 'locifstunoutpkts', 'locifstuninoctets', 'locifstunoutoctets', 'locifspaninpkts', 'locifspanoutpkts', 'locifspaninoctets', 'locifspanoutoctets', 'locifarpinpkts', 'locifarpoutpkts', 'locifarpinoctets', 'locifarpoutoctets', 'locifprobeinpkts', 'locifprobeoutpkts', 'locifprobeinoctets', 'locifprobeoutoctets', 'locifdribbleinputs'], name, value)
 
 
+
+
     class LFSIPTable(Entity):
         """
         A list of card entries for 4T, HSSI,
@@ -1386,6 +1622,8 @@ class OLDCISCOINTERFACESMIB(Entity):
         
         	A collection of objects specific to 4T, HSSI, Mx serial or FSIP
         	**type**\: list of  		 :py:class:`LFSIPEntry <ydk.models.cisco_ios_xe.OLD_CISCO_INTERFACES_MIB.OLDCISCOINTERFACESMIB.LFSIPTable.LFSIPEntry>`
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -1427,12 +1665,16 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: lociffsiptype
             
             	Is this FSIP line DCE or DTE
             	**type**\:  :py:class:`LocIfFSIPtype <ydk.models.cisco_ios_xe.OLD_CISCO_INTERFACES_MIB.OLDCISCOINTERFACESMIB.LFSIPTable.LFSIPEntry.LocIfFSIPtype>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1441,12 +1683,16 @@ class OLDCISCOINTERFACESMIB(Entity):
             	Is the RTS signal up or down
             	**type**\:  :py:class:`LocIfFSIPrts <ydk.models.cisco_ios_xe.OLD_CISCO_INTERFACES_MIB.OLDCISCOINTERFACESMIB.LFSIPTable.LFSIPEntry.LocIfFSIPrts>`
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: lociffsipcts
             
             	Is the CTS signal up or down
             	**type**\:  :py:class:`LocIfFSIPcts <ydk.models.cisco_ios_xe.OLD_CISCO_INTERFACES_MIB.OLDCISCOINTERFACESMIB.LFSIPTable.LFSIPEntry.LocIfFSIPcts>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1455,6 +1701,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             	Is the DTR signal up or down
             	**type**\:  :py:class:`LocIfFSIPdtr <ydk.models.cisco_ios_xe.OLD_CISCO_INTERFACES_MIB.OLDCISCOINTERFACESMIB.LFSIPTable.LFSIPEntry.LocIfFSIPdtr>`
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: lociffsipdcd
@@ -1462,12 +1710,16 @@ class OLDCISCOINTERFACESMIB(Entity):
             	Is the DCD signal up or down
             	**type**\:  :py:class:`LocIfFSIPdcd <ydk.models.cisco_ios_xe.OLD_CISCO_INTERFACES_MIB.OLDCISCOINTERFACESMIB.LFSIPTable.LFSIPEntry.LocIfFSIPdcd>`
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: lociffsipdsr
             
             	Is the DSR signal up or down
             	**type**\:  :py:class:`LocIfFSIPdsr <ydk.models.cisco_ios_xe.OLD_CISCO_INTERFACES_MIB.OLDCISCOINTERFACESMIB.LFSIPTable.LFSIPEntry.LocIfFSIPdsr>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1478,6 +1730,8 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: lociffsiprxclockratehi
@@ -1487,12 +1741,16 @@ class OLDCISCOINTERFACESMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             	**status**\: obsolete
             
             .. attribute:: lociffsipporttype
             
             	Cable Type of 4T, HSSI, Mx serial or FSIP
             	**type**\:  :py:class:`LocIfFSIPportType <ydk.models.cisco_ios_xe.OLD_CISCO_INTERFACES_MIB.OLDCISCOINTERFACESMIB.LFSIPTable.LFSIPEntry.LocIfFSIPportType>`
+            
+            	**config**\: False
             
             	**status**\: obsolete
             
@@ -1723,7 +1981,11 @@ class OLDCISCOINTERFACESMIB(Entity):
                 dce = Enum.YLeaf(3, "dce")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = OLDCISCOINTERFACESMIB()
         return self._top_entity
+
+
 

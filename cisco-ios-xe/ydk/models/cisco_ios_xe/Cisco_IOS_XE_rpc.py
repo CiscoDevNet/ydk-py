@@ -166,6 +166,8 @@ class Switch(Entity):
                 self._perform_setattr(Switch.Input.Statck, [u'port'], name, value)
 
 
+
+
     class Output(Entity):
         """
         
@@ -202,9 +204,12 @@ class Switch(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Switch.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Switch()
         return self._top_entity
+
+
 
 class Default(Entity):
     """
@@ -289,6 +294,7 @@ class Default(Entity):
             self._perform_setattr(Default.Input, [u'interface'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -325,9 +331,12 @@ class Default(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Default.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Default()
         return self._top_entity
+
+
 
 class Clear(Entity):
     """
@@ -622,6 +631,8 @@ class Clear(Entity):
                         self._perform_setattr(Clear.Input.Flow.Monitor.Cache, [u'force_export'], name, value)
 
 
+
+
             class Exporter(Entity):
                 """
                 
@@ -664,6 +675,8 @@ class Clear(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Clear.Input.Flow.Exporter, [u'name', u'statistics'], name, value)
+
+
 
 
         class Ip(Entity):
@@ -808,6 +821,8 @@ class Clear(Entity):
                         self._perform_setattr(Clear.Input.Ip.Dhcp.Binding, [u'vrf', u'y_all'], name, value)
 
 
+
+
             class Ospf(Entity):
                 """
                 
@@ -852,6 +867,7 @@ class Clear(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Clear.Input.Ip.Ospf, [u'y_id', u'process'], name, value)
+
 
 
             class Bgp(Entity):
@@ -904,6 +920,8 @@ class Clear(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Clear.Input.Ip.Bgp, [u'y_peer_address', u'vrf'], name, value)
+
+
 
 
         class ArpCache(Entity):
@@ -962,6 +980,7 @@ class Clear(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Clear.Input.ArpCache, [u'vrf', u'interface', u'y_ip'], name, value)
+
 
 
         class Aaa(Entity):
@@ -1113,6 +1132,10 @@ class Clear(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Clear.Input.Aaa.Local.User.Lockout, [u'username'], name, value)
+
+
+
+
 
 
         class Platform(Entity):
@@ -1342,6 +1365,12 @@ class Clear(Entity):
                                     self._perform_setattr(Clear.Input.Platform.Hardware.Qfp.Active.Feature.Firewall, [u'drop'], name, value)
 
 
+
+
+
+
+
+
         class ZonePair(Entity):
             """
             Clear zone\-pair
@@ -1377,6 +1406,8 @@ class Clear(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Clear.Input.ZonePair, [u'counter'], name, value)
+
+
 
 
     class Output(Entity):
@@ -1415,9 +1446,12 @@ class Clear(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Clear.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Clear()
         return self._top_entity
+
+
 
 class Release(Entity):
     """
@@ -1500,6 +1534,7 @@ class Release(Entity):
             self._perform_setattr(Release.Input, [u'dhcp'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -1536,9 +1571,12 @@ class Release(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Release.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Release()
         return self._top_entity
+
+
 
 class Reload(Entity):
     """
@@ -1628,6 +1666,7 @@ class Reload(Entity):
             self._perform_setattr(Reload.Input, [u'force', u'reason'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -1664,9 +1703,12 @@ class Reload(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Reload.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Reload()
         return self._top_entity
+
+
 
 class Cellular(Entity):
     """
@@ -1864,6 +1906,7 @@ class Cellular(Entity):
                     self._perform_setattr(Cellular.Input.Lte.Technology, [u'lte', u'auto', u'umts'], name, value)
 
 
+
             class Profile(Entity):
                 """
                 
@@ -1948,6 +1991,7 @@ class Cellular(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cellular.Input.Lte.Profile.Delete, [u'y_profile_id'], name, value)
+
 
 
                 class Create(Entity):
@@ -2059,6 +2103,10 @@ class Cellular(Entity):
                         self._perform_setattr(Cellular.Input.Lte.Profile.Create, [u'y_profile_id', u'y_prof_name', u'none', u'chap', u'pap', u'pap_chap', u'y_user_name', u'y_password', u'ipv4', u'ipv6', u'ipv4v6'], name, value)
 
 
+
+
+
+
     class Output(Entity):
         """
         
@@ -2095,9 +2143,12 @@ class Cellular(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Cellular.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Cellular()
         return self._top_entity
+
+
 
 class License(Entity):
     """
@@ -2282,6 +2333,7 @@ class License(Entity):
                     self._perform_setattr(License.Input.Smart.Register, [u'idtoken', u'force'], name, value)
 
 
+
             class Renew(Entity):
                 """
                 
@@ -2326,6 +2378,9 @@ class License(Entity):
                     self._perform_setattr(License.Input.Smart.Renew, [u'id', u'auth'], name, value)
 
 
+
+
+
     class Output(Entity):
         """
         
@@ -2362,9 +2417,12 @@ class License(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(License.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = License()
         return self._top_entity
+
+
 
 class Service(Entity):
     """
@@ -2645,6 +2703,8 @@ class Service(Entity):
                         self._perform_setattr(Service.Input.SdAvc.Configure.Gateway, [u'interface', u'service_ip', u'activate'], name, value)
 
 
+
+
             class Install(Entity):
                 """
                 
@@ -2680,6 +2740,7 @@ class Service(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Service.Input.SdAvc.Install, [u'package'], name, value)
+
 
 
             class Upgrade(Entity):
@@ -2719,6 +2780,9 @@ class Service(Entity):
                     self._perform_setattr(Service.Input.SdAvc.Upgrade, [u'package'], name, value)
 
 
+
+
+
     class Output(Entity):
         """
         
@@ -2755,9 +2819,12 @@ class Service(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Service.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Service()
         return self._top_entity
+
+
 
 class VirtualService(Entity):
     """
@@ -2910,6 +2977,7 @@ class VirtualService(Entity):
                 self._perform_setattr(VirtualService.Input.Install, [u'name', u'package', u'media'], name, value)
 
 
+
         class Uninstall(Entity):
             """
             
@@ -2945,6 +3013,7 @@ class VirtualService(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VirtualService.Input.Uninstall, [u'name'], name, value)
+
 
 
         class Upgrade(Entity):
@@ -2991,6 +3060,8 @@ class VirtualService(Entity):
                 self._perform_setattr(VirtualService.Input.Upgrade, [u'name', u'package'], name, value)
 
 
+
+
     class Output(Entity):
         """
         
@@ -3027,9 +3098,12 @@ class VirtualService(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(VirtualService.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = VirtualService()
         return self._top_entity
+
+
 
 class Copy(Entity):
     """
@@ -3127,6 +3201,7 @@ class Copy(Entity):
             self._perform_setattr(Copy.Input, [u'y_source', u'y_destination'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -3163,9 +3238,12 @@ class Copy(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Copy.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Copy()
         return self._top_entity
+
+
 
 class Delete(Entity):
     """
@@ -3252,6 +3330,7 @@ class Delete(Entity):
             self._perform_setattr(Delete.Input, [u'y_filename'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -3288,9 +3367,12 @@ class Delete(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Delete.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Delete()
         return self._top_entity
+
+
 
 class AppHosting(Entity):
     """
@@ -3463,6 +3545,7 @@ class AppHosting(Entity):
                 self._perform_setattr(AppHosting.Input.Install, [u'appid', u'package'], name, value)
 
 
+
         class Uninstall(Entity):
             """
             
@@ -3498,6 +3581,7 @@ class AppHosting(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AppHosting.Input.Uninstall, [u'appid'], name, value)
+
 
 
         class Activate(Entity):
@@ -3537,6 +3621,7 @@ class AppHosting(Entity):
                 self._perform_setattr(AppHosting.Input.Activate, [u'appid'], name, value)
 
 
+
         class Deactivate(Entity):
             """
             
@@ -3572,6 +3657,7 @@ class AppHosting(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AppHosting.Input.Deactivate, [u'appid'], name, value)
+
 
 
         class Start(Entity):
@@ -3611,6 +3697,7 @@ class AppHosting(Entity):
                 self._perform_setattr(AppHosting.Input.Start, [u'appid'], name, value)
 
 
+
         class Stop(Entity):
             """
             
@@ -3646,6 +3733,8 @@ class AppHosting(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AppHosting.Input.Stop, [u'appid'], name, value)
+
+
 
 
     class Output(Entity):
@@ -3684,9 +3773,12 @@ class AppHosting(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(AppHosting.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = AppHosting()
         return self._top_entity
+
+
 
 class Guestshell(Entity):
     """
@@ -3783,6 +3875,7 @@ class Guestshell(Entity):
             self._perform_setattr(Guestshell.Input, [u'destroy', u'disable', u'enable'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -3819,9 +3912,12 @@ class Guestshell(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Guestshell.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Guestshell()
         return self._top_entity
+
+
 
 class Start(Entity):
     """
@@ -3904,6 +4000,7 @@ class Start(Entity):
             self._perform_setattr(Start.Input, [u'maintenance'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -3940,9 +4037,12 @@ class Start(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Start.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Start()
         return self._top_entity
+
+
 
 class Stop(Entity):
     """
@@ -4025,6 +4125,7 @@ class Stop(Entity):
             self._perform_setattr(Stop.Input, [u'maintenance'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -4061,9 +4162,12 @@ class Stop(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Stop.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Stop()
         return self._top_entity
+
+
 
 class Utd(Entity):
     """
@@ -4271,6 +4375,7 @@ class Utd(Entity):
                         self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Saved, [u'update'], name, value)
 
 
+
                 class Y_Manual(Entity):
                     """
                     
@@ -4442,6 +4547,7 @@ class Utd(Entity):
                                     self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Cisco, [u'username', u'password'], name, value)
 
 
+
                             class Url(Entity):
                                 """
                                 Enter the complete URL for the path to the update server
@@ -4546,6 +4652,7 @@ class Utd(Entity):
                                         self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_Credentials, [u'y_url', u'username', u'password'], name, value)
 
 
+
                                 class Y_NoCredentials(Entity):
                                     """
                                     
@@ -4585,6 +4692,14 @@ class Utd(Entity):
                                         self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_NoCredentials, [u'y_url'], name, value)
 
 
+
+
+
+
+
+
+
+
     class Output(Entity):
         """
         
@@ -4621,7 +4736,10 @@ class Utd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Utd.Output, [u'result'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Utd()
         return self._top_entity
+
+
 

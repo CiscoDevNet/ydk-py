@@ -257,6 +257,8 @@ class Fm(Entity):
     	
     	**type**\: list of  		 :py:class:`Agents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents>`
     
+    	**config**\: False
+    
     
 
     """
@@ -293,45 +295,63 @@ class Fm(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: process  (key)
         
         	
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: subsystem  (key)
         
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: agent  (key)
         
         	
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: fm_initials
         
         	
         	**type**\:  :py:class:`FmInitials <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmInitials>`
         
+        	**config**\: False
+        
         .. attribute:: fm_table
         
         	
         	**type**\:  :py:class:`FmTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable>`
+        
+        	**config**\: False
         
         .. attribute:: fm_internals
         
         	
         	**type**\:  :py:class:`FmInternals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmInternals>`
         
+        	**config**\: False
+        
         .. attribute:: fm_alarm_mapping
         
         	
         	**type**\:  :py:class:`FmAlarmMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmAlarmMapping>`
         
+        	**config**\: False
+        
         .. attribute:: fm_statistics
         
         	
         	**type**\:  :py:class:`FmStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmStatistics>`
+        
+        	**config**\: False
         
         
 
@@ -398,6 +418,8 @@ class Fm(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: comp_id
             
             	The owner component Id
@@ -405,10 +427,14 @@ class Fm(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: process
             
             	The name of the process in which this fm instance is active
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: default_rule_cb
             
@@ -417,12 +443,16 @@ class Fm(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: default_action_cb
             
             	Default action callback pointer
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: default_notif_cb
             
@@ -431,6 +461,8 @@ class Fm(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: default_error_cb
             
             	Default error callback pointer
@@ -438,12 +470,16 @@ class Fm(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: replica_cb
             
             	Data Replica callback pointer
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -486,6 +522,7 @@ class Fm(Entity):
                 self._perform_setattr(Fm.Agents.FmInitials, ['levm', 'comp_id', 'process', 'default_rule_cb', 'default_action_cb', 'default_notif_cb', 'default_error_cb', 'replica_cb'], name, value)
 
 
+
         class FmTable(Entity):
             """
             
@@ -495,10 +532,14 @@ class Fm(Entity):
             	
             	**type**\: list of  		 :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Brief>`
             
+            	**config**\: False
+            
             .. attribute:: entry
             
             	
             	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry>`
+            
+            	**config**\: False
             
             
 
@@ -536,20 +577,28 @@ class Fm(Entity):
                 	Fault sub\-system identifier
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: fm_fault_type  (key)
                 
                 	Fault type identifier
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: fm_fault_tag  (key)
                 
                 	Fault tag identifier
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: name
                 
                 	A descriptive name for the fault
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -584,6 +633,7 @@ class Fm(Entity):
                     self._perform_setattr(Fm.Agents.FmTable.Brief, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'name'], name, value)
 
 
+
             class Entry(Entity):
                 """
                 
@@ -593,55 +643,77 @@ class Fm(Entity):
                 	Fault sub\-system identifier
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: fm_fault_type  (key)
                 
                 	Fault type identifier
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: fm_fault_tag  (key)
                 
                 	Fault tag identifier
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: detail
                 
                 	
                 	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.Detail>`
+                
+                	**config**\: False
                 
                 .. attribute:: causal_list
                 
                 	Causal list of fault ids for the specified fault
                 	**type**\: list of  		 :py:class:`CausalList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.CausalList>`
                 
+                	**config**\: False
+                
                 .. attribute:: dependency_list
                 
                 	Dependency list of fault ids
                 	**type**\: list of  		 :py:class:`DependencyList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.DependencyList>`
+                
+                	**config**\: False
                 
                 .. attribute:: propagation_list
                 
                 	Propagation list of fault agents
                 	**type**\: list of  		 :py:class:`PropagationList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.PropagationList>`
                 
+                	**config**\: False
+                
                 .. attribute:: notification_list
                 
                 	Notification list of fault agents
                 	**type**\: list of  		 :py:class:`NotificationList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.NotificationList>`
+                
+                	**config**\: False
                 
                 .. attribute:: escalation_list
                 
                 	escalation list of fault agents
                 	**type**\: list of  		 :py:class:`EscalationList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.EscalationList>`
                 
+                	**config**\: False
+                
                 .. attribute:: faults
                 
                 	
                 	**type**\:  :py:class:`Faults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.Faults>`
                 
+                	**config**\: False
+                
                 .. attribute:: waiting_list
                 
                 	
                 	**type**\:  :py:class:`WaitingList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.WaitingList>`
+                
+                	**config**\: False
                 
                 
 
@@ -701,35 +773,49 @@ class Fm(Entity):
                     	Fault sub\-system identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fm_fault_type
                     
                     	Fault type identifier
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: fm_fault_tag
                     
                     	Fault tag identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: name
                     
                     	A descriptive name for the fault
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: description
                     
                     	Description of the fault
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: detection_logic
                     
                     	Fault detection logic
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: corr_obj_qualifier
                     
                     	The qualifier for the object used for correlation
                     	**type**\:  :py:class:`FmCorrelationObjQualifierT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmCorrelationObjQualifierT>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -770,6 +856,7 @@ class Fm(Entity):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.Detail, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'name', 'description', 'detection_logic', 'corr_obj_qualifier'], name, value)
 
 
+
                 class CausalList(Entity):
                     """
                     Causal list of fault ids for the specified fault.
@@ -779,15 +866,21 @@ class Fm(Entity):
                     	Fault sub\-system identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fm_fault_type  (key)
                     
                     	Fault type identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fm_fault_tag  (key)
                     
                     	Fault tag identifier
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -820,6 +913,7 @@ class Fm(Entity):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.CausalList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag'], name, value)
 
 
+
                 class DependencyList(Entity):
                     """
                     Dependency list of fault ids.
@@ -829,15 +923,21 @@ class Fm(Entity):
                     	Fault sub\-system identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fm_fault_type  (key)
                     
                     	Fault type identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fm_fault_tag  (key)
                     
                     	Fault tag identifier
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -870,6 +970,7 @@ class Fm(Entity):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.DependencyList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag'], name, value)
 
 
+
                 class PropagationList(Entity):
                     """
                     Propagation list of fault agents.
@@ -879,20 +980,28 @@ class Fm(Entity):
                     	Fault sub\-system identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fm_fault_type  (key)
                     
                     	Fault type identifier
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: fm_fault_tag  (key)
                     
                     	Fault tag identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_agent_id
                     
                     	The remote agent id assocaited with this fault
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -927,6 +1036,7 @@ class Fm(Entity):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.PropagationList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'remote_agent_id'], name, value)
 
 
+
                 class NotificationList(Entity):
                     """
                     Notification list of fault agents.
@@ -936,20 +1046,28 @@ class Fm(Entity):
                     	Fault sub\-system identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fm_fault_type  (key)
                     
                     	Fault type identifier
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: fm_fault_tag  (key)
                     
                     	Fault tag identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_agent_id
                     
                     	The remote agent id assocaited with this fault
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -984,6 +1102,7 @@ class Fm(Entity):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.NotificationList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'remote_agent_id'], name, value)
 
 
+
                 class EscalationList(Entity):
                     """
                     escalation list of fault agents.
@@ -993,20 +1112,28 @@ class Fm(Entity):
                     	Fault sub\-system identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: fm_fault_type  (key)
                     
                     	Fault type identifier
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: fm_fault_tag  (key)
                     
                     	Fault tag identifier
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_agent_id
                     
                     	The remote agent id assocaited with this fault
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1041,6 +1168,7 @@ class Fm(Entity):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.EscalationList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'remote_agent_id'], name, value)
 
 
+
                 class Faults(Entity):
                     """
                     
@@ -1050,10 +1178,14 @@ class Fm(Entity):
                     	
                     	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.Faults.Active>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: history
                     
                     	
                     	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.Faults.History>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1096,10 +1228,14 @@ class Fm(Entity):
                         	
                         	**type**\: list of  		 :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.Faults.Active.Brief>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: detail
                         
                         	
                         	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.Faults.Active.Detail>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1137,12 +1273,16 @@ class Fm(Entity):
                             	The fault object ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fault_timestamp
                             
                             	The fault occurence timestamp
                             	**type**\: str
                             
                             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                            
+                            	**config**\: False
                             
                             
 
@@ -1173,6 +1313,7 @@ class Fm(Entity):
                                 self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.Active.Brief, ['object_id', 'fault_timestamp'], name, value)
 
 
+
                         class Detail(Entity):
                             """
                             
@@ -1182,20 +1323,28 @@ class Fm(Entity):
                             	The fault object ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fm_subsystem_id
                             
                             	Fault sub\-system identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: fm_fault_type
                             
                             	Fault type identifier
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fm_fault_tag
                             
                             	Fault tag identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: fault_severity
                             
@@ -1204,15 +1353,21 @@ class Fm(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: fault_state
                             
                             	The state of the fault
                             	**type**\:  :py:class:`FmFaultStateT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmFaultStateT>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: fault_agent_id
                             
                             	The agent id associated with the fault
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: fault_timestamp
                             
@@ -1221,40 +1376,56 @@ class Fm(Entity):
                             
                             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                             
+                            	**config**\: False
+                            
                             .. attribute:: fault_timer_state
                             
                             	The state of the timer associated with this fault
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: fault_processed
                             
                             	The fault is acted on
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: mitigation_result
                             
                             	The result of the mitigation action on the fault
                             	**type**\:  :py:class:`FmActionResultT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmActionResultT>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: recovery_result
                             
                             	The result of the recovery action on the fault
                             	**type**\:  :py:class:`FmActionResultT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmActionResultT>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: correlation_result
                             
                             	The result of the correlation action on the fault
                             	**type**\:  :py:class:`FmActionResultT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmActionResultT>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: alarm_result
                             
                             	The result of the alarm action on the fault
                             	**type**\:  :py:class:`FmActionResultT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmActionResultT>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: default_result
                             
                             	The result of the default action on the fault
                             	**type**\:  :py:class:`FmActionResultT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmActionResultT>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: opaque_data_len
                             
@@ -1263,6 +1434,8 @@ class Fm(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: occurrence_count
                             
                             	The occurrence count of the fault
@@ -1270,10 +1443,14 @@ class Fm(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: history_state
                             
                             	The history state of the fault
                             	**type**\:  :py:class:`FmHistoryStateT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmHistoryStateT>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1336,6 +1513,8 @@ class Fm(Entity):
                                 self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.Active.Detail, ['object_id', 'fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'fault_severity', 'fault_state', 'fault_agent_id', 'fault_timestamp', 'fault_timer_state', 'fault_processed', 'mitigation_result', 'recovery_result', 'correlation_result', 'alarm_result', 'default_result', 'opaque_data_len', 'occurrence_count', 'history_state'], name, value)
 
 
+
+
                     class History(Entity):
                         """
                         
@@ -1345,10 +1524,14 @@ class Fm(Entity):
                         	
                         	**type**\: list of  		 :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.Faults.History.Brief>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: detail
                         
                         	
                         	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.Faults.History.Detail>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1386,12 +1569,16 @@ class Fm(Entity):
                             	The fault object ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fault_timestamp
                             
                             	The fault occurence timestamp
                             	**type**\: str
                             
                             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+                            
+                            	**config**\: False
                             
                             
 
@@ -1422,6 +1609,7 @@ class Fm(Entity):
                                 self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.History.Brief, ['object_id', 'fault_timestamp'], name, value)
 
 
+
                         class Detail(Entity):
                             """
                             
@@ -1431,20 +1619,28 @@ class Fm(Entity):
                             	The fault object ID
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fm_subsystem_id
                             
                             	Fault sub\-system identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: fm_fault_type
                             
                             	Fault type identifier
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: fm_fault_tag
                             
                             	Fault tag identifier
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: fault_severity
                             
@@ -1453,15 +1649,21 @@ class Fm(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: fault_state
                             
                             	The state of the fault
                             	**type**\:  :py:class:`FmFaultStateT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmFaultStateT>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: fault_agent_id
                             
                             	The agent id associated with the fault
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: fault_timestamp
                             
@@ -1470,40 +1672,56 @@ class Fm(Entity):
                             
                             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                             
+                            	**config**\: False
+                            
                             .. attribute:: fault_timer_state
                             
                             	The state of the timer associated with this fault
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: fault_processed
                             
                             	The fault is acted on
                             	**type**\: bool
                             
+                            	**config**\: False
+                            
                             .. attribute:: mitigation_result
                             
                             	The result of the mitigation action on the fault
                             	**type**\:  :py:class:`FmActionResultT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmActionResultT>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: recovery_result
                             
                             	The result of the recovery action on the fault
                             	**type**\:  :py:class:`FmActionResultT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmActionResultT>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: correlation_result
                             
                             	The result of the correlation action on the fault
                             	**type**\:  :py:class:`FmActionResultT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmActionResultT>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: alarm_result
                             
                             	The result of the alarm action on the fault
                             	**type**\:  :py:class:`FmActionResultT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmActionResultT>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: default_result
                             
                             	The result of the default action on the fault
                             	**type**\:  :py:class:`FmActionResultT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmActionResultT>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: opaque_data_len
                             
@@ -1512,6 +1730,8 @@ class Fm(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: occurrence_count
                             
                             	The occurrence count of the fault
@@ -1519,10 +1739,14 @@ class Fm(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: history_state
                             
                             	The history state of the fault
                             	**type**\:  :py:class:`FmHistoryStateT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmHistoryStateT>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1585,6 +1809,9 @@ class Fm(Entity):
                                 self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.History.Detail, ['object_id', 'fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'fault_severity', 'fault_state', 'fault_agent_id', 'fault_timestamp', 'fault_timer_state', 'fault_processed', 'mitigation_result', 'recovery_result', 'correlation_result', 'alarm_result', 'default_result', 'opaque_data_len', 'occurrence_count', 'history_state'], name, value)
 
 
+
+
+
                 class WaitingList(Entity):
                     """
                     
@@ -1594,10 +1821,14 @@ class Fm(Entity):
                     	
                     	**type**\: list of  		 :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.WaitingList.Brief>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: entry
                     
                     	
                     	**type**\: list of  		 :py:class:`Entry_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmTable.Entry.WaitingList.Entry_>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1635,20 +1866,28 @@ class Fm(Entity):
                         	Fault sub\-system identifier
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: fm_fault_type  (key)
                         
                         	Fault type identifier
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: fm_fault_tag  (key)
                         
                         	Fault tag identifier
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: object_id
                         
                         	The object Id of the entity that generated the fault
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: fault_timestamp
                         
@@ -1657,10 +1896,14 @@ class Fm(Entity):
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
+                        	**config**\: False
+                        
                         .. attribute:: fault_state
                         
                         	The state pf tje causal fault
                         	**type**\:  :py:class:`FmFaultStateT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmFaultStateT>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: fault_count
                         
@@ -1669,12 +1912,16 @@ class Fm(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: fault_flag
                         
                         	FM correlation engine flag, internal
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -1717,6 +1964,7 @@ class Fm(Entity):
                             self._perform_setattr(Fm.Agents.FmTable.Entry.WaitingList.Brief, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'object_id', 'fault_timestamp', 'fault_state', 'fault_count', 'fault_flag'], name, value)
 
 
+
                     class Entry_(Entity):
                         """
                         
@@ -1726,20 +1974,28 @@ class Fm(Entity):
                         	Fault sub\-system identifier
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: fm_fault_type  (key)
                         
                         	Fault type identifier
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: fm_fault_tag  (key)
                         
                         	Fault tag identifier
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: object_id
                         
                         	The object Id of the entity that generated the fault
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: fault_timestamp
                         
@@ -1748,10 +2004,14 @@ class Fm(Entity):
                         
                         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                         
+                        	**config**\: False
+                        
                         .. attribute:: fault_state
                         
                         	The state pf tje causal fault
                         	**type**\:  :py:class:`FmFaultStateT <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.FmFaultStateT>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: fault_count
                         
@@ -1760,12 +2020,16 @@ class Fm(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: fault_flag
                         
                         	FM correlation engine flag, internal
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -1808,6 +2072,10 @@ class Fm(Entity):
                             self._perform_setattr(Fm.Agents.FmTable.Entry.WaitingList.Entry_, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'object_id', 'fault_timestamp', 'fault_state', 'fault_count', 'fault_flag'], name, value)
 
 
+
+
+
+
         class FmInternals(Entity):
             """
             
@@ -1816,6 +2084,8 @@ class Fm(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmInternals.Detail>`
+            
+            	**config**\: False
             
             
 
@@ -1852,20 +2122,28 @@ class Fm(Entity):
                 	Fault sub\-system identifier
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: fm_fault_type  (key)
                 
                 	Fault type identifier
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: fm_fault_tag  (key)
                 
                 	Fault tag identifier
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: rules
                 
                 	list of fault rule declaring callbacks
                 	**type**\: list of  		 :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmInternals.Detail.Rules>`
+                
+                	**config**\: False
                 
                 .. attribute:: common_action
                 
@@ -1874,12 +2152,16 @@ class Fm(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: opaque_action
                 
                 	opaque action data
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: mitigation_cb
                 
@@ -1888,6 +2170,8 @@ class Fm(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: recovery_cb
                 
                 	Pointer to the recovery callback function
@@ -1895,25 +2179,35 @@ class Fm(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: alarm_severity_dirty
                 
                 	Flag indicates if alarm severity is dirty
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: disable_action
                 
                 	Flag indicates all actions are disabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: repeat_action
                 
                 	Flag indicates all actions are repeated
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: has_causal_list
                 
                 	Flag indicates if causal list is present
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: parser_tag
                 
@@ -1922,10 +2216,14 @@ class Fm(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: parser_tag_string
                 
                 	The parser tag string
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1989,12 +2287,16 @@ class Fm(Entity):
                     	The location associated with the fault
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: rule_cb
                     
                     	The callback function that declares the fault
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -2025,6 +2327,9 @@ class Fm(Entity):
                         self._perform_setattr(Fm.Agents.FmInternals.Detail.Rules, ['fault_location', 'rule_cb'], name, value)
 
 
+
+
+
         class FmAlarmMapping(Entity):
             """
             
@@ -2033,6 +2338,8 @@ class Fm(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmAlarmMapping.Detail>`
+            
+            	**config**\: False
             
             
 
@@ -2069,15 +2376,21 @@ class Fm(Entity):
                 	Fault sub\-system identifier
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: fm_fault_type  (key)
                 
                 	Fault type identifier
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: fm_fault_tag  (key)
                 
                 	Fault tag identifier
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: alarm_group
                 
@@ -2086,12 +2399,16 @@ class Fm(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: alarm_severity
                 
                 	The alarm severity for this fault
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 
 
@@ -2128,6 +2445,8 @@ class Fm(Entity):
                     self._perform_setattr(Fm.Agents.FmAlarmMapping.Detail, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'alarm_group', 'alarm_severity'], name, value)
 
 
+
+
         class FmStatistics(Entity):
             """
             
@@ -2136,6 +2455,8 @@ class Fm(Entity):
             
             	
             	**type**\: list of  		 :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm.Fm.Agents.FmStatistics.Detail>`
+            
+            	**config**\: False
             
             
 
@@ -2172,15 +2493,21 @@ class Fm(Entity):
                 	Fault sub\-system identifier
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: fm_fault_type  (key)
                 
                 	Fault type identifier
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: fm_fault_tag  (key)
                 
                 	Fault tag identifier
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: threshold_count
                 
@@ -2189,12 +2516,16 @@ class Fm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: all_object_occur_count
                 
                 	Object occurrence count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: declared_count
                 
@@ -2203,12 +2534,16 @@ class Fm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: cleared_count
                 
                 	Number of times the fault is cleared
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: info_count
                 
@@ -2217,12 +2552,16 @@ class Fm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: hold_time
                 
                 	The hold time in ms for soaking the fault
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -2266,7 +2605,12 @@ class Fm(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fm.Agents.FmStatistics.Detail, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'threshold_count', 'all_object_occur_count', 'declared_count', 'cleared_count', 'info_count', 'hold_time'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Fm()
         return self._top_entity
+
+
 

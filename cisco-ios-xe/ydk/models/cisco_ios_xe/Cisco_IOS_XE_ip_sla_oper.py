@@ -186,6 +186,8 @@ class IpSlaStats(Entity):
     	The list of IP SLA operations with statistics info
     	**type**\: list of  		 :py:class:`SlaOperEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry>`
     
+    	**config**\: False
+    
     
 
     """
@@ -224,15 +226,21 @@ class IpSlaStats(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: oper_type
         
         	Entry type
         	**type**\:  :py:class:`SlaOperType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.SlaOperType>`
         
+        	**config**\: False
+        
         .. attribute:: latest_return_code
         
         	Latest return code
         	**type**\:  :py:class:`SlaReturnCode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.SlaReturnCode>`
+        
+        	**config**\: False
         
         .. attribute:: success_count
         
@@ -241,12 +249,16 @@ class IpSlaStats(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: failure_count
         
         	Failure count
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: latest_oper_start_time
         
@@ -255,20 +267,28 @@ class IpSlaStats(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: rtt_info
         
         	RTT information
         	**type**\:  :py:class:`RttInfo <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.RttInfo>`
+        
+        	**config**\: False
         
         .. attribute:: measure_stats
         
         	Measured statistics
         	**type**\:  :py:class:`MeasureStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.MeasureStats>`
         
+        	**config**\: False
+        
         .. attribute:: stats
         
         	Statistics
         	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats>`
+        
+        	**config**\: False
         
         
 
@@ -329,10 +349,14 @@ class IpSlaStats(Entity):
             	The last Round Trip Time recorded for this SLA
             	**type**\:  :py:class:`LatestRtt <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.RttInfo.LatestRtt>`
             
+            	**config**\: False
+            
             .. attribute:: time_to_live
             
             	Time\-to\-live for the SLA operation
             	**type**\:  :py:class:`TimeToLive <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.RttInfo.TimeToLive>`
+            
+            	**config**\: False
             
             
 
@@ -377,15 +401,21 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: unknown
                 
                 	Round trip time is unknown
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
+                	**config**\: False
+                
                 .. attribute:: could_not_find
                 
                 	Round trip time could not be determined
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                	**config**\: False
                 
                 
 
@@ -418,6 +448,7 @@ class IpSlaStats(Entity):
                     self._perform_setattr(IpSlaStats.SlaOperEntry.RttInfo.LatestRtt, ['rtt', 'unknown', 'could_not_find'], name, value)
 
 
+
             class TimeToLive(Entity):
                 """
                 Time\-to\-live for the SLA operation
@@ -429,10 +460,14 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: forever
                 
                 	Time to live unbound
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                	**config**\: False
                 
                 
 
@@ -463,6 +498,8 @@ class IpSlaStats(Entity):
                     self._perform_setattr(IpSlaStats.SlaOperEntry.RttInfo.TimeToLive, ['ttl', 'forever'], name, value)
 
 
+
+
         class MeasureStats(Entity):
             """
             Measured statistics
@@ -474,12 +511,16 @@ class IpSlaStats(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: init_count
             
             	Initial count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: complete_count
             
@@ -488,10 +529,14 @@ class IpSlaStats(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: valid
             
             	Validity
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -526,6 +571,7 @@ class IpSlaStats(Entity):
                 self._perform_setattr(IpSlaStats.SlaOperEntry.MeasureStats, ['intv_start_time', 'init_count', 'complete_count', 'valid'], name, value)
 
 
+
         class Stats(Entity):
             """
             Statistics
@@ -535,35 +581,49 @@ class IpSlaStats(Entity):
             	RTT value
             	**type**\:  :py:class:`Rtt <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Rtt>`
             
+            	**config**\: False
+            
             .. attribute:: oneway_latency
             
             	Latency information
             	**type**\:  :py:class:`OnewayLatency <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency>`
+            
+            	**config**\: False
             
             .. attribute:: jitter
             
             	Jitter information
             	**type**\:  :py:class:`Jitter <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter>`
             
+            	**config**\: False
+            
             .. attribute:: over_threshold
             
             	Over threshold information
             	**type**\:  :py:class:`OverThreshold <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OverThreshold>`
+            
+            	**config**\: False
             
             .. attribute:: packet_loss
             
             	Packet loss information
             	**type**\:  :py:class:`PacketLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss>`
             
+            	**config**\: False
+            
             .. attribute:: icmp_packet_loss
             
             	ICMP packet loss information
             	**type**\:  :py:class:`IcmpPacketLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss>`
             
+            	**config**\: False
+            
             .. attribute:: voice_score
             
             	Voice score information
             	**type**\:  :py:class:`VoiceScore <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.VoiceScore>`
+            
+            	**config**\: False
             
             
 
@@ -628,10 +688,14 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sla_time_values
                 
                 	Timing information
                 	**type**\:  :py:class:`SlaTimeValues <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Rtt.SlaTimeValues>`
+                
+                	**config**\: False
                 
                 
 
@@ -675,12 +739,16 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: avg
                     
                     	Average value reading
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: max
                     
@@ -689,10 +757,14 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: accuracy
                     
                     	Reading accuracy
                     	**type**\:  :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -727,6 +799,8 @@ class IpSlaStats(Entity):
                         self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.Rtt.SlaTimeValues, ['min', 'avg', 'max', 'accuracy'], name, value)
 
 
+
+
             class OnewayLatency(Entity):
                 """
                 Latency information
@@ -738,15 +812,21 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sd
                 
                 	Source to Destination for the one\-way latency
                 	**type**\:  :py:class:`Sd <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd>`
                 
+                	**config**\: False
+                
                 .. attribute:: ds
                 
                 	Destination to Source for the one\-way latency
                 	**type**\:  :py:class:`Ds <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds>`
+                
+                	**config**\: False
                 
                 
 
@@ -794,12 +874,16 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: avg
                     
                     	Average value reading
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: max
                     
@@ -808,10 +892,14 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: accuracy
                     
                     	Reading accuracy
                     	**type**\:  :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -846,6 +934,7 @@ class IpSlaStats(Entity):
                         self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Sd, ['min', 'avg', 'max', 'accuracy'], name, value)
 
 
+
                 class Ds(Entity):
                     """
                     Destination to Source for the one\-way latency
@@ -857,12 +946,16 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: avg
                     
                     	Average value reading
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: max
                     
@@ -871,10 +964,14 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: accuracy
                     
                     	Reading accuracy
                     	**type**\:  :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -909,6 +1006,8 @@ class IpSlaStats(Entity):
                         self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.OnewayLatency.Ds, ['min', 'avg', 'max', 'accuracy'], name, value)
 
 
+
+
             class Jitter(Entity):
                 """
                 Jitter information
@@ -920,6 +1019,8 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ds_sample_count
                 
                 	Sample count
@@ -927,15 +1028,21 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sd
                 
                 	Source to Destination for the jitter
                 	**type**\:  :py:class:`Sd <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter.Sd>`
                 
+                	**config**\: False
+                
                 .. attribute:: ds
                 
                 	Destination to Source for the jitter
                 	**type**\:  :py:class:`Ds <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.Jitter.Ds>`
+                
+                	**config**\: False
                 
                 
 
@@ -985,12 +1092,16 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: avg
                     
                     	Average value reading
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: max
                     
@@ -999,10 +1110,14 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: accuracy
                     
                     	Reading accuracy
                     	**type**\:  :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1037,6 +1152,7 @@ class IpSlaStats(Entity):
                         self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.Jitter.Sd, ['min', 'avg', 'max', 'accuracy'], name, value)
 
 
+
                 class Ds(Entity):
                     """
                     Destination to Source for the jitter
@@ -1048,12 +1164,16 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: avg
                     
                     	Average value reading
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: max
                     
@@ -1062,10 +1182,14 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: accuracy
                     
                     	Reading accuracy
                     	**type**\:  :py:class:`AccuracyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.AccuracyType>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1100,6 +1224,8 @@ class IpSlaStats(Entity):
                         self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.Jitter.Ds, ['min', 'avg', 'max', 'accuracy'], name, value)
 
 
+
+
             class OverThreshold(Entity):
                 """
                 Over threshold information
@@ -1111,12 +1237,16 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: percent
                 
                 	Round Trip Time over threshold percentage (the percentage that the RTT was over the configured threshold)
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -1147,6 +1277,7 @@ class IpSlaStats(Entity):
                     self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.OverThreshold, ['rtt_count', 'percent'], name, value)
 
 
+
             class PacketLoss(Entity):
                 """
                 Packet loss information
@@ -1158,6 +1289,8 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sd_count
                 
                 	Number of packets lost from Source to Destination
@@ -1165,10 +1298,14 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: sd_loss
                 
                 	Source to Destination packet loss details
                 	**type**\:  :py:class:`SdLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss>`
+                
+                	**config**\: False
                 
                 .. attribute:: ds_count
                 
@@ -1177,10 +1314,14 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: ds_loss
                 
                 	Destination to Source packet loss details
                 	**type**\:  :py:class:`DsLoss <ydk.models.cisco_ios_xe.Cisco_IOS_XE_ip_sla_oper.IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss>`
+                
+                	**config**\: False
                 
                 .. attribute:: out_of_sequence
                 
@@ -1189,12 +1330,16 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: drops
                 
                 	Dropped packet count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: late_arrivals
                 
@@ -1203,12 +1348,16 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: skipped_packets
                 
                 	Skipped packet count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1268,12 +1417,16 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: loss_period_len_min
                     
                     	Shortest loss period length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: loss_period_len_max
                     
@@ -1282,6 +1435,8 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: inter_loss_period_len_min
                     
                     	Shortest inter loss period length
@@ -1289,12 +1444,16 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: inter_loss_period_len_max
                     
                     	Longest inter loss period length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1331,6 +1490,7 @@ class IpSlaStats(Entity):
                         self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.PacketLoss.SdLoss, ['loss_period_count', 'loss_period_len_min', 'loss_period_len_max', 'inter_loss_period_len_min', 'inter_loss_period_len_max'], name, value)
 
 
+
                 class DsLoss(Entity):
                     """
                     Destination to Source packet loss details
@@ -1342,12 +1502,16 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: loss_period_len_min
                     
                     	Shortest loss period length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: loss_period_len_max
                     
@@ -1356,6 +1520,8 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: inter_loss_period_len_min
                     
                     	Shortest inter loss period length
@@ -1363,12 +1529,16 @@ class IpSlaStats(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: inter_loss_period_len_max
                     
                     	Longest inter loss period length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1405,6 +1575,8 @@ class IpSlaStats(Entity):
                         self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.PacketLoss.DsLoss, ['loss_period_count', 'loss_period_len_min', 'loss_period_len_max', 'inter_loss_period_len_min', 'inter_loss_period_len_max'], name, value)
 
 
+
+
             class IcmpPacketLoss(Entity):
                 """
                 ICMP packet loss information
@@ -1416,12 +1588,16 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_of_sequence
                 
                 	Out of sequence packet count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: out_of_sequence_sd
                 
@@ -1430,12 +1606,16 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: out_of_sequence_ds
                 
                 	Out of sequence packet count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: out_of_sequence_both
                 
@@ -1444,12 +1624,16 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: skipped_packets
                 
                 	Skipped packet count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: unprocessed_packets
                 
@@ -1458,12 +1642,16 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: packet_loss
                 
                 	Lost packet count
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: loss_period_count
                 
@@ -1472,12 +1660,16 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: loss_period_len_min
                 
                 	Shortest loss period length
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: loss_period_len_max
                 
@@ -1486,6 +1678,8 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: inter_loss_period_len_min
                 
                 	Shortest inter loss period length
@@ -1493,12 +1687,16 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: inter_loss_period_len_max
                 
                 	Longest inter loss period length
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1551,6 +1749,7 @@ class IpSlaStats(Entity):
                     self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.IcmpPacketLoss, ['late_arrivals', 'out_of_sequence', 'out_of_sequence_sd', 'out_of_sequence_ds', 'out_of_sequence_both', 'skipped_packets', 'unprocessed_packets', 'packet_loss', 'loss_period_count', 'loss_period_len_min', 'loss_period_len_max', 'inter_loss_period_len_min', 'inter_loss_period_len_max'], name, value)
 
 
+
             class VoiceScore(Entity):
                 """
                 Voice score information
@@ -1562,12 +1761,16 @@ class IpSlaStats(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mos
                 
                 	Mean opinion score
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -1597,7 +1800,12 @@ class IpSlaStats(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(IpSlaStats.SlaOperEntry.Stats.VoiceScore, ['icpif', 'mos'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = IpSlaStats()
         return self._top_entity
+
+
 

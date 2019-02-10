@@ -93,6 +93,8 @@ class Dpa(Entity):
     	Voq or Trap Data
     	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats>`
     
+    	**config**\: False
+    
     
 
     """
@@ -130,6 +132,8 @@ class Dpa(Entity):
         
         	DPA data for available nodes
         	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes>`
+        
+        	**config**\: False
         
         
 
@@ -169,6 +173,8 @@ class Dpa(Entity):
             	DPA operational data for a particular node
             	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node>`
             
+            	**config**\: False
+            
             
 
             """
@@ -207,25 +213,35 @@ class Dpa(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: asic_statistics
                 
                 	ASIC statistics table
                 	**type**\:  :py:class:`AsicStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.AsicStatistics>`
+                
+                	**config**\: False
                 
                 .. attribute:: npu_numbers
                 
                 	Ingress Stats
                 	**type**\:  :py:class:`NpuNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.NpuNumbers>`
                 
+                	**config**\: False
+                
                 .. attribute:: stats_resources_datas
                 
                 	OFA stats hw resources info 
                 	**type**\:  :py:class:`StatsResourcesDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.StatsResourcesDatas>`
                 
+                	**config**\: False
+                
                 .. attribute:: hw_resources_datas
                 
                 	OFA hw resources stats 
                 	**type**\:  :py:class:`HwResourcesDatas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.HwResourcesDatas>`
+                
+                	**config**\: False
                 
                 
 
@@ -280,10 +296,14 @@ class Dpa(Entity):
                     	Detailed ASIC statistics
                     	**type**\:  :py:class:`AsicStatisticsDetailForNpuIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: asic_statistics_for_npu_ids
                     
                     	ASIC statistics
                     	**type**\:  :py:class:`AsicStatisticsForNpuIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -326,6 +346,8 @@ class Dpa(Entity):
                         	Detailed ASIC statistics for a particular NPU
                         	**type**\: list of  		 :py:class:`AsicStatisticsDetailForNpuId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -364,15 +386,21 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: statistics
                             
                             	Statistics
                             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: valid
                             
                             	Flag to indicate if data is valid
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: rack_number
                             
@@ -381,12 +409,16 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: slot_number
                             
                             	Slot number
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: asic_instance
                             
@@ -395,12 +427,16 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: chip_version
                             
                             	Chip version
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -440,7 +476,7 @@ class Dpa(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId, ['npu_id', u'valid', u'rack_number', u'slot_number', u'asic_instance', u'chip_version'], name, value)
+                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId, ['npu_id', 'valid', 'rack_number', 'slot_number', 'asic_instance', 'chip_version'], name, value)
 
 
                             class Statistics(Entity):
@@ -454,10 +490,14 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..255
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: block_info
                                 
                                 	Block information
                                 	**type**\: list of  		 :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -485,7 +525,7 @@ class Dpa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics, [u'num_blocks'], name, value)
+                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics, ['num_blocks'], name, value)
 
 
                                 class BlockInfo(Entity):
@@ -499,6 +539,8 @@ class Dpa(Entity):
                                     
                                     	**length:** 0..10
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: num_fields
                                     
                                     	Number of fields
@@ -506,10 +548,14 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: field_info
                                     
                                     	Field information
                                     	**type**\: list of  		 :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -539,7 +585,7 @@ class Dpa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo, [u'block_name', u'num_fields'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo, ['block_name', 'num_fields'], name, value)
 
 
                                     class FieldInfo(Entity):
@@ -553,6 +599,8 @@ class Dpa(Entity):
                                         
                                         	**length:** 0..80
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: field_value
                                         
                                         	Field value
@@ -560,10 +608,14 @@ class Dpa(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: is_overflow
                                         
                                         	Flag to indicate overflow
                                         	**type**\: bool
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -593,7 +645,12 @@ class Dpa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo, [u'field_name', u'field_value', u'is_overflow'], name, value)
+                                            self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId.Statistics.BlockInfo.FieldInfo, ['field_name', 'field_value', 'is_overflow'], name, value)
+
+
+
+
+
 
 
                     class AsicStatisticsForNpuIds(Entity):
@@ -604,6 +661,8 @@ class Dpa(Entity):
                         
                         	ASIC statistics for a particular NPU
                         	**type**\: list of  		 :py:class:`AsicStatisticsForNpuId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -642,15 +701,21 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: statistics
                             
                             	Statistics
                             	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: valid
                             
                             	Flag to indicate if data is valid
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: rack_number
                             
@@ -659,12 +724,16 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: slot_number
                             
                             	Slot number
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: asic_instance
                             
@@ -673,12 +742,16 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: chip_version
                             
                             	Chip version
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -718,7 +791,7 @@ class Dpa(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId, ['npu_id', u'valid', u'rack_number', u'slot_number', u'asic_instance', u'chip_version'], name, value)
+                                self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId, ['npu_id', 'valid', 'rack_number', 'slot_number', 'asic_instance', 'chip_version'], name, value)
 
 
                             class Statistics(Entity):
@@ -732,6 +805,8 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 	**units**\: byte
                                 
                                 .. attribute:: nbi_rx_total_pkt_cnt
@@ -741,12 +816,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ire_cpu_pkt_cnt
                                 
                                 	CPU ingress received packet counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ire_nif_pkt_cnt
                                 
@@ -755,12 +834,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ire_oamp_pkt_cnt
                                 
                                 	OAMP ingress received packet counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ire_olp_pkt_cnt
                                 
@@ -769,12 +852,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ire_rcy_pkt_cnt
                                 
                                 	Recycling ingress received packet counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ire_fdt_if_cnt
                                 
@@ -783,12 +870,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: idr_mmu_if_cnt
                                 
                                 	Performance counter of the MMU interface
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: idr_ocb_if_cnt
                                 
@@ -797,12 +888,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: iqm_enqueue_pkt_cnt
                                 
                                 	Counts enqueued packets
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: iqm_dequeue_pkt_cnt
                                 
@@ -811,12 +906,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: iqm_deleted_pkt_cnt
                                 
                                 	Counts matched packets discarded in the DEQ process
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: iqm_enq_discarded_pkt_cnt
                                 
@@ -825,12 +924,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipt_egq_pkt_cnt
                                 
                                 	EGQ packet counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipt_enq_pkt_cnt
                                 
@@ -839,12 +942,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipt_fdt_pkt_cnt
                                 
                                 	FDT packet counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: ipt_cfg_event_cnt
                                 
@@ -853,12 +960,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ipt_cfg_byte_cnt
                                 
                                 	Configurable bytes counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -869,12 +980,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fdt_ire_desc_cell_cnt
                                 
                                 	IRE internal descriptor cell counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fdt_transmitted_data_cells_cnt
                                 
@@ -883,12 +998,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fdr_p1_cell_in_cnt
                                 
                                 	FDR total incoming cell counter at pipe 1
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fdr_p2_cell_in_cnt
                                 
@@ -897,12 +1016,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fdr_p3_cell_in_cnt
                                 
                                 	FDR total incoming cell counter at pipe 3
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fdr_cell_in_cnt_total
                                 
@@ -911,12 +1034,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fda_cells_in_cnt_p1
                                 
                                 	FDA input cell counter P1
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fda_cells_in_cnt_p2
                                 
@@ -925,12 +1052,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fda_cells_in_cnt_p3
                                 
                                 	FDA input cell counter P3
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fda_cells_in_tdm_cnt
                                 
@@ -939,12 +1070,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fda_cells_in_meshmc_cnt
                                 
                                 	FDA input cell counter MESHMC
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fda_cells_in_ipt_cnt
                                 
@@ -953,12 +1088,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fda_cells_out_cnt_p1
                                 
                                 	FDA output cell counter P1
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fda_cells_out_cnt_p2
                                 
@@ -967,12 +1106,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fda_cells_out_cnt_p3
                                 
                                 	FDA output cell counter P3
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fda_cells_out_tdm_cnt
                                 
@@ -981,12 +1124,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fda_cells_out_meshmc_cnt
                                 
                                 	FDA output cell counter MESHMC
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fda_cells_out_ipt_cnt
                                 
@@ -995,12 +1142,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: fda_egq_drop_cnt
                                 
                                 	FDA EGQ drop counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: fda_egq_meshmc_drop_cnt
                                 
@@ -1009,12 +1160,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: egq_fqp_pkt_cnt
                                 
                                 	FQP2EPE packet counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: egq_pqp_uc_pkt_cnt
                                 
@@ -1023,6 +1178,8 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: egq_pqp_discard_uc_pkt_cnt
                                 
                                 	PQP discarded unicast packet counter
@@ -1030,12 +1187,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: egq_pqp_uc_bytes_cnt
                                 
                                 	PQP2FQP unicast bytes counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -1046,6 +1207,8 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: egq_pqp_discard_mc_pkt_cnt
                                 
                                 	PQP discarded multicast packet counter
@@ -1053,12 +1216,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: egq_pqp_mc_bytes_cnt
                                 
                                 	PQP2FQP multicast bytes counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -1069,12 +1236,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: egq_ehp_mc_high_pkt_cnt
                                 
                                 	EHP2PQP multicast high packet counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: egq_ehp_mc_low_pkt_cnt
                                 
@@ -1083,12 +1254,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: egq_deleted_pkt_cnt
                                 
                                 	EHP2PQP discarded packet counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: egq_ehp_mc_high_discard_cnt
                                 
@@ -1097,12 +1272,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: egq_ehp_mc_low_discard_cnt
                                 
                                 	Number of multicast low packets discarded because multicast FIFO is full
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: egq_erpp_lag_pruning_discard_cnt
                                 
@@ -1111,12 +1290,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: egq_erpp_pmf_discard_cnt
                                 
                                 	Number of packet descriptors discarded due to ERPP PMF
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: egq_erpp_vlan_mbr_discard_cnt
                                 
@@ -1125,12 +1308,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: epni_epe_byte_cnt
                                 
                                 	EPE2PNI bytes counter
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -1141,6 +1328,8 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: epni_epe_discard_cnt
                                 
                                 	EPE discarded packet counter
@@ -1148,12 +1337,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: nbi_tx_total_byte_cnt
                                 
                                 	Total bytes sent from EGQ to NIF
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 	**units**\: byte
                                 
@@ -1163,6 +1356,8 @@ class Dpa(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1308,7 +1503,11 @@ class Dpa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics, [u'nbi_rx_total_byte_cnt', u'nbi_rx_total_pkt_cnt', u'ire_cpu_pkt_cnt', u'ire_nif_pkt_cnt', u'ire_oamp_pkt_cnt', u'ire_olp_pkt_cnt', u'ire_rcy_pkt_cnt', u'ire_fdt_if_cnt', u'idr_mmu_if_cnt', u'idr_ocb_if_cnt', u'iqm_enqueue_pkt_cnt', u'iqm_dequeue_pkt_cnt', u'iqm_deleted_pkt_cnt', u'iqm_enq_discarded_pkt_cnt', u'ipt_egq_pkt_cnt', u'ipt_enq_pkt_cnt', u'ipt_fdt_pkt_cnt', u'ipt_cfg_event_cnt', u'ipt_cfg_byte_cnt', u'fdt_ipt_desc_cell_cnt', u'fdt_ire_desc_cell_cnt', u'fdt_transmitted_data_cells_cnt', u'fdr_p1_cell_in_cnt', u'fdr_p2_cell_in_cnt', u'fdr_p3_cell_in_cnt', u'fdr_cell_in_cnt_total', u'fda_cells_in_cnt_p1', u'fda_cells_in_cnt_p2', u'fda_cells_in_cnt_p3', u'fda_cells_in_tdm_cnt', u'fda_cells_in_meshmc_cnt', u'fda_cells_in_ipt_cnt', u'fda_cells_out_cnt_p1', u'fda_cells_out_cnt_p2', u'fda_cells_out_cnt_p3', u'fda_cells_out_tdm_cnt', u'fda_cells_out_meshmc_cnt', u'fda_cells_out_ipt_cnt', u'fda_egq_drop_cnt', u'fda_egq_meshmc_drop_cnt', u'egq_fqp_pkt_cnt', u'egq_pqp_uc_pkt_cnt', u'egq_pqp_discard_uc_pkt_cnt', u'egq_pqp_uc_bytes_cnt', u'egq_pqp_mc_pkt_cnt', u'egq_pqp_discard_mc_pkt_cnt', u'egq_pqp_mc_bytes_cnt', u'egq_ehp_uc_pkt_cnt', u'egq_ehp_mc_high_pkt_cnt', u'egq_ehp_mc_low_pkt_cnt', u'egq_deleted_pkt_cnt', u'egq_ehp_mc_high_discard_cnt', u'egq_ehp_mc_low_discard_cnt', u'egq_erpp_lag_pruning_discard_cnt', u'egq_erpp_pmf_discard_cnt', u'egq_erpp_vlan_mbr_discard_cnt', u'epni_epe_byte_cnt', u'epni_epe_pkt_cnt', u'epni_epe_discard_cnt', u'nbi_tx_total_byte_cnt', u'nbi_tx_total_pkt_cnt'], name, value)
+                                    self._perform_setattr(Dpa.Stats.Nodes.Node.AsicStatistics.AsicStatisticsForNpuIds.AsicStatisticsForNpuId.Statistics, ['nbi_rx_total_byte_cnt', 'nbi_rx_total_pkt_cnt', 'ire_cpu_pkt_cnt', 'ire_nif_pkt_cnt', 'ire_oamp_pkt_cnt', 'ire_olp_pkt_cnt', 'ire_rcy_pkt_cnt', 'ire_fdt_if_cnt', 'idr_mmu_if_cnt', 'idr_ocb_if_cnt', 'iqm_enqueue_pkt_cnt', 'iqm_dequeue_pkt_cnt', 'iqm_deleted_pkt_cnt', 'iqm_enq_discarded_pkt_cnt', 'ipt_egq_pkt_cnt', 'ipt_enq_pkt_cnt', 'ipt_fdt_pkt_cnt', 'ipt_cfg_event_cnt', 'ipt_cfg_byte_cnt', 'fdt_ipt_desc_cell_cnt', 'fdt_ire_desc_cell_cnt', 'fdt_transmitted_data_cells_cnt', 'fdr_p1_cell_in_cnt', 'fdr_p2_cell_in_cnt', 'fdr_p3_cell_in_cnt', 'fdr_cell_in_cnt_total', 'fda_cells_in_cnt_p1', 'fda_cells_in_cnt_p2', 'fda_cells_in_cnt_p3', 'fda_cells_in_tdm_cnt', 'fda_cells_in_meshmc_cnt', 'fda_cells_in_ipt_cnt', 'fda_cells_out_cnt_p1', 'fda_cells_out_cnt_p2', 'fda_cells_out_cnt_p3', 'fda_cells_out_tdm_cnt', 'fda_cells_out_meshmc_cnt', 'fda_cells_out_ipt_cnt', 'fda_egq_drop_cnt', 'fda_egq_meshmc_drop_cnt', 'egq_fqp_pkt_cnt', 'egq_pqp_uc_pkt_cnt', 'egq_pqp_discard_uc_pkt_cnt', 'egq_pqp_uc_bytes_cnt', 'egq_pqp_mc_pkt_cnt', 'egq_pqp_discard_mc_pkt_cnt', 'egq_pqp_mc_bytes_cnt', 'egq_ehp_uc_pkt_cnt', 'egq_ehp_mc_high_pkt_cnt', 'egq_ehp_mc_low_pkt_cnt', 'egq_deleted_pkt_cnt', 'egq_ehp_mc_high_discard_cnt', 'egq_ehp_mc_low_discard_cnt', 'egq_erpp_lag_pruning_discard_cnt', 'egq_erpp_pmf_discard_cnt', 'egq_erpp_vlan_mbr_discard_cnt', 'epni_epe_byte_cnt', 'epni_epe_pkt_cnt', 'epni_epe_discard_cnt', 'nbi_tx_total_byte_cnt', 'nbi_tx_total_pkt_cnt'], name, value)
+
+
+
+
 
 
                 class NpuNumbers(Entity):
@@ -1319,6 +1518,8 @@ class Dpa(Entity):
                     
                     	Stats for a particular npu
                     	**type**\: list of  		 :py:class:`NpuNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1357,10 +1558,14 @@ class Dpa(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: display
                         
                         	show npu specific voq or trap stats
                         	**type**\:  :py:class:`Display <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1402,15 +1607,21 @@ class Dpa(Entity):
                             	Trap stats for a particular npu
                             	**type**\:  :py:class:`TrapIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: interface_handles
                             
                             	Voq stats grouped by interface handle
                             	**type**\:  :py:class:`InterfaceHandles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: base_numbers
                             
                             	Voq stats grouped by voq base numbers
                             	**type**\:  :py:class:`BaseNumbers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1457,6 +1668,8 @@ class Dpa(Entity):
                                 	Filter by specific trap id
                                 	**type**\: list of  		 :py:class:`TrapId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -1494,12 +1707,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: trap_strength
                                     
                                     	Trap Strength of the trap
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: priority
                                     
@@ -1508,12 +1725,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: trap_id_xr
                                     
                                     	Id of the trap
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: gport
                                     
@@ -1522,12 +1743,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: fec_id
                                     
                                     	Fec id of the trap
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: policer_id
                                     
@@ -1536,12 +1761,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: stats_id
                                     
                                     	Stats Id of the trap
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: encap_id
                                     
@@ -1550,6 +1779,8 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: mc_group
                                     
                                     	McGroup of the trap
@@ -1557,10 +1788,14 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: trap_string
                                     
                                     	Name String of the trap
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: id
                                     
@@ -1569,12 +1804,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: offset
                                     
                                     	Offset for internal use
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: npu_id
                                     
@@ -1583,6 +1822,8 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: packet_dropped
                                     
                                     	Number of packets dropped after hitting the trap
@@ -1590,12 +1831,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: packet_accepted
                                     
                                     	Number of packets accepted after hitting the trap
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1651,7 +1896,9 @@ class Dpa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId, ['trap_id', u'trap_strength', u'priority', u'trap_id_xr', u'gport', u'fec_id', u'policer_id', u'stats_id', u'encap_id', u'mc_group', u'trap_string', u'id', u'offset', u'npu_id', u'packet_dropped', u'packet_accepted'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.TrapIds.TrapId, ['trap_id', 'trap_strength', 'priority', 'trap_id_xr', 'gport', 'fec_id', 'policer_id', 'stats_id', 'encap_id', 'mc_group', 'trap_string', 'id', 'offset', 'npu_id', 'packet_dropped', 'packet_accepted'], name, value)
+
+
 
 
                             class InterfaceHandles(Entity):
@@ -1662,6 +1909,8 @@ class Dpa(Entity):
                                 
                                 	Voq stats for a particular interface handle
                                 	**type**\: list of  		 :py:class:`InterfaceHandle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1701,10 +1950,14 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_use
                                     
                                     	Flag to indicate if port is in use
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: rack_num
                                     
@@ -1713,12 +1966,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: slot_num
                                     
                                     	Slot of port
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: npu_num
                                     
@@ -1727,12 +1984,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: npu_core
                                     
                                     	NPU core of port
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: port_num
                                     
@@ -1741,12 +2002,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: if_handle
                                     
                                     	IfHandle of port
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sys_port
                                     
@@ -1755,12 +2020,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pp_port
                                     
                                     	PP Port number of port
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: port_speed
                                     
@@ -1769,12 +2038,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: voq_base
                                     
                                     	Voq Base number of port
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: connector_id
                                     
@@ -1783,15 +2056,21 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_local_port
                                     
                                     	Flag to indicate if port is local to the node
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: voq_stat
                                     
                                     	Keeps a record of the received and dropped packets and bytes on the port
                                     	**type**\: list of  		 :py:class:`VoqStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1845,7 +2124,7 @@ class Dpa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle, ['interface_handle', u'in_use', u'rack_num', u'slot_num', u'npu_num', u'npu_core', u'port_num', u'if_handle', u'sys_port', u'pp_port', u'port_speed', u'voq_base', u'connector_id', u'is_local_port'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle, ['interface_handle', 'in_use', 'rack_num', 'slot_num', 'npu_num', 'npu_core', 'port_num', 'if_handle', 'sys_port', 'pp_port', 'port_speed', 'voq_base', 'connector_id', 'is_local_port'], name, value)
 
 
                                     class VoqStat(Entity):
@@ -1860,6 +2139,8 @@ class Dpa(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: byte
                                         
                                         .. attribute:: received_packets
@@ -1869,12 +2150,16 @@ class Dpa(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: dropped_bytes
                                         
                                         	Bytes Dropped on the port
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -1884,6 +2169,8 @@ class Dpa(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1915,7 +2202,10 @@ class Dpa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat, [u'received_bytes', u'received_packets', u'dropped_bytes', u'dropped_packets'], name, value)
+                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.InterfaceHandles.InterfaceHandle.VoqStat, ['received_bytes', 'received_packets', 'dropped_bytes', 'dropped_packets'], name, value)
+
+
+
 
 
                             class BaseNumbers(Entity):
@@ -1926,6 +2216,8 @@ class Dpa(Entity):
                                 
                                 	Voq Base Number for a particular voq
                                 	**type**\: list of  		 :py:class:`BaseNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1964,10 +2256,14 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: in_use
                                     
                                     	Flag to indicate if port is in use
                                     	**type**\: bool
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: rack_num
                                     
@@ -1976,12 +2272,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: slot_num
                                     
                                     	Slot of port
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: npu_num
                                     
@@ -1990,12 +2290,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: npu_core
                                     
                                     	NPU core of port
                                     	**type**\: int
                                     
                                     	**range:** 0..255
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: port_num
                                     
@@ -2004,12 +2308,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..255
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: if_handle
                                     
                                     	IfHandle of port
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: sys_port
                                     
@@ -2018,12 +2326,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: pp_port
                                     
                                     	PP Port number of port
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: port_speed
                                     
@@ -2032,12 +2344,16 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: voq_base
                                     
                                     	Voq Base number of port
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: connector_id
                                     
@@ -2046,15 +2362,21 @@ class Dpa(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_local_port
                                     
                                     	Flag to indicate if port is local to the node
                                     	**type**\: bool
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: voq_stat
                                     
                                     	Keeps a record of the received and dropped packets and bytes on the port
                                     	**type**\: list of  		 :py:class:`VoqStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -2108,7 +2430,7 @@ class Dpa(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber, ['base_number', u'in_use', u'rack_num', u'slot_num', u'npu_num', u'npu_core', u'port_num', u'if_handle', u'sys_port', u'pp_port', u'port_speed', u'voq_base', u'connector_id', u'is_local_port'], name, value)
+                                        self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber, ['base_number', 'in_use', 'rack_num', 'slot_num', 'npu_num', 'npu_core', 'port_num', 'if_handle', 'sys_port', 'pp_port', 'port_speed', 'voq_base', 'connector_id', 'is_local_port'], name, value)
 
 
                                     class VoqStat(Entity):
@@ -2123,6 +2445,8 @@ class Dpa(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         	**units**\: byte
                                         
                                         .. attribute:: received_packets
@@ -2132,12 +2456,16 @@ class Dpa(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: dropped_bytes
                                         
                                         	Bytes Dropped on the port
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         	**units**\: byte
                                         
@@ -2147,6 +2475,8 @@ class Dpa(Entity):
                                         	**type**\: int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -2178,7 +2508,13 @@ class Dpa(Entity):
                                             self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat, [u'received_bytes', u'received_packets', u'dropped_bytes', u'dropped_packets'], name, value)
+                                            self._perform_setattr(Dpa.Stats.Nodes.Node.NpuNumbers.NpuNumber.Display.BaseNumbers.BaseNumber.VoqStat, ['received_bytes', 'received_packets', 'dropped_bytes', 'dropped_packets'], name, value)
+
+
+
+
+
+
 
 
                 class StatsResourcesDatas(Entity):
@@ -2189,6 +2525,8 @@ class Dpa(Entity):
                     
                     	Stats Hardware resources table
                     	**type**\: list of  		 :py:class:`StatsResourcesData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.StatsResourcesDatas.StatsResourcesData>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2225,12 +2563,16 @@ class Dpa(Entity):
                         	Resource type
                         	**type**\:  :py:class:`Resource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Resource>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: sys_cp_cnfg_prof
                         
                         	sys cp cnfg prof
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: next_avail_cp_id
                         
@@ -2239,6 +2581,8 @@ class Dpa(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: num_cntr_engines
                         
                         	num cntr engines
@@ -2246,10 +2590,14 @@ class Dpa(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: cntr_engine
                         
                         	cntr engine
                         	**type**\: list of  		 :py:class:`CntrEngine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.StatsResourcesDatas.StatsResourcesData.CntrEngine>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2283,7 +2631,7 @@ class Dpa(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dpa.Stats.Nodes.Node.StatsResourcesDatas.StatsResourcesData, ['resource', 'sys_cp_cnfg_prof', 'next_avail_cp_id', 'num_cntr_engines'], name, value)
+                            self._perform_setattr(Dpa.Stats.Nodes.Node.StatsResourcesDatas.StatsResourcesData, ['resource', u'sys_cp_cnfg_prof', u'next_avail_cp_id', u'num_cntr_engines'], name, value)
 
 
                         class CntrEngine(Entity):
@@ -2295,6 +2643,8 @@ class Dpa(Entity):
                             	state
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: core_id
                             
                             	core id
@@ -2302,10 +2652,14 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: apps_info
                             
                             	apps info
                             	**type**\: list of  		 :py:class:`AppsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.StatsResourcesDatas.StatsResourcesData.CntrEngine.AppsInfo>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2335,7 +2689,7 @@ class Dpa(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dpa.Stats.Nodes.Node.StatsResourcesDatas.StatsResourcesData.CntrEngine, ['state', 'core_id'], name, value)
+                                self._perform_setattr(Dpa.Stats.Nodes.Node.StatsResourcesDatas.StatsResourcesData.CntrEngine, [u'state', u'core_id'], name, value)
 
 
                             class AppsInfo(Entity):
@@ -2347,6 +2701,8 @@ class Dpa(Entity):
                                 	app type
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: num_cntrs_for_app
                                 
                                 	num cntrs for app
@@ -2354,12 +2710,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: num_cntrs_used
                                 
                                 	num cntrs used
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2389,7 +2749,11 @@ class Dpa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dpa.Stats.Nodes.Node.StatsResourcesDatas.StatsResourcesData.CntrEngine.AppsInfo, ['app_type', 'num_cntrs_for_app', 'num_cntrs_used'], name, value)
+                                    self._perform_setattr(Dpa.Stats.Nodes.Node.StatsResourcesDatas.StatsResourcesData.CntrEngine.AppsInfo, [u'app_type', u'num_cntrs_for_app', u'num_cntrs_used'], name, value)
+
+
+
+
 
 
                 class HwResourcesDatas(Entity):
@@ -2400,6 +2764,8 @@ class Dpa(Entity):
                     
                     	Hardware resources table
                     	**type**\: list of  		 :py:class:`HwResourcesData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2436,6 +2802,8 @@ class Dpa(Entity):
                         	Resource type
                         	**type**\:  :py:class:`Resource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Resource>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: resource_id
                         
                         	resource id
@@ -2443,10 +2811,14 @@ class Dpa(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: num_npus
                         
@@ -2455,15 +2827,21 @@ class Dpa(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: cmd_invalid
                         
                         	cmd invalid
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: npu_hwr
                         
                         	npu hwr
                         	**type**\: list of  		 :py:class:`NpuHwr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData.NpuHwr>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2499,7 +2877,7 @@ class Dpa(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData, ['resource', 'resource_id', 'name', 'num_npus', 'cmd_invalid'], name, value)
+                            self._perform_setattr(Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData, ['resource', u'resource_id', u'name', u'num_npus', u'cmd_invalid'], name, value)
 
 
                         class NpuHwr(Entity):
@@ -2513,12 +2891,16 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: npu_id
                             
                             	npu id
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: max_entries
                             
@@ -2527,12 +2909,16 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: red_oor_threshold
                             
                             	red oor threshold
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: red_oor_threshold_percent
                             
@@ -2541,12 +2927,16 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: yellow_oor_threshold
                             
                             	yellow oor threshold
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: yellow_oor_threshold_percent
                             
@@ -2555,12 +2945,16 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: inuse_objects
                             
                             	inuse objects
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: num_lt
                             
@@ -2569,6 +2963,8 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: oor_change_count
                             
                             	oor change count
@@ -2576,25 +2972,35 @@ class Dpa(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: oor_state_change_time1
                             
                             	oor state change time1
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: oor_state_change_time2
                             
                             	oor state change time2
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: oor_state
                             
                             	oor state
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: lt_hwr
                             
                             	lt hwr
                             	**type**\: list of  		 :py:class:`LtHwr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper.Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData.NpuHwr.LtHwr>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2646,7 +3052,7 @@ class Dpa(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData.NpuHwr, ['max_allowed', 'npu_id', 'max_entries', 'red_oor_threshold', 'red_oor_threshold_percent', 'yellow_oor_threshold', 'yellow_oor_threshold_percent', 'inuse_objects', 'num_lt', 'oor_change_count', 'oor_state_change_time1', 'oor_state_change_time2', 'oor_state'], name, value)
+                                self._perform_setattr(Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData.NpuHwr, [u'max_allowed', u'npu_id', u'max_entries', u'red_oor_threshold', u'red_oor_threshold_percent', u'yellow_oor_threshold', u'yellow_oor_threshold_percent', u'inuse_objects', u'num_lt', u'oor_change_count', u'oor_state_change_time1', u'oor_state_change_time2', u'oor_state'], name, value)
 
 
                             class LtHwr(Entity):
@@ -2660,10 +3066,14 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: name
                                 
                                 	name
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: hw_entries
                                 
@@ -2672,12 +3082,16 @@ class Dpa(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: sw_entries
                                 
                                 	sw entries
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2709,9 +3123,18 @@ class Dpa(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData.NpuHwr.LtHwr, ['lt_id', 'name', 'hw_entries', 'sw_entries'], name, value)
+                                    self._perform_setattr(Dpa.Stats.Nodes.Node.HwResourcesDatas.HwResourcesData.NpuHwr.LtHwr, [u'lt_id', u'name', u'hw_entries', u'sw_entries'], name, value)
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Dpa()
         return self._top_entity
+
+
 

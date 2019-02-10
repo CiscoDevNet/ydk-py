@@ -366,6 +366,7 @@ class Grpc(Entity):
             self._perform_setattr(Grpc.ServiceLayer, ['enable'], name, value)
 
 
+
     class TlsCipher(Entity):
         """
         TLS ciphers
@@ -416,7 +417,10 @@ class Grpc(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Grpc.TlsCipher, ['default', 'enable', 'disable'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Grpc()
         return self._top_entity
+
+
 

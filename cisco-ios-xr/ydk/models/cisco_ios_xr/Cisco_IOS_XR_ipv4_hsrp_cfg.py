@@ -536,6 +536,7 @@ class Hsrp(Entity):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd, ['address', 'interface_name'], name, value)
 
 
+
                             class TrackedInterfaces(Entity):
                                 """
                                 The HSRP tracked interface configuration
@@ -621,6 +622,8 @@ class Hsrp(Entity):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces.TrackedInterface, ['interface_name', 'priority_decrement'], name, value)
 
 
+
+
                             class TrackedObjects(Entity):
                                 """
                                 The HSRP tracked interface configuration
@@ -704,6 +707,8 @@ class Hsrp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
+
+
 
 
                             class Timers(Entity):
@@ -801,6 +806,7 @@ class Hsrp(Entity):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers, ['hello_msec_flag', 'hello_msec', 'hello_sec', 'hold_msec_flag', 'hold_msec', 'hold_sec'], name, value)
 
 
+
                             class LinkLocalIpv6Address(Entity):
                                 """
                                 The HSRP IPv6 virtual linklocal address
@@ -846,6 +852,7 @@ class Hsrp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address, ['address', 'auto_configure'], name, value)
+
 
 
                             class GlobalIpv6Addresses(Entity):
@@ -920,6 +927,11 @@ class Hsrp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses.GlobalIpv6Address, ['address'], name, value)
+
+
+
+
+
 
 
                 class SlaveGroups(Entity):
@@ -1076,6 +1088,7 @@ class Hsrp(Entity):
                                 self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address, ['address', 'auto_configure'], name, value)
 
 
+
                         class GlobalIpv6Addresses(Entity):
                             """
                             The table of HSRP virtual global IPv6
@@ -1150,6 +1163,11 @@ class Hsrp(Entity):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address, ['address'], name, value)
 
 
+
+
+
+
+
             class Bfd(Entity):
                 """
                 BFD configuration
@@ -1197,6 +1215,7 @@ class Hsrp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Hsrp.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval'], name, value)
+
 
 
             class Delay(Entity):
@@ -1255,6 +1274,7 @@ class Hsrp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Hsrp.Interfaces.Interface.Delay, ['minimum_delay', 'reload_delay'], name, value)
+
 
 
             class Ipv4(Entity):
@@ -1490,6 +1510,10 @@ class Hsrp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address, ['address'], name, value)
+
+
+
+
 
 
                 class Version1(Entity):
@@ -1792,6 +1816,8 @@ class Hsrp(Entity):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces.TrackedInterface, ['interface_name', 'priority_decrement'], name, value)
 
 
+
+
                             class Bfd(Entity):
                                 """
                                 Enable use of Bidirectional Forwarding
@@ -1838,6 +1864,7 @@ class Hsrp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd, ['address', 'interface_name'], name, value)
+
 
 
                             class TrackedObjects(Entity):
@@ -1923,6 +1950,8 @@ class Hsrp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
+
+
 
 
                             class Timers(Entity):
@@ -2020,6 +2049,7 @@ class Hsrp(Entity):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers, ['hello_msec_flag', 'hello_msec', 'hello_sec', 'hold_msec_flag', 'hold_msec', 'hold_sec'], name, value)
 
 
+
                             class PrimaryIpv4Address(Entity):
                                 """
                                 Primary HSRP IP address
@@ -2063,6 +2093,7 @@ class Hsrp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address, ['virtual_ip_learn', 'address'], name, value)
+
 
 
                             class SecondaryIpv4Addresses(Entity):
@@ -2136,6 +2167,11 @@ class Hsrp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address, ['address'], name, value)
+
+
+
+
+
 
 
                 class Version2(Entity):
@@ -2415,6 +2451,8 @@ class Hsrp(Entity):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address, ['address'], name, value)
 
 
+
+
                             class Bfd(Entity):
                                 """
                                 Enable use of Bidirectional Forwarding
@@ -2463,6 +2501,7 @@ class Hsrp(Entity):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd, ['address', 'interface_name'], name, value)
 
 
+
                             class PrimaryIpv4Address(Entity):
                                 """
                                 Primary HSRP IP address
@@ -2506,6 +2545,7 @@ class Hsrp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address, ['virtual_ip_learn', 'address'], name, value)
+
 
 
                             class TrackedObjects(Entity):
@@ -2593,6 +2633,8 @@ class Hsrp(Entity):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
 
 
+
+
                             class TrackedInterfaces(Entity):
                                 """
                                 The HSRP tracked interface configuration
@@ -2676,6 +2718,8 @@ class Hsrp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces.TrackedInterface, ['interface_name', 'priority_decrement'], name, value)
+
+
 
 
                             class Timers(Entity):
@@ -2773,6 +2817,13 @@ class Hsrp(Entity):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers, ['hello_msec_flag', 'hello_msec', 'hello_sec', 'hold_msec_flag', 'hold_msec', 'hold_sec'], name, value)
 
 
+
+
+
+
+
+
+
     class Logging(Entity):
         """
         HSRP logging options
@@ -2809,7 +2860,10 @@ class Hsrp(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Hsrp.Logging, ['state_change_disable'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Hsrp()
         return self._top_entity
+
+
 

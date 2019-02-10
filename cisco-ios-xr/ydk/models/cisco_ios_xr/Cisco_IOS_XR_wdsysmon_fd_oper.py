@@ -30,6 +30,8 @@ class SystemMonitoring(Entity):
     	Processes CPU utilization information
     	**type**\: list of  		 :py:class:`CpuUtilization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wdsysmon_fd_oper.SystemMonitoring.CpuUtilization>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,12 +70,16 @@ class SystemMonitoring(Entity):
         
         	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
         
+        	**config**\: False
+        
         .. attribute:: total_cpu_one_minute
         
         	Total CPU utilization in past 1 minute
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: total_cpu_five_minute
         
@@ -82,6 +88,8 @@ class SystemMonitoring(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: total_cpu_fifteen_minute
         
         	Total CPU utilization in past 15 minute
@@ -89,10 +97,14 @@ class SystemMonitoring(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: process_cpu
         
         	Per process CPU utilization
         	**type**\: list of  		 :py:class:`ProcessCpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wdsysmon_fd_oper.SystemMonitoring.CpuUtilization.ProcessCpu>`
+        
+        	**config**\: False
         
         
 
@@ -127,7 +139,7 @@ class SystemMonitoring(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SystemMonitoring.CpuUtilization, ['node_name', u'total_cpu_one_minute', u'total_cpu_five_minute', u'total_cpu_fifteen_minute'], name, value)
+            self._perform_setattr(SystemMonitoring.CpuUtilization, ['node_name', 'total_cpu_one_minute', 'total_cpu_five_minute', 'total_cpu_fifteen_minute'], name, value)
 
 
         class ProcessCpu(Entity):
@@ -139,6 +151,8 @@ class SystemMonitoring(Entity):
             	Process name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: process_id
             
             	Process ID
@@ -146,12 +160,16 @@ class SystemMonitoring(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: process_cpu_one_minute
             
             	Process CPU utilization in percent for past 1 minute
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: percentage
             
@@ -162,6 +180,8 @@ class SystemMonitoring(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: percentage
             
             .. attribute:: process_cpu_fifteen_minute
@@ -170,6 +190,8 @@ class SystemMonitoring(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: percentage
             
@@ -205,9 +227,13 @@ class SystemMonitoring(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SystemMonitoring.CpuUtilization.ProcessCpu, [u'process_name', u'process_id', u'process_cpu_one_minute', u'process_cpu_five_minute', u'process_cpu_fifteen_minute'], name, value)
+                self._perform_setattr(SystemMonitoring.CpuUtilization.ProcessCpu, ['process_name', 'process_id', 'process_cpu_one_minute', 'process_cpu_five_minute', 'process_cpu_fifteen_minute'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = SystemMonitoring()
         return self._top_entity
+
+
 

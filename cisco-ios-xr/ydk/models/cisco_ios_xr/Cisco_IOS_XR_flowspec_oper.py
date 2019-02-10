@@ -102,15 +102,21 @@ class FlowSpec(Entity):
     	Table of Client
     	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Clients>`
     
+    	**config**\: False
+    
     .. attribute:: summary
     
     	FlowSpec summary
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Summary>`
     
+    	**config**\: False
+    
     .. attribute:: vrfs
     
     	Table of VRF
     	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs>`
+    
+    	**config**\: False
     
     
 
@@ -158,6 +164,8 @@ class FlowSpec(Entity):
         	FlowSpec client information
         	**type**\: list of  		 :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Clients.Client>`
         
+        	**config**\: False
+        
         
 
         """
@@ -194,6 +202,8 @@ class FlowSpec(Entity):
             	FlowSpec Client Type
             	**type**\:  :py:class:`FsClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FsClient>`
             
+            	**config**\: False
+            
             .. attribute:: client_id
             
             	FlowSpec client ID
@@ -201,10 +211,14 @@ class FlowSpec(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: client_state
             
             	State of FS client
             	**type**\:  :py:class:`FsMgrClientState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FsMgrClientState>`
+            
+            	**config**\: False
             
             .. attribute:: client_flows
             
@@ -212,6 +226,8 @@ class FlowSpec(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -244,7 +260,9 @@ class FlowSpec(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FlowSpec.Clients.Client, ['client_type', 'client_id', 'client_state', 'client_flows'], name, value)
+                self._perform_setattr(FlowSpec.Clients.Client, ['client_type', 'client_id', u'client_state', u'client_flows'], name, value)
+
+
 
 
     class Summary(Entity):
@@ -258,12 +276,16 @@ class FlowSpec(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: flows
         
         	Total flows
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -292,7 +314,8 @@ class FlowSpec(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(FlowSpec.Summary, ['vrfafi_tables', 'flows'], name, value)
+            self._perform_setattr(FlowSpec.Summary, [u'vrfafi_tables', u'flows'], name, value)
+
 
 
     class Vrfs(Entity):
@@ -303,6 +326,8 @@ class FlowSpec(Entity):
         
         	VRF information
         	**type**\: list of  		 :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf>`
+        
+        	**config**\: False
         
         
 
@@ -342,10 +367,14 @@ class FlowSpec(Entity):
             
             	**length:** 1..32
             
+            	**config**\: False
+            
             .. attribute:: afs
             
             	Table of AF
             	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs>`
+            
+            	**config**\: False
             
             
 
@@ -388,6 +417,8 @@ class FlowSpec(Entity):
                 	AFI Type (IPv4/IPv6)
                 	**type**\: list of  		 :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs.Af>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -425,20 +456,28 @@ class FlowSpec(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: table_summary
                     
                     	FlowSpec summary for VRF+AFI tables
                     	**type**\:  :py:class:`TableSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs.Af.TableSummary>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: nlris
                     
                     	Table of NLRI
                     	**type**\:  :py:class:`Nlris <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs.Af.Nlris>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: flows
                     
                     	Table of Flow
                     	**type**\:  :py:class:`Flows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs.Af.Flows>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -490,6 +529,8 @@ class FlowSpec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_policies
                         
                         	Total number of attached service policies
@@ -497,10 +538,14 @@ class FlowSpec(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_install_enabled
                         
                         	Local installation of flowspec rules
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -530,7 +575,8 @@ class FlowSpec(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.TableSummary, ['total_flows', 'service_policies', 'local_install_enabled'], name, value)
+                            self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.TableSummary, [u'total_flows', u'service_policies', u'local_install_enabled'], name, value)
+
 
 
                     class Nlris(Entity):
@@ -541,6 +587,8 @@ class FlowSpec(Entity):
                         
                         	NLRI information (hexdump)
                         	**type**\: list of  		 :py:class:`Nlri <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -579,10 +627,14 @@ class FlowSpec(Entity):
                             
                             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: flow_statistics
                             
                             	Flow statistics
                             	**type**\:  :py:class:`FlowStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -624,10 +676,14 @@ class FlowSpec(Entity):
                                 	Classified statistics
                                 	**type**\:  :py:class:`Classified <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Classified>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped
                                 
                                 	Drop statistics
                                 	**type**\:  :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Dropped>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -672,12 +728,16 @@ class FlowSpec(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bytes
                                     
                                     	Number of bytes
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -707,7 +767,8 @@ class FlowSpec(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Classified, ['packets', 'bytes'], name, value)
+                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Classified, [u'packets', u'bytes'], name, value)
+
 
 
                                 class Dropped(Entity):
@@ -721,12 +782,16 @@ class FlowSpec(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bytes
                                     
                                     	Number of bytes
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -756,7 +821,11 @@ class FlowSpec(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Dropped, ['packets', 'bytes'], name, value)
+                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Nlris.Nlri.FlowStatistics.Dropped, [u'packets', u'bytes'], name, value)
+
+
+
+
 
 
                     class Flows(Entity):
@@ -767,6 +836,8 @@ class FlowSpec(Entity):
                         
                         	Flow notation string
                         	**type**\: list of  		 :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -803,10 +874,14 @@ class FlowSpec(Entity):
                             	Enter the Flow notation string
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: flow_statistics
                             
                             	Flow statistics
                             	**type**\:  :py:class:`FlowStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -848,10 +923,14 @@ class FlowSpec(Entity):
                                 	Classified statistics
                                 	**type**\:  :py:class:`Classified <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Classified>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: dropped
                                 
                                 	Drop statistics
                                 	**type**\:  :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper.FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Dropped>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -896,12 +975,16 @@ class FlowSpec(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bytes
                                     
                                     	Number of bytes
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -931,7 +1014,8 @@ class FlowSpec(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Classified, ['packets', 'bytes'], name, value)
+                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Classified, [u'packets', u'bytes'], name, value)
+
 
 
                                 class Dropped(Entity):
@@ -945,12 +1029,16 @@ class FlowSpec(Entity):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: bytes
                                     
                                     	Number of bytes
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: byte
                                     
@@ -980,9 +1068,19 @@ class FlowSpec(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Dropped, ['packets', 'bytes'], name, value)
+                                        self._perform_setattr(FlowSpec.Vrfs.Vrf.Afs.Af.Flows.Flow.FlowStatistics.Dropped, [u'packets', u'bytes'], name, value)
+
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = FlowSpec()
         return self._top_entity
+
+
 

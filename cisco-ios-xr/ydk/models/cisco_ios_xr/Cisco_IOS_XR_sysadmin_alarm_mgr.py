@@ -231,15 +231,21 @@ class AlarmMgr(Entity):
     	show traceable processes
     	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Trace>`
     
+    	**config**\: False
+    
     .. attribute:: brief
     
     	A set of brief alarm commands
     	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief>`
     
+    	**config**\: False
+    
     .. attribute:: detail
     
     	A set of detail alarm commands
     	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail>`
+    
+    	**config**\: False
     
     
 
@@ -285,10 +291,14 @@ class AlarmMgr(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: location
         
         	
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Trace.Location>`
+        
+        	**config**\: False
         
         
 
@@ -329,10 +339,14 @@ class AlarmMgr(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: all_options
             
             	
             	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Trace.Location.AllOptions>`
+            
+            	**config**\: False
             
             
 
@@ -372,10 +386,14 @@ class AlarmMgr(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: trace_blocks
                 
                 	
                 	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Trace.Location.AllOptions.TraceBlocks>`
+                
+                	**config**\: False
                 
                 
 
@@ -415,6 +433,8 @@ class AlarmMgr(Entity):
                     	Trace output block
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -442,6 +462,10 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
+
+
+
+
     class Brief(Entity):
         """
         A set of brief alarm commands
@@ -451,15 +475,21 @@ class AlarmMgr(Entity):
         	Alarms reported at the local card as  specified by the location parameter
         	**type**\:  :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.Card>`
         
+        	**config**\: False
+        
         .. attribute:: rack
         
         	Alarms reported at the rack scope    specified by the rack\-id
         	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.Rack>`
         
+        	**config**\: False
+        
         .. attribute:: system
         
         	Alarms reported at the system scope
         	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.System>`
+        
+        	**config**\: False
         
         
 
@@ -508,6 +538,8 @@ class AlarmMgr(Entity):
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.Card.Location>`
             
+            	**config**\: False
+            
             
 
             """
@@ -546,20 +578,28 @@ class AlarmMgr(Entity):
                 
                 	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
+                	**config**\: False
+                
                 .. attribute:: active
                 
                 	
                 	**type**\: list of  		 :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.Card.Location.Active>`
+                
+                	**config**\: False
                 
                 .. attribute:: history
                 
                 	
                 	**type**\: list of  		 :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.Card.Location.History>`
                 
+                	**config**\: False
+                
                 .. attribute:: suppressed
                 
                 	
                 	**type**\: list of  		 :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.Card.Location.Suppressed>`
+                
+                	**config**\: False
                 
                 
 
@@ -602,45 +642,63 @@ class AlarmMgr(Entity):
                     	The AID for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eid  (key)
                     
                     	The Object Id for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag
                     
                     	The Fault Tag for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: module
                     
                     	The Module for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: gen_location
                     
                     	The location for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: severity
                     
                     	The alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group
                     
                     	The alarm grouping 
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Alarm description
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: set_time
                     
                     	Alarm set time stamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -685,6 +743,7 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Brief.Card.Location.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time'], name, value)
 
 
+
                 class History(Entity):
                     """
                     
@@ -694,50 +753,70 @@ class AlarmMgr(Entity):
                     	The AID for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eid  (key)
                     
                     	The Object Id for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag
                     
                     	The Fault Tag for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: module
                     
                     	The Module for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: gen_location
                     
                     	The location for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: severity
                     
                     	The alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group
                     
                     	The alarm grouping 
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Alarm description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_time
                     
                     	Alarm set time stamp
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: clear_time
                     
                     	Alarm clear time stamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -784,6 +863,7 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Brief.Card.Location.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'clear_time'], name, value)
 
 
+
                 class Suppressed(Entity):
                     """
                     
@@ -793,50 +873,70 @@ class AlarmMgr(Entity):
                     	The AID for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eid  (key)
                     
                     	The Object Id for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag
                     
                     	The Fault Tag for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: module
                     
                     	The Module for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: gen_location
                     
                     	The location for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: severity
                     
                     	The alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group
                     
                     	The alarm grouping 
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Alarm description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_time
                     
                     	Alarm set time stamp
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: suppressed_time
                     
                     	Alarm suppressed time stamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -883,6 +983,9 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Brief.Card.Location.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'suppressed_time'], name, value)
 
 
+
+
+
         class Rack(Entity):
             """
             Alarms reported at the rack scope   
@@ -892,6 +995,8 @@ class AlarmMgr(Entity):
             
             	
             	**type**\: list of  		 :py:class:`RackLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.Rack.RackLocations>`
+            
+            	**config**\: False
             
             
 
@@ -931,20 +1036,28 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: active
                 
                 	
                 	**type**\: list of  		 :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.Rack.RackLocations.Active>`
+                
+                	**config**\: False
                 
                 .. attribute:: history
                 
                 	
                 	**type**\: list of  		 :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.Rack.RackLocations.History>`
                 
+                	**config**\: False
+                
                 .. attribute:: suppressed
                 
                 	
                 	**type**\: list of  		 :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.Rack.RackLocations.Suppressed>`
+                
+                	**config**\: False
                 
                 
 
@@ -987,45 +1100,63 @@ class AlarmMgr(Entity):
                     	The AID for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eid  (key)
                     
                     	The Object Id for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag
                     
                     	The Fault Tag for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: module
                     
                     	The Module for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: gen_location
                     
                     	The location for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: severity
                     
                     	The alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group
                     
                     	The alarm grouping 
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Alarm description
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: set_time
                     
                     	Alarm set time stamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1070,6 +1201,7 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Brief.Rack.RackLocations.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time'], name, value)
 
 
+
                 class History(Entity):
                     """
                     
@@ -1079,50 +1211,70 @@ class AlarmMgr(Entity):
                     	The AID for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eid  (key)
                     
                     	The Object Id for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag
                     
                     	The Fault Tag for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: module
                     
                     	The Module for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: gen_location
                     
                     	The location for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: severity
                     
                     	The alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group
                     
                     	The alarm grouping 
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Alarm description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_time
                     
                     	Alarm set time stamp
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: clear_time
                     
                     	Alarm clear time stamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1169,6 +1321,7 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Brief.Rack.RackLocations.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'clear_time'], name, value)
 
 
+
                 class Suppressed(Entity):
                     """
                     
@@ -1178,50 +1331,70 @@ class AlarmMgr(Entity):
                     	The AID for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eid  (key)
                     
                     	The Object Id for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag
                     
                     	The Fault Tag for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: module
                     
                     	The Module for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: gen_location
                     
                     	The location for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: severity
                     
                     	The alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group
                     
                     	The alarm grouping 
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Alarm description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_time
                     
                     	Alarm set time stamp
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: suppressed_time
                     
                     	Alarm suppressed time stamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1268,6 +1441,9 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Brief.Rack.RackLocations.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'suppressed_time'], name, value)
 
 
+
+
+
         class System(Entity):
             """
             Alarms reported at the system scope
@@ -1277,15 +1453,21 @@ class AlarmMgr(Entity):
             	
             	**type**\: list of  		 :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.System.Active>`
             
+            	**config**\: False
+            
             .. attribute:: history
             
             	
             	**type**\: list of  		 :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.System.History>`
             
+            	**config**\: False
+            
             .. attribute:: suppressed
             
             	
             	**type**\: list of  		 :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Brief.System.Suppressed>`
+            
+            	**config**\: False
             
             
 
@@ -1325,45 +1507,63 @@ class AlarmMgr(Entity):
                 	The AID for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: eid  (key)
                 
                 	The Object Id for the current alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: tag
                 
                 	The Fault Tag for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: module
                 
                 	The Module for the current alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: gen_location
                 
                 	The location for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: severity
                 
                 	The alarm severity
                 	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                
+                	**config**\: False
                 
                 .. attribute:: group
                 
                 	The alarm grouping 
                 	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	Alarm description
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: set_time
                 
                 	Alarm set time stamp
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1409,6 +1609,7 @@ class AlarmMgr(Entity):
                     self._perform_setattr(AlarmMgr.Brief.System.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time'], name, value)
 
 
+
             class History(Entity):
                 """
                 
@@ -1418,50 +1619,70 @@ class AlarmMgr(Entity):
                 	The AID for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: eid  (key)
                 
                 	The Object Id for the current alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: tag
                 
                 	The Fault Tag for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: module
                 
                 	The Module for the current alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: gen_location
                 
                 	The location for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: severity
                 
                 	The alarm severity
                 	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                
+                	**config**\: False
                 
                 .. attribute:: group
                 
                 	The alarm grouping 
                 	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	Alarm description
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: set_time
                 
                 	Alarm set time stamp
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: clear_time
                 
                 	Alarm clear time stamp
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1509,6 +1730,7 @@ class AlarmMgr(Entity):
                     self._perform_setattr(AlarmMgr.Brief.System.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'clear_time'], name, value)
 
 
+
             class Suppressed(Entity):
                 """
                 
@@ -1518,50 +1740,70 @@ class AlarmMgr(Entity):
                 	The AID for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: eid  (key)
                 
                 	The Object Id for the current alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: tag
                 
                 	The Fault Tag for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: module
                 
                 	The Module for the current alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: gen_location
                 
                 	The location for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: severity
                 
                 	The alarm severity
                 	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                
+                	**config**\: False
                 
                 .. attribute:: group
                 
                 	The alarm grouping 
                 	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	Alarm description
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: set_time
                 
                 	Alarm set time stamp
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: suppressed_time
                 
                 	Alarm suppressed time stamp
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -1609,6 +1851,9 @@ class AlarmMgr(Entity):
                     self._perform_setattr(AlarmMgr.Brief.System.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'suppressed_time'], name, value)
 
 
+
+
+
     class Detail(Entity):
         """
         A set of detail alarm commands
@@ -1618,15 +1863,21 @@ class AlarmMgr(Entity):
         	Alarms reported at the local card as  specified by the location parameter
         	**type**\:  :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Card>`
         
+        	**config**\: False
+        
         .. attribute:: rack
         
         	Alarms reported at the rack as  specified by the location parameter
         	**type**\:  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Rack>`
         
+        	**config**\: False
+        
         .. attribute:: system
         
         	Alarms reported at the system as  specified by the location parameter
         	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.System>`
+        
+        	**config**\: False
         
         
 
@@ -1675,6 +1926,8 @@ class AlarmMgr(Entity):
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Card.Location>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1713,30 +1966,42 @@ class AlarmMgr(Entity):
                 
                 	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
+                	**config**\: False
+                
                 .. attribute:: active
                 
                 	
                 	**type**\: list of  		 :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Card.Location.Active>`
+                
+                	**config**\: False
                 
                 .. attribute:: history
                 
                 	
                 	**type**\: list of  		 :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Card.Location.History>`
                 
+                	**config**\: False
+                
                 .. attribute:: stats
                 
                 	
                 	**type**\: list of  		 :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Card.Location.Stats>`
+                
+                	**config**\: False
                 
                 .. attribute:: clients
                 
                 	
                 	**type**\: list of  		 :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Card.Location.Clients>`
                 
+                	**config**\: False
+                
                 .. attribute:: suppressed
                 
                 	
                 	**type**\: list of  		 :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Card.Location.Suppressed>`
+                
+                	**config**\: False
                 
                 
 
@@ -1781,50 +2046,70 @@ class AlarmMgr(Entity):
                     	The AID for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eid  (key)
                     
                     	The Object Id for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag
                     
                     	The Fault Tag for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: module
                     
                     	The Module for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: gen_location
                     
                     	The location for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: severity
                     
                     	The alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group
                     
                     	The alarm grouping 
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Alarm description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_time
                     
                     	Alarm set time stamp
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	The current state of the bi\-state alarm
                     	**type**\:  :py:class:`StatusTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.StatusTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: reporting_agent_id
                     
@@ -1833,6 +2118,8 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resynced
                     
                     	The condition bit\-flags of the alarm
@@ -1840,15 +2127,21 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: detail_desc
                     
                     	Alarm detailed description
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: clear_time
                     
                     	Alarm clear time stamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -1903,6 +2196,7 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
 
 
+
                 class History(Entity):
                     """
                     
@@ -1912,50 +2206,70 @@ class AlarmMgr(Entity):
                     	The AID for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eid  (key)
                     
                     	The Object Id for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag
                     
                     	The Fault Tag for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: module
                     
                     	The Module for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: gen_location
                     
                     	The location for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: severity
                     
                     	The alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group
                     
                     	The alarm grouping 
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Alarm description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_time
                     
                     	Alarm set time stamp
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	The current state of the bi\-state alarm
                     	**type**\:  :py:class:`StatusTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.StatusTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: reporting_agent_id
                     
@@ -1964,6 +2278,8 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resynced
                     
                     	The condition bit\-flags of the alarm
@@ -1971,15 +2287,21 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: detail_desc
                     
                     	Alarm detailed description
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: clear_time
                     
                     	Alarm clear time stamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2034,6 +2356,7 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
 
 
+
                 class Stats(Entity):
                     """
                     
@@ -2043,12 +2366,16 @@ class AlarmMgr(Entity):
                     	Alarms statistics at specified time
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: reported
                     
                     	Total alarms reported into this service
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: dropped
                     
@@ -2057,12 +2384,16 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bi_set
                     
                     	Total active alarms current in this service
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: bi_clear
                     
@@ -2071,12 +2402,16 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: suppressed
                     
                     	Alarms that are currently in the suppressed state
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_inv_aid
                     
@@ -2085,12 +2420,16 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop_no_mem
                     
                     	Alarms dropped due to low memory condition
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_db_error
                     
@@ -2099,12 +2438,16 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop_clear_no_set
                     
                     	Alarms dropped due to clear without a set
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_dup
                     
@@ -2113,6 +2456,8 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: cache_hit
                     
                     	Alarms present in the cached for show
@@ -2120,12 +2465,16 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: cache_miss
                     
                     	Alarms not present in the cached for show
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -2178,6 +2527,7 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.Stats, ['attime', 'reported', 'dropped', 'bi_set', 'bi_clear', 'suppressed', 'drop_inv_aid', 'drop_no_mem', 'drop_db_error', 'drop_clear_no_set', 'drop_dup', 'cache_hit', 'cache_miss'], name, value)
 
 
+
                 class Clients(Entity):
                     """
                     
@@ -2187,10 +2537,14 @@ class AlarmMgr(Entity):
                     	The client handle through which interface
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_name
                     
                     	Alarms client
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_id
                     
@@ -2199,25 +2553,35 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_location
                     
                     	The location of this client
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_state
                     
                     	The current state of the client
                     	**type**\:  :py:class:`AgentStateTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AgentStateTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_type
                     
                     	The type of  the client
                     	**type**\:  :py:class:`AgentTypeTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AgentTypeTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_filter_disp
                     
                     	The current subscription status of the client
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_subs_id
                     
@@ -2226,20 +2590,28 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_filter_state
                     
                     	The filter used for alarm bi\-state state
                     	**type**\:  :py:class:`StatusTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.StatusTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_filter_severity
                     
                     	The filter used for alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_filter_group
                     
                     	The filter used for alarm group
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_sdr_id
                     
@@ -2248,6 +2620,8 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_connect_count
                     
                     	Number of times the agent connected to the alarm mgr
@@ -2255,10 +2629,14 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_connect_time
                     
                     	Agent connect timestamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_get_count
                     
@@ -2267,6 +2645,8 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_subscribe_count
                     
                     	Number of times the agent subscribed for alarms
@@ -2274,12 +2654,16 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_report_count
                     
                     	Number of times the agent reported alarms
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -2340,6 +2724,7 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.Clients, ['agent_handle', 'agent_name', 'agent_id', 'agent_location', 'agent_state', 'agent_type', 'agent_filter_disp', 'agent_subs_id', 'agent_filter_state', 'agent_filter_severity', 'agent_filter_group', 'agent_sdr_id', 'agent_connect_count', 'agent_connect_time', 'agent_get_count', 'agent_subscribe_count', 'agent_report_count'], name, value)
 
 
+
                 class Suppressed(Entity):
                     """
                     
@@ -2349,50 +2734,70 @@ class AlarmMgr(Entity):
                     	The AID for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eid  (key)
                     
                     	The Object Id for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag
                     
                     	The Fault Tag for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: module
                     
                     	The Module for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: gen_location
                     
                     	The location for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: severity
                     
                     	The alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group
                     
                     	The alarm grouping 
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Alarm description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_time
                     
                     	Alarm set time stamp
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	The current state of the bi\-state alarm
                     	**type**\:  :py:class:`StatusTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.StatusTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: reporting_agent_id
                     
@@ -2401,6 +2806,8 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resynced
                     
                     	The condition bit\-flags of the alarm
@@ -2408,15 +2815,21 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: detail_desc
                     
                     	Alarm detailed description
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: suppressed_time
                     
                     	Alarm suppressed time stamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2471,6 +2884,9 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'suppressed_time'], name, value)
 
 
+
+
+
         class Rack(Entity):
             """
             Alarms reported at the rack as 
@@ -2480,6 +2896,8 @@ class AlarmMgr(Entity):
             
             	
             	**type**\: list of  		 :py:class:`RackLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Rack.RackLocations>`
+            
+            	**config**\: False
             
             
 
@@ -2519,30 +2937,42 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: active
                 
                 	
                 	**type**\: list of  		 :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Rack.RackLocations.Active>`
+                
+                	**config**\: False
                 
                 .. attribute:: history
                 
                 	
                 	**type**\: list of  		 :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Rack.RackLocations.History>`
                 
+                	**config**\: False
+                
                 .. attribute:: stats
                 
                 	
                 	**type**\: list of  		 :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Rack.RackLocations.Stats>`
+                
+                	**config**\: False
                 
                 .. attribute:: clients
                 
                 	
                 	**type**\: list of  		 :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Rack.RackLocations.Clients>`
                 
+                	**config**\: False
+                
                 .. attribute:: suppressed
                 
                 	
                 	**type**\: list of  		 :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.Rack.RackLocations.Suppressed>`
+                
+                	**config**\: False
                 
                 
 
@@ -2587,50 +3017,70 @@ class AlarmMgr(Entity):
                     	The AID for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eid  (key)
                     
                     	The Object Id for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag
                     
                     	The Fault Tag for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: module
                     
                     	The Module for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: gen_location
                     
                     	The location for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: severity
                     
                     	The alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group
                     
                     	The alarm grouping 
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Alarm description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_time
                     
                     	Alarm set time stamp
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	The current state of the bi\-state alarm
                     	**type**\:  :py:class:`StatusTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.StatusTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: reporting_agent_id
                     
@@ -2639,6 +3089,8 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resynced
                     
                     	The condition bit\-flags of the alarm
@@ -2646,15 +3098,21 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: detail_desc
                     
                     	Alarm detailed description
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: clear_time
                     
                     	Alarm clear time stamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2709,6 +3167,7 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
 
 
+
                 class History(Entity):
                     """
                     
@@ -2718,50 +3177,70 @@ class AlarmMgr(Entity):
                     	The AID for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eid  (key)
                     
                     	The Object Id for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag
                     
                     	The Fault Tag for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: module
                     
                     	The Module for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: gen_location
                     
                     	The location for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: severity
                     
                     	The alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group
                     
                     	The alarm grouping 
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Alarm description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_time
                     
                     	Alarm set time stamp
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	The current state of the bi\-state alarm
                     	**type**\:  :py:class:`StatusTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.StatusTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: reporting_agent_id
                     
@@ -2770,6 +3249,8 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resynced
                     
                     	The condition bit\-flags of the alarm
@@ -2777,15 +3258,21 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: detail_desc
                     
                     	Alarm detailed description
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: clear_time
                     
                     	Alarm clear time stamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -2840,6 +3327,7 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
 
 
+
                 class Stats(Entity):
                     """
                     
@@ -2849,12 +3337,16 @@ class AlarmMgr(Entity):
                     	Alarms statistics at specified time
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: reported
                     
                     	Total alarms reported into this service
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: dropped
                     
@@ -2863,12 +3355,16 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bi_set
                     
                     	Total active alarms current in this service
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: bi_clear
                     
@@ -2877,12 +3373,16 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: suppressed
                     
                     	Alarms that are currently in the suppressed state
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_inv_aid
                     
@@ -2891,12 +3391,16 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop_no_mem
                     
                     	Alarms dropped due to low memory condition
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_db_error
                     
@@ -2905,12 +3409,16 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop_clear_no_set
                     
                     	Alarms dropped due to clear without a set
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_dup
                     
@@ -2919,6 +3427,8 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: cache_hit
                     
                     	Alarms present in the cached for show
@@ -2926,12 +3436,16 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: cache_miss
                     
                     	Alarms not present in the cached for show
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -2984,6 +3498,7 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.Stats, ['attime', 'reported', 'dropped', 'bi_set', 'bi_clear', 'suppressed', 'drop_inv_aid', 'drop_no_mem', 'drop_db_error', 'drop_clear_no_set', 'drop_dup', 'cache_hit', 'cache_miss'], name, value)
 
 
+
                 class Clients(Entity):
                     """
                     
@@ -2993,10 +3508,14 @@ class AlarmMgr(Entity):
                     	The client handle through which interface
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_name
                     
                     	Alarms client
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_id
                     
@@ -3005,25 +3524,35 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_location
                     
                     	The location of this client
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_state
                     
                     	The current state of the client
                     	**type**\:  :py:class:`AgentStateTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AgentStateTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_type
                     
                     	The type of  the client
                     	**type**\:  :py:class:`AgentTypeTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AgentTypeTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_filter_disp
                     
                     	The current subscription status of the client
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_subs_id
                     
@@ -3032,20 +3561,28 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_filter_state
                     
                     	The filter used for alarm bi\-state state
                     	**type**\:  :py:class:`StatusTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.StatusTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_filter_severity
                     
                     	The filter used for alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_filter_group
                     
                     	The filter used for alarm group
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_sdr_id
                     
@@ -3054,6 +3591,8 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_connect_count
                     
                     	Number of times the agent connected to the alarm mgr
@@ -3061,10 +3600,14 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_connect_time
                     
                     	Agent connect timestamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: agent_get_count
                     
@@ -3073,6 +3616,8 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_subscribe_count
                     
                     	Number of times the agent subscribed for alarms
@@ -3080,12 +3625,16 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: agent_report_count
                     
                     	Number of times the agent reported alarms
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -3146,6 +3695,7 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.Clients, ['agent_handle', 'agent_name', 'agent_id', 'agent_location', 'agent_state', 'agent_type', 'agent_filter_disp', 'agent_subs_id', 'agent_filter_state', 'agent_filter_severity', 'agent_filter_group', 'agent_sdr_id', 'agent_connect_count', 'agent_connect_time', 'agent_get_count', 'agent_subscribe_count', 'agent_report_count'], name, value)
 
 
+
                 class Suppressed(Entity):
                     """
                     
@@ -3155,50 +3705,70 @@ class AlarmMgr(Entity):
                     	The AID for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: eid  (key)
                     
                     	The Object Id for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: tag
                     
                     	The Fault Tag for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: module
                     
                     	The Module for the current alarm
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: gen_location
                     
                     	The location for the current alarm
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: severity
                     
                     	The alarm severity
                     	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: group
                     
                     	The alarm grouping 
                     	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: description
                     
                     	Alarm description
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: set_time
                     
                     	Alarm set time stamp
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	The current state of the bi\-state alarm
                     	**type**\:  :py:class:`StatusTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.StatusTd>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: reporting_agent_id
                     
@@ -3207,6 +3777,8 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: resynced
                     
                     	The condition bit\-flags of the alarm
@@ -3214,15 +3786,21 @@ class AlarmMgr(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: detail_desc
                     
                     	Alarm detailed description
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: suppressed_time
                     
                     	Alarm suppressed time stamp
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -3277,6 +3855,9 @@ class AlarmMgr(Entity):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'suppressed_time'], name, value)
 
 
+
+
+
         class System(Entity):
             """
             Alarms reported at the system as 
@@ -3287,25 +3868,35 @@ class AlarmMgr(Entity):
             	
             	**type**\: list of  		 :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.System.Active>`
             
+            	**config**\: False
+            
             .. attribute:: history
             
             	
             	**type**\: list of  		 :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.System.History>`
+            
+            	**config**\: False
             
             .. attribute:: stats
             
             	
             	**type**\: list of  		 :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.System.Stats>`
             
+            	**config**\: False
+            
             .. attribute:: clients
             
             	
             	**type**\: list of  		 :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.System.Clients>`
             
+            	**config**\: False
+            
             .. attribute:: suppressed
             
             	
             	**type**\: list of  		 :py:class:`Suppressed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AlarmMgr.Detail.System.Suppressed>`
+            
+            	**config**\: False
             
             
 
@@ -3347,50 +3938,70 @@ class AlarmMgr(Entity):
                 	The AID for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: eid  (key)
                 
                 	The Object Id for the current alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: tag
                 
                 	The Fault Tag for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: module
                 
                 	The Module for the current alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: gen_location
                 
                 	The location for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: severity
                 
                 	The alarm severity
                 	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                
+                	**config**\: False
                 
                 .. attribute:: group
                 
                 	The alarm grouping 
                 	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	Alarm description
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: set_time
                 
                 	Alarm set time stamp
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	The current state of the bi\-state alarm
                 	**type**\:  :py:class:`StatusTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.StatusTd>`
+                
+                	**config**\: False
                 
                 .. attribute:: reporting_agent_id
                 
@@ -3399,6 +4010,8 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: resynced
                 
                 	The condition bit\-flags of the alarm
@@ -3406,15 +4019,21 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: detail_desc
                 
                 	Alarm detailed description
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: clear_time
                 
                 	Alarm clear time stamp
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -3470,6 +4089,7 @@ class AlarmMgr(Entity):
                     self._perform_setattr(AlarmMgr.Detail.System.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
 
 
+
             class History(Entity):
                 """
                 
@@ -3479,50 +4099,70 @@ class AlarmMgr(Entity):
                 	The AID for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: eid  (key)
                 
                 	The Object Id for the current alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: tag
                 
                 	The Fault Tag for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: module
                 
                 	The Module for the current alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: gen_location
                 
                 	The location for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: severity
                 
                 	The alarm severity
                 	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                
+                	**config**\: False
                 
                 .. attribute:: group
                 
                 	The alarm grouping 
                 	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	Alarm description
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: set_time
                 
                 	Alarm set time stamp
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	The current state of the bi\-state alarm
                 	**type**\:  :py:class:`StatusTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.StatusTd>`
+                
+                	**config**\: False
                 
                 .. attribute:: reporting_agent_id
                 
@@ -3531,6 +4171,8 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: resynced
                 
                 	The condition bit\-flags of the alarm
@@ -3538,15 +4180,21 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: detail_desc
                 
                 	Alarm detailed description
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: clear_time
                 
                 	Alarm clear time stamp
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -3602,6 +4250,7 @@ class AlarmMgr(Entity):
                     self._perform_setattr(AlarmMgr.Detail.System.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
 
 
+
             class Stats(Entity):
                 """
                 
@@ -3611,12 +4260,16 @@ class AlarmMgr(Entity):
                 	Alarms statistics at specified time
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: reported
                 
                 	Total alarms reported into this service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: dropped
                 
@@ -3625,12 +4278,16 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bi_set
                 
                 	Total active alarms current in this service
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: bi_clear
                 
@@ -3639,12 +4296,16 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: suppressed
                 
                 	Alarms that are currently in the suppressed state
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: drop_inv_aid
                 
@@ -3653,12 +4314,16 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: drop_no_mem
                 
                 	Alarms dropped due to low memory condition
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: drop_db_error
                 
@@ -3667,12 +4332,16 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: drop_clear_no_set
                 
                 	Alarms dropped due to clear without a set
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: drop_dup
                 
@@ -3681,6 +4350,8 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: cache_hit
                 
                 	Alarms present in the cached for show
@@ -3688,12 +4359,16 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: cache_miss
                 
                 	Alarms not present in the cached for show
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -3747,6 +4422,7 @@ class AlarmMgr(Entity):
                     self._perform_setattr(AlarmMgr.Detail.System.Stats, ['attime', 'reported', 'dropped', 'bi_set', 'bi_clear', 'suppressed', 'drop_inv_aid', 'drop_no_mem', 'drop_db_error', 'drop_clear_no_set', 'drop_dup', 'cache_hit', 'cache_miss'], name, value)
 
 
+
             class Clients(Entity):
                 """
                 
@@ -3756,10 +4432,14 @@ class AlarmMgr(Entity):
                 	The client handle through which interface
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: agent_name
                 
                 	Alarms client
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: agent_id
                 
@@ -3768,25 +4448,35 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: agent_location
                 
                 	The location of this client
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: agent_state
                 
                 	The current state of the client
                 	**type**\:  :py:class:`AgentStateTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AgentStateTd>`
                 
+                	**config**\: False
+                
                 .. attribute:: agent_type
                 
                 	The type of  the client
                 	**type**\:  :py:class:`AgentTypeTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.AgentTypeTd>`
                 
+                	**config**\: False
+                
                 .. attribute:: agent_filter_disp
                 
                 	The current subscription status of the client
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: agent_subs_id
                 
@@ -3795,20 +4485,28 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: agent_filter_state
                 
                 	The filter used for alarm bi\-state state
                 	**type**\:  :py:class:`StatusTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.StatusTd>`
+                
+                	**config**\: False
                 
                 .. attribute:: agent_filter_severity
                 
                 	The filter used for alarm severity
                 	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
                 
+                	**config**\: False
+                
                 .. attribute:: agent_filter_group
                 
                 	The filter used for alarm group
                 	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
+                
+                	**config**\: False
                 
                 .. attribute:: agent_sdr_id
                 
@@ -3817,6 +4515,8 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: agent_connect_count
                 
                 	Number of times the agent connected to the alarm mgr
@@ -3824,10 +4524,14 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: agent_connect_time
                 
                 	Agent connect timestamp
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: agent_get_count
                 
@@ -3836,6 +4540,8 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: agent_subscribe_count
                 
                 	Number of times the agent subscribed for alarms
@@ -3843,12 +4549,16 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: agent_report_count
                 
                 	Number of times the agent reported alarms
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -3910,6 +4620,7 @@ class AlarmMgr(Entity):
                     self._perform_setattr(AlarmMgr.Detail.System.Clients, ['agent_handle', 'agent_name', 'agent_id', 'agent_location', 'agent_state', 'agent_type', 'agent_filter_disp', 'agent_subs_id', 'agent_filter_state', 'agent_filter_severity', 'agent_filter_group', 'agent_sdr_id', 'agent_connect_count', 'agent_connect_time', 'agent_get_count', 'agent_subscribe_count', 'agent_report_count'], name, value)
 
 
+
             class Suppressed(Entity):
                 """
                 
@@ -3919,50 +4630,70 @@ class AlarmMgr(Entity):
                 	The AID for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: eid  (key)
                 
                 	The Object Id for the current alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: tag
                 
                 	The Fault Tag for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: module
                 
                 	The Module for the current alarm
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: gen_location
                 
                 	The location for the current alarm
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: severity
                 
                 	The alarm severity
                 	**type**\:  :py:class:`SeverityTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.SeverityTd>`
+                
+                	**config**\: False
                 
                 .. attribute:: group
                 
                 	The alarm grouping 
                 	**type**\:  :py:class:`GroupTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.GroupTd>`
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	Alarm description
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: set_time
                 
                 	Alarm set time stamp
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	The current state of the bi\-state alarm
                 	**type**\:  :py:class:`StatusTd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr.StatusTd>`
+                
+                	**config**\: False
                 
                 .. attribute:: reporting_agent_id
                 
@@ -3971,6 +4702,8 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: resynced
                 
                 	The condition bit\-flags of the alarm
@@ -3978,15 +4711,21 @@ class AlarmMgr(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: detail_desc
                 
                 	Alarm detailed description
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: suppressed_time
                 
                 	Alarm suppressed time stamp
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -4041,7 +4780,12 @@ class AlarmMgr(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.System.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'suppressed_time'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = AlarmMgr()
         return self._top_entity
+
+
 

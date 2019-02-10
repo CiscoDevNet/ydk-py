@@ -88,9 +88,12 @@ class MasterKeyAdd(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(MasterKeyAdd.Input, ['new_key'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = MasterKeyAdd()
         return self._top_entity
+
+
 
 class MasterKeyDelete(Entity):
     """
@@ -120,6 +123,8 @@ class MasterKeyDelete(Entity):
     def clone_ptr(self):
         self._top_entity = MasterKeyDelete()
         return self._top_entity
+
+
 
 class MasterKeyUpdate(Entity):
     """
@@ -203,7 +208,10 @@ class MasterKeyUpdate(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(MasterKeyUpdate.Input, ['old_key', 'new_key'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = MasterKeyUpdate()
         return self._top_entity
+
+
 

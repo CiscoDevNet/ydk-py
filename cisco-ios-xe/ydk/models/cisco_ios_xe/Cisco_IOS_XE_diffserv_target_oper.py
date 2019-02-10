@@ -29,6 +29,7 @@ class Direction(Identity):
         super(Direction, self).__init__(ns, pref, tag)
 
 
+
 class DiffservInterfacesState(Entity):
     """
     Interface configuration parameters.
@@ -37,6 +38,8 @@ class DiffservInterfacesState(Entity):
     
     	The list of configured interfaces on the device
     	**type**\: list of  		 :py:class:`DiffservInterface <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface>`
+    
+    	**config**\: False
     
     
 
@@ -74,10 +77,14 @@ class DiffservInterfacesState(Entity):
         	The name of the interface
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: diffserv_target_entry
         
         	policy target for inbound or outbound direction
         	**type**\: list of  		 :py:class:`DiffservTargetEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry>`
+        
+        	**config**\: False
         
         
 
@@ -118,15 +125,21 @@ class DiffservInterfacesState(Entity):
             	Direction fo the traffic flow either inbound or outbound
             	**type**\:  :py:class:`Direction <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.Direction>`
             
+            	**config**\: False
+            
             .. attribute:: policy_name  (key)
             
             	Policy entry name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: diffserv_target_classifier_statistics
             
             	Statistics for each Classifier Entry in a Policy
             	**type**\: list of  		 :py:class:`DiffservTargetClassifierStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics>`
+            
+            	**config**\: False
             
             
 
@@ -168,25 +181,35 @@ class DiffservInterfacesState(Entity):
                 	Classifier Entry Name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: parent_path  (key)
                 
                 	Path of the Classifier Entry in a hierarchial policy 
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: classifier_entry_statistics
                 
                 	 This group defines the classifier filter statistics of  each classifier entry         
                 	**type**\:  :py:class:`ClassifierEntryStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: meter_statistics
                 
                 	Meter statistics
                 	**type**\: list of  		 :py:class:`MeterStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: queuing_statistics
                 
                 	queue related statistics 
                 	**type**\:  :py:class:`QueuingStatistics <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics>`
+                
+                	**config**\: False
                 
                 
 
@@ -242,6 +265,8 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: classified_bytes
                     
                     	 Number of total bytes which filtered   to the classifier\-entry
@@ -249,12 +274,16 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: classified_rate
                     
                     	 Rate of average data flow through the   classifier\-entry
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: bits-per-second
                     
@@ -289,6 +318,7 @@ class DiffservInterfacesState(Entity):
                         self._perform_setattr(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics, ['classified_pkts', 'classified_bytes', 'classified_rate'], name, value)
 
 
+
                 class MeterStatistics(Entity):
                     """
                     Meter statistics
@@ -300,12 +330,16 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: meter_succeed_pkts
                     
                     	Number of packets which succeed the meter
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: meter_succeed_bytes
                     
@@ -314,6 +348,8 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: meter_failed_pkts
                     
                     	Number of packets which failed the meter
@@ -321,12 +357,16 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: meter_failed_bytes
                     
                     	Bytes of packets which failed the meter
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -363,6 +403,7 @@ class DiffservInterfacesState(Entity):
                         self._perform_setattr(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics, ['meter_id', 'meter_succeed_pkts', 'meter_succeed_bytes', 'meter_failed_pkts', 'meter_failed_bytes'], name, value)
 
 
+
                 class QueuingStatistics(Entity):
                     """
                     queue related statistics 
@@ -374,12 +415,16 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_bytes
                     
                     	Number of bytes transmitted from queue 
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: queue_size_pkts
                     
@@ -388,12 +433,16 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: queue_size_bytes
                     
                     	Number of bytes currently buffered 
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: drop_pkts
                     
@@ -402,6 +451,8 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: drop_bytes
                     
                     	Total number of bytes dropped 
@@ -409,10 +460,14 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: wred_stats
                     
                     	Container for WRED statistics
                     	**type**\:  :py:class:`WredStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_diffserv_target_oper.DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -466,12 +521,16 @@ class DiffservInterfacesState(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: early_drop_bytes
                         
                         	Early drop bytes 
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -501,9 +560,16 @@ class DiffservInterfacesState(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats, ['early_drop_pkts', 'early_drop_bytes'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = DiffservInterfacesState()
         return self._top_entity
+
+
 
 class Inbound(Direction):
     """
@@ -520,6 +586,7 @@ class Inbound(Direction):
         super(Inbound, self).__init__(ns, pref, tag)
 
 
+
 class Outbound(Direction):
     """
     Direction of traffic going out of the network entry
@@ -533,5 +600,6 @@ class Outbound(Direction):
 
     def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XE-diffserv-target-oper", pref="Cisco-IOS-XE-diffserv-target-oper", tag="Cisco-IOS-XE-diffserv-target-oper:outbound"):
         super(Outbound, self).__init__(ns, pref, tag)
+
 
 

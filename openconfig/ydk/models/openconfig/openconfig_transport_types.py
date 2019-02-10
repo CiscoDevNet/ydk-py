@@ -94,6 +94,7 @@ class SONETAPPLICATIONCODE(Identity):
         super(SONETAPPLICATIONCODE, self).__init__(ns, pref, tag)
 
 
+
 class OTNAPPLICATIONCODE(Identity):
     """
     Supported OTN application codes
@@ -107,6 +108,7 @@ class OTNAPPLICATIONCODE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:OTN_APPLICATION_CODE"):
         super(OTNAPPLICATIONCODE, self).__init__(ns, pref, tag)
+
 
 
 class TRANSCEIVERFORMFACTORTYPE(Identity):
@@ -125,6 +127,7 @@ class TRANSCEIVERFORMFACTORTYPE(Identity):
         super(TRANSCEIVERFORMFACTORTYPE, self).__init__(ns, pref, tag)
 
 
+
 class LOGICALELEMENTPROTOCOLTYPE(Identity):
     """
     Type of protocol framing used on the logical channel or
@@ -139,6 +142,7 @@ class LOGICALELEMENTPROTOCOLTYPE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:LOGICAL_ELEMENT_PROTOCOL_TYPE"):
         super(LOGICALELEMENTPROTOCOLTYPE, self).__init__(ns, pref, tag)
+
 
 
 class TRIBUTARYRATECLASSTYPE(Identity):
@@ -157,6 +161,7 @@ class TRIBUTARYRATECLASSTYPE(Identity):
         super(TRIBUTARYRATECLASSTYPE, self).__init__(ns, pref, tag)
 
 
+
 class ETHERNETPMDTYPE(Identity):
     """
     Ethernet compliance codes (PMD) supported by transceivers
@@ -172,6 +177,7 @@ class ETHERNETPMDTYPE(Identity):
         super(ETHERNETPMDTYPE, self).__init__(ns, pref, tag)
 
 
+
 class FIBERCONNECTORTYPE(Identity):
     """
     Type of optical fiber connector
@@ -185,6 +191,7 @@ class FIBERCONNECTORTYPE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:FIBER_CONNECTOR_TYPE"):
         super(FIBERCONNECTORTYPE, self).__init__(ns, pref, tag)
+
 
 
 class OPTICALCHANNEL(OPENCONFIGHARDWARECOMPONENT):
@@ -204,6 +211,7 @@ class OPTICALCHANNEL(OPENCONFIGHARDWARECOMPONENT):
         super(OPTICALCHANNEL, self).__init__(ns, pref, tag)
 
 
+
 class TRIBUTARYPROTOCOLTYPE(Identity):
     """
     Base identity for protocol framing used by tributary
@@ -218,6 +226,7 @@ class TRIBUTARYPROTOCOLTYPE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:TRIBUTARY_PROTOCOL_TYPE"):
         super(TRIBUTARYPROTOCOLTYPE, self).__init__(ns, pref, tag)
+
 
 
 class CFP2(TRANSCEIVERFORMFACTORTYPE):
@@ -237,6 +246,7 @@ class CFP2(TRANSCEIVERFORMFACTORTYPE):
         super(CFP2, self).__init__(ns, pref, tag)
 
 
+
 class QSFP28(TRANSCEIVERFORMFACTORTYPE):
     """
     QSFP pluggable optic with support for up to 4x28G physical
@@ -251,6 +261,7 @@ class QSFP28(TRANSCEIVERFORMFACTORTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:QSFP28"):
         super(QSFP28, self).__init__(ns, pref, tag)
+
 
 
 class ETH40GBASESR4(ETHERNETPMDTYPE):
@@ -268,6 +279,7 @@ class ETH40GBASESR4(ETHERNETPMDTYPE):
         super(ETH40GBASESR4, self).__init__(ns, pref, tag)
 
 
+
 class ETH10GBASELRM(ETHERNETPMDTYPE):
     """
     Ethernet compliance code\: 10GBASE\_LRM
@@ -281,6 +293,7 @@ class ETH10GBASELRM(ETHERNETPMDTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_10GBASE_LRM"):
         super(ETH10GBASELRM, self).__init__(ns, pref, tag)
+
 
 
 class ETH4X10GBASESR(ETHERNETPMDTYPE):
@@ -298,6 +311,7 @@ class ETH4X10GBASESR(ETHERNETPMDTYPE):
         super(ETH4X10GBASESR, self).__init__(ns, pref, tag)
 
 
+
 class ETH100GAOC(ETHERNETPMDTYPE):
     """
     Ethernet compliance code\: 100G\_AOC
@@ -311,6 +325,7 @@ class ETH100GAOC(ETHERNETPMDTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100G_AOC"):
         super(ETH100GAOC, self).__init__(ns, pref, tag)
+
 
 
 class CFP4(TRANSCEIVERFORMFACTORTYPE):
@@ -329,6 +344,7 @@ class CFP4(TRANSCEIVERFORMFACTORTYPE):
         super(CFP4, self).__init__(ns, pref, tag)
 
 
+
 class SONETUNDEFINED(SONETAPPLICATIONCODE):
     """
     SONET/SDH application code\: undefined
@@ -342,6 +358,7 @@ class SONETUNDEFINED(SONETAPPLICATIONCODE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:SONET_UNDEFINED"):
         super(SONETUNDEFINED, self).__init__(ns, pref, tag)
+
 
 
 class P1L12D2(OTNAPPLICATIONCODE):
@@ -359,6 +376,7 @@ class P1L12D2(OTNAPPLICATIONCODE):
         super(P1L12D2, self).__init__(ns, pref, tag)
 
 
+
 class P1L12D1(OTNAPPLICATIONCODE):
     """
     OTN application code\: P1L1\_2D1
@@ -372,6 +390,7 @@ class P1L12D1(OTNAPPLICATIONCODE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:P1L1_2D1"):
         super(P1L12D1, self).__init__(ns, pref, tag)
+
 
 
 class TRIBRATE10G(TRIBUTARYRATECLASSTYPE):
@@ -389,6 +408,7 @@ class TRIBRATE10G(TRIBUTARYRATECLASSTYPE):
         super(TRIBRATE10G, self).__init__(ns, pref, tag)
 
 
+
 class PROTOTU2E(TRIBUTARYPROTOCOLTYPE):
     """
     OTU 2e protocol
@@ -402,6 +422,7 @@ class PROTOTU2E(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OTU2E"):
         super(PROTOTU2E, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GBASESR4(ETHERNETPMDTYPE):
@@ -419,6 +440,7 @@ class ETH100GBASESR4(ETHERNETPMDTYPE):
         super(ETH100GBASESR4, self).__init__(ns, pref, tag)
 
 
+
 class ETH10GBASEZR(ETHERNETPMDTYPE):
     """
     Ethernet compliance code\: 10GBASE\_ZR
@@ -432,6 +454,7 @@ class ETH10GBASEZR(ETHERNETPMDTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_10GBASE_ZR"):
         super(ETH10GBASEZR, self).__init__(ns, pref, tag)
+
 
 
 class SCCONNECTOR(FIBERCONNECTORTYPE):
@@ -449,6 +472,7 @@ class SCCONNECTOR(FIBERCONNECTORTYPE):
         super(SCCONNECTOR, self).__init__(ns, pref, tag)
 
 
+
 class VSR20003R3(SONETAPPLICATIONCODE):
     """
     SONET/SDH application code\: VSR2000\_3R3
@@ -462,6 +486,7 @@ class VSR20003R3(SONETAPPLICATIONCODE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:VSR2000_3R3"):
         super(VSR20003R3, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GBASEER4(ETHERNETPMDTYPE):
@@ -479,6 +504,7 @@ class ETH100GBASEER4(ETHERNETPMDTYPE):
         super(ETH100GBASEER4, self).__init__(ns, pref, tag)
 
 
+
 class OTNUNDEFINED(OTNAPPLICATIONCODE):
     """
     OTN application code\: undefined
@@ -492,6 +518,7 @@ class OTNUNDEFINED(OTNAPPLICATIONCODE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:OTN_UNDEFINED"):
         super(OTNUNDEFINED, self).__init__(ns, pref, tag)
+
 
 
 class ETH40GBASEER4(ETHERNETPMDTYPE):
@@ -509,6 +536,7 @@ class ETH40GBASEER4(ETHERNETPMDTYPE):
         super(ETH40GBASEER4, self).__init__(ns, pref, tag)
 
 
+
 class PROTODU2E(TRIBUTARYPROTOCOLTYPE):
     """
     ODU 2e protocol
@@ -522,6 +550,7 @@ class PROTODU2E(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_ODU2E"):
         super(PROTODU2E, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GACC(ETHERNETPMDTYPE):
@@ -539,6 +568,7 @@ class ETH100GACC(ETHERNETPMDTYPE):
         super(ETH100GACC, self).__init__(ns, pref, tag)
 
 
+
 class PROTOC768(TRIBUTARYPROTOCOLTYPE):
     """
     OC 768 protocol
@@ -552,6 +582,7 @@ class PROTOC768(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OC768"):
         super(PROTOC768, self).__init__(ns, pref, tag)
+
 
 
 class ETHUNDEFINED(ETHERNETPMDTYPE):
@@ -569,6 +600,7 @@ class ETHUNDEFINED(ETHERNETPMDTYPE):
         super(ETHUNDEFINED, self).__init__(ns, pref, tag)
 
 
+
 class PROT10GEWAN(TRIBUTARYPROTOCOLTYPE):
     """
     10G Ethernet WAN protocol
@@ -582,6 +614,7 @@ class PROT10GEWAN(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_10GE_WAN"):
         super(PROT10GEWAN, self).__init__(ns, pref, tag)
+
 
 
 class ETH40GBASELR4(ETHERNETPMDTYPE):
@@ -599,6 +632,7 @@ class ETH40GBASELR4(ETHERNETPMDTYPE):
         super(ETH40GBASELR4, self).__init__(ns, pref, tag)
 
 
+
 class ETH40GBASEPSM4(ETHERNETPMDTYPE):
     """
     Ethernet compliance code\: 40GBASE\_PSM4
@@ -612,6 +646,7 @@ class ETH40GBASEPSM4(ETHERNETPMDTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_40GBASE_PSM4"):
         super(ETH40GBASEPSM4, self).__init__(ns, pref, tag)
+
 
 
 class TRIBRATE40G(TRIBUTARYRATECLASSTYPE):
@@ -629,6 +664,7 @@ class TRIBRATE40G(TRIBUTARYRATECLASSTYPE):
         super(TRIBRATE40G, self).__init__(ns, pref, tag)
 
 
+
 class VSR20003R2(SONETAPPLICATIONCODE):
     """
     SONET/SDH application code\: VSR2000\_3R2
@@ -642,6 +678,7 @@ class VSR20003R2(SONETAPPLICATIONCODE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:VSR2000_3R2"):
         super(VSR20003R2, self).__init__(ns, pref, tag)
+
 
 
 class PROTSTM16(TRIBUTARYPROTOCOLTYPE):
@@ -659,6 +696,7 @@ class PROTSTM16(TRIBUTARYPROTOCOLTYPE):
         super(PROTSTM16, self).__init__(ns, pref, tag)
 
 
+
 class PROTOTUCN(TRIBUTARYPROTOCOLTYPE):
     """
     OTU Cn protocol
@@ -672,6 +710,7 @@ class PROTOTUCN(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OTUCN"):
         super(PROTOTUCN, self).__init__(ns, pref, tag)
+
 
 
 class CFP2ACO(TRANSCEIVERFORMFACTORTYPE):
@@ -690,6 +729,7 @@ class CFP2ACO(TRANSCEIVERFORMFACTORTYPE):
         super(CFP2ACO, self).__init__(ns, pref, tag)
 
 
+
 class X2(TRANSCEIVERFORMFACTORTYPE):
     """
     10 Gigabit small form factor pluggable transceiver supporting
@@ -704,6 +744,7 @@ class X2(TRANSCEIVERFORMFACTORTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:X2"):
         super(X2, self).__init__(ns, pref, tag)
+
 
 
 class XFP(TRANSCEIVERFORMFACTORTYPE):
@@ -722,6 +763,7 @@ class XFP(TRANSCEIVERFORMFACTORTYPE):
         super(XFP, self).__init__(ns, pref, tag)
 
 
+
 class PROT1GE(TRIBUTARYPROTOCOLTYPE):
     """
     1G Ethernet protocol
@@ -735,6 +777,7 @@ class PROT1GE(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_1GE"):
         super(PROT1GE, self).__init__(ns, pref, tag)
+
 
 
 class VSR20003R5(SONETAPPLICATIONCODE):
@@ -752,6 +795,7 @@ class VSR20003R5(SONETAPPLICATIONCODE):
         super(VSR20003R5, self).__init__(ns, pref, tag)
 
 
+
 class PROT100GE(TRIBUTARYPROTOCOLTYPE):
     """
     100G Ethernet protocol
@@ -765,6 +809,7 @@ class PROT100GE(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_100GE"):
         super(PROT100GE, self).__init__(ns, pref, tag)
+
 
 
 class PROTOTU3(TRIBUTARYPROTOCOLTYPE):
@@ -782,6 +827,7 @@ class PROTOTU3(TRIBUTARYPROTOCOLTYPE):
         super(PROTOTU3, self).__init__(ns, pref, tag)
 
 
+
 class PROTOTU2(TRIBUTARYPROTOCOLTYPE):
     """
     OTU 2 protocol
@@ -795,6 +841,7 @@ class PROTOTU2(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OTU2"):
         super(PROTOTU2, self).__init__(ns, pref, tag)
+
 
 
 class PROTOTU4(TRIBUTARYPROTOCOLTYPE):
@@ -813,6 +860,7 @@ class PROTOTU4(TRIBUTARYPROTOCOLTYPE):
         super(PROTOTU4, self).__init__(ns, pref, tag)
 
 
+
 class PROTETHERNET(LOGICALELEMENTPROTOCOLTYPE):
     """
     Ethernet protocol framing
@@ -826,6 +874,7 @@ class PROTETHERNET(LOGICALELEMENTPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_ETHERNET"):
         super(PROTETHERNET, self).__init__(ns, pref, tag)
+
 
 
 class TRIBRATE100G(TRIBUTARYRATECLASSTYPE):
@@ -843,6 +892,7 @@ class TRIBRATE100G(TRIBUTARYRATECLASSTYPE):
         super(TRIBRATE100G, self).__init__(ns, pref, tag)
 
 
+
 class PROTSTM256(TRIBUTARYPROTOCOLTYPE):
     """
     STM 256 protocol
@@ -856,6 +906,7 @@ class PROTSTM256(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_STM256"):
         super(PROTSTM256, self).__init__(ns, pref, tag)
+
 
 
 class PROTOTN(LOGICALELEMENTPROTOCOLTYPE):
@@ -873,6 +924,7 @@ class PROTOTN(LOGICALELEMENTPROTOCOLTYPE):
         super(PROTOTN, self).__init__(ns, pref, tag)
 
 
+
 class ETH10GBASELR(ETHERNETPMDTYPE):
     """
     Ethernet compliance code\: 10GBASE\_LR
@@ -886,6 +938,7 @@ class ETH10GBASELR(ETHERNETPMDTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_10GBASE_LR"):
         super(ETH10GBASELR, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GBASESR10(ETHERNETPMDTYPE):
@@ -903,6 +956,7 @@ class ETH100GBASESR10(ETHERNETPMDTYPE):
         super(ETH100GBASESR10, self).__init__(ns, pref, tag)
 
 
+
 class ETH4X10GBASELR(ETHERNETPMDTYPE):
     """
     Ethernet compliance code\: 4x10GBASE\_LR
@@ -916,6 +970,7 @@ class ETH4X10GBASELR(ETHERNETPMDTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_4X10GBASE_LR"):
         super(ETH4X10GBASELR, self).__init__(ns, pref, tag)
+
 
 
 class SFPPLUS(TRANSCEIVERFORMFACTORTYPE):
@@ -934,6 +989,7 @@ class SFPPLUS(TRANSCEIVERFORMFACTORTYPE):
         super(SFPPLUS, self).__init__(ns, pref, tag)
 
 
+
 class NONPLUGGABLE(TRANSCEIVERFORMFACTORTYPE):
     """
     Represents a port that does not require a pluggable optic,
@@ -948,6 +1004,7 @@ class NONPLUGGABLE(TRANSCEIVERFORMFACTORTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:NON_PLUGGABLE"):
         super(NONPLUGGABLE, self).__init__(ns, pref, tag)
+
 
 
 class OTHER(TRANSCEIVERFORMFACTORTYPE):
@@ -965,6 +1022,7 @@ class OTHER(TRANSCEIVERFORMFACTORTYPE):
         super(OTHER, self).__init__(ns, pref, tag)
 
 
+
 class PROT10GELAN(TRIBUTARYPROTOCOLTYPE):
     """
     10G Ethernet LAN protocol
@@ -978,6 +1036,7 @@ class PROT10GELAN(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_10GE_LAN"):
         super(PROT10GELAN, self).__init__(ns, pref, tag)
+
 
 
 class PROTOC48(TRIBUTARYPROTOCOLTYPE):
@@ -995,6 +1054,7 @@ class PROTOC48(TRIBUTARYPROTOCOLTYPE):
         super(PROTOC48, self).__init__(ns, pref, tag)
 
 
+
 class P1S12D2(OTNAPPLICATIONCODE):
     """
     OTN application code\: P1S1\_2D2
@@ -1008,6 +1068,7 @@ class P1S12D2(OTNAPPLICATIONCODE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:P1S1_2D2"):
         super(P1S12D2, self).__init__(ns, pref, tag)
+
 
 
 class PROTOC192(TRIBUTARYPROTOCOLTYPE):
@@ -1025,6 +1086,7 @@ class PROTOC192(TRIBUTARYPROTOCOLTYPE):
         super(PROTOC192, self).__init__(ns, pref, tag)
 
 
+
 class ETH100GBASELR4(ETHERNETPMDTYPE):
     """
     Ethernet compliance code\: 100GBASE\_LR4
@@ -1038,6 +1100,7 @@ class ETH100GBASELR4(ETHERNETPMDTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100GBASE_LR4"):
         super(ETH100GBASELR4, self).__init__(ns, pref, tag)
+
 
 
 class TRIBRATE1G(TRIBUTARYRATECLASSTYPE):
@@ -1055,6 +1118,7 @@ class TRIBRATE1G(TRIBUTARYRATECLASSTYPE):
         super(TRIBRATE1G, self).__init__(ns, pref, tag)
 
 
+
 class PROT40GE(TRIBUTARYPROTOCOLTYPE):
     """
     40G Ethernet port protocol
@@ -1070,6 +1134,7 @@ class PROT40GE(TRIBUTARYPROTOCOLTYPE):
         super(PROT40GE, self).__init__(ns, pref, tag)
 
 
+
 class ETH100GBASECLR4(ETHERNETPMDTYPE):
     """
     Ethernet compliance code\: 100GBASE\_CLR4
@@ -1083,6 +1148,7 @@ class ETH100GBASECLR4(ETHERNETPMDTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100GBASE_CLR4"):
         super(ETH100GBASECLR4, self).__init__(ns, pref, tag)
+
 
 
 class QSFP(TRANSCEIVERFORMFACTORTYPE):
@@ -1101,6 +1167,7 @@ class QSFP(TRANSCEIVERFORMFACTORTYPE):
         super(QSFP, self).__init__(ns, pref, tag)
 
 
+
 class MPOCONNECTOR(FIBERCONNECTORTYPE):
     """
     MPO (multi\-fiber push\-on/pull\-off) type fiber connector
@@ -1115,6 +1182,7 @@ class MPOCONNECTOR(FIBERCONNECTORTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:MPO_CONNECTOR"):
         super(MPOCONNECTOR, self).__init__(ns, pref, tag)
+
 
 
 class PROT100GMLG(TRIBUTARYPROTOCOLTYPE):
@@ -1132,6 +1200,7 @@ class PROT100GMLG(TRIBUTARYPROTOCOLTYPE):
         super(PROT100GMLG, self).__init__(ns, pref, tag)
 
 
+
 class TRIBRATE2DOT5G(TRIBUTARYRATECLASSTYPE):
     """
     2.5G tributary signal rate
@@ -1145,6 +1214,7 @@ class TRIBRATE2DOT5G(TRIBUTARYRATECLASSTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:TRIB_RATE_2.5G"):
         super(TRIBRATE2DOT5G, self).__init__(ns, pref, tag)
+
 
 
 class ETH10GBASESR(ETHERNETPMDTYPE):
@@ -1162,6 +1232,7 @@ class ETH10GBASESR(ETHERNETPMDTYPE):
         super(ETH10GBASESR, self).__init__(ns, pref, tag)
 
 
+
 class ETH100GBASECWDM4(ETHERNETPMDTYPE):
     """
     Ethernet compliance code\: 100GBASE\_CWDM4
@@ -1175,6 +1246,7 @@ class ETH100GBASECWDM4(ETHERNETPMDTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100GBASE_CWDM4"):
         super(ETH100GBASECWDM4, self).__init__(ns, pref, tag)
+
 
 
 class SFP(TRANSCEIVERFORMFACTORTYPE):
@@ -1193,6 +1265,7 @@ class SFP(TRANSCEIVERFORMFACTORTYPE):
         super(SFP, self).__init__(ns, pref, tag)
 
 
+
 class ETH100GBASEPSM4(ETHERNETPMDTYPE):
     """
     Ethernet compliance code\: 100GBASE\_PSM4
@@ -1206,6 +1279,7 @@ class ETH100GBASEPSM4(ETHERNETPMDTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:ETH_100GBASE_PSM4"):
         super(ETH100GBASEPSM4, self).__init__(ns, pref, tag)
+
 
 
 class ETH40GBASECR4(ETHERNETPMDTYPE):
@@ -1223,6 +1297,7 @@ class ETH40GBASECR4(ETHERNETPMDTYPE):
         super(ETH40GBASECR4, self).__init__(ns, pref, tag)
 
 
+
 class PROTODU3(TRIBUTARYPROTOCOLTYPE):
     """
     ODU 3 protocol
@@ -1236,6 +1311,7 @@ class PROTODU3(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_ODU3"):
         super(PROTODU3, self).__init__(ns, pref, tag)
+
 
 
 class PROTODU2(TRIBUTARYPROTOCOLTYPE):
@@ -1253,6 +1329,7 @@ class PROTODU2(TRIBUTARYPROTOCOLTYPE):
         super(PROTODU2, self).__init__(ns, pref, tag)
 
 
+
 class PROTODU4(TRIBUTARYPROTOCOLTYPE):
     """
     ODU 4 protocol
@@ -1266,6 +1343,7 @@ class PROTODU4(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_ODU4"):
         super(PROTODU4, self).__init__(ns, pref, tag)
+
 
 
 class ETH100GBASECR4(ETHERNETPMDTYPE):
@@ -1283,6 +1361,7 @@ class ETH100GBASECR4(ETHERNETPMDTYPE):
         super(ETH100GBASECR4, self).__init__(ns, pref, tag)
 
 
+
 class LCCONNECTOR(FIBERCONNECTORTYPE):
     """
     LC type fiber connector
@@ -1296,6 +1375,7 @@ class LCCONNECTOR(FIBERCONNECTORTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:LC_CONNECTOR"):
         super(LCCONNECTOR, self).__init__(ns, pref, tag)
+
 
 
 class PROTSTM64(TRIBUTARYPROTOCOLTYPE):
@@ -1313,6 +1393,7 @@ class PROTSTM64(TRIBUTARYPROTOCOLTYPE):
         super(PROTSTM64, self).__init__(ns, pref, tag)
 
 
+
 class PROTOTU1E(TRIBUTARYPROTOCOLTYPE):
     """
     OTU 1e protocol
@@ -1326,6 +1407,7 @@ class PROTOTU1E(TRIBUTARYPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:PROT_OTU1E"):
         super(PROTOTU1E, self).__init__(ns, pref, tag)
+
 
 
 class ETH10GBASEER(ETHERNETPMDTYPE):
@@ -1343,6 +1425,7 @@ class ETH10GBASEER(ETHERNETPMDTYPE):
         super(ETH10GBASEER, self).__init__(ns, pref, tag)
 
 
+
 class CFP(TRANSCEIVERFORMFACTORTYPE):
     """
     C form\-factor pluggable, that can support up to a
@@ -1357,5 +1440,6 @@ class CFP(TRANSCEIVERFORMFACTORTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/transport-types", pref="openconfig-transport-types", tag="openconfig-transport-types:CFP"):
         super(CFP, self).__init__(ns, pref, tag)
+
 
 

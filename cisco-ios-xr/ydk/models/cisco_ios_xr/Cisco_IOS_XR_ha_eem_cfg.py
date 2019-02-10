@@ -328,6 +328,8 @@ class EventManager(Entity):
                 self._perform_setattr(EventManager.Policies.Policy, ['policy_name', 'username', 'persist_time', 'policy_type', 'checksum_type', 'check_sum_value', 'policy_security_mode', 'policy_security_level'], name, value)
 
 
+
+
     class SchedulerScript(Entity):
         """
         scheduler classs type
@@ -452,6 +454,9 @@ class EventManager(Entity):
                     self._perform_setattr(EventManager.SchedulerScript.ThreadClasses.ThreadClass, ['thread_class_name', 'num_threads'], name, value)
 
 
+
+
+
     class Environments(Entity):
         """
         Set an event manager global variable for event
@@ -536,7 +541,11 @@ class EventManager(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(EventManager.Environments.Environment, ['environment_name', 'environment_value'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = EventManager()
         return self._top_entity
+
+
 

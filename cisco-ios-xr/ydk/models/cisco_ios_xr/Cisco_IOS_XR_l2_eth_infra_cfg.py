@@ -243,6 +243,7 @@ class EthernetFeatures(Entity):
             self._perform_setattr(EthernetFeatures.EgressFiltering, [u'egress_filtering_default_on'], name, value)
 
 
+
     class Cfm(Entity):
         """
         CFM global configuration
@@ -348,6 +349,7 @@ class EthernetFeatures(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EthernetFeatures.Cfm.TracerouteCache, ['hold_time', 'cache_size'], name, value)
+
 
 
         class Domains(Entity):
@@ -698,6 +700,7 @@ class EthernetFeatures(Entity):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2, ['enable', 'protection_switching_enable'], name, value)
 
 
+
                         class ContinuityCheckInterval(Entity):
                             """
                             Continuity Check Interval and Loss
@@ -750,6 +753,7 @@ class EthernetFeatures(Entity):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval, ['ccm_interval', 'loss_threshold'], name, value)
 
 
+
                         class MipAutoCreation(Entity):
                             """
                             MIP Auto\-creation Policy
@@ -796,6 +800,7 @@ class EthernetFeatures(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation, ['mip_policy', 'ccm_learning_enable'], name, value)
+
 
 
                         class Ais(Entity):
@@ -882,6 +887,8 @@ class EthernetFeatures(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission, ['ais_interval', 'cos'], name, value)
+
+
 
 
                         class CrossCheck(Entity):
@@ -1017,6 +1024,9 @@ class EthernetFeatures(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep, ['mep_id', 'enable_mac_address', 'mac_address'], name, value)
+
+
+
 
 
                         class ServiceProperties(Entity):
@@ -1163,6 +1173,9 @@ class EthernetFeatures(Entity):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties, ['service_type', 'group_name', 'switching_name', 'ce_id', 'remote_ce_id', 'evi', 'short_ma_name_format', 'short_ma_name_string', 'short_ma_name_number', 'short_ma_name_oui', 'short_ma_name_vpn_index', 'short_ma_name_icc', 'short_ma_name_umc'], name, value)
 
 
+
+
+
                 class DomainProperties(Entity):
                     """
                     Fundamental properties of the domain
@@ -1233,6 +1246,10 @@ class EthernetFeatures(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.DomainProperties, ['level', 'mdid_format', 'mdid_mac_address', 'mdid_number', 'mdid_string'], name, value)
+
+
+
+
 
 
     class EtherLinkOam(Entity):
@@ -1518,6 +1535,7 @@ class EthernetFeatures(Entity):
                         self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.Action, ['dying_gasp', 'session_up', 'critical_event', 'session_down', 'discovery_timeout', 'high_threshold', 'capabilities_conflict', 'remote_loopback', 'link_fault', 'wiring_conflict'], name, value)
 
 
+
                 class RequireRemote(Entity):
                     """
                     Configure remote requirement parameters
@@ -1573,6 +1591,7 @@ class EthernetFeatures(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote, ['mib_retrieval', 'mode', 'remote_loopback', 'link_monitoring'], name, value)
+
 
 
                 class LinkMonitoring(Entity):
@@ -1756,6 +1775,7 @@ class EthernetFeatures(Entity):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window, ['window', 'units', 'multiplier'], name, value)
 
 
+
                         class Threshold(Entity):
                             """
                             Threshold configuration for symbol\-period
@@ -1829,6 +1849,8 @@ class EthernetFeatures(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold, ['threshold_low', 'threshold_high', 'units', 'multiplier_low', 'multiplier_high'], name, value)
+
+
 
 
                     class FramePeriod(Entity):
@@ -1940,6 +1962,7 @@ class EthernetFeatures(Entity):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window, ['window', 'units', 'multiplier'], name, value)
 
 
+
                         class Threshold(Entity):
                             """
                             Threshold configuration for frame\-period
@@ -2013,6 +2036,8 @@ class EthernetFeatures(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold, ['threshold_low', 'threshold_high', 'units', 'multiplier_low', 'multiplier_high'], name, value)
+
+
 
 
                     class FrameSeconds(Entity):
@@ -2118,6 +2143,8 @@ class EthernetFeatures(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold, ['threshold_low', 'threshold_high'], name, value)
+
+
 
 
                     class Frame(Entity):
@@ -2235,7 +2262,15 @@ class EthernetFeatures(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold, ['threshold_low', 'threshold_high', 'multiplier_low', 'multiplier_high'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = EthernetFeatures()
         return self._top_entity
+
+
 

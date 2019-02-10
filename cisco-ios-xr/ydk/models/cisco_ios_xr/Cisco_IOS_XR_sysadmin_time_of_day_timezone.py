@@ -102,9 +102,12 @@ class Clock(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Clock.Timezone, ['tzname', 'area'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Clock()
         return self._top_entity
+
+
 
 class Trace(Entity):
     """
@@ -115,10 +118,14 @@ class Trace(Entity):
     	
     	**type**\:  :py:class:`TimezoneConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_time_of_day_timezone.Trace.TimezoneConfig>`
     
+    	**config**\: False
+    
     .. attribute:: timezone_notify
     
     	
     	**type**\:  :py:class:`TimezoneNotify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_time_of_day_timezone.Trace.TimezoneNotify>`
+    
+    	**config**\: False
     
     
 
@@ -162,6 +169,8 @@ class Trace(Entity):
         	show traceable processes
         	**type**\: list of  		 :py:class:`Trace_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_time_of_day_timezone.Trace.TimezoneConfig.Trace_>`
         
+        	**config**\: False
+        
         
 
         """
@@ -198,10 +207,14 @@ class Trace(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_time_of_day_timezone.Trace.TimezoneConfig.Trace_.Location>`
+            
+            	**config**\: False
             
             
 
@@ -242,10 +255,14 @@ class Trace(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: all_options
                 
                 	
                 	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_time_of_day_timezone.Trace.TimezoneConfig.Trace_.Location.AllOptions>`
+                
+                	**config**\: False
                 
                 
 
@@ -285,10 +302,14 @@ class Trace(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: trace_blocks
                     
                     	
                     	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_time_of_day_timezone.Trace.TimezoneConfig.Trace_.Location.AllOptions.TraceBlocks>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -328,6 +349,8 @@ class Trace(Entity):
                         	Trace output block
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -355,6 +378,11 @@ class Trace(Entity):
                             self._perform_setattr(Trace.TimezoneConfig.Trace_.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
+
+
+
+
+
     class TimezoneNotify(Entity):
         """
         
@@ -363,6 +391,8 @@ class Trace(Entity):
         
         	show traceable processes
         	**type**\: list of  		 :py:class:`Trace_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_time_of_day_timezone.Trace.TimezoneNotify.Trace_>`
+        
+        	**config**\: False
         
         
 
@@ -400,10 +430,14 @@ class Trace(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_time_of_day_timezone.Trace.TimezoneNotify.Trace_.Location>`
+            
+            	**config**\: False
             
             
 
@@ -444,10 +478,14 @@ class Trace(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: all_options
                 
                 	
                 	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_time_of_day_timezone.Trace.TimezoneNotify.Trace_.Location.AllOptions>`
+                
+                	**config**\: False
                 
                 
 
@@ -487,10 +525,14 @@ class Trace(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: trace_blocks
                     
                     	
                     	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_time_of_day_timezone.Trace.TimezoneNotify.Trace_.Location.AllOptions.TraceBlocks>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -530,6 +572,8 @@ class Trace(Entity):
                         	Trace output block
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -556,7 +600,14 @@ class Trace(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Trace.TimezoneNotify.Trace_.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Trace()
         return self._top_entity
+
+
 

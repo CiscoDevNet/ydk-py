@@ -49,10 +49,14 @@ class NodeInventory(Entity):
     	System Admin Manager Node Inventory. All accesses are  read\-only. CLI show command looks like show node\-inventory location <location>
     	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.NodeInventory.Summary>`
     
+    	**config**\: False
+    
     .. attribute:: detail
     
     	System Admin Manager Node Inventory. All accesses are  read\-only. CLI show command looks like show node\-inventory location <location>
     	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.NodeInventory.Detail>`
+    
+    	**config**\: False
     
     
 
@@ -98,6 +102,8 @@ class NodeInventory(Entity):
         	
         	**type**\: list of  		 :py:class:`NodeLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.NodeInventory.Summary.NodeLocations>`
         
+        	**config**\: False
+        
         
 
         """
@@ -136,10 +142,14 @@ class NodeInventory(Entity):
             
             	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
             
+            	**config**\: False
+            
             .. attribute:: nodei
             
             	
             	**type**\: list of  		 :py:class:`Nodei <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.NodeInventory.Summary.NodeLocations.Nodei>`
+            
+            	**config**\: False
             
             
 
@@ -188,10 +198,14 @@ class NodeInventory(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	Node Type
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: mac_address
                 
@@ -200,10 +214,14 @@ class NodeInventory(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: card_serial
                 
                 	Card serial# the node belongs to
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: nti
                 
@@ -211,6 +229,8 @@ class NodeInventory(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -247,6 +267,9 @@ class NodeInventory(Entity):
                     self._perform_setattr(NodeInventory.Summary.NodeLocations.Nodei, ['ip_address', 'type', 'mac_address', 'card_serial', 'nti'], name, value)
 
 
+
+
+
     class Detail(Entity):
         """
         System Admin Manager Node Inventory. All accesses are 
@@ -257,6 +280,8 @@ class NodeInventory(Entity):
         
         	
         	**type**\: list of  		 :py:class:`NodeLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.NodeInventory.Detail.NodeLocations>`
+        
+        	**config**\: False
         
         
 
@@ -296,10 +321,14 @@ class NodeInventory(Entity):
             
             	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
             
+            	**config**\: False
+            
             .. attribute:: nodei
             
             	
             	**type**\: list of  		 :py:class:`Nodei <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.NodeInventory.Detail.NodeLocations.Nodei>`
+            
+            	**config**\: False
             
             
 
@@ -348,10 +377,14 @@ class NodeInventory(Entity):
                 
                 			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	Node Type
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: mac_address
                 
@@ -360,10 +393,14 @@ class NodeInventory(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: card_serial
                 
                 	Card serial# the node belongs to
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: nti
                 
@@ -372,20 +409,28 @@ class NodeInventory(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: restart
                 
                 	Node in Restart
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: data
                 
                 	Node Data
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: sdr
                 
                 	SDR Name the node belongs to
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -427,9 +472,14 @@ class NodeInventory(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NodeInventory.Detail.NodeLocations.Nodei, ['ip_address', 'type', 'mac_address', 'card_serial', 'nti', 'restart', 'data', 'sdr'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = NodeInventory()
         return self._top_entity
+
+
 
 class CardInventory(Entity):
     """
@@ -441,6 +491,8 @@ class CardInventory(Entity):
     
     	
     	**type**\: list of  		 :py:class:`CardLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.CardInventory.CardLocations>`
+    
+    	**config**\: False
     
     
 
@@ -480,10 +532,14 @@ class CardInventory(Entity):
         
         	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
+        	**config**\: False
+        
         .. attribute:: cardi
         
         	
         	**type**\: list of  		 :py:class:`Cardi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.CardInventory.CardLocations.Cardi>`
+        
+        	**config**\: False
         
         
 
@@ -524,25 +580,35 @@ class CardInventory(Entity):
             	Serial Number of the Card
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: node_id
             
             	Node name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: card_type
             
             	Card Type
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: hw_state
             
             	Card State
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: sw_state
             
             	Card Software State
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: slot
             
@@ -551,12 +617,16 @@ class CardInventory(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cti
             
             	Card CTI
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -596,9 +666,13 @@ class CardInventory(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CardInventory.CardLocations.Cardi, ['card_serial', 'node_id', 'card_type', 'hw_state', 'sw_state', 'slot', 'cti'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CardInventory()
         return self._top_entity
+
+
 
 class RackInventory(Entity):
     """
@@ -608,6 +682,8 @@ class RackInventory(Entity):
     
     	
     	**type**\: list of  		 :py:class:`RackLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.RackInventory.RackLocations>`
+    
+    	**config**\: False
     
     
 
@@ -647,10 +723,14 @@ class RackInventory(Entity):
         
         	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
+        	**config**\: False
+        
         .. attribute:: racki
         
         	
         	**type**\: list of  		 :py:class:`Racki <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.RackInventory.RackLocations.Racki>`
+        
+        	**config**\: False
         
         
 
@@ -691,6 +771,8 @@ class RackInventory(Entity):
             	Serial Number of the Rack
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: rack_number
             
             	Rack Number
@@ -698,12 +780,16 @@ class RackInventory(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: rack_state
             
             	Rack State
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             
 
@@ -735,9 +821,13 @@ class RackInventory(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RackInventory.RackLocations.Racki, ['rack_serial', 'rack_number', 'rack_state'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = RackInventory()
         return self._top_entity
+
+
 
 class SystemServiceInventory(Entity):
     """
@@ -747,6 +837,8 @@ class SystemServiceInventory(Entity):
     
     	
     	**type**\: list of  		 :py:class:`SsvcLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.SystemServiceInventory.SsvcLocations>`
+    
+    	**config**\: False
     
     
 
@@ -786,10 +878,14 @@ class SystemServiceInventory(Entity):
         
         	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
+        	**config**\: False
+        
         .. attribute:: ssvci
         
         	
         	**type**\: list of  		 :py:class:`Ssvci <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.SystemServiceInventory.SsvcLocations.Ssvci>`
+        
+        	**config**\: False
         
         
 
@@ -830,25 +926,35 @@ class SystemServiceInventory(Entity):
             	Service Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: placement_first
             
             	Serial Number of the first card selected
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: nodeid_first
             
             	Node id of the first card selected
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: placement_second
             
             	Serial Number of the second card selected
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: nodeid_second
             
             	Node id of the second card selected
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: svc_load
             
@@ -856,6 +962,8 @@ class SystemServiceInventory(Entity):
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -893,9 +1001,13 @@ class SystemServiceInventory(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SystemServiceInventory.SsvcLocations.Ssvci, ['svc_name', 'placement_first', 'nodeid_first', 'placement_second', 'nodeid_second', 'svc_load'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = SystemServiceInventory()
         return self._top_entity
+
+
 
 class RackServiceInventory(Entity):
     """
@@ -905,6 +1017,8 @@ class RackServiceInventory(Entity):
     
     	
     	**type**\: list of  		 :py:class:`RsvcLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.RackServiceInventory.RsvcLocations>`
+    
+    	**config**\: False
     
     
 
@@ -944,10 +1058,14 @@ class RackServiceInventory(Entity):
         
         	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
+        	**config**\: False
+        
         .. attribute:: rsvci
         
         	
         	**type**\: list of  		 :py:class:`Rsvci <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.RackServiceInventory.RsvcLocations.Rsvci>`
+        
+        	**config**\: False
         
         
 
@@ -988,25 +1106,35 @@ class RackServiceInventory(Entity):
             	Service Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: placement_first
             
             	Serial Number of the first card selected
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: nodeid_first
             
             	Node id of the first card selected
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: placement_second
             
             	Serial Number of the second card selected
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: nodeid_second
             
             	Node id of the second card selected
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: svc_load
             
@@ -1014,6 +1142,8 @@ class RackServiceInventory(Entity):
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -1051,9 +1181,13 @@ class RackServiceInventory(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(RackServiceInventory.RsvcLocations.Rsvci, ['svc_name', 'placement_first', 'nodeid_first', 'placement_second', 'nodeid_second', 'svc_load'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = RackServiceInventory()
         return self._top_entity
+
+
 
 class SdrInventory(Entity):
     """
@@ -1063,6 +1197,8 @@ class SdrInventory(Entity):
     
     	
     	**type**\: list of  		 :py:class:`SdrLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.SdrInventory.SdrLocations>`
+    
+    	**config**\: False
     
     
 
@@ -1102,10 +1238,14 @@ class SdrInventory(Entity):
         
         	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
+        	**config**\: False
+        
         .. attribute:: sdri
         
         	
         	**type**\: list of  		 :py:class:`Sdri <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.SdrInventory.SdrLocations.Sdri>`
+        
+        	**config**\: False
         
         
 
@@ -1146,12 +1286,16 @@ class SdrInventory(Entity):
             	SDR NAME
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: sdr_id
             
             	SDR ID
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: sdr_vlan_baseid
             
@@ -1160,12 +1304,16 @@ class SdrInventory(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: sdr_version
             
             	SDR Image Version
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -1199,9 +1347,13 @@ class SdrInventory(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SdrInventory.SdrLocations.Sdri, ['sdr_name', 'sdr_id', 'sdr_vlan_baseid', 'sdr_version'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = SdrInventory()
         return self._top_entity
+
+
 
 class LeaderStatistics(Entity):
     """
@@ -1211,6 +1363,8 @@ class LeaderStatistics(Entity):
     
     	
     	**type**\: list of  		 :py:class:`LdrLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.LeaderStatistics.LdrLocations>`
+    
+    	**config**\: False
     
     
 
@@ -1250,35 +1404,49 @@ class LeaderStatistics(Entity):
         
         	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
+        	**config**\: False
+        
         .. attribute:: syslead
         
         	Primary System Leader
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: bkup_syslead
         
         	Backup System Leader
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: racklead
         
         	Primary Rack Leader
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: bkup_racklead
         
         	Backup Rack Leader
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: l1_dis
         
         	L1 DIS
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: l2_dis
         
         	L2 DIS
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -1319,9 +1487,12 @@ class LeaderStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(LeaderStatistics.LdrLocations, ['ldr_location', 'syslead', 'bkup_syslead', 'racklead', 'bkup_racklead', 'l1_dis', 'l2_dis'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = LeaderStatistics()
         return self._top_entity
+
+
 
 class TopologyNeighbors(Entity):
     """
@@ -1331,6 +1502,8 @@ class TopologyNeighbors(Entity):
     
     	
     	**type**\: list of  		 :py:class:`NbrLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.TopologyNeighbors.NbrLocations>`
+    
+    	**config**\: False
     
     
 
@@ -1370,10 +1543,14 @@ class TopologyNeighbors(Entity):
         
         	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
+        	**config**\: False
+        
         .. attribute:: nbri
         
         	
         	**type**\: list of  		 :py:class:`Nbri <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.TopologyNeighbors.NbrLocations.Nbri>`
+        
+        	**config**\: False
         
         
 
@@ -1414,20 +1591,28 @@ class TopologyNeighbors(Entity):
             	Neighbor System ID
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: nbr_area_type  (key)
             
             	Neighbor Area Type
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: nbr_interface
             
             	Adjacency Interface
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: nbr_state
             
             	Neighbor State
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: nbr_holdtime
             
@@ -1436,10 +1621,14 @@ class TopologyNeighbors(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: nbr_uptime
             
             	Neighbor Up Time
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1477,9 +1666,13 @@ class TopologyNeighbors(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(TopologyNeighbors.NbrLocations.Nbri, ['nbr_system_id', 'nbr_area_type', 'nbr_interface', 'nbr_state', 'nbr_holdtime', 'nbr_uptime'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = TopologyNeighbors()
         return self._top_entity
+
+
 
 class Placement(Entity):
     """
@@ -1509,4 +1702,6 @@ class Placement(Entity):
     def clone_ptr(self):
         self._top_entity = Placement()
         return self._top_entity
+
+
 

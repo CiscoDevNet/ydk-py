@@ -236,6 +236,8 @@ class Fib(Entity):
                 self._perform_setattr(Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback, ['forward_class_number', 'fallback_type', 'fallback_class_number_array'], name, value)
 
 
+
+
     class Platform(Entity):
         """
         FIB platform parameters
@@ -314,7 +316,11 @@ class Fib(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Fib.Platform.LabelSwitchedMulticast, ['frr_holdtime'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Fib()
         return self._top_entity
+
+
 

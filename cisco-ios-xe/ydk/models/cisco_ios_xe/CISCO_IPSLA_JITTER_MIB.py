@@ -32,10 +32,14 @@ class CISCOIPSLAJITTERMIB(Entity):
     	A table that contains UDP jitter template specific definitions
     	**type**\:  :py:class:`CipslaUdpJitterTmplTable <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable>`
     
+    	**config**\: False
+    
     .. attribute:: cipslaicmpjittertmpltable
     
     	A table that contains ICMP jitter template specific definitions
     	**type**\:  :py:class:`CipslaIcmpJitterTmplTable <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable>`
+    
+    	**config**\: False
     
     
 
@@ -79,6 +83,8 @@ class CISCOIPSLAJITTERMIB(Entity):
         	A row entry representing an IPSLA UDP jitter template
         	**type**\: list of  		 :py:class:`CipslaUdpJitterTmplEntry <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry>`
         
+        	**config**\: False
+        
         
 
         """
@@ -117,6 +123,8 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: cipslaudpjittertmpldescription
             
             	A string which provides description of UDP Jitter template
@@ -124,10 +132,14 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: cipslaudpjittertmplcontrolenable
             
             	If this object is enabled, then the IP SLA application will send control messages to a responder, residing on the target router to respond to the data request packets being sent by the source router
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cipslaudpjittertmpltimeout
             
@@ -136,6 +148,8 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 0..604800000
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: cipslaudpjittertmplverifydata
@@ -143,10 +157,14 @@ class CISCOIPSLAJITTERMIB(Entity):
             	When set to true, the resulting data in each IP SLA operation is compared with the expected data.  This includes checking header information (if possible) and exact packet size
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cipslaudpjittertmplcodectype
             
             	Specifies the codec type to be used with UDP jitter operation.  If codec\-type is configured the following parameters cannot be  configured. cipslaUdpJitterReqDataSize cipslaUdpJitterInterval cipslaUdpJitterNumPkts
             	**type**\:  :py:class:`IpSlaCodecType <ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB.IpSlaCodecType>`
+            
+            	**config**\: False
             
             .. attribute:: cipslaudpjittertmplcodecinterval
             
@@ -154,6 +172,8 @@ class CISCOIPSLAJITTERMIB(Entity):
             	**type**\: int
             
             	**range:** 4..60000
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -164,6 +184,8 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 0..16384
             
+            	**config**\: False
+            
             	**units**\: octets
             
             .. attribute:: cipslaudpjittertmplcodecnumpkts
@@ -172,6 +194,8 @@ class CISCOIPSLAJITTERMIB(Entity):
             	**type**\: int
             
             	**range:** 1..60000
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -182,6 +206,8 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 4..60000
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: cipslaudpjittertmplnumpkts
@@ -191,12 +217,16 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 1..60000
             
+            	**config**\: False
+            
             	**units**\: packets
             
             .. attribute:: cipslaudpjittertmplsrcaddrtype
             
             	An enumerated value which specifies the IP address type of the source. It must be used along with the cipslaUdpJitterTmplSrcAddr object
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cipslaudpjittertmplsrcaddr
             
@@ -205,6 +235,8 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cipslaudpjittertmplsrcport
             
             	This object represents the source's port number. If this object is not specified, the application will get a port allocated by the system
@@ -212,10 +244,14 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: cipslaudpjittertmplprecision
             
             	This object specifies the accuracy of jitter statistics in rttMonJitterStatsTable that needs to be calculated. milliseconds(1) \- The accuracy of stats will be of milliseconds. microseconds(2) \- The accuracy of stats will be in microseconds
             	**type**\:  :py:class:`CipslaUdpJitterTmplPrecision <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry.CipslaUdpJitterTmplPrecision>`
+            
+            	**config**\: False
             
             .. attribute:: cipslaudpjittertmplreqdatasize
             
@@ -224,12 +260,16 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 16..65024
             
+            	**config**\: False
+            
             	**units**\: octets
             
             .. attribute:: cipslaudpjittertmplpktpriority
             
             	This object specifies the priority that will be assigned to operation packet.  normal(1) \- The packet is of normal priority. high(2)   \- The packet is of high priority
             	**type**\:  :py:class:`CipslaUdpJitterTmplPktPriority <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry.CipslaUdpJitterTmplPktPriority>`
+            
+            	**config**\: False
             
             .. attribute:: cipslaudpjittertmpltos
             
@@ -238,6 +278,8 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cipslaudpjittertmplvrfname
             
             	This field is used to specify the VRF name in which the IP SLA operation will be used. For regular IP SLA operation this field should not be configured. The agent will use this field to identify the VPN routing table for this operation
@@ -245,12 +287,16 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: cipslaudpjittertmplthreshold
             
             	This object defines an administrative threshold limit. If the IP SLA operation time exceeds this limit, then one threshold crossing occurrence will be counted
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -261,6 +307,8 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 0..100000
             
+            	**config**\: False
+            
             	**units**\: microseconds
             
             .. attribute:: cipslaudpjittertmplntptolpct
@@ -270,10 +318,14 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 0..100
             
+            	**config**\: False
+            
             .. attribute:: cipslaudpjittertmplntptoltype
             
             	This object specifies whether the value specified for oneway NTP sync tolerance is absolute value or percent value.  percent(1)  \- The value for oneway NTP sync tolerance is                absolute value. absolute(2) \- The value for oneway NTP sync tolerance is                percent value
             	**type**\:  :py:class:`CipslaUdpJitterTmplNTPTolType <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry.CipslaUdpJitterTmplNTPTolType>`
+            
+            	**config**\: False
             
             .. attribute:: cipslaudpjittertmplicpiffactor
             
@@ -282,12 +334,16 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 0..20
             
+            	**config**\: False
+            
             .. attribute:: cipslaudpjittertmplstatshours
             
             	The maximum number of hours for which statistics are maintained. Specifically this is the number of hourly groups to keep before rolling over.  The value of one is not advisable because the hourly group will close and immediately be deleted before the network management station will have the opportunity to retrieve the statistics.  The value of zero will shut off data collection
             	**type**\: int
             
             	**range:** 0..25
+            
+            	**config**\: False
             
             	**units**\: hours
             
@@ -298,12 +354,16 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 1..20
             
+            	**config**\: False
+            
             .. attribute:: cipslaudpjittertmpldistinterval
             
             	The statistical distribution buckets interval.  Distribution Bucket Example\:  cipslaUdpJitterTmplDistBuckets = 5 buckets cipslaUdpJitterTmplDistInterval = 10 milliseconds  \| Bucket 1 \| Bucket 2 \| Bucket 3 \| Bucket 4 \| Bucket 5  \| \|  0\-9 ms  \| 10\-19 ms \| 20\-29 ms \| 30\-39 ms \| 40\-Inf ms \|  Odd Example\:  cipslaUdpJitterTmplDistBuckets = 1 buckets cipslaUdpJitterTmplDistInterval = 10 milliseconds  \| Bucket 1  \| \|  0\-Inf ms \|  Thus, this odd example shows that the value of cipslaUdpJitterTmplDistInterval does not apply when cipslaUdpJitterTmplDistBuckets is one
             	**type**\: int
             
             	**range:** 1..100
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -312,10 +372,14 @@ class CISCOIPSLAJITTERMIB(Entity):
             	The storage type of this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: cipslaudpjittertmplrowstatus
             
             	The status of the conceptual UDP Jitter template control row. When the status is active, all the read\-create objects in that  row can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -474,6 +538,8 @@ class CISCOIPSLAJITTERMIB(Entity):
 
 
 
+
+
     class CipslaIcmpJitterTmplTable(Entity):
         """
         A table that contains ICMP jitter template specific definitions.
@@ -482,6 +548,8 @@ class CISCOIPSLAJITTERMIB(Entity):
         
         	A row entry representing an IP SLA ICMP Jitter template
         	**type**\: list of  		 :py:class:`CipslaIcmpJitterTmplEntry <ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB.CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable.CipslaIcmpJitterTmplEntry>`
+        
+        	**config**\: False
         
         
 
@@ -521,12 +589,16 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**length:** 1..64
             
+            	**config**\: False
+            
             .. attribute:: cipslaicmpjittertmpldescription
             
             	A string which provides description of ICMP Jitter template
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             .. attribute:: cipslaicmpjittertmpltimeout
             
@@ -535,6 +607,8 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 0..604800000
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: cipslaicmpjittertmplverifydata
@@ -542,12 +616,16 @@ class CISCOIPSLAJITTERMIB(Entity):
             	When set to true, the resulting data in each IP SLA operation is compared with the expected data.  This includes checking header information (if possible) and exact packet size
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cipslaicmpjittertmplnumpkts
             
             	This value represents the number of packets that need to be transmitted
             	**type**\: int
             
             	**range:** 1..60000
+            
+            	**config**\: False
             
             	**units**\: packets
             
@@ -558,12 +636,16 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 4..60000
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: cipslaicmpjittertmplsrcaddrtype
             
             	An enumerated value which specifies the IP address type of the source. It must be used along with the cipslaIcmpJitterTmplSrcAddr object
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cipslaicmpjittertmplsrcaddr
             
@@ -572,12 +654,16 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cipslaicmpjittertmpltos
             
             	This object represents the type of service octet in an IP header
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: cipslaicmpjittertmplvrfname
             
@@ -586,12 +672,16 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: cipslaicmpjittertmplthreshold
             
             	This object defines an administrative threshold limit. If the IP SLA operation time exceeds this limit, then  one threshold crossing occurrence will be counted
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -602,6 +692,8 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 0..25
             
+            	**config**\: False
+            
             	**units**\: hours
             
             .. attribute:: cipslaicmpjittertmpldistbuckets
@@ -611,12 +703,16 @@ class CISCOIPSLAJITTERMIB(Entity):
             
             	**range:** 1..20
             
+            	**config**\: False
+            
             .. attribute:: cipslaicmpjittertmpldistinterval
             
             	The statistical distribution buckets interval.  Distribution Bucket Example\:  cipslaIcmpJitterTmplDistBuckets = 5 buckets cipslaIcmpJitterTmplDistInterval = 10 milliseconds  \| Bucket 1 \| Bucket 2 \| Bucket 3 \| Bucket 4 \| Bucket 5  \| \|  0\-9 ms  \| 10\-19 ms \| 20\-29 ms \| 30\-39 ms \| 40\-Inf ms \|  Odd Example\:  cipslaIcmpJitterTmplDistBuckets = 1 buckets cipslaIcmpJitterTmplDistInterval = 10 milliseconds  \| Bucket 1  \| \|  0\-Inf ms \|  Thus, this odd example shows that the value of cipslaIcmpJitterTmplDistInterval does not apply when cipslaIcmpJitterTmplDistBuckets is one
             	**type**\: int
             
             	**range:** 1..100
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -625,10 +721,14 @@ class CISCOIPSLAJITTERMIB(Entity):
             	The storage type of this conceptual row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: cipslaicmpjittertmplrowstatus
             
             	The status of the conceptual ICMP jitter template control row. When the status is active, all the read\-create objects in  that row can be modified
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -687,7 +787,11 @@ class CISCOIPSLAJITTERMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable.CipslaIcmpJitterTmplEntry, ['cipslaicmpjittertmplname', 'cipslaicmpjittertmpldescription', 'cipslaicmpjittertmpltimeout', 'cipslaicmpjittertmplverifydata', 'cipslaicmpjittertmplnumpkts', 'cipslaicmpjittertmplinterval', 'cipslaicmpjittertmplsrcaddrtype', 'cipslaicmpjittertmplsrcaddr', 'cipslaicmpjittertmpltos', 'cipslaicmpjittertmplvrfname', 'cipslaicmpjittertmplthreshold', 'cipslaicmpjittertmplstatshours', 'cipslaicmpjittertmpldistbuckets', 'cipslaicmpjittertmpldistinterval', 'cipslaicmpjittertmplstoragetype', 'cipslaicmpjittertmplrowstatus'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOIPSLAJITTERMIB()
         return self._top_entity
+
+
 

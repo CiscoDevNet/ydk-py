@@ -99,6 +99,8 @@ class CfgHistGl(Entity):
     	History summary information for a specific type of history
     	**type**\: list of  		 :py:class:`RecordType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType>`
     
+    	**config**\: False
+    
     
 
     """
@@ -138,10 +140,14 @@ class CfgHistGl(Entity):
         
         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
+        	**config**\: False
+        
         .. attribute:: record
         
         	History summary information for a specific type of history
         	**type**\: list of  		 :py:class:`Record <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record>`
+        
+        	**config**\: False
         
         
 
@@ -185,10 +191,14 @@ class CfgHistGl(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: info
             
             	Content of the history
             	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info>`
+            
+            	**config**\: False
             
             .. attribute:: timestamp
             
@@ -197,10 +207,14 @@ class CfgHistGl(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: record_type
             
             	Record type
             	**type**\:  :py:class:`HistRecord <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.HistRecord>`
+            
+            	**config**\: False
             
             
 
@@ -246,40 +260,56 @@ class CfgHistGl(Entity):
                 	alarm info
                 	**type**\:  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.AlarmInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: cfscheck_info
                 
                 	cfscheck info
                 	**type**\:  :py:class:`CfscheckInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.CfscheckInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: commit_info
                 
                 	commit info
                 	**type**\:  :py:class:`CommitInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.CommitInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: oir_info
                 
                 	oir info
                 	**type**\:  :py:class:`OirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.OirInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: shutdown_info
                 
                 	shutdown info
                 	**type**\:  :py:class:`ShutdownInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.ShutdownInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: startup_info
                 
                 	startup info
                 	**type**\:  :py:class:`StartupInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.StartupInfo>`
+                
+                	**config**\: False
                 
                 .. attribute:: backup_info
                 
                 	backup info
                 	**type**\:  :py:class:`BackupInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.CfgHistGl.RecordType.Record.Info.BackupInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	type
                 	**type**\:  :py:class:`HistRecord <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper.HistRecord>`
+                
+                	**config**\: False
                 
                 .. attribute:: a
                 
@@ -287,6 +317,8 @@ class CfgHistGl(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -354,10 +386,14 @@ class CfgHistGl(Entity):
                     	State
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: where
                     
                     	Where
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -388,6 +424,7 @@ class CfgHistGl(Entity):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.AlarmInfo, ['state', 'where'], name, value)
 
 
+
                 class CfscheckInfo(Entity):
                     """
                     cfscheck info
@@ -397,10 +434,14 @@ class CfgHistGl(Entity):
                     	UserId
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: line
                     
                     	Line
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -431,6 +472,7 @@ class CfgHistGl(Entity):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.CfscheckInfo, ['user_id', 'line'], name, value)
 
 
+
                 class CommitInfo(Entity):
                     """
                     commit info
@@ -440,30 +482,42 @@ class CfgHistGl(Entity):
                     	CommitId
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: user_id
                     
                     	UserId
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: line
                     
                     	Line
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: client_name
                     
                     	Client name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: label
                     
                     	Label
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: comment
                     
                     	Comment
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -502,6 +556,7 @@ class CfgHistGl(Entity):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.CommitInfo, ['commit_id', 'user_id', 'line', 'client_name', 'label', 'comment'], name, value)
 
 
+
                 class OirInfo(Entity):
                     """
                     oir info
@@ -511,15 +566,21 @@ class CfgHistGl(Entity):
                     	Config Type
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: operation_
                     
                     	Operation
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: config_name
                     
                     	Config Name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -552,6 +613,7 @@ class CfgHistGl(Entity):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.OirInfo, ['config_type', 'operation_', 'config_name'], name, value)
 
 
+
                 class ShutdownInfo(Entity):
                     """
                     shutdown info
@@ -560,6 +622,8 @@ class CfgHistGl(Entity):
                     
                     	Comment
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -588,6 +652,7 @@ class CfgHistGl(Entity):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.ShutdownInfo, ['comment'], name, value)
 
 
+
                 class StartupInfo(Entity):
                     """
                     startup info
@@ -597,10 +662,14 @@ class CfgHistGl(Entity):
                     	How Booted
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: boot_path
                     
                     	Boot Path
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -631,6 +700,7 @@ class CfgHistGl(Entity):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.StartupInfo, ['how_booted', 'boot_path'], name, value)
 
 
+
                 class BackupInfo(Entity):
                     """
                     backup info
@@ -639,6 +709,8 @@ class CfgHistGl(Entity):
                     
                     	Comment
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -666,7 +738,13 @@ class CfgHistGl(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.BackupInfo, ['comment'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = CfgHistGl()
         return self._top_entity
+
+
 

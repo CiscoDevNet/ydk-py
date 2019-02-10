@@ -24,55 +24,77 @@ class Install(Entity):
     	Gives sysadmin version information
     	**type**\:  :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Version>`
     
+    	**config**\: False
+    
     .. attribute:: inactive
     
     	Calvados inactive package(s) list for this node
     	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Inactive>`
+    
+    	**config**\: False
     
     .. attribute:: prepare
     
     	Calvados prepared package(s) list for this node
     	**type**\:  :py:class:`Prepare <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Prepare>`
     
+    	**config**\: False
+    
     .. attribute:: package
     
     	Package Name(s) to get info for
     	**type**\:  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Package>`
+    
+    	**config**\: False
     
     .. attribute:: active
     
     	Calvados active package(s) list for this node
     	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Active>`
     
+    	**config**\: False
+    
     .. attribute:: superseded
     
     	Calvados superseded package(s) list for this node
     	**type**\:  :py:class:`Superseded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Superseded>`
+    
+    	**config**\: False
     
     .. attribute:: request
     
     	Sysadmin current install operation details
     	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Request>`
     
+    	**config**\: False
+    
     .. attribute:: repository
     
     	Shows information about the install software repository
     	**type**\:  :py:class:`Repository <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Repository>`
+    
+    	**config**\: False
     
     .. attribute:: log
     
     	
     	**type**\:  :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Log>`
     
+    	**config**\: False
+    
     .. attribute:: which
     
     	Filename to get info for
     	**type**\:  :py:class:`Which <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Which>`
     
+    	**config**\: False
+    
     .. attribute:: committed
     
     	Calvados committed package(s) list for this node
     	**type**\:  :py:class:`Committed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Committed>`
+    
+    	**config**\: False
     
     
 
@@ -152,6 +174,8 @@ class Install(Entity):
         	
         	**type**\: list of str
         
+        	**config**\: False
+        
         
 
         """
@@ -180,6 +204,7 @@ class Install(Entity):
             self._perform_setattr(Install.Version, ['img_info'], name, value)
 
 
+
     class Inactive(Entity):
         """
         Calvados inactive package(s) list for this node
@@ -189,10 +214,14 @@ class Install(Entity):
         	shows summary information of the inactive install software
         	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Inactive.Summary>`
         
+        	**config**\: False
+        
         .. attribute:: si_inactive_output
         
         	
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -235,6 +264,8 @@ class Install(Entity):
             	
             	**type**\: list of str
             
+            	**config**\: False
+            
             
 
             """
@@ -263,6 +294,8 @@ class Install(Entity):
                 self._perform_setattr(Install.Inactive.Summary, ['si_inactive_summary_output'], name, value)
 
 
+
+
     class Prepare(Entity):
         """
         Calvados prepared package(s) list for this node
@@ -271,6 +304,8 @@ class Install(Entity):
         
         	
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -300,6 +335,7 @@ class Install(Entity):
             self._perform_setattr(Install.Prepare, ['si_prepare_output'], name, value)
 
 
+
     class Package(Entity):
         """
         Package Name(s) to get info for
@@ -308,6 +344,8 @@ class Install(Entity):
         
         	
         	**type**\: list of  		 :py:class:`PkgList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Package.PkgList>`
+        
+        	**config**\: False
         
         
 
@@ -345,20 +383,28 @@ class Install(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: detail
             
             	
             	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Package.PkgList.Detail>`
+            
+            	**config**\: False
             
             .. attribute:: verbose
             
             	
             	**type**\:  :py:class:`Verbose <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Package.PkgList.Verbose>`
             
+            	**config**\: False
+            
             .. attribute:: si_package_output
             
             	
             	**type**\: list of str
+            
+            	**config**\: False
             
             
 
@@ -407,6 +453,8 @@ class Install(Entity):
                 	
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -434,6 +482,7 @@ class Install(Entity):
                     self._perform_setattr(Install.Package.PkgList.Detail, ['si_package_detail_output'], name, value)
 
 
+
             class Verbose(Entity):
                 """
                 
@@ -442,6 +491,8 @@ class Install(Entity):
                 
                 	
                 	**type**\: list of str
+                
+                	**config**\: False
                 
                 
 
@@ -470,6 +521,9 @@ class Install(Entity):
                     self._perform_setattr(Install.Package.PkgList.Verbose, ['si_package_verbose_output'], name, value)
 
 
+
+
+
     class Active(Entity):
         """
         Calvados active package(s) list for this node
@@ -479,10 +533,14 @@ class Install(Entity):
         	shows summary information of the active install software
         	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Active.Summary>`
         
+        	**config**\: False
+        
         .. attribute:: si_active_output
         
         	
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -525,6 +583,8 @@ class Install(Entity):
             	
             	**type**\: list of str
             
+            	**config**\: False
+            
             
 
             """
@@ -553,6 +613,8 @@ class Install(Entity):
                 self._perform_setattr(Install.Active.Summary, ['si_active_summary_output'], name, value)
 
 
+
+
     class Superseded(Entity):
         """
         Calvados superseded package(s) list for this node
@@ -562,10 +624,14 @@ class Install(Entity):
         	shows summary information of the show install superseded
         	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Superseded.Summary>`
         
+        	**config**\: False
+        
         .. attribute:: si_superseded_output
         
         	
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -608,6 +674,8 @@ class Install(Entity):
             	
             	**type**\: list of str
             
+            	**config**\: False
+            
             
 
             """
@@ -636,6 +704,8 @@ class Install(Entity):
                 self._perform_setattr(Install.Superseded.Summary, ['si_superseded_summary_output'], name, value)
 
 
+
+
     class Request(Entity):
         """
         Sysadmin current install operation details
@@ -644,6 +714,8 @@ class Install(Entity):
         
         	
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -673,6 +745,7 @@ class Install(Entity):
             self._perform_setattr(Install.Request, ['curr_inst_oper'], name, value)
 
 
+
     class Repository(Entity):
         """
         Shows information about the install software repository.
@@ -682,10 +755,14 @@ class Install(Entity):
         	shows contents of all the install software repositories
         	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Repository.All>`
         
+        	**config**\: False
+        
         .. attribute:: si_repository_output
         
         	
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -728,6 +805,8 @@ class Install(Entity):
             	
             	**type**\: list of str
             
+            	**config**\: False
+            
             
 
             """
@@ -756,6 +835,8 @@ class Install(Entity):
                 self._perform_setattr(Install.Repository.All, ['si_repository_all_output'], name, value)
 
 
+
+
     class Log(Entity):
         """
         
@@ -765,20 +846,28 @@ class Install(Entity):
         	
         	**type**\: list of  		 :py:class:`Id <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Log.Id>`
         
+        	**config**\: False
+        
         .. attribute:: reverse
         
         	
         	**type**\:  :py:class:`Reverse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Log.Reverse>`
+        
+        	**config**\: False
         
         .. attribute:: detail
         
         	
         	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Log.Detail>`
         
+        	**config**\: False
+        
         .. attribute:: si_log_output
         
         	
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -829,15 +918,21 @@ class Install(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: detail
             
             	
             	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Log.Id.Detail>`
             
+            	**config**\: False
+            
             .. attribute:: si_log_id_output
             
             	
             	**type**\: list of str
+            
+            	**config**\: False
             
             
 
@@ -882,6 +977,8 @@ class Install(Entity):
                 	
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -909,6 +1006,8 @@ class Install(Entity):
                     self._perform_setattr(Install.Log.Id.Detail, ['si_log_id_detail_output'], name, value)
 
 
+
+
         class Reverse(Entity):
             """
             
@@ -918,10 +1017,14 @@ class Install(Entity):
             	
             	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Log.Reverse.Detail>`
             
+            	**config**\: False
+            
             .. attribute:: si_log_reverse_output
             
             	
             	**type**\: list of str
+            
+            	**config**\: False
             
             
 
@@ -964,6 +1067,8 @@ class Install(Entity):
                 	
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -992,6 +1097,8 @@ class Install(Entity):
                     self._perform_setattr(Install.Log.Reverse.Detail, ['si_log_reverse_detail_output'], name, value)
 
 
+
+
         class Detail(Entity):
             """
             
@@ -1000,6 +1107,8 @@ class Install(Entity):
             
             	
             	**type**\: list of str
+            
+            	**config**\: False
             
             
 
@@ -1029,6 +1138,8 @@ class Install(Entity):
                 self._perform_setattr(Install.Log.Detail, ['si_log_detail_output'], name, value)
 
 
+
+
     class Which(Entity):
         """
         Filename to get info for
@@ -1037,6 +1148,8 @@ class Install(Entity):
         
         	
         	**type**\: list of  		 :py:class:`FileList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Which.FileList>`
+        
+        	**config**\: False
         
         
 
@@ -1074,15 +1187,21 @@ class Install(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: detail
             
             	
             	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Which.FileList.Detail>`
             
+            	**config**\: False
+            
             .. attribute:: si_which_output
             
             	
             	**type**\: list of str
+            
+            	**config**\: False
             
             
 
@@ -1127,6 +1246,8 @@ class Install(Entity):
                 	
                 	**type**\: list of str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1154,6 +1275,9 @@ class Install(Entity):
                     self._perform_setattr(Install.Which.FileList.Detail, ['si_which_detail_output'], name, value)
 
 
+
+
+
     class Committed(Entity):
         """
         Calvados committed package(s) list for this node
@@ -1163,10 +1287,14 @@ class Install(Entity):
         	shows summary information of the committed install software
         	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Committed.Summary>`
         
+        	**config**\: False
+        
         .. attribute:: si_committed_output
         
         	
         	**type**\: list of str
+        
+        	**config**\: False
         
         
 
@@ -1209,6 +1337,8 @@ class Install(Entity):
             	
             	**type**\: list of str
             
+            	**config**\: False
+            
             
 
             """
@@ -1236,7 +1366,11 @@ class Install(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.Committed.Summary, ['si_committed_summary_output'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Install()
         return self._top_entity
+
+
 

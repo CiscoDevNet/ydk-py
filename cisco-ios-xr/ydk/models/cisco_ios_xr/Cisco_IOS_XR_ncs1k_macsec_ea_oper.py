@@ -57,6 +57,8 @@ class Ncs1kMacsecOper(Entity):
     	All Macsec operational data
     	**type**\:  :py:class:`Ncs1kMacsecCtrlrNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames>`
     
+    	**config**\: False
+    
     
 
     """
@@ -94,6 +96,8 @@ class Ncs1kMacsecOper(Entity):
         
         	Interface name
         	**type**\: list of  		 :py:class:`Ncs1kMacsecCtrlrName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName>`
+        
+        	**config**\: False
         
         
 
@@ -133,10 +137,14 @@ class Ncs1kMacsecOper(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: ncs1k_status_info
             
             	controller data
             	**type**\:  :py:class:`Ncs1kStatusInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo>`
+            
+            	**config**\: False
             
             
 
@@ -179,10 +187,14 @@ class Ncs1kMacsecOper(Entity):
                 	Encrypt Secure Channel Status
                 	**type**\:  :py:class:`EncryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo.EncryptScStatus>`
                 
+                	**config**\: False
+                
                 .. attribute:: decrypt_sc_status
                 
                 	Decrypt Secure Channel Status
                 	**type**\:  :py:class:`DecryptScStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo.DecryptScStatus>`
+                
+                	**config**\: False
                 
                 .. attribute:: replay_window_size
                 
@@ -191,10 +203,14 @@ class Ncs1kMacsecOper(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: must_secure
                 
                 	Must Secure
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: secure_mode
                 
@@ -202,6 +218,8 @@ class Ncs1kMacsecOper(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -239,7 +257,7 @@ class Ncs1kMacsecOper(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo, ['replay_window_size', 'must_secure', 'secure_mode'], name, value)
+                    self._perform_setattr(Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo, [u'replay_window_size', u'must_secure', u'secure_mode'], name, value)
 
 
                 class EncryptScStatus(Entity):
@@ -251,12 +269,16 @@ class Ncs1kMacsecOper(Entity):
                     	Protection Enabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: secure_channel_id
                     
                     	Secure Channel Id
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: confidentiality_offset
                     
@@ -265,10 +287,14 @@ class Ncs1kMacsecOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: cipher_suite
                     
                     	Cipher Suite
                     	**type**\:  :py:class:`Ncs1kCipherSuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kCipherSuit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: initial_packet_number
                     
@@ -277,12 +303,16 @@ class Ncs1kMacsecOper(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: secure_tag_length
                     
                     	Secure Tag Length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: max_packet_number
                     
@@ -291,6 +321,8 @@ class Ncs1kMacsecOper(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: recent_packet_number
                     
                     	Recent Packet Number
@@ -298,10 +330,14 @@ class Ncs1kMacsecOper(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: active_association
                     
                     	Active Associations
                     	**type**\: list of  		 :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo.EncryptScStatus.ActiveAssociation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -343,7 +379,7 @@ class Ncs1kMacsecOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo.EncryptScStatus, ['protection_enabled', 'secure_channel_id', 'confidentiality_offset', 'cipher_suite', 'initial_packet_number', 'secure_tag_length', 'max_packet_number', 'recent_packet_number'], name, value)
+                        self._perform_setattr(Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo.EncryptScStatus, [u'protection_enabled', u'secure_channel_id', u'confidentiality_offset', u'cipher_suite', u'initial_packet_number', u'secure_tag_length', u'max_packet_number', u'recent_packet_number'], name, value)
 
 
                     class ActiveAssociation(Entity):
@@ -357,12 +393,16 @@ class Ncs1kMacsecOper(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: device_association_number
                         
                         	Devive Association Number
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: short_secure_channel_id
                         
@@ -371,12 +411,16 @@ class Ncs1kMacsecOper(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: programmed_time
                         
                         	Key Programmed Time
                         	**type**\: str
                         
                         	**length:** 0..30
+                        
+                        	**config**\: False
                         
                         .. attribute:: key_crc
                         
@@ -385,12 +429,16 @@ class Ncs1kMacsecOper(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**config**\: False
+                        
                         .. attribute:: xpn_salt
                         
                         	XPN Salt
                         	**type**\: list of str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        	**config**\: False
                         
                         
 
@@ -426,7 +474,9 @@ class Ncs1kMacsecOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo.EncryptScStatus.ActiveAssociation, ['association_number', 'device_association_number', 'short_secure_channel_id', 'programmed_time', 'key_crc', 'xpn_salt'], name, value)
+                            self._perform_setattr(Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo.EncryptScStatus.ActiveAssociation, [u'association_number', u'device_association_number', u'short_secure_channel_id', u'programmed_time', u'key_crc', u'xpn_salt'], name, value)
+
+
 
 
                 class DecryptScStatus(Entity):
@@ -438,12 +488,16 @@ class Ncs1kMacsecOper(Entity):
                     	Protection Enabled
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: secure_channel_id
                     
                     	Secure Channel Id
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: confidentiality_offset
                     
@@ -452,10 +506,14 @@ class Ncs1kMacsecOper(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: cipher_suite
                     
                     	Cipher Suite
                     	**type**\:  :py:class:`Ncs1kCipherSuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kCipherSuit>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: initial_packet_number
                     
@@ -464,12 +522,16 @@ class Ncs1kMacsecOper(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: secure_tag_length
                     
                     	Secure Tag Length
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: max_packet_number
                     
@@ -478,6 +540,8 @@ class Ncs1kMacsecOper(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: recent_packet_number
                     
                     	Recent Packet Number
@@ -485,10 +549,14 @@ class Ncs1kMacsecOper(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: active_association
                     
                     	Active Associations
                     	**type**\: list of  		 :py:class:`ActiveAssociation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper.Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo.DecryptScStatus.ActiveAssociation>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -530,7 +598,7 @@ class Ncs1kMacsecOper(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo.DecryptScStatus, ['protection_enabled', 'secure_channel_id', 'confidentiality_offset', 'cipher_suite', 'initial_packet_number', 'secure_tag_length', 'max_packet_number', 'recent_packet_number'], name, value)
+                        self._perform_setattr(Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo.DecryptScStatus, [u'protection_enabled', u'secure_channel_id', u'confidentiality_offset', u'cipher_suite', u'initial_packet_number', u'secure_tag_length', u'max_packet_number', u'recent_packet_number'], name, value)
 
 
                     class ActiveAssociation(Entity):
@@ -544,12 +612,16 @@ class Ncs1kMacsecOper(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: device_association_number
                         
                         	Devive Association Number
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: short_secure_channel_id
                         
@@ -558,12 +630,16 @@ class Ncs1kMacsecOper(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: programmed_time
                         
                         	Key Programmed Time
                         	**type**\: str
                         
                         	**length:** 0..30
+                        
+                        	**config**\: False
                         
                         .. attribute:: key_crc
                         
@@ -572,12 +648,16 @@ class Ncs1kMacsecOper(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
                         
+                        	**config**\: False
+                        
                         .. attribute:: xpn_salt
                         
                         	XPN Salt
                         	**type**\: list of str
                         
                         	**pattern:** [0\-9a\-fA\-F]{1,8}
+                        
+                        	**config**\: False
                         
                         
 
@@ -613,9 +693,16 @@ class Ncs1kMacsecOper(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo.DecryptScStatus.ActiveAssociation, ['association_number', 'device_association_number', 'short_secure_channel_id', 'programmed_time', 'key_crc', 'xpn_salt'], name, value)
+                            self._perform_setattr(Ncs1kMacsecOper.Ncs1kMacsecCtrlrNames.Ncs1kMacsecCtrlrName.Ncs1kStatusInfo.DecryptScStatus.ActiveAssociation, [u'association_number', u'device_association_number', u'short_secure_channel_id', u'programmed_time', u'key_crc', u'xpn_salt'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Ncs1kMacsecOper()
         return self._top_entity
+
+
 

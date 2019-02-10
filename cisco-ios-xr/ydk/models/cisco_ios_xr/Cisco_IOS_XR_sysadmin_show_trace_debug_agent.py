@@ -26,6 +26,8 @@ class DebugAgent(Entity):
     	show traceable processes
     	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_debug_agent.DebugAgent.Trace>`
     
+    	**config**\: False
+    
     
 
     """
@@ -62,10 +64,14 @@ class DebugAgent(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: location
         
         	
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_debug_agent.DebugAgent.Trace.Location>`
+        
+        	**config**\: False
         
         
 
@@ -106,10 +112,14 @@ class DebugAgent(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: all_options
             
             	
             	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_debug_agent.DebugAgent.Trace.Location.AllOptions>`
+            
+            	**config**\: False
             
             
 
@@ -149,10 +159,14 @@ class DebugAgent(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: trace_blocks
                 
                 	
                 	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_debug_agent.DebugAgent.Trace.Location.AllOptions.TraceBlocks>`
+                
+                	**config**\: False
                 
                 
 
@@ -192,6 +206,8 @@ class DebugAgent(Entity):
                     	Trace output block
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -218,7 +234,13 @@ class DebugAgent(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(DebugAgent.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = DebugAgent()
         return self._top_entity
+
+
 

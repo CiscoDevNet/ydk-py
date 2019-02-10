@@ -91,9 +91,12 @@ class Groups(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Groups.Group, ['group_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Groups()
         return self._top_entity
+
+
 
 class ApplyGroups(Entity):
     """
@@ -136,4 +139,6 @@ class ApplyGroups(Entity):
     def clone_ptr(self):
         self._top_entity = ApplyGroups()
         return self._top_entity
+
+
 

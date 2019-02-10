@@ -270,6 +270,8 @@ class TrafficCollector(Entity):
                 self._perform_setattr(TrafficCollector.ExternalInterfaces.ExternalInterface, ['interface_name', 'enable'], name, value)
 
 
+
+
     class Statistics(Entity):
         """
         Configure statistics related parameters
@@ -339,7 +341,10 @@ class TrafficCollector(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(TrafficCollector.Statistics, ['history_size', 'collection_interval', 'enable_traffic_collector_statistics', 'history_timeout'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = TrafficCollector()
         return self._top_entity
+
+
 

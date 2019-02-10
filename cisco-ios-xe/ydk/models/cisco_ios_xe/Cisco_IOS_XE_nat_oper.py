@@ -27,10 +27,14 @@ class NatData(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     .. attribute:: ip_nat_translation
     
     	IP NAT translations
     	**type**\: list of  		 :py:class:`IpNatTranslation <ydk.models.cisco_ios_xe.Cisco_IOS_XE_nat_oper.NatData.IpNatTranslation>`
+    
+    	**config**\: False
     
     
 
@@ -71,12 +75,16 @@ class NatData(Entity):
         	Indicates if the NAT feature has been initialized
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: entries
         
         	Total translations
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: statics
         
@@ -85,12 +93,16 @@ class NatData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: statics_sorted
         
         	Sorted static translations by domain
         	**type**\: list of int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: flows
         
@@ -99,12 +111,16 @@ class NatData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: insides
         
         	Number of inside interfaces
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: outsides
         
@@ -113,12 +129,16 @@ class NatData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: entry_timeouts
         
         	Number of entries which timed out 
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: hits
         
@@ -127,12 +147,16 @@ class NatData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: misses
         
         	Unsuccessful searches without matching NAT session
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: interrupt_switched
         
@@ -141,12 +165,16 @@ class NatData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: packets_punted
         
         	Packets punted to process
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: frag_pak_count
         
@@ -155,12 +183,16 @@ class NatData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: pool_stats_drop
         
         	Dropped pool stats from platform
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: mapping_stats_drop
         
@@ -169,12 +201,16 @@ class NatData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: portlist_req_fail
         
         	Counter for port block alloc req fails
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: ipalias_add_fail
         
@@ -183,12 +219,16 @@ class NatData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: limit_entry_add_fail
         
         	Counter for add limit\_entry fails drops
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: in2out_drops
         
@@ -197,12 +237,16 @@ class NatData(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: out2in_drops
         
         	Counter for NAT outside\->inside drops
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         .. attribute:: mib_addr_binds
         
@@ -211,12 +255,16 @@ class NatData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: mib_addport_binds
         
         	MIB counter for address port binds
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -291,6 +339,7 @@ class NatData(Entity):
             self._perform_setattr(NatData.IpNatStatistics, ['initialized', 'entries', 'statics', 'statics_sorted', 'flows', 'insides', 'outsides', 'entry_timeouts', 'hits', 'misses', 'interrupt_switched', 'packets_punted', 'frag_pak_count', 'pool_stats_drop', 'mapping_stats_drop', 'portlist_req_fail', 'ipalias_add_fail', 'limit_entry_add_fail', 'in2out_drops', 'out2in_drops', 'mib_addr_binds', 'mib_addport_binds'], name, value)
 
 
+
     class IpNatTranslation(Entity):
         """
         IP NAT translations
@@ -302,12 +351,16 @@ class NatData(Entity):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: outside_local_addr  (key)
         
         	Outside local address
         	**type**\: str
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         .. attribute:: inside_local_port  (key)
         
@@ -316,12 +369,16 @@ class NatData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: outside_local_port  (key)
         
         	Outside local port
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: vrfid  (key)
         
@@ -330,12 +387,16 @@ class NatData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: protocol  (key)
         
         	Protocol
         	**type**\: int
         
         	**range:** 0..255
+        
+        	**config**\: False
         
         .. attribute:: inside_global_addr
         
@@ -344,12 +405,16 @@ class NatData(Entity):
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: outside_global_addr
         
         	Outside global address
         	**type**\: str
         
         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         .. attribute:: inside_global_port
         
@@ -358,12 +423,16 @@ class NatData(Entity):
         
         	**range:** 0..65535
         
+        	**config**\: False
+        
         .. attribute:: outside_global_port
         
         	Outside global port
         	**type**\: int
         
         	**range:** 0..65535
+        
+        	**config**\: False
         
         .. attribute:: flags
         
@@ -372,6 +441,8 @@ class NatData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: application_type
         
         	Application type
@@ -379,10 +450,14 @@ class NatData(Entity):
         
         	**range:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: vrf_name
         
         	Virtual Routing and Forwarding name
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -435,7 +510,10 @@ class NatData(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(NatData.IpNatTranslation, ['inside_local_addr', 'outside_local_addr', 'inside_local_port', 'outside_local_port', 'vrfid', 'protocol', 'inside_global_addr', 'outside_global_addr', 'inside_global_port', 'outside_global_port', 'flags', 'application_type', 'vrf_name'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = NatData()
         return self._top_entity
+
+
 

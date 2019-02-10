@@ -256,10 +256,14 @@ class DhcpOperData(Entity):
     	List of DHCP server bidning
     	**type**\: list of  		 :py:class:`Dhcpv4ServerOper <ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper.DhcpOperData.Dhcpv4ServerOper>`
     
+    	**config**\: False
+    
     .. attribute:: dhcpv4_client_oper
     
     	List of DHCP clients
     	**type**\: list of  		 :py:class:`Dhcpv4ClientOper <ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper.DhcpOperData.Dhcpv4ClientOper>`
+    
+    	**config**\: False
     
     
 
@@ -298,6 +302,8 @@ class DhcpOperData(Entity):
         	Server Pool name from where the Client  ip is provided
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: client_ip  (key)
         
         	ipaddress released for a speicfic Client  from Server
@@ -311,40 +317,56 @@ class DhcpOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: vrf_name  (key)
         
         	Query based on the vrfname speicfic to that pool and Client ip address as key
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: client_id_type
         
         	Client identification Hardware types
         	**type**\:  :py:class:`DhcpClientIdType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper.DhcpClientIdType>`
         
+        	**config**\: False
+        
         .. attribute:: client_id
         
         	Client identification can be based on Hardware types/Mac
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: expiration
         
         	Expiration time infomation
         	**type**\:  :py:class:`Expiration <ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper.DhcpOperData.Dhcpv4ServerOper.Expiration>`
         
+        	**config**\: False
+        
         .. attribute:: type
         
         	Server binding type
         	**type**\:  :py:class:`DhcpServerBindingType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper.DhcpServerBindingType>`
+        
+        	**config**\: False
         
         .. attribute:: state
         
         	Server binding states
         	**type**\:  :py:class:`DhcpServerBindingState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper.DhcpServerBindingState>`
         
+        	**config**\: False
+        
         .. attribute:: interface
         
         	interface name of the pool
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -403,10 +425,14 @@ class DhcpOperData(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: infinite
             
             	Expiry time infinite
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            	**config**\: False
             
             
 
@@ -437,6 +463,8 @@ class DhcpOperData(Entity):
                 self._perform_setattr(DhcpOperData.Dhcpv4ServerOper.Expiration, ['time', 'infinite'], name, value)
 
 
+
+
     class Dhcpv4ClientOper(Entity):
         """
         List of DHCP clients
@@ -445,6 +473,8 @@ class DhcpOperData(Entity):
         
         	Interface infomation where dhcp Client is configured
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: client_addr  (key)
         
@@ -459,15 +489,21 @@ class DhcpOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: vrf_name  (key)
         
         	Vrfname infomation related to Client
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: state
         
         	DHCP Client States 
         	**type**\:  :py:class:`DhcpClientState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper.DhcpClientState>`
+        
+        	**config**\: False
         
         .. attribute:: lease_server_addr
         
@@ -482,6 +518,8 @@ class DhcpOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: gateway_addr
         
         	Gateway Address we got from Server
@@ -495,6 +533,8 @@ class DhcpOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: lease_time
         
         	Total Lease Time in Seconds
@@ -502,10 +542,14 @@ class DhcpOperData(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: lease_expiry
         
         	Lease Expiry time for the IP address we got
         	**type**\:  :py:class:`LeaseExpiry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper.DhcpOperData.Dhcpv4ClientOper.LeaseExpiry>`
+        
+        	**config**\: False
         
         .. attribute:: lease_remaining
         
@@ -513,6 +557,8 @@ class DhcpOperData(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: dns_address
         
@@ -527,6 +573,8 @@ class DhcpOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: dns_address_secondary
         
         	Secondary DNS address
@@ -540,6 +588,8 @@ class DhcpOperData(Entity):
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
+        	**config**\: False
+        
         .. attribute:: subnet_mask
         
         	Subnet mask address
@@ -552,6 +602,8 @@ class DhcpOperData(Entity):
         		**type**\: str
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
+        	**config**\: False
         
         
 
@@ -616,10 +668,14 @@ class DhcpOperData(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: infinite
             
             	Expiry time infinite
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            	**config**\: False
             
             
 
@@ -649,7 +705,11 @@ class DhcpOperData(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(DhcpOperData.Dhcpv4ClientOper.LeaseExpiry, ['time', 'infinite'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = DhcpOperData()
         return self._top_entity
+
+
 

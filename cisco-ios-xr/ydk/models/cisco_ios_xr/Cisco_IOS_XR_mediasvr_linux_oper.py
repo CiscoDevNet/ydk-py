@@ -30,10 +30,14 @@ class MediaSvr(Entity):
     	Show Media bag
     	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mediasvr_linux_oper.MediaSvr.All>`
     
+    	**config**\: False
+    
     .. attribute:: location_descriptions
     
     	Show Media
     	**type**\:  :py:class:`LocationDescriptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mediasvr_linux_oper.MediaSvr.LocationDescriptions>`
+    
+    	**config**\: False
     
     
 
@@ -77,6 +81,8 @@ class MediaSvr(Entity):
         	string output
         	**type**\: str
         
+        	**config**\: False
+        
         
 
         """
@@ -102,7 +108,8 @@ class MediaSvr(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MediaSvr.All, ['show_output'], name, value)
+            self._perform_setattr(MediaSvr.All, [u'show_output'], name, value)
+
 
 
     class LocationDescriptions(Entity):
@@ -113,6 +120,8 @@ class MediaSvr(Entity):
         
         	Location specified in location
         	**type**\: list of  		 :py:class:`LocationDescription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mediasvr_linux_oper.MediaSvr.LocationDescriptions.LocationDescription>`
+        
+        	**config**\: False
         
         
 
@@ -152,10 +161,14 @@ class MediaSvr(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: show_output
             
             	string output
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -184,9 +197,13 @@ class MediaSvr(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MediaSvr.LocationDescriptions.LocationDescription, ['node', 'show_output'], name, value)
+                self._perform_setattr(MediaSvr.LocationDescriptions.LocationDescription, ['node', u'show_output'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = MediaSvr()
         return self._top_entity
+
+
 

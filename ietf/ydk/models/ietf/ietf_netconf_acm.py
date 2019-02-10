@@ -97,6 +97,8 @@ class Nacm(Entity):
     
     	**mandatory**\: True
     
+    	**config**\: False
+    
     .. attribute:: denied_data_writes
     
     	Number of times since the server last restarted that a protocol operation request to alter a configuration datastore was denied
@@ -106,6 +108,8 @@ class Nacm(Entity):
     
     	**mandatory**\: True
     
+    	**config**\: False
+    
     .. attribute:: denied_notifications
     
     	Number of times since the server last restarted that a notification was dropped for a subscription because access to the event type was denied
@@ -114,6 +118,8 @@ class Nacm(Entity):
     	**range:** 0..4294967295
     
     	**mandatory**\: True
+    
+    	**config**\: False
     
     .. attribute:: groups
     
@@ -220,7 +226,7 @@ class Nacm(Entity):
             	Group name associated with this entry
             	**type**\: str
             
-            	**pattern:** [^\\\*].\*
+            	**length:** 1..18446744073709551615
             
             .. attribute:: user_name
             
@@ -259,6 +265,8 @@ class Nacm(Entity):
                 self._perform_setattr(Nacm.Groups.Group, ['name', 'user_name'], name, value)
 
 
+
+
     class RuleList(Entity):
         """
         An ordered collection of access control rules.
@@ -281,7 +289,7 @@ class Nacm(Entity):
         
         		**type**\: list of str
         
-        			**pattern:** [^\\\*].\*
+        			**length:** 1..18446744073709551615
         
         .. attribute:: rule
         
@@ -444,7 +452,11 @@ class Nacm(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Nacm.RuleList.Rule, ['name', 'module_name', 'rpc_name', 'notification_name', 'path', 'access_operations', 'action', 'comment'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Nacm()
         return self._top_entity
+
+
 

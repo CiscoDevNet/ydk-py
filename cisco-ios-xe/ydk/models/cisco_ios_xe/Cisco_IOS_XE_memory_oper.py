@@ -25,6 +25,8 @@ class MemoryStatistics(Entity):
     	The list of software memory pools in the system
     	**type**\: list of  		 :py:class:`MemoryStatistic <ydk.models.cisco_ios_xe.Cisco_IOS_XE_memory_oper.MemoryStatistics.MemoryStatistic>`
     
+    	**config**\: False
+    
     
 
     """
@@ -61,12 +63,16 @@ class MemoryStatistics(Entity):
         	The name of the memory pool
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: total_memory
         
         	Total memory in the pool (bytes)
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         	**units**\: bytes
         
@@ -77,6 +83,8 @@ class MemoryStatistics(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         	**units**\: bytes
         
         .. attribute:: free_memory
@@ -85,6 +93,8 @@ class MemoryStatistics(Entity):
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         	**units**\: bytes
         
@@ -95,6 +105,8 @@ class MemoryStatistics(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         	**units**\: bytes
         
         .. attribute:: highest_usage
@@ -103,6 +115,8 @@ class MemoryStatistics(Entity):
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         	**units**\: bytes
         
@@ -143,7 +157,10 @@ class MemoryStatistics(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(MemoryStatistics.MemoryStatistic, ['name', 'total_memory', 'used_memory', 'free_memory', 'lowest_usage', 'highest_usage'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = MemoryStatistics()
         return self._top_entity
+
+
 

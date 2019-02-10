@@ -147,7 +147,11 @@ class VrfPolicy(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(VrfPolicy.Vrf.Afi, ['afi_type', 'service_policy_in'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = VrfPolicy()
         return self._top_entity
+
+
 

@@ -1259,6 +1259,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
 
+
                             class VrfGlobalAfs(Entity):
                                 """
                                 Global VRF\-specific configuration
@@ -1708,6 +1709,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn, ['single_forwarder_selection'], name, value)
 
 
+
                                     class Ebgp(Entity):
                                         """
                                         Use eBGP multipaths
@@ -1776,6 +1778,7 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp, ['paths_value', 'unequal_cost', 'selective', 'order_by_igp_metric'], name, value)
+
 
 
                                     class Eibgp(Entity):
@@ -1848,6 +1851,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp, ['paths_value', 'unequal_cost', 'selective', 'order_by_igp_metric'], name, value)
 
 
+
                                     class Ibgp(Entity):
                                         """
                                         Use iBGP multipaths
@@ -1916,6 +1920,7 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp, ['paths_value', 'unequal_cost', 'selective', 'order_by_igp_metric'], name, value)
+
 
 
                                     class AggregateAddresses(Entity):
@@ -2032,6 +2037,8 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses.AggregateAddress, ['aggregate_addr', 'aggregate_prefix', 'generate_set_info', 'generate_confederation_set_info', 'summary_only', 'route_policy_name'], name, value)
+
+
 
 
                                     class OptimalRouteReflectorGroups(Entity):
@@ -2153,6 +2160,8 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup, ['group_name', 'primary_root_address', 'secondary_root_address', 'tertiary_root_address'], name, value)
 
 
+
+
                                     class Dampening(Entity):
                                         """
                                         Enable route\-flap dampening
@@ -2232,6 +2241,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening, ['half_life', 'reuse_threshold', 'suppress_threshold', 'suppress_time', 'route_policy_name'], name, value)
 
 
+
                                     class RipRoutes(Entity):
                                         """
                                         Redistribute RIP routes
@@ -2289,6 +2299,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
 
+
                                     class LispRoutes(Entity):
                                         """
                                         Redistribute lisp routes
@@ -2335,6 +2346,7 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes, ['default_metric', 'route_policy_name'], name, value)
+
 
 
                                     class StaticRoutes(Entity):
@@ -2392,6 +2404,7 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
+
 
 
                                     class Distance(Entity):
@@ -2454,6 +2467,7 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance, ['external_routes', 'internal_routes', 'local_routes'], name, value)
+
 
 
                                     class ApplicationRoutes(Entity):
@@ -2554,6 +2568,8 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ApplicationRoutes.ApplicationRoute, ['instance_name', 'default_metric', 'route_policy_name', 'not_used'], name, value)
 
 
+
+
                                     class LabelMode(Entity):
                                         """
                                         BGP 6PE/MPLS\-VPN label allocation mode
@@ -2595,6 +2611,7 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode, ['label_allocation_mode', 'route_policy_name'], name, value)
+
 
 
                                     class EigrpRoutes(Entity):
@@ -2693,6 +2710,8 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes.EigrpRoute, ['instance_name', 'default_metric', 'route_policy_name', 'redist_type'], name, value)
+
+
 
 
                                     class SourcedNetworks(Entity):
@@ -2797,6 +2816,8 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks.SourcedNetwork, ['network_addr', 'network_prefix', 'backdoor', 'route_policy_name'], name, value)
 
 
+
+
                                     class ConnectedRoutes(Entity):
                                         """
                                         Redistribute connected routes
@@ -2854,6 +2875,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
 
+
                                     class AllocateLabel(Entity):
                                         """
                                         Label allocation policy
@@ -2904,6 +2926,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel, ['all', 'route_policy_name', 'un_labeled_path'], name, value)
 
 
+
                                     class AdditionalPathsSelection(Entity):
                                         """
                                         Configure additional paths selection
@@ -2945,6 +2968,7 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection, ['selection', 'route_policy_name'], name, value)
+
 
 
                                     class OspfRoutes(Entity):
@@ -3045,6 +3069,8 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute, ['instance_name', 'default_metric', 'route_policy_name', 'redist_type'], name, value)
 
 
+
+
                                     class MobileRoutes(Entity):
                                         """
                                         Redistribute mobile routes
@@ -3102,6 +3128,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
 
+
                                     class SubscriberRoutes(Entity):
                                         """
                                         Redistribute subscriber routes
@@ -3157,6 +3184,9 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
+
+
+
 
 
                             class MplsActivatedInterfaces(Entity):
@@ -3232,6 +3262,8 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces.MplsActivatedInterface, ['interface_name'], name, value)
 
 
+
+
                             class GlobalTimers(Entity):
                                 """
                                 Adjust routing timers.
@@ -3300,6 +3332,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers, ['keepalive', 'hold_time', 'min_accept_hold_time'], name, value)
 
 
+
                             class Bfd(Entity):
                                 """
                                 BFD configuration
@@ -3347,6 +3380,7 @@ class Bgp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd, ['detection_multiplier', 'interval'], name, value)
+
 
 
                             class SendSocketBufferSizes(Entity):
@@ -3404,6 +3438,7 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes, ['socket_send_size', 'bgp_send_size'], name, value)
 
 
+
                             class ReceiveSocketBufferSizes(Entity):
                                 """
                                 Set socket and BGP receive buffer sizes
@@ -3457,6 +3492,8 @@ class Bgp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes, ['socket_receive_size', 'bgp_receive_size'], name, value)
+
+
 
 
                         class VrfNeighbors(Entity):
@@ -4491,6 +4528,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity, ['enable', 'cost_community_id', 'transitive', 'cost_community_poi_type'], name, value)
 
 
+
                                         class AdvertiseDefImpDisableV6(Entity):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
@@ -4541,6 +4579,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseDisable(Entity):
                                             """
                                             Disable Advertise Of Routes to the peer
@@ -4589,6 +4628,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class MaximumPrefixes(Entity):
@@ -4675,6 +4715,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes, ['prefix_limit', 'warning_percentage', 'warning_only', 'restart_time', 'discard_extra_paths'], name, value)
 
 
+
                                         class RemovePrivateAsEntireAsPathInbound(Entity):
                                             """
                                             Remove private AS number from inbound updates
@@ -4721,6 +4762,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound, ['enable', 'entire'], name, value)
+
 
 
                                         class AdvertiseDefImpDisableV4(Entity):
@@ -4773,6 +4815,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseL2vpnEvpn(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -4821,6 +4864,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalL2vpnEvpn(Entity):
@@ -4872,6 +4916,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
@@ -4928,6 +4973,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, ['stale_time_send', 'stale_time_accept'], name, value)
+
 
 
                                         class SiteOfOrigin(Entity):
@@ -5012,6 +5058,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
 
+
                                         class AdvertiseV6(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -5060,6 +5107,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalV6(Entity):
@@ -5113,6 +5161,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
+
                                         class Import(Entity):
                                             """
                                             Import Reorigination options for Routes from the
@@ -5164,6 +5213,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import, ['import_stitching', 'import_reoriginate', 'import_reoriginate_stitching'], name, value)
 
 
+
                                         class DefaultOriginate(Entity):
                                             """
                                             Originate default route to this neighbor
@@ -5207,6 +5257,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate, ['enable', 'route_policy_name'], name, value)
+
 
 
                                         class SoftReconfiguration(Entity):
@@ -5255,6 +5306,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration, ['inbound_soft', 'soft_always'], name, value)
+
 
 
                                         class AdvertiseVrfImpDisableV6(Entity):
@@ -5307,6 +5359,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseV4(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -5355,6 +5408,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalV4(Entity):
@@ -5408,6 +5462,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
+
                                         class RemovePrivateAsEntireAsPath(Entity):
                                             """
                                             Remove private AS number from outbound updates
@@ -5454,6 +5509,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath, ['enable', 'entire'], name, value)
+
 
 
                                         class AdvertiseVrfImpDisableV4(Entity):
@@ -5506,6 +5562,9 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
+
+
                                 class LocalAddress(Entity):
                                     """
                                     Local ip address
@@ -5555,6 +5614,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress, ['local_address_disable', 'local_ip_address'], name, value)
+
 
 
                                 class BmpActivates(Entity):
@@ -5630,6 +5690,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates.BmpActivate, ['server_id'], name, value)
 
 
+
+
                                 class EbgpMultihop(Entity):
                                     """
                                     Allow EBGP neighbors not on directly connected
@@ -5680,6 +5742,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop, ['max_hop_count', 'mpls_deactivation'], name, value)
 
 
+
                                 class RemoteAs(Entity):
                                     """
                                     Set remote AS
@@ -5725,6 +5788,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs, ['as_xx', 'as_yy'], name, value)
+
 
 
                                 class LocalAs(Entity):
@@ -5802,6 +5866,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs, ['as_xx', 'as_yy', 'no_prepend', 'disable', 'replace_as', 'dual_as'], name, value)
 
 
+
                                 class Password(Entity):
                                     """
                                     Set or disable a password
@@ -5845,6 +5910,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password, ['password_disable', 'password'], name, value)
+
 
 
                                 class AdvertisementInterval(Entity):
@@ -5904,6 +5970,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval, ['minimum_interval', 'minimum_interval_msecs'], name, value)
 
 
+
                                 class NeighborClusterId(Entity):
                                     """
                                     Neighbor Cluster\-id
@@ -5951,6 +6018,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
 
+
                                 class Tcpmss(Entity):
                                     """
                                     TCP Maximum segment size
@@ -5994,6 +6062,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss, ['tcpmss_disable', 'mss'], name, value)
+
 
 
                                 class Tos(Entity):
@@ -6043,6 +6112,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos, ['type', 'value'], name, value)
+
 
 
                                 class UpdateInFiltering(Entity):
@@ -6157,6 +6227,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers, ['number_of_buffers', 'non_circular_buffer'], name, value)
 
 
+
+
                                 class MsgLogOut(Entity):
                                     """
                                     Message log outbound
@@ -6207,6 +6279,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
+
 
 
                                 class AoKeychain(Entity):
@@ -6266,6 +6339,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AoKeychain, ['ao_keychain_disable', 'ao_keychain_name', 'ao_include_tcp_options', 'ao_accept_mismatch_connection'], name, value)
 
 
+
                                 class ReceiveBufferSize(Entity):
                                     """
                                     Set socket receive buffer size and BGP read
@@ -6322,6 +6396,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
 
+
                                 class MsgLogIn(Entity):
                                     """
                                     Message log inbound
@@ -6372,6 +6447,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
+
 
 
                                 class SendBufferSize(Entity):
@@ -6428,6 +6504,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize, ['socket_send_size', 'bgp_send_size'], name, value)
+
 
 
                                 class Timers(Entity):
@@ -6492,6 +6569,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers, ['keepalive_interval', 'hold_time', 'min_accept_hold_time'], name, value)
 
 
+
                                 class Keychain(Entity):
                                     """
                                     Set or disable keychain based authentication
@@ -6533,6 +6611,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain, ['keychain_disable', 'keychain_name'], name, value)
+
 
 
                                 class GracefulMaintenance(Entity):
@@ -6641,6 +6720,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference, ['gshut_loc_pref_disable', 'local_preference'], name, value)
 
 
+
                                     class GracefulMaintenanceAsPrepends(Entity):
                                         """
                                         Number of times to prepend local AS number to
@@ -6685,6 +6765,9 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends, ['gshut_prepends_disable', 'as_prepends'], name, value)
+
+
+
 
 
                             class VrfNeighborPrefixLength(Entity):
@@ -7687,6 +7770,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity, ['enable', 'cost_community_id', 'transitive', 'cost_community_poi_type'], name, value)
 
 
+
                                         class AdvertiseDefImpDisableV6(Entity):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
@@ -7737,6 +7821,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseDisable(Entity):
                                             """
                                             Disable Advertise Of Routes to the peer
@@ -7785,6 +7870,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class MaximumPrefixes(Entity):
@@ -7871,6 +7957,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes, ['prefix_limit', 'warning_percentage', 'warning_only', 'restart_time', 'discard_extra_paths'], name, value)
 
 
+
                                         class RemovePrivateAsEntireAsPathInbound(Entity):
                                             """
                                             Remove private AS number from inbound updates
@@ -7917,6 +8004,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound, ['enable', 'entire'], name, value)
+
 
 
                                         class AdvertiseDefImpDisableV4(Entity):
@@ -7969,6 +8057,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseL2vpnEvpn(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -8017,6 +8106,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalL2vpnEvpn(Entity):
@@ -8068,6 +8158,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
@@ -8124,6 +8215,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, ['stale_time_send', 'stale_time_accept'], name, value)
+
 
 
                                         class SiteOfOrigin(Entity):
@@ -8208,6 +8300,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
 
+
                                         class AdvertiseV6(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -8256,6 +8349,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalV6(Entity):
@@ -8309,6 +8403,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
+
                                         class Import(Entity):
                                             """
                                             Import Reorigination options for Routes from the
@@ -8360,6 +8455,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.Import, ['import_stitching', 'import_reoriginate', 'import_reoriginate_stitching'], name, value)
 
 
+
                                         class DefaultOriginate(Entity):
                                             """
                                             Originate default route to this neighbor
@@ -8403,6 +8499,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate, ['enable', 'route_policy_name'], name, value)
+
 
 
                                         class SoftReconfiguration(Entity):
@@ -8451,6 +8548,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration, ['inbound_soft', 'soft_always'], name, value)
+
 
 
                                         class AdvertiseVrfImpDisableV6(Entity):
@@ -8503,6 +8601,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseV4(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -8551,6 +8650,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalV4(Entity):
@@ -8604,6 +8704,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
+
                                         class RemovePrivateAsEntireAsPath(Entity):
                                             """
                                             Remove private AS number from outbound updates
@@ -8650,6 +8751,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath, ['enable', 'entire'], name, value)
+
 
 
                                         class AdvertiseVrfImpDisableV4(Entity):
@@ -8702,6 +8804,9 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.VrfNeighborAfs.VrfNeighborAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
+
+
                                 class LocalAddress(Entity):
                                     """
                                     Local ip address
@@ -8751,6 +8856,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAddress, ['local_address_disable', 'local_ip_address'], name, value)
+
 
 
                                 class BmpActivates(Entity):
@@ -8826,6 +8932,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.BmpActivates.BmpActivate, ['server_id'], name, value)
 
 
+
+
                                 class EbgpMultihop(Entity):
                                     """
                                     Allow EBGP neighbors not on directly connected
@@ -8876,6 +8984,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.EbgpMultihop, ['max_hop_count', 'mpls_deactivation'], name, value)
 
 
+
                                 class RemoteAs(Entity):
                                     """
                                     Set remote AS
@@ -8921,6 +9030,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.RemoteAs, ['as_xx', 'as_yy'], name, value)
+
 
 
                                 class LocalAs(Entity):
@@ -8998,6 +9108,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.LocalAs, ['as_xx', 'as_yy', 'no_prepend', 'disable', 'replace_as', 'dual_as'], name, value)
 
 
+
                                 class Password(Entity):
                                     """
                                     Set or disable a password
@@ -9041,6 +9152,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Password, ['password_disable', 'password'], name, value)
+
 
 
                                 class AdvertisementInterval(Entity):
@@ -9100,6 +9212,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AdvertisementInterval, ['minimum_interval', 'minimum_interval_msecs'], name, value)
 
 
+
                                 class NeighborClusterId(Entity):
                                     """
                                     Neighbor Cluster\-id
@@ -9147,6 +9260,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.NeighborClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
 
+
                                 class Tcpmss(Entity):
                                     """
                                     TCP Maximum segment size
@@ -9190,6 +9304,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tcpmss, ['tcpmss_disable', 'mss'], name, value)
+
 
 
                                 class Tos(Entity):
@@ -9239,6 +9354,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Tos, ['type', 'value'], name, value)
+
 
 
                                 class UpdateInFiltering(Entity):
@@ -9353,6 +9469,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers, ['number_of_buffers', 'non_circular_buffer'], name, value)
 
 
+
+
                                 class MsgLogOut(Entity):
                                     """
                                     Message log outbound
@@ -9403,6 +9521,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogOut, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
+
 
 
                                 class AoKeychain(Entity):
@@ -9462,6 +9581,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.AoKeychain, ['ao_keychain_disable', 'ao_keychain_name', 'ao_include_tcp_options', 'ao_accept_mismatch_connection'], name, value)
 
 
+
                                 class ReceiveBufferSize(Entity):
                                     """
                                     Set socket receive buffer size and BGP read
@@ -9518,6 +9638,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.ReceiveBufferSize, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
 
+
                                 class MsgLogIn(Entity):
                                     """
                                     Message log inbound
@@ -9568,6 +9689,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.MsgLogIn, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
+
 
 
                                 class SendBufferSize(Entity):
@@ -9624,6 +9746,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.SendBufferSize, ['socket_send_size', 'bgp_send_size'], name, value)
+
 
 
                                 class Timers(Entity):
@@ -9688,6 +9811,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Timers, ['keepalive_interval', 'hold_time', 'min_accept_hold_time'], name, value)
 
 
+
                                 class Keychain(Entity):
                                     """
                                     Set or disable keychain based authentication
@@ -9729,6 +9853,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.Keychain, ['keychain_disable', 'keychain_name'], name, value)
+
 
 
                                 class GracefulMaintenance(Entity):
@@ -9837,6 +9962,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference, ['gshut_loc_pref_disable', 'local_preference'], name, value)
 
 
+
                                     class GracefulMaintenanceAsPrepends(Entity):
                                         """
                                         Number of times to prepend local AS number to
@@ -9881,6 +10007,12 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends, ['gshut_prepends_disable', 'as_prepends'], name, value)
+
+
+
+
+
+
 
 
                 class DefaultVrf(Entity):
@@ -11031,6 +11163,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity, ['enable', 'cost_community_id', 'transitive', 'cost_community_poi_type'], name, value)
 
 
+
                                         class AdvertiseDefImpDisableV6(Entity):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
@@ -11081,6 +11214,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseDisable(Entity):
                                             """
                                             Disable Advertise Of Routes to the peer
@@ -11129,6 +11263,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class MaximumPrefixes(Entity):
@@ -11215,6 +11350,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes, ['prefix_limit', 'warning_percentage', 'warning_only', 'restart_time', 'discard_extra_paths'], name, value)
 
 
+
                                         class RemovePrivateAsEntireAsPathInbound(Entity):
                                             """
                                             Remove private AS number from inbound updates
@@ -11261,6 +11397,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound, ['enable', 'entire'], name, value)
+
 
 
                                         class AdvertiseDefImpDisableV4(Entity):
@@ -11313,6 +11450,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseL2vpnEvpn(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -11361,6 +11499,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalL2vpnEvpn(Entity):
@@ -11412,6 +11551,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
@@ -11470,6 +11610,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, ['stale_time_send', 'stale_time_accept'], name, value)
 
 
+
                                         class AdvertiseV6(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -11518,6 +11659,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalV6(Entity):
@@ -11571,6 +11713,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
+
                                         class Import(Entity):
                                             """
                                             Import Reorigination options for Routes from the
@@ -11622,6 +11765,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import, ['import_stitching', 'import_reoriginate', 'import_reoriginate_stitching'], name, value)
 
 
+
                                         class DefaultOriginate(Entity):
                                             """
                                             Originate default route to this neighbor
@@ -11665,6 +11809,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate, ['enable', 'route_policy_name'], name, value)
+
 
 
                                         class SoftReconfiguration(Entity):
@@ -11713,6 +11858,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration, ['inbound_soft', 'soft_always'], name, value)
+
 
 
                                         class AdvertiseVrfImpDisableV6(Entity):
@@ -11765,6 +11911,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseV4(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -11813,6 +11960,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalV4(Entity):
@@ -11866,6 +12014,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
+
                                         class RemovePrivateAsEntireAsPath(Entity):
                                             """
                                             Remove private AS number from outbound updates
@@ -11912,6 +12061,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath, ['enable', 'entire'], name, value)
+
 
 
                                         class AdvertiseVrfImpDisableV4(Entity):
@@ -11964,6 +12114,9 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
+
+
                                 class LocalAddress(Entity):
                                     """
                                     Local ip address
@@ -12013,6 +12166,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress, ['local_address_disable', 'local_ip_address'], name, value)
+
 
 
                                 class BmpActivates(Entity):
@@ -12088,6 +12242,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates.BmpActivate, ['server_id'], name, value)
 
 
+
+
                                 class EbgpMultihop(Entity):
                                     """
                                     Allow EBGP neighbors not on directly connected
@@ -12138,6 +12294,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop, ['max_hop_count', 'mpls_deactivation'], name, value)
 
 
+
                                 class RemoteAs(Entity):
                                     """
                                     Set remote AS
@@ -12183,6 +12340,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs, ['as_xx', 'as_yy'], name, value)
+
 
 
                                 class LocalAs(Entity):
@@ -12260,6 +12418,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs, ['as_xx', 'as_yy', 'no_prepend', 'disable', 'replace_as', 'dual_as'], name, value)
 
 
+
                                 class Password(Entity):
                                     """
                                     Set or disable a password
@@ -12303,6 +12462,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password, ['password_disable', 'password'], name, value)
+
 
 
                                 class AdvertisementInterval(Entity):
@@ -12362,6 +12522,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval, ['minimum_interval', 'minimum_interval_msecs'], name, value)
 
 
+
                                 class NeighborClusterId(Entity):
                                     """
                                     Neighbor Cluster\-id
@@ -12409,6 +12570,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
 
+
                                 class Tcpmss(Entity):
                                     """
                                     TCP Maximum segment size
@@ -12452,6 +12614,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss, ['tcpmss_disable', 'mss'], name, value)
+
 
 
                                 class Tos(Entity):
@@ -12501,6 +12664,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos, ['type', 'value'], name, value)
+
 
 
                                 class UpdateInFiltering(Entity):
@@ -12615,6 +12779,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers, ['number_of_buffers', 'non_circular_buffer'], name, value)
 
 
+
+
                                 class MsgLogOut(Entity):
                                     """
                                     Message log outbound
@@ -12665,6 +12831,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
+
 
 
                                 class AoKeychain(Entity):
@@ -12724,6 +12891,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AoKeychain, ['ao_keychain_disable', 'ao_keychain_name', 'ao_include_tcp_options', 'ao_accept_mismatch_connection'], name, value)
 
 
+
                                 class ReceiveBufferSize(Entity):
                                     """
                                     Set socket receive buffer size and BGP read
@@ -12780,6 +12948,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
 
+
                                 class MsgLogIn(Entity):
                                     """
                                     Message log inbound
@@ -12830,6 +12999,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
+
 
 
                                 class SendBufferSize(Entity):
@@ -12886,6 +13056,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize, ['socket_send_size', 'bgp_send_size'], name, value)
+
 
 
                                 class Timers(Entity):
@@ -12950,6 +13121,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers, ['keepalive_interval', 'hold_time', 'min_accept_hold_time'], name, value)
 
 
+
                                 class Keychain(Entity):
                                     """
                                     Set or disable keychain based authentication
@@ -12991,6 +13163,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain, ['keychain_disable', 'keychain_name'], name, value)
+
 
 
                                 class GracefulMaintenance(Entity):
@@ -13099,6 +13272,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference, ['gshut_loc_pref_disable', 'local_preference'], name, value)
 
 
+
                                     class GracefulMaintenanceAsPrepends(Entity):
                                         """
                                         Number of times to prepend local AS number to
@@ -13143,6 +13317,9 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends, ['gshut_prepends_disable', 'as_prepends'], name, value)
+
+
+
 
 
                             class NeighborPrefixLength(Entity):
@@ -14150,6 +14327,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AigpCostCommunity, ['enable', 'cost_community_id', 'transitive', 'cost_community_poi_type'], name, value)
 
 
+
                                         class AdvertiseDefImpDisableV6(Entity):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
@@ -14200,6 +14378,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseDisable(Entity):
                                             """
                                             Disable Advertise Of Routes to the peer
@@ -14248,6 +14427,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDisable, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class MaximumPrefixes(Entity):
@@ -14334,6 +14514,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.MaximumPrefixes, ['prefix_limit', 'warning_percentage', 'warning_only', 'restart_time', 'discard_extra_paths'], name, value)
 
 
+
                                         class RemovePrivateAsEntireAsPathInbound(Entity):
                                             """
                                             Remove private AS number from inbound updates
@@ -14380,6 +14561,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound, ['enable', 'entire'], name, value)
+
 
 
                                         class AdvertiseDefImpDisableV4(Entity):
@@ -14432,6 +14614,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseL2vpnEvpn(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -14480,6 +14663,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalL2vpnEvpn(Entity):
@@ -14531,6 +14715,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
@@ -14589,6 +14774,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime, ['stale_time_send', 'stale_time_accept'], name, value)
 
 
+
                                         class AdvertiseV6(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -14637,6 +14823,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalV6(Entity):
@@ -14690,6 +14877,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
+
                                         class Import(Entity):
                                             """
                                             Import Reorigination options for Routes from the
@@ -14741,6 +14929,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.Import, ['import_stitching', 'import_reoriginate', 'import_reoriginate_stitching'], name, value)
 
 
+
                                         class DefaultOriginate(Entity):
                                             """
                                             Originate default route to this neighbor
@@ -14784,6 +14973,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.DefaultOriginate, ['enable', 'route_policy_name'], name, value)
+
 
 
                                         class SoftReconfiguration(Entity):
@@ -14832,6 +15022,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.SoftReconfiguration, ['inbound_soft', 'soft_always'], name, value)
+
 
 
                                         class AdvertiseVrfImpDisableV6(Entity):
@@ -14884,6 +15075,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseV4(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -14932,6 +15124,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalV4(Entity):
@@ -14985,6 +15178,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseLocalV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
+
                                         class RemovePrivateAsEntireAsPath(Entity):
                                             """
                                             Remove private AS number from outbound updates
@@ -15031,6 +15225,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath, ['enable', 'entire'], name, value)
+
 
 
                                         class AdvertiseVrfImpDisableV4(Entity):
@@ -15083,6 +15278,9 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborAfs.NeighborAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
+
+
                                 class LocalAddress(Entity):
                                     """
                                     Local ip address
@@ -15132,6 +15330,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAddress, ['local_address_disable', 'local_ip_address'], name, value)
+
 
 
                                 class BmpActivates(Entity):
@@ -15207,6 +15406,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.BmpActivates.BmpActivate, ['server_id'], name, value)
 
 
+
+
                                 class EbgpMultihop(Entity):
                                     """
                                     Allow EBGP neighbors not on directly connected
@@ -15257,6 +15458,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.EbgpMultihop, ['max_hop_count', 'mpls_deactivation'], name, value)
 
 
+
                                 class RemoteAs(Entity):
                                     """
                                     Set remote AS
@@ -15302,6 +15504,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.RemoteAs, ['as_xx', 'as_yy'], name, value)
+
 
 
                                 class LocalAs(Entity):
@@ -15379,6 +15582,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.LocalAs, ['as_xx', 'as_yy', 'no_prepend', 'disable', 'replace_as', 'dual_as'], name, value)
 
 
+
                                 class Password(Entity):
                                     """
                                     Set or disable a password
@@ -15422,6 +15626,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Password, ['password_disable', 'password'], name, value)
+
 
 
                                 class AdvertisementInterval(Entity):
@@ -15481,6 +15686,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AdvertisementInterval, ['minimum_interval', 'minimum_interval_msecs'], name, value)
 
 
+
                                 class NeighborClusterId(Entity):
                                     """
                                     Neighbor Cluster\-id
@@ -15528,6 +15734,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.NeighborClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
 
+
                                 class Tcpmss(Entity):
                                     """
                                     TCP Maximum segment size
@@ -15571,6 +15778,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tcpmss, ['tcpmss_disable', 'mss'], name, value)
+
 
 
                                 class Tos(Entity):
@@ -15620,6 +15828,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Tos, ['type', 'value'], name, value)
+
 
 
                                 class UpdateInFiltering(Entity):
@@ -15734,6 +15943,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.UpdateInFiltering.UpdateInFilteringMessageBuffers, ['number_of_buffers', 'non_circular_buffer'], name, value)
 
 
+
+
                                 class MsgLogOut(Entity):
                                     """
                                     Message log outbound
@@ -15784,6 +15995,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogOut, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
+
 
 
                                 class AoKeychain(Entity):
@@ -15843,6 +16055,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.AoKeychain, ['ao_keychain_disable', 'ao_keychain_name', 'ao_include_tcp_options', 'ao_accept_mismatch_connection'], name, value)
 
 
+
                                 class ReceiveBufferSize(Entity):
                                     """
                                     Set socket receive buffer size and BGP read
@@ -15899,6 +16112,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.ReceiveBufferSize, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
 
+
                                 class MsgLogIn(Entity):
                                     """
                                     Message log inbound
@@ -15949,6 +16163,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.MsgLogIn, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
+
 
 
                                 class SendBufferSize(Entity):
@@ -16005,6 +16220,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.SendBufferSize, ['socket_send_size', 'bgp_send_size'], name, value)
+
 
 
                                 class Timers(Entity):
@@ -16069,6 +16285,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Timers, ['keepalive_interval', 'hold_time', 'min_accept_hold_time'], name, value)
 
 
+
                                 class Keychain(Entity):
                                     """
                                     Set or disable keychain based authentication
@@ -16110,6 +16327,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.Keychain, ['keychain_disable', 'keychain_name'], name, value)
+
 
 
                                 class GracefulMaintenance(Entity):
@@ -16218,6 +16436,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceLocalPreference, ['gshut_loc_pref_disable', 'local_preference'], name, value)
 
 
+
                                     class GracefulMaintenanceAsPrepends(Entity):
                                         """
                                         Number of times to prepend local AS number to
@@ -16262,6 +16481,10 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.NeighborPrefixLength.GracefulMaintenance.GracefulMaintenanceAsPrepends, ['gshut_prepends_disable', 'as_prepends'], name, value)
+
+
+
+
 
 
                         class NeighborGroups(Entity):
@@ -17305,6 +17528,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity, ['enable', 'cost_community_id', 'transitive', 'cost_community_poi_type'], name, value)
 
 
+
                                         class AdvertiseDefImpDisableV6(Entity):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
@@ -17355,6 +17579,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseDisable(Entity):
                                             """
                                             Disable Advertise Of Routes to the peer
@@ -17403,6 +17628,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class MaximumPrefixes(Entity):
@@ -17489,6 +17715,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes, ['prefix_limit', 'warning_percentage', 'warning_only', 'restart_time', 'discard_extra_paths'], name, value)
 
 
+
                                         class RemovePrivateAsEntireAsPathInbound(Entity):
                                             """
                                             Remove private AS number from inbound updates
@@ -17535,6 +17762,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound, ['enable', 'entire'], name, value)
+
 
 
                                         class AdvertiseDefImpDisableV4(Entity):
@@ -17587,6 +17815,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseL2vpnEvpn(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -17635,6 +17864,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalL2vpnEvpn(Entity):
@@ -17686,6 +17916,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
@@ -17742,6 +17973,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime, ['stale_time_send', 'stale_time_accept'], name, value)
+
 
 
                                         class SiteOfOrigin(Entity):
@@ -17826,6 +18058,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
 
+
                                         class AdvertiseV6(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -17874,6 +18107,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalV6(Entity):
@@ -17927,6 +18161,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
+
                                         class Import(Entity):
                                             """
                                             Import Reorigination options for Routes from the
@@ -17978,6 +18213,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import, ['import_stitching', 'import_reoriginate', 'import_reoriginate_stitching'], name, value)
 
 
+
                                         class DefaultOriginate(Entity):
                                             """
                                             Originate default route to this neighbor
@@ -18021,6 +18257,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate, ['enable', 'route_policy_name'], name, value)
+
 
 
                                         class SoftReconfiguration(Entity):
@@ -18069,6 +18306,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration, ['inbound_soft', 'soft_always'], name, value)
+
 
 
                                         class AdvertiseVrfImpDisableV6(Entity):
@@ -18121,6 +18359,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseV4(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -18169,6 +18408,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalV4(Entity):
@@ -18222,6 +18462,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
+
                                         class RemovePrivateAsEntireAsPath(Entity):
                                             """
                                             Remove private AS number from outbound updates
@@ -18268,6 +18509,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath, ['enable', 'entire'], name, value)
+
 
 
                                         class AdvertiseVrfImpDisableV4(Entity):
@@ -18320,6 +18562,9 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
+
+
                                 class LocalAddress(Entity):
                                     """
                                     Local ip address
@@ -18369,6 +18614,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress, ['local_address_disable', 'local_ip_address'], name, value)
+
 
 
                                 class BmpActivates(Entity):
@@ -18444,6 +18690,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates.BmpActivate, ['server_id'], name, value)
 
 
+
+
                                 class EbgpMultihop(Entity):
                                     """
                                     Allow EBGP neighbors not on directly connected
@@ -18494,6 +18742,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop, ['max_hop_count', 'mpls_deactivation'], name, value)
 
 
+
                                 class RemoteAs(Entity):
                                     """
                                     Set remote AS
@@ -18539,6 +18788,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs, ['as_xx', 'as_yy'], name, value)
+
 
 
                                 class LocalAs(Entity):
@@ -18616,6 +18866,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs, ['as_xx', 'as_yy', 'no_prepend', 'disable', 'replace_as', 'dual_as'], name, value)
 
 
+
                                 class Password(Entity):
                                     """
                                     Set or disable a password
@@ -18659,6 +18910,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password, ['password_disable', 'password'], name, value)
+
 
 
                                 class AdvertisementInterval(Entity):
@@ -18718,6 +18970,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval, ['minimum_interval', 'minimum_interval_msecs'], name, value)
 
 
+
                                 class NeighborClusterId(Entity):
                                     """
                                     Neighbor Cluster\-id
@@ -18765,6 +19018,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
 
+
                                 class Tcpmss(Entity):
                                     """
                                     TCP Maximum segment size
@@ -18808,6 +19062,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss, ['tcpmss_disable', 'mss'], name, value)
+
 
 
                                 class Tos(Entity):
@@ -18857,6 +19112,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos, ['type', 'value'], name, value)
+
 
 
                                 class UpdateInFiltering(Entity):
@@ -18971,6 +19227,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers, ['number_of_buffers', 'non_circular_buffer'], name, value)
 
 
+
+
                                 class MsgLogOut(Entity):
                                     """
                                     Message log outbound
@@ -19021,6 +19279,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
+
 
 
                                 class AoKeychain(Entity):
@@ -19080,6 +19339,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AoKeychain, ['ao_keychain_disable', 'ao_keychain_name', 'ao_include_tcp_options', 'ao_accept_mismatch_connection'], name, value)
 
 
+
                                 class ReceiveBufferSize(Entity):
                                     """
                                     Set socket receive buffer size and BGP read
@@ -19136,6 +19396,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
 
+
                                 class MsgLogIn(Entity):
                                     """
                                     Message log inbound
@@ -19186,6 +19447,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
+
 
 
                                 class SendBufferSize(Entity):
@@ -19242,6 +19504,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize, ['socket_send_size', 'bgp_send_size'], name, value)
+
 
 
                                 class Timers(Entity):
@@ -19306,6 +19569,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers, ['keepalive_interval', 'hold_time', 'min_accept_hold_time'], name, value)
 
 
+
                                 class Keychain(Entity):
                                     """
                                     Set or disable keychain based authentication
@@ -19347,6 +19611,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain, ['keychain_disable', 'keychain_name'], name, value)
+
 
 
                                 class GracefulMaintenance(Entity):
@@ -19455,6 +19720,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference, ['gshut_loc_pref_disable', 'local_preference'], name, value)
 
 
+
                                     class GracefulMaintenanceAsPrepends(Entity):
                                         """
                                         Number of times to prepend local AS number to
@@ -19499,6 +19765,10 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends, ['gshut_prepends_disable', 'as_prepends'], name, value)
+
+
+
+
 
 
                         class AfGroups(Entity):
@@ -20132,6 +20402,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity, ['enable', 'cost_community_id', 'transitive', 'cost_community_poi_type'], name, value)
 
 
+
                                         class AdvertiseDefImpDisableV6(Entity):
                                             """
                                             Disable Advertise Of Default VRF Imported Routes
@@ -20182,6 +20453,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseDisable(Entity):
                                             """
                                             Disable Advertise Of Routes to the peer
@@ -20230,6 +20502,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class MaximumPrefixes(Entity):
@@ -20316,6 +20589,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes, ['prefix_limit', 'warning_percentage', 'warning_only', 'restart_time', 'discard_extra_paths'], name, value)
 
 
+
                                         class RemovePrivateAsEntireAsPathInbound(Entity):
                                             """
                                             Remove private AS number from inbound updates
@@ -20362,6 +20636,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound, ['enable', 'entire'], name, value)
+
 
 
                                         class AdvertiseDefImpDisableV4(Entity):
@@ -20414,6 +20689,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseL2vpnEvpn(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -20462,6 +20738,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalL2vpnEvpn(Entity):
@@ -20513,6 +20790,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2vpnEvpn, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class NeighborAfLongLivedGracefulRestartStaleTime(Entity):
@@ -20569,6 +20847,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime, ['stale_time_send', 'stale_time_accept'], name, value)
+
 
 
                                         class SiteOfOrigin(Entity):
@@ -20653,6 +20932,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
 
+
                                         class AdvertiseV6(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -20701,6 +20981,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalV6(Entity):
@@ -20754,6 +21035,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
+
                                         class Import(Entity):
                                             """
                                             Import Reorigination options for Routes from the
@@ -20805,6 +21087,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import, ['import_stitching', 'import_reoriginate', 'import_reoriginate_stitching'], name, value)
 
 
+
                                         class DefaultOriginate(Entity):
                                             """
                                             Originate default route to this neighbor
@@ -20848,6 +21131,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate, ['enable', 'route_policy_name'], name, value)
+
 
 
                                         class SoftReconfiguration(Entity):
@@ -20896,6 +21180,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration, ['inbound_soft', 'soft_always'], name, value)
+
 
 
                                         class AdvertiseVrfImpDisableV6(Entity):
@@ -20948,6 +21233,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV6, ['af_name', 'adv_option', 'rt_type'], name, value)
 
 
+
                                         class AdvertiseV4(Entity):
                                             """
                                             Advertise Translated Routes to the peer
@@ -20996,6 +21282,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
+
 
 
                                         class AdvertiseLocalV4(Entity):
@@ -21049,6 +21336,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4, ['af_name', 'reorg_option', 'rt_type'], name, value)
 
 
+
                                         class RemovePrivateAsEntireAsPath(Entity):
                                             """
                                             Remove private AS number from outbound updates
@@ -21095,6 +21383,7 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath, ['enable', 'entire'], name, value)
+
 
 
                                         class AdvertiseVrfImpDisableV4(Entity):
@@ -21145,6 +21434,11 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseVrfImpDisableV4, ['af_name', 'adv_option', 'rt_type'], name, value)
+
+
+
+
+
 
 
                         class SessionGroups(Entity):
@@ -21674,6 +21968,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress, ['local_address_disable', 'local_ip_address'], name, value)
 
 
+
                                 class BmpActivates(Entity):
                                     """
                                     Enable BMP logging for this neighbor
@@ -21747,6 +22042,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates.BmpActivate, ['server_id'], name, value)
 
 
+
+
                                 class EbgpMultihop(Entity):
                                     """
                                     Allow EBGP neighbors not on directly connected
@@ -21797,6 +22094,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop, ['max_hop_count', 'mpls_deactivation'], name, value)
 
 
+
                                 class RemoteAs(Entity):
                                     """
                                     Set remote AS
@@ -21842,6 +22140,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs, ['as_xx', 'as_yy'], name, value)
+
 
 
                                 class LocalAs(Entity):
@@ -21919,6 +22218,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs, ['as_xx', 'as_yy', 'no_prepend', 'disable', 'replace_as', 'dual_as'], name, value)
 
 
+
                                 class Password(Entity):
                                     """
                                     Set or disable a password
@@ -21962,6 +22262,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password, ['password_disable', 'password'], name, value)
+
 
 
                                 class AdvertisementInterval(Entity):
@@ -22021,6 +22322,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval, ['minimum_interval', 'minimum_interval_msecs'], name, value)
 
 
+
                                 class NeighborClusterId(Entity):
                                     """
                                     Neighbor Cluster\-id
@@ -22068,6 +22370,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
 
+
                                 class Tcpmss(Entity):
                                     """
                                     TCP Maximum segment size
@@ -22111,6 +22414,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss, ['tcpmss_disable', 'mss'], name, value)
+
 
 
                                 class Tos(Entity):
@@ -22160,6 +22464,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos, ['type', 'value'], name, value)
+
 
 
                                 class UpdateInFiltering(Entity):
@@ -22274,6 +22579,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers, ['number_of_buffers', 'non_circular_buffer'], name, value)
 
 
+
+
                                 class MsgLogOut(Entity):
                                     """
                                     Message log outbound
@@ -22324,6 +22631,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
+
 
 
                                 class AoKeychain(Entity):
@@ -22383,6 +22691,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AoKeychain, ['ao_keychain_disable', 'ao_keychain_name', 'ao_include_tcp_options', 'ao_accept_mismatch_connection'], name, value)
 
 
+
                                 class ReceiveBufferSize(Entity):
                                     """
                                     Set socket receive buffer size and BGP read
@@ -22439,6 +22748,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
 
+
                                 class MsgLogIn(Entity):
                                     """
                                     Message log inbound
@@ -22489,6 +22799,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn, ['msg_buf_count', 'msg_log_disable', 'msg_log_inherit_disable'], name, value)
+
 
 
                                 class SendBufferSize(Entity):
@@ -22545,6 +22856,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize, ['socket_send_size', 'bgp_send_size'], name, value)
+
 
 
                                 class Timers(Entity):
@@ -22609,6 +22921,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers, ['keepalive_interval', 'hold_time', 'min_accept_hold_time'], name, value)
 
 
+
                                 class Keychain(Entity):
                                     """
                                     Set or disable keychain based authentication
@@ -22650,6 +22963,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain, ['keychain_disable', 'keychain_name'], name, value)
+
 
 
                                 class GracefulMaintenance(Entity):
@@ -22758,6 +23072,7 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference, ['gshut_loc_pref_disable', 'local_preference'], name, value)
 
 
+
                                     class GracefulMaintenanceAsPrepends(Entity):
                                         """
                                         Number of times to prepend local AS number to
@@ -22802,6 +23117,11 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends, ['gshut_prepends_disable', 'as_prepends'], name, value)
+
+
+
+
+
 
 
                     class Global(Entity):
@@ -23428,6 +23748,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId, ['cluster_id_number', 'cluster_id_address'], name, value)
 
 
+
                         class WriteLimit(Entity):
                             """
                             Set write\-queue limit for each update group
@@ -23488,6 +23809,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit, ['formatted_messages', 'enqueued_messages', 'desynchronize'], name, value)
 
 
+
                         class UpdateDelay(Entity):
                             """
                             Set the max initial delay for sending
@@ -23538,6 +23860,7 @@ class Bgp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay, ['delay', 'always'], name, value)
+
 
 
                         class AsLeague(Entity):
@@ -23665,6 +23988,9 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer, ['as_xx', 'as_yy'], name, value)
+
+
+
 
 
                         class RpkiServers(Entity):
@@ -23859,6 +24185,9 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport, ['transport', 'port'], name, value)
 
 
+
+
+
                         class AsListGroups(Entity):
                             """
                             AS\-list group lists
@@ -24030,6 +24359,10 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsListGroups.AsListGroup.Ases.As, ['as_xx', 'as_yy'], name, value)
 
 
+
+
+
+
                         class Limits(Entity):
                             """
                             Maximum number that can be configured
@@ -24068,6 +24401,7 @@ class Bgp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits, ['maximum_neighbors'], name, value)
+
 
 
                         class ConfederationDomain(Entity):
@@ -24115,6 +24449,7 @@ class Bgp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain, ['as_xx', 'as_yy'], name, value)
+
 
 
                         class ConfederationPeerAses(Entity):
@@ -24197,6 +24532,8 @@ class Bgp(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs, ['as_xx', 'as_yy'], name, value)
+
+
 
 
                         class AttributeFilterGroups(Entity):
@@ -24379,6 +24716,10 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter, ['attribute_start', 'attribute_end', 'filter_action'], name, value)
 
 
+
+
+
+
                         class GlobalGracefulMaintenanceActivate(Entity):
                             """
                             Activate Graceful Maintenance Mode for all
@@ -24421,6 +24762,7 @@ class Bgp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate, ['all_neighbors', 'retain_routes'], name, value)
+
 
 
                         class GlobalAfs(Entity):
@@ -25165,6 +25507,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute, ['instance_name', 'default_metric', 'route_policy_name', 'redist_type'], name, value)
 
 
+
+
                                 class DomainDistinguisher(Entity):
                                     """
                                     <ASN, router\-id> tuple to use to identify
@@ -25218,6 +25562,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher, ['as_', 'router_id'], name, value)
+
 
 
                                 class VrfAll(Entity):
@@ -25335,6 +25680,8 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode, ['label_allocation_mode', 'route_policy_name'], name, value)
+
+
 
 
                                 class DisableClusterClientToClientRrs(Entity):
@@ -25461,6 +25808,7 @@ class Bgp(Entity):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number, ['cluster_id_number'], name, value)
 
 
+
                                         class Ipv4Address(Entity):
                                             """
                                             ipv4 address
@@ -25503,6 +25851,9 @@ class Bgp(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address, ['cluster_id_address'], name, value)
+
+
+
 
 
                                 class LabelDelay(Entity):
@@ -25561,6 +25912,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay, ['seconds', 'milliseconds'], name, value)
+
 
 
                                 class Ebgp(Entity):
@@ -25633,6 +25985,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp, ['paths_value', 'unequal_cost', 'selective', 'order_by_igp_metric'], name, value)
 
 
+
                                 class Eibgp(Entity):
                                     """
                                     Use eiBGP multipaths
@@ -25703,6 +26056,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp, ['paths_value', 'unequal_cost', 'selective', 'order_by_igp_metric'], name, value)
 
 
+
                                 class RetainRt(Entity):
                                     """
                                     Accept received updates with the
@@ -25745,6 +26099,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt, ['all', 'route_policy_name'], name, value)
+
 
 
                                 class Ibgp(Entity):
@@ -25817,6 +26172,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp, ['paths_value', 'unequal_cost', 'selective', 'order_by_igp_metric'], name, value)
 
 
+
                                 class ImportDelay(Entity):
                                     """
                                     Delay timer to batch import processing.
@@ -25873,6 +26229,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay, ['seconds', 'milliseconds'], name, value)
+
 
 
                                 class AggregateAddresses(Entity):
@@ -25989,6 +26346,8 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress, ['aggregate_addr', 'aggregate_prefix', 'generate_set_info', 'generate_confederation_set_info', 'summary_only', 'route_policy_name'], name, value)
+
+
 
 
                                 class OptimalRouteReflectorGroups(Entity):
@@ -26110,6 +26469,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OptimalRouteReflectorGroups.OptimalRouteReflectorGroup, ['group_name', 'primary_root_address', 'secondary_root_address', 'tertiary_root_address'], name, value)
 
 
+
+
                                 class Dampening(Entity):
                                     """
                                     Enable route\-flap dampening
@@ -26189,6 +26550,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening, ['half_life', 'reuse_threshold', 'suppress_threshold', 'suppress_time', 'route_policy_name'], name, value)
 
 
+
                                 class RipRoutes(Entity):
                                     """
                                     Redistribute RIP routes
@@ -26246,6 +26608,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
 
+
                                 class LispRoutes(Entity):
                                     """
                                     Redistribute lisp routes
@@ -26292,6 +26655,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes, ['default_metric', 'route_policy_name'], name, value)
+
 
 
                                 class StaticRoutes(Entity):
@@ -26349,6 +26713,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
+
 
 
                                 class Distance(Entity):
@@ -26411,6 +26776,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance, ['external_routes', 'internal_routes', 'local_routes'], name, value)
+
 
 
                                 class ApplicationRoutes(Entity):
@@ -26511,6 +26877,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute, ['instance_name', 'default_metric', 'route_policy_name', 'not_used'], name, value)
 
 
+
+
                                 class LabelMode(Entity):
                                     """
                                     BGP 6PE/MPLS\-VPN label allocation mode
@@ -26552,6 +26920,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode, ['label_allocation_mode', 'route_policy_name'], name, value)
+
 
 
                                 class EigrpRoutes(Entity):
@@ -26650,6 +27019,8 @@ class Bgp(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute, ['instance_name', 'default_metric', 'route_policy_name', 'redist_type'], name, value)
+
+
 
 
                                 class SourcedNetworks(Entity):
@@ -26754,6 +27125,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork, ['network_addr', 'network_prefix', 'backdoor', 'route_policy_name'], name, value)
 
 
+
+
                                 class ConnectedRoutes(Entity):
                                     """
                                     Redistribute connected routes
@@ -26811,6 +27184,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
 
+
                                 class AllocateLabel(Entity):
                                     """
                                     Label allocation policy
@@ -26861,6 +27235,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel, ['all', 'route_policy_name', 'un_labeled_path'], name, value)
 
 
+
                                 class AdditionalPathsSelection(Entity):
                                     """
                                     Configure additional paths selection
@@ -26902,6 +27277,7 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection, ['selection', 'route_policy_name'], name, value)
+
 
 
                                 class OspfRoutes(Entity):
@@ -27002,6 +27378,8 @@ class Bgp(Entity):
                                             self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute, ['instance_name', 'default_metric', 'route_policy_name', 'redist_type'], name, value)
 
 
+
+
                                 class MobileRoutes(Entity):
                                     """
                                     Redistribute mobile routes
@@ -27059,6 +27437,7 @@ class Bgp(Entity):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
 
 
+
                                 class SubscriberRoutes(Entity):
                                     """
                                     Redistribute subscriber routes
@@ -27114,6 +27493,9 @@ class Bgp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes, ['default_metric', 'route_policy_name', 'not_used'], name, value)
+
+
+
 
 
                         class RpkiStaticRoutes(Entity):
@@ -27222,6 +27604,8 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute, ['addrress', 'minimum', 'maximum', 'as_'], name, value)
 
 
+
+
                         class MplsActivatedInterfaces(Entity):
                             """
                             Configure list of MPLS activated interfaces
@@ -27295,6 +27679,8 @@ class Bgp(Entity):
                                     self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface, ['interface_name'], name, value)
 
 
+
+
                         class GlobalTimers(Entity):
                             """
                             Adjust routing timers.
@@ -27363,6 +27749,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers, ['keepalive', 'hold_time', 'min_accept_hold_time'], name, value)
 
 
+
                         class Bfd(Entity):
                             """
                             BFD configuration
@@ -27410,6 +27797,7 @@ class Bgp(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd, ['detection_multiplier', 'interval'], name, value)
+
 
 
                         class SendSocketBufferSizes(Entity):
@@ -27467,6 +27855,7 @@ class Bgp(Entity):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes, ['socket_send_size', 'bgp_send_size'], name, value)
 
 
+
                         class ReceiveSocketBufferSizes(Entity):
                             """
                             Set socket and BGP receive buffer sizes
@@ -27521,9 +27910,17 @@ class Bgp(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes, ['socket_receive_size', 'bgp_receive_size'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Bgp()
         return self._top_entity
+
+
 
 class BmpServerAll(Entity):
     """
@@ -27622,9 +28019,12 @@ class BmpServerAll(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(BmpServerAll.RouteMonitoring, ['policy', 'direction'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = BmpServerAll()
         return self._top_entity
+
+
 
 class BmpServers(Entity):
     """
@@ -27887,6 +28287,7 @@ class BmpServers(Entity):
                 self._perform_setattr(BmpServers.BmpServer.InitialRefreshDelay, ['delay', 'spread', 'skip'], name, value)
 
 
+
         class HostPort(Entity):
             """
             Configure Host Name/Address and Port for BMP
@@ -27931,6 +28332,7 @@ class BmpServers(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BmpServers.BmpServer.HostPort, ['host', 'port'], name, value)
+
 
 
         class Tos(Entity):
@@ -27981,7 +28383,11 @@ class BmpServers(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(BmpServers.BmpServer.Tos, ['type', 'value'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = BmpServers()
         return self._top_entity
+
+
 

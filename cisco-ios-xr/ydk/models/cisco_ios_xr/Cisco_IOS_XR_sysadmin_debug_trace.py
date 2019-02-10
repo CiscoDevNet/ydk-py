@@ -144,7 +144,11 @@ class Config(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Config.Debug.Trace, ['connection_type', 'enable', 'disable'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Config()
         return self._top_entity
+
+
 

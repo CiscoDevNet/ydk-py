@@ -1620,6 +1620,9 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.DiffServTrafficEngineering.Classes.Class, ['class_number', 'class_type', 'class_priority', 'unused'], name, value)
 
 
+
+
+
     class NamedTunnels(Entity):
         """
         Configure MPLS TE tunnel
@@ -2119,6 +2122,9 @@ class MplsTe(Entity):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation, ['path_computation_method', 'explicit_path_name', 'path_computation_server'], name, value)
 
 
+
+
+
                     class TunnelPathSelection(Entity):
                         """
                         Configure path selection properties
@@ -2238,6 +2244,8 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation, ['path_invalidation_timeout', 'path_invalidation_action'], name, value)
+
+
 
 
                     class AutoBandwidth(Entity):
@@ -2438,6 +2446,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow, ['underflow_threshold_percent', 'underflow_threshold_value', 'underflow_threshold_limit'], name, value)
 
 
+
                         class Overflow(Entity):
                             """
                             Configuring the tunnel overflow detection
@@ -2507,6 +2516,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow, ['overflow_threshold_percent', 'overflow_threshold_value', 'overflow_threshold_limit'], name, value)
 
 
+
                         class BandwidthLimits(Entity):
                             """
                             Set min/max bandwidth auto\-bw can apply on a
@@ -2560,6 +2570,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits, ['bandwidth_min_limit', 'bandwidth_max_limit'], name, value)
+
 
 
                         class AdjustmentThreshold(Entity):
@@ -2619,6 +2630,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold, ['adjustment_threshold_percent', 'adjustment_threshold_value'], name, value)
+
 
 
                         class AutoCapacity(Entity):
@@ -2712,6 +2724,8 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AutoCapacity, ['nominal_bandwidth', 'enable', 'clones_minimum', 'split_bandwidth', 'merge_bandwidth', 'clones_maximum'], name, value)
 
 
+
+
                     class Priority(Entity):
                         """
                         Tunnel Setup and Hold Priorities
@@ -2764,6 +2778,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority, ['setup_priority', 'hold_priority'], name, value)
+
 
 
                     class AffinityMask(Entity):
@@ -2820,6 +2835,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AffinityMask, ['affinity', 'mask'], name, value)
 
 
+
                     class ForwardingAdjacency(Entity):
                         """
                         Forwarding adjacency announcement to IGP
@@ -2870,6 +2886,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.ForwardingAdjacency, ['enable', 'include_ipv6', 'hold_time'], name, value)
+
 
 
                     class Logging(Entity):
@@ -2978,6 +2995,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging, ['lsp_switch_over_change_message', 'all', 'record_route_messsage', 'bfd_state_message', 'bandwidth_change_message', 'reoptimize_attempts_message', 'reroute_messsage', 'state_message', 'insufficient_bw_message', 'reoptimized_message', 'pcalc_failure_message'], name, value)
 
 
+
                     class Bandwidth(Entity):
                         """
                         Tunnel bandwidth requirement
@@ -3041,6 +3059,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
+
 
 
                     class Autoroute(Entity):
@@ -3186,6 +3205,7 @@ class MplsTe(Entity):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic, ['segment_routing'], name, value)
 
 
+
                             class Metric(Entity):
                                 """
                                 Specify MPLS tunnel metric
@@ -3247,6 +3267,8 @@ class MplsTe(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric, ['metric_type', 'absolute_metric', 'relative_metric', 'constant_metric'], name, value)
+
+
 
 
                         class Destinations(Entity):
@@ -3320,6 +3342,9 @@ class MplsTe(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination, ['destination_address'], name, value)
+
+
+
 
 
                     class NewStyleAffinityAffinityTypes(Entity):
@@ -3453,6 +3478,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
 
+
                         class NewStyleAffinityAffinityTypeAffinity1(Entity):
                             """
                             Tunnel new style affinity attribute
@@ -3496,6 +3522,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
@@ -3550,6 +3577,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
@@ -3613,6 +3641,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
@@ -3685,6 +3714,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
@@ -3766,6 +3796,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
@@ -3856,6 +3887,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
@@ -3955,6 +3987,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
@@ -4063,6 +4096,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
@@ -4180,6 +4214,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
@@ -4308,6 +4343,8 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
 
 
+
+
                     class FastReroute(Entity):
                         """
                         Specify MPLS tunnel can be fast\-rerouted
@@ -4362,6 +4399,8 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute, ['bandwidth_protection', 'node_protection'], name, value)
 
 
+
+
                 class TunnelId(Entity):
                     """
                     Set the tunnel ID
@@ -4410,6 +4449,10 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId, ['tunnel_id_type', 'tunnel_id'], name, value)
+
+
+
+
 
 
     class GmplsUni(Entity):
@@ -4588,6 +4631,9 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown, ['minimum', 'maximum'], name, value)
 
 
+
+
+
         class Controllers(Entity):
             """
             GMPLS\-UNI controllers
@@ -4734,6 +4780,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.Announce, ['srl_gs'], name, value)
 
 
+
                 class ControllerLogging(Entity):
                     """
                     Controller logging
@@ -4768,6 +4815,7 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.ControllerLogging, ['discovered_srlg_change_logging'], name, value)
+
 
 
                 class GmplsUnitunnelHead(Entity):
@@ -5033,6 +5081,8 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption, ['preference_level', 'path_type', 'path_id', 'path_name', 'xro_type', 'xro_attribute_set_name', 'lockdown', 'verbatim', 'signaled_label', 'dwdm_channel'], name, value)
 
 
+
+
                     class Recording(Entity):
                         """
                         Tunnel property recording
@@ -5069,6 +5119,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording, ['srlg'], name, value)
 
 
+
                     class Logging(Entity):
                         """
                         Tunnel event logging
@@ -5103,6 +5154,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging, ['state_message'], name, value)
+
 
 
                     class Priority(Entity):
@@ -5157,6 +5209,11 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority, ['setup_priority', 'hold_priority'], name, value)
+
+
+
+
+
 
 
     class GlobalAttributes(Entity):
@@ -5724,6 +5781,8 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
 
 
+
+
             class P2pAutoTunnel(Entity):
                 """
                 Configure P2P auto\-tunnel feature
@@ -5817,6 +5876,8 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
+
+
 
 
             class Backup(Entity):
@@ -5957,6 +6018,8 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal, ['unused'], name, value)
 
 
+
+
                 class TunnelRange(Entity):
                     """
                     Configure tunnel ID range for auto\-tunnel
@@ -6011,6 +6074,8 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
+
+
 
 
             class Mesh(Entity):
@@ -6184,6 +6249,8 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup, ['mesh_group_id', 'destination_list', 'disable', 'attribute_set', 'create', 'one_hop'], name, value)
 
 
+
+
                 class Timers(Entity):
                     """
                     Configure auto\-tunnel backup timers value
@@ -6266,6 +6333,8 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal, ['unused'], name, value)
 
 
+
+
                 class TunnelRange(Entity):
                     """
                     Configure tunnel ID range for auto\-tunnel
@@ -6320,6 +6389,8 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
+
+
 
 
             class P2mpAutoTunnel(Entity):
@@ -6415,6 +6486,9 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
+
+
+
 
 
         class HardwareOutOfResource(Entity):
@@ -6554,6 +6628,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState, ['oor_node_protection_disable', 'oor_available_bandwidth_percentage', 'oor_accept_lsp_min_bandwidth', 'oor_accept_reopt_lsp', 'oor_metric_te_penalty'], name, value)
 
 
+
             class OorYellowState(Entity):
                 """
                 Configuration for HW OOR Yellow State
@@ -6633,6 +6708,7 @@ class MplsTe(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState, ['oor_node_protection_disable', 'oor_available_bandwidth_percentage', 'oor_accept_lsp_min_bandwidth', 'oor_accept_reopt_lsp', 'oor_metric_te_penalty'], name, value)
+
 
 
             class OorGreenState(Entity):
@@ -6729,6 +6805,8 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState, ['oor_recovery_duration', 'oor_node_protection_disable', 'oor_available_bandwidth_percentage', 'oor_accept_lsp_min_bandwidth', 'oor_accept_reopt_lsp', 'oor_metric_te_penalty'], name, value)
 
 
+
+
         class SecondaryRouterIds(Entity):
             """
             Configure MPLS TE Secondary Router ID
@@ -6802,6 +6880,8 @@ class MplsTe(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId, ['secondary_router_id_value'], name, value)
+
+
 
 
         class Srlg(Entity):
@@ -7038,6 +7118,11 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember, ['from_address', 'to_address'], name, value)
 
 
+
+
+
+
+
         class Queues(Entity):
             """
             Configure MPLS TE route priority
@@ -7122,6 +7207,8 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.Queues.Queue, ['role', 'value'], name, value)
 
 
+
+
         class Mib(Entity):
             """
             MPLS\-TE MIB properties
@@ -7157,6 +7244,7 @@ class MplsTe(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.Mib, ['midpoint_lsp_stats_collection_disable'], name, value)
+
 
 
         class AttributeSet(Entity):
@@ -7440,6 +7528,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath, ['bfd_reverse_path_type', 'binding_label'], name, value)
 
 
+
                     class AttPathOptionPathSelection(Entity):
                         """
                         Configure path selection properties
@@ -7561,6 +7650,8 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation, ['path_invalidation_timeout', 'path_invalidation_action'], name, value)
 
 
+
+
                     class Pce(Entity):
                         """
                         Configure pce properties
@@ -7671,6 +7762,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional, ['bd_source_address', 'bd_group_id'], name, value)
 
 
+
                         class DisjointPath(Entity):
                             """
                             Disjoint path parameters
@@ -7736,6 +7828,8 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath, ['dp_source_address', 'dp_type', 'dp_group_id'], name, value)
 
 
+
+
                     class AffinityMask(Entity):
                         """
                         Set the affinity flags and mask
@@ -7788,6 +7882,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask, ['affinity', 'mask'], name, value)
+
 
 
                     class Bandwidth(Entity):
@@ -7853,6 +7948,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
+
 
 
                     class NewStyleAffinityAffinityTypes(Entity):
@@ -7986,6 +8082,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
 
+
                         class NewStyleAffinityAffinityTypeAffinity1(Entity):
                             """
                             Tunnel new style affinity attribute
@@ -8029,6 +8126,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
@@ -8083,6 +8181,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
@@ -8146,6 +8245,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
@@ -8218,6 +8318,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
@@ -8299,6 +8400,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
@@ -8389,6 +8491,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
@@ -8488,6 +8591,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
@@ -8596,6 +8700,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
@@ -8713,6 +8818,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
@@ -8839,6 +8945,10 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
+
+
+
+
 
 
             class P2mpteAttributes(Entity):
@@ -9062,6 +9172,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority, ['setup_priority', 'hold_priority'], name, value)
 
 
+
                     class AffinityMask(Entity):
                         """
                         Set the affinity flags and mask
@@ -9114,6 +9225,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask, ['affinity', 'mask'], name, value)
+
 
 
                     class Bandwidth(Entity):
@@ -9181,6 +9293,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
 
 
+
                     class PathSelection(Entity):
                         """
                         Configure path selection properties
@@ -9215,6 +9328,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.PathSelection, ['enable'], name, value)
+
 
 
                     class NewStyleAffinityAffinityTypes(Entity):
@@ -9348,6 +9462,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
 
+
                         class NewStyleAffinityAffinityTypeAffinity1(Entity):
                             """
                             Tunnel new style affinity attribute
@@ -9391,6 +9506,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
@@ -9445,6 +9561,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
@@ -9508,6 +9625,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
@@ -9580,6 +9698,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
@@ -9661,6 +9780,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
@@ -9751,6 +9871,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
@@ -9850,6 +9971,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
@@ -9958,6 +10080,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
@@ -10075,6 +10198,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
@@ -10203,6 +10327,8 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
 
 
+
+
                     class FastReroute(Entity):
                         """
                         Specify MPLS tunnel can be fast\-rerouted
@@ -10255,6 +10381,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute, ['bandwidth_protection', 'node_protection'], name, value)
+
 
 
                     class Logging(Entity):
@@ -10347,6 +10474,9 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging, ['insufficient_bw_message', 'reoptimized_message', 'bandwidth_change_message', 'all', 'pcalc_failure_message', 'state_message', 'reoptimize_attempts_message', 'sub_lsp_state_message', 'reroute_messsage'], name, value)
+
+
+
 
 
             class P2pTeAttributes(Entity):
@@ -10683,6 +10813,9 @@ class MplsTe(Entity):
                                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index, ['index_number', 'prepend_type', 'mpls_label'], name, value)
 
 
+
+
+
                         class Invalidation(Entity):
                             """
                             Deprecated
@@ -10730,6 +10863,8 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation, ['invalidation_timer', 'invalidation_timer_expire_type'], name, value)
+
+
 
 
                     class Pce(Entity):
@@ -10842,6 +10977,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.Bidirectional, ['bd_source_address', 'bd_group_id'], name, value)
 
 
+
                         class DisjointPath(Entity):
                             """
                             Disjoint path parameters
@@ -10907,6 +11043,8 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.DisjointPath, ['dp_source_address', 'dp_type', 'dp_group_id'], name, value)
 
 
+
+
                     class AffinityMask(Entity):
                         """
                         Set the affinity flags and mask
@@ -10959,6 +11097,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask, ['affinity', 'mask'], name, value)
+
 
 
                     class Logging(Entity):
@@ -11065,6 +11204,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging, ['lsp_switch_over_change_message', 'all', 'record_route_messsage', 'bfd_state_message', 'bandwidth_change_message', 'reoptimize_attempts_message', 'reroute_messsage', 'state_message', 'insufficient_bw_message', 'reoptimized_message', 'pcalc_failure_message'], name, value)
+
 
 
                     class NewStyleAffinityAffinityTypes(Entity):
@@ -11198,6 +11338,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
 
+
                         class NewStyleAffinityAffinityTypeAffinity1(Entity):
                             """
                             Tunnel new style affinity attribute
@@ -11241,6 +11382,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
@@ -11295,6 +11437,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
@@ -11358,6 +11501,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
@@ -11430,6 +11574,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
@@ -11511,6 +11656,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
@@ -11601,6 +11747,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
@@ -11700,6 +11847,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
@@ -11808,6 +11956,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
@@ -11925,6 +12074,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
@@ -12051,6 +12201,10 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
+
+
+
+
 
 
             class AutoBackupAttributes(Entity):
@@ -12264,6 +12418,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName, ['name', 'source_type', 'protected_interface_type', 'mp_address'], name, value)
 
 
+
                     class AutoBackupLogging(Entity):
                         """
                         Log tunnel LSP messages
@@ -12321,6 +12476,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging, ['bandwidth_change_message', 'reoptimize_attempts_message', 'state_message', 'reoptimized_message'], name, value)
 
 
+
                     class Priority(Entity):
                         """
                         Tunnel Setup and Hold Priorities
@@ -12373,6 +12529,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority, ['setup_priority', 'hold_priority'], name, value)
+
 
 
                     class AffinityMask(Entity):
@@ -12429,6 +12586,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask, ['affinity', 'mask'], name, value)
 
 
+
                     class PathSelection(Entity):
                         """
                         Configure path selection properties
@@ -12463,6 +12621,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection, ['enable'], name, value)
+
 
 
                     class PolicyClasses(Entity):
@@ -12501,6 +12660,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses, ['policy_class'], name, value)
+
 
 
                     class NewStyleAffinityAffinityTypes(Entity):
@@ -12634,6 +12794,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
 
+
                         class NewStyleAffinityAffinityTypeAffinity1(Entity):
                             """
                             Tunnel new style affinity attribute
@@ -12677,6 +12838,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
@@ -12731,6 +12893,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
@@ -12794,6 +12957,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
@@ -12866,6 +13030,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
@@ -12947,6 +13112,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
@@ -13037,6 +13203,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
@@ -13136,6 +13303,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
@@ -13244,6 +13412,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
@@ -13361,6 +13530,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
@@ -13487,6 +13657,10 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
+
+
+
+
 
 
             class OtnPpAttributes(Entity):
@@ -13800,6 +13974,7 @@ class MplsTe(Entity):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration, ['hour', 'minutes'], name, value)
 
 
+
                             class ScheduleDate(Entity):
                                 """
                                 Set date in format hh\:mm MMM DD YYYY
@@ -13887,6 +14062,9 @@ class MplsTe(Entity):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate, ['hour', 'minutes', 'month', 'day', 'year'], name, value)
 
 
+
+
+
                     class SubNetworkConnectionMode(Entity):
                         """
                         Sub\-network connection mode
@@ -13930,6 +14108,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode, ['connection_mode', 'connection_monitoring_mode'], name, value)
+
 
 
                     class Timers(Entity):
@@ -13983,6 +14162,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers, ['aps_wait_to_restore', 'aps_hold_off'], name, value)
 
 
+
                     class PathSelection(Entity):
                         """
                         Configure path selection properties
@@ -14017,6 +14197,9 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection, ['enable'], name, value)
+
+
+
 
 
             class AutoMeshAttributes(Entity):
@@ -14312,6 +14495,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging, ['bandwidth_change_message', 'reoptimize_attempts_message', 'reroute_messsage', 'state_message', 'insufficient_bw_message', 'reoptimized_message', 'pcalc_failure_message'], name, value)
 
 
+
                     class Priority(Entity):
                         """
                         Tunnel Setup and Hold Priorities
@@ -14366,6 +14550,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority, ['setup_priority', 'hold_priority'], name, value)
 
 
+
                     class AffinityMask(Entity):
                         """
                         Set the affinity flags and mask
@@ -14418,6 +14603,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask, ['affinity', 'mask'], name, value)
+
 
 
                     class Bandwidth(Entity):
@@ -14485,6 +14671,7 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
 
 
+
                     class PathSelection(Entity):
                         """
                         Configure path selection properties
@@ -14519,6 +14706,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection, ['enable'], name, value)
+
 
 
                     class PolicyClasses(Entity):
@@ -14557,6 +14745,7 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses, ['policy_class'], name, value)
+
 
 
                     class NewStyleAffinityAffinityTypes(Entity):
@@ -14690,6 +14879,7 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
 
 
+
                         class NewStyleAffinityAffinityTypeAffinity1(Entity):
                             """
                             Tunnel new style affinity attribute
@@ -14733,6 +14923,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2(Entity):
@@ -14787,6 +14978,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3(Entity):
@@ -14850,6 +15042,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4(Entity):
@@ -14922,6 +15115,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5(Entity):
@@ -15003,6 +15197,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6(Entity):
@@ -15093,6 +15288,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7(Entity):
@@ -15192,6 +15388,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8(Entity):
@@ -15300,6 +15497,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9(Entity):
@@ -15417,6 +15615,7 @@ class MplsTe(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
+
 
 
                         class NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10(Entity):
@@ -15545,6 +15744,8 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
 
 
+
+
                     class FastReroute(Entity):
                         """
                         Specify MPLS tunnel can be fast\-rerouted
@@ -15597,6 +15798,9 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute, ['bandwidth_protection', 'node_protection'], name, value)
+
+
+
 
 
             class XroAttributes(Entity):
@@ -15827,6 +16031,8 @@ class MplsTe(Entity):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg, ['srlg', 'conformance'], name, value)
 
 
+
+
                         class Lsp(Entity):
                             """
                             LSP\-based path diversity
@@ -15983,6 +16189,10 @@ class MplsTe(Entity):
                                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec, ['source', 'destination', 'tunnel_id', 'extended_tunnel_id', 'lsp_id', 'conformance'], name, value)
 
 
+
+
+
+
                     class PathSelection(Entity):
                         """
                         Configure path selection properties
@@ -16017,6 +16227,10 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection, ['enable'], name, value)
+
+
+
+
 
 
         class BfdOverLsp(Entity):
@@ -16114,6 +16328,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.BfdOverLsp.Tail, ['multiplier', 'minimum_interval'], name, value)
 
 
+
             class Head(Entity):
                 """
                 BFD over LSP Head Global Configurations
@@ -16158,6 +16373,8 @@ class MplsTe(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.BfdOverLsp.Head, ['reopt_timeout', 'down_action'], name, value)
+
+
 
 
         class BandwidthAccounting(Entity):
@@ -16303,6 +16520,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.BandwidthAccounting.Application, ['application_enforced', 'application_interval'], name, value)
 
 
+
             class AccountFloodingThreshold(Entity):
                 """
                 This object sets the flooding threshold as
@@ -16359,6 +16577,8 @@ class MplsTe(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold, ['up_threshold', 'down_threshold'], name, value)
+
+
 
 
         class PceAttributes(Entity):
@@ -16698,6 +16918,8 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers, ['redelegation_timeout', 'state_timeout'], name, value)
 
 
+
+
             class Timer(Entity):
                 """
                 Configure PCE (Path Computation Element)
@@ -16723,6 +16945,7 @@ class MplsTe(Entity):
                     self._segment_path = lambda: "timer"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/%s" % self._segment_path()
                     self._is_frozen = True
+
 
 
             class Peers(Entity):
@@ -16834,6 +17057,8 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Peers.Peer, ['pce_peer_address', 'enable', 'password', 'keychain', 'precedence'], name, value)
 
 
+
+
             class Logging(Entity):
                 """
                 Configure PCE (Path Computation Element)
@@ -16908,6 +17133,9 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Logging.Events, ['peer_status'], name, value)
+
+
+
 
 
         class LspOutOfResource(Entity):
@@ -17005,6 +17233,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState, ['all_transit_lsp_threshold', 'unprotected_transit_lsp_threshold'], name, value)
 
 
+
             class LspOorYellowState(Entity):
                 """
                 Configuration for LSP OOR Yellow/Minor State
@@ -17051,6 +17280,8 @@ class MplsTe(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState, ['all_transit_lsp_threshold', 'unprotected_transit_lsp_threshold'], name, value)
+
+
 
 
         class SoftPreemption(Entity):
@@ -17108,6 +17339,7 @@ class MplsTe(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.SoftPreemption, ['timeout', 'frr_rewrite', 'enable'], name, value)
+
 
 
         class FastReroute(Entity):
@@ -17198,6 +17430,8 @@ class MplsTe(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.FastReroute.Timers, ['hold_backup', 'promotion'], name, value)
+
+
 
 
         class PathSelection(Entity):
@@ -17390,6 +17624,8 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric, ['class_type', 'metric_type'], name, value)
 
 
+
+
             class Invalidation(Entity):
                 """
                 Deprecated
@@ -17434,6 +17670,7 @@ class MplsTe(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.Invalidation, ['path_invalidation_timeout', 'path_invalidation_action'], name, value)
+
 
 
             class IgnoreOverloadRole(Entity):
@@ -17486,6 +17723,7 @@ class MplsTe(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole, ['head', 'mid', 'tail'], name, value)
+
 
 
             class LooseAffinities(Entity):
@@ -17583,6 +17821,9 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity, ['class_type', 'affinity', 'mask'], name, value)
 
 
+
+
+
         class AffinityMappings(Entity):
             """
             Affinity Mapping Table configuration
@@ -17672,6 +17913,9 @@ class MplsTe(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping, ['affinity_name', 'value_type', 'value'], name, value)
+
+
+
 
 
     class TransportProfile(Entity):
@@ -17915,6 +18159,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi, ['disable'], name, value)
 
 
+
                 class Lkr(Entity):
                     """
                     Protection switching due to LKR event
@@ -17950,6 +18195,9 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr, ['disable'], name, value)
+
+
+
 
 
         class Alarm(Entity):
@@ -18046,6 +18294,8 @@ class MplsTe(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.TransportProfile.Alarm.SuppressEvent, ['disable'], name, value)
+
+
 
 
         class Bfd(Entity):
@@ -18168,6 +18418,7 @@ class MplsTe(Entity):
                     self._perform_setattr(MplsTe.TransportProfile.Bfd.MinIntervalStandby, ['interval_standby_ms', 'interval_standby_us'], name, value)
 
 
+
             class MinInterval(Entity):
                 """
                 Hello interval, either in milli\-seconds or in
@@ -18219,6 +18470,8 @@ class MplsTe(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.TransportProfile.Bfd.MinInterval, ['interval_ms', 'interval_us'], name, value)
+
+
 
 
         class Midpoints(Entity):
@@ -18420,6 +18673,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.Source, ['node_id', 'tunnel_id', 'global_id'], name, value)
 
 
+
                 class Destination(Entity):
                     """
                     Node identifier, tunnel identifier and
@@ -18481,6 +18735,7 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.Destination, ['node_id', 'tunnel_id', 'global_id'], name, value)
+
 
 
                 class ForwardLsp(Entity):
@@ -18597,6 +18852,8 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap, ['in_label', 'out_label', 'out_link'], name, value)
 
 
+
+
                 class ReverseLsp(Entity):
                     """
                     none
@@ -18709,6 +18966,11 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap, ['in_label', 'out_label', 'out_link'], name, value)
+
+
+
+
+
 
 
     class Interfaces(Entity):
@@ -18941,6 +19203,9 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link, ['link_id', 'next_hop_type', 'next_hop_address'], name, value)
 
 
+
+
+
             class Lcac(Entity):
                 """
                 LCAC specific MPLS interface configuration
@@ -19163,6 +19428,8 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.Switchings.Switching, ['switching_id', 'encoding', 'capability'], name, value)
 
 
+
+
                 class FloodArea(Entity):
                     """
                     Set the IGP instance into which this
@@ -19218,6 +19485,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.FloodArea, ['igp_type', 'process_name', 'area_id'], name, value)
 
 
+
                 class AttributeNameXr(Entity):
                     """
                     Set the interface attribute names
@@ -19252,6 +19520,7 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.AttributeNameXr, ['attribute_name'], name, value)
+
 
 
                 class AttributeNames(Entity):
@@ -19334,6 +19603,8 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName, ['affinity_index', 'value'], name, value)
 
 
+
+
                 class Srlgs(Entity):
                     """
                     Configure SRLG membership for the interface
@@ -19407,6 +19678,8 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg, ['srlg_number'], name, value)
 
 
+
+
                 class UpThresholds(Entity):
                     """
                     Set thresholds for increased resource
@@ -19448,6 +19721,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.UpThresholds, ['up_threshold'], name, value)
 
 
+
                 class DownThresholds(Entity):
                     """
                     Set thresholds for decreased resource
@@ -19487,6 +19761,8 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.DownThresholds, ['down_threshold'], name, value)
+
+
 
 
             class GlobalAttributes(Entity):
@@ -19616,6 +19892,8 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel, ['tunnel_name'], name, value)
+
+
 
 
                 class AutoTunnel(Entity):
@@ -19752,6 +20030,9 @@ class MplsTe(Entity):
                                 self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude, ['srlg_mode'], name, value)
 
 
+
+
+
                 class BackupPaths(Entity):
                     """
                     Configure MPLS TE backup tunnels for this
@@ -19824,6 +20105,11 @@ class MplsTe(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath, ['tunnel_number'], name, value)
+
+
+
+
+
 
 
     class GmplsNni(Entity):
@@ -20199,6 +20485,7 @@ class MplsTe(Entity):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode, ['tti_mode_type', 'tcmid'], name, value)
 
 
+
                             class AffinityNames(Entity):
                                 """
                                 Set the interface affinity names
@@ -20233,6 +20520,10 @@ class MplsTe(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.AffinityNames, ['affinity_name'], name, value)
+
+
+
+
 
 
                 class OspfipAddr(Entity):
@@ -20444,6 +20735,7 @@ class MplsTe(Entity):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode, ['tti_mode_type', 'tcmid'], name, value)
 
 
+
                             class AffinityNames(Entity):
                                 """
                                 Set the interface affinity names
@@ -20478,6 +20770,12 @@ class MplsTe(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.AffinityNames, ['affinity_name'], name, value)
+
+
+
+
+
+
 
 
         class TunnelHeads(Entity):
@@ -20747,6 +21045,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth, ['signalled_bandwidth_type', 'bitrate', 'od_uflex_framing_type'], name, value)
 
 
+
                 class Destination(Entity):
                     """
                     The existence of this configuration indicates
@@ -20802,6 +21101,7 @@ class MplsTe(Entity):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination, ['destination', 'destination_type', 'interface_if_index'], name, value)
 
 
+
                 class ProtectionSwitching(Entity):
                     """
                     The configuration for a GMPLS NNI tunnel
@@ -20837,6 +21137,7 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching, ['lockout'], name, value)
+
 
 
                 class Logging(Entity):
@@ -20915,6 +21216,7 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging, ['active_lsp_message', 'homepath_state_message', 'signalling_state_message', 'path_change_message', 'static_cross_connect_message', 'tunnel_state_message', 'insufficient_bw_message'], name, value)
+
 
 
                 class PathOptions(Entity):
@@ -21067,6 +21369,8 @@ class MplsTe(Entity):
                             self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption, ['preference_level', 'path_type', 'path_id', 'path_name', 'protected_by_preference_level', 'restore_by_preference_level', 'xro_type', 'xro_attribute_set_name', 'affinity_attribute_set_name', 'lockdown'], name, value)
 
 
+
+
                 class StaticUni(Entity):
                     """
                     The existence of this configuration indicates
@@ -21128,6 +21432,10 @@ class MplsTe(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni, ['ingress_controller_name', 'egress_controller_if_index', 'ingress_type', 'egress_type'], name, value)
+
+
+
+
 
 
     class Lcac(Entity):
@@ -21261,6 +21569,7 @@ class MplsTe(Entity):
                 self._perform_setattr(MplsTe.Lcac.Bfd, ['interval', 'detection_multiplier'], name, value)
 
 
+
         class FloodingThreshold(Entity):
             """
             Configure flooding threshold as percentage of
@@ -21313,7 +21622,11 @@ class MplsTe(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.Lcac.FloodingThreshold, ['up_stream', 'down_stream'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = MplsTe()
         return self._top_entity
+
+
 

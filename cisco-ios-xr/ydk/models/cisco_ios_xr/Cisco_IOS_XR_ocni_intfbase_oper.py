@@ -39,6 +39,8 @@ class OcniNiIntfbase(Entity):
     	Network instances configured on the local system
     	**type**\:  :py:class:`NetworkInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_intfbase_oper.OcniNiIntfbase.NetworkInstances>`
     
+    	**config**\: False
+    
     
 
     """
@@ -77,6 +79,8 @@ class OcniNiIntfbase(Entity):
         	Network instances configured on the local system
         	**type**\: list of  		 :py:class:`NetworkInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_intfbase_oper.OcniNiIntfbase.NetworkInstances.NetworkInstance>`
         
+        	**config**\: False
+        
         
 
         """
@@ -114,10 +118,14 @@ class OcniNiIntfbase(Entity):
             	A unique name identifying the network instance
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: interfaces
             
             	An interface associated with the network instance
             	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_intfbase_oper.OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces>`
+            
+            	**config**\: False
             
             
 
@@ -161,6 +169,8 @@ class OcniNiIntfbase(Entity):
                 	An interface associated with the network instance
                 	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_intfbase_oper.OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces.Interface>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -197,10 +207,14 @@ class OcniNiIntfbase(Entity):
                     	A reference to an identifier for this interface which acts as a key for this list
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	Operational state parameters relating to the associated interface
                     	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_intfbase_oper.OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces.Interface.State>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -243,10 +257,14 @@ class OcniNiIntfbase(Entity):
                         	A unique identifier for this interface \- this is expressed as a free\-text string
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: interface
                         
                         	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: subinterface
                         
@@ -255,10 +273,14 @@ class OcniNiIntfbase(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: associated_address_family
                         
                         	The address families on the subinterface which are to be associated with this network instance. When this leaf\-list is empty and the network instance requires Layer 3 information the address families for which the network instance is enabled should be imported. If the value of this leaf\-list is specified then the association MUST only be made for those address families that are included in the list
                         	**type**\: list of str
+                        
+                        	**config**\: False
                         
                         
 
@@ -290,9 +312,16 @@ class OcniNiIntfbase(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces.Interface.State, [u'id', u'interface', u'subinterface', u'associated_address_family'], name, value)
+                            self._perform_setattr(OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces.Interface.State, ['id', 'interface', 'subinterface', 'associated_address_family'], name, value)
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = OcniNiIntfbase()
         return self._top_entity
+
+
 

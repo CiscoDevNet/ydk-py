@@ -364,6 +364,10 @@ class Vservice(Entity):
                         self._perform_setattr(Vservice.ServiceFunctionLocator.Names.Name.Node, ['transport', 'ipv4_source_address', 'ipv4_destination_address', 'vni'], name, value)
 
 
+
+
+
+
     class MetadataDispositions(Entity):
         """
         Configure metadata disposition
@@ -568,6 +572,10 @@ class Vservice(Entity):
                         self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, ['match_type', 'action_type', 'vrf', 'nexthop_ipv4_address', 'tenant_id'], name, value)
 
 
+
+
+
+
     class ServiceFunctionForwardLocator(Entity):
         """
         configure service function forward locator
@@ -762,6 +770,10 @@ class Vservice(Entity):
                         self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, ['transport', 'ipv4_source_address', 'ipv4_destination_address', 'vni'], name, value)
 
 
+
+
+
+
     class MetadataTemplates(Entity):
         """
         configure metadata imposition
@@ -858,6 +870,8 @@ class Vservice(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vservice.MetadataTemplates.MetadataTemplate, ['metadata_name', 'type', 'format', 'tenant_id'], name, value)
+
+
 
 
     class ServiceFunctionPath(Entity):
@@ -1141,6 +1155,8 @@ class Vservice(Entity):
                                 self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, ['action', 'vrf', 'nexthop_ipv4_address', 'metatdata_disposition'], name, value)
 
 
+
+
                     class SffNames(Entity):
                         """
                         service function forwarder 
@@ -1264,6 +1280,9 @@ class Vservice(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node, ['enable', 'reserved'], name, value)
+
+
+
 
 
                     class SfNames(Entity):
@@ -1390,7 +1409,16 @@ class Vservice(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, ['enable', 'reserved'], name, value)
 
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Vservice()
         return self._top_entity
+
+
 

@@ -135,6 +135,8 @@ class DeviceHardwareData(Entity):
     
     	**presence node**\: True
     
+    	**config**\: False
+    
     
 
     """
@@ -172,10 +174,14 @@ class DeviceHardwareData(Entity):
         	All the inventory in the hardware
         	**type**\: list of  		 :py:class:`DeviceInventory <ydk.models.cisco_ios_xe.Cisco_IOS_XE_device_hardware_oper.DeviceHardwareData.DeviceHardware.DeviceInventory>`
         
+        	**config**\: False
+        
         .. attribute:: device_alarm
         
         	The current alarms
         	**type**\: list of  		 :py:class:`DeviceAlarm <ydk.models.cisco_ios_xe.Cisco_IOS_XE_device_hardware_oper.DeviceHardwareData.DeviceHardware.DeviceAlarm>`
+        
+        	**config**\: False
         
         .. attribute:: device_system_data
         
@@ -183,6 +189,8 @@ class DeviceHardwareData(Entity):
         	**type**\:  :py:class:`DeviceSystemData <ydk.models.cisco_ios_xe.Cisco_IOS_XE_device_hardware_oper.DeviceHardwareData.DeviceHardware.DeviceSystemData>`
         
         	**presence node**\: True
+        
+        	**config**\: False
         
         
 
@@ -227,6 +235,8 @@ class DeviceHardwareData(Entity):
             	Type of the hardware being represented
             	**type**\:  :py:class:`HwType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_device_hardware_oper.HwType>`
             
+            	**config**\: False
+            
             .. attribute:: hw_dev_index  (key)
             
             	The physical index of the inventory item
@@ -234,25 +244,35 @@ class DeviceHardwareData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: version
             
             	Version of this device
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: part_number
             
             	The part number of this device. This  is only valid if the device is a field replaceable unit
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: serial_number
             
             	The serial number of the device. This is only valid if the device is individually trackable
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: hw_description
             
             	Description of the device
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -292,6 +312,7 @@ class DeviceHardwareData(Entity):
                 self._perform_setattr(DeviceHardwareData.DeviceHardware.DeviceInventory, ['hw_type', 'hw_dev_index', 'version', 'part_number', 'serial_number', 'hw_description'], name, value)
 
 
+
         class DeviceAlarm(Entity):
             """
             The current alarms
@@ -303,6 +324,8 @@ class DeviceHardwareData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: alarm_instance  (key)
             
             	The instance of this alarm. This corresponds to the  entity index
@@ -310,15 +333,21 @@ class DeviceHardwareData(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: alarm_name
             
             	The name of the alarm
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: alarm_category
             
             	The catagory (or severity) of the alarm that is being asserted
             	**type**\:  :py:class:`AlarmSeverity <ydk.models.cisco_ios_xe.Cisco_IOS_XE_device_hardware_oper.AlarmSeverity>`
+            
+            	**config**\: False
             
             .. attribute:: alarm_time
             
@@ -327,10 +356,14 @@ class DeviceHardwareData(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: alarm_description
             
             	Description of the alarm
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -370,6 +403,7 @@ class DeviceHardwareData(Entity):
                 self._perform_setattr(DeviceHardwareData.DeviceHardware.DeviceAlarm, ['alarm_id', 'alarm_instance', 'alarm_name', 'alarm_category', 'alarm_time', 'alarm_description'], name, value)
 
 
+
         class DeviceSystemData(Entity):
             """
             The current device system data
@@ -381,6 +415,8 @@ class DeviceHardwareData(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: boot_time
             
             	This timestamp indicates the time that the system was last restarted.  The value is the timestamp in seconds relative to the Unix Epoch (Jan 1, 1970 00\:00\:00 UTC)
@@ -388,20 +424,28 @@ class DeviceHardwareData(Entity):
             
             	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
+            	**config**\: False
+            
             .. attribute:: software_version
             
             	Software version
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: rommon_version
             
             	Rommon version
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: last_reboot_reason
             
             	Last reboot reason
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -441,7 +485,11 @@ class DeviceHardwareData(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(DeviceHardwareData.DeviceHardware.DeviceSystemData, ['current_time', 'boot_time', 'software_version', 'rommon_version', 'last_reboot_reason'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = DeviceHardwareData()
         return self._top_entity
+
+
 

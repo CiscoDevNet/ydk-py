@@ -64,10 +64,14 @@ class HeadlessFuncData(Entity):
     	OTN Statistics collected during last headless operation
     	**type**\:  :py:class:`OtnPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames>`
     
+    	**config**\: False
+    
     .. attribute:: ethernet_port_names
     
     	Ethernet Statistics collected during last headless operation
     	**type**\:  :py:class:`EthernetPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames>`
+    
+    	**config**\: False
     
     
 
@@ -112,6 +116,8 @@ class HeadlessFuncData(Entity):
         	port Name
         	**type**\: list of  		 :py:class:`OtnPortName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName>`
         
+        	**config**\: False
+        
         
 
         """
@@ -150,20 +156,28 @@ class HeadlessFuncData(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: otn_statistics
             
             	OTN statistics
             	**type**\:  :py:class:`OtnStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics>`
+            
+            	**config**\: False
             
             .. attribute:: prbs_statistics
             
             	PRBS Statistics
             	**type**\:  :py:class:`PrbsStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName.PrbsStatistics>`
             
+            	**config**\: False
+            
             .. attribute:: started_stateful
             
             	Started Stateful
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: headless_start_time
             
@@ -172,12 +186,16 @@ class HeadlessFuncData(Entity):
             
             	**length:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: headless_end_time
             
             	Headless End Time
             	**type**\: str
             
             	**length:** 0..64
+            
+            	**config**\: False
             
             
 
@@ -218,7 +236,7 @@ class HeadlessFuncData(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HeadlessFuncData.OtnPortNames.OtnPortName, ['name', 'started_stateful', 'headless_start_time', 'headless_end_time'], name, value)
+                self._perform_setattr(HeadlessFuncData.OtnPortNames.OtnPortName, ['name', u'started_stateful', u'headless_start_time', u'headless_end_time'], name, value)
 
 
             class OtnStatistics(Entity):
@@ -232,12 +250,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: sm_bei
                 
                 	SmBei
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: fec_ec
                 
@@ -246,12 +268,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: fec_uc
                 
                 	FecUc
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -283,7 +309,8 @@ class HeadlessFuncData(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics, ['sm_bip', 'sm_bei', 'fec_ec', 'fec_uc'], name, value)
+                    self._perform_setattr(HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics, [u'sm_bip', u'sm_bei', u'fec_ec', u'fec_uc'], name, value)
+
 
 
             class PrbsStatistics(Entity):
@@ -297,10 +324,14 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: sync_status
                 
                 	SyncStatus
                 	**type**\:  :py:class:`MxpOtnPrbsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.MxpOtnPrbsStatus>`
+                
+                	**config**\: False
                 
                 
 
@@ -328,7 +359,10 @@ class HeadlessFuncData(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HeadlessFuncData.OtnPortNames.OtnPortName.PrbsStatistics, ['ebc', 'sync_status'], name, value)
+                    self._perform_setattr(HeadlessFuncData.OtnPortNames.OtnPortName.PrbsStatistics, [u'ebc', u'sync_status'], name, value)
+
+
+
 
 
     class EthernetPortNames(Entity):
@@ -340,6 +374,8 @@ class HeadlessFuncData(Entity):
         
         	Port Name
         	**type**\: list of  		 :py:class:`EthernetPortName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName>`
+        
+        	**config**\: False
         
         
 
@@ -379,15 +415,21 @@ class HeadlessFuncData(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: ether_statistics
             
             	Ether Statistics
             	**type**\:  :py:class:`EtherStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics>`
             
+            	**config**\: False
+            
             .. attribute:: started_stateful
             
             	Started Stateful
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: headless_start_time
             
@@ -396,12 +438,16 @@ class HeadlessFuncData(Entity):
             
             	**length:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: headless_end_time
             
             	Headless End Time
             	**type**\: str
             
             	**length:** 0..64
+            
+            	**config**\: False
             
             
 
@@ -438,7 +484,7 @@ class HeadlessFuncData(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HeadlessFuncData.EthernetPortNames.EthernetPortName, ['name', 'started_stateful', 'headless_start_time', 'headless_end_time'], name, value)
+                self._perform_setattr(HeadlessFuncData.EthernetPortNames.EthernetPortName, ['name', u'started_stateful', u'headless_start_time', u'headless_end_time'], name, value)
 
 
             class EtherStatistics(Entity):
@@ -452,12 +498,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rx_pkts_bad_fcs
                 
                 	RxPktsBadFcs
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: rx_error_jabbers
                 
@@ -466,12 +516,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rx_pkts_multicast
                 
                 	RxPktsMulticast
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: rx_pkts_broadcast
                 
@@ -480,12 +534,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rx_pkts_under_sized
                 
                 	RxPktsUnderSized
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: rx_packets
                 
@@ -494,12 +552,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rx_total_bytes
                 
                 	RxTotalBytes
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: rx_bytes_good
                 
@@ -508,12 +570,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rx_pkts_good
                 
                 	RxPktsGood
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: tx_bytes_good
                 
@@ -522,12 +588,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: tx_pkts_good
                 
                 	TxPktsGood
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: rx_recv_fragments
                 
@@ -536,12 +606,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rx_pkts64_bytes
                 
                 	RxPkts64Bytes
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: rx_pkts65_to127_bytes
                 
@@ -550,12 +624,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rx_pkts128to255_bytes
                 
                 	RxPkts128to255Bytes
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: rx_pkts256_to511_bytes
                 
@@ -564,12 +642,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rx_pkts512_to1023_bytes
                 
                 	RxPkts512To1023Bytes
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: rx_pkts1024_to1518_bytes
                 
@@ -578,12 +660,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rx_pkts_unicast
                 
                 	RxPktsUnicast
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: tx_packets
                 
@@ -592,12 +678,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: tx_total_bytes
                 
                 	TxTotalBytes
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: tx_pkts_under_sized
                 
@@ -606,12 +696,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: tx_pkts_over_sized
                 
                 	TxPktsOverSized
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: tx_fragments
                 
@@ -620,12 +714,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: tx_jabber
                 
                 	TxJabber
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: tx_bad_fcs
                 
@@ -634,12 +732,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rx_pkt_drop
                 
                 	RxPktDrop
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: rx_pause
                 
@@ -648,12 +750,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: tx_pause
                 
                 	TxPause
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: rx_lldp_pkt
                 
@@ -662,12 +768,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: rx8021q_pkt
                 
                 	Rx8021QPkt
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -755,9 +865,14 @@ class HeadlessFuncData(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics, ['rx_pkts_over_sized', 'rx_pkts_bad_fcs', 'rx_error_jabbers', 'rx_pkts_multicast', 'rx_pkts_broadcast', 'rx_pkts_under_sized', 'rx_packets', 'rx_total_bytes', 'rx_bytes_good', 'rx_pkts_good', 'tx_bytes_good', 'tx_pkts_good', 'rx_recv_fragments', 'rx_pkts64_bytes', 'rx_pkts65_to127_bytes', 'rx_pkts128to255_bytes', 'rx_pkts256_to511_bytes', 'rx_pkts512_to1023_bytes', 'rx_pkts1024_to1518_bytes', 'rx_pkts_unicast', 'tx_packets', 'tx_total_bytes', 'tx_pkts_under_sized', 'tx_pkts_over_sized', 'tx_fragments', 'tx_jabber', 'tx_bad_fcs', 'rx_pkt_drop', 'rx_pause', 'tx_pause', 'rx_lldp_pkt', 'rx8021q_pkt'], name, value)
+                    self._perform_setattr(HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics, [u'rx_pkts_over_sized', u'rx_pkts_bad_fcs', u'rx_error_jabbers', u'rx_pkts_multicast', u'rx_pkts_broadcast', u'rx_pkts_under_sized', u'rx_packets', u'rx_total_bytes', u'rx_bytes_good', u'rx_pkts_good', u'tx_bytes_good', u'tx_pkts_good', u'rx_recv_fragments', u'rx_pkts64_bytes', u'rx_pkts65_to127_bytes', u'rx_pkts128to255_bytes', u'rx_pkts256_to511_bytes', u'rx_pkts512_to1023_bytes', u'rx_pkts1024_to1518_bytes', u'rx_pkts_unicast', u'tx_packets', u'tx_total_bytes', u'tx_pkts_under_sized', u'tx_pkts_over_sized', u'tx_fragments', u'tx_jabber', u'tx_bad_fcs', u'rx_pkt_drop', u'rx_pause', u'tx_pause', u'rx_lldp_pkt', u'rx8021q_pkt'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = HeadlessFuncData()
         return self._top_entity
+
+
 

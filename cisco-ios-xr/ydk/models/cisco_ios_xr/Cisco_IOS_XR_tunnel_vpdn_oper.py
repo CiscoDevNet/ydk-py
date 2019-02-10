@@ -456,25 +456,35 @@ class Vpdn(Entity):
     	VPDN session list
     	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions>`
     
+    	**config**\: False
+    
     .. attribute:: tunnel_destinations
     
     	VPDN tunnel Destinations
     	**type**\:  :py:class:`TunnelDestinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.TunnelDestinations>`
+    
+    	**config**\: False
     
     .. attribute:: vpdn_mirroring
     
     	VPDN Mirroring Statistics
     	**type**\:  :py:class:`VpdnMirroring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring>`
     
+    	**config**\: False
+    
     .. attribute:: vpdn_redundancy
     
     	Show VPDN Redundancy information
     	**type**\:  :py:class:`VpdnRedundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnRedundancy>`
     
+    	**config**\: False
+    
     .. attribute:: history_failures
     
     	VPDN history failure list
     	**type**\:  :py:class:`HistoryFailures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.HistoryFailures>`
+    
+    	**config**\: False
     
     
 
@@ -530,6 +540,8 @@ class Vpdn(Entity):
         	 VPDN session information
         	**type**\: list of  		 :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session>`
         
+        	**config**\: False
+        
         
 
         """
@@ -568,25 +580,35 @@ class Vpdn(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{1,8}
             
+            	**config**\: False
+            
             .. attribute:: session
             
             	Session data
             	**type**\:  :py:class:`Session_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Session_>`
+            
+            	**config**\: False
             
             .. attribute:: l2tp
             
             	L2TP data
             	**type**\:  :py:class:`L2tp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.L2tp>`
             
+            	**config**\: False
+            
             .. attribute:: subscriber
             
             	Subscriber data
             	**type**\:  :py:class:`Subscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Subscriber>`
             
+            	**config**\: False
+            
             .. attribute:: configuration
             
             	Configuration data
             	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Configuration>`
+            
+            	**config**\: False
             
             .. attribute:: setup_time
             
@@ -595,12 +617,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: parent_interface_name
             
             	Parent interface name
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+            
+            	**config**\: False
             
             
 
@@ -659,6 +685,8 @@ class Vpdn(Entity):
                 	Elapsed time since last change in hh\:mm\:ss format
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: interface_name
                 
                 	Session interface name
@@ -666,20 +694,28 @@ class Vpdn(Entity):
                 
                 	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
+                	**config**\: False
+                
                 .. attribute:: username
                 
                 	Authentication username
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: domain_name
                 
                 	Domain name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: state
                 
                 	Session state
                 	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.SessionState>`
+                
+                	**config**\: False
                 
                 .. attribute:: l2tp_session_id
                 
@@ -688,6 +724,8 @@ class Vpdn(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: l2tp_tunnel_id
                 
                 	L2TP tunnel ID
@@ -695,10 +733,14 @@ class Vpdn(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: srg_slave
                 
                 	Session SRG Slave
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -741,6 +783,7 @@ class Vpdn(Entity):
                     self._perform_setattr(Vpdn.Sessions.Session.Session_, [u'last_change', u'interface_name', u'username', u'domain_name', u'state', u'l2tp_session_id', u'l2tp_tunnel_id', u'srg_slave'], name, value)
 
 
+
             class L2tp(Entity):
                 """
                 L2TP data
@@ -752,12 +795,16 @@ class Vpdn(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: remote_endpoint
                 
                 	Remote endpoint IP address
                 	**type**\: str
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                	**config**\: False
                 
                 .. attribute:: call_serial_number
                 
@@ -766,10 +813,14 @@ class Vpdn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_l2tp_class_attribute_mask_set
                 
                 	True if L2TP class attribute mask is set
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: local_tunnel_id
                 
@@ -778,12 +829,16 @@ class Vpdn(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: remote_tunnel_id
                 
                 	Remote tunnel ID
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: local_session_id
                 
@@ -792,12 +847,16 @@ class Vpdn(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: remote_session_id
                 
                 	Remote session ID
                 	**type**\: int
                 
                 	**range:** 0..65535
+                
+                	**config**\: False
                 
                 .. attribute:: remote_port
                 
@@ -806,25 +865,35 @@ class Vpdn(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 .. attribute:: tunnel_client_authentication_id
                 
                 	Tunnel client authentication ID
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: tunnel_server_authentication_id
                 
                 	Tunnel server authentication ID
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: tunnel_assignment_id
                 
                 	Tunnel assignment ID
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: is_tunnel_authentication_enabled
                 
                 	True if tunnel authentication is enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -877,6 +946,7 @@ class Vpdn(Entity):
                     self._perform_setattr(Vpdn.Sessions.Session.L2tp, [u'local_endpoint', u'remote_endpoint', u'call_serial_number', u'is_l2tp_class_attribute_mask_set', u'local_tunnel_id', u'remote_tunnel_id', u'local_session_id', u'remote_session_id', u'remote_port', u'tunnel_client_authentication_id', u'tunnel_server_authentication_id', u'tunnel_assignment_id', u'is_tunnel_authentication_enabled'], name, value)
 
 
+
             class Subscriber(Entity):
                 """
                 Subscriber data
@@ -886,6 +956,8 @@ class Vpdn(Entity):
                 	NAS port type
                 	**type**\:  :py:class:`VpdnNasPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnNasPort>`
                 
+                	**config**\: False
+                
                 .. attribute:: physical_channel_id
                 
                 	Physical channel ID
@@ -893,12 +965,16 @@ class Vpdn(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: receive_connect_speed
                 
                 	Receive connect speed in nanoseconds
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: nanosecond
                 
@@ -909,6 +985,8 @@ class Vpdn(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: nanosecond
                 
                 .. attribute:: nas_port
@@ -917,6 +995,8 @@ class Vpdn(Entity):
                 	**type**\: list of int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -953,6 +1033,7 @@ class Vpdn(Entity):
                     self._perform_setattr(Vpdn.Sessions.Session.Subscriber, [u'nas_port_type', u'physical_channel_id', u'receive_connect_speed', u'transmit_connect_speed', u'nas_port'], name, value)
 
 
+
             class Configuration(Entity):
                 """
                 Configuration data
@@ -962,15 +1043,21 @@ class Vpdn(Entity):
                 	VPN ID
                 	**type**\:  :py:class:`VpnId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.Sessions.Session.Configuration.VpnId>`
                 
+                	**config**\: False
+                
                 .. attribute:: template_name
                 
                 	Template name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: vrf_name
                 
                 	VRF name
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: l2tp_busy_timeout
                 
@@ -979,12 +1066,16 @@ class Vpdn(Entity):
                 
                 	**range:** 0..65535
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: tos_mode
                 
                 	TOS mode
                 	**type**\:  :py:class:`TosMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.TosMode>`
+                
+                	**config**\: False
                 
                 .. attribute:: tos
                 
@@ -993,10 +1084,14 @@ class Vpdn(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: dsl_line_forwarding
                 
                 	True if DSL line info forwarding is enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -1050,12 +1145,16 @@ class Vpdn(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: index
                     
                     	Index
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -1086,6 +1185,10 @@ class Vpdn(Entity):
                         self._perform_setattr(Vpdn.Sessions.Session.Configuration.VpnId, [u'oui', u'index'], name, value)
 
 
+
+
+
+
     class TunnelDestinations(Entity):
         """
         VPDN tunnel Destinations
@@ -1094,6 +1197,8 @@ class Vpdn(Entity):
         
         	VPDN tunnel destination information
         	**type**\: list of  		 :py:class:`TunnelDestination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.TunnelDestinations.TunnelDestination>`
+        
+        	**config**\: False
         
         
 
@@ -1133,6 +1238,8 @@ class Vpdn(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: address
             
             	IP address
@@ -1140,10 +1247,14 @@ class Vpdn(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: vrf_name_xr
             
             	VRF name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: load
             
@@ -1152,10 +1263,14 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: status
             
             	Status of LNS
             	**type**\:  :py:class:`LsgStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.LsgStatus>`
+            
+            	**config**\: False
             
             .. attribute:: connects
             
@@ -1164,12 +1279,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: disconnects
             
             	Total count of tunnels disconnected
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: retry
             
@@ -1178,12 +1297,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: status_change_time
             
             	Seconds since last status change
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -1231,6 +1354,8 @@ class Vpdn(Entity):
                 self._perform_setattr(Vpdn.TunnelDestinations.TunnelDestination, ['vrf_name', 'address', u'vrf_name_xr', u'load', u'status', u'connects', u'disconnects', u'retry', u'status_change_time'], name, value)
 
 
+
+
     class VpdnMirroring(Entity):
         """
         VPDN Mirroring Statistics
@@ -1240,20 +1365,28 @@ class Vpdn(Entity):
         	qad send stats
         	**type**\:  :py:class:`QadSendStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadSendStats>`
         
+        	**config**\: False
+        
         .. attribute:: qad_recv_stats
         
         	qad recv stats
         	**type**\:  :py:class:`QadRecvStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadRecvStats>`
+        
+        	**config**\: False
         
         .. attribute:: qad_send_stats_last_clear
         
         	qad send stats last clear
         	**type**\:  :py:class:`QadSendStatsLastClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadSendStatsLastClear>`
         
+        	**config**\: False
+        
         .. attribute:: qad_recv_stats_last_clear
         
         	qad recv stats last clear
         	**type**\:  :py:class:`QadRecvStatsLastClear <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.VpdnMirroring.QadRecvStatsLastClear>`
+        
+        	**config**\: False
         
         .. attribute:: sync_not_conn_cnt
         
@@ -1262,12 +1395,16 @@ class Vpdn(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: sso_err_cnt
         
         	sso err cnt
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: sso_batch_err_cnt
         
@@ -1276,6 +1413,8 @@ class Vpdn(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: alloc_err_cnt
         
         	alloc err cnt
@@ -1283,12 +1422,16 @@ class Vpdn(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: alloc_cnt
         
         	alloc cnt
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -1353,12 +1496,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: acks_sent
             
             	acks sent
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: no_partner
             
@@ -1367,12 +1514,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sends_failed
             
             	sends failed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: acks_failed
             
@@ -1381,12 +1532,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pending_acks
             
             	pending acks
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: timeouts
             
@@ -1395,12 +1550,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: suspends
             
             	suspends
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: resumes
             
@@ -1409,12 +1568,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sends_fragment
             
             	sends fragment
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: qad_last_seq_number
             
@@ -1423,12 +1586,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: qad_frag_count
             
             	qad frag count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: qad_ack_count
             
@@ -1437,12 +1604,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: qad_unknown_acks
             
             	qad unknown acks
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: qad_timeouts
             
@@ -1451,12 +1622,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: qad_rx_count
             
             	qad rx count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: qad_rx_list_count
             
@@ -1465,6 +1640,8 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: qad_rx_list_q_size
             
             	qad rx list q size
@@ -1472,12 +1649,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: qad_rx_first_seq_number
             
             	qad rx first seq number
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1543,6 +1724,7 @@ class Vpdn(Entity):
                 self._perform_setattr(Vpdn.VpdnMirroring.QadSendStats, [u'msgs_sent', u'acks_sent', u'no_partner', u'sends_failed', u'acks_failed', u'pending_acks', u'timeouts', u'suspends', u'resumes', u'sends_fragment', u'qad_last_seq_number', u'qad_frag_count', u'qad_ack_count', u'qad_unknown_acks', u'qad_timeouts', u'qad_rx_count', u'qad_rx_list_count', u'qad_rx_list_q_size', u'qad_rx_first_seq_number'], name, value)
 
 
+
         class QadRecvStats(Entity):
             """
             qad recv stats
@@ -1554,12 +1736,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: acks_recvd
             
             	acks recvd
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: recvd_acks_failed
             
@@ -1568,12 +1754,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: init_drops
             
             	init drops
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: msg_drops
             
@@ -1582,6 +1772,8 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ooo_drops
             
             	ooo drops
@@ -1589,12 +1781,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: stale_msgs
             
             	stale msgs
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1636,6 +1832,7 @@ class Vpdn(Entity):
                 self._perform_setattr(Vpdn.VpdnMirroring.QadRecvStats, [u'msgs_recvd', u'acks_recvd', u'recvd_acks_failed', u'init_drops', u'msg_drops', u'ooo_drops', u'stale_msgs'], name, value)
 
 
+
         class QadSendStatsLastClear(Entity):
             """
             qad send stats last clear
@@ -1647,12 +1844,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: acks_sent
             
             	acks sent
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: no_partner
             
@@ -1661,12 +1862,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sends_failed
             
             	sends failed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: acks_failed
             
@@ -1675,12 +1880,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: pending_acks
             
             	pending acks
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: timeouts
             
@@ -1689,12 +1898,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: suspends
             
             	suspends
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: resumes
             
@@ -1703,12 +1916,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: sends_fragment
             
             	sends fragment
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: qad_last_seq_number
             
@@ -1717,12 +1934,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: qad_frag_count
             
             	qad frag count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: qad_ack_count
             
@@ -1731,12 +1952,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: qad_unknown_acks
             
             	qad unknown acks
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: qad_timeouts
             
@@ -1745,12 +1970,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: qad_rx_count
             
             	qad rx count
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: qad_rx_list_count
             
@@ -1759,6 +1988,8 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: qad_rx_list_q_size
             
             	qad rx list q size
@@ -1766,12 +1997,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: qad_rx_first_seq_number
             
             	qad rx first seq number
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1837,6 +2072,7 @@ class Vpdn(Entity):
                 self._perform_setattr(Vpdn.VpdnMirroring.QadSendStatsLastClear, [u'msgs_sent', u'acks_sent', u'no_partner', u'sends_failed', u'acks_failed', u'pending_acks', u'timeouts', u'suspends', u'resumes', u'sends_fragment', u'qad_last_seq_number', u'qad_frag_count', u'qad_ack_count', u'qad_unknown_acks', u'qad_timeouts', u'qad_rx_count', u'qad_rx_list_count', u'qad_rx_list_q_size', u'qad_rx_first_seq_number'], name, value)
 
 
+
         class QadRecvStatsLastClear(Entity):
             """
             qad recv stats last clear
@@ -1848,12 +2084,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: acks_recvd
             
             	acks recvd
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: recvd_acks_failed
             
@@ -1862,12 +2102,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: init_drops
             
             	init drops
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: msg_drops
             
@@ -1876,6 +2120,8 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: ooo_drops
             
             	ooo drops
@@ -1883,12 +2129,16 @@ class Vpdn(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: stale_msgs
             
             	stale msgs
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1930,6 +2180,8 @@ class Vpdn(Entity):
                 self._perform_setattr(Vpdn.VpdnMirroring.QadRecvStatsLastClear, [u'msgs_recvd', u'acks_recvd', u'recvd_acks_failed', u'init_drops', u'msg_drops', u'ooo_drops', u'stale_msgs'], name, value)
 
 
+
+
     class VpdnRedundancy(Entity):
         """
         Show VPDN Redundancy information
@@ -1941,6 +2193,8 @@ class Vpdn(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: session_synced
         
         	session synced
@@ -1948,10 +2202,14 @@ class Vpdn(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: state
         
         	state
         	**type**\:  :py:class:`VpdnState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnState>`
+        
+        	**config**\: False
         
         .. attribute:: start_time
         
@@ -1960,6 +2218,8 @@ class Vpdn(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: finish_time
         
         	finish time
@@ -1967,12 +2227,16 @@ class Vpdn(Entity):
         
         	**range:** 0..18446744073709551615
         
+        	**config**\: False
+        
         .. attribute:: abort_time
         
         	abort time
         	**type**\: int
         
         	**range:** 0..18446744073709551615
+        
+        	**config**\: False
         
         
 
@@ -2012,6 +2276,7 @@ class Vpdn(Entity):
             self._perform_setattr(Vpdn.VpdnRedundancy, [u'session_total', u'session_synced', u'state', u'start_time', u'finish_time', u'abort_time'], name, value)
 
 
+
     class HistoryFailures(Entity):
         """
         VPDN history failure list
@@ -2020,6 +2285,8 @@ class Vpdn(Entity):
         
         	VPDN history failure information
         	**type**\: list of  		 :py:class:`HistoryFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.Vpdn.HistoryFailures.HistoryFailure>`
+        
+        	**config**\: False
         
         
 
@@ -2057,6 +2324,8 @@ class Vpdn(Entity):
             	Username
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: remote_name
             
             	Remote name
@@ -2064,15 +2333,21 @@ class Vpdn(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: username_xr
             
             	Authentication username
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: domain_name
             
             	Domain name
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: mid
             
@@ -2081,10 +2356,14 @@ class Vpdn(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: nas
             
             	Network access server
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: destination_address
             
@@ -2093,6 +2372,8 @@ class Vpdn(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: remote_client_id
             
             	Remote client ID
@@ -2100,10 +2381,14 @@ class Vpdn(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: home_gateway
             
             	Home gateway
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: source_address
             
@@ -2112,6 +2397,8 @@ class Vpdn(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: local_client_id
             
             	Local client ID
@@ -2119,10 +2406,14 @@ class Vpdn(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: event_time
             
             	Event logged time in Ex\: Wed Aug  3 10\:28\:30 2011
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: error_repeat_count
             
@@ -2131,10 +2422,14 @@ class Vpdn(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: failure_type
             
             	Failure type
             	**type**\:  :py:class:`VpdnFailcode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_oper.VpdnFailcode>`
+            
+            	**config**\: False
             
             
 
@@ -2189,7 +2484,11 @@ class Vpdn(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Vpdn.HistoryFailures.HistoryFailure, ['username', 'remote_name', u'username_xr', u'domain_name', u'mid', u'nas', u'destination_address', u'remote_client_id', u'home_gateway', u'source_address', u'local_client_id', u'event_time', u'error_repeat_count', u'failure_type'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Vpdn()
         return self._top_entity
+
+
 

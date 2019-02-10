@@ -168,6 +168,7 @@ class MacLimitNotificationType(Identity):
         super(MacLimitNotificationType, self).__init__(ns, pref, tag)
 
 
+
 class NotifSyslog(MacLimitNotificationType):
     """
     Generate syslog
@@ -181,6 +182,7 @@ class NotifSyslog(MacLimitNotificationType):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-bridge-common", pref="cisco-bridge-common", tag="cisco-bridge-common:notif-syslog"):
         super(NotifSyslog, self).__init__(ns, pref, tag)
+
 
 
 class NotifSnmpTrap(MacLimitNotificationType):
@@ -198,6 +200,7 @@ class NotifSnmpTrap(MacLimitNotificationType):
         super(NotifSnmpTrap, self).__init__(ns, pref, tag)
 
 
+
 class NotifNone(MacLimitNotificationType):
     """
     Disable notification
@@ -213,6 +216,7 @@ class NotifNone(MacLimitNotificationType):
         super(NotifNone, self).__init__(ns, pref, tag)
 
 
+
 class NotifSyslogAndSnmpTrap(MacLimitNotificationType):
     """
     Generate both syslog and SNMP trap
@@ -226,5 +230,6 @@ class NotifSyslogAndSnmpTrap(MacLimitNotificationType):
 
     def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-bridge-common", pref="cisco-bridge-common", tag="cisco-bridge-common:notif-syslog-and-snmp-trap"):
         super(NotifSyslogAndSnmpTrap, self).__init__(ns, pref, tag)
+
 
 

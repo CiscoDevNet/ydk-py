@@ -98,6 +98,7 @@ class Action(Entity):
             self._perform_setattr(Action.Input, ['data'], name, value)
 
 
+
     class Output(Entity):
         """
         
@@ -134,7 +135,10 @@ class Action(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(Action.Output, ['data'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = Action()
         return self._top_entity
+
+
 

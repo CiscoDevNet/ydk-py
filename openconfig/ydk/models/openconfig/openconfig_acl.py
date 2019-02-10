@@ -39,6 +39,7 @@ class FORWARDINGACTION(Identity):
         super(FORWARDINGACTION, self).__init__(ns, pref, tag)
 
 
+
 class ACLTYPE(Identity):
     """
     Base identity for types of ACL sets
@@ -52,6 +53,7 @@ class ACLTYPE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_TYPE"):
         super(ACLTYPE, self).__init__(ns, pref, tag)
+
 
 
 class ACLCOUNTERCAPABILITY(Identity):
@@ -70,6 +72,7 @@ class ACLCOUNTERCAPABILITY(Identity):
         super(ACLCOUNTERCAPABILITY, self).__init__(ns, pref, tag)
 
 
+
 class LOGACTION(Identity):
     """
     Base identity for defining the destination for logging
@@ -86,6 +89,7 @@ class LOGACTION(Identity):
         super(LOGACTION, self).__init__(ns, pref, tag)
 
 
+
 class Acl(Entity):
     """
     Top level enclosing container for ACL model config
@@ -100,6 +104,8 @@ class Acl(Entity):
     
     	Global operational state data for ACLs
     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.State>`
+    
+    	**config**\: False
     
     .. attribute:: acl_sets
     
@@ -178,6 +184,7 @@ class Acl(Entity):
             self._is_frozen = True
 
 
+
     class State(Entity):
         """
         Global operational state data for ACLs
@@ -186,6 +193,8 @@ class Acl(Entity):
         
         	System reported indication of how ACL counters are reported by the target
         	**type**\:  :py:class:`ACLCOUNTERCAPABILITY <ydk.models.openconfig.openconfig_acl.ACLCOUNTERCAPABILITY>`
+        
+        	**config**\: False
         
         
 
@@ -213,6 +222,7 @@ class Acl(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Acl.State, ['counter_capability'], name, value)
+
 
 
     class AclSets(Entity):
@@ -277,6 +287,8 @@ class Acl(Entity):
             
             	Access list state information
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.State>`
+            
+            	**config**\: False
             
             .. attribute:: acl_entries
             
@@ -375,6 +387,7 @@ class Acl(Entity):
                     self._perform_setattr(Acl.AclSets.AclSet.Config, ['name', 'type', 'description'], name, value)
 
 
+
             class State(Entity):
                 """
                 Access list state information
@@ -384,15 +397,21 @@ class Acl(Entity):
                 	The name of the access\-list set
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	The type determines the fields allowed in the ACL entries belonging to the ACL set (e.g., IPv4, IPv6, etc.)
                 	**type**\:  :py:class:`ACLTYPE <ydk.models.openconfig.openconfig_acl.ACLTYPE>`
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	Description, or comment, for the ACL set
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -423,6 +442,7 @@ class Acl(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Acl.AclSets.AclSet.State, ['name', 'type', 'description'], name, value)
+
 
 
             class AclEntries(Entity):
@@ -482,6 +502,8 @@ class Acl(Entity):
                     
                     	State information for ACL entries
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.AclEntries.AclEntry.State>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: l2
                     
@@ -617,6 +639,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Config, ['sequence_id', 'description'], name, value)
 
 
+
                     class State(Entity):
                         """
                         State information for ACL entries
@@ -628,10 +651,14 @@ class Acl(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: description
                         
                         	A user\-defined description, or comment, for this Access List Entry
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: matched_packets
                         
@@ -640,12 +667,16 @@ class Acl(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: matched_octets
                         
                         	Count of the number of octets (bytes) matching the current ACL entry.  An implementation should provide this counter on a per\-interface per\-ACL\-entry if possible.  If an implementation only supports ACL counters per entry (i.e., not broken out per interface), then the value should be equal to the aggregate count across all interfaces.  An implementation that provides counters per entry per interface is not required to also provide an aggregate count, e.g., per entry \-\- the user is expected to be able implement the required aggregation if such a count is needed
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         
 
@@ -680,6 +711,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.State, ['sequence_id', 'description', 'matched_packets', 'matched_octets'], name, value)
 
 
+
                     class L2(Entity):
                         """
                         Ethernet header fields
@@ -693,6 +725,8 @@ class Acl(Entity):
                         
                         	State Information
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.AclEntries.AclEntry.L2.State>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -804,6 +838,7 @@ class Acl(Entity):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.L2.Config, ['source_mac', 'source_mac_mask', 'destination_mac', 'destination_mac_mask', 'ethertype'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State Information.
@@ -815,12 +850,16 @@ class Acl(Entity):
                             
                             	**pattern:** ^[0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}$
                             
+                            	**config**\: False
+                            
                             .. attribute:: source_mac_mask
                             
                             	Source IEEE 802 MAC address mask
                             	**type**\: str
                             
                             	**pattern:** ^[0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}$
+                            
+                            	**config**\: False
                             
                             .. attribute:: destination_mac
                             
@@ -829,12 +868,16 @@ class Acl(Entity):
                             
                             	**pattern:** ^[0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}$
                             
+                            	**config**\: False
+                            
                             .. attribute:: destination_mac_mask
                             
                             	Destination IEEE 802 MAC address mask
                             	**type**\: str
                             
                             	**pattern:** ^[0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}$
+                            
+                            	**config**\: False
                             
                             .. attribute:: ethertype
                             
@@ -846,6 +889,8 @@ class Acl(Entity):
                             			**range:** 1..65535
                             
                             		**type**\:  :py:class:`ETHERTYPE <ydk.models.openconfig.openconfig_packet_match_types.ETHERTYPE>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -882,6 +927,8 @@ class Acl(Entity):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.L2.State, ['source_mac', 'source_mac_mask', 'destination_mac', 'destination_mac_mask', 'ethertype'], name, value)
 
 
+
+
                     class Ipv4(Entity):
                         """
                         Top level container for IPv4 match field data
@@ -895,6 +942,8 @@ class Acl(Entity):
                         
                         	State information for IPv4 match fields
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4.State>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1006,6 +1055,7 @@ class Acl(Entity):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4.Config, ['source_address', 'destination_address', 'dscp', 'protocol', 'hop_limit'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State information for IPv4 match fields
@@ -1017,6 +1067,8 @@ class Acl(Entity):
                             
                             	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))$
                             
+                            	**config**\: False
+                            
                             .. attribute:: destination_address
                             
                             	Destination IPv4 address prefix
@@ -1024,12 +1076,16 @@ class Acl(Entity):
                             
                             	**pattern:** ^(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))$
                             
+                            	**config**\: False
+                            
                             .. attribute:: dscp
                             
                             	Value of diffserv codepoint
                             	**type**\: int
                             
                             	**range:** 0..63
+                            
+                            	**config**\: False
                             
                             .. attribute:: protocol
                             
@@ -1042,12 +1098,16 @@ class Acl(Entity):
                             
                             		**type**\:  :py:class:`IPPROTOCOL <ydk.models.openconfig.openconfig_packet_match_types.IPPROTOCOL>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: hop_limit
                             
                             	The IP packet's hop limit \-\- known as TTL (in hops) in IPv4 packets, and hop limit in IPv6
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1084,6 +1144,8 @@ class Acl(Entity):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4.State, ['source_address', 'destination_address', 'dscp', 'protocol', 'hop_limit'], name, value)
 
 
+
+
                     class Ipv6(Entity):
                         """
                         Top\-level container for IPv6 match field data
@@ -1097,6 +1159,8 @@ class Acl(Entity):
                         
                         	Operational state data for IPv6 match fields
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6.State>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1226,6 +1290,7 @@ class Acl(Entity):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6.Config, ['source_address', 'source_flow_label', 'destination_address', 'destination_flow_label', 'dscp', 'protocol', 'hop_limit'], name, value)
 
 
+
                         class State(Entity):
                             """
                             Operational state data for IPv6 match fields
@@ -1237,12 +1302,16 @@ class Acl(Entity):
                             
                             	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))/(12[0\-8]\|1[0\-1][0\-9]\|[1\-9][0\-9]\|[0\-9])$
                             
+                            	**config**\: False
+                            
                             .. attribute:: source_flow_label
                             
                             	Source IPv6 Flow label
                             	**type**\: int
                             
                             	**range:** 0..1048575
+                            
+                            	**config**\: False
                             
                             .. attribute:: destination_address
                             
@@ -1251,6 +1320,8 @@ class Acl(Entity):
                             
                             	**pattern:** ^(([0\-9a\-fA\-F]{1,4}\:){7}[0\-9a\-fA\-F]{1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,7}\:\|([0\-9a\-fA\-F]{1,4}\:){1,6}\:[0\-9a\-fA\-F]{1,4}([0\-9a\-fA\-F]{1,4}\:){1,5}(\:[0\-9a\-fA\-F]{1,4}){1,2}\|([0\-9a\-fA\-F]{1,4}\:){1,4}(\:[0\-9a\-fA\-F]{1,4}){1,3}\|([0\-9a\-fA\-F]{1,4}\:){1,3}(\:[0\-9a\-fA\-F]{1,4}){1,4}\|([0\-9a\-fA\-F]{1,4}\:){1,2}(\:[0\-9a\-fA\-F]{1,4}){1,5}\|[0\-9a\-fA\-F]{1,4}\:((\:[0\-9a\-fA\-F]{1,4}){1,6})\|\:((\:[0\-9a\-fA\-F]{1,4}){1,7}\|\:))/(12[0\-8]\|1[0\-1][0\-9]\|[1\-9][0\-9]\|[0\-9])$
                             
+                            	**config**\: False
+                            
                             .. attribute:: destination_flow_label
                             
                             	Destination IPv6 Flow label
@@ -1258,12 +1329,16 @@ class Acl(Entity):
                             
                             	**range:** 0..1048575
                             
+                            	**config**\: False
+                            
                             .. attribute:: dscp
                             
                             	Value of diffserv codepoint
                             	**type**\: int
                             
                             	**range:** 0..63
+                            
+                            	**config**\: False
                             
                             .. attribute:: protocol
                             
@@ -1276,12 +1351,16 @@ class Acl(Entity):
                             
                             		**type**\:  :py:class:`IPPROTOCOL <ydk.models.openconfig.openconfig_packet_match_types.IPPROTOCOL>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: hop_limit
                             
                             	The IP packet's hop limit \-\- known as TTL (in hops) in IPv4 packets, and hop limit in IPv6
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -1322,6 +1401,8 @@ class Acl(Entity):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6.State, ['source_address', 'source_flow_label', 'destination_address', 'destination_flow_label', 'dscp', 'protocol', 'hop_limit'], name, value)
 
 
+
+
                     class Transport(Entity):
                         """
                         Transport fields container
@@ -1335,6 +1416,8 @@ class Acl(Entity):
                         
                         	State data
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.AclEntries.AclEntry.Transport.State>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1438,6 +1521,7 @@ class Acl(Entity):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Transport.Config, ['source_port', 'destination_port', 'tcp_flags'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State data
@@ -1457,6 +1541,8 @@ class Acl(Entity):
                             
                             		**type**\:  :py:class:`PortNumRange <ydk.models.openconfig.openconfig_packet_match_types.PortNumRange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: destination_port
                             
                             	Destination port or range
@@ -1472,10 +1558,14 @@ class Acl(Entity):
                             
                             		**type**\:  :py:class:`PortNumRange <ydk.models.openconfig.openconfig_packet_match_types.PortNumRange>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: tcp_flags
                             
                             	List of TCP flags to match
                             	**type**\: list of   :py:class:`TCPFLAGS <ydk.models.openconfig.openconfig_packet_match_types.TCPFLAGS>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1508,6 +1598,8 @@ class Acl(Entity):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Transport.State, ['source_port', 'destination_port', 'tcp_flags'], name, value)
 
 
+
+
                     class InputInterface(Entity):
                         """
                         Input interface container
@@ -1521,6 +1613,8 @@ class Acl(Entity):
                         
                         	State information
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.State>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_ref
                         
@@ -1588,6 +1682,7 @@ class Acl(Entity):
                                 self._is_frozen = True
 
 
+
                         class State(Entity):
                             """
                             State information
@@ -1613,6 +1708,7 @@ class Acl(Entity):
                                 self._is_frozen = True
 
 
+
                         class InterfaceRef(Entity):
                             """
                             Reference to an interface or subinterface
@@ -1626,6 +1722,8 @@ class Acl(Entity):
                             
                             	Operational state for interface\-ref
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.State>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1708,6 +1806,7 @@ class Acl(Entity):
                                     self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
+
                             class State(Entity):
                                 """
                                 Operational state for interface\-ref
@@ -1719,6 +1818,8 @@ class Acl(Entity):
                                 
                                 	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: subinterface
                                 
                                 	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
@@ -1727,6 +1828,8 @@ class Acl(Entity):
                                 	**range:** 0..4294967295
                                 
                                 	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1757,6 +1860,9 @@ class Acl(Entity):
                                     self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
 
 
+
+
+
                     class Actions(Entity):
                         """
                         Enclosing container for list of ACL actions associated
@@ -1771,6 +1877,8 @@ class Acl(Entity):
                         
                         	State information for ACL actions
                         	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.AclEntries.AclEntry.Actions.State>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1851,6 +1959,7 @@ class Acl(Entity):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Actions.Config, ['forwarding_action', 'log_action'], name, value)
 
 
+
                         class State(Entity):
                             """
                             State information for ACL actions
@@ -1862,10 +1971,14 @@ class Acl(Entity):
                             
                             	**mandatory**\: True
                             
+                            	**config**\: False
+                            
                             .. attribute:: log_action
                             
                             	Specifies the log action and destination for matched packets.  The default is not to log the packet
                             	**type**\:  :py:class:`LOGACTION <ydk.models.openconfig.openconfig_acl.LOGACTION>`
+                            
+                            	**config**\: False
                             
                             	**default value**\: LOG_NONE
                             
@@ -1896,6 +2009,12 @@ class Acl(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Actions.State, ['forwarding_action', 'log_action'], name, value)
+
+
+
+
+
+
 
 
     class Interfaces(Entity):
@@ -1955,6 +2074,8 @@ class Acl(Entity):
             
             	Operational state for ACL per\-interface data
             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.State>`
+            
+            	**config**\: False
             
             .. attribute:: interface_ref
             
@@ -2055,6 +2176,7 @@ class Acl(Entity):
                     self._perform_setattr(Acl.Interfaces.Interface.Config, ['id'], name, value)
 
 
+
             class State(Entity):
                 """
                 Operational state for ACL per\-interface data
@@ -2063,6 +2185,8 @@ class Acl(Entity):
                 
                 	User\-defined identifier for the interface \-\- a common convention could be '<if name>.<subif index>'
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -2091,6 +2215,7 @@ class Acl(Entity):
                     self._perform_setattr(Acl.Interfaces.Interface.State, ['id'], name, value)
 
 
+
             class InterfaceRef(Entity):
                 """
                 Reference to an interface or subinterface
@@ -2104,6 +2229,8 @@ class Acl(Entity):
                 
                 	Operational state for interface\-ref
                 	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.InterfaceRef.State>`
+                
+                	**config**\: False
                 
                 
 
@@ -2186,6 +2313,7 @@ class Acl(Entity):
                         self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
 
 
+
                 class State(Entity):
                     """
                     Operational state for interface\-ref
@@ -2197,6 +2325,8 @@ class Acl(Entity):
                     
                     	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: subinterface
                     
                     	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
@@ -2205,6 +2335,8 @@ class Acl(Entity):
                     	**range:** 0..4294967295
                     
                     	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2233,6 +2365,8 @@ class Acl(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
 
 
             class IngressAclSets(Entity):
@@ -2297,10 +2431,14 @@ class Acl(Entity):
                     	Operational state data for interface ingress ACLs
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.State>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: acl_entries
                     
                     	Enclosing container for list of references to ACLs
                     	**type**\:  :py:class:`AclEntries <ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2388,6 +2526,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.Config, ['set_name', 'type'], name, value)
 
 
+
                     class State(Entity):
                         """
                         Operational state data for interface ingress ACLs
@@ -2399,10 +2538,14 @@ class Acl(Entity):
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.Config>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Reference to the ACL set type applied on ingress
                         	**type**\:  :py:class:`ACLTYPE <ydk.models.openconfig.openconfig_acl.ACLTYPE>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2433,6 +2576,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.State, ['set_name', 'type'], name, value)
 
 
+
                     class AclEntries(Entity):
                         """
                         Enclosing container for list of references to ACLs
@@ -2441,6 +2585,8 @@ class Acl(Entity):
                         
                         	List of ACL entries assigned to an interface
                         	**type**\: list of  		 :py:class:`AclEntry <ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2481,10 +2627,14 @@ class Acl(Entity):
                             
                             	**refers to**\:  :py:class:`sequence_id <ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry.State>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: state
                             
                             	Operational state data for per\-interface ACL entries
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry.State>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2530,6 +2680,8 @@ class Acl(Entity):
                                 
                                 	**refers to**\:  :py:class:`sequence_id <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.AclEntries.AclEntry>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: matched_packets
                                 
                                 	Count of the number of packets matching the current ACL entry.  An implementation should provide this counter on a per\-interface per\-ACL\-entry if possible.  If an implementation only supports ACL counters per entry (i.e., not broken out per interface), then the value should be equal to the aggregate count across all interfaces.  An implementation that provides counters per entry per interface is not required to also provide an aggregate count, e.g., per entry \-\- the user is expected to be able implement the required aggregation if such a count is needed
@@ -2537,12 +2689,16 @@ class Acl(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: matched_octets
                                 
                                 	Count of the number of octets (bytes) matching the current ACL entry.  An implementation should provide this counter on a per\-interface per\-ACL\-entry if possible.  If an implementation only supports ACL counters per entry (i.e., not broken out per interface), then the value should be equal to the aggregate count across all interfaces.  An implementation that provides counters per entry per interface is not required to also provide an aggregate count, e.g., per entry \-\- the user is expected to be able implement the required aggregation if such a count is needed
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2573,6 +2729,11 @@ class Acl(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry.State, ['sequence_id', 'matched_packets', 'matched_octets'], name, value)
+
+
+
+
+
 
 
             class EgressAclSets(Entity):
@@ -2637,10 +2798,14 @@ class Acl(Entity):
                     	Operational state data for interface egress ACLs
                     	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.State>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: acl_entries
                     
                     	Enclosing container for list of references to ACLs
                     	**type**\:  :py:class:`AclEntries <ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2728,6 +2893,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.Config, ['set_name', 'type'], name, value)
 
 
+
                     class State(Entity):
                         """
                         Operational state data for interface egress ACLs
@@ -2739,10 +2905,14 @@ class Acl(Entity):
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.Config>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Reference to the ACL set type applied on egress
                         	**type**\:  :py:class:`ACLTYPE <ydk.models.openconfig.openconfig_acl.ACLTYPE>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2773,6 +2943,7 @@ class Acl(Entity):
                             self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.State, ['set_name', 'type'], name, value)
 
 
+
                     class AclEntries(Entity):
                         """
                         Enclosing container for list of references to ACLs
@@ -2781,6 +2952,8 @@ class Acl(Entity):
                         
                         	List of ACL entries assigned to an interface
                         	**type**\: list of  		 :py:class:`AclEntry <ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2821,10 +2994,14 @@ class Acl(Entity):
                             
                             	**refers to**\:  :py:class:`sequence_id <ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry.State>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: state
                             
                             	Operational state data for per\-interface ACL entries
                             	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_acl.Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry.State>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -2870,6 +3047,8 @@ class Acl(Entity):
                                 
                                 	**refers to**\:  :py:class:`sequence_id <ydk.models.openconfig.openconfig_acl.Acl.AclSets.AclSet.AclEntries.AclEntry>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: matched_packets
                                 
                                 	Count of the number of packets matching the current ACL entry.  An implementation should provide this counter on a per\-interface per\-ACL\-entry if possible.  If an implementation only supports ACL counters per entry (i.e., not broken out per interface), then the value should be equal to the aggregate count across all interfaces.  An implementation that provides counters per entry per interface is not required to also provide an aggregate count, e.g., per entry \-\- the user is expected to be able implement the required aggregation if such a count is needed
@@ -2877,12 +3056,16 @@ class Acl(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: matched_octets
                                 
                                 	Count of the number of octets (bytes) matching the current ACL entry.  An implementation should provide this counter on a per\-interface per\-ACL\-entry if possible.  If an implementation only supports ACL counters per entry (i.e., not broken out per interface), then the value should be equal to the aggregate count across all interfaces.  An implementation that provides counters per entry per interface is not required to also provide an aggregate count, e.g., per entry \-\- the user is expected to be able implement the required aggregation if such a count is needed
                                 	**type**\: int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -2914,9 +3097,18 @@ class Acl(Entity):
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry.State, ['sequence_id', 'matched_packets', 'matched_octets'], name, value)
 
+
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Acl()
         return self._top_entity
+
+
 
 class ACLL2(ACLTYPE):
     """
@@ -2931,6 +3123,7 @@ class ACLL2(ACLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_L2"):
         super(ACLL2, self).__init__(ns, pref, tag)
+
 
 
 class ACLIPV6(ACLTYPE):
@@ -2948,6 +3141,7 @@ class ACLIPV6(ACLTYPE):
         super(ACLIPV6, self).__init__(ns, pref, tag)
 
 
+
 class LOGNONE(LOGACTION):
     """
     No logging
@@ -2961,6 +3155,7 @@ class LOGNONE(LOGACTION):
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:LOG_NONE"):
         super(LOGNONE, self).__init__(ns, pref, tag)
+
 
 
 class ACLIPV4(ACLTYPE):
@@ -2978,6 +3173,7 @@ class ACLIPV4(ACLTYPE):
         super(ACLIPV4, self).__init__(ns, pref, tag)
 
 
+
 class DROP(FORWARDINGACTION):
     """
     Drop packet without sending any ICMP error message
@@ -2991,6 +3187,7 @@ class DROP(FORWARDINGACTION):
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:DROP"):
         super(DROP, self).__init__(ns, pref, tag)
+
 
 
 class ACCEPT(FORWARDINGACTION):
@@ -3008,6 +3205,7 @@ class ACCEPT(FORWARDINGACTION):
         super(ACCEPT, self).__init__(ns, pref, tag)
 
 
+
 class INTERFACEONLY(ACLCOUNTERCAPABILITY):
     """
     ACL counters are available and reported only per interface
@@ -3021,6 +3219,7 @@ class INTERFACEONLY(ACLCOUNTERCAPABILITY):
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:INTERFACE_ONLY"):
         super(INTERFACEONLY, self).__init__(ns, pref, tag)
+
 
 
 class ACLMIXED(ACLTYPE):
@@ -3040,6 +3239,7 @@ class ACLMIXED(ACLTYPE):
         super(ACLMIXED, self).__init__(ns, pref, tag)
 
 
+
 class INTERFACEAGGREGATE(ACLCOUNTERCAPABILITY):
     """
     ACL counters are reported per interface, and also aggregated
@@ -3054,6 +3254,7 @@ class INTERFACEAGGREGATE(ACLCOUNTERCAPABILITY):
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:INTERFACE_AGGREGATE"):
         super(INTERFACEAGGREGATE, self).__init__(ns, pref, tag)
+
 
 
 class REJECT(FORWARDINGACTION):
@@ -3071,6 +3272,7 @@ class REJECT(FORWARDINGACTION):
         super(REJECT, self).__init__(ns, pref, tag)
 
 
+
 class LOGSYSLOG(LOGACTION):
     """
     Log the packet in Syslog
@@ -3084,6 +3286,7 @@ class LOGSYSLOG(LOGACTION):
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:LOG_SYSLOG"):
         super(LOGSYSLOG, self).__init__(ns, pref, tag)
+
 
 
 class AGGREGATEONLY(ACLCOUNTERCAPABILITY):
@@ -3100,5 +3303,6 @@ class AGGREGATEONLY(ACLCOUNTERCAPABILITY):
 
     def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:AGGREGATE_ONLY"):
         super(AGGREGATEONLY, self).__init__(ns, pref, tag)
+
 
 

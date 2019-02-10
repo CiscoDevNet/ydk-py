@@ -30,6 +30,7 @@ class BGPNOTSELECTEDBESTPATH(Identity):
         super(BGPNOTSELECTEDBESTPATH, self).__init__(ns, pref, tag)
 
 
+
 class BGPNOTSELECTEDPOLICY(Identity):
     """
     Base identity for reason code for routes that are rejected
@@ -44,6 +45,7 @@ class BGPNOTSELECTEDPOLICY(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:BGP_NOT_SELECTED_POLICY"):
         super(BGPNOTSELECTEDPOLICY, self).__init__(ns, pref, tag)
+
 
 
 class INVALIDROUTEREASON(Identity):
@@ -62,6 +64,7 @@ class INVALIDROUTEREASON(Identity):
         super(INVALIDROUTEREASON, self).__init__(ns, pref, tag)
 
 
+
 class INVALIDORIGINATOR(INVALIDROUTEREASON):
     """
     Route was invalid due to ORIGINATOR\_ID, e.g., update has
@@ -76,6 +79,7 @@ class INVALIDORIGINATOR(INVALIDROUTEREASON):
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:INVALID_ORIGINATOR"):
         super(INVALIDORIGINATOR, self).__init__(ns, pref, tag)
+
 
 
 class HIGHERROUTERID(BGPNOTSELECTEDBESTPATH):
@@ -94,6 +98,7 @@ class HIGHERROUTERID(BGPNOTSELECTEDBESTPATH):
         super(HIGHERROUTERID, self).__init__(ns, pref, tag)
 
 
+
 class INVALIDCLUSTERLOOP(INVALIDROUTEREASON):
     """
     Route was invalid due to CLUSTER\_LIST loop
@@ -109,6 +114,7 @@ class INVALIDCLUSTERLOOP(INVALIDROUTEREASON):
         super(INVALIDCLUSTERLOOP, self).__init__(ns, pref, tag)
 
 
+
 class REJECTEDIMPORTPOLICY(BGPNOTSELECTEDPOLICY):
     """
     Route was rejected after apply import policies
@@ -122,6 +128,7 @@ class REJECTEDIMPORTPOLICY(BGPNOTSELECTEDPOLICY):
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:REJECTED_IMPORT_POLICY"):
         super(REJECTEDIMPORTPOLICY, self).__init__(ns, pref, tag)
+
 
 
 class ORIGINTYPEHIGHER(BGPNOTSELECTEDBESTPATH):
@@ -140,6 +147,7 @@ class ORIGINTYPEHIGHER(BGPNOTSELECTEDBESTPATH):
         super(ORIGINTYPEHIGHER, self).__init__(ns, pref, tag)
 
 
+
 class MEDHIGHER(BGPNOTSELECTEDBESTPATH):
     """
     Route has a higher MED, or metric, attribute than the current
@@ -154,6 +162,7 @@ class MEDHIGHER(BGPNOTSELECTEDBESTPATH):
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:MED_HIGHER"):
         super(MEDHIGHER, self).__init__(ns, pref, tag)
+
 
 
 class INVALIDASLOOP(INVALIDROUTEREASON):
@@ -171,6 +180,7 @@ class INVALIDASLOOP(INVALIDROUTEREASON):
         super(INVALIDASLOOP, self).__init__(ns, pref, tag)
 
 
+
 class LOCALPREFLOWER(BGPNOTSELECTEDBESTPATH):
     """
     Route has a lower localpref attribute than current best path
@@ -184,6 +194,7 @@ class LOCALPREFLOWER(BGPNOTSELECTEDBESTPATH):
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:LOCAL_PREF_LOWER"):
         super(LOCALPREFLOWER, self).__init__(ns, pref, tag)
+
 
 
 class INVALIDCONFED(INVALIDROUTEREASON):
@@ -202,6 +213,7 @@ class INVALIDCONFED(INVALIDROUTEREASON):
         super(INVALIDCONFED, self).__init__(ns, pref, tag)
 
 
+
 class ASPATHLONGER(BGPNOTSELECTEDBESTPATH):
     """
     Route has a longer AS path attribute than current best path
@@ -215,6 +227,7 @@ class ASPATHLONGER(BGPNOTSELECTEDBESTPATH):
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:AS_PATH_LONGER"):
         super(ASPATHLONGER, self).__init__(ns, pref, tag)
+
 
 
 class HIGHERPEERADDRESS(BGPNOTSELECTEDBESTPATH):
@@ -232,6 +245,7 @@ class HIGHERPEERADDRESS(BGPNOTSELECTEDBESTPATH):
         super(HIGHERPEERADDRESS, self).__init__(ns, pref, tag)
 
 
+
 class NEXTHOPCOSTHIGHER(BGPNOTSELECTEDBESTPATH):
     """
     Route has a higher interior cost to the next hop.
@@ -247,6 +261,7 @@ class NEXTHOPCOSTHIGHER(BGPNOTSELECTEDBESTPATH):
         super(NEXTHOPCOSTHIGHER, self).__init__(ns, pref, tag)
 
 
+
 class PREFEREXTERNAL(BGPNOTSELECTEDBESTPATH):
     """
     Route source is via IGP, rather than EGP.
@@ -260,5 +275,6 @@ class PREFEREXTERNAL(BGPNOTSELECTEDBESTPATH):
 
     def __init__(self, ns="http://openconfig.net/yang/rib/bgp-types", pref="openconfig-rib-bgp-types", tag="openconfig-rib-bgp-types:PREFER_EXTERNAL"):
         super(PREFEREXTERNAL, self).__init__(ns, pref, tag)
+
 
 

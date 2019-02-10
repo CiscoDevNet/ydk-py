@@ -30,6 +30,8 @@ class Cofo(Entity):
     	Node\-specific COFO operational data
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class Cofo(Entity):
         
         	COFO operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -106,15 +110,21 @@ class Cofo(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: client_ids
             
             	COFO Client data
             	**type**\:  :py:class:`ClientIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes.Node.ClientIds>`
             
+            	**config**\: False
+            
             .. attribute:: topic_ids
             
             	COFO SDR database
             	**type**\:  :py:class:`TopicIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes.Node.TopicIds>`
+            
+            	**config**\: False
             
             
 
@@ -161,6 +171,8 @@ class Cofo(Entity):
                 	COFO client id
                 	**type**\: list of  		 :py:class:`ClientId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes.Node.ClientIds.ClientId>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -198,12 +210,16 @@ class Cofo(Entity):
                     
                     	**range:** 1..7
                     
+                    	**config**\: False
+                    
                     .. attribute:: connection_handle
                     
                     	Connection Handle
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: peer_handle
                     
@@ -212,12 +228,16 @@ class Cofo(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: client_id
                     
                     	Client ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: purge_timeout
                     
@@ -226,10 +246,14 @@ class Cofo(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: host_client
                     
                     	host client
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: connection_state
                     
@@ -238,6 +262,8 @@ class Cofo(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: topic_subscribed
                     
                     	Topic Subscribed
@@ -245,12 +271,16 @@ class Cofo(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: topic_published
                     
                     	Topic Published
                     	**type**\: list of int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -292,7 +322,9 @@ class Cofo(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cofo.Nodes.Node.ClientIds.ClientId, ['id', 'connection_handle', 'peer_handle', 'client_id', 'purge_timeout', 'host_client', 'connection_state', 'topic_subscribed', 'topic_published'], name, value)
+                        self._perform_setattr(Cofo.Nodes.Node.ClientIds.ClientId, ['id', u'connection_handle', u'peer_handle', u'client_id', u'purge_timeout', u'host_client', u'connection_state', u'topic_subscribed', u'topic_published'], name, value)
+
+
 
 
             class TopicIds(Entity):
@@ -303,6 +335,8 @@ class Cofo(Entity):
                 
                 	COFO topic id
                 	**type**\: list of  		 :py:class:`TopicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes.Node.TopicIds.TopicId>`
+                
+                	**config**\: False
                 
                 
 
@@ -341,6 +375,8 @@ class Cofo(Entity):
                     
                     	**range:** 1..8
                     
+                    	**config**\: False
+                    
                     .. attribute:: topic_id
                     
                     	Topic ID
@@ -348,10 +384,14 @@ class Cofo(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: database_info_struct
                     
                     	Database info struct
                     	**type**\: list of  		 :py:class:`DatabaseInfoStruct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -381,7 +421,7 @@ class Cofo(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId, ['id', 'topic_id'], name, value)
+                        self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId, ['id', u'topic_id'], name, value)
 
 
                     class DatabaseInfoStruct(Entity):
@@ -395,10 +435,14 @@ class Cofo(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: client_db_info_struct
                         
                         	Client db info struct
                         	**type**\: list of  		 :py:class:`ClientDbInfoStruct <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -426,7 +470,7 @@ class Cofo(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct, ['sdr_id'], name, value)
+                            self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct, [u'sdr_id'], name, value)
 
 
                         class ClientDbInfoStruct(Entity):
@@ -440,6 +484,8 @@ class Cofo(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: total_valid_items_in_db
                             
                             	Total valid items in db
@@ -447,10 +493,14 @@ class Cofo(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: cofo_object_published_array
                             
                             	Cofo object published array
                             	**type**\: list of  		 :py:class:`CofoObjectPublishedArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -480,7 +530,7 @@ class Cofo(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct, ['total_objects', 'total_valid_items_in_db'], name, value)
+                                self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct, [u'total_objects', u'total_valid_items_in_db'], name, value)
 
 
                             class CofoObjectPublishedArray(Entity):
@@ -492,20 +542,28 @@ class Cofo(Entity):
                                 	Cofo object add time
                                 	**type**\:  :py:class:`ObjectAddTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray.ObjectAddTime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: object_delete_time
                                 
                                 	Cofo object delete time
                                 	**type**\:  :py:class:`ObjectDeleteTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray.ObjectDeleteTime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: object_txl_add_time
                                 
                                 	Cofo object txl add time
                                 	**type**\:  :py:class:`ObjectTxlAddTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray.ObjectTxlAddTime>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: object_txl_encode_time
                                 
                                 	Cofo object txl encode time
                                 	**type**\:  :py:class:`ObjectTxlEncodeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_infra_oper.Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray.ObjectTxlEncodeTime>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: client_id
                                 
@@ -514,12 +572,16 @@ class Cofo(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: object_id
                                 
                                 	Object ID
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: insert_count
                                 
@@ -528,12 +590,16 @@ class Cofo(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: item_state
                                 
                                 	Item State
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: cofo_infra_object_key
                                 
@@ -542,12 +608,16 @@ class Cofo(Entity):
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: cofo_infra_object_value
                                 
                                 	Cofo infra object value
                                 	**type**\: str
                                 
                                 	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -599,7 +669,7 @@ class Cofo(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray, ['client_id', 'object_id', 'insert_count', 'item_state', 'cofo_infra_object_key', 'cofo_infra_object_value'], name, value)
+                                    self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray, [u'client_id', u'object_id', u'insert_count', u'item_state', u'cofo_infra_object_key', u'cofo_infra_object_value'], name, value)
 
 
                                 class ObjectAddTime(Entity):
@@ -613,12 +683,16 @@ class Cofo(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tv_nsec
                                     
                                     	tv nsec
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -646,7 +720,8 @@ class Cofo(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray.ObjectAddTime, ['tv_sec', 'tv_nsec'], name, value)
+                                        self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray.ObjectAddTime, [u'tv_sec', u'tv_nsec'], name, value)
+
 
 
                                 class ObjectDeleteTime(Entity):
@@ -660,12 +735,16 @@ class Cofo(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tv_nsec
                                     
                                     	tv nsec
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -693,7 +772,8 @@ class Cofo(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray.ObjectDeleteTime, ['tv_sec', 'tv_nsec'], name, value)
+                                        self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray.ObjectDeleteTime, [u'tv_sec', u'tv_nsec'], name, value)
+
 
 
                                 class ObjectTxlAddTime(Entity):
@@ -707,12 +787,16 @@ class Cofo(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tv_nsec
                                     
                                     	tv nsec
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -740,7 +824,8 @@ class Cofo(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray.ObjectTxlAddTime, ['tv_sec', 'tv_nsec'], name, value)
+                                        self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray.ObjectTxlAddTime, [u'tv_sec', u'tv_nsec'], name, value)
+
 
 
                                 class ObjectTxlEncodeTime(Entity):
@@ -754,12 +839,16 @@ class Cofo(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tv_nsec
                                     
                                     	tv nsec
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -787,9 +876,19 @@ class Cofo(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray.ObjectTxlEncodeTime, ['tv_sec', 'tv_nsec'], name, value)
+                                        self._perform_setattr(Cofo.Nodes.Node.TopicIds.TopicId.DatabaseInfoStruct.ClientDbInfoStruct.CofoObjectPublishedArray.ObjectTxlEncodeTime, [u'tv_sec', u'tv_nsec'], name, value)
+
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Cofo()
         return self._top_entity
+
+
 

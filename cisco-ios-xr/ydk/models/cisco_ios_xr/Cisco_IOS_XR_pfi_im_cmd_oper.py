@@ -4711,30 +4711,42 @@ class Interfaces(Entity):
     	Detailed operational data for interfaces and configured features
     	**type**\:  :py:class:`InterfaceXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr>`
     
+    	**config**\: False
+    
     .. attribute:: node_type_sets
     
     	Node and/or interface type specific view of interface summary data
     	**type**\:  :py:class:`NodeTypeSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets>`
+    
+    	**config**\: False
     
     .. attribute:: interface_briefs
     
     	Brief operational data for interfaces
     	**type**\:  :py:class:`InterfaceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceBriefs>`
     
+    	**config**\: False
+    
     .. attribute:: inventory_summary
     
     	Inventory summary information
     	**type**\:  :py:class:`InventorySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary>`
+    
+    	**config**\: False
     
     .. attribute:: interfaces
     
     	Descriptions for interfaces
     	**type**\:  :py:class:`Interfaces_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces_>`
     
+    	**config**\: False
+    
     .. attribute:: interface_summary
     
     	Interface summary information
     	**type**\:  :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary>`
+    
+    	**config**\: False
     
     
 
@@ -4795,6 +4807,8 @@ class Interfaces(Entity):
         	Detailed operational data for a particular interface
         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface>`
         
+        	**config**\: False
+        
         
 
         """
@@ -4834,70 +4848,98 @@ class Interfaces(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: dampening_information
             
             	State dampening information
             	**type**\:  :py:class:`DampeningInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.DampeningInformation>`
+            
+            	**config**\: False
             
             .. attribute:: mac_address
             
             	Interface MAC address
             	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.MacAddress>`
             
+            	**config**\: False
+            
             .. attribute:: burned_in_address
             
             	Interface burned in address
             	**type**\:  :py:class:`BurnedInAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.BurnedInAddress>`
+            
+            	**config**\: False
             
             .. attribute:: carrier_delay
             
             	Carrier Delay
             	**type**\:  :py:class:`CarrierDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.CarrierDelay>`
             
+            	**config**\: False
+            
             .. attribute:: arp_information
             
             	Interface ARP type and timeout
             	**type**\:  :py:class:`ArpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.ArpInformation>`
+            
+            	**config**\: False
             
             .. attribute:: ip_information
             
             	Interface IP address info
             	**type**\:  :py:class:`IpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.IpInformation>`
             
+            	**config**\: False
+            
             .. attribute:: encapsulation_information
             
             	Information specific to the encapsulation
             	**type**\:  :py:class:`EncapsulationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation>`
+            
+            	**config**\: False
             
             .. attribute:: interface_type_information
             
             	Information specific to the interface type
             	**type**\:  :py:class:`InterfaceTypeInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation>`
             
+            	**config**\: False
+            
             .. attribute:: data_rates
             
             	Packet and byte rates
             	**type**\:  :py:class:`DataRates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.DataRates>`
+            
+            	**config**\: False
             
             .. attribute:: interface_statistics
             
             	Packet, byte and error counters
             	**type**\:  :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics>`
             
+            	**config**\: False
+            
             .. attribute:: l2_interface_statistics
             
             	L2 Protocol Statistics
             	**type**\:  :py:class:`L2InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics>`
+            
+            	**config**\: False
             
             .. attribute:: interface_handle
             
             	Interface name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: interface_type
             
             	Interface type
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: hardware_type_string
             
@@ -4906,20 +4948,28 @@ class Interfaces(Entity):
             
             	**length:** 0..64
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	Interface state
             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
+            
+            	**config**\: False
             
             .. attribute:: line_state
             
             	Line protocol state
             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
             
+            	**config**\: False
+            
             .. attribute:: encapsulation
             
             	Interface encapsulation
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: encapsulation_type_string
             
@@ -4928,12 +4978,16 @@ class Interfaces(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: mtu
             
             	MTU in bytes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: byte
             
@@ -4942,12 +4996,16 @@ class Interfaces(Entity):
             	L2 transport flag
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: state_transition_count
             
             	The number of times the state has changed
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: last_state_transition_time
             
@@ -4956,10 +5014,14 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: is_dampening_enabled
             
             	Dampening enabled flag
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: speed
             
@@ -4968,6 +5030,8 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: crc_length
             
             	Cyclic Redundancy Check length
@@ -4975,35 +5039,49 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: is_scramble_enabled
             
             	Interface scramble config
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: duplexity
             
             	Interface duplexity
             	**type**\:  :py:class:`ImAttrDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrDuplex>`
             
+            	**config**\: False
+            
             .. attribute:: media_type
             
             	Interface media type
             	**type**\:  :py:class:`ImAttrMedia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrMedia>`
+            
+            	**config**\: False
             
             .. attribute:: link_type
             
             	Interface link type
             	**type**\:  :py:class:`ImAttrLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrLink>`
             
+            	**config**\: False
+            
             .. attribute:: in_flow_control
             
             	Input flow control configuration
             	**type**\:  :py:class:`ImAttrFlowControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControl>`
             
+            	**config**\: False
+            
             .. attribute:: out_flow_control
             
             	Output flow control configuration
             	**type**\:  :py:class:`ImAttrFlowControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControl>`
+            
+            	**config**\: False
             
             .. attribute:: bandwidth
             
@@ -5012,12 +5090,16 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: max_bandwidth
             
             	Maximum Interface bandwidth (Kb/s)
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: keepalive
             
@@ -5026,10 +5108,14 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: is_l2_looped
             
             	Loopback detected by layer 2
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: parent_interface_name
             
@@ -5038,35 +5124,49 @@ class Interfaces(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: loopback_configuration
             
             	Interface loopback configuration
             	**type**\:  :py:class:`ImCmdLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLoopbackEnum>`
+            
+            	**config**\: False
             
             .. attribute:: description
             
             	Interface description string
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: is_maintenance_enabled
             
             	Maintenance embargo flag
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: is_data_inverted
             
             	Data invert flag
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: transport_mode
             
             	Interface transport mode
             	**type**\:  :py:class:`ImAttrTransportMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrTransportMode>`
             
+            	**config**\: False
+            
             .. attribute:: fast_shutdown
             
             	Fast Shutdown flag
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: if_index
             
@@ -5074,6 +5174,8 @@ class Interfaces(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -5222,10 +5324,14 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: is_suppressed_enabled
                 
                 	Flag showing if state is suppressed
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: seconds_remaining
                 
@@ -5233,6 +5339,8 @@ class Interfaces(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -5243,6 +5351,8 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: minute
                 
                 .. attribute:: reuse_threshold
@@ -5252,6 +5362,8 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: suppress_threshold
                 
                 	Value of suppress threshold
@@ -5259,12 +5371,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: maximum_suppress_time
                 
                 	Maximum suppress time in mins
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: minute
                 
@@ -5274,6 +5390,8 @@ class Interfaces(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -5316,6 +5434,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.DampeningInformation, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'half_life', 'reuse_threshold', 'suppress_threshold', 'maximum_suppress_time', 'restart_penalty'], name, value)
 
 
+
             class MacAddress(Entity):
                 """
                 Interface MAC address
@@ -5326,6 +5445,8 @@ class Interfaces(Entity):
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                	**config**\: False
                 
                 
 
@@ -5354,6 +5475,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.MacAddress, ['address'], name, value)
 
 
+
             class BurnedInAddress(Entity):
                 """
                 Interface burned in address
@@ -5364,6 +5486,8 @@ class Interfaces(Entity):
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                	**config**\: False
                 
                 
 
@@ -5392,6 +5516,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.BurnedInAddress, ['address'], name, value)
 
 
+
             class CarrierDelay(Entity):
                 """
                 Carrier Delay
@@ -5403,12 +5528,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: carrier_delay_down
                 
                 	Carrier delay on state down (ms)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -5439,6 +5568,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.CarrierDelay, ['carrier_delay_up', 'carrier_delay_down'], name, value)
 
 
+
             class ArpInformation(Entity):
                 """
                 Interface ARP type and timeout
@@ -5450,6 +5580,8 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 	**units**\: second
                 
                 .. attribute:: arp_type_name
@@ -5457,10 +5589,14 @@ class Interfaces(Entity):
                 	ARP type name
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: arp_is_learning_disabled
                 
                 	Whether the interface has dynamic learning disabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 
 
@@ -5493,6 +5629,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.ArpInformation, ['arp_timeout', 'arp_type_name', 'arp_is_learning_disabled'], name, value)
 
 
+
             class IpInformation(Entity):
                 """
                 Interface IP address info
@@ -5504,12 +5641,16 @@ class Interfaces(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
+                	**config**\: False
+                
                 .. attribute:: subnet_mask_length
                 
                 	Interface subnet mask length
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -5540,6 +5681,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.IpInformation, ['ip_address', 'subnet_mask_length'], name, value)
 
 
+
             class EncapsulationInformation(Entity):
                 """
                 Information specific to the encapsulation
@@ -5549,20 +5691,28 @@ class Interfaces(Entity):
                 	Frame Relay information
                 	**type**\:  :py:class:`FrameRelayInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: dot1q_information
                 
                 	VLAN 802.1q information
                 	**type**\:  :py:class:`Dot1qInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation>`
+                
+                	**config**\: False
                 
                 .. attribute:: ppp_information
                 
                 	PPP information
                 	**type**\:  :py:class:`PppInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: encapsulation_type
                 
                 	EncapsulationType
                 	**type**\:  :py:class:`ImCmdEncapsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdEncapsEnum>`
+                
+                	**config**\: False
                 
                 
 
@@ -5612,10 +5762,14 @@ class Interfaces(Entity):
                     	Frame Relay encapsulation type
                     	**type**\:  :py:class:`ImCmdFrTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdFrTypeEnum>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: lmi_type
                     
                     	The LMI type\: Autosense, ANSI, CCITT or CISCO
                     	**type**\:  :py:class:`ImCmdLmiTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLmiTypeEnum>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: lmidlci
                     
@@ -5624,30 +5778,42 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_nni
                     
                     	The NNI LMI interface type
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_dte
                     
                     	The DTE/DCE LMI interface type
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_lmi_up
                     
                     	Flag indicating whether the LMI  DTE/DCE/NNI\-DTE state is UP
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_lmi_nni_dce_up
                     
                     	Flag indicating whether the LMI  NNI\-DCE state is UP
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_lmi_enabled
                     
                     	The status of FR LMI for an interface
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: enquiries_received
                     
@@ -5656,12 +5822,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: enquiries_sent
                     
                     	Number of enquiry messages sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: status_received
                     
@@ -5670,12 +5840,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: status_sent
                     
                     	Number of status messages sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: update_status_received
                     
@@ -5684,12 +5858,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: update_status_sent
                     
                     	Number of update status messages sent
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -5744,6 +5922,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation, ['fr_encapsulation_type', 'lmi_type', 'lmidlci', 'is_nni', 'is_dte', 'is_lmi_up', 'is_lmi_nni_dce_up', 'is_lmi_enabled', 'enquiries_received', 'enquiries_sent', 'status_received', 'status_sent', 'update_status_received', 'update_status_sent'], name, value)
 
 
+
                 class Dot1qInformation(Entity):
                     """
                     VLAN 802.1q information
@@ -5753,10 +5932,14 @@ class Interfaces(Entity):
                     	Encapsulation type and tag stack
                     	**type**\:  :py:class:`EncapsulationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: vlan_switched
                     
                     	VLAN\-Switched information
                     	**type**\:  :py:class:`VlanSwitched <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5799,20 +5982,28 @@ class Interfaces(Entity):
                         	Stack value
                         	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: service_instance_details
                         
                         	Service Instance encapsulation
                         	**type**\:  :py:class:`ServiceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: dot1ad_dot1q_stack
                         
                         	802.1ad 802.1Q stack value
                         	**type**\:  :py:class:`Dot1adDot1qStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: vlan_encapsulation
                         
                         	VLANEncapsulation
                         	**type**\:  :py:class:`VlanEncaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.VlanEncaps>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: tag
                         
@@ -5821,12 +6012,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: outer_tag
                         
                         	Outer tag value
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: native_tag
                         
@@ -5835,12 +6030,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: dot1ad_tag
                         
                         	802.1ad tag value
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: dot1ad_native_tag
                         
@@ -5849,12 +6048,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: dot1ad_outer_tag
                         
                         	802.1ad Outer tag value
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -5918,12 +6121,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: second_tag
                             
                             	Second tag value
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -5954,6 +6161,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
 
 
+
                         class ServiceInstanceDetails(Entity):
                             """
                             Service Instance encapsulation
@@ -5963,10 +6171,14 @@ class Interfaces(Entity):
                             	VLAN tags for locally\-sourced traffic
                             	**type**\:  :py:class:`LocalTrafficStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: payload_ethertype
                             
                             	Payload Ethertype to match
                             	**type**\:  :py:class:`EfpPayloadEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpPayloadEtype>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: tags_popped
                             
@@ -5975,12 +6187,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_exact_match
                             
                             	Whether the packet must match the encapsulation exactly, with no further inner tags
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_native_vlan
                             
@@ -5989,12 +6205,16 @@ class Interfaces(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_native_preserving
                             
                             	Whether the native VLAN is customer\-tag preserving
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: source_mac_match
                             
@@ -6003,6 +6223,8 @@ class Interfaces(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: destination_mac_match
                             
                             	The destination MAC address to match on ingress
@@ -6010,15 +6232,21 @@ class Interfaces(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: tags_to_match
                             
                             	Tags to match on ingress packets
                             	**type**\: list of  		 :py:class:`TagsToMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: pushe
                             
                             	VLAN tags pushed on egress
                             	**type**\: list of  		 :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6075,6 +6303,8 @@ class Interfaces(Entity):
                                 	VLAN tags for locally\-sourced traffic
                                 	**type**\: list of  		 :py:class:`LocalTrafficTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -6110,12 +6340,16 @@ class Interfaces(Entity):
                                     	Ethertype of tag
                                     	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vlan_id
                                     
                                     	VLAN Id
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6146,6 +6380,8 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
 
+
+
                             class TagsToMatch(Entity):
                                 """
                                 Tags to match on ingress packets
@@ -6155,15 +6391,21 @@ class Interfaces(Entity):
                                 	Ethertype of tag to match
                                 	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: priority
                                 
                                 	Priority to match
                                 	**type**\:  :py:class:`EfpTagPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagPriority>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_range
                                 
                                 	VLAN Ids to match
                                 	**type**\: list of  		 :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6207,12 +6449,16 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vlan_id_high
                                     
                                     	VLAN ID High
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6243,6 +6489,8 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
 
+
+
                             class Pushe(Entity):
                                 """
                                 VLAN tags pushed on egress
@@ -6252,12 +6500,16 @@ class Interfaces(Entity):
                                 	Ethertype of tag
                                 	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_id
                                 
                                 	VLAN Id
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6288,6 +6540,8 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
 
 
+
+
                         class Dot1adDot1qStack(Entity):
                             """
                             802.1ad 802.1Q stack value
@@ -6299,12 +6553,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: second_tag
                             
                             	Second tag value
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             
 
@@ -6335,6 +6593,8 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack, ['outer_tag', 'second_tag'], name, value)
 
 
+
+
                     class VlanSwitched(Entity):
                         """
                         VLAN\-Switched information
@@ -6344,10 +6604,14 @@ class Interfaces(Entity):
                         	VLAN\-Switched Trunk VLAN ranges
                         	**type**\:  :py:class:`TrunkVlanRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mode
                         
                         	VLAN\-Switched mode
                         	**type**\:  :py:class:`VlanSwitchedMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.VlanSwitchedMode>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: access_vlan
                         
@@ -6355,6 +6619,8 @@ class Interfaces(Entity):
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -6398,10 +6664,14 @@ class Interfaces(Entity):
                             	VLAN tags for locally\-sourced traffic
                             	**type**\:  :py:class:`LocalTrafficStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: payload_ethertype
                             
                             	Payload Ethertype to match
                             	**type**\:  :py:class:`EfpPayloadEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpPayloadEtype>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: tags_popped
                             
@@ -6410,12 +6680,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_exact_match
                             
                             	Whether the packet must match the encapsulation exactly, with no further inner tags
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: is_native_vlan
                             
@@ -6424,12 +6698,16 @@ class Interfaces(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_native_preserving
                             
                             	Whether the native VLAN is customer\-tag preserving
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: source_mac_match
                             
@@ -6438,6 +6716,8 @@ class Interfaces(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: destination_mac_match
                             
                             	The destination MAC address to match on ingress
@@ -6445,15 +6725,21 @@ class Interfaces(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: tags_to_match
                             
                             	Tags to match on ingress packets
                             	**type**\: list of  		 :py:class:`TagsToMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: pushe
                             
                             	VLAN tags pushed on egress
                             	**type**\: list of  		 :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.Pushe>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -6510,6 +6796,8 @@ class Interfaces(Entity):
                                 	VLAN tags for locally\-sourced traffic
                                 	**type**\: list of  		 :py:class:`LocalTrafficTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag>`
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -6545,12 +6833,16 @@ class Interfaces(Entity):
                                     	Ethertype of tag
                                     	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vlan_id
                                     
                                     	VLAN Id
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6581,6 +6873,8 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
 
+
+
                             class TagsToMatch(Entity):
                                 """
                                 Tags to match on ingress packets
@@ -6590,15 +6884,21 @@ class Interfaces(Entity):
                                 	Ethertype of tag to match
                                 	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: priority
                                 
                                 	Priority to match
                                 	**type**\:  :py:class:`EfpTagPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagPriority>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_range
                                 
                                 	VLAN Ids to match
                                 	**type**\: list of  		 :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6642,12 +6942,16 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: vlan_id_high
                                     
                                     	VLAN ID High
                                     	**type**\: int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -6678,6 +6982,8 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
 
+
+
                             class Pushe(Entity):
                                 """
                                 VLAN tags pushed on egress
@@ -6687,12 +6993,16 @@ class Interfaces(Entity):
                                 	Ethertype of tag
                                 	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: vlan_id
                                 
                                 	VLAN Id
                                 	**type**\: int
                                 
                                 	**range:** 0..65535
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -6723,6 +7033,10 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.Pushe, ['ethertype', 'vlan_id'], name, value)
 
 
+
+
+
+
                 class PppInformation(Entity):
                     """
                     PPP information
@@ -6732,12 +7046,16 @@ class Interfaces(Entity):
                     	LCP State
                     	**type**\:  :py:class:`PppFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.PppFsmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_loopback_detected
                     
                     	Loopback detected
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: keepalive_period
                     
@@ -6746,12 +7064,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_mp_bundle_member
                     
                     	MP Bundle Member
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: is_multilink_open
                     
@@ -6760,10 +7082,14 @@ class Interfaces(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: ncp_info_array
                     
                     	Array of per\-NCP data
                     	**type**\: list of  		 :py:class:`NcpInfoArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -6811,10 +7137,14 @@ class Interfaces(Entity):
                         	NCP state value
                         	**type**\:  :py:class:`PppFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.PppFsmState>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ncp_identifier
                         
                         	NCP state identifier
                         	**type**\:  :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.NcpIdent>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -6845,6 +7175,9 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray, ['ncp_state', 'ncp_identifier'], name, value)
 
 
+
+
+
             class InterfaceTypeInformation(Entity):
                 """
                 Information specific to the interface type
@@ -6854,50 +7187,70 @@ class Interfaces(Entity):
                 	SRP interface information
                 	**type**\:  :py:class:`SrpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: tunnel_information
                 
                 	Tunnel interface information
                 	**type**\:  :py:class:`TunnelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation>`
+                
+                	**config**\: False
                 
                 .. attribute:: bundle_information
                 
                 	Bundle interface information
                 	**type**\:  :py:class:`BundleInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: serial_information
                 
                 	Serial interface information
                 	**type**\:  :py:class:`SerialInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation>`
+                
+                	**config**\: False
                 
                 .. attribute:: sonet_pos_information
                 
                 	SONET POS interface information
                 	**type**\:  :py:class:`SonetPosInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: tunnel_gre_information
                 
                 	Tunnel GRE interface information
                 	**type**\:  :py:class:`TunnelGreInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation>`
+                
+                	**config**\: False
                 
                 .. attribute:: pseudowire_head_end_information
                 
                 	PseudowireHeadEnd interface information
                 	**type**\:  :py:class:`PseudowireHeadEndInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: cem_information
                 
                 	Cem interface information
                 	**type**\:  :py:class:`CemInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation>`
+                
+                	**config**\: False
                 
                 .. attribute:: gcc_information
                 
                 	GCC interface information
                 	**type**\:  :py:class:`GccInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_type_info
                 
                 	InterfaceTypeInfo
                 	**type**\:  :py:class:`ImCmdIntfTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdIntfTypeEnum>`
+                
+                	**config**\: False
                 
                 
 
@@ -6971,10 +7324,14 @@ class Interfaces(Entity):
                     	SRP\-specific data
                     	**type**\:  :py:class:`SrpInformation_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: srp_statistics
                     
                     	SRP\-specific packet and byte counters
                     	**type**\:  :py:class:`SrpStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -7017,20 +7374,28 @@ class Interfaces(Entity):
                         	SRP IPS information
                         	**type**\:  :py:class:`IpsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: topology_info
                         
                         	SRP topology information
                         	**type**\:  :py:class:`TopologyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: srr_info
                         
                         	SRP SRR information
                         	**type**\:  :py:class:`SrrInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: rate_limit_info
                         
                         	SRP rate limit information
                         	**type**\:  :py:class:`RateLimitInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -7083,10 +7448,14 @@ class Interfaces(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: local_information
                             
                             	IPS information
                             	**type**\: list of  		 :py:class:`LocalInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7126,15 +7495,21 @@ class Interfaces(Entity):
                                 	Side A IPS details
                                 	**type**\:  :py:class:`SideA <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: side_b
                                 
                                 	Side B IPS details
                                 	**type**\:  :py:class:`SideB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: mac_address
                                 
                                 	MAC address for node
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: is_inter_card_bus_enabled
                                 
@@ -7143,12 +7518,16 @@ class Interfaces(Entity):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: wtr_timer_period
                                 
                                 	IPS Wait To Restore period in seconds
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: second
                                 
@@ -7200,10 +7579,14 @@ class Interfaces(Entity):
                                     	MAC address
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: wrap_state
                                     
                                     	Wrap state
                                     	**type**\:  :py:class:`SrpMgmtIpsWrapState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapState>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: packet_sent_timer
                                     
@@ -7211,6 +7594,8 @@ class Interfaces(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: second
                                     
@@ -7221,6 +7606,8 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: second
                                     
                                     .. attribute:: wtr_timer_remaining
@@ -7230,6 +7617,8 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: second
                                     
                                     .. attribute:: self_detected_request
@@ -7237,25 +7626,35 @@ class Interfaces(Entity):
                                     	Self Detected Requests
                                     	**type**\:  :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: remote_request
                                     
                                     	Remote Requests
                                     	**type**\:  :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: rx_neighbor_mac_address
                                     
                                     	Neighbour mac address for received message
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_message_type
                                     
                                     	Type of message received
                                     	**type**\:  :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_path_type
                                     
                                     	Short/long path for received message
                                     	**type**\:  :py:class:`SrpMgmtIpsPathInd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsPathInd>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: rx_ttl
                                     
@@ -7264,6 +7663,8 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_packet_test
                                     
                                     	Test for existence of an RX packet
@@ -7271,20 +7672,28 @@ class Interfaces(Entity):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tx_neighbor_mac_address
                                     
                                     	Mac address of node receiving TXed messages
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: tx_message_type
                                     
                                     	Type of message transmitted
                                     	**type**\:  :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tx_path_type
                                     
                                     	Short/long path of transmitted message
                                     	**type**\:  :py:class:`SrpMgmtIpsPathInd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsPathInd>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: tx_ttl
                                     
@@ -7293,12 +7702,16 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tx_packet_test
                                     
                                     	Test for existence of a TX packet
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: delay_keep_alive_trigger
                                     
@@ -7307,12 +7720,16 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: asserted_failure
                                     
                                     	Failures presently asserted
                                     	**type**\: list of  		 :py:class:`AssertedFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7386,20 +7803,28 @@ class Interfaces(Entity):
                                         	Failure type
                                         	**type**\:  :py:class:`SrpMgmtFailureEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEt>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: reported_state
                                         
                                         	Reported state
                                         	**type**\:  :py:class:`SrpMgmtFailureStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: debounced_state
                                         
                                         	Debounced state
                                         	**type**\:  :py:class:`SrpMgmtFailureStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: current_state
                                         
                                         	Current state
                                         	**type**\:  :py:class:`SrpMgmtFailureStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: stable_time
                                         
@@ -7408,12 +7833,16 @@ class Interfaces(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: debounced_delay
                                         
                                         	Debounce delay
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7452,6 +7881,8 @@ class Interfaces(Entity):
                                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
 
 
+
+
                                 class SideB(Entity):
                                     """
                                     Side B IPS details
@@ -7461,10 +7892,14 @@ class Interfaces(Entity):
                                     	MAC address
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: wrap_state
                                     
                                     	Wrap state
                                     	**type**\:  :py:class:`SrpMgmtIpsWrapState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapState>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: packet_sent_timer
                                     
@@ -7472,6 +7907,8 @@ class Interfaces(Entity):
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     	**units**\: second
                                     
@@ -7482,6 +7919,8 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: second
                                     
                                     .. attribute:: wtr_timer_remaining
@@ -7491,6 +7930,8 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: second
                                     
                                     .. attribute:: self_detected_request
@@ -7498,25 +7939,35 @@ class Interfaces(Entity):
                                     	Self Detected Requests
                                     	**type**\:  :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: remote_request
                                     
                                     	Remote Requests
                                     	**type**\:  :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: rx_neighbor_mac_address
                                     
                                     	Neighbour mac address for received message
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_message_type
                                     
                                     	Type of message received
                                     	**type**\:  :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_path_type
                                     
                                     	Short/long path for received message
                                     	**type**\:  :py:class:`SrpMgmtIpsPathInd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsPathInd>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: rx_ttl
                                     
@@ -7525,6 +7976,8 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: rx_packet_test
                                     
                                     	Test for existence of an RX packet
@@ -7532,20 +7985,28 @@ class Interfaces(Entity):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tx_neighbor_mac_address
                                     
                                     	Mac address of node receiving TXed messages
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: tx_message_type
                                     
                                     	Type of message transmitted
                                     	**type**\:  :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tx_path_type
                                     
                                     	Short/long path of transmitted message
                                     	**type**\:  :py:class:`SrpMgmtIpsPathInd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsPathInd>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: tx_ttl
                                     
@@ -7554,12 +8015,16 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: tx_packet_test
                                     
                                     	Test for existence of a TX packet
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: delay_keep_alive_trigger
                                     
@@ -7568,12 +8033,16 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**config**\: False
+                                    
                                     	**units**\: millisecond
                                     
                                     .. attribute:: asserted_failure
                                     
                                     	Failures presently asserted
                                     	**type**\: list of  		 :py:class:`AssertedFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure>`
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7647,20 +8116,28 @@ class Interfaces(Entity):
                                         	Failure type
                                         	**type**\:  :py:class:`SrpMgmtFailureEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEt>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: reported_state
                                         
                                         	Reported state
                                         	**type**\:  :py:class:`SrpMgmtFailureStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: debounced_state
                                         
                                         	Debounced state
                                         	**type**\:  :py:class:`SrpMgmtFailureStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: current_state
                                         
                                         	Current state
                                         	**type**\:  :py:class:`SrpMgmtFailureStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt>`
+                                        
+                                        	**config**\: False
                                         
                                         .. attribute:: stable_time
                                         
@@ -7669,12 +8146,16 @@ class Interfaces(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: debounced_delay
                                         
                                         	Debounce delay
                                         	**type**\: int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -7713,6 +8194,10 @@ class Interfaces(Entity):
                                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
 
 
+
+
+
+
                         class TopologyInfo(Entity):
                             """
                             SRP topology information
@@ -7724,10 +8209,14 @@ class Interfaces(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: local_information
                             
                             	Detailed SRP topology information
                             	**type**\: list of  		 :py:class:`LocalInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7769,12 +8258,16 @@ class Interfaces(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: next_topology_packet_delay
                                 
                                 	Time remaining until next topo pkt sent
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: time_since_last_topology_packet_received
                                 
@@ -7783,12 +8276,16 @@ class Interfaces(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: time_since_last_topology_change
                                 
                                 	Time since last topology change
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: number_of_nodes_on_ring
                                 
@@ -7797,10 +8294,14 @@ class Interfaces(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: ring_node
                                 
                                 	List of nodes on the ring info
                                 	**type**\: list of  		 :py:class:`RingNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -7850,10 +8351,14 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: mac_address
                                     
                                     	MAC address
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: ipv4_address
                                     
@@ -7862,12 +8367,16 @@ class Interfaces(Entity):
                                     
                                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: is_wrapped
                                     
                                     	Wrap state
                                     	**type**\: int
                                     
                                     	**range:** \-2147483648..2147483647
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: is_srr_supported
                                     
@@ -7876,10 +8385,14 @@ class Interfaces(Entity):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: node_name
                                     
                                     	Node name
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -7918,6 +8431,9 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode, ['hop_count', 'mac_address', 'ipv4_address', 'is_wrapped', 'is_srr_supported', 'node_name'], name, value)
 
 
+
+
+
                         class SrrInfo(Entity):
                             """
                             SRP SRR information
@@ -7929,6 +8445,8 @@ class Interfaces(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: is_srr_enabled
                             
                             	SRR enabled
@@ -7936,10 +8454,14 @@ class Interfaces(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: srr_detailed_info
                             
                             	SRP information
                             	**type**\: list of  		 :py:class:`SrrDetailedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -7983,12 +8505,16 @@ class Interfaces(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_wrong_version_received
                                 
                                 	Wrong version recieved
                                 	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: last_wrong_version_receive_time
                                 
@@ -7997,15 +8523,21 @@ class Interfaces(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: mac_address
                                 
                                 	SRR node mac address
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: node_state
                                 
                                 	SRR node state
                                 	**type**\:  :py:class:`SrpMgmtSrrNodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrNodeState>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: is_outer_ring_in_use
                                 
@@ -8014,12 +8546,16 @@ class Interfaces(Entity):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: is_inner_ring_in_use
                                 
                                 	 Is the inner ring in use
                                 	**type**\: int
                                 
                                 	**range:** \-2147483648..2147483647
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: is_announce
                                 
@@ -8028,15 +8564,21 @@ class Interfaces(Entity):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: outer_fail_type
                                 
                                 	Outer fail type
                                 	**type**\:  :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: inner_fail_type
                                 
                                 	Inner fail type
                                 	**type**\:  :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
+                                
+                                	**config**\: False
                                 
                                 .. attribute:: packet_send_timer
                                 
@@ -8044,6 +8586,8 @@ class Interfaces(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: second
                                 
@@ -8054,6 +8598,8 @@ class Interfaces(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**units**\: second
                                 
                                 .. attribute:: single_ring_bw
@@ -8062,6 +8608,8 @@ class Interfaces(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: Mbit/s
                                 
@@ -8072,6 +8620,8 @@ class Interfaces(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**units**\: second
                                 
                                 .. attribute:: wtr_timer_remaining_outer_ring
@@ -8080,6 +8630,8 @@ class Interfaces(Entity):
                                 	**type**\: int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**config**\: False
                                 
                                 	**units**\: second
                                 
@@ -8090,6 +8642,8 @@ class Interfaces(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 	**units**\: second
                                 
                                 .. attribute:: nodes_on_ring
@@ -8097,10 +8651,14 @@ class Interfaces(Entity):
                                 	List of nodes on the ring info
                                 	**type**\: list of  		 :py:class:`NodesOnRing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: nodes_not_on_ring
                                 
                                 	nodes not in topology map
                                 	**type**\: list of  		 :py:class:`NodesNotOnRing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -8171,6 +8729,8 @@ class Interfaces(Entity):
                                     	Node name
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: srr_entry_exits
                                     
                                     	Does the SRR information exist for this node
@@ -8178,20 +8738,28 @@ class Interfaces(Entity):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: mac_address
                                     
                                     	node mac address
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: outer_failure
                                     
                                     	Outer failure
                                     	**type**\:  :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: inner_failure
                                     
                                     	Inner failure
                                     	**type**\:  :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: is_last_announce_received
                                     
@@ -8200,12 +8768,16 @@ class Interfaces(Entity):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_announce_received_time
                                     
                                     	Announce last received
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8246,6 +8818,7 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
 
 
+
                                 class NodesNotOnRing(Entity):
                                     """
                                     nodes not in topology map
@@ -8255,6 +8828,8 @@ class Interfaces(Entity):
                                     	Node name
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: srr_entry_exits
                                     
                                     	Does the SRR information exist for this node
@@ -8262,20 +8837,28 @@ class Interfaces(Entity):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: mac_address
                                     
                                     	node mac address
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: outer_failure
                                     
                                     	Outer failure
                                     	**type**\:  :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: inner_failure
                                     
                                     	Inner failure
                                     	**type**\:  :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
+                                    
+                                    	**config**\: False
                                     
                                     .. attribute:: is_last_announce_received
                                     
@@ -8284,12 +8867,16 @@ class Interfaces(Entity):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: last_announce_received_time
                                     
                                     	Announce last received
                                     	**type**\: int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -8330,6 +8917,9 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
 
 
+
+
+
                         class RateLimitInfo(Entity):
                             """
                             SRP rate limit information
@@ -8341,10 +8931,14 @@ class Interfaces(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: rate_limit_detailed_info
                             
                             	SRP rate limit information
                             	**type**\: list of  		 :py:class:`RateLimitDetailedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -8386,6 +8980,8 @@ class Interfaces(Entity):
                                 
                                 	**range:** 0..65535
                                 
+                                	**config**\: False
+                                
                                 
 
                                 """
@@ -8413,6 +9009,9 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo, ['min_priority_value'], name, value)
 
 
+
+
+
                     class SrpStatistics(Entity):
                         """
                         SRP\-specific packet and byte counters
@@ -8422,20 +9021,28 @@ class Interfaces(Entity):
                         	Data rates for side A interface
                         	**type**\:  :py:class:`SideADataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: side_b_data_rate
                         
                         	Data rates for side B interface
                         	**type**\:  :py:class:`SideBDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: side_a_errors
                         
                         	Errors for side A interface
                         	**type**\:  :py:class:`SideAErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: side_b_errors
                         
                         	Errors for side B interface
                         	**type**\:  :py:class:`SideBErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: data_rate_interval
                         
@@ -8443,6 +9050,8 @@ class Interfaces(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -8500,12 +9109,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: packet_rate_sent
                             
                             	Sent packet rate
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: bit_rate_received
                             
@@ -8514,12 +9127,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: packet_rate_received
                             
                             	Received packet rate
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -8554,6 +9171,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate, ['bit_rate_sent', 'packet_rate_sent', 'bit_rate_received', 'packet_rate_received'], name, value)
 
 
+
                         class SideBDataRate(Entity):
                             """
                             Data rates for side B interface
@@ -8565,12 +9183,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: packet_rate_sent
                             
                             	Sent packet rate
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: bit_rate_received
                             
@@ -8579,12 +9201,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: packet_rate_received
                             
                             	Received packet rate
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -8619,6 +9245,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate, ['bit_rate_sent', 'packet_rate_sent', 'bit_rate_received', 'packet_rate_received'], name, value)
 
 
+
                         class SideAErrors(Entity):
                             """
                             Errors for side A interface
@@ -8630,12 +9257,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: crc_errors
                             
                             	Input CRC errors
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: input_insufficient_resource_events
                             
@@ -8644,12 +9275,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_aborts_received
                             
                             	Aborts received at MAC/RAC
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mac_runt_packets_received
                             
@@ -8658,12 +9293,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_giant_packets_received
                             
                             	Too large packets received at MAC/RAC
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: framer_runt_packets_received
                             
@@ -8672,6 +9311,8 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: framer_giant_packets_received
                             
                             	Too large packets received at framer
@@ -8679,12 +9320,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: framer_aborts_received
                             
                             	Aborts received at framer
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -8729,6 +9374,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors, ['error_packets_received', 'crc_errors', 'input_insufficient_resource_events', 'mac_aborts_received', 'mac_runt_packets_received', 'mac_giant_packets_received', 'framer_runt_packets_received', 'framer_giant_packets_received', 'framer_aborts_received'], name, value)
 
 
+
                         class SideBErrors(Entity):
                             """
                             Errors for side B interface
@@ -8740,12 +9386,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: crc_errors
                             
                             	Input CRC errors
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: input_insufficient_resource_events
                             
@@ -8754,12 +9404,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_aborts_received
                             
                             	Aborts received at MAC/RAC
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: mac_runt_packets_received
                             
@@ -8768,12 +9422,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: mac_giant_packets_received
                             
                             	Too large packets received at MAC/RAC
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: framer_runt_packets_received
                             
@@ -8782,6 +9440,8 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: framer_giant_packets_received
                             
                             	Too large packets received at framer
@@ -8789,12 +9449,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: framer_aborts_received
                             
                             	Aborts received at framer
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -8839,6 +9503,9 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors, ['error_packets_received', 'crc_errors', 'input_insufficient_resource_events', 'mac_aborts_received', 'mac_runt_packets_received', 'mac_giant_packets_received', 'framer_runt_packets_received', 'framer_giant_packets_received', 'framer_aborts_received'], name, value)
 
 
+
+
+
                 class TunnelInformation(Entity):
                     """
                     Tunnel interface information
@@ -8848,12 +9515,16 @@ class Interfaces(Entity):
                     	Tunnel source name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: source_ipv4_address
                     
                     	Tunnel source IP address
                     	**type**\: str
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    	**config**\: False
                     
                     .. attribute:: destination_ipv4_address
                     
@@ -8862,10 +9533,14 @@ class Interfaces(Entity):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: tunnel_type
                     
                     	Tunnel protocol/transport
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: key
                     
@@ -8874,12 +9549,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: ttl
                     
                     	GRE tunnel TTL
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -8918,6 +9597,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation, ['source_name', 'source_ipv4_address', 'destination_ipv4_address', 'tunnel_type', 'key', 'ttl'], name, value)
 
 
+
                 class BundleInformation(Entity):
                     """
                     Bundle interface information
@@ -8926,6 +9606,8 @@ class Interfaces(Entity):
                     
                     	List of bundle members and their properties
                     	**type**\: list of  		 :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -8962,20 +9644,28 @@ class Interfaces(Entity):
                         	Counters data about member link
                         	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: link_data
                         
                         	Lacp data about member link
                         	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: member_mux_data
                         
                         	Mux state machine data
                         	**type**\:  :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: mac_address
                         
                         	MAC address of this member (deprecated)
                         	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: interface_name
                         
@@ -8984,12 +9674,16 @@ class Interfaces(Entity):
                         
                         	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: port_priority
                         
                         	The priority of this member
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: port_number
                         
@@ -8998,12 +9692,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: underlying_link_id
                         
                         	Member's underlying link ID
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         .. attribute:: link_order_number
                         
@@ -9012,12 +9710,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: iccp_node
                         
                         	Location of member
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: bandwidth
                         
@@ -9026,6 +9728,8 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         	**units**\: kbit/s
                         
                         .. attribute:: lacp_enabled
@@ -9033,15 +9737,21 @@ class Interfaces(Entity):
                         	Boolean indicating LACP enabled or not
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: member_type
                         
                         	Member's type (local/foreign)
                         	**type**\:  :py:class:`BmdMemberTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberTypeEnum>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: member_name
                         
                         	Member's (short form) name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -9115,12 +9825,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: lacpd_us_transmitted
                             
                             	LACPDUs transmitted
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: marker_packets_received
                             
@@ -9129,12 +9843,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: marker_responses_transmitted
                             
                             	Marker response packets transmitted
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: illegal_packets_received
                             
@@ -9143,12 +9861,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: excess_lacpd_us_received
                             
                             	LACPDUs received that exceed the rate limit
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: excess_marker_packets_received
                             
@@ -9157,12 +9879,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: defaulted
                             
                             	State flag set to Defaulted
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: expired
                             
@@ -9171,6 +9897,8 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: last_cleared_sec
                             
                             	Last time counters cleared (s) (deprecated)
@@ -9178,12 +9906,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: last_cleared_nsec
                             
                             	Last time counters cleared (nsec) (deprecated)
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -9232,6 +9964,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters, ['lacpd_us_received', 'lacpd_us_transmitted', 'marker_packets_received', 'marker_responses_transmitted', 'illegal_packets_received', 'excess_lacpd_us_received', 'excess_marker_packets_received', 'defaulted', 'expired', 'last_cleared_sec', 'last_cleared_nsec'], name, value)
 
 
+
                         class LinkData(Entity):
                             """
                             Lacp data about member link
@@ -9243,12 +9976,16 @@ class Interfaces(Entity):
                             
                             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
+                            	**config**\: False
+                            
                             .. attribute:: actor_system_priority
                             
                             	System priority of actor system
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: actor_system_mac_address
                             
@@ -9257,12 +9994,16 @@ class Interfaces(Entity):
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                             
+                            	**config**\: False
+                            
                             .. attribute:: actor_operational_key
                             
                             	Operational key for this port
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: partner_system_priority
                             
@@ -9271,12 +10012,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: partner_system_mac_address
                             
                             	MAC Address used to identify the partner system
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             .. attribute:: partner_operational_key
                             
@@ -9285,12 +10030,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: selected_aggregator_id
                             
                             	MIB ifindex of selected bundle
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: attached_aggregator_id
                             
@@ -9299,12 +10048,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: actor_port_id
                             
                             	Port number of this port
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: actor_port_priority
                             
@@ -9313,12 +10066,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: partner_port_id
                             
                             	Port number of the partner's port
                             	**type**\: int
                             
                             	**range:** 0..65535
+                            
+                            	**config**\: False
                             
                             .. attribute:: partner_port_priority
                             
@@ -9327,6 +10084,8 @@ class Interfaces(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: actor_port_state
                             
                             	LACP state of this port
@@ -9334,12 +10093,16 @@ class Interfaces(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: partner_port_state
                             
                             	LACP state of the partner's port
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -9396,6 +10159,7 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData, ['interface_handle', 'actor_system_priority', 'actor_system_mac_address', 'actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key', 'selected_aggregator_id', 'attached_aggregator_id', 'actor_port_id', 'actor_port_priority', 'partner_port_id', 'partner_port_priority', 'actor_port_state', 'partner_port_state'], name, value)
 
 
+
                         class MemberMuxData(Entity):
                             """
                             Mux state machine data
@@ -9405,10 +10169,14 @@ class Interfaces(Entity):
                             	Data regarding the reason for last Mux state change
                             	**type**\:  :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: mux_state
                             
                             	Current state of this bundle member
                             	**type**\:  :py:class:`BmMuxstate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxstate>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: error
                             
@@ -9417,20 +10185,28 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: member_mux_state_reason
                             
                             	Reason for last Mux state change
                             	**type**\:  :py:class:`BmMbrStateReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmMbrStateReason>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: member_state
                             
                             	Current internal state of this bundle member
                             	**type**\:  :py:class:`BmdMemberState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberState>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: mux_state_reason
                             
                             	Reason for last Mux state change (Deprecated)
                             	**type**\:  :py:class:`BmMuxreason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxreason>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -9481,10 +10257,14 @@ class Interfaces(Entity):
                                 	The item the reason applies to
                                 	**type**\:  :py:class:`BmStateReasonTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmStateReasonTarget>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: severity
                                 
                                 	The severity of the reason
                                 	**type**\:  :py:class:`BmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmSeverity>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -9515,6 +10295,8 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData, ['reason_type', 'severity'], name, value)
 
 
+
+
                         class MacAddress(Entity):
                             """
                             MAC address of this member (deprecated)
@@ -9525,6 +10307,8 @@ class Interfaces(Entity):
                             	**type**\: str
                             
                             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            	**config**\: False
                             
                             
 
@@ -9553,6 +10337,9 @@ class Interfaces(Entity):
                                 self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress, ['address'], name, value)
 
 
+
+
+
                 class SerialInformation(Entity):
                     """
                     Serial interface information
@@ -9561,6 +10348,8 @@ class Interfaces(Entity):
                     
                     	Timeslots separated by \: or \- from 1 to 31. \: indicates individual timeslot and \- represents a range. E.g. 1\-3\:5 represents timeslots 1, 2, 3, and 5
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -9589,6 +10378,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation, ['timeslots'], name, value)
 
 
+
                 class SonetPosInformation(Entity):
                     """
                     SONET POS interface information
@@ -9597,6 +10387,8 @@ class Interfaces(Entity):
                     
                     	APS state
                     	**type**\:  :py:class:`SonetApsEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SonetApsEt>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -9625,6 +10417,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation, ['aps_state'], name, value)
 
 
+
                 class TunnelGreInformation(Entity):
                     """
                     Tunnel GRE interface information
@@ -9634,15 +10427,21 @@ class Interfaces(Entity):
                     	Tunnel source IP address
                     	**type**\:  :py:class:`SourceIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: destination_ip_address
                     
                     	Tunnel destination IP address
                     	**type**\:  :py:class:`DestinationIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: source_name
                     
                     	Tunnel source name
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: destination_ip_address_length
                     
@@ -9651,12 +10450,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: tunnel_tos
                     
                     	GRE tunnel TOS
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: tunnel_ttl
                     
@@ -9665,6 +10468,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: key
                     
                     	Key value for GRE Packet
@@ -9672,12 +10477,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: keepalive_period
                     
                     	Keepalive period in seconds
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -9688,30 +10497,42 @@ class Interfaces(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: tunnel_mode
                     
                     	Tunnel GRE Mode
                     	**type**\:  :py:class:`TunnelGreMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelGreMode>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: tunnel_mode_direction
                     
                     	Tunnel Mode Direction
                     	**type**\:  :py:class:`TunlIpModeDir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunlIpModeDir>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: keepalive_state
                     
                     	Keepalive State
                     	**type**\:  :py:class:`TunnelKaDfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: df_bit_state
                     
                     	DF Bit State
                     	**type**\:  :py:class:`TunnelKaDfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: key_bit_state
                     
                     	Key Config State
                     	**type**\:  :py:class:`TunnelKeyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKeyState>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -9779,6 +10600,8 @@ class Interfaces(Entity):
                         	AFI
                         	**type**\:  :py:class:`TunlPfiAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunlPfiAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -9786,12 +10609,16 @@ class Interfaces(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -9824,6 +10651,7 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress, ['afi', 'ipv4', 'ipv6'], name, value)
 
 
+
                     class DestinationIpAddress(Entity):
                         """
                         Tunnel destination IP address
@@ -9833,6 +10661,8 @@ class Interfaces(Entity):
                         	AFI
                         	**type**\:  :py:class:`TunlPfiAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunlPfiAfId>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv4
                         
                         	IPv4 address type
@@ -9840,12 +10670,16 @@ class Interfaces(Entity):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\: str
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -9878,6 +10712,8 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress, ['afi', 'ipv4', 'ipv6'], name, value)
 
 
+
+
                 class PseudowireHeadEndInformation(Entity):
                     """
                     PseudowireHeadEnd interface information
@@ -9887,6 +10723,8 @@ class Interfaces(Entity):
                     	Interface list Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: l2_overhead
                     
                     	L2 Overhead
@@ -9894,12 +10732,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: internal_label
                     
                     	Internal Label
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -9932,6 +10774,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation, ['interface_list_name', 'l2_overhead', 'internal_label'], name, value)
 
 
+
                 class CemInformation(Entity):
                     """
                     Cem interface information
@@ -9941,12 +10784,16 @@ class Interfaces(Entity):
                     	Timeslots separated by \: or \- from 1 to 32. \: indicates individual timeslot and \- represents a range. E.g. 1\-3\:5 represents timeslots 1, 2, 3, and 5
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: payload
                     
                     	Payload size in bytes configured on CEM interface
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -9957,6 +10804,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     	**units**\: millisecond
                     
                     .. attribute:: framing
@@ -9965,6 +10814,8 @@ class Interfaces(Entity):
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -9999,6 +10850,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation, ['timeslots', 'payload', 'dejitter_buffer', 'framing'], name, value)
 
 
+
                 class GccInformation(Entity):
                     """
                     GCC interface information
@@ -10008,10 +10860,14 @@ class Interfaces(Entity):
                     	Derived State
                     	**type**\:  :py:class:`GccDerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.GccDerState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sec_state
                     
                     	Sec State 
                     	**type**\:  :py:class:`GccSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.GccSecState>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -10042,6 +10898,8 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation, ['derived_mode', 'sec_state'], name, value)
 
 
+
+
             class DataRates(Entity):
                 """
                 Packet and byte rates
@@ -10053,6 +10911,8 @@ class Interfaces(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: bit/s
                 
                 .. attribute:: input_packet_rate
@@ -10061,6 +10921,8 @@ class Interfaces(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: packet/s
                 
@@ -10071,6 +10933,8 @@ class Interfaces(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 	**units**\: bit/s
                 
                 .. attribute:: output_packet_rate
@@ -10079,6 +10943,8 @@ class Interfaces(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 	**units**\: packet/s
                 
@@ -10089,12 +10955,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: peak_input_packet_rate
                 
                 	Peak input packet rate
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: peak_output_data_rate
                 
@@ -10103,6 +10973,8 @@ class Interfaces(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: peak_output_packet_rate
                 
                 	Peak output packet rate
@@ -10110,12 +10982,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: bandwidth
                 
                 	Bandwidth (in kbps)
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: kbit/s
                 
@@ -10126,12 +11002,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: output_load
                 
                 	Output load as fraction of 255
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 .. attribute:: input_load
                 
@@ -10140,12 +11020,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..255
                 
+                	**config**\: False
+                
                 .. attribute:: reliability
                 
                 	Reliability coefficient
                 	**type**\: int
                 
                 	**range:** 0..255
+                
+                	**config**\: False
                 
                 
 
@@ -10198,6 +11082,7 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.DataRates, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
 
+
             class InterfaceStatistics(Entity):
                 """
                 Packet, byte and error counters
@@ -10207,15 +11092,21 @@ class Interfaces(Entity):
                 	Packet, byte and all error counters
                 	**type**\:  :py:class:`FullInterfaceStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats>`
                 
+                	**config**\: False
+                
                 .. attribute:: basic_interface_stats
                 
                 	Packet, byte and selected error counters
                 	**type**\:  :py:class:`BasicInterfaceStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats>`
                 
+                	**config**\: False
+                
                 .. attribute:: stats_type
                 
                 	StatsType
                 	**type**\:  :py:class:`ImCmdStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdStatsEnum>`
+                
+                	**config**\: False
                 
                 
 
@@ -10263,12 +11154,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_received
                     
                     	Bytes received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -10279,12 +11174,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -10295,12 +11194,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: multicast_packets_sent
                     
@@ -10309,12 +11212,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_drops
                     
@@ -10323,12 +11230,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_drops
                     
@@ -10337,12 +11248,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: runt_packets_received
                     
@@ -10351,12 +11266,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: giant_packets_received
                     
                     	Received giant packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: throttled_packets_received
                     
@@ -10365,12 +11284,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: parity_packets_received
                     
                     	Received parity packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: unknown_protocol_packets_received
                     
@@ -10379,12 +11302,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_errors
                     
                     	Total input errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: crc_errors
                     
@@ -10393,12 +11320,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_overruns
                     
                     	Input overruns
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: framing_errors_received
                     
@@ -10407,12 +11338,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_ignored_packets
                     
                     	Input ignored packets
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_aborts
                     
@@ -10421,12 +11356,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_errors
                     
                     	Total output errors
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_underruns
                     
@@ -10435,12 +11374,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_buffer_failures
                     
                     	Output buffer failures
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_buffers_swapped_out
                     
@@ -10449,12 +11392,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: applique
                     
                     	Applique
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: resets
                     
@@ -10463,12 +11410,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: carrier_transitions
                     
                     	Carrier transitions
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: availability_flag
                     
@@ -10477,12 +11428,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -10493,6 +11448,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: last_discontinuity_time
@@ -10501,6 +11458,8 @@ class Interfaces(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -10511,6 +11470,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: seconds_since_packet_sent
@@ -10519,6 +11480,8 @@ class Interfaces(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -10619,6 +11582,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
+
                 class BasicInterfaceStats(Entity):
                     """
                     Packet, byte and selected error counters
@@ -10630,12 +11594,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_received
                     
                     	Bytes received
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -10646,12 +11614,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     	**units**\: byte
                     
@@ -10662,12 +11634,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: input_queue_drops
                     
                     	Input queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: input_errors
                     
@@ -10676,12 +11652,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: unknown_protocol_packets_received
                     
                     	Unknown protocol packets received
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_drops
                     
@@ -10690,12 +11670,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: output_queue_drops
                     
                     	Output queue drops
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: output_errors
                     
@@ -10704,12 +11688,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: last_data_time
                     
                     	Time when counters were last written (in seconds)
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -10720,6 +11708,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: last_discontinuity_time
@@ -10728,6 +11718,8 @@ class Interfaces(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -10738,6 +11730,8 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     	**units**\: second
                     
                     .. attribute:: seconds_since_packet_sent
@@ -10746,6 +11740,8 @@ class Interfaces(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     	**units**\: second
                     
@@ -10806,6 +11802,8 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'input_drops', 'input_queue_drops', 'input_errors', 'unknown_protocol_packets_received', 'output_drops', 'output_queue_drops', 'output_errors', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
+
+
             class L2InterfaceStatistics(Entity):
                 """
                 L2 Protocol Statistics
@@ -10815,6 +11813,8 @@ class Interfaces(Entity):
                 	Identifier
                 	**type**\:  :py:class:`StatsId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId>`
                 
+                	**config**\: False
+                
                 .. attribute:: stats_type
                 
                 	Stats type value
@@ -10822,20 +11822,28 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: contents
                 
                 	Bag contents
                 	**type**\:  :py:class:`StatsTypeContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.StatsTypeContents>`
+                
+                	**config**\: False
                 
                 .. attribute:: block_array
                 
                 	Block Array
                 	**type**\: list of  		 :py:class:`BlockArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray>`
                 
+                	**config**\: False
+                
                 .. attribute:: element_array
                 
                 	Element Array
                 	**type**\: list of  		 :py:class:`ElementArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray>`
+                
+                	**config**\: False
                 
                 
 
@@ -10882,12 +11890,16 @@ class Interfaces(Entity):
                     	id type
                     	**type**\:  :py:class:`StatsId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.StatsId>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: unused
                     
                     	Unused
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface_handle
                     
@@ -10896,12 +11908,16 @@ class Interfaces(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: node_id
                     
                     	Node ID
                     	**type**\: str
                     
                     	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    
+                    	**config**\: False
                     
                     .. attribute:: feature_id
                     
@@ -10910,12 +11926,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: id
                     
                     	ID
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -10954,6 +11974,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId, ['id_type', 'unused', 'interface_handle', 'node_id', 'feature_id', 'id'], name, value)
 
 
+
                 class BlockArray(Entity):
                     """
                     Block Array
@@ -10963,6 +11984,8 @@ class Interfaces(Entity):
                     	type
                     	**type**\:  :py:class:`StatsCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounter>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: count
                     
                     	count
@@ -10970,12 +11993,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: data
                     
                     	data
                     	**type**\: str
                     
                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                    
+                    	**config**\: False
                     
                     
 
@@ -11008,6 +12035,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray, ['type', 'count', 'data'], name, value)
 
 
+
                 class ElementArray(Entity):
                     """
                     Element Array
@@ -11019,10 +12047,14 @@ class Interfaces(Entity):
                     
                     	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                     
+                    	**config**\: False
+                    
                     .. attribute:: block_array
                     
                     	block array
                     	**type**\: list of  		 :py:class:`BlockArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -11062,6 +12094,8 @@ class Interfaces(Entity):
                         	type
                         	**type**\:  :py:class:`StatsCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounter>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: count
                         
                         	count
@@ -11069,12 +12103,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: data
                         
                         	data
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -11107,6 +12145,11 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray, ['type', 'count', 'data'], name, value)
 
 
+
+
+
+
+
     class NodeTypeSets(Entity):
         """
         Node and/or interface type specific view of
@@ -11116,6 +12159,8 @@ class Interfaces(Entity):
         
         	Summary data for all interfaces on a particular node
         	**type**\: list of  		 :py:class:`NodeTypeSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets.NodeTypeSet>`
+        
+        	**config**\: False
         
         
 
@@ -11156,15 +12201,21 @@ class Interfaces(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: type_set_name
             
             	The interface type to filter on
             	**type**\:  :py:class:`InterfaceTypeSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.InterfaceTypeSet>`
             
+            	**config**\: False
+            
             .. attribute:: interface_summary
             
             	Interface summary information
             	**type**\:  :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary>`
+            
+            	**config**\: False
             
             
 
@@ -11209,10 +12260,14 @@ class Interfaces(Entity):
                 	Counts for all interfaces
                 	**type**\:  :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_type
                 
                 	List of per interface type summary information
                 	**type**\: list of  		 :py:class:`InterfaceType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType>`
+                
+                	**config**\: False
                 
                 
 
@@ -11256,12 +12311,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: up_interface_count
                     
                     	Number of interfaces in UP state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: down_interface_count
                     
@@ -11270,12 +12329,16 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: admin_down_interface_count
                     
                     	Number of interfaces in an ADMINDOWN state
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     
 
@@ -11311,6 +12374,7 @@ class Interfaces(Entity):
                         self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
 
 
+
                 class InterfaceType(Entity):
                     """
                     List of per interface type summary information
@@ -11320,15 +12384,21 @@ class Interfaces(Entity):
                     	Counts for interfaces of this type
                     	**type**\:  :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_type_name
                     
                     	Name of the interface type
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: interface_type_description
                     
                     	Description of the interface type
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     
 
@@ -11375,12 +12445,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: up_interface_count
                         
                         	Number of interfaces in UP state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: down_interface_count
                         
@@ -11389,12 +12463,16 @@ class Interfaces(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: admin_down_interface_count
                         
                         	Number of interfaces in an ADMINDOWN state
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -11430,6 +12508,11 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
 
 
+
+
+
+
+
     class InterfaceBriefs(Entity):
         """
         Brief operational data for interfaces
@@ -11438,6 +12521,8 @@ class Interfaces(Entity):
         
         	Brief operational attributes for a particular interface
         	**type**\: list of  		 :py:class:`InterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceBriefs.InterfaceBrief>`
+        
+        	**config**\: False
         
         
 
@@ -11478,12 +12563,16 @@ class Interfaces(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: interface
             
             	Interface
             	**type**\: str
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+            
+            	**config**\: False
             
             .. attribute:: parent_interface
             
@@ -11492,35 +12581,49 @@ class Interfaces(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: type
             
             	Interface type
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: state
             
             	Operational state
             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
             
+            	**config**\: False
+            
             .. attribute:: actual_state
             
             	Operational state with no translation of error disable or shutdown
             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
+            
+            	**config**\: False
             
             .. attribute:: line_state
             
             	Line protocol state
             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
             
+            	**config**\: False
+            
             .. attribute:: actual_line_state
             
             	Line protocol state with no translation of error disable or shutdown
             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
             
+            	**config**\: False
+            
             .. attribute:: encapsulation
             
             	Interface encapsulation
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: encapsulation_type_string
             
@@ -11529,12 +12632,16 @@ class Interfaces(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: mtu
             
             	MTU in bytes
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: byte
             
@@ -11545,10 +12652,14 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: l2_transport
             
             	L2 transport
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: bandwidth
             
@@ -11556,6 +12667,8 @@ class Interfaces(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -11611,6 +12724,8 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.InterfaceBriefs.InterfaceBrief, ['interface_name', u'interface', u'parent_interface', u'type', u'state', u'actual_state', u'line_state', u'actual_line_state', u'encapsulation', u'encapsulation_type_string', u'mtu', u'sub_interface_mtu_overhead', u'l2_transport', u'bandwidth'], name, value)
 
 
+
+
     class InventorySummary(Entity):
         """
         Inventory summary information
@@ -11620,10 +12735,14 @@ class Interfaces(Entity):
         	Counts for all interfaces
         	**type**\:  :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceCounts>`
         
+        	**config**\: False
+        
         .. attribute:: interface_type
         
         	List of per interface type summary information
         	**type**\: list of  		 :py:class:`InterfaceType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceType>`
+        
+        	**config**\: False
         
         
 
@@ -11667,12 +12786,16 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: up_interface_count
             
             	Number of interfaces in UP state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: down_interface_count
             
@@ -11681,12 +12804,16 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: admin_down_interface_count
             
             	Number of interfaces in an ADMINDOWN state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -11722,6 +12849,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.InventorySummary.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
 
 
+
         class InterfaceType(Entity):
             """
             List of per interface type summary information
@@ -11731,15 +12859,21 @@ class Interfaces(Entity):
             	Counts for interfaces of this type
             	**type**\:  :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceType.InterfaceCounts>`
             
+            	**config**\: False
+            
             .. attribute:: interface_type_name
             
             	Name of the interface type
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: interface_type_description
             
             	Description of the interface type
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -11786,12 +12920,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_interface_count
                 
                 	Number of interfaces in UP state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: down_interface_count
                 
@@ -11800,12 +12938,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: admin_down_interface_count
                 
                 	Number of interfaces in an ADMINDOWN state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -11841,6 +12983,9 @@ class Interfaces(Entity):
                     self._perform_setattr(Interfaces.InventorySummary.InterfaceType.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
 
 
+
+
+
     class Interfaces_(Entity):
         """
         Descriptions for interfaces
@@ -11849,6 +12994,8 @@ class Interfaces(Entity):
         
         	Description for a particular interface
         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces_.Interface>`
+        
+        	**config**\: False
         
         
 
@@ -11888,6 +13035,8 @@ class Interfaces(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: interface
             
             	Interface
@@ -11895,20 +13044,28 @@ class Interfaces(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	Operational state with no translation of error disable or shutdown
             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
+            
+            	**config**\: False
             
             .. attribute:: line_state
             
             	Line protocol state with no translation of error disable or shutdown
             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
             
+            	**config**\: False
+            
             .. attribute:: description
             
             	Interface description string
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -11946,6 +13103,8 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.Interfaces_.Interface, ['interface_name', 'interface', 'state', 'line_state', 'description'], name, value)
 
 
+
+
     class InterfaceSummary(Entity):
         """
         Interface summary information
@@ -11955,10 +13114,14 @@ class Interfaces(Entity):
         	Counts for all interfaces
         	**type**\:  :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceCounts>`
         
+        	**config**\: False
+        
         .. attribute:: interface_type
         
         	List of per interface type summary information
         	**type**\: list of  		 :py:class:`InterfaceType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceType>`
+        
+        	**config**\: False
         
         
 
@@ -12002,12 +13165,16 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: up_interface_count
             
             	Number of interfaces in UP state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: down_interface_count
             
@@ -12016,12 +13183,16 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: admin_down_interface_count
             
             	Number of interfaces in an ADMINDOWN state
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -12057,6 +13228,7 @@ class Interfaces(Entity):
                 self._perform_setattr(Interfaces.InterfaceSummary.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
 
 
+
         class InterfaceType(Entity):
             """
             List of per interface type summary information
@@ -12066,15 +13238,21 @@ class Interfaces(Entity):
             	Counts for interfaces of this type
             	**type**\:  :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts>`
             
+            	**config**\: False
+            
             .. attribute:: interface_type_name
             
             	Name of the interface type
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: interface_type_description
             
             	Description of the interface type
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -12121,12 +13299,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: up_interface_count
                 
                 	Number of interfaces in UP state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: down_interface_count
                 
@@ -12135,12 +13317,16 @@ class Interfaces(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: admin_down_interface_count
                 
                 	Number of interfaces in an ADMINDOWN state
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 
 
@@ -12175,7 +13361,12 @@ class Interfaces(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Interfaces()
         return self._top_entity
+
+
 

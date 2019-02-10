@@ -77,50 +77,70 @@ class CISCOIFEXTENSIONMIB(Entity):
     	
     	**type**\:  :py:class:`CiscoIfExtSystemConfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig>`
     
+    	**config**\: False
+    
     .. attribute:: cieifpacketstatstable
     
     	This  table contains interface packet statistics which are not available in  IF\-MIB(RFC2863).   As an example, some interfaces to which objects in this table are applicable are as follows \:          o Ethernet         o FastEthernet         o ATM         o BRI         o Sonet         o GigabitEthernet  Some objects defined in this table may be  applicable to physical interfaces only. As a result, this table may be sparse for some logical interfaces
     	**type**\:  :py:class:`CieIfPacketStatsTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfPacketStatsTable>`
+    
+    	**config**\: False
     
     .. attribute:: cieifinterfacetable
     
     	This  table contains objects which provide more information about interface   properties not available in IF\-MIB (RFC 2863).  Some objects defined in this table may be applicable to physical interfaces only. As a result, this table may be sparse for logical interfaces
     	**type**\:  :py:class:`CieIfInterfaceTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfInterfaceTable>`
     
+    	**config**\: False
+    
     .. attribute:: cieifstatuslisttable
     
     	This table contains objects for providing the 'ifIndex', interface operational mode and  interface operational cause for all the  interfaces in the modules.  This table contains one entry for each  64 interfaces in an module.  This table provides efficient way of encoding  'ifIndex', interface operational mode and interface operational cause, from the point  of retrieval, by combining the values a set  of 64 interfaces in a single MIB object
     	**type**\:  :py:class:`CieIfStatusListTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfStatusListTable>`
+    
+    	**config**\: False
     
     .. attribute:: cieifvlstatstable
     
     	This table contains VL (Virtual Link) statistics for a capable interface.  Objects defined in this table may be  applicable to physical interfaces only
     	**type**\:  :py:class:`CieIfVlStatsTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfVlStatsTable>`
     
+    	**config**\: False
+    
     .. attribute:: cieifindexpersistencetable
     
     	This table lists configuration data relating to ifIndex persistence.  This table has a sparse dependent relationship on the ifTable, containing a row for each ifEntry corresponding to an interface for which ifIndex persistence is supported
     	**type**\:  :py:class:`CieIfIndexPersistenceTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable>`
+    
+    	**config**\: False
     
     .. attribute:: cieifdot1qcustomethertypetable
     
     	A list of the interfaces that support the 802.1q custom Ethertype feature
     	**type**\:  :py:class:`CieIfDot1qCustomEtherTypeTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable>`
     
+    	**config**\: False
+    
     .. attribute:: cieifutiltable
     
     	This table contains the interface utilization rates for inbound and outbound traffic on an interface
     	**type**\:  :py:class:`CieIfUtilTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfUtilTable>`
+    
+    	**config**\: False
     
     .. attribute:: cieifdot1dbasemappingtable
     
     	This table contains the mappings of the ifIndex of an interface to its corresponding dot1dBasePort value
     	**type**\:  :py:class:`CieIfDot1dBaseMappingTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable>`
     
+    	**config**\: False
+    
     .. attribute:: cieifnamemappingtable
     
     	This table contains objects for providing the 'ifName' to 'ifIndex' mapping. This table contains one entry for each valid 'ifName' available in the system. Upon the first request, the implementation of this table will get all the available ifNames, and it will populate the entries in this table, it maintains this ifNames in a cache for ~30 seconds
     	**type**\:  :py:class:`CieIfNameMappingTable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfNameMappingTable>`
+    
+    	**config**\: False
     
     
 
@@ -198,10 +218,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         
         	**range:** \-2147483648..2147483647
         
+        	**config**\: False
+        
         .. attribute:: cielinkupdownenable
         
         	Indicates whether cieLinkUp/cieLinkDown or standard mib\-II defined linkUp/Down or both, notifications should be generated for the interfaces in the system.  'standard'  \- only generate standard defined               mib\-II linkUp/linkDown notification               if 'ifLinkUpDownTrapEnable' for                the interface is 'enabled'. 'cisco'     \- only generate cieLinkUp/cieLinkDown               notifications for an interface if               the 'ifLinkUpDownTrapEnable' for the               interface is 'enabled'.  If both bits are selected then linkUp/linkDown and cieLinkUp/cieLinkDown are both generated for an  interface if the 'ifLinkUpDownTrapEnable' for the interface is 'enabled'
         	**type**\:  :py:class:`CieLinkUpDownEnable <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig.CieLinkUpDownEnable>`
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -210,12 +234,16 @@ class CISCOIFEXTENSIONMIB(Entity):
         	Indicates whether to send the extra varbinds in addition to the varbinds defined  in linkUp/linkDown notifications.  'standard'   \- only send the varbinds defined in                the standard linkUp/linkDown                notification.   'additional' \- send the extra varbinds in addition                 to the defined ones. 'other'      \- any other config not covered by the above.                This value is read\-only
         	**type**\:  :py:class:`CieStandardLinkUpDownVarbinds <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig.CieStandardLinkUpDownVarbinds>`
         
+        	**config**\: False
+        
         	**status**\: deprecated
         
         .. attribute:: cieifindexpersistence
         
         	This object specifies whether ifIndex values persist across reinitialization of the device.  ifIndex persistence means that the mapping between the ifDescr object values and the ifIndex object values will be retained across reboots.  Applications such as device inventory, billing, and fault detection depend on the maintenance of the correspondence between particular ifIndex values and their interfaces. During reboot or insertion of a new card, the data to correlate the interfaces to the ifIndex may become invalid in absence of ifIndex persistence feature.  ifIndex persistence for an interface ensures ifIndex value for the interface will remain the same after a system reboot. Hence, this feature allows users to avoid the workarounds required for consistent interface identification across reinitialization.  Due to change in syntax, this object is deprecated by cieIfIndexGlobalPersistence
         	**type**\: bool
+        
+        	**config**\: False
         
         	**status**\: deprecated
         
@@ -224,12 +252,16 @@ class CISCOIFEXTENSIONMIB(Entity):
         	This object specifies whether the system generates a cieDelayedLinkUpDownNotif notification
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: ciedelayedlinkupdownnotifdelay
         
         	This object specifies the interval of time an interface's operational status must remain stable following a transition before the system will generate a cieDelayedLinkUpDownNotif
         	**type**\: int
         
         	**range:** 1..60
+        
+        	**config**\: False
         
         	**units**\: minutes
         
@@ -238,10 +270,14 @@ class CISCOIFEXTENSIONMIB(Entity):
         	This object specifies whether ifIndex values persist across reinitialization of the device.  ifIndex persistence means that the mapping between the ifDescr object values and the ifIndex object values will be retained across reboots.  Applications such as device inventory, billing, and fault detection depend on the maintenance of the correspondence between particular ifIndex values and their interfaces. During reboot or insertion of a new card, the data to correlate the interfaces to the ifIndex may become invalid in absence of ifIndex persistence feature.  ifIndex persistence for an interface ensures ifIndex value for the interface will remain the same after a system reboot. Hence, this feature allows users to avoid the workarounds required for consistent interface identification across reinitialization.  The allowed values for this object are either enable or disable. global value is not allowed
         	**type**\:  :py:class:`IfIndexPersistenceState <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.IfIndexPersistenceState>`
         
+        	**config**\: False
+        
         .. attribute:: cielinkupdownconfig
         
         	This object specifies whether standard mib\-II defined linkUp/ linkDown, extended linkUp/linkDown (with extra varbinds in addition to the varbinds defined in linkUp/linkDown) or cieLinkUp/cieLinkDown notifications should be generated for the interfaces in the system.  'standardLinkUp'     \- generate standard defined mib\-II                         linkUp notification if                         'ifLinkUpDownTrapEnable' for the                         interface is 'enabled'. 'standardLinkDown'   \- generate standard defined mib\-II                         linkDown notification if                         'ifLinkUpDownTrapEnable' for the                         interface is 'enabled'.   'additionalLinkUp'   \- generate linkUp notification with                        additional varbinds if                         'ifLinkUpDownTrapEnable' for the                         interface is 'enabled'.   'additionalLinkDown' \- generate linkDown notification with                        additional varbinds if                         'ifLinkUpDownTrapEnable' for the                         interface is 'enabled'. 'ciscoLinkUp'        \- generate cieLinkUp notification                        if the 'ifLinkUpDownTrapEnable' for the                        interface is 'enabled'. 'ciscoLinkDown'      \- generate cieLinkDown notification                        if the 'ifLinkUpDownTrapEnable' for the                        interface is 'enabled'.  If multiple bits are set then multiple notifications will be generated for an interface if the 'ifLinkUpDownTrapEnable'  for the interface is 'enabled'
         	**type**\:  :py:class:`CieLinkUpDownConfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CiscoIfExtSystemConfig.CieLinkUpDownConfig>`
+        
+        	**config**\: False
         
         
 
@@ -324,6 +360,7 @@ class CISCOIFEXTENSIONMIB(Entity):
 
 
 
+
     class CieIfPacketStatsTable(Entity):
         """
         This  table contains interface packet
@@ -350,6 +387,8 @@ class CISCOIFEXTENSIONMIB(Entity):
         
         	An entry into the cieIfPacketStatsTable
         	**type**\: list of  		 :py:class:`CieIfPacketStatsEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfPacketStatsTable.CieIfPacketStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -391,12 +430,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cieiflastintime
             
             	This object represents the elapsed time in milliseconds since last protocol input  packet was received.  Discontinuities in the value of this variable can occur at re\-initialization of the management system, and at other times as  indicated by the values of  cieIfPacketDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -407,6 +450,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: cieiflastouthangtime
@@ -415,6 +460,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -425,12 +472,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cieifingiantserrs
             
             	The number of input packets on a particular physical interface which were dropped as  they were larger than the ifMtu (largest  permitted  size of a packet which can be  sent/received on an interface).  Discontinuities in the value of this variable can occur at re\-initialization of the management system, and at other times as  indicated by the values of  cieIfPacketDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cieifinframingerrs
             
@@ -439,12 +490,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cieifinoverrunerrs
             
             	The number of input packets which arrived on a particular physical interface which  were too quick for the hardware to receive and hence the receiver ran out of buffers.  Discontinuities in the value of this variable can occur at re\-initialization of the management system, and at other times as  indicated by the values of  cieIfPacketDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cieifinignored
             
@@ -453,12 +508,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cieifinaborterrs
             
             	Number of input packets which were dropped because the receiver aborted.  Examples of this could be when an abort sequence aborted the input frame or when there is a collision in an ethernet segment.  Discontinuities in the value of this variable can occur at re\-initialization of the management system, and at other times as  indicated by the values of  cieIfPacketDiscontinuityTime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cieifinputqueuedrops
             
@@ -467,6 +526,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cieifoutputqueuedrops
             
             	This object indicates the  number of output packets dropped by the interface even though no error had been detected to prevent them being transmitted.   The packet could be dropped for many reasons, which could range from the interface being down to errors in the format of the packet.  Discontinuities in the value of this variable can occur at re\-initialization of the management system, and at other times as  indicated by the values of  cieIfPacketDiscontinuityTime
@@ -474,12 +535,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cieifpacketdiscontinuitytime
             
             	The value of sysUpTime on the most recent occasion at which this interface's  counters suffered a discontinuity.   If no such discontinuities have occurred  since the last re\-initialization of the  local management subsystem, then this  object contains a value of zero
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -533,6 +598,8 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfPacketStatsTable.CieIfPacketStatsEntry, ['ifindex', 'cieiflastintime', 'cieiflastouttime', 'cieiflastouthangtime', 'cieifinruntserrs', 'cieifingiantserrs', 'cieifinframingerrs', 'cieifinoverrunerrs', 'cieifinignored', 'cieifinaborterrs', 'cieifinputqueuedrops', 'cieifoutputqueuedrops', 'cieifpacketdiscontinuitytime'], name, value)
 
 
+
+
     class CieIfInterfaceTable(Entity):
         """
         This  table contains objects which provide
@@ -549,6 +616,8 @@ class CISCOIFEXTENSIONMIB(Entity):
         
         	An entry into the cieIfInterfaceTable
         	**type**\: list of  		 :py:class:`CieIfInterfaceEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -590,6 +659,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cieifresetcount
             
             	The number of times the interface was internally reset and brought up.  Some of the actions which can cause this counter to increment are \:  o  Bringing an interface up using the     interface CLI command.  o  Clearing the interface with the exec    CLI command.  o  Bringing the interface up via SNMP.  Discontinuities in the value of this variable can occur at re\-initialization of the management system, and at other times as  indicated by the values of  cieIfInterfaceDiscontinuityTime
@@ -597,15 +668,21 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cieifkeepaliveenabled
             
             	A keepalive is a small, layer\-2 message that is transmitted by a network device  to let directly\-connected network devices know of its presence.  This object returns 'true' if keepalives are enabled on this interface. If keepalives are not enabled, 'false' is returned.  Setting this object to TRUE or FALSE enables or disables (respectively) keepalive on this  interface
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cieifstatechangereason
             
             	This object displays a human\-readable textual string which describes the  cause of the last state change of the  interface.  Examples of the values this object can take are\:  o  'Lost Carrier' o  'administratively down' o  'up' o  'down'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cieifcarriertransitioncount
             
@@ -614,6 +691,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cieifinterfacediscontinuitytime
             
             	The value of sysUpTime on the most recent occasion at which this interface's  counters  suffered  a discontinuity.   If no such discontinuities have occurred  since the last re\-initialization of the  local management subsystem, then this  object contains a value of zero
@@ -621,10 +700,14 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cieifdhcpmode
             
             	The DHCP mode configured by the administrator. If 'true' the DHCP is enabled. In which case an IP address is requested in DHCP. This is in addition to any that are  configured by the administrator in 'ciiIPAddressTable' or 'ciiIPIfAddressTable' in CISCO\-IP\-IF\-MIB. If 'false' the DHCP is disabled. In which case all IP addresses are configured by the administrator in 'ciiIPAddressTable' or  'ciiIPIfAddressTable'. For interfaces, for which DHCP cannot be or is not supported, then this object has the value 'false'
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cieifmtu
             
@@ -633,6 +716,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 40..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cieifcontextname
             
             	The ContextName denotes the interface 'context' and is used to logically separate the MIB management. RFC 2571 and RFC 2737 describe this approach. When the agent supports a different SNMP  context, as detailed in RFC 2571 and  RFC 2737, for different interfaces, then the value of this object specifies the context name used for this interface
@@ -640,15 +725,21 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: cieifoperstatuscause
             
             	This object represents the detailed operational cause reason for the current  operational state of the interface.  The current operational state of the interface  is given by the 'ifOperStatus' defined  in IF\-MIB.   The corresponding instance of  'cieIfOperStatusCauseDescr' must be used to  get the information about the operational  cause value mentioned in this object.  For interfaces whose 'ifOperStatus' is 'down'  the objects 'cieIfOperStatusCause' and  'cieIfOperStatusCauseDescr' together provides  the information about the operational cause  reason and the description of the cause.   The value of this object will be 'none' for all the 'ifOperStatus' values except for  'down'. Its value will be one status cause  defined in the 'IfOperStatusReason' textual  convention if 'ifOperStatus' is 'down'.   The value of this object will be 'other'  if the operational status cause is not one  defined in 'IfOperStatusReason'
             	**type**\:  :py:class:`IfOperStatusReason <ydk.models.cisco_ios_xe.CISCO_TC.IfOperStatusReason>`
             
+            	**config**\: False
+            
             .. attribute:: cieifoperstatuscausedescr
             
             	The description for the cause of current operational state of the interface, given  by the object 'cieIfOperStatusCause'.  For an interface whose 'ifOperStatus' is not 'down' the value of this object will be  'none'
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cieifspeedreceive
             
@@ -657,12 +748,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cieifhighspeedreceive
             
             	An estimate of the interface's current receive bandwidth in units of 1,000,000 bits per second.  If this object reports a value of `n' then the speed of the interface is somewhere in the range of `n\-500,000' to `n+499,999'.  For interfaces which do not vary in bandwidth or for those where no accurate estimation can be made, this object should contain the nominal bandwidth.  For a sub\-layer which has no concept of bandwidth, this object should be zero
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cieifowner
             
@@ -671,35 +766,49 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**length:** 0..80
             
+            	**config**\: False
+            
             .. attribute:: cieifsharedconfig
             
             	This object indicates the current configuration of interface sharing on the given interface.  'notApplicable' \- the interface sharing configuration on              this interface is not applicable.  'ownerDedicated' \- the interface is in the dedicated mode             to the binding physical interface. 'ownerShared' \- the interface is shared amongst virtual switches          and this interface physically belongs to a its           virtual switch.   'sharedOnly' \- the interface is in purely shared mode
             	**type**\:  :py:class:`CieIfSharedConfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry.CieIfSharedConfig>`
+            
+            	**config**\: False
             
             .. attribute:: cieifspeedgroupconfig
             
             	This object specifies the current speed group configuration on the given interface.  'notApplicable' \- the interface speed group configuration on             this interface is not applicable. It is a              read\-only value. '10G' \- the interface speed group configuration on             this interface as 10G. '1G\-2G\-4G\-8G' \- the interface speed group configuration              on this interface as 1G\-2G\-4G\-8G. '2G\-4G\-8G\-16G' \- the interface speed group configuration              on this interface as 2G\-4G\-8G\-16G
             	**type**\:  :py:class:`CieIfSpeedGroupConfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry.CieIfSpeedGroupConfig>`
             
+            	**config**\: False
+            
             .. attribute:: cieiftransceiverfrequencyconfig
             
             	This object specifies the current transceiver frequency configuration on the given interface.  'notApplicable' \- the interface transceiver frequency  				  configuration on this interface  				  is not applicable. It is a read\-only value. 'FibreChannel' \- the interface transceiver frequency 				 configuration on this interface as                   Fibre Channel. 'Ethernet'	  \-  the interface transceiver frequency on 				 this interface as Ethernet
             	**type**\:  :py:class:`CieIfTransceiverFrequencyConfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry.CieIfTransceiverFrequencyConfig>`
+            
+            	**config**\: False
             
             .. attribute:: cieiffillpatternconfig
             
             	This object specifies the current switchport fill pattern configuration on the given interface.  'arbff8G' \- the inter frame gap fill pattern is 			ARBFF for 8G speed. 'idle8G' \- the inter frame gap fill pattern is 		   IDLE for 8G speed
             	**type**\:  :py:class:`CieIfFillPatternConfig <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfInterfaceTable.CieIfInterfaceEntry.CieIfFillPatternConfig>`
             
+            	**config**\: False
+            
             .. attribute:: cieifignorebiterrorsconfig
             
             	This object specifies the current switchport biterrors configuration on the given interface.  If 'true(1)' the ignore bit errors is enabled.In which case the interface ignores bit errors. If 'false(2)' the ignore bit errors is disabled. In which  case the interface acts on the bit errors.  For interfaces, for which bit errors  is not supported, then this object has the value 'true(1)'
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cieifignoreinterruptthresholdconfig
             
             	This object specifies the current interrupt threshold configuration on the given interface.  'If 'true(1)' the ignore interrupt thresholds is enabled. In which case the interface ignores interrupt thresholds. If 'false(2)' the ignore interrupt thresholds is disabled. In which case the interface acts on the interrupt  thresholds.  For interfaces, for which interrupt thresholds  is not supported, then this object has the  value 'true(1)'
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -921,6 +1030,8 @@ class CISCOIFEXTENSIONMIB(Entity):
 
 
 
+
+
     class CieIfStatusListTable(Entity):
         """
         This table contains objects for providing
@@ -941,6 +1052,8 @@ class CISCOIFEXTENSIONMIB(Entity):
         
         	Each entry represents the 'ifIndex', interface operational mode and interface  operational cause for a set of 64 interfaces  in a module
         	**type**\: list of  		 :py:class:`CieIfStatusListEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfStatusListTable.CieIfStatusListEntry>`
+        
+        	**config**\: False
         
         
 
@@ -985,12 +1098,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cieifstatuslistindex  (key)
             
             	An arbitrary integer value, greater than zero, which identifies a list of 64 interfaces within a module
             	**type**\: int
             
             	**range:** 1..33554432
+            
+            	**config**\: False
             
             .. attribute:: cieinterfacesindex
             
@@ -999,12 +1116,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**length:** 0..256
             
+            	**config**\: False
+            
             .. attribute:: cieinterfacesopermode
             
             	This object represents the operational mode for a set of 64 interfaces in the module
             	**type**\: str
             
             	**length:** 0..64
+            
+            	**config**\: False
             
             .. attribute:: cieinterfacesopercause
             
@@ -1013,12 +1134,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: cieinterfaceownershipbitmap
             
             	This object indicates the status for a set of 64 interfaces in a module regarding whether or not each interface is  administratively assigned a name of the current owner of the  interface resource as per cieIfOwner
             	**type**\: str
             
             	**length:** 0..8
+            
+            	**config**\: False
             
             
 
@@ -1058,6 +1183,8 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfStatusListTable.CieIfStatusListEntry, ['entphysicalindex', 'cieifstatuslistindex', 'cieinterfacesindex', 'cieinterfacesopermode', 'cieinterfacesopercause', 'cieinterfaceownershipbitmap'], name, value)
 
 
+
+
     class CieIfVlStatsTable(Entity):
         """
         This table contains VL (Virtual Link) statistics
@@ -1070,6 +1197,8 @@ class CISCOIFEXTENSIONMIB(Entity):
         
         	Each row contains managed objects for Virtual Link statistics on interface capable of  providing this information
         	**type**\: list of  		 :py:class:`CieIfVlStatsEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfVlStatsTable.CieIfVlStatsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1113,12 +1242,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cieifnodropvlinpkts
             
             	This object indicates the number of input packets on all No\-Drop Virtual Links belonged  to this interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: cieifnodropvlinoctets
             
@@ -1127,12 +1260,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cieifnodropvloutpkts
             
             	This object indicates the number of output packets on all No\-Drop Virtual Links belonged  to this interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: cieifnodropvloutoctets
             
@@ -1141,12 +1278,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cieifdropvlinpkts
             
             	This object indicates the number of input packets on all Drop Virtual Links belonged  to this interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: cieifdropvlinoctets
             
@@ -1155,6 +1296,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cieifdropvloutpkts
             
             	This object indicates the number of output packets on all Drop Virtual Links belonged  to this interface
@@ -1162,12 +1305,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: cieifdropvloutoctets
             
             	This object indicates the number of output octets on all Drop Virtual Links belonged  to this interface
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -1213,6 +1360,8 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfVlStatsTable.CieIfVlStatsEntry, ['ifindex', 'cieifnodropvlinpkts', 'cieifnodropvlinoctets', 'cieifnodropvloutpkts', 'cieifnodropvloutoctets', 'cieifdropvlinpkts', 'cieifdropvlinoctets', 'cieifdropvloutpkts', 'cieifdropvloutoctets'], name, value)
 
 
+
+
     class CieIfIndexPersistenceTable(Entity):
         """
         This table lists configuration data relating to ifIndex
@@ -1226,6 +1375,8 @@ class CISCOIFEXTENSIONMIB(Entity):
         
         	Each entry represents ifindex persistence configuration for an interface specified by ifIndex. Whenever an interface which supports ifindex persistence is created/destroyed in the ifTable, the corresponding ifindex persistence entry is created/destroyed respectively. Some of the interfaces may not support ifindex persistence, for example, a dynamic interface, such as a PPP connection or a IP subscriber interface
         	**type**\: list of  		 :py:class:`CieIfIndexPersistenceEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable.CieIfIndexPersistenceEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1273,10 +1424,14 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cieifindexpersistenceenabled
             
             	This object specifies whether the interface's ifIndex value persist across reinitialization.  Due to change in syntax, this object is deprecated by cieIfIndexPersistenceControl
             	**type**\: bool
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -1284,6 +1439,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	This object specifies whether the interface's ifIndex value persist across reinitialization. In global state, the interface uses the global setting data for persistence i.e. cieIfIndexGlobalPersistence
             	**type**\:  :py:class:`IfIndexPersistenceState <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.IfIndexPersistenceState>`
+            
+            	**config**\: False
             
             
 
@@ -1317,6 +1474,8 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfIndexPersistenceTable.CieIfIndexPersistenceEntry, ['ifindex', 'cieifindexpersistenceenabled', 'cieifindexpersistencecontrol'], name, value)
 
 
+
+
     class CieIfDot1qCustomEtherTypeTable(Entity):
         """
         A list of the interfaces that support
@@ -1326,6 +1485,8 @@ class CISCOIFEXTENSIONMIB(Entity):
         
         	An entry containing the custom EtherType information for the interface.  Only interfaces with custom 802.1q ethertype control are listed in the  table
         	**type**\: list of  		 :py:class:`CieIfDot1qCustomEtherTypeEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable.CieIfDot1qCustomEtherTypeEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1372,6 +1533,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cieifdot1qcustomadminethertype
             
             	The Dot1qEtherType allow administrator to select a non\-standard (other than 0x8100) 2\-byte ethertype for the interface to  interoperate with third party vendor's system that do not use the standard 0x8100 ethertype to identify 802.1q\-tagged frames.  The current administrative value of the  802.1q ethertype for the interface.  The administrative 802.1q ethertype value may  differ from the operational 802.1q ethertype value.  On some platforms, 802.1q ethertype may be assigned per group rather than per port. If multiple ports belong to a port group, the 802.1q ethertype assigned to any of the ports in such group will apply to all ports in the same group.  To configure non\-standard dot1q ethertype is only recommended when the Cisco device is connected to any third party vendor device. Also be advised that the custom ethertype value needs to be changed in the whole cloud of  Cisco device with the same custom ethertype  value if the third party device are separated  by number of Cisco device in the middle
@@ -1379,12 +1542,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: cieifdot1qcustomoperethertype
             
             	The current operational value of the 802.1q ethertype for the interface
             	**type**\: int
             
             	**range:** 0..65535
+            
+            	**config**\: False
             
             
 
@@ -1418,6 +1585,8 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfDot1qCustomEtherTypeTable.CieIfDot1qCustomEtherTypeEntry, ['ifindex', 'cieifdot1qcustomadminethertype', 'cieifdot1qcustomoperethertype'], name, value)
 
 
+
+
     class CieIfUtilTable(Entity):
         """
         This table contains the interface utilization
@@ -1428,6 +1597,8 @@ class CISCOIFEXTENSIONMIB(Entity):
         
         	An entry containing utilization rates for the interface.  Every interface for which the  inbound and  outbound traffic information is available has a corresponding entry in this table
         	**type**\: list of  		 :py:class:`CieIfUtilEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfUtilTable.CieIfUtilEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1474,12 +1645,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cieifinpktrate
             
             	By default, this is the five minute exponentially\-decayed moving average of the inbound packet rate for this interface. However, if the corresponding instance of cieIfInterval is instantiated with a value which specifies an interval different from 5\-minutes, then cieIfInPktRate is the exponentially\-decayed moving average of inbound packet rate over this different time interval
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets per second
             
@@ -1490,6 +1665,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: octets per second
             
             .. attribute:: cieifoutpktrate
@@ -1498,6 +1675,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             	**units**\: packets per second
             
@@ -1508,6 +1687,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             	**units**\: octets per second
             
             .. attribute:: cieifinterval
@@ -1516,6 +1697,8 @@ class CISCOIFEXTENSIONMIB(Entity):
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1557,6 +1740,8 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfUtilTable.CieIfUtilEntry, ['ifindex', 'cieifinpktrate', 'cieifinoctetrate', 'cieifoutpktrate', 'cieifoutoctetrate', 'cieifinterval'], name, value)
 
 
+
+
     class CieIfDot1dBaseMappingTable(Entity):
         """
         This table contains the mappings of the
@@ -1567,6 +1752,8 @@ class CISCOIFEXTENSIONMIB(Entity):
         
         	An entry containing the mapping between the ifIndex value of an interface and its corresponding dot1dBasePort value.  Every interface which has been assigned a dot1dBasePort value by the system has a corresponding entry in this table
         	**type**\: list of  		 :py:class:`CieIfDot1dBaseMappingEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable.CieIfDot1dBaseMappingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1614,12 +1801,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cieifdot1dbasemappingport
             
             	The dot1dBasePort value for this interface
             	**type**\: int
             
             	**range:** 1..65535
+            
+            	**config**\: False
             
             
 
@@ -1651,6 +1842,8 @@ class CISCOIFEXTENSIONMIB(Entity):
                 self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfDot1dBaseMappingTable.CieIfDot1dBaseMappingEntry, ['ifindex', 'cieifdot1dbasemappingport'], name, value)
 
 
+
+
     class CieIfNameMappingTable(Entity):
         """
         This table contains objects for providing
@@ -1667,6 +1860,8 @@ class CISCOIFEXTENSIONMIB(Entity):
         
         	An entry into the cieIfNameMappingTable
         	**type**\: list of  		 :py:class:`CieIfNameMappingEntry <ydk.models.cisco_ios_xe.CISCO_IF_EXTENSION_MIB.CISCOIFEXTENSIONMIB.CieIfNameMappingTable.CieIfNameMappingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1706,12 +1901,16 @@ class CISCOIFEXTENSIONMIB(Entity):
             
             	**length:** 1..112
             
+            	**config**\: False
+            
             .. attribute:: cieifindex
             
             	This object represents the 'ifIndex' corresponding to the interface name mentioned in the 'cieIfName' object of this instance. If the 'ifName' mentioned in the 'cieIfName'  object of this instance corresponds to multiple 'ifIndex' values, then the value of this object is the numerically smallest of those multiple  'ifIndex' values
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             
 
@@ -1742,7 +1941,11 @@ class CISCOIFEXTENSIONMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIFEXTENSIONMIB.CieIfNameMappingTable.CieIfNameMappingEntry, ['cieifname', 'cieifindex'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOIFEXTENSIONMIB()
         return self._top_entity
+
+
 

@@ -142,6 +142,8 @@ class Arp(Entity):
         self._top_entity = Arp()
         return self._top_entity
 
+
+
 class IedgeCfg(Entity):
     """
     iedge cfg
@@ -188,6 +190,8 @@ class IedgeCfg(Entity):
     def clone_ptr(self):
         self._top_entity = IedgeCfg()
         return self._top_entity
+
+
 
 class Arpgmp(Entity):
     """
@@ -378,9 +382,14 @@ class Arpgmp(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Arpgmp.Vrf.Entries.Entry, ['address', 'mac_address', 'encapsulation', 'entry_type', 'interface'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Arpgmp()
         return self._top_entity
+
+
 
 class ArpRedundancy(Entity):
     """
@@ -654,6 +663,8 @@ class ArpRedundancy(Entity):
                             self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.Peers.Peer, ['prefix_string'], name, value)
 
 
+
+
                 class InterfaceList(Entity):
                     """
                     List of Interfaces for this Group
@@ -787,7 +798,15 @@ class ArpRedundancy(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ArpRedundancy()
         return self._top_entity
+
+
 

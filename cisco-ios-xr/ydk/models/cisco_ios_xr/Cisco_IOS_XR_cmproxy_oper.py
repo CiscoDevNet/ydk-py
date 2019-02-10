@@ -30,6 +30,8 @@ class SdrInventoryVm(Entity):
     	Node directory
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class SdrInventoryVm(Entity):
         
         	Node name
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -106,10 +110,14 @@ class SdrInventoryVm(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: node_entries
             
             	VM Information
             	**type**\:  :py:class:`NodeEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node.NodeEntries>`
+            
+            	**config**\: False
             
             
 
@@ -152,6 +160,8 @@ class SdrInventoryVm(Entity):
                 	VM information for a node
                 	**type**\: list of  		 :py:class:`NodeEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cmproxy_oper.SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -189,12 +199,16 @@ class SdrInventoryVm(Entity):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: valid
                     
                     	valid flag
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: card_type
                     
@@ -203,12 +217,16 @@ class SdrInventoryVm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: card_type_string
                     
                     	card type string
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: nodeid
                     
@@ -217,12 +235,16 @@ class SdrInventoryVm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: node_name
                     
                     	node name string
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: partner_id
                     
@@ -231,12 +253,16 @@ class SdrInventoryVm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: partner_name
                     
                     	partner name string
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: red_state
                     
@@ -245,12 +271,16 @@ class SdrInventoryVm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: red_state_string
                     
                     	redundancy state string
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: node_sw_state
                     
@@ -259,12 +289,16 @@ class SdrInventoryVm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: node_sw_state_string
                     
                     	current software state string
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: prev_sw_state
                     
@@ -273,12 +307,16 @@ class SdrInventoryVm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: prev_sw_state_string
                     
                     	previous software state string
                     	**type**\: str
                     
                     	**length:** 0..32
+                    
+                    	**config**\: False
                     
                     .. attribute:: node_ip
                     
@@ -287,12 +325,16 @@ class SdrInventoryVm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: node_ipv4_string
                     
                     	node IPv4 address string
                     	**type**\: str
                     
                     	**length:** 0..16
+                    
+                    	**config**\: False
                     
                     
 
@@ -350,7 +392,13 @@ class SdrInventoryVm(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry, ['name', 'valid', 'card_type', 'card_type_string', 'nodeid', 'node_name', 'partner_id', 'partner_name', 'red_state', 'red_state_string', 'node_sw_state', 'node_sw_state_string', 'prev_sw_state', 'prev_sw_state_string', 'node_ip', 'node_ipv4_string'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = SdrInventoryVm()
         return self._top_entity
+
+
 

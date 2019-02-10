@@ -259,6 +259,7 @@ class XrXml(Entity):
                     self._perform_setattr(XrXml.Agent.Default.Session, ['timeout'], name, value)
 
 
+
             class Throttle(Entity):
                 """
                 XML agent throttling
@@ -309,6 +310,7 @@ class XrXml(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(XrXml.Agent.Default.Throttle, ['process_rate', 'memory'], name, value)
+
 
 
             class Vrfs(Entity):
@@ -418,6 +420,9 @@ class XrXml(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(XrXml.Agent.Default.Vrfs.Vrf, ['vrf_name', 'ipv6_access_list', 'ipv4_access_list', 'access_list', 'shutdown'], name, value)
+
+
+
 
 
         class Tty(Entity):
@@ -540,6 +545,7 @@ class XrXml(Entity):
                     self._perform_setattr(XrXml.Agent.Tty.Session, ['timeout'], name, value)
 
 
+
             class Throttle(Entity):
                 """
                 XML agent throttling
@@ -590,6 +596,8 @@ class XrXml(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(XrXml.Agent.Tty.Throttle, ['process_rate', 'memory'], name, value)
+
+
 
 
         class Ssl(Entity):
@@ -721,6 +729,7 @@ class XrXml(Entity):
                     self._perform_setattr(XrXml.Agent.Ssl.Session, ['timeout'], name, value)
 
 
+
             class Throttle(Entity):
                 """
                 XML agent throttling
@@ -771,6 +780,7 @@ class XrXml(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(XrXml.Agent.Ssl.Throttle, ['process_rate', 'memory'], name, value)
+
 
 
             class Vrfs(Entity):
@@ -881,9 +891,15 @@ class XrXml(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(XrXml.Agent.Ssl.Vrfs.Vrf, ['vrf_name', 'ipv6_access_list', 'ipv4_access_list', 'access_list', 'shutdown'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = XrXml()
         return self._top_entity
+
+
 
 class Netconf(Entity):
     """
@@ -1081,6 +1097,7 @@ class Netconf(Entity):
                     self._perform_setattr(Netconf.Agent.Tty.Throttle, ['memory', 'offload_memory', 'process_rate'], name, value)
 
 
+
             class Session(Entity):
                 """
                 Session attributes
@@ -1121,7 +1138,12 @@ class Netconf(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Netconf.Agent.Tty.Session, ['timeout'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Netconf()
         return self._top_entity
+
+
 

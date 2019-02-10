@@ -126,6 +126,8 @@ class Keychain(Entity):
     	List of configured key names
     	**type**\:  :py:class:`Keys <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keys>`
     
+    	**config**\: False
+    
     
 
     """
@@ -163,6 +165,8 @@ class Keychain(Entity):
         
         	Configured key name
         	**type**\: list of  		 :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keys.Key>`
+        
+        	**config**\: False
         
         
 
@@ -202,15 +206,21 @@ class Keychain(Entity):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
+            	**config**\: False
+            
             .. attribute:: key
             
             	Key properties
             	**type**\:  :py:class:`Key_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keys.Key.Key_>`
             
+            	**config**\: False
+            
             .. attribute:: accept_tolerance
             
             	Accept tolerance is infinite if value is 0xffffffff
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -255,6 +265,8 @@ class Keychain(Entity):
                 	key id
                 	**type**\: list of  		 :py:class:`KeyId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keys.Key.Key_.KeyId>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -290,35 +302,49 @@ class Keychain(Entity):
                     	To check if it's a macsec key
                     	**type**\:  :py:class:`Macsec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keys.Key.Key_.KeyId.Macsec>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: send_lifetime
                     
                     	Lifetime of the key
                     	**type**\:  :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keys.Key.Key_.KeyId.SendLifetime>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: accept_lifetime
                     
                     	Accept Lifetime of the key
                     	**type**\:  :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keys.Key.Key_.KeyId.AcceptLifetime>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: key_string
                     
                     	Key string
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: type
                     
                     	Type of key encryption
                     	**type**\:  :py:class:`Enc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Enc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: key_id
                     
                     	Key ID
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: cryptographic_algorithm
                     
                     	Cryptographic algorithm
                     	**type**\:  :py:class:`CrytoAlgo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.CrytoAlgo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -374,6 +400,8 @@ class Keychain(Entity):
                         	To check if it's a macsec key
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -401,6 +429,7 @@ class Keychain(Entity):
                             self._perform_setattr(Keychain.Keys.Key.Key_.KeyId.Macsec, [u'is_macsec_key'], name, value)
 
 
+
                     class SendLifetime(Entity):
                         """
                         Lifetime of the key
@@ -410,15 +439,21 @@ class Keychain(Entity):
                         	Key life start time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: end
                         
                         	Key life end time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32 \:14 2011
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: duration
                         
                         	Duration of the key in seconds. value 0xffffffff reflects infinite, never expires, is configured 
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -427,10 +462,14 @@ class Keychain(Entity):
                         	Is TRUE if duration is 0xffffffff 
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_valid_now
                         
                         	Is TRUE if current time is betweenstart and end lifetime , else FALSE
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -467,6 +506,7 @@ class Keychain(Entity):
                             self._perform_setattr(Keychain.Keys.Key.Key_.KeyId.SendLifetime, [u'start', u'end', u'duration', u'is_always_valid', u'is_valid_now'], name, value)
 
 
+
                     class AcceptLifetime(Entity):
                         """
                         Accept Lifetime of the key
@@ -476,15 +516,21 @@ class Keychain(Entity):
                         	Key life start time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: end
                         
                         	Key life end time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32 \:14 2011
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: duration
                         
                         	Duration of the key in seconds. value 0xffffffff reflects infinite, never expires, is configured 
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         	**units**\: second
                         
@@ -493,10 +539,14 @@ class Keychain(Entity):
                         	Is TRUE if duration is 0xffffffff 
                         	**type**\: bool
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_valid_now
                         
                         	Is TRUE if current time is betweenstart and end lifetime , else FALSE
                         	**type**\: bool
+                        
+                        	**config**\: False
                         
                         
 
@@ -532,7 +582,14 @@ class Keychain(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Keychain.Keys.Key.Key_.KeyId.AcceptLifetime, [u'start', u'end', u'duration', u'is_always_valid', u'is_valid_now'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Keychain()
         return self._top_entity
+
+
 

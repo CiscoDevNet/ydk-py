@@ -39,10 +39,14 @@ class Ocni(Entity):
     	IPv4 static configuration
     	**type**\:  :py:class:`Vrfipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4>`
     
+    	**config**\: False
+    
     .. attribute:: vrfipv6
     
     	IPv6 static configuration
     	**type**\:  :py:class:`Vrfipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6>`
+    
+    	**config**\: False
     
     
 
@@ -86,6 +90,8 @@ class Ocni(Entity):
         	Network instances configured on the local system
         	**type**\:  :py:class:`NetworkInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances>`
         
+        	**config**\: False
+        
         
 
         """
@@ -124,6 +130,8 @@ class Ocni(Entity):
             	Network instances configured on the local system
             	**type**\: list of  		 :py:class:`NetworkInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances.NetworkInstance>`
             
+            	**config**\: False
+            
             
 
             """
@@ -161,10 +169,14 @@ class Ocni(Entity):
                 	A unique name identifying the network instance
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: protocols
                 
                 	A process (instance) of a routing protocol. Some systems may not support more than one instance of a particular routing protocol
                 	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols>`
+                
+                	**config**\: False
                 
                 
 
@@ -209,6 +221,8 @@ class Ocni(Entity):
                     	A process (instance) of a routing protocol. Some systems may not support more than one instance of a particular routing protocol
                     	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -246,20 +260,28 @@ class Ocni(Entity):
                         	State parameters relating to the routing protocol instance
                         	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.State>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: static_routes
                         
                         	List of locally configured static routes
                         	**type**\:  :py:class:`StaticRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: identifier
                         
                         	The protocol name for the routing or forwarding protocol to be instantiated
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	An operator\-assigned identifier for the routing or forwarding protocol. For some processes this leaf may be system defined
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -308,15 +330,21 @@ class Ocni(Entity):
                             	The protocol identifier for the instance
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: name
                             
                             	A unique name for the protocol instance
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: enabled
                             
                             	A boolean value indicating whether the local protocol instance is enabled
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: default_metric
                             
@@ -324,6 +352,8 @@ class Ocni(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -355,7 +385,8 @@ class Ocni(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.State, ['identifier', 'name', 'enabled', 'default_metric'], name, value)
+                                self._perform_setattr(Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.State, [u'identifier', u'name', u'enabled', u'default_metric'], name, value)
+
 
 
                         class StaticRoutes(Entity):
@@ -366,6 +397,8 @@ class Ocni(Entity):
                             
                             	List of locally configured static routes
                             	**type**\: list of  		 :py:class:`StaticRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -402,15 +435,21 @@ class Ocni(Entity):
                                 	Reference to the destination prefix list key
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: next_hops
                                 
                                 	A list of next\-hops to be utilised for the static route being specified
                                 	**type**\:  :py:class:`NextHops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: static_routes_state
                                 
                                 	Operational state data for static routes
                                 	**type**\:  :py:class:`StaticRoutesState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.StaticRoutesState>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -457,6 +496,8 @@ class Ocni(Entity):
                                     	A list of next\-hops to be utilised for the static route being specified
                                     	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -493,15 +534,21 @@ class Ocni(Entity):
                                         	A reference to the index of the current next\-hop. The index is intended to be a user\-specified value which can be used to reference the next\-hop in question, without any other semantics being assigned to it
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: state
                                         
                                         	Operational state parameters relating to the next\-hop entry
                                         	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.State>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: interface_ref
                                         
                                         	Reference to an interface or subinterface
                                         	**type**\:  :py:class:`InterfaceRef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.InterfaceRef>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -548,10 +595,14 @@ class Ocni(Entity):
                                             	An user\-specified identifier utilised to uniquely reference the next\-hop entry in the next\-hop list. The value of this index has no semantic meaning other than for referencing the entry
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: next_hop
                                             
                                             	The next\-hop that is to be used for the static route \- this may be specified as an IP address, an interface or a pre\-defined next\-hop type \- for instance, DROP or LOCAL\_LINK. When this leaf is not set, and the interface\-ref value is specified for the next\-hop, then the system should treat the prefix as though it is directly connected to the interface
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: metric
                                             
@@ -559,6 +610,8 @@ class Ocni(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -588,7 +641,8 @@ class Ocni(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.State, ['index', 'next_hop', 'metric'], name, value)
+                                                self._perform_setattr(Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.State, [u'index', u'next_hop', u'metric'], name, value)
+
 
 
                                         class InterfaceRef(Entity):
@@ -599,6 +653,8 @@ class Ocni(Entity):
                                             
                                             	Operational state for interface\-ref
                                             	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.InterfaceRef.State>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -637,12 +693,16 @@ class Ocni(Entity):
                                                 	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
                                                 	**type**\: str
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: subinterface
                                                 
                                                 	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -670,7 +730,11 @@ class Ocni(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.InterfaceRef.State, ['interface', 'subinterface'], name, value)
+                                                    self._perform_setattr(Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+
+
 
 
                                 class StaticRoutesState(Entity):
@@ -682,10 +746,14 @@ class Ocni(Entity):
                                     	Destination prefix for the static route, either IPv4 or IPv6
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: set_tag
                                     
                                     	Set a generic tag value on the route. This tag can be used for filtering routes that are distributed to other routing protocols
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -713,7 +781,15 @@ class Ocni(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.StaticRoutesState, ['prefix', 'set_tag'], name, value)
+                                        self._perform_setattr(Ocni.Vrfipv4.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.StaticRoutesState, [u'prefix', u'set_tag'], name, value)
+
+
+
+
+
+
+
+
 
 
     class Vrfipv6(Entity):
@@ -724,6 +800,8 @@ class Ocni(Entity):
         
         	Network instances configured on the local system
         	**type**\:  :py:class:`NetworkInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances>`
+        
+        	**config**\: False
         
         
 
@@ -763,6 +841,8 @@ class Ocni(Entity):
             	Network instances configured on the local system
             	**type**\: list of  		 :py:class:`NetworkInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances.NetworkInstance>`
             
+            	**config**\: False
+            
             
 
             """
@@ -800,10 +880,14 @@ class Ocni(Entity):
                 	A unique name identifying the network instance
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: protocols
                 
                 	A process (instance) of a routing protocol. Some systems may not support more than one instance of a particular routing protocol
                 	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols>`
+                
+                	**config**\: False
                 
                 
 
@@ -848,6 +932,8 @@ class Ocni(Entity):
                     	A process (instance) of a routing protocol. Some systems may not support more than one instance of a particular routing protocol
                     	**type**\: list of  		 :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -885,20 +971,28 @@ class Ocni(Entity):
                         	State parameters relating to the routing protocol instance
                         	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.State>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: static_routes
                         
                         	List of locally configured static routes
                         	**type**\:  :py:class:`StaticRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: identifier
                         
                         	The protocol name for the routing or forwarding protocol to be instantiated
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: name
                         
                         	An operator\-assigned identifier for the routing or forwarding protocol. For some processes this leaf may be system defined
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -947,15 +1041,21 @@ class Ocni(Entity):
                             	The protocol identifier for the instance
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: name
                             
                             	A unique name for the protocol instance
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: enabled
                             
                             	A boolean value indicating whether the local protocol instance is enabled
                             	**type**\: bool
+                            
+                            	**config**\: False
                             
                             .. attribute:: default_metric
                             
@@ -963,6 +1063,8 @@ class Ocni(Entity):
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -994,7 +1096,8 @@ class Ocni(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.State, ['identifier', 'name', 'enabled', 'default_metric'], name, value)
+                                self._perform_setattr(Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.State, [u'identifier', u'name', u'enabled', u'default_metric'], name, value)
+
 
 
                         class StaticRoutes(Entity):
@@ -1005,6 +1108,8 @@ class Ocni(Entity):
                             
                             	List of locally configured static routes
                             	**type**\: list of  		 :py:class:`StaticRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -1041,15 +1146,21 @@ class Ocni(Entity):
                                 	Reference to the destination prefix list key
                                 	**type**\: str
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: next_hops
                                 
                                 	A list of next\-hops to be utilised for the static route being specified
                                 	**type**\:  :py:class:`NextHops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops>`
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: static_routes_state
                                 
                                 	Operational state data for static routes
                                 	**type**\:  :py:class:`StaticRoutesState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.StaticRoutesState>`
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -1096,6 +1207,8 @@ class Ocni(Entity):
                                     	A list of next\-hops to be utilised for the static route being specified
                                     	**type**\: list of  		 :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop>`
                                     
+                                    	**config**\: False
+                                    
                                     
 
                                     """
@@ -1132,15 +1245,21 @@ class Ocni(Entity):
                                         	A reference to the index of the current next\-hop. The index is intended to be a user\-specified value which can be used to reference the next\-hop in question, without any other semantics being assigned to it
                                         	**type**\: str
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: state
                                         
                                         	Operational state parameters relating to the next\-hop entry
                                         	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.State>`
                                         
+                                        	**config**\: False
+                                        
                                         .. attribute:: interface_ref
                                         
                                         	Reference to an interface or subinterface
                                         	**type**\:  :py:class:`InterfaceRef <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.InterfaceRef>`
+                                        
+                                        	**config**\: False
                                         
                                         
 
@@ -1187,10 +1306,14 @@ class Ocni(Entity):
                                             	An user\-specified identifier utilised to uniquely reference the next\-hop entry in the next\-hop list. The value of this index has no semantic meaning other than for referencing the entry
                                             	**type**\: str
                                             
+                                            	**config**\: False
+                                            
                                             .. attribute:: next_hop
                                             
                                             	The next\-hop that is to be used for the static route \- this may be specified as an IP address, an interface or a pre\-defined next\-hop type \- for instance, DROP or LOCAL\_LINK. When this leaf is not set, and the interface\-ref value is specified for the next\-hop, then the system should treat the prefix as though it is directly connected to the interface
                                             	**type**\: str
+                                            
+                                            	**config**\: False
                                             
                                             .. attribute:: metric
                                             
@@ -1198,6 +1321,8 @@ class Ocni(Entity):
                                             	**type**\: int
                                             
                                             	**range:** 0..4294967295
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1227,7 +1352,8 @@ class Ocni(Entity):
                                                 self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.State, ['index', 'next_hop', 'metric'], name, value)
+                                                self._perform_setattr(Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.State, [u'index', u'next_hop', u'metric'], name, value)
+
 
 
                                         class InterfaceRef(Entity):
@@ -1238,6 +1364,8 @@ class Ocni(Entity):
                                             
                                             	Operational state for interface\-ref
                                             	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper.Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.InterfaceRef.State>`
+                                            
+                                            	**config**\: False
                                             
                                             
 
@@ -1276,12 +1404,16 @@ class Ocni(Entity):
                                                 	Reference to a base interface.  If a reference to a subinterface is required, this leaf must be specified to indicate the base interface
                                                 	**type**\: str
                                                 
+                                                	**config**\: False
+                                                
                                                 .. attribute:: subinterface
                                                 
                                                 	Reference to a subinterface \-\- this requires the base interface to be specified using the interface leaf in this container.  If only a reference to a base interface is requuired, this leaf should not be set
                                                 	**type**\: int
                                                 
                                                 	**range:** 0..4294967295
+                                                
+                                                	**config**\: False
                                                 
                                                 
 
@@ -1309,7 +1441,11 @@ class Ocni(Entity):
                                                     self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.InterfaceRef.State, ['interface', 'subinterface'], name, value)
+                                                    self._perform_setattr(Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.NextHops.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
+
+
+
+
 
 
                                 class StaticRoutesState(Entity):
@@ -1321,10 +1457,14 @@ class Ocni(Entity):
                                     	Destination prefix for the static route, either IPv4 or IPv6
                                     	**type**\: str
                                     
+                                    	**config**\: False
+                                    
                                     .. attribute:: set_tag
                                     
                                     	Set a generic tag value on the route. This tag can be used for filtering routes that are distributed to other routing protocols
                                     	**type**\: str
+                                    
+                                    	**config**\: False
                                     
                                     
 
@@ -1352,9 +1492,19 @@ class Ocni(Entity):
                                         self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.StaticRoutesState, ['prefix', 'set_tag'], name, value)
+                                        self._perform_setattr(Ocni.Vrfipv6.NetworkInstances.NetworkInstance.Protocols.Protocol.StaticRoutes.StaticRoute.StaticRoutesState, [u'prefix', u'set_tag'], name, value)
+
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Ocni()
         return self._top_entity
+
+
 

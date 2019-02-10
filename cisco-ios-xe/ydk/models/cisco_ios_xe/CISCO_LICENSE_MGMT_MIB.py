@@ -604,50 +604,70 @@ class CISCOLICENSEMGMTMIB(Entity):
     	
     	**type**\:  :py:class:`ClmgmtLicenseConfiguration <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseConfiguration>`
     
+    	**config**\: False
+    
     .. attribute:: clmgmtlicensedeviceinformation
     
     	
     	**type**\:  :py:class:`ClmgmtLicenseDeviceInformation <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseDeviceInformation>`
+    
+    	**config**\: False
     
     .. attribute:: clmgmtlicensenotifobjects
     
     	
     	**type**\:  :py:class:`ClmgmtLicenseNotifObjects <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseNotifObjects>`
     
+    	**config**\: False
+    
     .. attribute:: clmgmtlicenseactiontable
     
     	A table for invoking license management actions. Management application must create a row in this table to trigger any of the license management actions. The following are different actions that can be executed using this table.     1. install     2. clear     3. processPermissionTicket     4. regenerateLastRehostTicket     5. backup     6. generateEULA  Refer to the description of clmgmtLicenseAction for more information on what these actions do on the device. Once the request completes, the management application should retrieve the values of the objects of interest, and then delete the entry.  In order to prevent old entries from clogging the table, entries will be aged out, but an entry will never be deleted within 5 minutes of completion
     	**type**\:  :py:class:`ClmgmtLicenseActionTable <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseActionTable>`
+    
+    	**config**\: False
     
     .. attribute:: clmgmtlicenseactionresulttable
     
     	This table contains results of license action if the license action involves multiple licenses. Entries in this table are not created for actions where there is only license that is subject of the action. For example, if there are 3 licenses in a license file when executing license install action, 3 entries will be created in this table, one for each license
     	**type**\:  :py:class:`ClmgmtLicenseActionResultTable <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseActionResultTable>`
     
+    	**config**\: False
+    
     .. attribute:: clmgmtlicensestoreinfotable
     
     	This table contains information about all the license stores allocated on the device
     	**type**\:  :py:class:`ClmgmtLicenseStoreInfoTable <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseStoreInfoTable>`
+    
+    	**config**\: False
     
     .. attribute:: clmgmtlicensedeviceinfotable
     
     	This table contains objects that provide licensing related information at the device level. Entries will exist only for entities that support licensing. For example, if it is a stand alone device and supports licensing, then there will be only one entry in this table. If it is stackable switch then there will be multiple entries with one entry for each device in the stack
     	**type**\:  :py:class:`ClmgmtLicenseDeviceInfoTable <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseDeviceInfoTable>`
     
+    	**config**\: False
+    
     .. attribute:: clmgmtlicenseinfotable
     
     	This table contains information about all the licenses installed on the device
     	**type**\:  :py:class:`ClmgmtLicenseInfoTable <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseInfoTable>`
+    
+    	**config**\: False
     
     .. attribute:: clmgmtlicensablefeaturetable
     
     	This table contains list of licensable features in the image. All the licensable features will have an entry each in this table irrespective of whether they are using any licenses currently. Entries in this table are created by the agent one for each licensable feature in the image. These entries remain in the table permanently and can not be deleted. Management application can not create or delete entries from this table
     	**type**\:  :py:class:`ClmgmtLicensableFeatureTable <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicensableFeatureTable>`
     
+    	**config**\: False
+    
     .. attribute:: clmgmtdevcredexportactiontable
     
     	A table for triggering device credentials export action. Management application must create this entry to trigger the export of device credentials from the device to a file.  Once the request completes, the management application should retrieve the values of the objects of interest, and then delete the entry.  In order to prevent old entries from clogging the table, entries will be aged out, but an entry will never be deleted within 5 minutes of completion
     	**type**\:  :py:class:`ClmgmtDevCredExportActionTable <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtDevCredExportActionTable>`
+    
+    	**config**\: False
     
     
 
@@ -725,6 +745,8 @@ class CISCOLICENSEMGMTMIB(Entity):
         
         	**range:** 1..4294967295
         
+        	**config**\: False
+        
         
 
         """
@@ -753,6 +775,7 @@ class CISCOLICENSEMGMTMIB(Entity):
             self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseConfiguration, ['clmgmtnextfreelicenseactionindex'], name, value)
 
 
+
     class ClmgmtLicenseDeviceInformation(Entity):
         """
         
@@ -763,6 +786,8 @@ class CISCOLICENSEMGMTMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -792,6 +817,7 @@ class CISCOLICENSEMGMTMIB(Entity):
             self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseDeviceInformation, ['clmgmtnextfreedevcredexportactionindex'], name, value)
 
 
+
     class ClmgmtLicenseNotifObjects(Entity):
         """
         
@@ -801,15 +827,21 @@ class CISCOLICENSEMGMTMIB(Entity):
         	This object indicates whether the device should generate the notifications related to usage of licenses. This object enables/disables sending following notifications\:     clmgmtLicenseExpired      clmgmtLicenseExpiryWarning     clmgmtLicenseUsageCountExceeded     clmgmtLicenseUsageCountAboutToExceed     clmgmtLicenseSubscriptionExpiryWarning     clmgmtLicenseSubscriptionExtExpiryWarning     clmgmtLicenseSubscriptionExpired     clmgmtLicenseEvalRTUTransitionWarning     clmgmtLicenseEvalRTUTransition
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: clmgmtlicensedeploymentnotifenable
         
         	This object indicates whether the device should generate notifications related to license deployment. This object enables/disables sending following notifications\:     clmgmtLicenseInstalled     clmgmtLicenseCleared     clmgmtLicenseRevoked     clmgmtLicenseEULAAccepted
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: clmgmtlicenseerrornotifenable
         
         	This object indicates whether the device should generate notifications related to error conditions in enforcing licensing. This object enables/disables sending following notifications\:     clmgmtLicenseNotEnforced
         	**type**\:  :py:class:`ClmgmtLicenseErrorNotifEnable <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseNotifObjects.ClmgmtLicenseErrorNotifEnable>`
+        
+        	**config**\: False
         
         
 
@@ -872,6 +904,7 @@ class CISCOLICENSEMGMTMIB(Entity):
 
 
 
+
     class ClmgmtLicenseActionTable(Entity):
         """
         A table for invoking license management actions. Management
@@ -897,6 +930,8 @@ class CISCOLICENSEMGMTMIB(Entity):
         
         	An entry for each action that is being executed or was executed recently. The management application executes an action by creating this entry. This can be done in the following 2 methods  1. CREATE\-AND\-GO method     Management application sets clmgmtLicenseActionRowStatus to     createAndGo(4) and all other required objects to valid     values in a single SNMP SET request. If all the values     are valid, the device creates the entry and executes the     action. If the SET request fails, the entry will not be     created. 2. CREATE\-AND\-WAIT method     Management application sets clmgmtLicenseActionRowStatus to     createAndWait(5) to create an entry. Management application     can set all other required objects to valid     values in more than one SNMP SET request. If SET request     for any of the objects fails, management application can set     just only that object. Once all the required objects     are set to valid values, management application triggers action     execution by setting clmgmtLicenseActionRowStatus to     active(1).  To stop the action from being executed, the management application can delete the entry by setting clmgmtLicenseActionRowStatus to destroy(6) when clmgmtLicenseActionState is pending(2).  The status of action execution can be known by querying clmgmtLicenseActionState. If the action is still in pending(2) or in inProgress(3) state, the management application need to check back again after few seconds. Once the action completes and status of the action is failed(6), the reason for failure can be retrieved from clmgmtLicenseActionFailCause. If the status of the action is partiallySuccessful(5), results of individual licenses can be queried from clmgmtLicenseActionResultTable.  Not all objects in the entry are needed to execute every action. Below is the list of actions and the required objects that are needed to be set for executing that action.  1. Installing a license    The following MIB objects need to be set for installing a    license      a. clmgmtLicenseActionTransferProtocol      b. clmgmtLicenseServerAddressType      c. clmgmtLicenseServerAddress      d. clmgmtLicenseServerUsername      e. clmgmtLicenseServerPassword      f. clmgmtLicenseFile      g. clmgmtLicenseStore      h. clmgmtLicenseStopOnFailure      i. clmgmtLicenseAcceptEULA      j. clmgmtLicenseAction     clmgmtLicenseActionEntPhysicalIndex need not be set    explicitly for license installs. License itself identifes    the device where the license needs to be installed.     clmgmtLicenseStore need to be set to store the licenses    in a non\-default license store. But, if a license file    has more than one license and licenses need to be    installed on multiple devices (for example to multiple    members with in a stack), then value of clmgmtLicenseStore    is ignored and the licenses will be installed in default    license stores of the respective devices.  2. Clearing a license    The following MIB objects need to be set for clearing a    license      a. clmgmtLicenseActionEntPhysicalIndex      b. clmgmtLicenseActionLicenseIndex      c. clmgmtLicenseStore      d. clmgmtLicenseAction  3. Revoking a license    The following MIB objects need to be set for revoking a    license      a. clmgmtLicenseActionTransferProtocol      b. clmgmtLicenseServerAddressType      c. clmgmtLicenseServerAddress      d. clmgmtLicenseServerUsername      e. clmgmtLicenseServerPassword      f. clmgmtLicensePermissionTicketFile      g. clmgmtLicenseRehostTicketFile      h. clmgmtLicenseStopOnFailure      i. clmgmtLicenseAction  4. Regenerate last rehost ticket    The following MIB objects need to be set for regenerating    last rehost ticket      a. clmgmtLicenseActionTransferProtocol      b. clmgmtLicenseServerAddressType      c. clmgmtLicenseServerAddress      d. clmgmtLicenseServerUsername      e. clmgmtLicenseServerPassword      f. clmgmtLicensePermissionTicketFile      g. clmgmtLicenseRehostTicketFile      h. clmgmtLicenseStopOnFailure      i. clmgmtLicenseAction   5. Save all licenses to a backup storage    The following MIB objects need to be set for storing all    licenses to a backup store      a. clmgmtLicenseActionEntPhysicalIndex      b. clmgmtLicenseActionTransferProtocol      c. clmgmtLicenseServerAddressType      d. clmgmtLicenseServerAddress      e. clmgmtLicenseServerUsername      f. clmgmtLicenseServerPassword      g. clmgmtLicenseBackupFile      h. clmgmtLicenseAction  6. Generate and export EULA if the licenses need EULA to be    accepted for installing.    The following MIB objects need to be set exporting required    EULAs      a. clmgmtLicenseActionTransferProtocol      b. clmgmtLicenseServerAddressType      c. clmgmtLicenseServerAddress      d. clmgmtLicenseServerUsername      e. clmgmtLicenseServerPassword      f. clmgmtLicenseFile      g. clmgmtLicenseEULAFile      h. clmgmtLicenseAction  For any action, if clmgmtLicenseActionTransferProtocol is set to local(2), the following objects need not be set.      a. clmgmtLicenseServerAddressType      b. clmgmtLicenseServerAddress      c. clmgmtLicenseServerUsername      d. clmgmtLicenseServerPassword  Entry can be deleted except when clmgmtLicenseAction is set to pending(2). All entries are volatile and are cleared on agent reset
         	**type**\: list of  		 :py:class:`ClmgmtLicenseActionEntry <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseActionTable.ClmgmtLicenseActionEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1077,6 +1112,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseactionentphysicalindex
             
             	This object represents the entPhysicalIndex of the device where the action is being executed. This object is mainly used in devices where one device is acting as a master and rest of the devices as slaves. The master device is responsible for SNMP communication with the management application. Examples include stackable switches, devices with route processor and line card configuration. If this object is not set, the license action will be executed on the master device. Note\: This object need not be set if there is a stand alone device
@@ -1084,15 +1121,21 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseactiontransferprotocol
             
             	This object represents the transfer protocol to be used when copying files as specified in the following objects. 1. clmgmtLicenseFile 2. clmgmtLicensePermissionTicketFile 3. clmgmtLicenseRehostTicketFile 4. clmgmtLicenseBackupFile  Note\: This object need not be set if the all the files required for the action are in device's local file system
             	**type**\:  :py:class:`ClmgmtLicenseTransferProtocol <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.ClmgmtLicenseTransferProtocol>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseserveraddresstype
             
             	This object indicates the transport type of the address contained in clmgmtLicenseServerAddress object. This must be set when clmgmtLicenseActionTransferProtocol is not none(1) or local(2)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicenseserveraddress
             
@@ -1101,12 +1144,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseserverusername
             
             	This object indicates the remote user name for accessing files via ftp, rcp, sftp or scp protocols. This object must be set when the clmgmtLicenseActionTransferProtocol is ftp(4), rcp(5), scp(7) or sftp(8). If clmgmtLicenseActionTransferProtocol is rcp(5), the remote username is sent as the server username in an rcp command request sent by the system to a remote rcp server
             	**type**\: str
             
             	**length:** 0..96
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicenseserverpassword
             
@@ -1115,12 +1162,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..96
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicensefile
             
             	This object represents the location of the license file on the server identified by clmgmtLicenseServerAddress. This object MUST be set to a valid value before or concurrently with setting the value of the clmgmtLicenseAction object to install(2). For other operations, the value of this object is not considered, it is irrelevant
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicensestore
             
@@ -1129,12 +1180,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseactionlicenseindex
             
             	This object indicates the the license index of the license that is the subject of this action. This is used for identifying a license for performing actions specific to that license. This object need to be set only if clmgmtLicenseAction is set to clear(4). The value of this object is same as the clmgmtLicenseIndex object in clmgmtLicenseInfoEntry for license that is subject of this action
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicensepermissionticketfile
             
@@ -1143,12 +1198,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenserehostticketfile
             
             	This object indicates the file where the rehost ticket generated by the device need to be exported to. The rehost ticket is generated as a result of processPermissionTicket and regenerateLastRehostTicket actions. After generating the rehost ticket, the device exports the rehost ticket contents to this file. This object need to be set only if clmgmtLicenseAction is set to processPermissionTicket(4) or regenerateLastRehostTicket(5) actions
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicensebackupfile
             
@@ -1157,20 +1216,28 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicensestoponfailure
             
             	This object indicates whether the license action should stop if the action on a license fails. This object is applicable only if there are more than one licenses involved in an action
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicenseaction
             
             	This object indicates the the command/action to be executed.  Command                        Remarks \-\-\-\-\-\-\-                        \-\-\-\-\-\-\- noOp(1)                        No operation will be                                performed.  install(2)                     Installs the license.  clear(3)                       Clears the license.  processPermissionTicket(4)     Processes thee permission                                ticket and generates and                                exports rehost ticket.  regenerateLastRehostTicket(5)  Generates and exports the                                last generated rehost                                ticket.  backup(6)                      Backs up all the licenses                                installed currently onto a                                backup store.  generateEULA(7)                Checks whether the licenses                                in the license file need EULA                                acceptance and uploads the                                needed EULA contents to a file
             	**type**\:  :py:class:`ClmgmtLicenseAction <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseActionTable.ClmgmtLicenseActionEntry.ClmgmtLicenseAction>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseactionstate
             
             	This object indicates the state of this license action
             	**type**\:  :py:class:`ClmgmtLicenseActionState <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.ClmgmtLicenseActionState>`
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicensejobqposition
             
@@ -1179,25 +1246,35 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseactionfailcause
             
             	This object indicates the reason for this license action failure. The value of this object is valid only when clmgmtLicenseActionState is failed(6)
             	**type**\:  :py:class:`ClmgmtLicenseActionFailCause <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.ClmgmtLicenseActionFailCause>`
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicenseactionstoragetype
             
             	This object indicates the storage type for this conceptual row. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseactionrowstatus
             
             	This object indicates the the status of this table entry. Once the entry status is set to active(1), the associated entry cannot be modified until the action completes (clmgmtLicenseConfigCommandStatus is set to a value other than inProgress(3)). Once the action completes the only operation possible after this is to delete the row. It is recommended that the management application should delete entries in this table after reading the result. In order to prevent old entries from clogging the table, entries will be aged out, but an entry will never be deleted within 5 minutes of completion
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseaccepteula
             
             	This object indicates whether the End User License Agreement needed for installing the licenses is accepted.  true(1) \- EULA is read and accepted false(2) \- EULA is not accepted  Management application should set this object to true(1) when installing licenses that need EULA acceptance
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicenseeulafile
             
@@ -1205,6 +1282,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -1351,6 +1430,8 @@ class CISCOLICENSEMGMTMIB(Entity):
 
 
 
+
+
     class ClmgmtLicenseActionResultTable(Entity):
         """
         This table contains results of license action if the
@@ -1365,6 +1446,8 @@ class CISCOLICENSEMGMTMIB(Entity):
         
         	An entry in clmgmtLicenseActionResultTable. Each entry contains result of the action for a single license. These entries are created immediately after action execution when the action involves multiple licenses. These entries get automatically deleted when the corresponding entry in clmgmtLicenseActionTable is deleted
         	**type**\: list of  		 :py:class:`ClmgmtLicenseActionResultEntry <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseActionResultTable.ClmgmtLicenseActionResultEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1412,6 +1495,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**refers to**\:  :py:class:`clmgmtlicenseactionindex <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseActionTable.ClmgmtLicenseActionEntry>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicensenumber  (key)
             
             	This object indicates the sequence number of this license in the list of licenses on which the action is executed. For example, if there are 3 licenses in a license file when executing license install action, this object will have values 1, 2 and 3 respectively as ordered in the license file
@@ -1419,15 +1504,21 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseindivactionstate
             
             	This object indicates the state of action on this individual license
             	**type**\:  :py:class:`ClmgmtLicenseActionState <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.ClmgmtLicenseActionState>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseindivactionfailcause
             
             	This object indicates the reason for action failure on this individual license
             	**type**\:  :py:class:`ClmgmtLicenseActionFailCause <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.ClmgmtLicenseActionFailCause>`
+            
+            	**config**\: False
             
             
 
@@ -1463,6 +1554,8 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseActionResultTable.ClmgmtLicenseActionResultEntry, ['clmgmtlicenseactionindex', 'clmgmtlicensenumber', 'clmgmtlicenseindivactionstate', 'clmgmtlicenseindivactionfailcause'], name, value)
 
 
+
+
     class ClmgmtLicenseStoreInfoTable(Entity):
         """
         This table contains information about all the license
@@ -1472,6 +1565,8 @@ class CISCOLICENSEMGMTMIB(Entity):
         
         	An entry in clmgmtLicenseStoreInfoTable. Each entry contains information about a license store allocated on the device
         	**type**\: list of  		 :py:class:`ClmgmtLicenseStoreInfoEntry <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseStoreInfoTable.ClmgmtLicenseStoreInfoEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1515,12 +1610,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicensestoreindex  (key)
             
             	This object uniquely identifies a license store within the device
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicensestorename
             
@@ -1529,12 +1628,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicensestoretotalsize
             
             	This object indicates the total number of bytes that are allocated to the license store
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -1544,6 +1647,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: bytes
             
@@ -1583,6 +1688,8 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseStoreInfoTable.ClmgmtLicenseStoreInfoEntry, ['entphysicalindex', 'clmgmtlicensestoreindex', 'clmgmtlicensestorename', 'clmgmtlicensestoretotalsize', 'clmgmtlicensestoresizeremaining'], name, value)
 
 
+
+
     class ClmgmtLicenseDeviceInfoTable(Entity):
         """
         This table contains objects that provide licensing related
@@ -1597,6 +1704,8 @@ class CISCOLICENSEMGMTMIB(Entity):
         
         	An entry in clmgmtLicenseDeviceInfoTable. Each entry contains device level licensing information for a device
         	**type**\: list of  		 :py:class:`ClmgmtLicenseDeviceInfoEntry <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseDeviceInfoTable.ClmgmtLicenseDeviceInfoEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1639,12 +1748,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtdefaultlicensestore
             
             	This object indicates the clmgmtLicenseStoreIndex of default store in the device. There will be only one default license store per device. If no license store is specified during license install, this default license store will be used
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1676,6 +1789,8 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseDeviceInfoTable.ClmgmtLicenseDeviceInfoEntry, ['entphysicalindex', 'clmgmtdefaultlicensestore'], name, value)
 
 
+
+
     class ClmgmtLicenseInfoTable(Entity):
         """
         This table contains information about all the licenses
@@ -1685,6 +1800,8 @@ class CISCOLICENSEMGMTMIB(Entity):
         
         	An entry in clmgmtLicenseInfoTable. Each entry contains information about a license installed on the device. This entry gets created when a license is installed successfully. Management application can not create these entries directly, but will do so indirectly by executing license install action. Some of these entries may already exist that correspond to demo licenses even before management application installs any licenses
         	**type**\: list of  		 :py:class:`ClmgmtLicenseInfoEntry <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseInfoTable.ClmgmtLicenseInfoEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1733,12 +1850,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicensestoreused  (key)
             
             	This object represents the license store that is used for storing this license. This object will have the same value as clmgmtLicenseStoreIndex in clmgmtLicenseStoreInfoEntry of the license store used
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicenseindex  (key)
             
@@ -1747,12 +1868,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicensefeaturename
             
             	This object indicates the name of the feature that is using or can use this license. A license can be used by only one feature. Examples of feature name are\: 'IPBASE', 'ADVIPSERVICE'
             	**type**\: str
             
             	**length:** 0..128
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicensefeatureversion
             
@@ -1761,15 +1886,21 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicensetype
             
             	This object identifies type of license. Licenses may have validity period defined in terms of time duration that the license is valid for or it may be defined in terms of actual calendar dates. Subscription licenses are licenses that have validity period defined in terms of calendar dates.  demo(1)               \- demo(evaluation license) license. extension(2)          \- Extension(expiring) license. gracePeriod(3)        \- Grace period license. permanent(4)          \- permanent license, the license has no                         expiry date. paidSubscription(5)   \- Paid subscription licenses are the licenses                         which are purchased by customers. These                         licenses have a start date  and end date                         associated with them. evaluationSubscription(6)\-Evaluation subscription licenses are                           the trial licenses. These licenses                           are node locked and it can be obtained                           only once for an UDI. They are valid                           based on calendar days. These licenses                           have a start date and an end date                           associated with them and are issued                           once per UDI. extensionSubscription(7)\- Extension subscription licenses are                           similar to evaluation subscription                           licenses but these licenses are issued                           based on customer request. There are                           no restrictions on the number of                           licenses available for a UDI. evalRightToUse(8)       \- Evaluation Right to use (RTU) license. rightToUse(9)           \- Right to use (RTU) license. permanentRightToUse(10) ? Right To Use license right after it is configured                            and is valid for the lifetime of the product.                            This is a Right To Use license which is not in                            evaluation mode for a limited time
             	**type**\:  :py:class:`ClmgmtLicenseType <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseInfoTable.ClmgmtLicenseInfoEntry.ClmgmtLicenseType>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicensecounted
             
             	This object indicates whether the license is counted license. true(1)  \- counted license false(2) \- uncounted license
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicensevalidityperiod
             
@@ -1777,6 +1908,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1787,6 +1920,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: clmgmtlicenseexpiredperiod
@@ -1795,6 +1930,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1805,6 +1942,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseusagecountremaining
             
             	This object indicates the number of entities that can still use this license. This object is applicable only if clmgmtLicenseCounted is true(1)
@@ -1812,10 +1951,14 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseeulastatus
             
             	This object indicates whether the user accepted End User License Agreement for this license.  true(1)  \- EULA accpeted false(2) \- EULA not accepted
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicensecomments
             
@@ -1824,20 +1967,28 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicensestatus
             
             	This object represents status of the license.  inactive(1)           \- license is installed, but                         not active. notInUse(2)           \- license is installed and                         available for use. inUse(3)              \- the license is being used (by                         a feature). expiredInUse(4)       \- license is expired but still                         being held by the feature. expiredNotInUse(5)    \- license is expired and not being                         held by any feature. usageCountConsumed(6) \- number of entities using this                         licenses has reached the allowed                         limit, no new entities are allowed                         to use this license
             	**type**\:  :py:class:`ClmgmtLicenseStatus <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicenseInfoTable.ClmgmtLicenseInfoEntry.ClmgmtLicenseStatus>`
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicensestartdate
             
             	This object indicates the start date for a subscription license. It is optional for subscription linceses to have a start date associated with them, they may only have an end date associated with them. This object may be applicable only when clmgmtLicenseType is paidSubscription(5), evaluationSubscription(6) or extensionSubscription (7).       The object will contain an octet string of length 0 when it is not applicable
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: clmgmtlicenseenddate
             
             	This object indicates the end date for a subscription license. This object is applicable only when clmgmtLicenseType is paidSubscription(5), evaluationSubscription(6) or extensionSubscription (7). The object will contain an octet string of length 0 when it is not applicable
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: clmgmtlicenseperiodused
             
@@ -1845,6 +1996,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -2090,6 +2243,8 @@ class CISCOLICENSEMGMTMIB(Entity):
 
 
 
+
+
     class ClmgmtLicensableFeatureTable(Entity):
         """
         This table contains list of licensable features in the
@@ -2105,6 +2260,8 @@ class CISCOLICENSEMGMTMIB(Entity):
         
         	An entry in clmgmtLicensableFeatureTable. Each entry represents a licensable feature
         	**type**\: list of  		 :py:class:`ClmgmtLicensableFeatureEntry <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtLicensableFeatureTable.ClmgmtLicensableFeatureEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2147,12 +2304,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtfeatureindex  (key)
             
             	This object uniquely identifies a licensable feature in the device
             	**type**\: int
             
             	**range:** 1..4294967295
+            
+            	**config**\: False
             
             .. attribute:: clmgmtfeaturename
             
@@ -2161,6 +2322,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: clmgmtfeatureversion
             
             	This object indicates the version of the licensable feature in the device. Examples of feature versions are\: '1.0' or '2.0'
@@ -2168,12 +2331,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..32
             
+            	**config**\: False
+            
             .. attribute:: clmgmtfeaturevalidityperiodremaining
             
             	This object indicates the time period remaining before the feature's license expires or transitions. This object is applicable only if clmgmtLicenseType of the license used by this feature is demo(1), or extension(2) or gracePeriod(3) or evalRightToUse(8).  The object will contain 0 if other types of license is used or if the feature does not use any license. If the feature is using multiple licenses, this period will represent the cumulative period remaining from all the licenses used by this feature
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -2184,15 +2351,21 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..128
             
+            	**config**\: False
+            
             .. attribute:: clmgmtfeaturestartdate
             
             	This object indicates the license start date of the feature. This object is applicable if at least one of the licenses used for this feature has a valid start date. The start date will be the earliest of the valid start dates of all the licenses used for this feature. If none of the licenses used for this feature have a valid start date then this object will contain an octet string of length 0
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: clmgmtfeatureenddate
             
             	This object indicates the license end date of the feature. This object is applicable if at least one of the licenses used for this feature has a valid end date. The end date will be the latest of the valid end dates of all the licenses used for this feature. If none of the licenses used for this feature have a valid end date then this object will contain an octet string of length 0
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: clmgmtfeatureperiodused
             
@@ -2200,6 +2373,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -2247,6 +2422,8 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicensableFeatureTable.ClmgmtLicensableFeatureEntry, ['entphysicalindex', 'clmgmtfeatureindex', 'clmgmtfeaturename', 'clmgmtfeatureversion', 'clmgmtfeaturevalidityperiodremaining', 'clmgmtfeaturewhatiscounted', 'clmgmtfeaturestartdate', 'clmgmtfeatureenddate', 'clmgmtfeatureperiodused'], name, value)
 
 
+
+
     class ClmgmtDevCredExportActionTable(Entity):
         """
         A table for triggering device credentials export action.
@@ -2263,6 +2440,8 @@ class CISCOLICENSEMGMTMIB(Entity):
         
         	An entry for each device credential export action that is being executed or was executed recently. The management application triggers the export by creating an entry in this table. This can be done in the following 2 methods  1. CREATE\-AND\-GO method     Management application sets clmgmtDevCredExportActionStatus     to createAndGo(4) and all other required objects to valid     values in a single SNMP SET request. If all the values     are valid, the device creates the entry and executes the     action. If the SET request fails, the entry will not be     created. 2. CREATE\-AND\-WAIT method     Management application sets clmgmtDevCredExportActionStatus to     createAndWait(5) to create an entry. Management application     can set all other required objects to valid     values in more than one SNMP SET request. If SET request     for any of the objects fails, management application can set     just only that object. Once all the required objects     are set to valid values, management application triggers action     execution by setting clmgmtDevCredExportActionStatus to     active(1).  To stop the action from being executed, the management application can delete the entry by setting clmgmtDevCredExportActionStatus to destroy(6) when clmgmtDevCredCommandState is pending(2).  The status of action execution can be known by querying clmgmtDevCredCommandState. If the action is still in pending(2) or inProgress(3), the management application need to check back again after few seconds. Once the action completes and if status of the action is failed(6), the reason for failure can be retrieved from clmgmtDevCredCommandFailCause.  Entry can be deleted except when clmgmtLicenseAction is set to inProgress(3). All entries in this table are volatile and are cleared on agent reset
         	**type**\: list of  		 :py:class:`ClmgmtDevCredExportActionEntry <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtDevCredExportActionTable.ClmgmtDevCredExportActionEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2338,6 +2517,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**range:** 1..4294967295
             
+            	**config**\: False
+            
             .. attribute:: clmgmtdevcredentphysicalindex
             
             	This object represents the entPhysicalIndex of the device for which the device credentials are being retrieved. This object is mainly used in devices where one device is acting as a master and rest of the devices as slaves. The master device is responsible for SNMP communication with the manager. Examples include stackable switches, devices with router processor and line cards.  Note\: This object need not be set if it is a stand alone device
@@ -2345,15 +2526,21 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: clmgmtdevcredtransferprotocol
             
             	This object indicates the transfer protocol to be used when copying files as specified in the following objects. 1. clmgmtDevCredExportFile 
             	**type**\:  :py:class:`ClmgmtLicenseTransferProtocol <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.ClmgmtLicenseTransferProtocol>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtdevcredserveraddresstype
             
             	This object indicates the transport type of the address contained in clmgmtDevCredServerAddress object. This must be set when clmgmtDevCredTransferProtocol is not none(1) or local(2)
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: clmgmtdevcredserveraddress
             
@@ -2362,12 +2549,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: clmgmtdevcredserverusername
             
             	This object indicates the remote user name for accessing files via ftp, rcp, sftp or scp protocols. This object must be set when the clmgmtDevCredTransferProtocol is ftp(4), rcp(5), scp(7) or sftp(8). If clmgmtDevCredTransferProtocol is rcp(5), the remote username is sent as the server username in an rcp command request sent by the system to a remote rcp server
             	**type**\: str
             
             	**length:** 0..96
+            
+            	**config**\: False
             
             .. attribute:: clmgmtdevcredserverpassword
             
@@ -2376,6 +2567,8 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..96
             
+            	**config**\: False
+            
             .. attribute:: clmgmtdevcredexportfile
             
             	This object represents file where device credentials needs to be exported to
@@ -2383,30 +2576,42 @@ class CISCOLICENSEMGMTMIB(Entity):
             
             	**length:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: clmgmtdevcredcommand
             
             	This object indicates the the command to be executed.  Command                          Remarks \-\-\-\-\-\-\-                          \-\-\-\-\-\-\- noOp(1)                         No operation will be                                 performed.  getDeviceCredentials(2)         Exports device credentials
             	**type**\:  :py:class:`ClmgmtDevCredCommand <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtDevCredExportActionTable.ClmgmtDevCredExportActionEntry.ClmgmtDevCredCommand>`
+            
+            	**config**\: False
             
             .. attribute:: clmgmtdevcredcommandstate
             
             	This object indicates the state of the action that is executed as a result of setting clmgmtDevCredRowStatus to active(1)
             	**type**\:  :py:class:`ClmgmtLicenseActionState <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.ClmgmtLicenseActionState>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtdevcredcommandfailcause
             
             	This object indicates the the reason for device credentials export operation failure.  The value of this object is valid only when clmgmtDevCredCommandState is failed(6).  none(1)         \- action execution has not started yet.                   If the action is completed and the                    action is successful, then also                   none(1) is returned to indicate that                   there are no errors. unknownError(2) \- reason for failure is unknown,                   operation failed, no operation is                   performed transferProtocolNotSupported(3) \- clmgmtDevCredTransferProtocol                                   given is not supported. fileServerNotReachable(4)       \- file server is not reachable. unrecognizedEntPhysicalIndex(5) \- entPhysicalIndex is not                                   valid invalidFile(6)  \- The target file specified is not valid
             	**type**\:  :py:class:`ClmgmtDevCredCommandFailCause <ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB.CISCOLICENSEMGMTMIB.ClmgmtDevCredExportActionTable.ClmgmtDevCredExportActionEntry.ClmgmtDevCredCommandFailCause>`
+            
+            	**config**\: False
             
             .. attribute:: clmgmtdevcredstoragetype
             
             	This object indicates the storage type for this conceptual row. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:  :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
+            	**config**\: False
+            
             .. attribute:: clmgmtdevcredrowstatus
             
             	This object indicates the the status of this table entry. Once the entry status is set to active(1), the associated entry cannot be modified until the action completes (clmgmtDevCredCommandStatus is set to a value other than inProgress(3)). Once the action completes the only operation possible after this is to delete the row.  clmgmtDevCredExportFile is a mandatory object to be set when creating this entry
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2553,7 +2758,11 @@ class CISCOLICENSEMGMTMIB(Entity):
                 invalidFile = Enum.YLeaf(6, "invalidFile")
 
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOLICENSEMGMTMIB()
         return self._top_entity
+
+
 

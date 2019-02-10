@@ -197,6 +197,8 @@ class SubscriberManager(Entity):
                     self._perform_setattr(SubscriberManager.Accounting.SendStop.SetupFailure, ['method_list_name'], name, value)
 
 
+
+
         class Interim(Entity):
             """
             interim accounting related
@@ -277,6 +279,9 @@ class SubscriberManager(Entity):
                     self._perform_setattr(SubscriberManager.Accounting.Interim.Variation, ['maximum_percentage_variation'], name, value)
 
 
+
+
+
     class Srg(Entity):
         """
         SRG specific config
@@ -313,9 +318,12 @@ class SubscriberManager(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberManager.Srg, ['sync_account_session_id'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = SubscriberManager()
         return self._top_entity
+
+
 
 class SubscriberFeaturette(Entity):
     """
@@ -400,9 +408,12 @@ class SubscriberFeaturette(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberFeaturette.FeaturetteName, ['featurette', 'enable'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = SubscriberFeaturette()
         return self._top_entity
+
+
 
 class IedgeLicenseManager(Entity):
     """
@@ -445,6 +456,8 @@ class IedgeLicenseManager(Entity):
     def clone_ptr(self):
         self._top_entity = IedgeLicenseManager()
         return self._top_entity
+
+
 
 class SubManager(Entity):
     """
@@ -574,7 +587,11 @@ class SubManager(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SubManager.Location.Trace, ['trace_level'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = SubManager()
         return self._top_entity
+
+
 

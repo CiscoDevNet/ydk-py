@@ -127,9 +127,12 @@ class NvSatelliteGlobal(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(NvSatelliteGlobal.ChassisMac, [u'mac1', u'mac2', u'mac3'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = NvSatelliteGlobal()
         return self._top_entity
+
+
 
 class NvSatellites(Entity):
     """
@@ -414,6 +417,7 @@ class NvSatellites(Entity):
 
 
 
+
         class CandidateFabricPorts(Entity):
             """
             Enable interfaces on the satellite to be used
@@ -516,6 +520,8 @@ class NvSatellites(Entity):
                     self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, [u'port_type', u'slot', u'sub_slot', u'port_range'], name, value)
 
 
+
+
         class ConnectionInfo(Entity):
             """
             Satellite User
@@ -561,6 +567,7 @@ class NvSatellites(Entity):
                 self._perform_setattr(NvSatellites.NvSatellite.ConnectionInfo, [u'username', u'password'], name, value)
 
 
+
         class Redundancy(Entity):
             """
             Redundancy submode
@@ -598,7 +605,11 @@ class NvSatellites(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(NvSatellites.NvSatellite.Redundancy, [u'host_priority'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = NvSatellites()
         return self._top_entity
+
+
 

@@ -710,10 +710,14 @@ class ObjectGroup(Entity):
     	Port object group
     	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Port>`
     
+    	**config**\: False
+    
     .. attribute:: network
     
     	Network object group
     	**type**\:  :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network>`
+    
+    	**config**\: False
     
     
 
@@ -757,6 +761,8 @@ class ObjectGroup(Entity):
         	Table of Object
         	**type**\:  :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Port.Objects>`
         
+        	**config**\: False
+        
         
 
         """
@@ -794,6 +800,8 @@ class ObjectGroup(Entity):
             
             	Port object group
             	**type**\: list of  		 :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Port.Objects.Object>`
+            
+            	**config**\: False
             
             
 
@@ -833,25 +841,35 @@ class ObjectGroup(Entity):
                 
                 	**length:** 1..64
                 
+                	**config**\: False
+                
                 .. attribute:: nested_groups
                 
                 	Table of NestedGroup
                 	**type**\:  :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Port.Objects.Object.NestedGroups>`
+                
+                	**config**\: False
                 
                 .. attribute:: operators
                 
                 	Table of Operator
                 	**type**\:  :py:class:`Operators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Port.Objects.Object.Operators>`
                 
+                	**config**\: False
+                
                 .. attribute:: port_ranges
                 
                 	Table of PortRange
                 	**type**\:  :py:class:`PortRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Port.Objects.Object.PortRanges>`
                 
+                	**config**\: False
+                
                 .. attribute:: parent_groups
                 
                 	Table of ParentGroup
                 	**type**\:  :py:class:`ParentGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Port.Objects.Object.ParentGroups>`
+                
+                	**config**\: False
                 
                 
 
@@ -906,6 +924,8 @@ class ObjectGroup(Entity):
                     	nested object group
                     	**type**\: list of  		 :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -943,10 +963,14 @@ class ObjectGroup(Entity):
                         
                         	**length:** 1..64
                         
+                        	**config**\: False
+                        
                         .. attribute:: nested_group_name_xr
                         
                         	Nested group
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -974,7 +998,9 @@ class ObjectGroup(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
+                            self._perform_setattr(ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', u'nested_group_name_xr'], name, value)
+
+
 
 
                 class Operators(Entity):
@@ -985,6 +1011,8 @@ class ObjectGroup(Entity):
                     
                     	op class
                     	**type**\: list of  		 :py:class:`Operator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Port.Objects.Object.Operators.Operator>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1021,6 +1049,8 @@ class ObjectGroup(Entity):
                         	operation for ports
                         	**type**\:  :py:class:`PortOperator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.PortOperator>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: port
                         
                         	Port number
@@ -1032,6 +1062,8 @@ class ObjectGroup(Entity):
                         
                         			**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: operator_type_xr
                         
                         	Operator
@@ -1039,12 +1071,16 @@ class ObjectGroup(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: port_xr
                         
                         	Port
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1076,7 +1112,9 @@ class ObjectGroup(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Port.Objects.Object.Operators.Operator, ['operator_type', 'port', 'operator_type_xr', 'port_xr'], name, value)
+                            self._perform_setattr(ObjectGroup.Port.Objects.Object.Operators.Operator, ['operator_type', 'port', u'operator_type_xr', u'port_xr'], name, value)
+
+
 
 
                 class PortRanges(Entity):
@@ -1087,6 +1125,8 @@ class ObjectGroup(Entity):
                     
                     	Match only packets on a given port range
                     	**type**\: list of  		 :py:class:`PortRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Port.Objects.Object.PortRanges.PortRange>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1129,6 +1169,8 @@ class ObjectGroup(Entity):
                         
                         			**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: end_port
                         
                         	End port number
@@ -1140,6 +1182,8 @@ class ObjectGroup(Entity):
                         
                         			**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: start_port_xr
                         
                         	Port start address
@@ -1147,12 +1191,16 @@ class ObjectGroup(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: end_port_xr
                         
                         	Port end address
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1184,7 +1232,9 @@ class ObjectGroup(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Port.Objects.Object.PortRanges.PortRange, ['start_port', 'end_port', 'start_port_xr', 'end_port_xr'], name, value)
+                            self._perform_setattr(ObjectGroup.Port.Objects.Object.PortRanges.PortRange, ['start_port', 'end_port', u'start_port_xr', u'end_port_xr'], name, value)
+
+
 
 
                 class ParentGroups(Entity):
@@ -1195,6 +1245,8 @@ class ObjectGroup(Entity):
                     
                     	Parent object group
                     	**type**\: list of  		 :py:class:`ParentGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1233,10 +1285,14 @@ class ObjectGroup(Entity):
                         
                         	**length:** 1..64
                         
+                        	**config**\: False
+                        
                         .. attribute:: parent_name
                         
                         	Parent node
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -1264,7 +1320,12 @@ class ObjectGroup(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
+                            self._perform_setattr(ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', u'parent_name'], name, value)
+
+
+
+
+
 
 
     class Network(Entity):
@@ -1276,10 +1337,14 @@ class ObjectGroup(Entity):
         	IPv6 object group
         	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6>`
         
+        	**config**\: False
+        
         .. attribute:: ipv4
         
         	IPv4 object group
         	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4>`
+        
+        	**config**\: False
         
         
 
@@ -1323,6 +1388,8 @@ class ObjectGroup(Entity):
             	Table of Object
             	**type**\:  :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6.Objects>`
             
+            	**config**\: False
+            
             
 
             """
@@ -1360,6 +1427,8 @@ class ObjectGroup(Entity):
                 
                 	IPv6 object group
                 	**type**\: list of  		 :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6.Objects.Object>`
+                
+                	**config**\: False
                 
                 
 
@@ -1399,30 +1468,42 @@ class ObjectGroup(Entity):
                     
                     	**length:** 1..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: nested_groups
                     
                     	Table of NestedGroup
                     	**type**\:  :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: addresses
                     
                     	Table of Address
                     	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6.Objects.Object.Addresses>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: address_ranges
                     
                     	Table of AddressRange
                     	**type**\:  :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: parent_groups
                     
                     	Table of parent object group
                     	**type**\:  :py:class:`ParentGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hosts
                     
                     	Table of Host
                     	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6.Objects.Object.Hosts>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1481,6 +1562,8 @@ class ObjectGroup(Entity):
                         	nested object group
                         	**type**\: list of  		 :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -1518,10 +1601,14 @@ class ObjectGroup(Entity):
                             
                             	**length:** 1..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: nested_group_name_xr
                             
                             	Nested group
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -1549,7 +1636,9 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', u'nested_group_name_xr'], name, value)
+
+
 
 
                     class Addresses(Entity):
@@ -1560,6 +1649,8 @@ class ObjectGroup(Entity):
                         
                         	IPv6 address
                         	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1598,12 +1689,16 @@ class ObjectGroup(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_length
                             
                             	Prefix of the IP Address
                             	**type**\: int
                             
                             	**range:** 0..128
+                            
+                            	**config**\: False
                             
                             .. attribute:: prefix_xr
                             
@@ -1612,12 +1707,16 @@ class ObjectGroup(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_length_xr
                             
                             	Prefix length
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -1649,7 +1748,9 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address, ['prefix', 'prefix_length', 'prefix_xr', 'prefix_length_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address, ['prefix', 'prefix_length', u'prefix_xr', u'prefix_length_xr'], name, value)
+
+
 
 
                     class AddressRanges(Entity):
@@ -1660,6 +1761,8 @@ class ObjectGroup(Entity):
                         
                         	Range of host addresses
                         	**type**\: list of  		 :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1698,12 +1801,16 @@ class ObjectGroup(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: end_address
                             
                             	IPv6 address
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_address_xr
                             
@@ -1712,12 +1819,16 @@ class ObjectGroup(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: end_address_xr
                             
                             	Range end address
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -1749,7 +1860,9 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange, ['start_address', 'end_address', 'start_address_xr', 'end_address_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange, ['start_address', 'end_address', u'start_address_xr', u'end_address_xr'], name, value)
+
+
 
 
                     class ParentGroups(Entity):
@@ -1760,6 +1873,8 @@ class ObjectGroup(Entity):
                         
                         	Parent object group
                         	**type**\: list of  		 :py:class:`ParentGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1798,10 +1913,14 @@ class ObjectGroup(Entity):
                             
                             	**length:** 1..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: parent_name
                             
                             	Parent node
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -1829,7 +1948,9 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', u'parent_name'], name, value)
+
+
 
 
                     class Hosts(Entity):
@@ -1840,6 +1961,8 @@ class ObjectGroup(Entity):
                         
                         	A single host address
                         	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1878,12 +2001,16 @@ class ObjectGroup(Entity):
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: host_address_xr
                             
                             	Host address
                             	**type**\: str
                             
                             	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -1911,7 +2038,12 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host, ['host_address', 'host_address_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host, ['host_address', u'host_address_xr'], name, value)
+
+
+
+
+
 
 
         class Ipv4(Entity):
@@ -1922,6 +2054,8 @@ class ObjectGroup(Entity):
             
             	Table of Object
             	**type**\:  :py:class:`Objects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4.Objects>`
+            
+            	**config**\: False
             
             
 
@@ -1961,6 +2095,8 @@ class ObjectGroup(Entity):
                 	IPv4 object group
                 	**type**\: list of  		 :py:class:`Object <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4.Objects.Object>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -1999,30 +2135,42 @@ class ObjectGroup(Entity):
                     
                     	**length:** 1..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: nested_groups
                     
                     	Table of NestedGroup
                     	**type**\:  :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: addresses
                     
                     	Table of Address
                     	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4.Objects.Object.Addresses>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: address_ranges
                     
                     	Table of AddressRange
                     	**type**\:  :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: parent_groups
                     
                     	Table of parent object group
                     	**type**\:  :py:class:`ParentGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hosts
                     
                     	Table of Host
                     	**type**\:  :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4.Objects.Object.Hosts>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -2081,6 +2229,8 @@ class ObjectGroup(Entity):
                         	Nested object group
                         	**type**\: list of  		 :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup>`
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -2118,10 +2268,14 @@ class ObjectGroup(Entity):
                             
                             	**length:** 1..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: nested_group_name_xr
                             
                             	Nested group
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -2149,7 +2303,9 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', u'nested_group_name_xr'], name, value)
+
+
 
 
                     class Addresses(Entity):
@@ -2160,6 +2316,8 @@ class ObjectGroup(Entity):
                         
                         	IPv4 address
                         	**type**\: list of  		 :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2198,12 +2356,16 @@ class ObjectGroup(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_length
                             
                             	Prefix of the IP Address
                             	**type**\: int
                             
                             	**range:** 0..32
+                            
+                            	**config**\: False
                             
                             .. attribute:: prefix_xr
                             
@@ -2212,12 +2374,16 @@ class ObjectGroup(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: prefix_length_xr
                             
                             	Prefix length
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -2249,7 +2415,9 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address, ['prefix', 'prefix_length', 'prefix_xr', 'prefix_length_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address, ['prefix', 'prefix_length', u'prefix_xr', u'prefix_length_xr'], name, value)
+
+
 
 
                     class AddressRanges(Entity):
@@ -2260,6 +2428,8 @@ class ObjectGroup(Entity):
                         
                         	Range of host addresses
                         	**type**\: list of  		 :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2298,12 +2468,16 @@ class ObjectGroup(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: end_address
                             
                             	IPv4 address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             .. attribute:: start_address_xr
                             
@@ -2312,12 +2486,16 @@ class ObjectGroup(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: end_address_xr
                             
                             	Range end address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -2349,7 +2527,9 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange, ['start_address', 'end_address', 'start_address_xr', 'end_address_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange, ['start_address', 'end_address', u'start_address_xr', u'end_address_xr'], name, value)
+
+
 
 
                     class ParentGroups(Entity):
@@ -2360,6 +2540,8 @@ class ObjectGroup(Entity):
                         
                         	Parent object group
                         	**type**\: list of  		 :py:class:`ParentGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2398,10 +2580,14 @@ class ObjectGroup(Entity):
                             
                             	**length:** 1..64
                             
+                            	**config**\: False
+                            
                             .. attribute:: parent_name
                             
                             	Parent node
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             
 
@@ -2429,7 +2615,9 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', u'parent_name'], name, value)
+
+
 
 
                     class Hosts(Entity):
@@ -2440,6 +2628,8 @@ class ObjectGroup(Entity):
                         
                         	A single host address
                         	**type**\: list of  		 :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper.ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -2478,12 +2668,16 @@ class ObjectGroup(Entity):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**config**\: False
+                            
                             .. attribute:: host_address_xr
                             
                             	Host address
                             	**type**\: str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**config**\: False
                             
                             
 
@@ -2511,9 +2705,17 @@ class ObjectGroup(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host, ['host_address', 'host_address_xr'], name, value)
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host, ['host_address', u'host_address_xr'], name, value)
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = ObjectGroup()
         return self._top_entity
+
+
 

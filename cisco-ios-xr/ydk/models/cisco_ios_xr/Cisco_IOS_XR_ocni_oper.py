@@ -41,6 +41,8 @@ class OcniNiBase(Entity):
     	Network instances configured on the local system
     	**type**\:  :py:class:`NetworkInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_oper.OcniNiBase.NetworkInstances>`
     
+    	**config**\: False
+    
     
 
     """
@@ -79,6 +81,8 @@ class OcniNiBase(Entity):
         	Network instances configured on the local system
         	**type**\: list of  		 :py:class:`NetworkInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_oper.OcniNiBase.NetworkInstances.NetworkInstance>`
         
+        	**config**\: False
+        
         
 
         """
@@ -116,10 +120,14 @@ class OcniNiBase(Entity):
             	A unique name identifying the network instance
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	Operational state parameters relating to a network instance
             	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_oper.OcniNiBase.NetworkInstances.NetworkInstance.State>`
+            
+            	**config**\: False
             
             
 
@@ -163,25 +171,35 @@ class OcniNiBase(Entity):
                 	An operator\-assigned unique name for the forwarding instance
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: type
                 
                 	The type of network instance. The value of this leaf indicates the type of forwarding entries that should be supported by this network instance
                 	**type**\: str
+                
+                	**config**\: False
                 
                 .. attribute:: enabled
                 
                 	Whether the network instance should be configured to be active on the network element
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: description
                 
                 	A free\-form string to be used by the network operator to describe the function of this network instance
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: enabled_address_family
                 
                 	The address families that are to be enabled for this network instance
                 	**type**\: list of str
+                
+                	**config**\: False
                 
                 
 
@@ -215,9 +233,14 @@ class OcniNiBase(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OcniNiBase.NetworkInstances.NetworkInstance.State, [u'name', u'type', u'enabled', u'description', u'enabled_address_family'], name, value)
+                    self._perform_setattr(OcniNiBase.NetworkInstances.NetworkInstance.State, ['name', 'type', 'enabled', 'description', 'enabled_address_family'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = OcniNiBase()
         return self._top_entity
+
+
 

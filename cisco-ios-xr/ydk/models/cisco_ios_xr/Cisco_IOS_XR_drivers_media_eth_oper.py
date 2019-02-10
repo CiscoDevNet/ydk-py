@@ -3185,15 +3185,21 @@ class EthernetInterface(Entity):
     	Ethernet controller statistics table
     	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics>`
     
+    	**config**\: False
+    
     .. attribute:: interfaces
     
     	Ethernet controller info table
     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces>`
     
+    	**config**\: False
+    
     .. attribute:: berts
     
     	Ethernet controller BERT table
     	**type**\:  :py:class:`Berts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts>`
+    
+    	**config**\: False
     
     
 
@@ -3241,6 +3247,8 @@ class EthernetInterface(Entity):
         	Ethernet statistics information
         	**type**\: list of  		 :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics.Statistic>`
         
+        	**config**\: False
+        
         
 
         """
@@ -3279,12 +3287,16 @@ class EthernetInterface(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: received_total_bytes
             
             	Total octets of all frames
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: received_good_bytes
             
@@ -3293,12 +3305,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: received_total_frames
             
             	All frames, good or bad
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: received8021q_frames
             
@@ -3307,12 +3323,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: received_pause_frames
             
             	All pause frames
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: received_unknown_opcodes
             
@@ -3321,12 +3341,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: received_total64_octet_frames
             
             	All 64 Octet Frame Count
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: received_total_octet_frames_from65_to127
             
@@ -3335,12 +3359,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: received_total_octet_frames_from128_to255
             
             	All 128\-255 Octet Frame Count
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: received_total_octet_frames_from256_to511
             
@@ -3349,12 +3377,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: received_total_octet_frames_from512_to1023
             
             	All 512\-1023 Octet Frame Count
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: received_total_octet_frames_from1024_to1518
             
@@ -3363,12 +3395,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: received_total_octet_frames_from1519_to_max
             
             	All > 1518 Octet Frame Count
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: received_good_frames
             
@@ -3377,12 +3413,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: received_unicast_frames
             
             	Received unicast Frames
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: received_multicast_frames
             
@@ -3391,12 +3431,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: received_broadcast_frames
             
             	Received broadcast Frames
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: number_of_buffer_overrun_packets_dropped
             
@@ -3405,12 +3449,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: number_of_aborted_packets_dropped
             
             	Drops due to packet abort
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: numberof_invalid_vlan_id_packets_dropped
             
@@ -3419,12 +3467,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: invalid_dest_mac_drop_packets
             
             	Drops due to the destination MAC not matching
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: invalid_encap_drop_packets
             
@@ -3433,12 +3485,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: number_of_miscellaneous_packets_dropped
             
             	Any other drops not counted
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: dropped_giant_packets_greaterthan_mru
             
@@ -3447,12 +3503,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: dropped_ether_stats_undersize_pkts
             
             	Good frames < 64 Octet, dropped
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: dropped_jabbers_packets_greaterthan_mru
             
@@ -3461,12 +3521,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: dropped_ether_stats_fragments
             
             	Bad Frames < 64 Octet, dropped
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: dropped_packets_with_crc_align_errors
             
@@ -3475,12 +3539,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: ether_stats_collisions
             
             	All collision events
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: symbol_errors
             
@@ -3489,12 +3557,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: dropped_miscellaneous_error_packets
             
             	Any other errors not counted
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: rfc2819_ether_stats_oversized_pkts
             
@@ -3503,12 +3575,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: rfc2819_ether_stats_jabbers
             
             	RFC2819 etherStatsJabbers
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: rfc2819_ether_stats_crc_align_errors
             
@@ -3517,12 +3593,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: rfc3635dot3_stats_alignment_errors
             
             	RFC3635 dot3StatsAlignmentErrors
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: total_bytes_transmitted
             
@@ -3531,12 +3611,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: total_good_bytes_transmitted
             
             	Total octets of all good frames
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: total_frames_transmitted
             
@@ -3545,12 +3629,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: transmitted8021q_frames
             
             	All 802.1Q frames
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: transmitted_total_pause_frames
             
@@ -3559,12 +3647,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: transmitted_total64_octet_frames
             
             	All 64 Octet Frame Count
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: transmitted_total_octet_frames_from65_to127
             
@@ -3573,12 +3665,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: transmitted_total_octet_frames_from128_to255
             
             	All 128\-255 Octet Frame Count
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: transmitted_total_octet_frames_from256_to511
             
@@ -3587,12 +3683,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: transmitted_total_octet_frames_from512_to1023
             
             	All 512\-1023 Octet Frame Count
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: transmitted_total_octet_frames_from1024_to1518
             
@@ -3601,12 +3701,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: transmitted_total_octet_frames_from1518_to_max
             
             	All > 1518 Octet Frame Count
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: transmitted_good_frames
             
@@ -3615,12 +3719,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: transmitted_unicast_frames
             
             	Transmitted unicast Frames
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: transmitted_multicast_frames
             
@@ -3629,12 +3737,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: transmitted_broadcast_frames
             
             	Transmitted broadcast Frames
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: buffer_underrun_packet_drops
             
@@ -3643,12 +3755,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: aborted_packet_drops
             
             	Drops due to packet abort
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             .. attribute:: uncounted_dropped_frames
             
@@ -3657,12 +3773,16 @@ class EthernetInterface(Entity):
             
             	**range:** 0..18446744073709551615
             
+            	**config**\: False
+            
             .. attribute:: miscellaneous_output_errors
             
             	Any other errors not counted
             	**type**\: int
             
             	**range:** 0..18446744073709551615
+            
+            	**config**\: False
             
             
 
@@ -3799,7 +3919,9 @@ class EthernetInterface(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EthernetInterface.Statistics.Statistic, ['interface_name', 'received_total_bytes', 'received_good_bytes', 'received_total_frames', 'received8021q_frames', 'received_pause_frames', 'received_unknown_opcodes', 'received_total64_octet_frames', 'received_total_octet_frames_from65_to127', 'received_total_octet_frames_from128_to255', 'received_total_octet_frames_from256_to511', 'received_total_octet_frames_from512_to1023', 'received_total_octet_frames_from1024_to1518', 'received_total_octet_frames_from1519_to_max', 'received_good_frames', 'received_unicast_frames', 'received_multicast_frames', 'received_broadcast_frames', 'number_of_buffer_overrun_packets_dropped', 'number_of_aborted_packets_dropped', 'numberof_invalid_vlan_id_packets_dropped', 'invalid_dest_mac_drop_packets', 'invalid_encap_drop_packets', 'number_of_miscellaneous_packets_dropped', 'dropped_giant_packets_greaterthan_mru', 'dropped_ether_stats_undersize_pkts', 'dropped_jabbers_packets_greaterthan_mru', 'dropped_ether_stats_fragments', 'dropped_packets_with_crc_align_errors', 'ether_stats_collisions', 'symbol_errors', 'dropped_miscellaneous_error_packets', 'rfc2819_ether_stats_oversized_pkts', 'rfc2819_ether_stats_jabbers', 'rfc2819_ether_stats_crc_align_errors', 'rfc3635dot3_stats_alignment_errors', 'total_bytes_transmitted', 'total_good_bytes_transmitted', 'total_frames_transmitted', 'transmitted8021q_frames', 'transmitted_total_pause_frames', 'transmitted_total64_octet_frames', 'transmitted_total_octet_frames_from65_to127', 'transmitted_total_octet_frames_from128_to255', 'transmitted_total_octet_frames_from256_to511', 'transmitted_total_octet_frames_from512_to1023', 'transmitted_total_octet_frames_from1024_to1518', 'transmitted_total_octet_frames_from1518_to_max', 'transmitted_good_frames', 'transmitted_unicast_frames', 'transmitted_multicast_frames', 'transmitted_broadcast_frames', 'buffer_underrun_packet_drops', 'aborted_packet_drops', 'uncounted_dropped_frames', 'miscellaneous_output_errors'], name, value)
+                self._perform_setattr(EthernetInterface.Statistics.Statistic, ['interface_name', u'received_total_bytes', u'received_good_bytes', u'received_total_frames', u'received8021q_frames', u'received_pause_frames', u'received_unknown_opcodes', u'received_total64_octet_frames', u'received_total_octet_frames_from65_to127', u'received_total_octet_frames_from128_to255', u'received_total_octet_frames_from256_to511', u'received_total_octet_frames_from512_to1023', u'received_total_octet_frames_from1024_to1518', u'received_total_octet_frames_from1519_to_max', u'received_good_frames', u'received_unicast_frames', u'received_multicast_frames', u'received_broadcast_frames', u'number_of_buffer_overrun_packets_dropped', u'number_of_aborted_packets_dropped', u'numberof_invalid_vlan_id_packets_dropped', u'invalid_dest_mac_drop_packets', u'invalid_encap_drop_packets', u'number_of_miscellaneous_packets_dropped', u'dropped_giant_packets_greaterthan_mru', u'dropped_ether_stats_undersize_pkts', u'dropped_jabbers_packets_greaterthan_mru', u'dropped_ether_stats_fragments', u'dropped_packets_with_crc_align_errors', u'ether_stats_collisions', u'symbol_errors', u'dropped_miscellaneous_error_packets', u'rfc2819_ether_stats_oversized_pkts', u'rfc2819_ether_stats_jabbers', u'rfc2819_ether_stats_crc_align_errors', u'rfc3635dot3_stats_alignment_errors', u'total_bytes_transmitted', u'total_good_bytes_transmitted', u'total_frames_transmitted', u'transmitted8021q_frames', u'transmitted_total_pause_frames', u'transmitted_total64_octet_frames', u'transmitted_total_octet_frames_from65_to127', u'transmitted_total_octet_frames_from128_to255', u'transmitted_total_octet_frames_from256_to511', u'transmitted_total_octet_frames_from512_to1023', u'transmitted_total_octet_frames_from1024_to1518', u'transmitted_total_octet_frames_from1518_to_max', u'transmitted_good_frames', u'transmitted_unicast_frames', u'transmitted_multicast_frames', u'transmitted_broadcast_frames', u'buffer_underrun_packet_drops', u'aborted_packet_drops', u'uncounted_dropped_frames', u'miscellaneous_output_errors'], name, value)
+
+
 
 
     class Interfaces(Entity):
@@ -3810,6 +3932,8 @@ class EthernetInterface(Entity):
         
         	Ethernet controller information
         	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface>`
+        
+        	**config**\: False
         
         
 
@@ -3849,35 +3973,49 @@ class EthernetInterface(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: phy_info
             
             	PHY information
             	**type**\:  :py:class:`PhyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo>`
+            
+            	**config**\: False
             
             .. attribute:: layer1_info
             
             	Layer 1 information
             	**type**\:  :py:class:`Layer1Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info>`
             
+            	**config**\: False
+            
             .. attribute:: mac_info
             
             	MAC Layer information
             	**type**\:  :py:class:`MacInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo>`
+            
+            	**config**\: False
             
             .. attribute:: transport_info
             
             	Transport state information
             	**type**\:  :py:class:`TransportInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.TransportInfo>`
             
+            	**config**\: False
+            
             .. attribute:: admin_state
             
             	Port Administrative State
             	**type**\:  :py:class:`EthernetPortEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetPortEnable>`
             
+            	**config**\: False
+            
             .. attribute:: oper_state_up
             
             	Port Operational state \- TRUE if up
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -3924,7 +4062,7 @@ class EthernetInterface(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EthernetInterface.Interfaces.Interface, ['interface_name', 'admin_state', 'oper_state_up'], name, value)
+                self._perform_setattr(EthernetInterface.Interfaces.Interface, ['interface_name', u'admin_state', u'oper_state_up'], name, value)
 
 
             class PhyInfo(Entity):
@@ -3936,25 +4074,35 @@ class EthernetInterface(Entity):
                 	Details about the PHY
                 	**type**\:  :py:class:`PhyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails>`
                 
+                	**config**\: False
+                
                 .. attribute:: fec_details
                 
                 	Forward Error Correction information
                 	**type**\:  :py:class:`FecDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails>`
+                
+                	**config**\: False
                 
                 .. attribute:: media_type
                 
                 	Port media type
                 	**type**\:  :py:class:`EthernetMedia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetMedia>`
                 
+                	**config**\: False
+                
                 .. attribute:: phy_present
                 
                 	Presence of PHY
                 	**type**\:  :py:class:`EtherPhyPresent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPhyPresent>`
                 
+                	**config**\: False
+                
                 .. attribute:: loopback
                 
                 	Port operational loopback
                 	**type**\:  :py:class:`EthernetLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopback>`
+                
+                	**config**\: False
                 
                 .. attribute:: holdoff_time
                 
@@ -3963,10 +4111,14 @@ class EthernetInterface(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: extended_loopback
                 
                 	Port operational extended loopback
                 	**type**\: list of  		 :py:class:`ExtendedLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback>`
+                
+                	**config**\: False
                 
                 
 
@@ -4008,7 +4160,7 @@ class EthernetInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo, ['media_type', 'phy_present', 'loopback', 'holdoff_time'], name, value)
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo, [u'media_type', u'phy_present', u'loopback', u'holdoff_time'], name, value)
 
 
                 class PhyDetails(Entity):
@@ -4020,30 +4172,42 @@ class EthernetInterface(Entity):
                     	Digital Optical Monitoring (per lane information) validity
                     	**type**\:  :py:class:`LaneFieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: dig_opt_mon_alarm_thresholds
                     
                     	Digital Optical Monitoring alarm thresholds
                     	**type**\:  :py:class:`DigOptMonAlarmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: dig_opt_mon_alarms
                     
                     	Digital Optical Monitoring alarms
                     	**type**\:  :py:class:`DigOptMonAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: vendor
                     
                     	Name of the port optics manufacturer
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: vendor_part_number
                     
                     	Part number for the port optics
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: vendor_serial_number
                     
                     	Serial number for the port optics
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: transceiver_temperature
                     
@@ -4052,12 +4216,16 @@ class EthernetInterface(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: transceiver_voltage
                     
                     	The input voltage to the transceiver (mV)
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: transceiver_tx_power
                     
@@ -4066,12 +4234,16 @@ class EthernetInterface(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: transceiver_rx_power
                     
                     	The transceiver receive optical power (uW)
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     .. attribute:: transceiver_tx_bias
                     
@@ -4080,6 +4252,8 @@ class EthernetInterface(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: optics_wavelength
                     
                     	Wavelength of the optics being used in nm \* 1000
@@ -4087,20 +4261,28 @@ class EthernetInterface(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: optics_type
                     
                     	Optics module type
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: revision_number
                     
                     	Module revision number
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: lane
                     
                     	Digital Optical Monitoring (per lane information)
                     	**type**\: list of  		 :py:class:`Lane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4160,7 +4342,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails, ['vendor', 'vendor_part_number', 'vendor_serial_number', 'transceiver_temperature', 'transceiver_voltage', 'transceiver_tx_power', 'transceiver_rx_power', 'transceiver_tx_bias', 'optics_wavelength', 'optics_type', 'revision_number'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails, [u'vendor', u'vendor_part_number', u'vendor_serial_number', u'transceiver_temperature', u'transceiver_voltage', u'transceiver_tx_power', u'transceiver_rx_power', u'transceiver_tx_bias', u'optics_wavelength', u'optics_type', u'revision_number'], name, value)
 
 
                     class LaneFieldValidity(Entity):
@@ -4175,12 +4357,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: transmit_power_valid
                         
                         	The transmit power 'per lane' field is valid
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: receive_power_valid
                         
@@ -4189,12 +4375,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: laser_bias_valid
                         
                         	The laser bias 'per lane' field is valid
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         
 
@@ -4226,7 +4416,8 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity, ['wavelength_valid', 'transmit_power_valid', 'receive_power_valid', 'laser_bias_valid'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity, [u'wavelength_valid', u'transmit_power_valid', u'receive_power_valid', u'laser_bias_valid'], name, value)
+
 
 
                     class DigOptMonAlarmThresholds(Entity):
@@ -4238,12 +4429,16 @@ class EthernetInterface(Entity):
                         	Field validity
                         	**type**\:  :py:class:`FieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: transceiver_temperature_alarm_high
                         
                         	Transceiver high temperature alarm threshold (mDegrees C)
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: transceiver_temperature_warning_high
                         
@@ -4252,12 +4447,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: transceiver_temperature_warning_low
                         
                         	Transceiver low temperature warning threshold (mDegrees C)
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: transceiver_temperature_alarm_low
                         
@@ -4266,12 +4465,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: transceiver_voltage_alarm_high
                         
                         	Transceiver high voltage alarm threshold (mV)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: transceiver_voltage_warning_high
                         
@@ -4280,12 +4483,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: transceiver_voltage_warning_low
                         
                         	Transceiver low voltage warning threshold (mV)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: transceiver_voltage_alarm_low
                         
@@ -4294,12 +4501,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: laser_bias_alarm_high
                         
                         	Laser bias high alarm threshold (uA)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: laser_bias_warning_high
                         
@@ -4308,12 +4519,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: laser_bias_warning_low
                         
                         	Laser bias low warning threshold (uA)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: laser_bias_alarm_low
                         
@@ -4322,12 +4537,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: optical_transmit_power_alarm_high
                         
                         	High optical transmit power alarm threshold (uW)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: optical_transmit_power_warning_high
                         
@@ -4336,12 +4555,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: optical_transmit_power_warning_low
                         
                         	Low optical transmit power warning threshold (uW)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: optical_transmit_power_alarm_low
                         
@@ -4350,12 +4573,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: optical_receive_power_alarm_high
                         
                         	High optical receive power alarm threshold (uW)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: optical_receive_power_warning_high
                         
@@ -4364,6 +4591,8 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: optical_receive_power_warning_low
                         
                         	Low optical receive power warning threshold (uW)
@@ -4371,12 +4600,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: optical_receive_power_alarm_low
                         
                         	Low optical receive power alarm threshold (uW)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4444,7 +4677,7 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds, ['transceiver_temperature_alarm_high', 'transceiver_temperature_warning_high', 'transceiver_temperature_warning_low', 'transceiver_temperature_alarm_low', 'transceiver_voltage_alarm_high', 'transceiver_voltage_warning_high', 'transceiver_voltage_warning_low', 'transceiver_voltage_alarm_low', 'laser_bias_alarm_high', 'laser_bias_warning_high', 'laser_bias_warning_low', 'laser_bias_alarm_low', 'optical_transmit_power_alarm_high', 'optical_transmit_power_warning_high', 'optical_transmit_power_warning_low', 'optical_transmit_power_alarm_low', 'optical_receive_power_alarm_high', 'optical_receive_power_warning_high', 'optical_receive_power_warning_low', 'optical_receive_power_alarm_low'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds, [u'transceiver_temperature_alarm_high', u'transceiver_temperature_warning_high', u'transceiver_temperature_warning_low', u'transceiver_temperature_alarm_low', u'transceiver_voltage_alarm_high', u'transceiver_voltage_warning_high', u'transceiver_voltage_warning_low', u'transceiver_voltage_alarm_low', u'laser_bias_alarm_high', u'laser_bias_warning_high', u'laser_bias_warning_low', u'laser_bias_alarm_low', u'optical_transmit_power_alarm_high', u'optical_transmit_power_warning_high', u'optical_transmit_power_warning_low', u'optical_transmit_power_alarm_low', u'optical_receive_power_alarm_high', u'optical_receive_power_warning_high', u'optical_receive_power_warning_low', u'optical_receive_power_alarm_low'], name, value)
 
 
                         class FieldValidity(Entity):
@@ -4458,12 +4691,16 @@ class EthernetInterface(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: voltage_valid
                             
                             	The voltage fields are valid
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             .. attribute:: laser_bias_valid
                             
@@ -4472,6 +4709,8 @@ class EthernetInterface(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: transmit_power_valid
                             
                             	The transmit power fields are valid
@@ -4479,12 +4718,16 @@ class EthernetInterface(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: receive_power_valid
                             
                             	The receive power fields are valid
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -4518,7 +4761,9 @@ class EthernetInterface(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity, ['temperature_valid', 'voltage_valid', 'laser_bias_valid', 'transmit_power_valid', 'receive_power_valid'], name, value)
+                                self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity, [u'temperature_valid', u'voltage_valid', u'laser_bias_valid', u'transmit_power_valid', u'receive_power_valid'], name, value)
+
+
 
 
                     class DigOptMonAlarms(Entity):
@@ -4530,25 +4775,35 @@ class EthernetInterface(Entity):
                         	Transceiver Temperature Alarm
                         	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: transceiver_voltage
                         
                         	Transceiver Voltage Alarm
                         	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: transmit_laser_power
                         
                         	Transmit Laser Power Alarm
                         	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_laser_power
                         
                         	Received Optical Power Alarm
                         	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: laser_bias_current
                         
                         	Laser Bias Current Alarm
                         	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -4582,7 +4837,8 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms, ['transceiver_temperature', 'transceiver_voltage', 'transmit_laser_power', 'received_laser_power', 'laser_bias_current'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms, [u'transceiver_temperature', u'transceiver_voltage', u'transmit_laser_power', u'received_laser_power', u'laser_bias_current'], name, value)
+
 
 
                     class Lane(Entity):
@@ -4595,12 +4851,16 @@ class EthernetInterface(Entity):
                         	Digital Optical Monitoring alarms
                         	**type**\:  :py:class:`DigOptMonAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: center_wavelength
                         
                         	Center Wavelength (nm\*1000)
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: transmit_laser_power
                         
@@ -4609,12 +4869,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_laser_power
                         
                         	Received Optical Power (dBm\*1000)
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: laser_bias_current
                         
@@ -4623,12 +4887,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: lane_id
                         
                         	Numerical identifier for this lane
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -4666,7 +4934,7 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane, ['center_wavelength', 'transmit_laser_power', 'received_laser_power', 'laser_bias_current', 'lane_id'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane, [u'center_wavelength', u'transmit_laser_power', u'received_laser_power', u'laser_bias_current', u'lane_id'], name, value)
 
 
                         class DigOptMonAlarm(Entity):
@@ -4678,15 +4946,21 @@ class EthernetInterface(Entity):
                             	Transmit Laser Power Alarm
                             	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: received_laser_power
                             
                             	Received Optical Power Alarm
                             	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
                             
+                            	**config**\: False
+                            
                             .. attribute:: laser_bias_current
                             
                             	Laser Bias Current Alarm
                             	**type**\:  :py:class:`EtherDomAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarm>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -4716,7 +4990,10 @@ class EthernetInterface(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm, ['transmit_laser_power', 'received_laser_power', 'laser_bias_current'], name, value)
+                                self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm, [u'transmit_laser_power', u'received_laser_power', u'laser_bias_current'], name, value)
+
+
+
 
 
                 class FecDetails(Entity):
@@ -4728,6 +5005,8 @@ class EthernetInterface(Entity):
                     	Port operational FEC type
                     	**type**\:  :py:class:`EthernetFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFec>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: corrected_codeword_count
                     
                     	Corrected codeword error count
@@ -4735,12 +5014,16 @@ class EthernetInterface(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: uncorrected_codeword_count
                     
                     	Uncorrected codeword error count
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -4770,7 +5053,8 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails, ['fec', 'corrected_codeword_count', 'uncorrected_codeword_count'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails, [u'fec', u'corrected_codeword_count', u'uncorrected_codeword_count'], name, value)
+
 
 
                 class ExtendedLoopback(Entity):
@@ -4784,10 +5068,14 @@ class EthernetInterface(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: loopback
                     
                     	Port operational loopback
                     	**type**\:  :py:class:`EthernetLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopback>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -4815,7 +5103,9 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback, ['level', 'loopback'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback, [u'level', u'loopback'], name, value)
+
+
 
 
             class Layer1Info(Entity):
@@ -4827,70 +5117,98 @@ class EthernetInterface(Entity):
                 	Port autonegotiation configuration settings
                 	**type**\:  :py:class:`Autoneg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg>`
                 
+                	**config**\: False
+                
                 .. attribute:: current_alarms
                 
                 	Current alarms
                 	**type**\:  :py:class:`CurrentAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms>`
+                
+                	**config**\: False
                 
                 .. attribute:: previous_alarms
                 
                 	Previous alarms
                 	**type**\:  :py:class:`PreviousAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms>`
                 
+                	**config**\: False
+                
                 .. attribute:: error_counts
                 
                 	Statistics for detected errors
                 	**type**\:  :py:class:`ErrorCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts>`
+                
+                	**config**\: False
                 
                 .. attribute:: ber_monitoring
                 
                 	BER monitoring details
                 	**type**\:  :py:class:`BerMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring>`
                 
+                	**config**\: False
+                
                 .. attribute:: opd_monitoring
                 
                 	OPD monitoring details
                 	**type**\:  :py:class:`OpdMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring>`
+                
+                	**config**\: False
                 
                 .. attribute:: pfc_info
                 
                 	Priority flow control information
                 	**type**\:  :py:class:`PfcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo>`
                 
+                	**config**\: False
+                
                 .. attribute:: link_state
                 
                 	Link state
                 	**type**\:  :py:class:`EtherLinkState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLinkState>`
+                
+                	**config**\: False
                 
                 .. attribute:: led_state
                 
                 	State of the LED
                 	**type**\:  :py:class:`EtherLedState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLedState>`
                 
+                	**config**\: False
+                
                 .. attribute:: speed
                 
                 	Port operational speed
                 	**type**\:  :py:class:`EthernetSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeed>`
+                
+                	**config**\: False
                 
                 .. attribute:: duplex
                 
                 	Port operational duplexity
                 	**type**\:  :py:class:`EthernetDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplex>`
                 
+                	**config**\: False
+                
                 .. attribute:: flowcontrol
                 
                 	Port operational flow control
                 	**type**\:  :py:class:`EtherFlowcontrol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrol>`
+                
+                	**config**\: False
                 
                 .. attribute:: ipg
                 
                 	Port operational inter\-packet\-gap
                 	**type**\:  :py:class:`EthernetIpg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetIpg>`
                 
+                	**config**\: False
+                
                 .. attribute:: laser_squelch_enabled
                 
                 	Laser Squelch \- TRUE if enabled
                 	**type**\: bool
+                
+                	**config**\: False
                 
                 .. attribute:: bandwidth_utilization
                 
@@ -4898,6 +5216,8 @@ class EthernetInterface(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: percentage
                 
@@ -4907,6 +5227,8 @@ class EthernetInterface(Entity):
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 
 
@@ -4976,7 +5298,7 @@ class EthernetInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info, ['link_state', 'led_state', 'speed', 'duplex', 'flowcontrol', 'ipg', 'laser_squelch_enabled', 'bandwidth_utilization', 'bandwidth'], name, value)
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info, [u'link_state', u'led_state', u'speed', u'duplex', u'flowcontrol', u'ipg', u'laser_squelch_enabled', u'bandwidth_utilization', u'bandwidth'], name, value)
 
 
                 class Autoneg(Entity):
@@ -4990,6 +5312,8 @@ class EthernetInterface(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: mask
                     
                     	Validity mask\: 0x1 speed, 0x2 duplex, 0x4 flowcontrol, 0x8 fec
@@ -4997,20 +5321,28 @@ class EthernetInterface(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: speed
                     
                     	Restricted speed (if relevant bit is set in mask)
                     	**type**\:  :py:class:`EthernetSpeed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeed>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: duplex
                     
                     	Restricted duplex (if relevant bit is set in mask)
                     	**type**\:  :py:class:`EthernetDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplex>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: flowcontrol
                     
                     	Restricted flowcontrol (if relevant bit is set in mask)
                     	**type**\:  :py:class:`EtherFlowcontrol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrol>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: config_override
                     
@@ -5019,10 +5351,14 @@ class EthernetInterface(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**config**\: False
+                    
                     .. attribute:: fec
                     
                     	Restricted FEC (if revelevant bit is set in mask)
                     	**type**\:  :py:class:`EthernetFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFec>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5060,7 +5396,8 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg, ['autoneg_enabled', 'mask', 'speed', 'duplex', 'flowcontrol', 'config_override', 'fec'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg, [u'autoneg_enabled', u'mask', u'speed', u'duplex', u'flowcontrol', u'config_override', u'fec'], name, value)
+
 
 
                 class CurrentAlarms(Entity):
@@ -5072,50 +5409,70 @@ class EthernetInterface(Entity):
                     	Received Loss of Signal
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcs_loss_of_block_lock_alarm
                     
                     	PCS Loss of Block Lock
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_fault_alarm
                     
                     	Local Fault
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_fault_alarm
                     
                     	Remote Fault
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: sd_ber_alarm
                     
                     	SD BER
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sf_ber_alarm
                     
                     	SF BER
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: loss_of_synchronization_data_alarm
                     
                     	Loss of Synchronization Data
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_ber_alarm
                     
                     	Hi BER
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: squelch_alarm
                     
                     	Squelch
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_opd_alarm
                     
                     	Rx OPD Alarm
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5159,7 +5516,8 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms, ['received_loss_of_signal_alarm', 'pcs_loss_of_block_lock_alarm', 'local_fault_alarm', 'remote_fault_alarm', 'sd_ber_alarm', 'sf_ber_alarm', 'loss_of_synchronization_data_alarm', 'hi_ber_alarm', 'squelch_alarm', 'rx_opd_alarm'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms, [u'received_loss_of_signal_alarm', u'pcs_loss_of_block_lock_alarm', u'local_fault_alarm', u'remote_fault_alarm', u'sd_ber_alarm', u'sf_ber_alarm', u'loss_of_synchronization_data_alarm', u'hi_ber_alarm', u'squelch_alarm', u'rx_opd_alarm'], name, value)
+
 
 
                 class PreviousAlarms(Entity):
@@ -5171,50 +5529,70 @@ class EthernetInterface(Entity):
                     	Received Loss of Signal
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcs_loss_of_block_lock_alarm
                     
                     	PCS Loss of Block Lock
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_fault_alarm
                     
                     	Local Fault
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: remote_fault_alarm
                     
                     	Remote Fault
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: sd_ber_alarm
                     
                     	SD BER
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: sf_ber_alarm
                     
                     	SF BER
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: loss_of_synchronization_data_alarm
                     
                     	Loss of Synchronization Data
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: hi_ber_alarm
                     
                     	Hi BER
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: squelch_alarm
                     
                     	Squelch
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: rx_opd_alarm
                     
                     	Rx OPD Alarm
                     	**type**\:  :py:class:`EthCtrlrAlarmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmState>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5258,7 +5636,8 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms, ['received_loss_of_signal_alarm', 'pcs_loss_of_block_lock_alarm', 'local_fault_alarm', 'remote_fault_alarm', 'sd_ber_alarm', 'sf_ber_alarm', 'loss_of_synchronization_data_alarm', 'hi_ber_alarm', 'squelch_alarm', 'rx_opd_alarm'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms, [u'received_loss_of_signal_alarm', u'pcs_loss_of_block_lock_alarm', u'local_fault_alarm', u'remote_fault_alarm', u'sd_ber_alarm', u'sf_ber_alarm', u'loss_of_synchronization_data_alarm', u'hi_ber_alarm', u'squelch_alarm', u'rx_opd_alarm'], name, value)
+
 
 
                 class ErrorCounts(Entity):
@@ -5272,12 +5651,16 @@ class EthernetInterface(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: pcsbip_errors
                     
                     	PCS BIP error count
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -5305,7 +5688,8 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts, ['sync_header_errors', 'pcsbip_errors'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts, [u'sync_header_errors', u'pcsbip_errors'], name, value)
+
 
 
                 class BerMonitoring(Entity):
@@ -5317,10 +5701,14 @@ class EthernetInterface(Entity):
                     	The BER monitoring settings to be applied
                     	**type**\:  :py:class:`Settings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: state
                     
                     	The BER state
                     	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: supported
                     
@@ -5328,6 +5716,8 @@ class EthernetInterface(Entity):
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -5361,7 +5751,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring, ['supported'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring, [u'supported'], name, value)
 
 
                     class Settings(Entity):
@@ -5375,12 +5765,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: signal_degrade_alarm
                         
                         	Report alarm to indicate signal degrade
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: signal_fail_threshold
                         
@@ -5389,6 +5783,8 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: signal_fail_alarm
                         
                         	Report alarm to indicate signal failure
@@ -5396,12 +5792,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: signal_remote_fault
                         
                         	Whether drivers should signal remote faults
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         
 
@@ -5435,7 +5835,8 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings, ['signal_degrade_threshold', 'signal_degrade_alarm', 'signal_fail_threshold', 'signal_fail_alarm', 'signal_remote_fault'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings, [u'signal_degrade_threshold', u'signal_degrade_alarm', u'signal_fail_threshold', u'signal_fail_alarm', u'signal_remote_fault'], name, value)
+
 
 
                     class State(Entity):
@@ -5449,12 +5850,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sf_current_ber
                         
                         	Current SF\-BER
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -5482,7 +5887,9 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State, ['sd_current_ber', 'sf_current_ber'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State, [u'sd_current_ber', u'sf_current_ber'], name, value)
+
+
 
 
                 class OpdMonitoring(Entity):
@@ -5494,12 +5901,16 @@ class EthernetInterface(Entity):
                     	The OPD monitoring settings to be applied
                     	**type**\:  :py:class:`Settings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: supported
                     
                     	Whether or not OPD monitoring is supported
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**config**\: False
                     
                     
 
@@ -5529,7 +5940,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring, ['supported'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring, [u'supported'], name, value)
 
 
                     class Settings(Entity):
@@ -5543,12 +5954,16 @@ class EthernetInterface(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: received_optical_power_degrade_threshold
                         
                         	Rx\-OPD alarm threshold value
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         
 
@@ -5576,7 +5991,9 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings, ['received_optical_power_degrade_threshold_set', 'received_optical_power_degrade_threshold'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings, [u'received_optical_power_degrade_threshold_set', u'received_optical_power_degrade_threshold'], name, value)
+
+
 
 
                 class PfcInfo(Entity):
@@ -5588,12 +6005,16 @@ class EthernetInterface(Entity):
                     	Port operational priority flow control
                     	**type**\:  :py:class:`EtherPfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPfc>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: priority_enabled_bitmap
                     
                     	Priority bitmap
                     	**type**\: int
                     
                     	**range:** 0..255
+                    
+                    	**config**\: False
                     
                     .. attribute:: rx_frame
                     
@@ -5602,12 +6023,16 @@ class EthernetInterface(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: tx_frame
                     
                     	TX Frame counts
                     	**type**\: list of int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -5639,7 +6064,9 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo, ['priority_flowcontrol', 'priority_enabled_bitmap', 'rx_frame', 'tx_frame'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo, [u'priority_flowcontrol', u'priority_enabled_bitmap', u'rx_frame', u'tx_frame'], name, value)
+
+
 
 
             class MacInfo(Entity):
@@ -5651,10 +6078,14 @@ class EthernetInterface(Entity):
                 	Port unicast MAC filter information
                 	**type**\:  :py:class:`UnicastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters>`
                 
+                	**config**\: False
+                
                 .. attribute:: multicast_mac_filters
                 
                 	Port multicast MAC filter information
                 	**type**\:  :py:class:`MulticastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters>`
+                
+                	**config**\: False
                 
                 .. attribute:: mtu
                 
@@ -5663,12 +6094,16 @@ class EthernetInterface(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: mru
                 
                 	Port operational MRU
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: burned_in_mac_address
                 
@@ -5677,12 +6112,16 @@ class EthernetInterface(Entity):
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
+                	**config**\: False
+                
                 .. attribute:: operational_mac_address
                 
                 	Port operational MAC address
                 	**type**\: str
                 
                 	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                	**config**\: False
                 
                 
 
@@ -5722,7 +6161,7 @@ class EthernetInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo, ['mtu', 'mru', 'burned_in_mac_address', 'operational_mac_address'], name, value)
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo, [u'mtu', u'mru', u'burned_in_mac_address', u'operational_mac_address'], name, value)
 
 
                 class UnicastMacFilters(Entity):
@@ -5735,6 +6174,8 @@ class EthernetInterface(Entity):
                     	**type**\: list of str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    	**config**\: False
                     
                     
 
@@ -5760,7 +6201,8 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters, ['unicast_mac_address'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters, [u'unicast_mac_address'], name, value)
+
 
 
                 class MulticastMacFilters(Entity):
@@ -5772,10 +6214,14 @@ class EthernetInterface(Entity):
                     	Whether the port is in multicast promiscuous mode
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: multicast_mac_address
                     
                     	MAC addresses in the multicast ingress destination MAC filter
                     	**type**\: list of  		 :py:class:`MulticastMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -5803,7 +6249,7 @@ class EthernetInterface(Entity):
                         self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters, ['multicast_promiscuous'], name, value)
+                        self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters, [u'multicast_promiscuous'], name, value)
 
 
                     class MulticastMacAddress(Entity):
@@ -5818,12 +6264,16 @@ class EthernetInterface(Entity):
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                         
+                        	**config**\: False
+                        
                         .. attribute:: mask
                         
                         	Mask for this MAC address
                         	**type**\: str
                         
                         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        	**config**\: False
                         
                         
 
@@ -5851,7 +6301,10 @@ class EthernetInterface(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress, ['mac_address', 'mask'], name, value)
+                            self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress, [u'mac_address', u'mask'], name, value)
+
+
+
 
 
             class TransportInfo(Entity):
@@ -5863,10 +6316,14 @@ class EthernetInterface(Entity):
                 	Maintenance Mode \- TRUE if enabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: ains_status
                 
                 	AINS Soak status
                 	**type**\:  :py:class:`EtherAinsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherAinsStatus>`
+                
+                	**config**\: False
                 
                 .. attribute:: total_duration
                 
@@ -5874,6 +6331,8 @@ class EthernetInterface(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: minute
                 
@@ -5883,6 +6342,8 @@ class EthernetInterface(Entity):
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 	**units**\: second
                 
@@ -5916,7 +6377,10 @@ class EthernetInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.TransportInfo, ['maintenance_mode_enabled', 'ains_status', 'total_duration', 'remaining_duration'], name, value)
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.TransportInfo, [u'maintenance_mode_enabled', u'ains_status', u'total_duration', u'remaining_duration'], name, value)
+
+
+
 
 
     class Berts(Entity):
@@ -5927,6 +6391,8 @@ class EthernetInterface(Entity):
         
         	Ethernet BERT information
         	**type**\: list of  		 :py:class:`Bert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert>`
+        
+        	**config**\: False
         
         
 
@@ -5966,10 +6432,14 @@ class EthernetInterface(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: bert_status
             
             	Current test status
             	**type**\:  :py:class:`BertStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert.BertStatus>`
+            
+            	**config**\: False
             
             .. attribute:: time_left
             
@@ -5977,6 +6447,8 @@ class EthernetInterface(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: second
             
@@ -5986,6 +6458,8 @@ class EthernetInterface(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -6020,7 +6494,7 @@ class EthernetInterface(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EthernetInterface.Berts.Bert, ['interface_name', 'time_left', 'port_bert_interval'], name, value)
+                self._perform_setattr(EthernetInterface.Berts.Bert, ['interface_name', u'time_left', u'port_bert_interval'], name, value)
 
 
             class BertStatus(Entity):
@@ -6032,12 +6506,16 @@ class EthernetInterface(Entity):
                 	State
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: data_availability
                 
                 	Flag indicating available data
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: receive_count
                 
@@ -6046,12 +6524,16 @@ class EthernetInterface(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: transmit_count
                 
                 	Transmit count (if 0x2 set in flag)
                 	**type**\: int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**config**\: False
                 
                 .. attribute:: receive_errors
                 
@@ -6060,25 +6542,35 @@ class EthernetInterface(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**config**\: False
+                
                 .. attribute:: error_type
                 
                 	Bit, block or frame error
                 	**type**\:  :py:class:`EthernetBertErrCnt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertErrCnt>`
+                
+                	**config**\: False
                 
                 .. attribute:: test_pattern
                 
                 	Test pattern
                 	**type**\:  :py:class:`EthernetBertPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertPattern>`
                 
+                	**config**\: False
+                
                 .. attribute:: device_under_test
                 
                 	Device being tested
                 	**type**\:  :py:class:`EthernetDev <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDev>`
                 
+                	**config**\: False
+                
                 .. attribute:: interface_device
                 
                 	Interface being tested
                 	**type**\:  :py:class:`EthernetDevIf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevIf>`
+                
+                	**config**\: False
                 
                 
 
@@ -6120,9 +6612,14 @@ class EthernetInterface(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Berts.Bert.BertStatus, ['bert_state_enabled', 'data_availability', 'receive_count', 'transmit_count', 'receive_errors', 'error_type', 'test_pattern', 'device_under_test', 'interface_device'], name, value)
+                    self._perform_setattr(EthernetInterface.Berts.Bert.BertStatus, [u'bert_state_enabled', u'data_availability', u'receive_count', u'transmit_count', u'receive_errors', u'error_type', u'test_pattern', u'device_under_test', u'interface_device'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = EthernetInterface()
         return self._top_entity
+
+
 

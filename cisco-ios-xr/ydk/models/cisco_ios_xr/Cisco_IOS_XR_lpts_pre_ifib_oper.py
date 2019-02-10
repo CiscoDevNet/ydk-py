@@ -99,6 +99,8 @@ class LptsPifib_(Entity):
     	List of Pre\-ifib Nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -136,6 +138,8 @@ class LptsPifib_(Entity):
         
         	Pre\-ifib data for particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -175,20 +179,28 @@ class LptsPifib_(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: type_values
             
             	Type specific
             	**type**\:  :py:class:`TypeValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.TypeValues>`
+            
+            	**config**\: False
             
             .. attribute:: dynamic_flows_stats
             
             	Dynamic Flows Statistics
             	**type**\:  :py:class:`DynamicFlowsStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.DynamicFlowsStats>`
             
+            	**config**\: False
+            
             .. attribute:: hardware
             
             	Hardware specific
             	**type**\:  :py:class:`Hardware <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware>`
+            
+            	**config**\: False
             
             
 
@@ -239,6 +251,8 @@ class LptsPifib_(Entity):
                 	pifib types
                 	**type**\: list of  		 :py:class:`TypeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.TypeValues.TypeValue>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -274,10 +288,14 @@ class LptsPifib_(Entity):
                     	Type value
                     	**type**\:  :py:class:`LptsPifib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: entry
                     
                     	Data for single pre\-ifib entry
                     	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -319,10 +337,14 @@ class LptsPifib_(Entity):
                         
                         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_name
                         
                         	VRF Name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: vid
                         
@@ -331,12 +353,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: l3protocol
                         
                         	Layer 3 Protocol
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: l4protocol
                         
@@ -345,10 +371,14 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: intf_name
                         
                         	Interface Name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: intf_handle
                         
@@ -357,30 +387,42 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: destination_addr
                         
                         	Destination IP Address
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: source_addr
                         
                         	Source IP Address
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: destination_type
                         
                         	Destination Key Type
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: destination_value
                         
                         	Destination Port/ICMP Type/IGMP Type
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: source_port
                         
                         	Source port
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_frag
                         
@@ -389,6 +431,8 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_syn
                         
                         	Is SYN
@@ -396,20 +440,28 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: opcode
                         
                         	Opcode
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: flow_type
                         
                         	Flow type
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: listener_tag
                         
                         	Listener Tag
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_flag
                         
@@ -418,6 +470,8 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_fgid
                         
                         	Is FGID or not
@@ -425,15 +479,21 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: deliver_list_short
                         
                         	Deliver List Short Format
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         .. attribute:: deliver_list_long
                         
                         	Deliver List Long Format
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: min_ttl
                         
@@ -442,12 +502,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: accepts
                         
                         	Packets matched to accept
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: drops
                         
@@ -456,12 +520,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: stale
                         
                         	Is Stale
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: pifib_type
                         
@@ -470,10 +538,14 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: pifib_program_time
                         
                         	Creation or Update Time
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         
 
@@ -554,6 +626,9 @@ class LptsPifib_(Entity):
                             self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry, ['entry', u'vrf_name', u'vid', u'l3protocol', u'l4protocol', u'intf_name', u'intf_handle', u'destination_addr', u'source_addr', u'destination_type', u'destination_value', u'source_port', u'is_frag', u'is_syn', u'opcode', u'flow_type', u'listener_tag', u'local_flag', u'is_fgid', u'deliver_list_short', u'deliver_list_long', u'min_ttl', u'accepts', u'drops', u'stale', u'pifib_type', u'pifib_program_time'], name, value)
 
 
+
+
+
             class DynamicFlowsStats(Entity):
                 """
                 Dynamic Flows Statistics
@@ -563,12 +638,16 @@ class LptsPifib_(Entity):
                 	Dynamic Flows Enabled
                 	**type**\: bool
                 
+                	**config**\: False
+                
                 .. attribute:: platform_supported_max
                 
                 	Platform Max
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: platform_configured_max
                 
@@ -577,12 +656,16 @@ class LptsPifib_(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: platform_total_configured
                 
                 	Platform Total Configured
                 	**type**\: int
                 
                 	**range:** 0..4294967295
+                
+                	**config**\: False
                 
                 .. attribute:: total_hw_entries
                 
@@ -591,6 +674,8 @@ class LptsPifib_(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: total_sw_entries
                 
                 	Total SW Entries
@@ -598,10 +683,14 @@ class LptsPifib_(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: flow
                 
                 	Flow Datalist
                 	**type**\: list of  		 :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow>`
+                
+                	**config**\: False
                 
                 
 
@@ -651,15 +740,21 @@ class LptsPifib_(Entity):
                     	Flow Name
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: configurable
                     
                     	Is Configurable
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: configured
                     
                     	Is Configured
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: default_max
                     
@@ -668,10 +763,14 @@ class LptsPifib_(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: configured_max
                     
                     	Configured Max
                     	**type**\: str
+                    
+                    	**config**\: False
                     
                     .. attribute:: active_max
                     
@@ -680,12 +779,16 @@ class LptsPifib_(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: hardware_count
                     
                     	Hardware Count
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    	**config**\: False
                     
                     .. attribute:: software_count
                     
@@ -694,10 +797,14 @@ class LptsPifib_(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: pending_software_entries
                     
                     	Pending Software Entries
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -742,6 +849,8 @@ class LptsPifib_(Entity):
                         self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow, [u'flow_name', u'configurable', u'configured', u'default_max', u'configured_max', u'active_max', u'hardware_count', u'software_count', u'pending_software_entries'], name, value)
 
 
+
+
             class Hardware(Entity):
                 """
                 Hardware specific
@@ -751,30 +860,42 @@ class LptsPifib_(Entity):
                 	Usage Table options
                 	**type**\:  :py:class:`UsageEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.UsageEntries>`
                 
+                	**config**\: False
+                
                 .. attribute:: police
                 
                 	Police details
                 	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Police>`
+                
+                	**config**\: False
                 
                 .. attribute:: static_police
                 
                 	Static Police details
                 	**type**\:  :py:class:`StaticPolice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.StaticPolice>`
                 
+                	**config**\: False
+                
                 .. attribute:: bfd
                 
                 	Bfd details
                 	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Bfd>`
+                
+                	**config**\: False
                 
                 .. attribute:: statistics
                 
                 	Hardware Entry type
                 	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Statistics>`
                 
+                	**config**\: False
+                
                 .. attribute:: index_entries
                 
                 	Hardware Entry options
                 	**type**\:  :py:class:`IndexEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.IndexEntries>`
+                
+                	**config**\: False
                 
                 
 
@@ -833,6 +954,8 @@ class LptsPifib_(Entity):
                     	Usage details
                     	**type**\: list of  		 :py:class:`UsageEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -868,10 +991,14 @@ class LptsPifib_(Entity):
                         	Region ID
                         	**type**\:  :py:class:`UsageAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_platform_pifib_oper.UsageAddressFamily>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: usage_info
                         
                         	Per TCAM type usage info
                         	**type**\: list of  		 :py:class:`UsageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -913,12 +1040,16 @@ class LptsPifib_(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: region
                             
                             	Region Type
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             .. attribute:: region_id
                             
@@ -927,6 +1058,8 @@ class LptsPifib_(Entity):
                             
                             	**range:** 0..255
                             
+                            	**config**\: False
+                            
                             .. attribute:: size
                             
                             	Maximum Number of Entries in the Region
@@ -934,12 +1067,16 @@ class LptsPifib_(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: used
                             
                             	Used Number of Entries in the Region
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             
 
@@ -976,6 +1113,9 @@ class LptsPifib_(Entity):
                                 self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo, ['pipe_id', 'region', 'region_id', 'size', 'used'], name, value)
 
 
+
+
+
                 class Police(Entity):
                     """
                     Police details
@@ -984,6 +1124,8 @@ class LptsPifib_(Entity):
                     
                     	Per flow type police info
                     	**type**\: list of  		 :py:class:`PoliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Police.PoliceInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1022,12 +1164,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: burst
                         
                         	burst
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: static_avgrate
                         
@@ -1036,12 +1182,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: avgrate_type
                         
                         	avgrate type
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: accepted_stats
                         
@@ -1050,12 +1200,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped_stats
                         
                         	dropped stats
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: policer
                         
@@ -1064,12 +1218,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: iptos_value
                         
                         	iptos value
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: change_type
                         
@@ -1078,6 +1236,8 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: acl_config
                         
                         	acl config
@@ -1085,12 +1245,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: acl_str
                         
                         	acl str
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -1139,6 +1303,8 @@ class LptsPifib_(Entity):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Police.PoliceInfo, ['avgrate', 'burst', 'static_avgrate', 'avgrate_type', 'accepted_stats', 'dropped_stats', 'policer', 'iptos_value', 'change_type', 'acl_config', 'acl_str'], name, value)
 
 
+
+
                 class StaticPolice(Entity):
                     """
                     Static Police details
@@ -1147,6 +1313,8 @@ class LptsPifib_(Entity):
                     
                     	Per punt reason info
                     	**type**\: list of  		 :py:class:`StaticInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.StaticPolice.StaticInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1185,12 +1353,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: sid
                         
                         	sid
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: flow_rate
                         
@@ -1199,12 +1371,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: burst_rate
                         
                         	burst rate
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: accepted
                         
@@ -1213,12 +1389,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**config**\: False
+                        
                         .. attribute:: dropped
                         
                         	dropped
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: punt_reason_string
                         
@@ -1227,12 +1407,16 @@ class LptsPifib_(Entity):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
+                        	**config**\: False
+                        
                         .. attribute:: change_type
                         
                         	change type
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -1275,6 +1459,8 @@ class LptsPifib_(Entity):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.StaticPolice.StaticInfo, ['punt_reason', 'sid', 'flow_rate', 'burst_rate', 'accepted', 'dropped', 'punt_reason_string', 'change_type'], name, value)
 
 
+
+
                 class Bfd(Entity):
                     """
                     Bfd details
@@ -1283,6 +1469,8 @@ class LptsPifib_(Entity):
                     
                     	Per bfd disc entry info
                     	**type**\: list of  		 :py:class:`BfdEntryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.Bfd.BfdEntryInfo>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1321,12 +1509,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_mcast
                         
                         	is mcast
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: fgid_or_vqi
                         
@@ -1335,6 +1527,8 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_valid
                         
                         	is valid
@@ -1342,12 +1536,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: policer_id
                         
                         	policer id
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         
 
@@ -1384,6 +1582,8 @@ class LptsPifib_(Entity):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Bfd.BfdEntryInfo, ['index', 'is_mcast', 'fgid_or_vqi', 'is_valid', 'policer_id'], name, value)
 
 
+
+
                 class Statistics(Entity):
                     """
                     Hardware Entry type
@@ -1395,12 +1595,16 @@ class LptsPifib_(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: dropped
                     
                     	Deleted\-entry dropped packets counter
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     .. attribute:: clear_ts
                     
@@ -1409,12 +1613,16 @@ class LptsPifib_(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**config**\: False
+                    
                     .. attribute:: no_stats_mem_err
                     
                     	No statistics memory error
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**config**\: False
                     
                     
 
@@ -1449,6 +1657,7 @@ class LptsPifib_(Entity):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Statistics, ['accepted', 'dropped', 'clear_ts', 'no_stats_mem_err'], name, value)
 
 
+
                 class IndexEntries(Entity):
                     """
                     Hardware Entry options
@@ -1457,6 +1666,8 @@ class LptsPifib_(Entity):
                     
                     	Entry options
                     	**type**\: list of  		 :py:class:`IndexEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1495,12 +1706,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: l3protocol
                         
                         	Layer 3 Protocol
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: l4protocol
                         
@@ -1509,6 +1724,8 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: intf_handle
                         
                         	Interface Handle
@@ -1516,10 +1733,14 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: intf_name
                         
                         	Interface Name
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: uidb_index
                         
@@ -1528,10 +1749,14 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: local_addr
                         
                         	Local IP Address
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_prefix_len
                         
@@ -1540,10 +1765,14 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: remote_addr
                         
                         	Remote IP Address
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: remote_prefix_len
                         
@@ -1552,12 +1781,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: vrf_id
                         
                         	VRF ID
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: u_value
                         
@@ -1566,12 +1799,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: u_len
                         
                         	Union Key Length
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: local_port
                         
@@ -1580,12 +1817,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_frag
                         
                         	Is Fragment
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_syn
                         
@@ -1594,6 +1835,8 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: action
                         
                         	Action
@@ -1601,10 +1844,14 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: action_string
                         
                         	Action String
                         	**type**\: str
+                        
+                        	**config**\: False
                         
                         .. attribute:: listener_tag
                         
@@ -1613,12 +1860,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_fgid
                         
                         	Is FGID or not
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_vrf
                         
@@ -1627,12 +1878,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: is_optimized
                         
                         	Is optimized or not
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: is_uidb_opt_bit
                         
@@ -1641,12 +1896,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: fgid_or_sfp
                         
                         	fabric group id or swith fabric port
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: remote_rack
                         
@@ -1655,12 +1914,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: rack_id
                         
                         	Remote racknum if remote
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: rslot
                         
@@ -1669,12 +1932,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: cir
                         
                         	Committed Information Rate
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**config**\: False
                         
                         .. attribute:: flow_type
                         
@@ -1683,12 +1950,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: priority
                         
                         	Flow priority or COS
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: sid
                         
@@ -1697,12 +1968,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: policer_avgrate
                         
                         	Policer avg. rate limit
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: policer_burst
                         
@@ -1711,12 +1986,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: lookup_priority
                         
                         	Lookup priority
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: storage_priority
                         
@@ -1725,12 +2004,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**config**\: False
+                        
                         .. attribute:: num_tm_entries
                         
                         	Number of TCAM entries used
                         	**type**\: int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**config**\: False
                         
                         .. attribute:: entry_ptr
                         
@@ -1739,12 +2022,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: entry_shadow_ptr
                         
                         	ptr to ifib\_entry\_shadow\_st
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        	**config**\: False
                         
                         .. attribute:: list_node_ptr
                         
@@ -1753,12 +2040,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: state
                         
                         	state of pifib entry
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: retry_fail_cause
                         
@@ -1767,12 +2058,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: num_retries
                         
                         	retries count
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: min_ttl
                         
@@ -1781,12 +2076,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: u_type
                         
                         	Union Key Type
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         .. attribute:: remote_fgid
                         
@@ -1795,12 +2094,16 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: acl_str
                         
                         	Acl name
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        	**config**\: False
                         
                         .. attribute:: no_stats
                         
@@ -1809,10 +2112,14 @@ class LptsPifib_(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: hw_info
                         
                         	Per pipe type hardware info
                         	**type**\: list of  		 :py:class:`HwInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -1946,12 +2253,16 @@ class LptsPifib_(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: stats_ptr
                             
                             	Stats Pointer
                             	**type**\: int
                             
                             	**range:** 0..4294967295
+                            
+                            	**config**\: False
                             
                             .. attribute:: accepted
                             
@@ -1960,12 +2271,16 @@ class LptsPifib_(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**config**\: False
+                            
                             .. attribute:: dropped
                             
                             	Dropped Packets Counter
                             	**type**\: int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**config**\: False
                             
                             .. attribute:: sort_start_offset
                             
@@ -1974,12 +2289,16 @@ class LptsPifib_(Entity):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**config**\: False
+                            
                             .. attribute:: tm_start_offset
                             
                             	Relative position in TCAM
                             	**type**\: int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**config**\: False
                             
                             
 
@@ -2017,7 +2336,15 @@ class LptsPifib_(Entity):
                             def __setattr__(self, name, value):
                                 self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo, ['policer', 'stats_ptr', 'accepted', 'dropped', 'sort_start_offset', 'tm_start_offset'], name, value)
 
+
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = LptsPifib_()
         return self._top_entity
+
+
 

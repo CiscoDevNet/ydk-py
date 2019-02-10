@@ -57,6 +57,7 @@ class Stream(Identity):
         super(Stream, self).__init__(ns, pref, tag)
 
 
+
 class Encodings(Identity):
     """
     Base identity to represent data encodings
@@ -70,6 +71,7 @@ class Encodings(Identity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encodings"):
         super(Encodings, self).__init__(ns, pref, tag)
+
 
 
 class Transport(Identity):
@@ -86,6 +88,7 @@ class Transport(Identity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:transport"):
         super(Transport, self).__init__(ns, pref, tag)
+
 
 
 class SubscriptionResult(Identity):
@@ -105,6 +108,7 @@ class SubscriptionResult(Identity):
         super(SubscriptionResult, self).__init__(ns, pref, tag)
 
 
+
 class SubscriptionStreamStatus(Identity):
     """
     Base identity for the status of subscriptions and
@@ -119,6 +123,7 @@ class SubscriptionStreamStatus(Identity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:subscription-stream-status"):
         super(SubscriptionStreamStatus, self).__init__(ns, pref, tag)
+
 
 
 class SubscriptionErrors(Identity):
@@ -136,6 +141,7 @@ class SubscriptionErrors(Identity):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:subscription-errors"):
         super(SubscriptionErrors, self).__init__(ns, pref, tag)
+
 
 
 class EstablishSubscription(Entity):
@@ -358,7 +364,8 @@ class EstablishSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EstablishSubscription.Input, ['stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(EstablishSubscription.Input, [u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+
 
 
     class Output(Entity):
@@ -546,11 +553,14 @@ class EstablishSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EstablishSubscription.Output, ['subscription_result', 'subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(EstablishSubscription.Output, [u'subscription_result', u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = EstablishSubscription()
         return self._top_entity
+
+
 
 class CreateSubscription(Entity):
     """
@@ -663,11 +673,14 @@ class CreateSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CreateSubscription.Input, ['stream', 'encoding', 'filter', 'starttime', 'stoptime'], name, value)
+            self._perform_setattr(CreateSubscription.Input, [u'stream', u'encoding', u'filter', u'starttime', u'stoptime'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = CreateSubscription()
         return self._top_entity
+
+
 
 class ModifySubscription(Entity):
     """
@@ -856,7 +869,8 @@ class ModifySubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ModifySubscription.Input, ['subscription_id', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change'], name, value)
+            self._perform_setattr(ModifySubscription.Input, [u'subscription_id', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change'], name, value)
+
 
 
     class Output(Entity):
@@ -1044,11 +1058,14 @@ class ModifySubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ModifySubscription.Output, ['subscription_result', 'subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(ModifySubscription.Output, [u'subscription_result', u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = ModifySubscription()
         return self._top_entity
+
+
 
 class DeleteSubscription(Entity):
     """
@@ -1133,7 +1150,8 @@ class DeleteSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DeleteSubscription.Input, ['subscription_id'], name, value)
+            self._perform_setattr(DeleteSubscription.Input, [u'subscription_id'], name, value)
+
 
 
     class Output(Entity):
@@ -1172,11 +1190,14 @@ class DeleteSubscription(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DeleteSubscription.Output, ['subscription_result'], name, value)
+            self._perform_setattr(DeleteSubscription.Output, [u'subscription_result'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = DeleteSubscription()
         return self._top_entity
+
+
 
 class Streams(Entity):
     """
@@ -1187,6 +1208,8 @@ class Streams(Entity):
     
     	Identifies the built\-in streams that are supported by the system.  Built\-in streams are associated with their own identities, each of which carries a special semantics. In case configurable custom streams are supported, as indicated by the custom\-stream identity, the configuration of those custom streams is provided         separately
     	**type**\: list of   :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
+    
+    	**config**\: False
     
     
 
@@ -1213,11 +1236,13 @@ class Streams(Entity):
         self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Streams, ['stream'], name, value)
+        self._perform_setattr(Streams, [u'stream'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Streams()
         return self._top_entity
+
+
 
 class Filters(Entity):
     """
@@ -1315,11 +1340,14 @@ class Filters(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Filters.Filter, ['filter_id', 'filter', 'subtree_filter', 'xpath_filter'], name, value)
+            self._perform_setattr(Filters.Filter, [u'filter_id', u'filter', 'subtree_filter', 'xpath_filter'], name, value)
+
 
     def clone_ptr(self):
         self._top_entity = Filters()
         return self._top_entity
+
+
 
 class SubscriptionConfig(Entity):
     """
@@ -1576,7 +1604,7 @@ class SubscriptionConfig(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SubscriptionConfig.Subscription, ['subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'source_interface', 'source_vrf', 'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(SubscriptionConfig.Subscription, [u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', u'source_interface', u'source_vrf', u'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
         class Receivers(Entity):
@@ -1634,7 +1662,7 @@ class SubscriptionConfig(Entity):
                 
                 		**type**\: str
                 
-                			**pattern:** ((([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.)\*([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.?)\|\\.
+                			**length:** 1..253
                 
                 	**mandatory**\: True
                 
@@ -1682,11 +1710,16 @@ class SubscriptionConfig(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SubscriptionConfig.Subscription.Receivers.Receiver, ['address', 'port', 'protocol'], name, value)
+                    self._perform_setattr(SubscriptionConfig.Subscription.Receivers.Receiver, [u'address', u'port', u'protocol'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = SubscriptionConfig()
         return self._top_entity
+
+
 
 class Subscriptions(Entity):
     """
@@ -1703,6 +1736,8 @@ class Subscriptions(Entity):
     
     	Content of a subscription. Subscriptions can be created using a control channel or RPC, or be established through configuration
     	**type**\: list of  		 :py:class:`Subscription <ydk.models.ietf.ietf_event_notifications.Subscriptions.Subscription>`
+    
+    	**config**\: False
     
     
 
@@ -1744,25 +1779,35 @@ class Subscriptions(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: configured_subscription
         
         	The presence of this leaf indicates that the subscription originated from configuration, not through a control channel or RPC
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        	**config**\: False
         
         .. attribute:: subscription_status
         
         	The status of the subscription
         	**type**\:  :py:class:`SubscriptionStreamStatus <ydk.models.ietf.ietf_event_notifications.SubscriptionStreamStatus>`
         
+        	**config**\: False
+        
         .. attribute:: stream
         
         	Indicates which stream of events is of interest. If not present, events in the default NETCONF stream will be sent
         	**type**\:  :py:class:`Stream <ydk.models.ietf.ietf_event_notifications.Stream>`
         
+        	**config**\: False
+        
         .. attribute:: encoding
         
         	The type of encoding for the subscribed data. Default is XML
         	**type**\:  :py:class:`Encodings <ydk.models.ietf.ietf_event_notifications.Encodings>`
+        
+        	**config**\: False
         
         	**default value**\: encode-xml
         
@@ -1770,6 +1815,8 @@ class Subscriptions(Entity):
         
         	Filter per RFC 5277. Notification filter. If a filter element is specified to look for data of a particular value, and the data item is not present within a particular event notification for its value to be checked against, the notification will be filtered out. For example, if one were to check for 'severity=critical' in a configuration event notification where this field was not supported, then the notification would be filtered out. For subtree filtering, a non\-empty node set means that the filter matches.  For XPath filtering, the mechanisms defined in [XPATH] should be used to convert the returned value to boolean
         	**type**\: anyxml
+        
+        	**config**\: False
         
         .. attribute:: filter_ref
         
@@ -1780,15 +1827,21 @@ class Subscriptions(Entity):
         
         	**refers to**\:  :py:class:`filter_id <ydk.models.ietf.ietf_event_notifications.Filters.Filter>`
         
+        	**config**\: False
+        
         .. attribute:: subtree_filter
         
         	Subtree\-filter used to specify the data nodes targeted for subscription within a subtree, or subtrees, of a conceptual YANG datastore.  Objects matching the filter criteria will traverse the filter. The syntax follows the subtree filter syntax specified in RFC 6241, section 6
         	**type**\: anyxml
         
+        	**config**\: False
+        
         .. attribute:: xpath_filter
         
         	Xpath defining the data items of interest
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: starttime
         
@@ -1797,6 +1850,8 @@ class Subscriptions(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: stoptime
         
         	Used with the optional replay feature to indicate the newest notifications of interest.  If <stopTime> is not present, the notifications will continue until the subscription is terminated.  Must be used with and be later than <startTime>.  Values of <stopTime> in the future are valid.  This parameter is of type dateTime and compliant to [RFC3339].  Implementations must support time zones
@@ -1804,10 +1859,14 @@ class Subscriptions(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: receivers
         
         	Set of receivers in a subscription
         	**type**\:  :py:class:`Receivers <ydk.models.ietf.ietf_event_notifications.Subscriptions.Subscription.Receivers>`
+        
+        	**config**\: False
         
         .. attribute:: source_interface
         
@@ -1816,12 +1875,16 @@ class Subscriptions(Entity):
         
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
         
+        	**config**\: False
+        
         .. attribute:: source_vrf
         
         	Label of the vrf
         	**type**\: int
         
         	**range:** 16..1048574
+        
+        	**config**\: False
         
         .. attribute:: source_address
         
@@ -1838,6 +1901,8 @@ class Subscriptions(Entity):
         
         	**mandatory**\: True
         
+        	**config**\: False
+        
         .. attribute:: period
         
         	Duration of time which should occur between periodic push updates.  Where the anchor of a start\-time is available, the push will include the objects and their values which exist at an exact multiple of timeticks aligning to this start\-time anchor
@@ -1847,6 +1912,8 @@ class Subscriptions(Entity):
         
         	**mandatory**\: True
         
+        	**config**\: False
+        
         .. attribute:: anchor_time
         
         	Designates a timestamp from which the series of periodic push updates are computed. The next update will take place at the next period interval from the anchor time.  For example, for an anchor time at the top of a minute and a period interval of a minute, the next update will be sent at the top of the next minute
@@ -1854,10 +1921,14 @@ class Subscriptions(Entity):
         
         	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
         
+        	**config**\: False
+        
         .. attribute:: no_synch_on_start
         
         	This leaf acts as a flag that determines behavior at the start of the subscription.  When present, synchronization of state at the beginning of the subscription is outside the scope of the subscription. Only updates about changes that are observed from the start time, i.e. only push\-change\-update notifications are sent. When absent (default behavior), in order to facilitate a receiver's synchronization, a full update is sent when the subscription starts using a push\-update notification, just like in the case of a periodic subscription.  After that, push\-change\-update notifications only are sent unless the Publisher chooses to resynch the subscription again
         	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        	**config**\: False
         
         .. attribute:: dampening_period
         
@@ -1868,10 +1939,14 @@ class Subscriptions(Entity):
         
         	**mandatory**\: True
         
+        	**config**\: False
+        
         .. attribute:: excluded_change
         
         	Use to restrict which changes trigger an update. For example, if modify is excluded, only creation and deletion of objects is reported
         	**type**\: list of   :py:class:`ChangeType <ydk.models.ietf.ietf_yang_push.ChangeType>`
+        
+        	**config**\: False
         
         .. attribute:: dscp
         
@@ -1879,6 +1954,8 @@ class Subscriptions(Entity):
         	**type**\: int
         
         	**range:** 0..63
+        
+        	**config**\: False
         
         	**default value**\: 0
         
@@ -1889,10 +1966,14 @@ class Subscriptions(Entity):
         
         	**range:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: subscription_dependency
         
         	Provides the Subscription ID of a parent subscription without which this subscription should not exist. In other words, there is no reason to stream these objects if another subscription is missing
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -1965,7 +2046,7 @@ class Subscriptions(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Subscriptions.Subscription, ['subscription_id', 'configured_subscription', 'subscription_status', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'source_interface', 'source_vrf', 'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(Subscriptions.Subscription, [u'subscription_id', u'configured_subscription', u'subscription_status', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', u'source_interface', u'source_vrf', u'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
         class Receivers(Entity):
@@ -1976,6 +2057,8 @@ class Subscriptions(Entity):
             
             	A single host or multipoint address intended as a target for the notifications for a subscription
             	**type**\: list of  		 :py:class:`Receiver <ydk.models.ietf.ietf_event_notifications.Subscriptions.Subscription.Receivers.Receiver>`
+            
+            	**config**\: False
             
             
 
@@ -2023,9 +2106,11 @@ class Subscriptions(Entity):
                 
                 		**type**\: str
                 
-                			**pattern:** ((([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.)\*([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.?)\|\\.
+                			**length:** 1..253
                 
                 	**mandatory**\: True
+                
+                	**config**\: False
                 
                 .. attribute:: port
                 
@@ -2036,10 +2121,14 @@ class Subscriptions(Entity):
                 
                 	**mandatory**\: True
                 
+                	**config**\: False
+                
                 .. attribute:: protocol
                 
                 	This leaf specifies the transport protocol used to deliver messages destined for the receiver
                 	**type**\:  :py:class:`Transport <ydk.models.ietf.ietf_event_notifications.Transport>`
+                
+                	**config**\: False
                 
                 	**default value**\: netconf
                 
@@ -2071,11 +2160,16 @@ class Subscriptions(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Subscriptions.Subscription.Receivers.Receiver, ['address', 'port', 'protocol'], name, value)
+                    self._perform_setattr(Subscriptions.Subscription.Receivers.Receiver, [u'address', u'port', u'protocol'], name, value)
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Subscriptions()
         return self._top_entity
+
+
 
 class NoResources(SubscriptionErrors):
     """
@@ -2092,6 +2186,7 @@ class NoResources(SubscriptionErrors):
         super(NoResources, self).__init__(ns, pref, tag)
 
 
+
 class Inactive(SubscriptionStreamStatus):
     """
     Status is inactive, for example outside the
@@ -2106,6 +2201,7 @@ class Inactive(SubscriptionStreamStatus):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:inactive"):
         super(Inactive, self).__init__(ns, pref, tag)
+
 
 
 class Suspended(SubscriptionStreamStatus):
@@ -2125,6 +2221,7 @@ class Suspended(SubscriptionStreamStatus):
         super(Suspended, self).__init__(ns, pref, tag)
 
 
+
 class EncodeJson(Encodings):
     """
     Encode data using JSON
@@ -2138,6 +2235,7 @@ class EncodeJson(Encodings):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encode-json"):
         super(EncodeJson, self).__init__(ns, pref, tag)
+
 
 
 class InternalError(SubscriptionErrors):
@@ -2155,6 +2253,7 @@ class InternalError(SubscriptionErrors):
         super(InternalError, self).__init__(ns, pref, tag)
 
 
+
 class Other(SubscriptionErrors):
     """
     Fallback reason \- any other reason
@@ -2168,6 +2267,7 @@ class Other(SubscriptionErrors):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:other"):
         super(Other, self).__init__(ns, pref, tag)
+
 
 
 class InError(SubscriptionStreamStatus):
@@ -2187,6 +2287,7 @@ class InError(SubscriptionStreamStatus):
         super(InError, self).__init__(ns, pref, tag)
 
 
+
 class Netconf(Transport):
     """
     Netconf notifications as a transport.
@@ -2200,6 +2301,7 @@ class Netconf(Transport):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:netconf"):
         super(Netconf, self).__init__(ns, pref, tag)
+
 
 
 class Error(SubscriptionResult):
@@ -2218,6 +2320,7 @@ class Error(SubscriptionResult):
         super(Error, self).__init__(ns, pref, tag)
 
 
+
 class Active(SubscriptionStreamStatus):
     """
     Status is active and healthy.
@@ -2231,6 +2334,7 @@ class Active(SubscriptionStreamStatus):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:active"):
         super(Active, self).__init__(ns, pref, tag)
+
 
 
 class NETCONF(Stream):
@@ -2250,6 +2354,7 @@ class NETCONF(Stream):
         super(NETCONF, self).__init__(ns, pref, tag)
 
 
+
 class Ok(SubscriptionResult):
     """
     OK \- RPC was successful and was performed as requested.
@@ -2265,6 +2370,7 @@ class Ok(SubscriptionResult):
         super(Ok, self).__init__(ns, pref, tag)
 
 
+
 class EncodeXml(Encodings):
     """
     Encode data using XML
@@ -2278,6 +2384,7 @@ class EncodeXml(Encodings):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encode-xml"):
         super(EncodeXml, self).__init__(ns, pref, tag)
+
 
 
 class SubscriptionDeleted(SubscriptionErrors):
@@ -2296,6 +2403,7 @@ class SubscriptionDeleted(SubscriptionErrors):
         super(SubscriptionDeleted, self).__init__(ns, pref, tag)
 
 
+
 class ErrorNoSuchOption(Error):
     """
     A requested parameter setting is not supported.
@@ -2309,6 +2417,7 @@ class ErrorNoSuchOption(Error):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-no-such-option"):
         super(ErrorNoSuchOption, self).__init__(ns, pref, tag)
+
 
 
 class ErrorNoSuchSubscription(Error):
@@ -2327,6 +2436,7 @@ class ErrorNoSuchSubscription(Error):
         super(ErrorNoSuchSubscription, self).__init__(ns, pref, tag)
 
 
+
 class ErrorOther(Error):
     """
     An unspecified error has occurred (catch all).
@@ -2340,6 +2450,7 @@ class ErrorOther(Error):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-other"):
         super(ErrorOther, self).__init__(ns, pref, tag)
+
 
 
 class ErrorInsufficientResources(Error):
@@ -2358,6 +2469,7 @@ class ErrorInsufficientResources(Error):
         super(ErrorInsufficientResources, self).__init__(ns, pref, tag)
 
 
+
 class ErrorConfiguredSubscription(Error):
     """
     Cannot apply RPC to a configured subscription, i.e.
@@ -2372,5 +2484,6 @@ class ErrorConfiguredSubscription(Error):
 
     def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-configured-subscription"):
         super(ErrorConfiguredSubscription, self).__init__(ns, pref, tag)
+
 
 

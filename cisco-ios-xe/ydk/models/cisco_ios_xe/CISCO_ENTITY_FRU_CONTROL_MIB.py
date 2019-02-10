@@ -826,90 +826,126 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
     	
     	**type**\:  :py:class:`CefcFRUPower <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPower>`
     
+    	**config**\: False
+    
     .. attribute:: cefcmibnotificationenables
     
     	
     	**type**\:  :py:class:`CefcMIBNotificationEnables <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcMIBNotificationEnables>`
+    
+    	**config**\: False
     
     .. attribute:: cefcfrupowersupplygrouptable
     
     	This table lists the redundancy mode and the operational status of the power supply groups in the system
     	**type**\:  :py:class:`CefcFRUPowerSupplyGroupTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefcfrupowerstatustable
     
     	This table lists the power\-related administrative status and operational status of the manageable components in the system
     	**type**\:  :py:class:`CefcFRUPowerStatusTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefcfrupowersupplyvaluetable
     
     	This table lists the power capacity of a power FRU in the system if it provides variable power. Power supplies usually provide either system or inline power. They cannot be  controlled by software to dictate how they distribute power. We can also have what are known as variable power supplies. They can provide both system and inline power and can be  varied within hardware defined ranges for system and inline limited by a total maximum combined output. They could be configured by the user via CLI or SNMP or be controlled by software internally. This table supplements the information in the cefcFRUPowerStatusTable for power supply FRUs. The  cefcFRUCurrent attribute in that table provides the overall current the power supply FRU can provide while this table  gives us the individual contribution towards system and  inline power
     	**type**\:  :py:class:`CefcFRUPowerSupplyValueTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefcmoduletable
     
     	A cefcModuleTable entry lists the operational and administrative status information for ENTITY\-MIB entPhysicalTable entries for manageable components of type PhysicalClass module(9)
     	**type**\:  :py:class:`CefcModuleTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefcintellimoduletable
     
     	This table sparsely augments the cefcModuleTable (i.e., every row in this table corresponds to a row in the cefcModuleTable but not necessarily vice\-versa).  A cefcIntelliModuleTable entry lists the information specific to intelligent modules which cannot be provided by the cefcModuleTable
     	**type**\:  :py:class:`CefcIntelliModuleTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefcmodulelocalswitchingtable
     
     	This table sparsely augments the cefcModuleTable (i.e., every row in this table corresponds to a row in the cefcModuleTable but not necessarily vice\-versa).  A cefcModuleLocalSwitchingTable entry lists the information specific to local switching capable modules which cannot be provided by the cefcModuleTable
     	**type**\:  :py:class:`CefcModuleLocalSwitchingTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefcfantraystatustable
     
     	This table contains the operational status information for all ENTITY\-MIB entPhysicalTable entries which have  an entPhysicalClass of 'fan'; specifically, all   entPhysicalTable entries which represent either\: one  physical fan, or a single physical 'fan tray' which is a manufactured (inseparable in the field) combination of  multiple fans
     	**type**\:  :py:class:`CefcFanTrayStatusTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefcphysicaltable
     
     	This table contains one row per physical entity
     	**type**\:  :py:class:`CefcPhysicalTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefcpowersupplyinputtable
     
     	This table contains the power input information for all the power supplies that have entPhysicalTable entries with 'powerSupply' in the entPhysicalClass.   The entries are created by the agent at the system power\-up or power supply insertion.  Entries are deleted by the agent upon power supply removal.  The number of entries is determined by the number of power supplies and number of power inputs on the power  supply
     	**type**\:  :py:class:`CefcPowerSupplyInputTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefcpowersupplyoutputtable
     
     	This table contains a list of possible output mode for the power supplies, whose ENTITY\-MIB entPhysicalTable entries have an entPhysicalClass of 'powerSupply'. It also indicate which mode is the operational mode within the system
     	**type**\:  :py:class:`CefcPowerSupplyOutputTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefcchassiscoolingtable
     
     	This table contains the cooling capacity information of the chassis whose ENTITY\-MIB entPhysicalTable entries have an entPhysicalClass of 'chassis'
     	**type**\:  :py:class:`CefcChassisCoolingTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefcfancoolingtable
     
     	This table contains the cooling capacity information of the fans whose ENTITY\-MIB entPhysicalTable entries have an entPhysicalClass of 'fan'
     	**type**\:  :py:class:`CefcFanCoolingTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefcmodulecoolingtable
     
     	This table contains the cooling requirement for all the manageable components of type entPhysicalClass 'module'
     	**type**\:  :py:class:`CefcModuleCoolingTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefcfancoolingcaptable
     
     	This table contains a list of the possible cooling capacity modes and properties of the fans, whose  ENTITY\-MIB entPhysicalTable entries have an  entPhysicalClass of 'fan'
     	**type**\:  :py:class:`CefcFanCoolingCapTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable>`
+    
+    	**config**\: False
     
     .. attribute:: cefcconnectorratingtable
     
     	This table contains the connector power ratings of FRUs.   Only components with power connector rating  management are listed in this table
     	**type**\:  :py:class:`CefcConnectorRatingTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable>`
     
+    	**config**\: False
+    
     .. attribute:: cefcmodulepowerconsumptiontable
     
     	This table contains the total power consumption information for modules whose ENTITY\-MIB  entPhysicalTable entries have an entPhysicalClass  of 'module'
     	**type**\:  :py:class:`CefcModulePowerConsumptionTable <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable>`
+    
+    	**config**\: False
     
     
 
@@ -1019,6 +1055,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	**range:** 0..12500
         
+        	**config**\: False
+        
         	**units**\: miliwatts
         
         	**status**\: deprecated
@@ -1029,6 +1067,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**units**\: miliwatts
         
@@ -1062,6 +1102,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPower, ['cefcmaxdefaultinlinepower', 'cefcmaxdefaulthighinlinepower'], name, value)
 
 
+
     class CefcMIBNotificationEnables(Entity):
         """
         
@@ -1071,10 +1112,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         	This variable indicates whether the system produces the following notifications\: cefcModuleStatusChange, cefcPowerStatusChange,  cefcFRUInserted, cefcFRURemoved,  cefcUnrecognizedFRU and cefcFanTrayStatusChange.  A false value will prevent these notifications from being generated
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: cefcenablepsoutputchangenotif
         
         	This variable indicates whether the system produces the cefcPowerSupplyOutputChange  notifications when the output capacity of  a power supply has changed. A false value  will prevent this notification to generated
         	**type**\: bool
+        
+        	**config**\: False
         
         
 
@@ -1106,6 +1151,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcMIBNotificationEnables, ['cefcmibenablestatusnotification', 'cefcenablepsoutputchangenotif'], name, value)
 
 
+
     class CefcFRUPowerSupplyGroupTable(Entity):
         """
         This table lists the redundancy mode and the
@@ -1116,6 +1162,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	An cefcFRUPowerSupplyGroupTable entry lists the desired redundancy mode, the units of the power outputs and the  available and drawn current for the power supply group.  Entries are created by the agent when a power supply group is added to the entPhysicalTable. Entries are deleted by  the agent at power supply group removal
         	**type**\: list of  		 :py:class:`CefcFRUPowerSupplyGroupEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1163,15 +1211,21 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcpowerredundancymode
             
             	The administratively desired power supply redundancy mode
             	**type**\:  :py:class:`PowerRedundancyType <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.PowerRedundancyType>`
             
+            	**config**\: False
+            
             .. attribute:: cefcpowerunits
             
             	The units of primary supply to interpret cefcTotalAvailableCurrent and cefcTotalDrawnCurrent as power.  For example, one 1000\-watt power supply could  deliver 100 amperes at 10 volts DC.  So the value of cefcPowerUnits would be 'at 10 volts DC'.  cefcPowerUnits is for display purposes only
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cefctotalavailablecurrent
             
@@ -1180,6 +1234,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** \-1000000000..1000000000
             
+            	**config**\: False
+            
             .. attribute:: cefctotaldrawncurrent
             
             	Total current drawn by powered\-on FRUs
@@ -1187,15 +1243,21 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** \-1000000000..1000000000
             
+            	**config**\: False
+            
             .. attribute:: cefcpowerredundancyopermode
             
             	The power supply redundancy operational mode
             	**type**\:  :py:class:`PowerRedundancyType <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.PowerRedundancyType>`
             
+            	**config**\: False
+            
             .. attribute:: cefcpowernonredundantreason
             
             	This object has the value of notApplicable(1) when cefcPowerRedundancyOperMode of the instance does not have the value of nonRedundant(4).  The other values explain the reason why  cefcPowerRedundancyOperMode is nonRedundant(4), e.g.  unknown(2)             the reason is not identified.  singleSupply(3)        There is only one power supply                        in the group.  mismatchedSupplies(4)  There are more than one power                        supplies in the groups. However                        they are mismatched and can not                        work redundantly.  supplyError(5)         Some power supply or supplies                        does or do not working properly
             	**type**\:  :py:class:`CefcPowerNonRedundantReason <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry.CefcPowerNonRedundantReason>`
+            
+            	**config**\: False
             
             .. attribute:: cefctotaldrawninlinecurrent
             
@@ -1203,6 +1265,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             	**type**\: int
             
             	**range:** \-1000000000..1000000000
+            
+            	**config**\: False
             
             
 
@@ -1301,6 +1365,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
 
 
 
+
+
     class CefcFRUPowerStatusTable(Entity):
         """
         This table lists the power\-related administrative status
@@ -1311,6 +1377,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	An cefcFRUPowerStatusTable entry lists the desired administrative status, the operational status of the  power manageable component, and the current required by  the component for operation.  Entries are created by the agent at system power\-up or  the insertion of the component.  Entries are deleted by the agent at the removal of the component.  Only components with power control are listed in the  table
         	**type**\: list of  		 :py:class:`CefcFRUPowerStatusEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1362,15 +1430,21 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcfrupoweradminstatus
             
             	Administratively desired FRU power state
             	**type**\:  :py:class:`PowerAdminType <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.PowerAdminType>`
             
+            	**config**\: False
+            
             .. attribute:: cefcfrupoweroperstatus
             
             	Operational FRU power state
             	**type**\:  :py:class:`PowerOperType <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.PowerOperType>`
+            
+            	**config**\: False
             
             .. attribute:: cefcfrucurrent
             
@@ -1379,10 +1453,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** \-1000000000..1000000000
             
+            	**config**\: False
+            
             .. attribute:: cefcfrupowercapability
             
             	This object indicates the set of supported power capabilities of the FRU.  realTimeCurrent(0) \-     cefcFRURealTimeCurrent is supported by the FRU
             	**type**\:  :py:class:`CefcFRUPowerCapability <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry.CefcFRUPowerCapability>`
+            
+            	**config**\: False
             
             .. attribute:: cefcfrurealtimecurrent
             
@@ -1390,6 +1468,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             	**type**\: int
             
             	**range:** \-1000000000..1000000000
+            
+            	**config**\: False
             
             
 
@@ -1429,6 +1509,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry, ['entphysicalindex', 'cefcfrupoweradminstatus', 'cefcfrupoweroperstatus', 'cefcfrucurrent', 'cefcfrupowercapability', 'cefcfrurealtimecurrent'], name, value)
 
 
+
+
     class CefcFRUPowerSupplyValueTable(Entity):
         """
         This table lists the power capacity of a power FRU in the
@@ -1452,6 +1534,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	An cefcFRUPowerSupplyValueTable entry lists the current provided by the FRU for operation.  Entries are created by the agent at system power\-up or  FRU insertion.  Entries are deleted by the agent at FRU removal.  Only power supply FRUs are listed in the table
         	**type**\: list of  		 :py:class:`CefcFRUPowerSupplyValueEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable.CefcFRUPowerSupplyValueEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1500,12 +1584,16 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcfrutotalsystemcurrent
             
             	Total current that could be supplied by the FRU (positive values) for system operations
             	**type**\: int
             
             	**range:** \-1000000000..1000000000
+            
+            	**config**\: False
             
             .. attribute:: cefcfrudrawnsystemcurrent
             
@@ -1514,6 +1602,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** \-1000000000..1000000000
             
+            	**config**\: False
+            
             .. attribute:: cefcfrutotalinlinecurrent
             
             	Total current supplied by the FRU (positive values) for inline operations
@@ -1521,12 +1611,16 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** \-1000000000..1000000000
             
+            	**config**\: False
+            
             .. attribute:: cefcfrudrawninlinecurrent
             
             	Amount of current that is being drawn from this FRU for inline operation
             	**type**\: int
             
             	**range:** \-1000000000..1000000000
+            
+            	**config**\: False
             
             
 
@@ -1564,6 +1658,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable.CefcFRUPowerSupplyValueEntry, ['entphysicalindex', 'cefcfrutotalsystemcurrent', 'cefcfrudrawnsystemcurrent', 'cefcfrutotalinlinecurrent', 'cefcfrudrawninlinecurrent'], name, value)
 
 
+
+
     class CefcModuleTable(Entity):
         """
         A cefcModuleTable entry lists the operational and
@@ -1575,6 +1671,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	A cefcModuleStatusTable entry lists the operational and administrative status information for ENTITY\-MIB entPhysicalTable entries for manageable components  of type PhysicalClass module(9).  Entries are created by the agent at the system power\-up or module insertion.  Entries are deleted by the agent upon module removal
         	**type**\: list of  		 :py:class:`CefcModuleEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleTable.CefcModuleEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1624,20 +1722,28 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcmoduleadminstatus
             
             	This object provides administrative control of the module
             	**type**\:  :py:class:`ModuleAdminType <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.ModuleAdminType>`
+            
+            	**config**\: False
             
             .. attribute:: cefcmoduleoperstatus
             
             	This object shows the module's operational state
             	**type**\:  :py:class:`ModuleOperType <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.ModuleOperType>`
             
+            	**config**\: False
+            
             .. attribute:: cefcmoduleresetreason
             
             	This object identifies the reason for the last reset performed on the module
             	**type**\:  :py:class:`ModuleResetReasonType <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.ModuleResetReasonType>`
+            
+            	**config**\: False
             
             .. attribute:: cefcmodulestatuslastchangetime
             
@@ -1646,6 +1752,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefcmodulelastclearconfigtime
             
             	The value of sysUpTime when the configuration was most recently cleared
@@ -1653,15 +1761,21 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefcmoduleresetreasondescription
             
             	A description qualifying the module reset reason specified in cefcModuleResetReason.   Examples\:   command xyz                 missing task   switch over   watchdog timeout       etc.  cefcModuleResetReasonDescription is for display purposes only. NMS applications must not parse
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: cefcmodulestatechangereasondescr
             
             	This object displays human\-readable textual string which describes the cause of the last state change of the module. This object contains zero length string if no meaningful reason could be provided.  Examples\: 'Invalid software version' 'Software download failed' 'Software version mismatch' 'Module is in standby state' etc.  This object is for display purposes only. NMS applications must not parse this object and take any decision based on its value
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cefcmoduleuptime
             
@@ -1669,6 +1783,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -1714,6 +1830,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleTable.CefcModuleEntry, ['entphysicalindex', 'cefcmoduleadminstatus', 'cefcmoduleoperstatus', 'cefcmoduleresetreason', 'cefcmodulestatuslastchangetime', 'cefcmodulelastclearconfigtime', 'cefcmoduleresetreasondescription', 'cefcmodulestatechangereasondescr', 'cefcmoduleuptime'], name, value)
 
 
+
+
     class CefcIntelliModuleTable(Entity):
         """
         This table sparsely augments the
@@ -1731,6 +1849,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	A cefcIntelliModuleTable entry lists the information specific to an intelligent module which cannot be provided by this module's corresponding instance in the cefcModuleTable. Only an intelligent module with Internet address configured has its entry here.  An entry of this table is created if an  intelligent module is detected by the  managed system and its management Internet address is configured on the intelligent  module.  An entry of this table is deleted if the  removal of Internet address configuration of  this module or the module itself
         	**type**\: list of  		 :py:class:`CefcIntelliModuleEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable.CefcIntelliModuleEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1788,10 +1908,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcintellimoduleipaddrtype
             
             	The type of Internet address by which the intelligent module is reachable
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cefcintellimoduleipaddr
             
@@ -1799,6 +1923,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -1832,6 +1958,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable.CefcIntelliModuleEntry, ['entphysicalindex', 'cefcintellimoduleipaddrtype', 'cefcintellimoduleipaddr'], name, value)
 
 
+
+
     class CefcModuleLocalSwitchingTable(Entity):
         """
         This table sparsely augments the cefcModuleTable
@@ -1847,6 +1975,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	A cefcModuleLocalSwitchingTable entry lists the information specific to a local switching capable module which cannot be provided by this module's corresponding instance in the cefcModuleTable. Only a module which is capable of local switching has its entry here.  An entry of this table is created if a module which is capable of local switching is detected by the managed system.  An entry of this table is deleted if the removal of this module
         	**type**\: list of  		 :py:class:`CefcModuleLocalSwitchingEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable.CefcModuleLocalSwitchingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -1900,10 +2030,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcmodulelocalswitchingmode
             
             	This object specifies the mode of local switching.  enabled(1)  \- local switching is enabled. disabled(2) \- local switching is disabled
             	**type**\:  :py:class:`CefcModuleLocalSwitchingMode <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable.CefcModuleLocalSwitchingEntry.CefcModuleLocalSwitchingMode>`
+            
+            	**config**\: False
             
             
 
@@ -1956,6 +2090,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
 
 
 
+
+
     class CefcFanTrayStatusTable(Entity):
         """
         This table contains the operational status information
@@ -1970,6 +2106,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	An cefcFanTrayStatusTable entry lists the operational status information for the ENTITY\-MIB entPhysicalTable  entry which is identified by the value of entPhysicalIndex. The value of entPhysicalClass for the identified entry will be 'fan', and the represented physical entity will be  either\: one physical fan, or a single physical 'fan tray'  which is a manufactured (inseparable in the field)  combination of multiple fans.  Entries are created by the agent at system power\-up or  fan or fan tray insertion.  Entries are deleted  by the agent at the fan or fan tray removal
         	**type**\: list of  		 :py:class:`CefcFanTrayStatusEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable.CefcFanTrayStatusEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2022,10 +2160,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcfantrayoperstatus
             
             	The operational state of the fan or fan tray. unknown(1) \- unknown. up(2) \- powered on. down(3) \- powered down. warning(4) \- partial failure, needs replacement               as soon as possible
             	**type**\:  :py:class:`CefcFanTrayOperStatus <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable.CefcFanTrayStatusEntry.CefcFanTrayOperStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2092,6 +2234,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
 
 
 
+
+
     class CefcPhysicalTable(Entity):
         """
         This table contains one row per physical entity.
@@ -2100,6 +2244,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	Information about a particular physical entity
         	**type**\: list of  		 :py:class:`CefcPhysicalEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable.CefcPhysicalEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2141,10 +2287,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcphysicalstatus
             
             	The status of this physical entity. other(1) \- the status is not any of the listed below. supported(2) \- this entity is supported. unsupported(3) \- this entity is unsupported. incompatible(4) \- this entity is incompatible. It would be unsupported(3), if the ID read from Serial EPROM is not supported. It would be incompatible(4), if in the present configuration this FRU is not supported
             	**type**\:  :py:class:`CefcPhysicalStatus <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable.CefcPhysicalEntry.CefcPhysicalStatus>`
+            
+            	**config**\: False
             
             
 
@@ -2215,6 +2365,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
 
 
 
+
+
     class CefcPowerSupplyInputTable(Entity):
         """
         This table contains the power input information
@@ -2235,6 +2387,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	An entry containing power input management information applicable to a particular power supply and input
         	**type**\: list of  		 :py:class:`CefcPowerSupplyInputEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable.CefcPowerSupplyInputEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2277,6 +2431,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcpowersupplyinputindex  (key)
             
             	A unique value, greater than zero, for each input on a power supply
@@ -2284,10 +2440,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefcpowersupplyinputtype
             
             	The type of an input power detected on the power supply.  unknown(1)\: No input power is detected.  acLow(2)\: Lower rating AC input power is detected.  acHigh(3)\: Higher rating AC input power is detected.  dcLow(4)\: Lower rating DC input power is detected.  dcHigh(5)\: Higher rating DC input power is detected
             	**type**\:  :py:class:`CefcPowerSupplyInputType <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable.CefcPowerSupplyInputEntry.CefcPowerSupplyInputType>`
+            
+            	**config**\: False
             
             
 
@@ -2362,6 +2522,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
 
 
 
+
+
     class CefcPowerSupplyOutputTable(Entity):
         """
         This table contains a list of possible output
@@ -2374,6 +2536,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	A cefcPowerSupplyOutputTable entry lists the power output capacity and its operational status for manageable components of type PhysicalClass 'powerSupply'.  Entries are created by the agent at the system power\-up or power supply insertion.  Entries are deleted by the agent upon power supply removal.  The number of entries of a power supply is determined by the power supply
         	**type**\: list of  		 :py:class:`CefcPowerSupplyOutputEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable.CefcPowerSupplyOutputEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2427,12 +2591,16 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcpsoutputmodeindex  (key)
             
             	A unique value, greater than zero, for each possible output mode on a power supply
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: cefcpsoutputmodecurrent
             
@@ -2441,10 +2609,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** \-1000000000..1000000000
             
+            	**config**\: False
+            
             .. attribute:: cefcpsoutputmodeinoperation
             
             	A value of 'true' indicates that this mode is the operational mode of the power supply output capacity.  A value of 'false' indicates that this mode is not the operational mode of the power supply output capacity.  For a given power supply's entPhysicalIndex,  at most one instance of this object can have the value of true(1)
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -2480,6 +2652,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable.CefcPowerSupplyOutputEntry, ['entphysicalindex', 'cefcpsoutputmodeindex', 'cefcpsoutputmodecurrent', 'cefcpsoutputmodeinoperation'], name, value)
 
 
+
+
     class CefcChassisCoolingTable(Entity):
         """
         This table contains the cooling capacity
@@ -2491,6 +2665,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	A cefcChassisCoolingEntry lists the maximum cooling capacity that could be provided  for one slot on the manageable components of type PhysicalClass 'chassis'.  Entries are created by the agent if the corresponding entry is created in ENTITY\-MIB entPhysicalTable.  Entries are deleted by the agent if the corresponding entry is deleted in ENTITY\-MIB entPhysicalTable
         	**type**\: list of  		 :py:class:`CefcChassisCoolingEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable.CefcChassisCoolingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2541,6 +2717,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcchassisperslotcoolingcap
             
             	The maximum cooling capacity that could be provided for any slot in this chassis.  The default unit of the cooling capacity is 'cfm', if cefcChassisPerSlotCoolingUnit is not supported
@@ -2548,10 +2726,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefcchassisperslotcoolingunit
             
             	The unit of the maximum cooling capacity for any slot in this chassis
             	**type**\:  :py:class:`FRUCoolingUnit <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.FRUCoolingUnit>`
+            
+            	**config**\: False
             
             
 
@@ -2585,6 +2767,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable.CefcChassisCoolingEntry, ['entphysicalindex', 'cefcchassisperslotcoolingcap', 'cefcchassisperslotcoolingunit'], name, value)
 
 
+
+
     class CefcFanCoolingTable(Entity):
         """
         This table contains the cooling capacity
@@ -2596,6 +2780,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	A cefcFanCoolingEntry lists the cooling capacity that is provided by the  manageable components of type PhysicalClass  'fan'.  Entries are created by the agent if the corresponding entry is created in ENTITY\-MIB entPhysicalTable.  Entries are deleted by the agent if the corresponding entry is deleted in ENTITY\-MIB entPhysicalTable
         	**type**\: list of  		 :py:class:`CefcFanCoolingEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable.CefcFanCoolingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2646,6 +2832,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcfancoolingcapacity
             
             	The cooling capacity that is provided by this fan.  The default unit of the fan cooling capacity is 'cfm', if cefcFanCoolingCapacityUnit is not supported
@@ -2653,10 +2841,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefcfancoolingcapacityunit
             
             	The unit of the fan cooling capacity
             	**type**\:  :py:class:`FRUCoolingUnit <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.FRUCoolingUnit>`
+            
+            	**config**\: False
             
             
 
@@ -2690,6 +2882,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable.CefcFanCoolingEntry, ['entphysicalindex', 'cefcfancoolingcapacity', 'cefcfancoolingcapacityunit'], name, value)
 
 
+
+
     class CefcModuleCoolingTable(Entity):
         """
         This table contains the cooling requirement for
@@ -2700,6 +2894,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	A cefcModuleCoolingEntry lists the cooling requirement for a manageable components of type entPhysicalClass 'module'.  Entries are created by the agent at the system power\-up or module insertion.  Entries are deleted by the agent upon module removal
         	**type**\: list of  		 :py:class:`CefcModuleCoolingEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable.CefcModuleCoolingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2749,6 +2945,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcmodulecooling
             
             	The cooling requirement of the module and its daughter cards.  The default unit of the module cooling requirement is 'cfm', if cefcModuleCoolingUnit is not supported
@@ -2756,10 +2954,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefcmodulecoolingunit
             
             	The unit of the cooling requirement of the module and its daughter cards
             	**type**\:  :py:class:`FRUCoolingUnit <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.FRUCoolingUnit>`
+            
+            	**config**\: False
             
             
 
@@ -2793,6 +2995,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable.CefcModuleCoolingEntry, ['entphysicalindex', 'cefcmodulecooling', 'cefcmodulecoolingunit'], name, value)
 
 
+
+
     class CefcFanCoolingCapTable(Entity):
         """
         This table contains a list of the possible cooling
@@ -2804,6 +3008,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	A cefcFanCoolingCapacityEntry lists the cooling capacity mode of a manageable components of type entPhysicalClass 'fan'. It also lists the corresponding cooling capacity provided and the power consumed by the fan on this mode.   Entries are created by the agent if the corresponding entry is created in ENTITY\-MIB entPhysicalTable.  Entries are deleted by the agent if the corresponding entry is deleted in ENTITY\-MIB entPhysicalTable
         	**type**\: list of  		 :py:class:`CefcFanCoolingCapEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable.CefcFanCoolingCapEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2856,6 +3062,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcfancoolingcapindex  (key)
             
             	An arbitrary value that uniquely identifies a cooling capacity mode for a fan
@@ -2863,10 +3071,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 1..4095
             
+            	**config**\: False
+            
             .. attribute:: cefcfancoolingcapmodedescr
             
             	A textual description of the cooling capacity mode of the fan
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: cefcfancoolingcapcapacity
             
@@ -2875,6 +3087,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cefcfancoolingcapcurrent
             
             	The power consumption of the fan when operating in in this mode
@@ -2882,10 +3096,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**range:** \-1000000000..1000000000
             
+            	**config**\: False
+            
             .. attribute:: cefcfancoolingcapcapacityunit
             
             	The unit of the fan cooling capacity when operating in this mode
             	**type**\:  :py:class:`FRUCoolingUnit <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.FRUCoolingUnit>`
+            
+            	**config**\: False
             
             
 
@@ -2925,6 +3143,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable.CefcFanCoolingCapEntry, ['entphysicalindex', 'cefcfancoolingcapindex', 'cefcfancoolingcapmodedescr', 'cefcfancoolingcapcapacity', 'cefcfancoolingcapcurrent', 'cefcfancoolingcapcapacityunit'], name, value)
 
 
+
+
     class CefcConnectorRatingTable(Entity):
         """
         This table contains the connector power
@@ -2937,6 +3157,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	A cefcConnectorRatingEntry lists the power connector rating information of a  component in the system.  An entry or entries are created by the agent when an physical entity with connector rating  management is added to the ENTITY\-MIB  entPhysicalTable. An entry is deleted  by the agent at the entity removal
         	**type**\: list of  		 :py:class:`CefcConnectorRatingEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable.CefcConnectorRatingEntry>`
+        
+        	**config**\: False
         
         
 
@@ -2986,12 +3208,16 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcconnectorrating
             
             	The maximum power that the component's connector can withdraw
             	**type**\: int
             
             	**range:** \-1000000000..1000000000
+            
+            	**config**\: False
             
             
 
@@ -3023,6 +3249,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable.CefcConnectorRatingEntry, ['entphysicalindex', 'cefcconnectorrating'], name, value)
 
 
+
+
     class CefcModulePowerConsumptionTable(Entity):
         """
         This table contains the total power consumption
@@ -3034,6 +3262,8 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         
         	A cefcModulePowerConsumptionEntry lists the total power consumption of a manageable components of type entPhysicalClass 'module'.  Entries are created by the agent at the system power\-up or module insertion.  Entries are deleted by the agent upon module removal
         	**type**\: list of  		 :py:class:`CefcModulePowerConsumptionEntry <ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB.CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable.CefcModulePowerConsumptionEntry>`
+        
+        	**config**\: False
         
         
 
@@ -3083,12 +3313,16 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`entphysicalindex <ydk.models.cisco_ios_xe.ENTITY_MIB.ENTITYMIB.EntPhysicalTable.EntPhysicalEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cefcmodulepowerconsumption
             
             	The combined power consumption to operate the module and its submodule(s) and inline\-power device(s)
             	**type**\: int
             
             	**range:** \-1000000000..1000000000
+            
+            	**config**\: False
             
             
 
@@ -3119,7 +3353,11 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable.CefcModulePowerConsumptionEntry, ['entphysicalindex', 'cefcmodulepowerconsumption'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOENTITYFRUCONTROLMIB()
         return self._top_entity
+
+
 

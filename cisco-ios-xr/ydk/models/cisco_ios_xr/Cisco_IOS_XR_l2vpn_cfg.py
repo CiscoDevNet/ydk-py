@@ -1513,6 +1513,9 @@ class L2vpn(Entity):
                     self._perform_setattr(L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
+
+
+
     class Neighbor(Entity):
         """
         L2VPN neighbor submode
@@ -1548,6 +1551,7 @@ class L2vpn(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2vpn.Neighbor, ['ldp_flap'], name, value)
+
 
 
     class Database(Entity):
@@ -1847,6 +1851,8 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s.ErpPort0, ['interface_name', 'monitor'], name, value)
 
 
+
+
                 class ErpInstances(Entity):
                     """
                     List of ethernet ring protection instance
@@ -2006,6 +2012,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl, ['port', 'role'], name, value)
 
 
+
                         class Aps(Entity):
                             """
                             Automatic protection switching
@@ -2108,6 +2115,10 @@ class L2vpn(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1, ['aps_type', 'aps_channel'], name, value)
+
+
+
+
 
 
                 class ErpPort1s(Entity):
@@ -2239,6 +2250,7 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.NoneOrVirtual, ['monitor'], name, value)
 
 
+
                         class Interface(Entity):
                             """
                             interface
@@ -2284,6 +2296,11 @@ class L2vpn(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.Interface, ['interface_name', 'monitor'], name, value)
+
+
+
+
+
 
 
         class XconnectGroups(Entity):
@@ -2595,6 +2612,8 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit, ['interface_name'], name, value)
 
 
+
+
                         class PseudowireEvpns(Entity):
                             """
                             List of EVPN Services
@@ -2693,6 +2712,8 @@ class L2vpn(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns.PseudowireEvpn, ['eviid', 'remote_acid', 'source_acid', 'class_'], name, value)
+
+
 
 
                         class Pseudowires(Entity):
@@ -2944,6 +2965,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
+
                                     class BackupPseudowires(Entity):
                                         """
                                         List of pseudowires
@@ -3091,6 +3113,9 @@ class L2vpn(Entity):
                                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
+
+
+
                                     class L2tpStaticAttributes(Entity):
                                         """
                                         L2TP Static Attributes
@@ -3219,6 +3244,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
+
                                         class L2tpSecondaryLocalCookie(Entity):
                                             """
                                             L2TP secondary local cookie
@@ -3271,6 +3297,7 @@ class L2vpn(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
+
 
 
                                         class L2tpLocalCookie(Entity):
@@ -3327,6 +3354,8 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
+
+
                                     class L2tpStatic(Entity):
                                         """
                                         Pseudowire L2TPv3 static configuration
@@ -3361,6 +3390,8 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic, ['enable'], name, value)
+
+
 
 
                                 class PseudowireAddress(Entity):
@@ -3526,6 +3557,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
+
                                     class BackupPseudowires(Entity):
                                         """
                                         List of pseudowires
@@ -3673,6 +3705,9 @@ class L2vpn(Entity):
                                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
+
+
+
                                     class L2tpStaticAttributes(Entity):
                                         """
                                         L2TP Static Attributes
@@ -3801,6 +3836,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
+
                                         class L2tpSecondaryLocalCookie(Entity):
                                             """
                                             L2TP secondary local cookie
@@ -3853,6 +3889,7 @@ class L2vpn(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
+
 
 
                                         class L2tpLocalCookie(Entity):
@@ -3909,6 +3946,8 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
+
+
                                     class L2tpStatic(Entity):
                                         """
                                         Pseudowire L2TPv3 static configuration
@@ -3943,6 +3982,10 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic, ['enable'], name, value)
+
+
+
+
 
 
                         class MonitorSessions(Entity):
@@ -4023,6 +4066,8 @@ class L2vpn(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions.MonitorSession, ['name', 'enable'], name, value)
+
+
 
 
                         class PseudowireRouteds(Entity):
@@ -4143,6 +4188,8 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds.PseudowireRouted, ['global_id', 'prefix', 'acid', 'sacid', 'tag_impose', 'class_'], name, value)
 
 
+
+
                         class AttachmentCircuits(Entity):
                             """
                             List of attachment circuits
@@ -4221,6 +4268,10 @@ class L2vpn(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits.AttachmentCircuit, ['name', 'enable'], name, value)
+
+
+
+
 
 
                 class Mp2mpXconnects(Entity):
@@ -4497,6 +4548,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
+
                             class Mp2mpRoutePolicy(Entity):
                                 """
                                 Route policy
@@ -4531,6 +4583,7 @@ class L2vpn(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRoutePolicy, ['export'], name, value)
+
 
 
                             class Mp2mpRouteTargets(Entity):
@@ -4671,6 +4724,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
 
 
+
                                     class Ipv4Address(Entity):
                                         """
                                         ipv4 address
@@ -4716,6 +4770,9 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
+
+
+
 
 
                             class Mp2mpSignalingProtocol(Entity):
@@ -4822,6 +4879,7 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
+
 
 
                                 class Ceids(Entity):
@@ -4987,6 +5045,16 @@ class L2vpn(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit, ['name', 'remote_ce_id'], name, value)
+
+
+
+
+
+
+
+
+
+
 
 
         class BridgeDomainGroups(Entity):
@@ -5501,6 +5569,9 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
+
+
+
                         class MemberVnis(Entity):
                             """
                             Bridge Domain VxLAN Network Identifier Table
@@ -5665,6 +5736,10 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, ['mac_address', 'next_hop_ip'], name, value)
 
 
+
+
+
+
                         class BridgeDomainMac(Entity):
                             """
                             MAC configuration commands
@@ -5824,6 +5899,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, ['bd_mac_limit_action', 'bd_mac_limit_notif', 'bd_mac_limit_max'], name, value)
 
 
+
                             class BdMacFilters(Entity):
                                 """
                                 Filter Mac Address
@@ -5904,6 +5980,8 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, ['address', 'drop'], name, value)
 
 
+
+
                             class MacSecure(Entity):
                                 """
                                 MAC Secure
@@ -5961,6 +6039,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, ['logging', 'action', 'enable', 'threshold'], name, value)
 
 
+
                             class BdMacAging(Entity):
                                 """
                                 MAC\-Aging configuration commands
@@ -6006,6 +6085,8 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, ['bd_mac_aging_type', 'bd_mac_aging_time'], name, value)
 
 
+
+
                         class NvSatellite(Entity):
                             """
                             nV Satellite
@@ -6047,6 +6128,7 @@ class L2vpn(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite, ['offload_ipv4_multicast_enable', 'enable'], name, value)
+
 
 
                         class BridgeDomainPbb(Entity):
@@ -6268,6 +6350,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, ['disable'], name, value)
 
 
+
                                     class PbbStaticMacMappings(Entity):
                                         """
                                         PBB Static Mac Address Mapping Table
@@ -6351,6 +6434,8 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, ['address', 'pbb_static_mac_mapping_bmac'], name, value)
 
 
+
+
                                     class PbbEdgeDhcpProfile(Entity):
                                         """
                                         Attach a DHCP profile
@@ -6392,6 +6477,7 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
+
 
 
                                     class PbbEdgeMac(Entity):
@@ -6509,6 +6595,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, ['pbb_edge_mac_limit_action', 'pbb_edge_mac_limit_max', 'pbb_edge_mac_limit_notif'], name, value)
 
 
+
                                         class PbbEdgeMacAging(Entity):
                                             """
                                             MAC\-Aging configuration commands
@@ -6552,6 +6639,7 @@ class L2vpn(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, ['pbb_edge_mac_aging_type', 'pbb_edge_mac_aging_time'], name, value)
+
 
 
                                         class PbbEdgeMacSecure(Entity):
@@ -6616,6 +6704,10 @@ class L2vpn(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, ['logging', 'disable', 'action', 'enable', 'accept_shutdown'], name, value)
+
+
+
+
 
 
                             class PbbCore(Entity):
@@ -6805,6 +6897,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, ['pbb_core_mac_aging_type', 'pbb_core_mac_aging_time'], name, value)
 
 
+
                                     class PbbCoreMacLimit(Entity):
                                         """
                                         MAC\-Limit configuration commands
@@ -6855,6 +6948,8 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, ['pbb_core_mac_limit_max', 'pbb_core_mac_limit_notif', 'pbb_core_mac_limit_action'], name, value)
+
+
 
 
                                 class PbbCoreEvis(Entity):
@@ -6930,6 +7025,8 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, ['eviid'], name, value)
 
 
+
+
                                 class PbbCoreDhcpProfile(Entity):
                                     """
                                     Attach a DHCP profile
@@ -6971,6 +7068,9 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
+
+
+
 
 
                         class BridgeDomainEvis(Entity):
@@ -7044,6 +7144,8 @@ class L2vpn(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, ['vpn_id'], name, value)
+
+
 
 
                         class AccessVfis(Entity):
@@ -7308,6 +7410,12 @@ class L2vpn(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, ['address'], name, value)
+
+
+
+
+
+
 
 
                         class BdPseudowires(Entity):
@@ -7623,6 +7731,8 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification'], name, value)
 
 
+
+
                                 class BdpwStormControlTypes(Entity):
                                     """
                                     Storm Control
@@ -7754,6 +7864,9 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
+
+
+
                                 class PseudowireProfile(Entity):
                                     """
                                     Attach a DHCP profile
@@ -7795,6 +7908,7 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
+
 
 
                                 class BdPwStaticMacAddresses(Entity):
@@ -7870,6 +7984,8 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, ['address'], name, value)
 
 
+
+
                                 class PseudowireIpSourceGuard(Entity):
                                     """
                                     IP Source Guard
@@ -7918,6 +8034,7 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
+
 
 
                                 class PseudowireMac(Entity):
@@ -8055,6 +8172,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
 
 
+
                                     class PseudowireMacAging(Entity):
                                         """
                                         MAC\-Aging configuration commands
@@ -8098,6 +8216,7 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, ['pseudowire_mac_aging_type', 'pseudowire_mac_aging_time'], name, value)
+
 
 
                                     class PseudowireMacLimit(Entity):
@@ -8150,6 +8269,8 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, ['pseudowire_mac_limit_action', 'pseudowire_mac_limit_notif', 'pseudowire_mac_limit_max'], name, value)
+
+
 
 
                                 class BdPwSplitHorizon(Entity):
@@ -8225,6 +8346,8 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, ['enable'], name, value)
 
 
+
+
                                 class BdPwMplsStaticLabels(Entity):
                                     """
                                     MPLS static labels
@@ -8270,6 +8393,7 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
+
 
 
                                 class BridgeDomainBackupPseudowires(Entity):
@@ -8361,6 +8485,10 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, ['neighbor', 'pseudowire_id', 'bridge_domain_backup_pw_class'], name, value)
+
+
+
+
 
 
                         class Vfis(Entity):
@@ -8615,6 +8743,8 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, ['transport_name', 'attribute_set_name'], name, value)
 
 
+
+
                                     class Signalings(Entity):
                                         """
                                         Multicast P2MP Signaling Type
@@ -8686,6 +8816,9 @@ class L2vpn(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, ['signaling_name'], name, value)
+
+
+
 
 
                                 class VfiPseudowires(Entity):
@@ -8867,6 +9000,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
+
                                         class VfiPwMplsStaticLabels(Entity):
                                             """
                                             MPLS static labels
@@ -8912,6 +9046,7 @@ class L2vpn(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
+
 
 
                                         class PseudowireStaticMacAddresses(Entity):
@@ -8985,6 +9120,10 @@ class L2vpn(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, ['address'], name, value)
+
+
+
+
 
 
                                 class BgpAutoDiscovery(Entity):
@@ -9209,6 +9348,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, ['type', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
 
+
                                         class FlowLabelLoadBalance(Entity):
                                             """
                                             Enable Flow Label based load balancing
@@ -9252,6 +9392,8 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
 
+
+
                                     class BgpRoutePolicy(Entity):
                                         """
                                         Route policy
@@ -9286,6 +9428,7 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, ['export'], name, value)
+
 
 
                                     class RouteDistinguisher(Entity):
@@ -9358,6 +9501,7 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
+
 
 
                                     class BgpSignalingProtocol(Entity):
@@ -9464,6 +9608,8 @@ class L2vpn(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
+
+
 
 
                                     class RouteTargets(Entity):
@@ -9604,6 +9750,7 @@ class L2vpn(Entity):
                                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
 
 
+
                                             class Ipv4Address(Entity):
                                                 """
                                                 ipv4 address
@@ -9649,6 +9796,12 @@ class L2vpn(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
+
+
+
+
+
+
 
 
                         class BridgeDomainvnis(Entity):
@@ -9723,6 +9876,8 @@ class L2vpn(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, ['vpn_id'], name, value)
+
+
 
 
                         class BdAttachmentCircuits(Entity):
@@ -9943,6 +10098,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
 
 
+
                                 class InterfaceDai(Entity):
                                     """
                                     L2 Interface Dynamic ARP Inspection
@@ -10059,6 +10215,8 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
 
 
+
+
                                 class InterfaceProfile(Entity):
                                     """
                                     Attach a DHCP profile
@@ -10100,6 +10258,7 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
+
 
 
                                 class BdacStormControlTypes(Entity):
@@ -10233,6 +10392,9 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
+
+
+
                                 class SplitHorizon(Entity):
                                     """
                                     Split Horizon
@@ -10306,6 +10468,8 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, ['enable'], name, value)
 
 
+
+
                                 class StaticMacAddresses(Entity):
                                     """
                                     Static Mac Address Table
@@ -10377,6 +10541,8 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, ['address'], name, value)
+
+
 
 
                                 class InterfaceMac(Entity):
@@ -10494,6 +10660,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, ['interface_mac_aging_time', 'interface_mac_aging_type'], name, value)
 
 
+
                                     class InterfaceMacSecure(Entity):
                                         """
                                         MAC Secure
@@ -10551,6 +10718,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
 
 
+
                                     class InterfaceMacLimit(Entity):
                                         """
                                         MAC\-Limit configuration commands
@@ -10601,6 +10769,10 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, ['interface_mac_limit_max', 'interface_mac_limit_notif', 'interface_mac_limit_action'], name, value)
+
+
+
+
 
 
                         class BdPseudowireEvpns(Entity):
@@ -10685,6 +10857,8 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, ['eviid', 'acid'], name, value)
 
 
+
+
                         class IpSourceGuard(Entity):
                             """
                             IP Source Guard
@@ -10726,6 +10900,7 @@ class L2vpn(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard, ['logging', 'enable'], name, value)
+
 
 
                         class Dai(Entity):
@@ -10835,6 +11010,8 @@ class L2vpn(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
+
+
 
 
                         class RoutedInterfaces(Entity):
@@ -10953,6 +11130,13 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, ['routed_interface_split_horizon_group_core'], name, value)
+
+
+
+
+
+
+
 
 
         class PseudowireClasses(Entity):
@@ -11233,6 +11417,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing, ['sequencing', 'resync_threshold'], name, value)
 
 
+
                     class TypeOfService(Entity):
                         """
                         Type of service
@@ -11276,6 +11461,7 @@ class L2vpn(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService, ['type_of_service_value', 'type_of_service_mode'], name, value)
+
 
 
                     class SignalingProtocol(Entity):
@@ -11325,6 +11511,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol, ['protocol', 'l2tpv3_class_name'], name, value)
 
 
+
                     class PathMtu(Entity):
                         """
                         Path maximum transmission unit
@@ -11370,6 +11557,8 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu, ['enable', 'max_path_mtu'], name, value)
 
 
+
+
                 class BackupDisableDelay(Entity):
                     """
                     Back Up Pseudowire class
@@ -11413,6 +11602,7 @@ class L2vpn(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay, ['type', 'disable_backup'], name, value)
+
 
 
                 class MplsEncapsulation(Entity):
@@ -11593,6 +11783,7 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing, ['sequencing', 'resync_threshold'], name, value)
 
 
+
                     class MplsRedundancy(Entity):
                         """
                         Redundancy options for MPLS encapsulation
@@ -11638,6 +11829,7 @@ class L2vpn(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy, ['redundancy_one_way', 'redundancy_initial_delay'], name, value)
+
 
 
                     class PreferredPath(Entity):
@@ -11699,6 +11891,7 @@ class L2vpn(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath, ['type', 'interface_tunnel_number', 'fallback_disable', 'srte_policy'], name, value)
+
 
 
                     class LoadBalanceGroup(Entity):
@@ -11794,6 +11987,11 @@ class L2vpn(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
+
+
+
+
+
 
 
         class VlanSwitches(Entity):
@@ -11989,6 +12187,8 @@ class L2vpn(Entity):
                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts.VlanSwitchPort, ['interface_name'], name, value)
 
 
+
+
                 class VniRanges(Entity):
                     """
                     Configure VLAN Switch VxLAN Ethernet VPN\-ID
@@ -12179,6 +12379,7 @@ class L2vpn(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges, ['vni_range1_min', 'vni_range1_max', 'vni_range2_min', 'vni_range2_max', 'vni_range3_min', 'vni_range3_max', 'vni_range4_min', 'vni_range4_max', 'vni_range5_min', 'vni_range5_max', 'vni_range6_min', 'vni_range6_max', 'vni_range7_min', 'vni_range7_max', 'vni_range8_min', 'vni_range8_max', 'vni_range9_min', 'vni_range9_max'], name, value)
+
 
 
                 class VlanRanges(Entity):
@@ -12372,6 +12573,7 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges, ['vlan_range1_min', 'vlan_range1_max', 'vlan_range2_min', 'vlan_range2_max', 'vlan_range3_min', 'vlan_range3_max', 'vlan_range4_min', 'vlan_range4_max', 'vlan_range5_min', 'vlan_range5_max', 'vlan_range6_min', 'vlan_range6_max', 'vlan_range7_min', 'vlan_range7_max', 'vlan_range8_min', 'vlan_range8_max', 'vlan_range9_min', 'vlan_range9_max'], name, value)
 
 
+
                 class RoutedInterfaceRanges(Entity):
                     """
                     Configure VLAN Switch Routed BVI Interface
@@ -12562,6 +12764,7 @@ class L2vpn(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges, ['interface_range1_min', 'interface_range1_max', 'interface_range2_min', 'interface_range2_max', 'interface_range3_min', 'interface_range3_max', 'interface_range4_min', 'interface_range4_max', 'interface_range5_min', 'interface_range5_max', 'interface_range6_min', 'interface_range6_max', 'interface_range7_min', 'interface_range7_max', 'interface_range8_min', 'interface_range8_max', 'interface_range9_min', 'interface_range9_max'], name, value)
+
 
 
                 class BridgeDomains(Entity):
@@ -12992,6 +13195,9 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
+
+
+
                         class MemberVnis(Entity):
                             """
                             Bridge Domain VxLAN Network Identifier Table
@@ -13156,6 +13362,10 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, ['mac_address', 'next_hop_ip'], name, value)
 
 
+
+
+
+
                         class BridgeDomainMac(Entity):
                             """
                             MAC configuration commands
@@ -13315,6 +13525,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, ['bd_mac_limit_action', 'bd_mac_limit_notif', 'bd_mac_limit_max'], name, value)
 
 
+
                             class BdMacFilters(Entity):
                                 """
                                 Filter Mac Address
@@ -13395,6 +13606,8 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, ['address', 'drop'], name, value)
 
 
+
+
                             class MacSecure(Entity):
                                 """
                                 MAC Secure
@@ -13452,6 +13665,7 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, ['logging', 'action', 'enable', 'threshold'], name, value)
 
 
+
                             class BdMacAging(Entity):
                                 """
                                 MAC\-Aging configuration commands
@@ -13497,6 +13711,8 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, ['bd_mac_aging_type', 'bd_mac_aging_time'], name, value)
 
 
+
+
                         class NvSatellite(Entity):
                             """
                             nV Satellite
@@ -13538,6 +13754,7 @@ class L2vpn(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite, ['offload_ipv4_multicast_enable', 'enable'], name, value)
+
 
 
                         class BridgeDomainPbb(Entity):
@@ -13759,6 +13976,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, ['disable'], name, value)
 
 
+
                                     class PbbStaticMacMappings(Entity):
                                         """
                                         PBB Static Mac Address Mapping Table
@@ -13842,6 +14060,8 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, ['address', 'pbb_static_mac_mapping_bmac'], name, value)
 
 
+
+
                                     class PbbEdgeDhcpProfile(Entity):
                                         """
                                         Attach a DHCP profile
@@ -13883,6 +14103,7 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
+
 
 
                                     class PbbEdgeMac(Entity):
@@ -14000,6 +14221,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, ['pbb_edge_mac_limit_action', 'pbb_edge_mac_limit_max', 'pbb_edge_mac_limit_notif'], name, value)
 
 
+
                                         class PbbEdgeMacAging(Entity):
                                             """
                                             MAC\-Aging configuration commands
@@ -14043,6 +14265,7 @@ class L2vpn(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, ['pbb_edge_mac_aging_type', 'pbb_edge_mac_aging_time'], name, value)
+
 
 
                                         class PbbEdgeMacSecure(Entity):
@@ -14107,6 +14330,10 @@ class L2vpn(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, ['logging', 'disable', 'action', 'enable', 'accept_shutdown'], name, value)
+
+
+
+
 
 
                             class PbbCore(Entity):
@@ -14296,6 +14523,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, ['pbb_core_mac_aging_type', 'pbb_core_mac_aging_time'], name, value)
 
 
+
                                     class PbbCoreMacLimit(Entity):
                                         """
                                         MAC\-Limit configuration commands
@@ -14346,6 +14574,8 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, ['pbb_core_mac_limit_max', 'pbb_core_mac_limit_notif', 'pbb_core_mac_limit_action'], name, value)
+
+
 
 
                                 class PbbCoreEvis(Entity):
@@ -14421,6 +14651,8 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, ['eviid'], name, value)
 
 
+
+
                                 class PbbCoreDhcpProfile(Entity):
                                     """
                                     Attach a DHCP profile
@@ -14462,6 +14694,9 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
+
+
+
 
 
                         class BridgeDomainEvis(Entity):
@@ -14535,6 +14770,8 @@ class L2vpn(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, ['vpn_id'], name, value)
+
+
 
 
                         class AccessVfis(Entity):
@@ -14799,6 +15036,12 @@ class L2vpn(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, ['address'], name, value)
+
+
+
+
+
+
 
 
                         class BdPseudowires(Entity):
@@ -15114,6 +15357,8 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification'], name, value)
 
 
+
+
                                 class BdpwStormControlTypes(Entity):
                                     """
                                     Storm Control
@@ -15245,6 +15490,9 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
+
+
+
                                 class PseudowireProfile(Entity):
                                     """
                                     Attach a DHCP profile
@@ -15286,6 +15534,7 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
+
 
 
                                 class BdPwStaticMacAddresses(Entity):
@@ -15361,6 +15610,8 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, ['address'], name, value)
 
 
+
+
                                 class PseudowireIpSourceGuard(Entity):
                                     """
                                     IP Source Guard
@@ -15409,6 +15660,7 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
+
 
 
                                 class PseudowireMac(Entity):
@@ -15546,6 +15798,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
 
 
+
                                     class PseudowireMacAging(Entity):
                                         """
                                         MAC\-Aging configuration commands
@@ -15589,6 +15842,7 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, ['pseudowire_mac_aging_type', 'pseudowire_mac_aging_time'], name, value)
+
 
 
                                     class PseudowireMacLimit(Entity):
@@ -15641,6 +15895,8 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, ['pseudowire_mac_limit_action', 'pseudowire_mac_limit_notif', 'pseudowire_mac_limit_max'], name, value)
+
+
 
 
                                 class BdPwSplitHorizon(Entity):
@@ -15716,6 +15972,8 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, ['enable'], name, value)
 
 
+
+
                                 class BdPwMplsStaticLabels(Entity):
                                     """
                                     MPLS static labels
@@ -15761,6 +16019,7 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
+
 
 
                                 class BridgeDomainBackupPseudowires(Entity):
@@ -15852,6 +16111,10 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, ['neighbor', 'pseudowire_id', 'bridge_domain_backup_pw_class'], name, value)
+
+
+
+
 
 
                         class Vfis(Entity):
@@ -16106,6 +16369,8 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, ['transport_name', 'attribute_set_name'], name, value)
 
 
+
+
                                     class Signalings(Entity):
                                         """
                                         Multicast P2MP Signaling Type
@@ -16177,6 +16442,9 @@ class L2vpn(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, ['signaling_name'], name, value)
+
+
+
 
 
                                 class VfiPseudowires(Entity):
@@ -16358,6 +16626,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
+
                                         class VfiPwMplsStaticLabels(Entity):
                                             """
                                             MPLS static labels
@@ -16403,6 +16672,7 @@ class L2vpn(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
+
 
 
                                         class PseudowireStaticMacAddresses(Entity):
@@ -16476,6 +16746,10 @@ class L2vpn(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, ['address'], name, value)
+
+
+
+
 
 
                                 class BgpAutoDiscovery(Entity):
@@ -16700,6 +16974,7 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, ['type', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
 
+
                                         class FlowLabelLoadBalance(Entity):
                                             """
                                             Enable Flow Label based load balancing
@@ -16743,6 +17018,8 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
 
+
+
                                     class BgpRoutePolicy(Entity):
                                         """
                                         Route policy
@@ -16777,6 +17054,7 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, ['export'], name, value)
+
 
 
                                     class RouteDistinguisher(Entity):
@@ -16849,6 +17127,7 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
+
 
 
                                     class BgpSignalingProtocol(Entity):
@@ -16955,6 +17234,8 @@ class L2vpn(Entity):
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
+
+
 
 
                                     class RouteTargets(Entity):
@@ -17095,6 +17376,7 @@ class L2vpn(Entity):
                                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
 
 
+
                                             class Ipv4Address(Entity):
                                                 """
                                                 ipv4 address
@@ -17140,6 +17422,12 @@ class L2vpn(Entity):
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
+
+
+
+
+
+
 
 
                         class BridgeDomainvnis(Entity):
@@ -17214,6 +17502,8 @@ class L2vpn(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, ['vpn_id'], name, value)
+
+
 
 
                         class BdAttachmentCircuits(Entity):
@@ -17434,6 +17724,7 @@ class L2vpn(Entity):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
 
 
+
                                 class InterfaceDai(Entity):
                                     """
                                     L2 Interface Dynamic ARP Inspection
@@ -17550,6 +17841,8 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
 
 
+
+
                                 class InterfaceProfile(Entity):
                                     """
                                     Attach a DHCP profile
@@ -17591,6 +17884,7 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
+
 
 
                                 class BdacStormControlTypes(Entity):
@@ -17724,6 +18018,9 @@ class L2vpn(Entity):
                                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
+
+
+
                                 class SplitHorizon(Entity):
                                     """
                                     Split Horizon
@@ -17797,6 +18094,8 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, ['enable'], name, value)
 
 
+
+
                                 class StaticMacAddresses(Entity):
                                     """
                                     Static Mac Address Table
@@ -17868,6 +18167,8 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, ['address'], name, value)
+
+
 
 
                                 class InterfaceMac(Entity):
@@ -17985,6 +18286,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, ['interface_mac_aging_time', 'interface_mac_aging_type'], name, value)
 
 
+
                                     class InterfaceMacSecure(Entity):
                                         """
                                         MAC Secure
@@ -18042,6 +18344,7 @@ class L2vpn(Entity):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
 
 
+
                                     class InterfaceMacLimit(Entity):
                                         """
                                         MAC\-Limit configuration commands
@@ -18092,6 +18395,10 @@ class L2vpn(Entity):
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, ['interface_mac_limit_max', 'interface_mac_limit_notif', 'interface_mac_limit_action'], name, value)
+
+
+
+
 
 
                         class BdPseudowireEvpns(Entity):
@@ -18176,6 +18483,8 @@ class L2vpn(Entity):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, ['eviid', 'acid'], name, value)
 
 
+
+
                         class IpSourceGuard(Entity):
                             """
                             IP Source Guard
@@ -18217,6 +18526,7 @@ class L2vpn(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard, ['logging', 'enable'], name, value)
+
 
 
                         class Dai(Entity):
@@ -18326,6 +18636,8 @@ class L2vpn(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
+
+
 
 
                         class RoutedInterfaces(Entity):
@@ -18444,6 +18756,13 @@ class L2vpn(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, ['routed_interface_split_horizon_group_core'], name, value)
+
+
+
+
+
+
+
 
 
         class FlexibleXconnectServiceTable(Entity):
@@ -18660,6 +18979,8 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit, ['name'], name, value)
 
 
+
+
                     class VlanUnawareFxcPseudowireEvpns(Entity):
                         """
                         List of EVPN Services
@@ -18740,6 +19061,10 @@ class L2vpn(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn, ['eviid', 'acid'], name, value)
+
+
+
+
 
 
             class VlanAwareFlexibleXconnectServices(Entity):
@@ -18897,6 +19222,11 @@ class L2vpn(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit, ['name'], name, value)
+
+
+
+
+
 
 
         class Redundancy(Entity):
@@ -19144,6 +19474,12 @@ class L2vpn(Entity):
                                 self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface, ['interface_name', 'secondary_vlan_range', 'recovery_delay', 'primary_vlan_range', 'mac_flush_tcn'], name, value)
 
 
+
+
+
+
+
+
     class Pbb(Entity):
         """
         L2VPN PBB Global
@@ -19181,6 +19517,7 @@ class L2vpn(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2vpn.Pbb, ['backbone_source_mac'], name, value)
+
 
 
     class AutoDiscovery(Entity):
@@ -19256,6 +19593,8 @@ class L2vpn(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2vpn.AutoDiscovery.BgpSignaling, ['mtu_mismatch_ignore'], name, value)
+
+
 
 
     class Utility(Entity):
@@ -19359,6 +19698,8 @@ class L2vpn(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2vpn.Utility.Logging, ['bridge_domain_state_change', 'pseudowire_state_change', 'vfi', 'nsr_state_change', 'pwhe_replication_state_change'], name, value)
+
+
 
 
     class Snmp(Entity):
@@ -19521,6 +19862,8 @@ class L2vpn(Entity):
                         self._perform_setattr(L2vpn.Snmp.Mib.MibInterface.Format, ['external_interface_format'], name, value)
 
 
+
+
             class MibPseudowire(Entity):
                 """
                 Pseudowire related configuration for MIB
@@ -19557,9 +19900,14 @@ class L2vpn(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2vpn.Snmp.Mib.MibPseudowire, ['statistics'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = L2vpn()
         return self._top_entity
+
+
 
 class GenericInterfaceLists(Entity):
     """
@@ -19731,9 +20079,14 @@ class GenericInterfaceLists(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface, ['interface_name', 'enable'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = GenericInterfaceLists()
         return self._top_entity
+
+
 
 class Evpn(Entity):
     """
@@ -20016,6 +20369,7 @@ class Evpn(Entity):
                 self._perform_setattr(Evpn.EvpnTables.EvpnTimers, ['evpn_carving', 'evpn_recovery', 'enable', 'evpn_peering'], name, value)
 
 
+
         class Evpnmac(Entity):
             """
             EVPN MAC Configuration
@@ -20133,6 +20487,8 @@ class Evpn(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Evpn.EvpnTables.Evpnmac.EvpnmacSecure, ['evpnmac_secure_freeze_time', 'enable', 'evpnmac_secure_retry_count', 'evpnmac_secure_move_count', 'evpnmac_secure_move_interval'], name, value)
+
+
 
 
         class EvpnEvis(Entity):
@@ -20333,6 +20689,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviLoadBalancing, ['enable', 'evi_static_flow_label'], name, value)
 
 
+
                 class EvpnEviBgpAutoDiscovery(Entity):
                     """
                     Enable Autodiscovery BGP in EVPN Instance
@@ -20466,6 +20823,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
+
                     class EvpnRouteTargets(Entity):
                         """
                         Route Target
@@ -20581,6 +20939,7 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, ['format', 'role', 'as_', 'as_index', 'stitching'], name, value)
 
 
+
                         class EvpnRouteTargetNone(Entity):
                             """
                             Name of the Route Target
@@ -20629,6 +20988,7 @@ class Evpn(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, ['format', 'role', 'stitching'], name, value)
+
 
 
                         class EvpnRouteTargetIpv4Address(Entity):
@@ -20699,6 +21059,9 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, ['format', 'role', 'address', 'addr_index', 'stitching'], name, value)
 
 
+
+
+
                 class EviMulticast(Entity):
                     """
                     Enter Multicast configuration submode
@@ -20740,6 +21103,7 @@ class Evpn(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast, ['enable', 'evi_mcast_source_connected'], name, value)
+
 
 
                 class EviAdvertiseMac(Entity):
@@ -20784,6 +21148,9 @@ class Evpn(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac, ['enable', 'evi_advertise_mac_bvi'], name, value)
+
+
+
 
 
         class EvpnVirtualAccessVfis(Entity):
@@ -20947,6 +21314,7 @@ class Evpn(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers, ['evpn_virtual_access_vfi_recovery', 'evpn_virtual_access_vfi_peering', 'evpn_virtual_access_vfi_carving', 'enable'], name, value)
+
 
 
                 class EvpnVirtualEthernetSegment(Entity):
@@ -21124,6 +21492,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier, ['bytes01', 'bytes23', 'bytes45', 'bytes67', 'bytes89', 'type'], name, value)
 
 
+
                     class ManualServiceCarving(Entity):
                         """
                         Enter Manual service carving configuration
@@ -21217,6 +21586,11 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, ['primary', 'secondary'], name, value)
 
 
+
+
+
+
+
         class EvpnLoadBalancing(Entity):
             """
             Enter EVPN Loadbalancing configuration submode
@@ -21259,6 +21633,7 @@ class Evpn(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Evpn.EvpnTables.EvpnLoadBalancing, ['evpn_static_flow_label', 'enable'], name, value)
+
 
 
         class EvpnBgpAutoDiscovery(Entity):
@@ -21378,6 +21753,8 @@ class Evpn(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
+
+
 
 
         class EvpnGroups(Entity):
@@ -21535,6 +21912,10 @@ class Evpn(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces.EvpnGroupCoreInterface, ['interface_name'], name, value)
+
+
+
+
 
 
         class EvpnInstances(Entity):
@@ -21839,6 +22220,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
+
                     class EvpnRouteTargets(Entity):
                         """
                         Route Target
@@ -21954,6 +22336,7 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, ['format', 'role', 'as_', 'as_index', 'stitching'], name, value)
 
 
+
                         class EvpnRouteTargetNone(Entity):
                             """
                             Name of the Route Target
@@ -22002,6 +22385,7 @@ class Evpn(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, ['format', 'role', 'stitching'], name, value)
+
 
 
                         class EvpnRouteTargetIpv4Address(Entity):
@@ -22072,6 +22456,9 @@ class Evpn(Entity):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, ['format', 'role', 'address', 'addr_index', 'stitching'], name, value)
 
 
+
+
+
                 class EvpnInstanceAdvertiseMac(Entity):
                     """
                     Enter Advertise local MAC\-only routes
@@ -22114,6 +22501,7 @@ class Evpn(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac, ['enable', 'evi_advertise_mac_bvi'], name, value)
+
 
 
                 class EvpnInstanceMulticast(Entity):
@@ -22159,6 +22547,7 @@ class Evpn(Entity):
                         self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast, ['enable', 'evi_mcast_source_connected'], name, value)
 
 
+
                 class EvpnInstanceLoadBalancing(Entity):
                     """
                     Enter Loadbalancing configuration submode
@@ -22200,6 +22589,9 @@ class Evpn(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing, ['enable', 'evi_static_flow_label'], name, value)
+
+
+
 
 
         class EvpnLogging(Entity):
@@ -22244,6 +22636,7 @@ class Evpn(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Evpn.EvpnTables.EvpnLogging, ['evpn_df_election', 'enable'], name, value)
+
 
 
         class EvpnInterfaces(Entity):
@@ -22423,6 +22816,7 @@ class Evpn(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers, ['evpnac_peering', 'evpnac_carving', 'enable', 'evpnac_recovery'], name, value)
+
 
 
                 class EthernetSegment(Entity):
@@ -22623,6 +23017,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier, ['bytes01', 'bytes23', 'bytes45', 'bytes67', 'bytes89', 'type'], name, value)
 
 
+
                     class ManualServiceCarving(Entity):
                         """
                         Enter Manual service carving configuration
@@ -22714,6 +23109,11 @@ class Evpn(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList, ['primary', 'secondary'], name, value)
+
+
+
+
+
 
 
         class EvpnVirtualAccessPws(Entity):
@@ -22886,6 +23286,7 @@ class Evpn(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers, ['evpn_virtual_access_pw_recovery', 'evpn_virtual_access_pw_peering', 'enable', 'evpn_virtual_access_pw_carving'], name, value)
+
 
 
                 class EvpnVirtualEthernetSegment(Entity):
@@ -23063,6 +23464,7 @@ class Evpn(Entity):
                             self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier, ['bytes01', 'bytes23', 'bytes45', 'bytes67', 'bytes89', 'type'], name, value)
 
 
+
                     class ManualServiceCarving(Entity):
                         """
                         Enter Manual service carving configuration
@@ -23154,6 +23556,11 @@ class Evpn(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, ['primary', 'secondary'], name, value)
+
+
+
+
+
 
 
         class EvpnEthernetSegment(Entity):
@@ -23283,7 +23690,13 @@ class Evpn(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType, ['esi_type', 'disable_auto_generation'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Evpn()
         return self._top_entity
+
+
 

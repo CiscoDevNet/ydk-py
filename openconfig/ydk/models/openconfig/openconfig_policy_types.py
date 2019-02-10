@@ -99,6 +99,7 @@ class ATTRIBUTECOMPARISON(Identity):
         super(ATTRIBUTECOMPARISON, self).__init__(ns, pref, tag)
 
 
+
 class INSTALLPROTOCOLTYPE(Identity):
     """
     Base type for protocols which can install prefixes into the
@@ -113,6 +114,7 @@ class INSTALLPROTOCOLTYPE(Identity):
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:INSTALL_PROTOCOL_TYPE"):
         super(INSTALLPROTOCOLTYPE, self).__init__(ns, pref, tag)
+
 
 
 class BGP(INSTALLPROTOCOLTYPE):
@@ -130,6 +132,7 @@ class BGP(INSTALLPROTOCOLTYPE):
         super(BGP, self).__init__(ns, pref, tag)
 
 
+
 class ISIS(INSTALLPROTOCOLTYPE):
     """
     IS\-IS
@@ -143,6 +146,7 @@ class ISIS(INSTALLPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:ISIS"):
         super(ISIS, self).__init__(ns, pref, tag)
+
 
 
 class ATTRIBUTEGE(ATTRIBUTECOMPARISON):
@@ -160,6 +164,7 @@ class ATTRIBUTEGE(ATTRIBUTECOMPARISON):
         super(ATTRIBUTEGE, self).__init__(ns, pref, tag)
 
 
+
 class LOCALAGGREGATE(INSTALLPROTOCOLTYPE):
     """
     Locally defined aggregate route
@@ -173,6 +178,7 @@ class LOCALAGGREGATE(INSTALLPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:LOCAL_AGGREGATE"):
         super(LOCALAGGREGATE, self).__init__(ns, pref, tag)
+
 
 
 class STATIC(INSTALLPROTOCOLTYPE):
@@ -190,6 +196,7 @@ class STATIC(INSTALLPROTOCOLTYPE):
         super(STATIC, self).__init__(ns, pref, tag)
 
 
+
 class ATTRIBUTEEQ(ATTRIBUTECOMPARISON):
     """
     == comparison
@@ -203,6 +210,7 @@ class ATTRIBUTEEQ(ATTRIBUTECOMPARISON):
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:ATTRIBUTE_EQ"):
         super(ATTRIBUTEEQ, self).__init__(ns, pref, tag)
+
 
 
 class DIRECTLYCONNECTED(INSTALLPROTOCOLTYPE):
@@ -220,6 +228,7 @@ class DIRECTLYCONNECTED(INSTALLPROTOCOLTYPE):
         super(DIRECTLYCONNECTED, self).__init__(ns, pref, tag)
 
 
+
 class ATTRIBUTELE(ATTRIBUTECOMPARISON):
     """
     <= comparison
@@ -233,6 +242,7 @@ class ATTRIBUTELE(ATTRIBUTECOMPARISON):
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:ATTRIBUTE_LE"):
         super(ATTRIBUTELE, self).__init__(ns, pref, tag)
+
 
 
 class OSPF(INSTALLPROTOCOLTYPE):
@@ -250,6 +260,7 @@ class OSPF(INSTALLPROTOCOLTYPE):
         super(OSPF, self).__init__(ns, pref, tag)
 
 
+
 class OSPF3(INSTALLPROTOCOLTYPE):
     """
     OSPFv3
@@ -263,5 +274,6 @@ class OSPF3(INSTALLPROTOCOLTYPE):
 
     def __init__(self, ns="http://openconfig.net/yang/policy-types", pref="openconfig-policy-types", tag="openconfig-policy-types:OSPF3"):
         super(OSPF3, self).__init__(ns, pref, tag)
+
 
 

@@ -30,6 +30,7 @@ class RestHttps(Transport):
         super(RestHttps, self).__init__(ns, pref, tag)
 
 
+
 class CliSsh(Transport):
     """
     CLI over SSH.
@@ -43,6 +44,7 @@ class CliSsh(Transport):
 
     def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:cli-ssh"):
         super(CliSsh, self).__init__(ns, pref, tag)
+
 
 
 class CliConsole(Transport):
@@ -60,6 +62,7 @@ class CliConsole(Transport):
         super(CliConsole, self).__init__(ns, pref, tag)
 
 
+
 class WebuiHttps(Transport):
     """
     WebUI over HTTPS.
@@ -73,6 +76,7 @@ class WebuiHttps(Transport):
 
     def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:webui-https"):
         super(WebuiHttps, self).__init__(ns, pref, tag)
+
 
 
 class SnmpUdp(Transport):
@@ -90,6 +94,7 @@ class SnmpUdp(Transport):
         super(SnmpUdp, self).__init__(ns, pref, tag)
 
 
+
 class WebuiHttp(Transport):
     """
     WebUI over HTTP.
@@ -103,6 +108,7 @@ class WebuiHttp(Transport):
 
     def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:webui-http"):
         super(WebuiHttp, self).__init__(ns, pref, tag)
+
 
 
 class RestHttp(Transport):
@@ -120,6 +126,7 @@ class RestHttp(Transport):
         super(RestHttp, self).__init__(ns, pref, tag)
 
 
+
 class NetconfTcp(Transport):
     """
     NETCONF over TCP.
@@ -135,6 +142,7 @@ class NetconfTcp(Transport):
         super(NetconfTcp, self).__init__(ns, pref, tag)
 
 
+
 class CliTcp(Transport):
     """
     CLI over TCP.
@@ -148,5 +156,6 @@ class CliTcp(Transport):
 
     def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:cli-tcp"):
         super(CliTcp, self).__init__(ns, pref, tag)
+
 
 

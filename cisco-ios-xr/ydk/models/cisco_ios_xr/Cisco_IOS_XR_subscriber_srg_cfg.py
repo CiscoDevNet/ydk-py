@@ -543,6 +543,8 @@ class SubscriberRedundancy(Entity):
                             self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
 
 
+
+
                 class InterfaceRanges(Entity):
                     """
                     Table of InterfaceRange
@@ -652,6 +654,9 @@ class SubscriberRedundancy(Entity):
                             self._perform_setattr(SubscriberRedundancy.Groups.Group.InterfaceList.InterfaceRanges.InterfaceRange, ['interface_name', 'sub_interface_range_start', 'sub_interface_range_end', 'interface_id_range_start', 'interface_id_range_end'], name, value)
 
 
+
+
+
             class Peer(Entity):
                 """
                 None
@@ -748,6 +753,8 @@ class SubscriberRedundancy(Entity):
                         self._perform_setattr(SubscriberRedundancy.Groups.Group.Peer.Ipaddress, ['address_family', 'prefix_string'], name, value)
 
 
+
+
             class RevertiveTimer(Entity):
                 """
                 None
@@ -797,6 +804,7 @@ class SubscriberRedundancy(Entity):
                     self._perform_setattr(SubscriberRedundancy.Groups.Group.RevertiveTimer, ['max_value', 'value'], name, value)
 
 
+
             class VirtualMac(Entity):
                 """
                 Virtual MAC Address for this Group
@@ -840,6 +848,7 @@ class SubscriberRedundancy(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberRedundancy.Groups.Group.VirtualMac, ['address', 'disable'], name, value)
+
 
 
             class StateControlRoute(Entity):
@@ -996,6 +1005,8 @@ class SubscriberRedundancy(Entity):
                             self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv4Routes.Ipv4Route, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
 
 
+
+
                 class Ipv6Route(Entity):
                     """
                     None
@@ -1150,6 +1161,8 @@ class SubscriberRedundancy(Entity):
                                 self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6naRoutes.Ipv6naRoute, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
 
 
+
+
                     class Ipv6pdRoutes(Entity):
                         """
                         Table of IPv6PDRoute
@@ -1258,6 +1271,12 @@ class SubscriberRedundancy(Entity):
                                 self._perform_setattr(SubscriberRedundancy.Groups.Group.StateControlRoute.Ipv6Route.Ipv6pdRoutes.Ipv6pdRoute, ['vrfname', 'prefix_length', 'prefix_string', 'tagvalue'], name, value)
 
 
+
+
+
+
+
+
     class RevertiveTimer(Entity):
         """
         None
@@ -1307,7 +1326,10 @@ class SubscriberRedundancy(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberRedundancy.RevertiveTimer, ['max_value', 'value'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = SubscriberRedundancy()
         return self._top_entity
+
+
 

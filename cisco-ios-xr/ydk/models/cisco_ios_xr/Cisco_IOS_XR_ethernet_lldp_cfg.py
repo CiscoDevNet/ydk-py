@@ -258,6 +258,7 @@ class Lldp(Entity):
                 self._perform_setattr(Lldp.TlvSelect.SystemName, ['disable'], name, value)
 
 
+
         class PortDescription(Entity):
             """
             Port Description TLV
@@ -295,6 +296,7 @@ class Lldp(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.PortDescription, ['disable'], name, value)
+
 
 
         class SystemDescription(Entity):
@@ -336,6 +338,7 @@ class Lldp(Entity):
                 self._perform_setattr(Lldp.TlvSelect.SystemDescription, ['disable'], name, value)
 
 
+
         class SystemCapabilities(Entity):
             """
             System Capabilities TLV
@@ -373,6 +376,7 @@ class Lldp(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.SystemCapabilities, ['disable'], name, value)
+
 
 
         class ManagementAddress(Entity):
@@ -413,7 +417,11 @@ class Lldp(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.ManagementAddress, ['disable'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = Lldp()
         return self._top_entity
+
+
 

@@ -28,6 +28,8 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
     	
     	**type**\:  :py:class:`CmplsIdObjects <ydk.models.cisco_ios_xe.CISCO_IETF_MPLS_ID_STD_03_MIB.CISCOIETFMPLSIDSTD03MIB.CmplsIdObjects>`
     
+    	**config**\: False
+    
     
 
     """
@@ -68,6 +70,8 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
         
         	**length:** 4
         
+        	**config**\: False
+        
         .. attribute:: cmplsicc
         
         	This object allows the operator or service provider to assign a unique MPLS\-TP ITU\-T Carrier Code (ICC) to a network
@@ -75,12 +79,16 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
         
         	**length:** 1..6
         
+        	**config**\: False
+        
         .. attribute:: cmplsnodeid
         
         	This object allows the operator or service provider to assign a unique MPLS\-TP Node\_ID.  The Node\_ID is assigned within the scope of the Global\_ID
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -113,7 +121,10 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFMPLSIDSTD03MIB.CmplsIdObjects, ['cmplsglobalid', 'cmplsicc', 'cmplsnodeid'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = CISCOIETFMPLSIDSTD03MIB()
         return self._top_entity
+
+
 

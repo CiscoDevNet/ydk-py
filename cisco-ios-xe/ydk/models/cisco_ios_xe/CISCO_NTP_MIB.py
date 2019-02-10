@@ -163,15 +163,21 @@ class CISCONTPMIB(Entity):
     	
     	**type**\:  :py:class:`CntpSystem <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpSystem>`
     
+    	**config**\: False
+    
     .. attribute:: cntppeersvartable
     
     	This table provides information on the peers with which the local NTP server has associations.  The peers are also NTP servers but running on different hosts
     	**type**\:  :py:class:`CntpPeersVarTable <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpPeersVarTable>`
     
+    	**config**\: False
+    
     .. attribute:: cntpfilterregistertable
     
     	The following table contains NTP state variables used by the NTP clock filter and selection algorithms. This table depicts a shift register.  Each stage in the shift register is a 3\-tuple consisting of the measured clock offset, measured clock delay and measured clock dispersion associated with a single observation.  An important factor affecting the accuracy and reliability of time distribution is the complex of algorithms used to reduce the effect of statistical errors and falsetickers due to failure of various subnet components, reference sources or propagation media.  The NTP clock\-filter and selection algorithms are designed to do exactly this.  The objects in the filter register table below are used by these algorthims to minimize the error in the calculated time
     	**type**\:  :py:class:`CntpFilterRegisterTable <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpFilterRegisterTable>`
+    
+    	**config**\: False
     
     
 
@@ -219,12 +225,16 @@ class CISCONTPMIB(Entity):
         	Two\-bit code warning of an impending leap second to be inserted in the NTP timescale. This object can be set only when the cntpSysStratum has a value of 1
         	**type**\:  :py:class:`NTPLeapIndicator <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.NTPLeapIndicator>`
         
+        	**config**\: False
+        
         .. attribute:: cntpsysstratum
         
         	The stratum of the local clock. If the value is set to 1, i.e., this is a primary reference, then the Primary\-Clock procedure described in Section 3.4.6, in RFC\-1305 is invoked
         	**type**\: int
         
         	**range:** 0..255
+        
+        	**config**\: False
         
         .. attribute:: cntpsysprecision
         
@@ -233,12 +243,16 @@ class CISCONTPMIB(Entity):
         
         	**range:** \-20..20
         
+        	**config**\: False
+        
         .. attribute:: cntpsysrootdelay
         
         	A signed fixed\-point number indicating the total round\-trip delay in seconds, to the primary reference source at the root of the synchronization subnet
         	**type**\: str
         
         	**length:** 4
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -249,6 +263,8 @@ class CISCONTPMIB(Entity):
         
         	**length:** 4
         
+        	**config**\: False
+        
         	**units**\: seconds
         
         .. attribute:: cntpsysrefid
@@ -258,12 +274,16 @@ class CISCONTPMIB(Entity):
         
         	**length:** 4
         
+        	**config**\: False
+        
         .. attribute:: cntpsysreftime
         
         	The local time when the local clock was last updated.  If the local clock has never been synchronized, the value is zero
         	**type**\: str
         
         	**length:** 8
+        
+        	**config**\: False
         
         .. attribute:: cntpsyspoll
         
@@ -272,12 +292,16 @@ class CISCONTPMIB(Entity):
         
         	**range:** \-20..20
         
+        	**config**\: False
+        
         .. attribute:: cntpsyspeer
         
         	The current synchronization source.  This will contain the unique association identifier cntpPeersAssocId of the corresponding peer entry in the cntpPeersVarTable of the peer acting as the synchronization source.  If there is no peer, the value will be 0
         	**type**\: int
         
         	**range:** 0..2147483647
+        
+        	**config**\: False
         
         .. attribute:: cntpsysclock
         
@@ -286,10 +310,14 @@ class CISCONTPMIB(Entity):
         
         	**length:** 8
         
+        	**config**\: False
+        
         .. attribute:: cntpsyssrvstatus
         
         	Current state of the NTP server with values coded as follows\: 1\: server status is unknown 2\: server is not running 3\: server is not synchronized to any time source 4\: server is synchronized to its own local clock 5\: server is synchronized to a local hardware refclock (e.g. GPS) 6\: server is synchronized to a remote NTP server
         	**type**\:  :py:class:`CntpSysSrvStatus <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpSystem.CntpSysSrvStatus>`
+        
+        	**config**\: False
         
         
 
@@ -384,6 +412,7 @@ class CISCONTPMIB(Entity):
 
 
 
+
     class CntpPeersVarTable(Entity):
         """
         This table provides information on the peers with
@@ -395,6 +424,8 @@ class CISCONTPMIB(Entity):
         
         	Each peers' entry provides NTP information retrieved from a particular peer NTP server.  Each peer is identified by a unique association identifier.  Entries are automatically created when the user configures the NTP server to be associated with remote peers.  Similarly entries are deleted when the user removes the peer association from the NTP server.  Entries can also be created by the management station by setting values for the following objects\: cntpPeersPeerAddress or cntpPeersPeerName,  cntpPeersHostAddress and cntpPeersMode and making the cntpPeersEntryStatus as active(1).  At the least, the management station has to set a value for cntpPeersPeerAddress or cntpPeersPeerName to make the row active
         	**type**\: list of  		 :py:class:`CntpPeersVarEntry <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpPeersVarTable.CntpPeersVarEntry>`
+        
+        	**config**\: False
         
         
 
@@ -450,10 +481,14 @@ class CISCONTPMIB(Entity):
             
             	**range:** 0..2147483647
             
+            	**config**\: False
+            
             .. attribute:: cntppeersconfigured
             
             	This is a bit indicating that the association was created from configuration information and should not be de\-associated even if the peer becomes unreachable
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: cntppeerspeeraddress
             
@@ -462,12 +497,16 @@ class CISCONTPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: cntppeerspeerport
             
             	The UDP port number on which the peer receives NTP messages
             	**type**\: int
             
             	**range:** 1..65535
+            
+            	**config**\: False
             
             .. attribute:: cntppeershostaddress
             
@@ -476,6 +515,8 @@ class CISCONTPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: cntppeershostport
             
             	The UDP port number on which the local host receives NTP messages
@@ -483,15 +524,21 @@ class CISCONTPMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             .. attribute:: cntppeersleap
             
             	Two\-bit code warning of an impending leap second to be inserted in the NTP timescale of the peer
             	**type**\:  :py:class:`NTPLeapIndicator <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.NTPLeapIndicator>`
             
+            	**config**\: False
+            
             .. attribute:: cntppeersmode
             
             	The association mode of the NTP server, with values coded as follows, 0, unspecified 1, symmetric active \- A host operating in this mode         sends periodic messages regardless of the         reachability state or stratum of its peer.  By         operating in this mode the host announces its         willingness to synchronize and be synchronized         by the peer 2, symmetric passive \- This type of association is         ordinarily created upon arrival of a message         from a peer operating in the symmetric active         mode and persists only as long as the peer is         reachable and operating at a stratum level         less than or equal to the host; otherwise, the         association is dissolved.  However, the         association will always persist until at least         one message has been sent in reply.  By         operating in this mode the host announces its         willingness to synchronize and be synchronized         by the peer 3, client \-  A host operating in this mode sends         periodic messages regardless of the         reachability state or stratum of its peer.  By         operating in this mode the host, usually a LAN         workstation, announces its willingness to be         synchronized by, but not to synchronize the peer 4, server \- This type of association is ordinarily         created upon arrival of a client request message         and exists only in order to reply to that         request, after which the association is         dissolved.  By operating in this mode the host,         usually a LAN time server, announces its         willingness to synchronize, but not to be         synchronized by the peer 5, broadcast \- A host operating in this mode sends         periodic messages regardless of the         reachability state or stratum of the peers.         By operating in this mode the host, usually a         LAN time server operating on a high\-speed         broadcast medium, announces its willingness to         synchronize all of the peers, but not to be         synchronized by any of them 6, reserved for NTP control messages 7, reserved for private use.  When creating a new peer association, if no value is specified for this object, it defaults to symmetricActive(1)
             	**type**\:  :py:class:`CntpPeersMode <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpPeersVarTable.CntpPeersVarEntry.CntpPeersMode>`
+            
+            	**config**\: False
             
             .. attribute:: cntppeersstratum
             
@@ -500,12 +547,16 @@ class CISCONTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cntppeerspeerpoll
             
             	The interval at which the peer polls the local host
             	**type**\: int
             
             	**range:** \-20..20
+            
+            	**config**\: False
             
             .. attribute:: cntppeershostpoll
             
@@ -514,6 +565,8 @@ class CISCONTPMIB(Entity):
             
             	**range:** \-20..20
             
+            	**config**\: False
+            
             .. attribute:: cntppeersprecision
             
             	Signed integer indicating the precision of the peer clock, in seconds to the nearest power of two.  The value must be rounded to the next larger power of two; for instance, a 50\-Hz (20 ms) or 60\-Hz (16.67 ms) power\-frequency clock would be assigned the value \-5 (31.25 ms), while a 1000\-Hz (1 ms) crystal\-controlled clock would be assigned the value \-9 (1.95 ms)
@@ -521,12 +574,16 @@ class CISCONTPMIB(Entity):
             
             	**range:** \-20..20
             
+            	**config**\: False
+            
             .. attribute:: cntppeersrootdelay
             
             	A signed fixed\-point number indicating the total round\-trip delay in seconds, from the peer to the primary reference source at the root of the synchronization subnet
             	**type**\: str
             
             	**length:** 4
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -537,6 +594,8 @@ class CISCONTPMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cntppeersrefid
@@ -546,12 +605,16 @@ class CISCONTPMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             .. attribute:: cntppeersreftime
             
             	The local time at the peer when its clock was last updated.  If the peer clock has never been synchronized, the value is zero
             	**type**\: str
             
             	**length:** 8
+            
+            	**config**\: False
             
             .. attribute:: cntppeersorgtime
             
@@ -560,12 +623,16 @@ class CISCONTPMIB(Entity):
             
             	**length:** 8
             
+            	**config**\: False
+            
             .. attribute:: cntppeersreceivetime
             
             	The local time, when the latest NTP message from the peer arrived.  If the peer becomes unreachable the value is set to zero
             	**type**\: str
             
             	**length:** 8
+            
+            	**config**\: False
             
             .. attribute:: cntppeerstransmittime
             
@@ -574,12 +641,16 @@ class CISCONTPMIB(Entity):
             
             	**length:** 8
             
+            	**config**\: False
+            
             .. attribute:: cntppeersupdatetime
             
             	The local time, when the most recent NTP message was received from the peer that was used to calculate the skew dispersion.  This represents only the 32\-bit integer part of the NTPTimestamp
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**status**\: deprecated
             
@@ -590,12 +661,16 @@ class CISCONTPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: cntppeerstimer
             
             	The interval in seconds, between transmitted NTP messages from the local host to the peer
             	**type**\: int
             
             	**range:** 0..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -606,6 +681,8 @@ class CISCONTPMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cntppeersdelay
@@ -614,6 +691,8 @@ class CISCONTPMIB(Entity):
             	**type**\: str
             
             	**length:** 4
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -624,6 +703,8 @@ class CISCONTPMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cntppeersfiltervalidentries
@@ -633,10 +714,14 @@ class CISCONTPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cntppeersentrystatus
             
             	The status object for this row. When a management station is creating a new row, it should set the value for cntpPeersPeerAddress at least, before the row can be made active(1)
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: cntppeersupdatetimerev1
             
@@ -645,15 +730,21 @@ class CISCONTPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: cntppeersprefpeer
             
             	This object specifies whether this peer is the preferred one over the others. By default, when the value of this object is 'false', NTP chooses  the peer with which to synchronize the time on  the local system. If this object is set to 'true', NTP will choose the corresponding peer to synchronize the time with. If multiple entries have this object set to 'true', NTP will choose the first one to be set. This object is a means to override the selection of the peer by NTP
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: cntppeerspeertype
             
             	Represents the type of the corresponding instance of cntpPeersPeerName object
             	**type**\:  :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            	**config**\: False
             
             .. attribute:: cntppeerspeername
             
@@ -661,6 +752,8 @@ class CISCONTPMIB(Entity):
             	**type**\: str
             
             	**length:** 0..255
+            
+            	**config**\: False
             
             
 
@@ -885,6 +978,8 @@ class CISCONTPMIB(Entity):
 
 
 
+
+
     class CntpFilterRegisterTable(Entity):
         """
         The following table contains NTP state variables
@@ -910,6 +1005,8 @@ class CISCONTPMIB(Entity):
         
         	Each entry corresponds to one stage of the shift register, i.e., one reading of the variables clock delay, clock offset and clock dispersion.  Entries are automatically created whenever a peer is configured and deleted when the peer is removed
         	**type**\: list of  		 :py:class:`CntpFilterRegisterEntry <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpFilterRegisterTable.CntpFilterRegisterEntry>`
+        
+        	**config**\: False
         
         
 
@@ -956,6 +1053,8 @@ class CISCONTPMIB(Entity):
             
             	**refers to**\:  :py:class:`cntppeersassocid <ydk.models.cisco_ios_xe.CISCO_NTP_MIB.CISCONTPMIB.CntpPeersVarTable.CntpPeersVarEntry>`
             
+            	**config**\: False
+            
             .. attribute:: cntpfilterindex  (key)
             
             	An integer value in the specified range that is used to index into the table.  The size of the table is fixed at 8.  Each entry identifies a particular reading of the clock filter variables in the shift register.  Entries are added starting at index 1.  The index wraps back to 1 when it reaches 8.  When the index wraps back, the new entries will overwrite the old entries effectively deleting the old entry
@@ -963,12 +1062,16 @@ class CISCONTPMIB(Entity):
             
             	**range:** 1..8
             
+            	**config**\: False
+            
             .. attribute:: cntpfilterpeersoffset
             
             	The offset of the peer clock relative to the local clock in seconds
             	**type**\: str
             
             	**length:** 4
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -979,6 +1082,8 @@ class CISCONTPMIB(Entity):
             
             	**length:** 4
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: cntpfilterpeersdispersion
@@ -987,6 +1092,8 @@ class CISCONTPMIB(Entity):
             	**type**\: str
             
             	**length:** 4
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -1025,7 +1132,11 @@ class CISCONTPMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONTPMIB.CntpFilterRegisterTable.CntpFilterRegisterEntry, ['cntppeersassocid', 'cntpfilterindex', 'cntpfilterpeersoffset', 'cntpfilterpeersdelay', 'cntpfilterpeersdispersion'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCONTPMIB()
         return self._top_entity
+
+
 

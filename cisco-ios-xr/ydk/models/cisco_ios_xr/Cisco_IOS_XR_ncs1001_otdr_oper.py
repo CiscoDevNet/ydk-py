@@ -204,10 +204,14 @@ class HwModule(Entity):
     	Otdr Details Root Info
     	**type**\:  :py:class:`OtdrDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.OtdrDetails>`
     
+    	**config**\: False
+    
     .. attribute:: otdrs
     
     	Otdr Root Info
     	**type**\:  :py:class:`Otdrs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.Otdrs>`
+    
+    	**config**\: False
     
     
 
@@ -251,6 +255,8 @@ class HwModule(Entity):
         	Otdr Details
         	**type**\: list of  		 :py:class:`OtdrDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.OtdrDetails.OtdrDetail>`
         
+        	**config**\: False
+        
         
 
         """
@@ -289,10 +295,14 @@ class HwModule(Entity):
             
             	**range:** 1..3
             
+            	**config**\: False
+            
             .. attribute:: data_type_detail
             
             	Dispaly data type list
             	**type**\: list of  		 :py:class:`DataTypeDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.OtdrDetails.OtdrDetail.DataTypeDetail>`
+            
+            	**config**\: False
             
             
 
@@ -333,10 +343,14 @@ class HwModule(Entity):
                 	Details associated with a particular Data type
                 	**type**\:  :py:class:`OtsOtdrDataTypeDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.OtsOtdrDataTypeDetails>`
                 
+                	**config**\: False
+                
                 .. attribute:: identifier
                 
                 	Dispaly details
                 	**type**\: list of  		 :py:class:`Identifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier>`
+                
+                	**config**\: False
                 
                 
 
@@ -378,20 +392,28 @@ class HwModule(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**config**\: False
+                    
                     .. attribute:: otdr_item
                     
                     	otdr item
                     	**type**\:  :py:class:`OtdrItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrItem>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: otdr_scan
                     
                     	otdr scan
                     	**type**\: list of  		 :py:class:`OtdrScan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrScan>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: otdr_status
                     
                     	otdr status
                     	**type**\: list of  		 :py:class:`OtdrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrStatus>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -438,10 +460,14 @@ class HwModule(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: direction
                         
                         	Scan Direction
                         	**type**\:  :py:class:`Direction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.Direction>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: timestamp
                         
@@ -450,12 +476,16 @@ class HwModule(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: sor_file
                         
                         	Sor file name
                         	**type**\: str
                         
                         	**length:** 0..64
+                        
+                        	**config**\: False
                         
                         .. attribute:: sor_directory
                         
@@ -464,10 +494,14 @@ class HwModule(Entity):
                         
                         	**length:** 0..64
                         
+                        	**config**\: False
+                        
                         .. attribute:: scan_mode
                         
                         	Scan Mode
                         	**type**\:  :py:class:`OtdrScanMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.OtdrScanMode>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: distance
                         
@@ -476,6 +510,8 @@ class HwModule(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: total_orl
                         
                         	Total Orl in dB
@@ -483,10 +519,14 @@ class HwModule(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: otdr_event
                         
                         	Event list
                         	**type**\: list of  		 :py:class:`OtdrEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrItem.OtdrEvent>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -542,10 +582,14 @@ class HwModule(Entity):
                             
                             	**range:** 0..65535
                             
+                            	**config**\: False
+                            
                             .. attribute:: type
                             
                             	Event Type
                             	**type**\:  :py:class:`OtdrEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.OtdrEvent>`
+                            
+                            	**config**\: False
                             
                             .. attribute:: position
                             
@@ -554,12 +598,16 @@ class HwModule(Entity):
                             
                             	**length:** 0..16
                             
+                            	**config**\: False
+                            
                             .. attribute:: accuracy
                             
                             	Event accuracy in meters
                             	**type**\: str
                             
                             	**length:** 0..16
+                            
+                            	**config**\: False
                             
                             .. attribute:: magnitude
                             
@@ -568,12 +616,16 @@ class HwModule(Entity):
                             
                             	**length:** 0..16
                             
+                            	**config**\: False
+                            
                             .. attribute:: attenuation
                             
                             	Event Attenuation in dB
                             	**type**\: str
                             
                             	**length:** 0..16
+                            
+                            	**config**\: False
                             
                             .. attribute:: eof_confidence
                             
@@ -582,12 +634,16 @@ class HwModule(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: threshold_crossing
                             
                             	Threshold Crossing
                             	**type**\: int
                             
                             	**range:** 0..255
+                            
+                            	**config**\: False
                             
                             
 
@@ -630,6 +686,8 @@ class HwModule(Entity):
                                 self._perform_setattr(HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrItem.OtdrEvent, ['event_id', 'type', 'position', 'accuracy', 'magnitude', 'attenuation', 'eof_confidence', 'threshold_crossing'], name, value)
 
 
+
+
                     class OtdrScan(Entity):
                         """
                         otdr scan
@@ -641,6 +699,8 @@ class HwModule(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: otdr_number
                         
                         	Otdr Number
@@ -648,15 +708,21 @@ class HwModule(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: direction
                         
                         	Direction
                         	**type**\:  :py:class:`Direction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.Direction>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: scan_mode
                         
                         	Scan Mode
                         	**type**\:  :py:class:`OtdrScanMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.OtdrScanMode>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: timestamp
                         
@@ -665,12 +731,16 @@ class HwModule(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: sor_file
                         
                         	Sor File Name
                         	**type**\: str
                         
                         	**length:** 0..64
+                        
+                        	**config**\: False
                         
                         
 
@@ -709,6 +779,7 @@ class HwModule(Entity):
                             self._perform_setattr(HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrScan, ['index', 'otdr_number', 'direction', 'scan_mode', 'timestamp', 'sor_file'], name, value)
 
 
+
                     class OtdrStatus(Entity):
                         """
                         otdr status
@@ -720,10 +791,14 @@ class HwModule(Entity):
                         
                         	**range:** 0..255
                         
+                        	**config**\: False
+                        
                         .. attribute:: direction
                         
                         	Direction
                         	**type**\:  :py:class:`Direction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.Direction>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: timestamp
                         
@@ -732,15 +807,21 @@ class HwModule(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: training_status
                         
                         	Training Status
                         	**type**\:  :py:class:`OtdrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.OtdrStatus>`
                         
+                        	**config**\: False
+                        
                         .. attribute:: measurement_status
                         
                         	Measurement Status
                         	**type**\:  :py:class:`OtdrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.OtdrStatus>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: progress_pc
                         
@@ -748,6 +829,8 @@ class HwModule(Entity):
                         	**type**\: int
                         
                         	**range:** 0..65535
+                        
+                        	**config**\: False
                         
                         
 
@@ -786,6 +869,11 @@ class HwModule(Entity):
                             self._perform_setattr(HwModule.OtdrDetails.OtdrDetail.DataTypeDetail.Identifier.OtdrStatus, ['otdr_id', 'direction', 'timestamp', 'training_status', 'measurement_status', 'progress_pc'], name, value)
 
 
+
+
+
+
+
     class Otdrs(Entity):
         """
         Otdr Root Info
@@ -794,6 +882,8 @@ class HwModule(Entity):
         
         	Otdr Info
         	**type**\: list of  		 :py:class:`Otdr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.Otdrs.Otdr>`
+        
+        	**config**\: False
         
         
 
@@ -833,10 +923,14 @@ class HwModule(Entity):
             
             	**range:** 1..3
             
+            	**config**\: False
+            
             .. attribute:: data_type
             
             	Dispaly data type list
             	**type**\: list of  		 :py:class:`DataType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.Otdrs.Otdr.DataType>`
+            
+            	**config**\: False
             
             
 
@@ -877,20 +971,28 @@ class HwModule(Entity):
                 	Details associated with a particular Data type
                 	**type**\:  :py:class:`OtsOtdrData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.OtsOtdrData>`
                 
+                	**config**\: False
+                
                 .. attribute:: otdr_item
                 
                 	otdr item
                 	**type**\:  :py:class:`OtdrItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.Otdrs.Otdr.DataType.OtdrItem>`
+                
+                	**config**\: False
                 
                 .. attribute:: otdr_scan
                 
                 	otdr scan
                 	**type**\: list of  		 :py:class:`OtdrScan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.Otdrs.Otdr.DataType.OtdrScan>`
                 
+                	**config**\: False
+                
                 .. attribute:: otdr_status
                 
                 	otdr status
                 	**type**\: list of  		 :py:class:`OtdrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.Otdrs.Otdr.DataType.OtdrStatus>`
+                
+                	**config**\: False
                 
                 
 
@@ -937,10 +1039,14 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: direction
                     
                     	Scan Direction
                     	**type**\:  :py:class:`Direction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.Direction>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: timestamp
                     
@@ -949,12 +1055,16 @@ class HwModule(Entity):
                     
                     	**length:** 0..16
                     
+                    	**config**\: False
+                    
                     .. attribute:: sor_file
                     
                     	Sor file name
                     	**type**\: str
                     
                     	**length:** 0..64
+                    
+                    	**config**\: False
                     
                     .. attribute:: sor_directory
                     
@@ -963,10 +1073,14 @@ class HwModule(Entity):
                     
                     	**length:** 0..64
                     
+                    	**config**\: False
+                    
                     .. attribute:: scan_mode
                     
                     	Scan Mode
                     	**type**\:  :py:class:`OtdrScanMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.OtdrScanMode>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: distance
                     
@@ -975,6 +1089,8 @@ class HwModule(Entity):
                     
                     	**length:** 0..16
                     
+                    	**config**\: False
+                    
                     .. attribute:: total_orl
                     
                     	Total Orl in dB
@@ -982,10 +1098,14 @@ class HwModule(Entity):
                     
                     	**length:** 0..16
                     
+                    	**config**\: False
+                    
                     .. attribute:: otdr_event
                     
                     	Event list
                     	**type**\: list of  		 :py:class:`OtdrEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.HwModule.Otdrs.Otdr.DataType.OtdrItem.OtdrEvent>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -1041,10 +1161,14 @@ class HwModule(Entity):
                         
                         	**range:** 0..65535
                         
+                        	**config**\: False
+                        
                         .. attribute:: type
                         
                         	Event Type
                         	**type**\:  :py:class:`OtdrEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.OtdrEvent>`
+                        
+                        	**config**\: False
                         
                         .. attribute:: position
                         
@@ -1053,12 +1177,16 @@ class HwModule(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: accuracy
                         
                         	Event accuracy in meters
                         	**type**\: str
                         
                         	**length:** 0..16
+                        
+                        	**config**\: False
                         
                         .. attribute:: magnitude
                         
@@ -1067,12 +1195,16 @@ class HwModule(Entity):
                         
                         	**length:** 0..16
                         
+                        	**config**\: False
+                        
                         .. attribute:: attenuation
                         
                         	Event Attenuation in dB
                         	**type**\: str
                         
                         	**length:** 0..16
+                        
+                        	**config**\: False
                         
                         .. attribute:: eof_confidence
                         
@@ -1081,12 +1213,16 @@ class HwModule(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: threshold_crossing
                         
                         	Threshold Crossing
                         	**type**\: int
                         
                         	**range:** 0..255
+                        
+                        	**config**\: False
                         
                         
 
@@ -1129,6 +1265,8 @@ class HwModule(Entity):
                             self._perform_setattr(HwModule.Otdrs.Otdr.DataType.OtdrItem.OtdrEvent, ['event_id', 'type', 'position', 'accuracy', 'magnitude', 'attenuation', 'eof_confidence', 'threshold_crossing'], name, value)
 
 
+
+
                 class OtdrScan(Entity):
                     """
                     otdr scan
@@ -1140,6 +1278,8 @@ class HwModule(Entity):
                     
                     	**range:** 0..65535
                     
+                    	**config**\: False
+                    
                     .. attribute:: otdr_number
                     
                     	Otdr Number
@@ -1147,15 +1287,21 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: direction
                     
                     	Direction
                     	**type**\:  :py:class:`Direction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.Direction>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: scan_mode
                     
                     	Scan Mode
                     	**type**\:  :py:class:`OtdrScanMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.OtdrScanMode>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: timestamp
                     
@@ -1164,12 +1310,16 @@ class HwModule(Entity):
                     
                     	**length:** 0..16
                     
+                    	**config**\: False
+                    
                     .. attribute:: sor_file
                     
                     	Sor File Name
                     	**type**\: str
                     
                     	**length:** 0..64
+                    
+                    	**config**\: False
                     
                     
 
@@ -1208,6 +1358,7 @@ class HwModule(Entity):
                         self._perform_setattr(HwModule.Otdrs.Otdr.DataType.OtdrScan, ['index', 'otdr_number', 'direction', 'scan_mode', 'timestamp', 'sor_file'], name, value)
 
 
+
                 class OtdrStatus(Entity):
                     """
                     otdr status
@@ -1219,10 +1370,14 @@ class HwModule(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: direction
                     
                     	Direction
                     	**type**\:  :py:class:`Direction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.Direction>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: timestamp
                     
@@ -1231,15 +1386,21 @@ class HwModule(Entity):
                     
                     	**length:** 0..16
                     
+                    	**config**\: False
+                    
                     .. attribute:: training_status
                     
                     	Training Status
                     	**type**\:  :py:class:`OtdrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.OtdrStatus>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: measurement_status
                     
                     	Measurement Status
                     	**type**\:  :py:class:`OtdrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper.OtdrStatus>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: progress_pc
                     
@@ -1247,6 +1408,8 @@ class HwModule(Entity):
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -1284,7 +1447,13 @@ class HwModule(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(HwModule.Otdrs.Otdr.DataType.OtdrStatus, ['otdr_id', 'direction', 'timestamp', 'training_status', 'measurement_status', 'progress_pc'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = HwModule()
         return self._top_entity
+
+
 

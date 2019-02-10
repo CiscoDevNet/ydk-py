@@ -153,6 +153,8 @@ class Controllers(Entity):
     	Descriptions for controllers
     	**type**\:  :py:class:`Controllers_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper.Controllers.Controllers_>`
     
+    	**config**\: False
+    
     
 
     """
@@ -190,6 +192,8 @@ class Controllers(Entity):
         
         	Description for a particular controller
         	**type**\: list of  		 :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper.Controllers.Controllers_.Controller>`
+        
+        	**config**\: False
         
         
 
@@ -229,6 +233,8 @@ class Controllers(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: controller
             
             	Controller
@@ -236,15 +242,21 @@ class Controllers(Entity):
             
             	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
+            	**config**\: False
+            
             .. attribute:: state
             
             	Operational state with no translation of error disable or shutdown
             	**type**\:  :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper.ImStateEnum>`
             
+            	**config**\: False
+            
             .. attribute:: description
             
             	Controller description string
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -277,9 +289,13 @@ class Controllers(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Controllers.Controllers_.Controller, ['interafce_name', u'controller', u'state', u'description'], name, value)
+                self._perform_setattr(Controllers.Controllers_.Controller, ['interafce_name', 'controller', 'state', 'description'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = Controllers()
         return self._top_entity
+
+
 

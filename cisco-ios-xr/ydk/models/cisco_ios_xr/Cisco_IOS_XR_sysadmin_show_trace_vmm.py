@@ -26,6 +26,8 @@ class Vmm(Entity):
     	
     	**type**\:  :py:class:`VmManager <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_vmm.Vmm.VmManager>`
     
+    	**config**\: False
+    
     
 
     """
@@ -64,6 +66,8 @@ class Vmm(Entity):
         	show traceable processes
         	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_vmm.Vmm.VmManager.Trace>`
         
+        	**config**\: False
+        
         
 
         """
@@ -100,10 +104,14 @@ class Vmm(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	
             	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_vmm.Vmm.VmManager.Trace.Location>`
+            
+            	**config**\: False
             
             
 
@@ -144,10 +152,14 @@ class Vmm(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: all_options
                 
                 	
                 	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_vmm.Vmm.VmManager.Trace.Location.AllOptions>`
+                
+                	**config**\: False
                 
                 
 
@@ -187,10 +199,14 @@ class Vmm(Entity):
                     	
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     .. attribute:: trace_blocks
                     
                     	
                     	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_vmm.Vmm.VmManager.Trace.Location.AllOptions.TraceBlocks>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -230,6 +246,8 @@ class Vmm(Entity):
                         	Trace output block
                         	**type**\: str
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -256,7 +274,14 @@ class Vmm(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vmm.VmManager.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = Vmm()
         return self._top_entity
+
+
 

@@ -22,20 +22,28 @@ class DRAFTMSDPMIB(Entity):
     	
     	**type**\:  :py:class:`Msdp <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.Msdp>`
     
+    	**config**\: False
+    
     .. attribute:: msdprequeststable
     
     	The (conceptual) table listing group ranges and MSDP peers used when deciding where to send an SA Request message when required.  If SA Caching is enabled, this table may be empty
     	**type**\:  :py:class:`MsdpRequestsTable <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpRequestsTable>`
+    
+    	**config**\: False
     
     .. attribute:: msdppeertable
     
     	The (conceptual) table listing the MSDP speaker's peers
     	**type**\:  :py:class:`MsdpPeerTable <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpPeerTable>`
     
+    	**config**\: False
+    
     .. attribute:: msdpsacachetable
     
     	The (conceptual) table listing the MSDP SA advertisements currently in the MSDP speaker's cache
     	**type**\:  :py:class:`MsdpSACacheTable <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpSACacheTable>`
+    
+    	**config**\: False
     
     
 
@@ -87,12 +95,16 @@ class DRAFTMSDPMIB(Entity):
         	The state of MSDP on this MSDP speaker \- globally enabled or disabled
         	**type**\: bool
         
+        	**config**\: False
+        
         .. attribute:: msdpcachelifetime
         
         	The lifetime given to SA cache entries when created or refreshed.  A value of 0 means no SA caching is done by this MSDP speaker
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: msdpnumsacacheentries
         
@@ -101,12 +113,16 @@ class DRAFTMSDPMIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: msdpsaholddownperiod
         
         	The number of seconds in the MSDP SA Hold\-down period
         	**type**\: int
         
         	**range:** 1..2147483647
+        
+        	**config**\: False
         
         	**units**\: seconds
         
@@ -144,6 +160,7 @@ class DRAFTMSDPMIB(Entity):
             self._perform_setattr(DRAFTMSDPMIB.Msdp, ['msdpenabled', 'msdpcachelifetime', 'msdpnumsacacheentries', 'msdpsaholddownperiod'], name, value)
 
 
+
     class MsdpRequestsTable(Entity):
         """
         The (conceptual) table listing group ranges and MSDP
@@ -155,6 +172,8 @@ class DRAFTMSDPMIB(Entity):
         
         	An entry (conceptual row) representing a group range used when deciding where to send an SA Request message
         	**type**\: list of  		 :py:class:`MsdpRequestsEntry <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpRequestsTable.MsdpRequestsEntry>`
+        
+        	**config**\: False
         
         
 
@@ -196,12 +215,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: msdprequestsgroupmask  (key)
             
             	The mask that, when combined with the group address in this entry, represents the group range for which this peer will service MSDP SA Requests
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: msdprequestspeer
             
@@ -210,10 +233,14 @@ class DRAFTMSDPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: msdprequestsstatus
             
             	The status of this row, by which new rows may be added to the table
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -249,6 +276,8 @@ class DRAFTMSDPMIB(Entity):
                 self._perform_setattr(DRAFTMSDPMIB.MsdpRequestsTable.MsdpRequestsEntry, ['msdprequestsgroupaddress', 'msdprequestsgroupmask', 'msdprequestspeer', 'msdprequestsstatus'], name, value)
 
 
+
+
     class MsdpPeerTable(Entity):
         """
         The (conceptual) table listing the MSDP speaker's
@@ -258,6 +287,8 @@ class DRAFTMSDPMIB(Entity):
         
         	An entry (conceptual row) representing an MSDP peer
         	**type**\: list of  		 :py:class:`MsdpPeerEntry <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpPeerTable.MsdpPeerEntry>`
+        
+        	**config**\: False
         
         
 
@@ -297,10 +328,14 @@ class DRAFTMSDPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: msdppeerstate
             
             	The state of the MSDP TCP connection with this peer
             	**type**\:  :py:class:`MsdpPeerState <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpPeerTable.MsdpPeerEntry.MsdpPeerState>`
+            
+            	**config**\: False
             
             .. attribute:: msdppeerrpffailures
             
@@ -309,12 +344,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: msdppeerinsas
             
             	The number of MSDP SA messages received on this connection.  This object should be initialized to zero when the connection is established
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: msdppeeroutsas
             
@@ -323,12 +362,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: msdppeerinsarequests
             
             	The number of MSDP SA\-Request messages received on this connection.  This object should be initialized to zero when the connection is established
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: msdppeeroutsarequests
             
@@ -337,12 +380,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: msdppeerinsaresponses
             
             	The number of MSDP SA\-Response messages received on this connection.  This object should be initialized to zero when the connection is established
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: msdppeeroutsaresponses
             
@@ -351,12 +398,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: msdppeerincontrolmessages
             
             	The total number of MSDP messages received on this TCP connection.  This object should be initialized to zero when the connection is established
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: msdppeeroutcontrolmessages
             
@@ -365,12 +416,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: msdppeerindatapackets
             
             	The total number of encapsulated data packets received from this peer.  This object should be initialized to zero when the connection is established
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: msdppeeroutdatapackets
             
@@ -379,6 +434,8 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: msdppeerfsmestablishedtransitions
             
             	The total number of times the MSDP FSM transitioned into the established state
@@ -386,12 +443,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: msdppeerfsmestablishedtime
             
             	This timer indicates how long (in seconds) this peer has been in the Established state or how long since this peer was last in the Established state.  It is set to zero when a new peer is configured or the MSDP speaker is booted
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -402,6 +463,8 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: msdppeerlocaladdress
@@ -411,12 +474,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: msdppeersaadvperiod
             
             	Time interval in seconds for the MinSAAdvertisementInterval MSDP timer
             	**type**\: int
             
             	**range:** 1..2147483647
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -427,6 +494,8 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 1..65535
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: msdppeerholdtimeconfigured
@@ -435,6 +504,8 @@ class DRAFTMSDPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..None \| 3..65535
+            
+            	**config**\: False
             
             	**units**\: seconds
             
@@ -445,6 +516,8 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..21845
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: msdppeerdatattl
@@ -454,15 +527,21 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: msdppeerprocessrequestsfrom
             
             	This object indicates whether or not to process MSDP SA Request messages from this peer.  If True(1), MSDP SA Request messages from this peer are processed and replied to (if appropriate) with SA Response messages. If False(2), MSDP SA Request messages from this peer are silently ignored.  It defaults to False when msdpCacheLifetime is 0 and True when msdpCacheLifetime is non\-0
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: msdppeerstatus
             
             	The RowStatus object by which peers can be added and deleted.  A transition to 'active' will cause the MSDP Start Event to be generated.  A transition out of the 'active' state will cause the MSDP Stop Event to be generated.  Care should be used in providing write access to this object without adequate authentication
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             .. attribute:: msdppeerremoteport
             
@@ -471,6 +550,8 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: msdppeerlocalport
             
             	The local port for the TCP connection between the MSDP peers
@@ -478,15 +559,21 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..65535
             
+            	**config**\: False
+            
             .. attribute:: msdppeerencapsulationstate
             
             	The status of the encapsulation negotiation state machine
             	**type**\:  :py:class:`MsdpPeerEncapsulationState <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpPeerTable.MsdpPeerEntry.MsdpPeerEncapsulationState>`
             
+            	**config**\: False
+            
             .. attribute:: msdppeerencapsulationtype
             
             	The encapsulation in use when encapsulating data in SA messages to this peer
             	**type**\:  :py:class:`MsdpPeerEncapsulationType <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpPeerTable.MsdpPeerEntry.MsdpPeerEncapsulationType>`
+            
+            	**config**\: False
             
             .. attribute:: msdppeerconnectionattempts
             
@@ -495,12 +582,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: msdppeerinnotifications
             
             	The number of MSDP Notification messages received on this connection.  This object should be initialized to zero when the connection is established
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: msdppeeroutnotifications
             
@@ -509,12 +600,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: msdppeerlasterror
             
             	The last error code and subcode seen by this peer on this connection.  If no error has occurred, this field is zero.  Otherwise, the first byte of this two byte OCTET STRING contains the error code, and the second byte contains the subcode
             	**type**\: str
             
             	**length:** 2
+            
+            	**config**\: False
             
             
 
@@ -693,6 +788,8 @@ class DRAFTMSDPMIB(Entity):
 
 
 
+
+
     class MsdpSACacheTable(Entity):
         """
         The (conceptual) table listing the MSDP SA
@@ -702,6 +799,8 @@ class DRAFTMSDPMIB(Entity):
         
         	An entry (conceptual row) representing an MSDP SA advert
         	**type**\: list of  		 :py:class:`MsdpSACacheEntry <ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB.DRAFTMSDPMIB.MsdpSACacheTable.MsdpSACacheEntry>`
+        
+        	**config**\: False
         
         
 
@@ -742,12 +841,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: msdpsacachesourceaddr  (key)
             
             	The source address of the SA Cache entry
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: msdpsacacheoriginrp  (key)
             
@@ -756,12 +859,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: msdpsacachepeerlearnedfrom
             
             	The peer from which this SA Cache entry was last accepted.  This address must correspond to the msdpPeerRemoteAddress value for a row in the MSDP Peer Table
             	**type**\: str
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            
+            	**config**\: False
             
             .. attribute:: msdpsacacherpfpeer
             
@@ -770,12 +877,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: msdpsacacheinsas
             
             	The number of MSDP SA messages received relevant to this cache entry.  This object must be initialized to zero when creating a cache entry
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: msdpsacacheindatapackets
             
@@ -784,12 +895,16 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: msdpsacacheuptime
             
             	The time since this entry was placed in the SA cache
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             .. attribute:: msdpsacacheexpirytime
             
@@ -798,10 +913,14 @@ class DRAFTMSDPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: msdpsacachestatus
             
             	The status of this row in the table.  The only allowable actions are to retreive the status, which will be `active', or to set the status to `destroy' in order to remove this entry from the cache
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            	**config**\: False
             
             
 
@@ -848,7 +967,11 @@ class DRAFTMSDPMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(DRAFTMSDPMIB.MsdpSACacheTable.MsdpSACacheEntry, ['msdpsacachegroupaddr', 'msdpsacachesourceaddr', 'msdpsacacheoriginrp', 'msdpsacachepeerlearnedfrom', 'msdpsacacherpfpeer', 'msdpsacacheinsas', 'msdpsacacheindatapackets', 'msdpsacacheuptime', 'msdpsacacheexpirytime', 'msdpsacachestatus'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = DRAFTMSDPMIB()
         return self._top_entity
+
+
 

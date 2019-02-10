@@ -32,10 +32,14 @@ class Cm(Entity):
     	show traceable processes
     	**type**\: list of  		 :py:class:`Trace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_cm.Cm.Trace>`
     
+    	**config**\: False
+    
     .. attribute:: lsp
     
     	System Admin Manager lspdb of a location
     	**type**\:  :py:class:`Lsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_cm.Cm.Lsp>`
+    
+    	**config**\: False
     
     
 
@@ -77,10 +81,14 @@ class Cm(Entity):
         	
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: location
         
         	
         	**type**\: list of  		 :py:class:`Location <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_cm.Cm.Trace.Location>`
+        
+        	**config**\: False
         
         
 
@@ -121,10 +129,14 @@ class Cm(Entity):
             	
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: all_options
             
             	
             	**type**\: list of  		 :py:class:`AllOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_cm.Cm.Trace.Location.AllOptions>`
+            
+            	**config**\: False
             
             
 
@@ -164,10 +176,14 @@ class Cm(Entity):
                 	
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: trace_blocks
                 
                 	
                 	**type**\: list of  		 :py:class:`TraceBlocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_cm.Cm.Trace.Location.AllOptions.TraceBlocks>`
+                
+                	**config**\: False
                 
                 
 
@@ -207,6 +223,8 @@ class Cm(Entity):
                     	Trace output block
                     	**type**\: str
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -234,6 +252,10 @@ class Cm(Entity):
                         self._perform_setattr(Cm.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
 
 
+
+
+
+
     class Lsp(Entity):
         """
         System Admin Manager lspdb of a location
@@ -242,6 +264,8 @@ class Cm(Entity):
         
         	
         	**type**\: list of  		 :py:class:`LspdbLocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_cm.Cm.Lsp.LspdbLocations>`
+        
+        	**config**\: False
         
         
 
@@ -281,10 +305,14 @@ class Cm(Entity):
             
             	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
             
+            	**config**\: False
+            
             .. attribute:: lspdbi
             
             	
             	**type**\: list of  		 :py:class:`Lspdbi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_cm.Cm.Lsp.LspdbLocations.Lspdbi>`
+            
+            	**config**\: False
             
             
 
@@ -325,10 +353,14 @@ class Cm(Entity):
                 	LSP System ID
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_area_type  (key)
                 
                 	LSP Area Type
                 	**type**\:  :py:class:`AreaType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm.AreaType>`
+                
+                	**config**\: False
                 
                 .. attribute:: lsp_sequence
                 
@@ -337,15 +369,21 @@ class Cm(Entity):
                 
                 	**range:** 0..4294967295
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_core
                 
                 	LSP core data bits
                 	**type**\: str
                 
+                	**config**\: False
+                
                 .. attribute:: lsp_tlvs
                 
                 	LSP TLV data
                 	**type**\: list of str
+                
+                	**config**\: False
                 
                 
 
@@ -381,7 +419,12 @@ class Cm(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cm.Lsp.LspdbLocations.Lspdbi, ['lsp_id', 'lsp_area_type', 'lsp_sequence', 'lsp_core', 'lsp_tlvs'], name, value)
 
+
+
+
     def clone_ptr(self):
         self._top_entity = Cm()
         return self._top_entity
+
+
 

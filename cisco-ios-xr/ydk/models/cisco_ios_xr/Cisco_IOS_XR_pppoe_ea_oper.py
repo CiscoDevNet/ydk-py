@@ -30,6 +30,8 @@ class PppoeEa(Entity):
     	PPPOE\_EA list of nodes
     	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class PppoeEa(Entity):
         
         	PPPOE\-EA operational data for a particular node
         	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node>`
+        
+        	**config**\: False
         
         
 
@@ -106,15 +110,21 @@ class PppoeEa(Entity):
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
+            	**config**\: False
+            
             .. attribute:: parent_interface_ids
             
             	PPPoE parent interface info
             	**type**\:  :py:class:`ParentInterfaceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.ParentInterfaceIds>`
             
+            	**config**\: False
+            
             .. attribute:: interface_ids
             
             	PPPoE interface info
             	**type**\:  :py:class:`InterfaceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds>`
+            
+            	**config**\: False
             
             
 
@@ -161,6 +171,8 @@ class PppoeEa(Entity):
                 	PPPoE parent interface info
                 	**type**\: list of  		 :py:class:`ParentInterfaceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId>`
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -198,10 +210,14 @@ class PppoeEa(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: srgv_mac
                     
                     	SRG VMac\-address
                     	**type**\:  :py:class:`SrgvMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface
                     
@@ -210,10 +226,14 @@ class PppoeEa(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_in_sync
                     
                     	Is in sync
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     
 
@@ -261,6 +281,8 @@ class PppoeEa(Entity):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -288,6 +310,9 @@ class PppoeEa(Entity):
                             self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac, [u'macaddr'], name, value)
 
 
+
+
+
             class InterfaceIds(Entity):
                 """
                 PPPoE interface info
@@ -296,6 +321,8 @@ class PppoeEa(Entity):
                 
                 	PPPoE interface info
                 	**type**\: list of  		 :py:class:`InterfaceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds.InterfaceId>`
+                
+                	**config**\: False
                 
                 
 
@@ -334,20 +361,28 @@ class PppoeEa(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: peer_mac
                     
                     	Peer Mac\-address
                     	**type**\:  :py:class:`PeerMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: local_mac
                     
                     	Local Mac\-address
                     	**type**\:  :py:class:`LocalMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac>`
                     
+                    	**config**\: False
+                    
                     .. attribute:: srgv_mac
                     
                     	SRG VMac\-address
                     	**type**\:  :py:class:`SrgvMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pppoe_ea_oper.PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac>`
+                    
+                    	**config**\: False
                     
                     .. attribute:: interface
                     
@@ -356,12 +391,16 @@ class PppoeEa(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: session_id
                     
                     	Session ID
                     	**type**\: int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     .. attribute:: parent_interface
                     
@@ -370,10 +409,14 @@ class PppoeEa(Entity):
                     
                     	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_priority_set
                     
                     	Is Priority Set
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: priority
                     
@@ -382,15 +425,21 @@ class PppoeEa(Entity):
                     
                     	**range:** 0..255
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_in_sync
                     
                     	Is in sync
                     	**type**\: bool
                     
+                    	**config**\: False
+                    
                     .. attribute:: is_platform_created
                     
                     	Is Platform created
                     	**type**\: bool
+                    
+                    	**config**\: False
                     
                     .. attribute:: vlanid
                     
@@ -398,6 +447,8 @@ class PppoeEa(Entity):
                     	**type**\: list of int
                     
                     	**range:** 0..65535
+                    
+                    	**config**\: False
                     
                     
 
@@ -465,6 +516,8 @@ class PppoeEa(Entity):
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
                         
+                        	**config**\: False
+                        
                         
 
                         """
@@ -492,6 +545,7 @@ class PppoeEa(Entity):
                             self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac, [u'macaddr'], name, value)
 
 
+
                     class LocalMac(Entity):
                         """
                         Local Mac\-address
@@ -502,6 +556,8 @@ class PppoeEa(Entity):
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -530,6 +586,7 @@ class PppoeEa(Entity):
                             self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac, [u'macaddr'], name, value)
 
 
+
                     class SrgvMac(Entity):
                         """
                         SRG VMac\-address
@@ -540,6 +597,8 @@ class PppoeEa(Entity):
                         	**type**\: str
                         
                         	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                        
+                        	**config**\: False
                         
                         
 
@@ -567,7 +626,14 @@ class PppoeEa(Entity):
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac, [u'macaddr'], name, value)
 
+
+
+
+
+
     def clone_ptr(self):
         self._top_entity = PppoeEa()
         return self._top_entity
+
+
 

@@ -30,6 +30,8 @@ class Controller(Entity):
     	Controller DPA operational data
     	**type**\:  :py:class:`Dpa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa>`
     
+    	**config**\: False
+    
     
 
     """
@@ -67,6 +69,8 @@ class Controller(Entity):
         
         	DPA data for available nodes
         	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes>`
+        
+        	**config**\: False
         
         
 
@@ -106,6 +110,8 @@ class Controller(Entity):
             	DPA operational data for a particular node
             	**type**\: list of  		 :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node>`
             
+            	**config**\: False
+            
             
 
             """
@@ -144,15 +150,21 @@ class Controller(Entity):
                 
                 	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
+                	**config**\: False
+                
                 .. attribute:: external_tcam_resources
                 
                 	External TCAM Resource Information
                 	**type**\:  :py:class:`ExternalTcamResources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources>`
                 
+                	**config**\: False
+                
                 .. attribute:: internal_tcam_resources
                 
                 	Internal TCAM Resource Information
                 	**type**\:  :py:class:`InternalTcamResources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources>`
+                
+                	**config**\: False
                 
                 
 
@@ -199,6 +211,8 @@ class Controller(Entity):
                     	npu tcam
                     	**type**\: list of  		 :py:class:`NpuTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam>`
                     
+                    	**config**\: False
+                    
                     
 
                     """
@@ -236,10 +250,14 @@ class Controller(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: tcam_bank
                         
                         	tcam bank
                         	**type**\: list of  		 :py:class:`TcamBank <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -267,7 +285,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam, ['npu_id'], name, value)
+                            self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam, [u'npu_id'], name, value)
 
 
                         class TcamBank(Entity):
@@ -279,10 +297,14 @@ class Controller(Entity):
                             	bank id
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: bank_key_size
                             
                             	bank key size
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: bank_free_entries
                             
@@ -291,6 +313,8 @@ class Controller(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bank_inuse_entries
                             
                             	bank inuse entries
@@ -298,10 +322,14 @@ class Controller(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: owner
                             
                             	owner
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: nof_dbs
                             
@@ -310,10 +338,14 @@ class Controller(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bank_db
                             
                             	bank db
                             	**type**\: list of  		 :py:class:`BankDb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -351,7 +383,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank, ['bank_id', 'bank_key_size', 'bank_free_entries', 'bank_inuse_entries', 'owner', 'nof_dbs'], name, value)
+                                self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank, [u'bank_id', u'bank_key_size', u'bank_free_entries', u'bank_inuse_entries', u'owner', u'nof_dbs'], name, value)
 
 
                             class BankDb(Entity):
@@ -365,6 +397,8 @@ class Controller(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: db_inuse_entries
                                 
                                 	db inuse entries
@@ -372,10 +406,14 @@ class Controller(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: db_prefix
                                 
                                 	db prefix
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -405,7 +443,11 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb, ['db_id', 'db_inuse_entries', 'db_prefix'], name, value)
+                                    self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb, [u'db_id', u'db_inuse_entries', u'db_prefix'], name, value)
+
+
+
+
 
 
                 class InternalTcamResources(Entity):
@@ -416,6 +458,8 @@ class Controller(Entity):
                     
                     	npu tcam
                     	**type**\: list of  		 :py:class:`NpuTcam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam>`
+                    
+                    	**config**\: False
                     
                     
 
@@ -454,10 +498,14 @@ class Controller(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        	**config**\: False
+                        
                         .. attribute:: tcam_bank
                         
                         	tcam bank
                         	**type**\: list of  		 :py:class:`TcamBank <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank>`
+                        
+                        	**config**\: False
                         
                         
 
@@ -485,7 +533,7 @@ class Controller(Entity):
                             self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam, ['npu_id'], name, value)
+                            self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam, [u'npu_id'], name, value)
 
 
                         class TcamBank(Entity):
@@ -497,10 +545,14 @@ class Controller(Entity):
                             	bank id
                             	**type**\: str
                             
+                            	**config**\: False
+                            
                             .. attribute:: bank_key_size
                             
                             	bank key size
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: bank_free_entries
                             
@@ -509,6 +561,8 @@ class Controller(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bank_inuse_entries
                             
                             	bank inuse entries
@@ -516,10 +570,14 @@ class Controller(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: owner
                             
                             	owner
                             	**type**\: str
+                            
+                            	**config**\: False
                             
                             .. attribute:: nof_dbs
                             
@@ -528,10 +586,14 @@ class Controller(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            	**config**\: False
+                            
                             .. attribute:: bank_db
                             
                             	bank db
                             	**type**\: list of  		 :py:class:`BankDb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper.Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb>`
+                            
+                            	**config**\: False
                             
                             
 
@@ -569,7 +631,7 @@ class Controller(Entity):
                                 self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank, ['bank_id', 'bank_key_size', 'bank_free_entries', 'bank_inuse_entries', 'owner', 'nof_dbs'], name, value)
+                                self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank, [u'bank_id', u'bank_key_size', u'bank_free_entries', u'bank_inuse_entries', u'owner', u'nof_dbs'], name, value)
 
 
                             class BankDb(Entity):
@@ -583,6 +645,8 @@ class Controller(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: db_inuse_entries
                                 
                                 	db inuse entries
@@ -590,10 +654,14 @@ class Controller(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**config**\: False
+                                
                                 .. attribute:: db_prefix
                                 
                                 	db prefix
                                 	**type**\: str
+                                
+                                	**config**\: False
                                 
                                 
 
@@ -623,9 +691,18 @@ class Controller(Entity):
                                     self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb, ['db_id', 'db_inuse_entries', 'db_prefix'], name, value)
+                                    self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb, [u'db_id', u'db_inuse_entries', u'db_prefix'], name, value)
+
+
+
+
+
+
+
 
     def clone_ptr(self):
         self._top_entity = Controller()
         return self._top_entity
+
+
 

@@ -261,6 +261,8 @@ class StartQuery(Entity):
 
 
 
+
+
     class Output(Entity):
         """
         
@@ -299,9 +301,12 @@ class StartQuery(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(StartQuery.Output, [u'query_handle'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = StartQuery()
         return self._top_entity
+
+
 
 class FetchQueryResult(Entity):
     """
@@ -384,6 +389,7 @@ class FetchQueryResult(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(FetchQueryResult.Input, [u'query_handle'], name, value)
+
 
 
     class Output(Entity):
@@ -554,9 +560,15 @@ class FetchQueryResult(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(FetchQueryResult.Output.QueryResult.Result.Select, [u'label', u'path', u'value', u'data'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = FetchQueryResult()
         return self._top_entity
+
+
 
 class ImmediateQuery(Entity):
     """
@@ -789,6 +801,8 @@ class ImmediateQuery(Entity):
 
 
 
+
+
     class Output(Entity):
         """
         
@@ -957,9 +971,15 @@ class ImmediateQuery(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(ImmediateQuery.Output.QueryResult.Result.Select, [u'label', u'path', u'value', u'data'], name, value)
 
+
+
+
+
     def clone_ptr(self):
         self._top_entity = ImmediateQuery()
         return self._top_entity
+
+
 
 class ResetQuery(Entity):
     """
@@ -1056,9 +1076,12 @@ class ResetQuery(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(ResetQuery.Input, [u'query_handle', u'offset', u'timeout'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = ResetQuery()
         return self._top_entity
+
+
 
 class StopQuery(Entity):
     """
@@ -1133,7 +1156,10 @@ class StopQuery(Entity):
         def __setattr__(self, name, value):
             self._perform_setattr(StopQuery.Input, [u'query_handle'], name, value)
 
+
     def clone_ptr(self):
         self._top_entity = StopQuery()
         return self._top_entity
+
+
 

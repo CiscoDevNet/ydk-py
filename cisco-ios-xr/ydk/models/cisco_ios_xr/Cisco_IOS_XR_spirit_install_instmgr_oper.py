@@ -495,80 +495,112 @@ class SoftwareInstall(Entity):
     	Show superseded packages
     	**type**\:  :py:class:`Superseded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Superseded>`
     
+    	**config**\: False
+    
     .. attribute:: committed_summary
     
     	Show Committed packages installed
     	**type**\:  :py:class:`CommittedSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.CommittedSummary>`
+    
+    	**config**\: False
     
     .. attribute:: active_summary
     
     	Show active packages installed
     	**type**\:  :py:class:`ActiveSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.ActiveSummary>`
     
+    	**config**\: False
+    
     .. attribute:: inactive_summary
     
     	Show XR inactive packages
     	**type**\:  :py:class:`InactiveSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.InactiveSummary>`
+    
+    	**config**\: False
     
     .. attribute:: prepare
     
     	Show prepared packages ready for activation
     	**type**\:  :py:class:`Prepare <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Prepare>`
     
+    	**config**\: False
+    
     .. attribute:: active
     
     	Show active packages installed
     	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Active>`
+    
+    	**config**\: False
     
     .. attribute:: version
     
     	Show install version
     	**type**\:  :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Version>`
     
+    	**config**\: False
+    
     .. attribute:: inactive
     
     	Show XR inactive packages
     	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Inactive>`
+    
+    	**config**\: False
     
     .. attribute:: request
     
     	Show current request
     	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Request>`
     
+    	**config**\: False
+    
     .. attribute:: superseded_summary
     
     	Show superseded packages
     	**type**\:  :py:class:`SupersededSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.SupersededSummary>`
+    
+    	**config**\: False
     
     .. attribute:: issu
     
     	ISSU operation
     	**type**\:  :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu>`
     
+    	**config**\: False
+    
     .. attribute:: committed
     
     	Show Committed packages installed
     	**type**\:  :py:class:`Committed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Committed>`
+    
+    	**config**\: False
     
     .. attribute:: all_operations_log
     
     	Show log file for all operations
     	**type**\:  :py:class:`AllOperationsLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog>`
     
+    	**config**\: False
+    
     .. attribute:: packages
     
     	Show the list of installed packages
     	**type**\:  :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages>`
+    
+    	**config**\: False
     
     .. attribute:: operation_logs
     
     	Show log file
     	**type**\:  :py:class:`OperationLogs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs>`
     
+    	**config**\: False
+    
     .. attribute:: repository
     
     	Show packages stored in install software repositories
     	**type**\:  :py:class:`Repository <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository>`
+    
+    	**config**\: False
     
     
 
@@ -668,6 +700,8 @@ class SoftwareInstall(Entity):
         	superseded package info
         	**type**\: list of  		 :py:class:`SupersededPackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Superseded.SupersededPackageInfo>`
         
+        	**config**\: False
+        
         
 
         """
@@ -704,25 +738,35 @@ class SoftwareInstall(Entity):
             	ErrorMessage
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: node_type
             
             	NodeType
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: boot_partition_name
             
             	BootPartitionName
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: superseded_packages
             
             	SupersededPackages
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -757,7 +801,9 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Superseded.SupersededPackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'superseded_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.Superseded.SupersededPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'superseded_packages'], name, value)
+
+
 
 
     class CommittedSummary(Entity):
@@ -768,6 +814,8 @@ class SoftwareInstall(Entity):
         
         	committed package info
         	**type**\: list of  		 :py:class:`CommittedPackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.CommittedSummary.CommittedPackageInfo>`
+        
+        	**config**\: False
         
         
 
@@ -805,20 +853,28 @@ class SoftwareInstall(Entity):
             	ErrorMessage
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: node_type
             
             	NodeType
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: boot_partition_name
             
             	BootPartitionName
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: number_of_committed_packages
             
@@ -827,10 +883,14 @@ class SoftwareInstall(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: committed_packages
             
             	CommittedPackages
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -867,7 +927,9 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.CommittedSummary.CommittedPackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_committed_packages', u'committed_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.CommittedSummary.CommittedPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_committed_packages', 'committed_packages'], name, value)
+
+
 
 
     class ActiveSummary(Entity):
@@ -878,6 +940,8 @@ class SoftwareInstall(Entity):
         
         	active package info
         	**type**\: list of  		 :py:class:`ActivePackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.ActiveSummary.ActivePackageInfo>`
+        
+        	**config**\: False
         
         
 
@@ -915,20 +979,28 @@ class SoftwareInstall(Entity):
             	ErrorMessage
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: node_type
             
             	NodeType
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: boot_partition_name
             
             	BootPartitionName
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: number_of_active_packages
             
@@ -937,10 +1009,14 @@ class SoftwareInstall(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: active_packages
             
             	ActivePackages
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -977,7 +1053,9 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.ActiveSummary.ActivePackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_active_packages', u'active_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.ActiveSummary.ActivePackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_active_packages', 'active_packages'], name, value)
+
+
 
 
     class InactiveSummary(Entity):
@@ -988,6 +1066,8 @@ class SoftwareInstall(Entity):
         
         	log
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -1014,7 +1094,8 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.InactiveSummary, [u'log'], name, value)
+            self._perform_setattr(SoftwareInstall.InactiveSummary, ['log'], name, value)
+
 
 
     class Prepare(Entity):
@@ -1026,40 +1107,56 @@ class SoftwareInstall(Entity):
         	NoPrepareDone
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: prepared_boot_image
         
         	PreparedBootImage
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: prepared_boot_partition
         
         	PreparedBootPartition
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: restart_type
         
         	RestartType
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: activate_message
         
         	ActivateMessage
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: prepare_clean_message
         
         	PrepareCleanMessage
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: rpm
         
         	rpm
         	**type**\: list of  		 :py:class:`Rpm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Prepare.Rpm>`
         
+        	**config**\: False
+        
         .. attribute:: package
         
         	package
         	**type**\: list of  		 :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Prepare.Package>`
+        
+        	**config**\: False
         
         
 
@@ -1099,7 +1196,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Prepare, [u'no_prepare_done', u'prepared_boot_image', u'prepared_boot_partition', u'restart_type', u'activate_message', u'prepare_clean_message'], name, value)
+            self._perform_setattr(SoftwareInstall.Prepare, ['no_prepare_done', 'prepared_boot_image', 'prepared_boot_partition', 'restart_type', 'activate_message', 'prepare_clean_message'], name, value)
 
 
         class Rpm(Entity):
@@ -1110,6 +1207,8 @@ class SoftwareInstall(Entity):
             
             	package
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1136,7 +1235,8 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Prepare.Rpm, [u'package'], name, value)
+                self._perform_setattr(SoftwareInstall.Prepare.Rpm, ['package'], name, value)
+
 
 
         class Package(Entity):
@@ -1147,6 +1247,8 @@ class SoftwareInstall(Entity):
             
             	package
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1173,7 +1275,9 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Prepare.Package, [u'package'], name, value)
+                self._perform_setattr(SoftwareInstall.Prepare.Package, ['package'], name, value)
+
+
 
 
     class Active(Entity):
@@ -1184,6 +1288,8 @@ class SoftwareInstall(Entity):
         
         	active package info
         	**type**\: list of  		 :py:class:`ActivePackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Active.ActivePackageInfo>`
+        
+        	**config**\: False
         
         
 
@@ -1221,20 +1327,28 @@ class SoftwareInstall(Entity):
             	ErrorMessage
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: node_type
             
             	NodeType
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: boot_partition_name
             
             	BootPartitionName
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: number_of_active_packages
             
@@ -1243,10 +1357,14 @@ class SoftwareInstall(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: active_packages
             
             	ActivePackages
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1283,7 +1401,9 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Active.ActivePackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_active_packages', u'active_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.Active.ActivePackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_active_packages', 'active_packages'], name, value)
+
+
 
 
     class Version(Entity):
@@ -1295,30 +1415,42 @@ class SoftwareInstall(Entity):
         	Path where all cisco packages are installed
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: label
         
         	label name
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: copyright_info
         
         	copyright info
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: hardware_info
         
         	hardware info of the router
         	**type**\: str
+        
+        	**config**\: False
         
         .. attribute:: system_uptime
         
         	duration since when system is up
         	**type**\: str
         
+        	**config**\: False
+        
         .. attribute:: package
         
         	package
         	**type**\: list of  		 :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Version.Package>`
+        
+        	**config**\: False
         
         
 
@@ -1355,7 +1487,7 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Version, [u'location', u'label', u'copyright_info', u'hardware_info', u'system_uptime'], name, value)
+            self._perform_setattr(SoftwareInstall.Version, ['location', 'label', 'copyright_info', 'hardware_info', 'system_uptime'], name, value)
 
 
         class Package(Entity):
@@ -1367,30 +1499,42 @@ class SoftwareInstall(Entity):
             	Name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: version
             
             	Running version
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: built_by
             
             	User built by
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: built_on
             
             	Time built
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: build_host
             
             	Build host
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: workspace
             
             	Workspace built in
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1427,7 +1571,9 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Version.Package, [u'name', u'version', u'built_by', u'built_on', u'build_host', u'workspace'], name, value)
+                self._perform_setattr(SoftwareInstall.Version.Package, ['name', 'version', 'built_by', 'built_on', 'build_host', 'workspace'], name, value)
+
+
 
 
     class Inactive(Entity):
@@ -1438,6 +1584,8 @@ class SoftwareInstall(Entity):
         
         	log
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -1464,7 +1612,8 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Inactive, [u'log'], name, value)
+            self._perform_setattr(SoftwareInstall.Inactive, ['log'], name, value)
+
 
 
     class Request(Entity):
@@ -1475,6 +1624,8 @@ class SoftwareInstall(Entity):
         
         	CurrInstOper
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -1501,7 +1652,8 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Request, [u'curr_inst_oper'], name, value)
+            self._perform_setattr(SoftwareInstall.Request, ['curr_inst_oper'], name, value)
+
 
 
     class SupersededSummary(Entity):
@@ -1512,6 +1664,8 @@ class SoftwareInstall(Entity):
         
         	log
         	**type**\: str
+        
+        	**config**\: False
         
         
 
@@ -1538,7 +1692,8 @@ class SoftwareInstall(Entity):
             self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.SupersededSummary, [u'log'], name, value)
+            self._perform_setattr(SoftwareInstall.SupersededSummary, ['log'], name, value)
+
 
 
     class Issu(Entity):
@@ -1550,10 +1705,14 @@ class SoftwareInstall(Entity):
         	Show XR install issu stage
         	**type**\:  :py:class:`Stage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Stage>`
         
+        	**config**\: False
+        
         .. attribute:: inventory
         
         	Show XR install issu inventory
         	**type**\:  :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Inventory>`
+        
+        	**config**\: False
         
         
 
@@ -1597,12 +1756,16 @@ class SoftwareInstall(Entity):
             	State
             	**type**\:  :py:class:`IsdStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdStateEt>`
             
+            	**config**\: False
+            
             .. attribute:: issu_node_cnt
             
             	ISSU Node Count
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             .. attribute:: issu_ready_node_cnt
             
@@ -1611,12 +1774,16 @@ class SoftwareInstall(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            	**config**\: False
+            
             .. attribute:: percentage
             
             	Percentage
             	**type**\: int
             
             	**range:** \-2147483648..2147483647
+            
+            	**config**\: False
             
             	**units**\: percentage
             
@@ -1625,10 +1792,14 @@ class SoftwareInstall(Entity):
             	Abort Status
             	**type**\:  :py:class:`IsdIssuStatusEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdIssuStatusEt>`
             
+            	**config**\: False
+            
             .. attribute:: issu_error
             
             	ISSU Error
             	**type**\:  :py:class:`IsdErrorEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdErrorEt>`
+            
+            	**config**\: False
             
             
 
@@ -1665,7 +1836,8 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Issu.Stage, [u'state', u'issu_node_cnt', u'issu_ready_node_cnt', u'percentage', u'issu_status', u'issu_error'], name, value)
+                self._perform_setattr(SoftwareInstall.Issu.Stage, ['state', 'issu_node_cnt', 'issu_ready_node_cnt', 'percentage', 'issu_status', 'issu_error'], name, value)
+
 
 
         class Inventory(Entity):
@@ -1676,6 +1848,8 @@ class SoftwareInstall(Entity):
             
             	invinfo
             	**type**\: list of  		 :py:class:`Invinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Inventory.Invinfo>`
+            
+            	**config**\: False
             
             
 
@@ -1715,25 +1889,35 @@ class SoftwareInstall(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**config**\: False
+                
                 .. attribute:: node_type
                 
                 	Node Type
                 	**type**\:  :py:class:`CardTypeEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.CardTypeEt>`
+                
+                	**config**\: False
                 
                 .. attribute:: issu_node_role
                 
                 	ISSU Node Role
                 	**type**\:  :py:class:`IssuNodeRoleEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IssuNodeRoleEt>`
                 
+                	**config**\: False
+                
                 .. attribute:: node_state
                 
                 	Node State
                 	**type**\:  :py:class:`IssudirNodeStatusEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IssudirNodeStatusEt>`
                 
+                	**config**\: False
+                
                 .. attribute:: node_role
                 
                 	Node role
                 	**type**\:  :py:class:`NodeRoleEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.NodeRoleEt>`
+                
+                	**config**\: False
                 
                 
 
@@ -1768,7 +1952,10 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Issu.Inventory.Invinfo, [u'node_id', u'node_type', u'issu_node_role', u'node_state', u'node_role'], name, value)
+                    self._perform_setattr(SoftwareInstall.Issu.Inventory.Invinfo, ['node_id', 'node_type', 'issu_node_role', 'node_state', 'node_role'], name, value)
+
+
+
 
 
     class Committed(Entity):
@@ -1779,6 +1966,8 @@ class SoftwareInstall(Entity):
         
         	committed package info
         	**type**\: list of  		 :py:class:`CommittedPackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Committed.CommittedPackageInfo>`
+        
+        	**config**\: False
         
         
 
@@ -1816,20 +2005,28 @@ class SoftwareInstall(Entity):
             	ErrorMessage
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: location
             
             	Location
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: node_type
             
             	NodeType
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: boot_partition_name
             
             	BootPartitionName
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: number_of_committed_packages
             
@@ -1838,10 +2035,14 @@ class SoftwareInstall(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: committed_packages
             
             	CommittedPackages
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -1878,7 +2079,9 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Committed.CommittedPackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_committed_packages', u'committed_packages'], name, value)
+                self._perform_setattr(SoftwareInstall.Committed.CommittedPackageInfo, ['error_message', 'location', 'node_type', 'boot_partition_name', 'number_of_committed_packages', 'committed_packages'], name, value)
+
+
 
 
     class AllOperationsLog(Entity):
@@ -1890,20 +2093,28 @@ class SoftwareInstall(Entity):
         	Show detailed log file for all operations \- reverse
         	**type**\:  :py:class:`ReverseDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.ReverseDetail>`
         
+        	**config**\: False
+        
         .. attribute:: reverse
         
         	Show log file for all operations \- reverse
         	**type**\:  :py:class:`Reverse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Reverse>`
+        
+        	**config**\: False
         
         .. attribute:: summary
         
         	Show summary log file for all operations
         	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Summary>`
         
+        	**config**\: False
+        
         .. attribute:: detail
         
         	Show detailed log file for all operations
         	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Detail>`
+        
+        	**config**\: False
         
         
 
@@ -1956,6 +2167,8 @@ class SoftwareInstall(Entity):
             	log
             	**type**\: str
             
+            	**config**\: False
+            
             
 
             """
@@ -1981,7 +2194,8 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.AllOperationsLog.ReverseDetail, [u'log'], name, value)
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.ReverseDetail, ['log'], name, value)
+
 
 
         class Reverse(Entity):
@@ -1992,6 +2206,8 @@ class SoftwareInstall(Entity):
             
             	log
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -2018,7 +2234,8 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.AllOperationsLog.Reverse, [u'log'], name, value)
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.Reverse, ['log'], name, value)
+
 
 
         class Summary(Entity):
@@ -2029,6 +2246,8 @@ class SoftwareInstall(Entity):
             
             	log
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -2055,7 +2274,8 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.AllOperationsLog.Summary, [u'log'], name, value)
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.Summary, ['log'], name, value)
+
 
 
         class Detail(Entity):
@@ -2066,6 +2286,8 @@ class SoftwareInstall(Entity):
             
             	log
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -2092,7 +2314,9 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.AllOperationsLog.Detail, [u'log'], name, value)
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.Detail, ['log'], name, value)
+
+
 
 
     class Packages(Entity):
@@ -2103,6 +2327,8 @@ class SoftwareInstall(Entity):
         
         	Show the info for a installed package
         	**type**\: list of  		 :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package>`
+        
+        	**config**\: False
         
         
 
@@ -2140,20 +2366,28 @@ class SoftwareInstall(Entity):
             	Package name
             	**type**\: str
             
+            	**config**\: False
+            
             .. attribute:: verbose
             
             	Show the verbose info for a installed package
             	**type**\:  :py:class:`Verbose <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Verbose>`
+            
+            	**config**\: False
             
             .. attribute:: brief
             
             	Show the info for a installed package
             	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Brief>`
             
+            	**config**\: False
+            
             .. attribute:: detail
             
             	Show the deatil info for a installed package
             	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Detail>`
+            
+            	**config**\: False
             
             
 
@@ -2204,6 +2438,8 @@ class SoftwareInstall(Entity):
                 	log
                 	**type**\: str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -2228,7 +2464,8 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Packages.Package.Verbose, [u'log'], name, value)
+                    self._perform_setattr(SoftwareInstall.Packages.Package.Verbose, ['log'], name, value)
+
 
 
             class Brief(Entity):
@@ -2239,6 +2476,8 @@ class SoftwareInstall(Entity):
                 
                 	log
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -2264,7 +2503,8 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Packages.Package.Brief, [u'log'], name, value)
+                    self._perform_setattr(SoftwareInstall.Packages.Package.Brief, ['log'], name, value)
+
 
 
             class Detail(Entity):
@@ -2275,6 +2515,8 @@ class SoftwareInstall(Entity):
                 
                 	log
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -2300,7 +2542,10 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Packages.Package.Detail, [u'log'], name, value)
+                    self._perform_setattr(SoftwareInstall.Packages.Package.Detail, ['log'], name, value)
+
+
+
 
 
     class OperationLogs(Entity):
@@ -2311,6 +2556,8 @@ class SoftwareInstall(Entity):
         
         	Show log file for the specified install ID
         	**type**\: list of  		 :py:class:`OperationLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog>`
+        
+        	**config**\: False
         
         
 
@@ -2350,15 +2597,21 @@ class SoftwareInstall(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             .. attribute:: summary
             
             	Show summary log file for the specified install ID
             	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Summary>`
             
+            	**config**\: False
+            
             .. attribute:: detail
             
             	Show detailed log file for the specified install ID
             	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Detail>`
+            
+            	**config**\: False
             
             
 
@@ -2406,6 +2659,8 @@ class SoftwareInstall(Entity):
                 	log
                 	**type**\: str
                 
+                	**config**\: False
+                
                 
 
                 """
@@ -2430,7 +2685,8 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Summary, [u'log'], name, value)
+                    self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Summary, ['log'], name, value)
+
 
 
             class Detail(Entity):
@@ -2442,6 +2698,8 @@ class SoftwareInstall(Entity):
                 
                 	log
                 	**type**\: str
+                
+                	**config**\: False
                 
                 
 
@@ -2467,7 +2725,10 @@ class SoftwareInstall(Entity):
                     self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Detail, [u'log'], name, value)
+                    self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Detail, ['log'], name, value)
+
+
+
 
 
     class Repository(Entity):
@@ -2480,10 +2741,14 @@ class SoftwareInstall(Entity):
         	Show install software repository for XR
         	**type**\:  :py:class:`Xr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository.Xr>`
         
+        	**config**\: False
+        
         .. attribute:: all
         
         	Show contents of all install software repositories
         	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository.All>`
+        
+        	**config**\: False
         
         
 
@@ -2527,6 +2792,8 @@ class SoftwareInstall(Entity):
             	log
             	**type**\: str
             
+            	**config**\: False
+            
             
 
             """
@@ -2552,7 +2819,8 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Repository.Xr, [u'log'], name, value)
+                self._perform_setattr(SoftwareInstall.Repository.Xr, ['log'], name, value)
+
 
 
         class All(Entity):
@@ -2564,6 +2832,8 @@ class SoftwareInstall(Entity):
             
             	log
             	**type**\: str
+            
+            	**config**\: False
             
             
 
@@ -2590,9 +2860,13 @@ class SoftwareInstall(Entity):
                 self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Repository.All, [u'log'], name, value)
+                self._perform_setattr(SoftwareInstall.Repository.All, ['log'], name, value)
+
+
 
     def clone_ptr(self):
         self._top_entity = SoftwareInstall()
         return self._top_entity
+
+
 

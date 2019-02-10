@@ -89,10 +89,14 @@ class CISCOHSRPMIB(Entity):
     	
     	**type**\:  :py:class:`CHsrpGlobalConfig <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.CHsrpGlobalConfig>`
     
+    	**config**\: False
+    
     .. attribute:: chsrpgrptable
     
     	A table containing information on each HSRP group for each interface
     	**type**\:  :py:class:`CHsrpGrpTable <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.CHsrpGrpTable>`
+    
+    	**config**\: False
     
     
 
@@ -138,6 +142,8 @@ class CISCOHSRPMIB(Entity):
         
         	**range:** 1..60
         
+        	**config**\: False
+        
         	**units**\: minutes
         
         
@@ -168,6 +174,7 @@ class CISCOHSRPMIB(Entity):
             self._perform_setattr(CISCOHSRPMIB.CHsrpGlobalConfig, [u'chsrpconfigtimeout'], name, value)
 
 
+
     class CHsrpGrpTable(Entity):
         """
         A table containing information on each HSRP group
@@ -177,6 +184,8 @@ class CISCOHSRPMIB(Entity):
         
         	Information about an HSRP group. Management applications use cHsrpGrpRowStatus to control entry modification, creation and deletion.  Setting cHsrpGrpRowStatus to 'active' causes the router to communicate using HSRP.  The value of cHsrpGrpRowStatus may be set to 'destroy' at any time.  Entries may not be created via SNMP without explicitly  setting cHsrpGrpRowStatus to either 'createAndGo' or  'createAndWait'.  Entries can be created and modified via the management  protocol or by the device's local management interface.  A management application wishing to create an entry should choose the ifIndex of the interface which is to be added as part of an HSRP group. Also, a cHsrpGrpNumber should be chosen. A group number is unique only amongst the groups  on a particular interface. The value of the group number appears in packets which are transmitted and received on a  LAN segment to which the router is connected. The application must select the group number as explained in the description for cHsrpGrpNumber.  If the row is not active, and a local management interface command modifies that row, the row may transition to active state.  A row which is not in active state will timeout after a configurable period (five minutes by default). This timeout  period can be changed by setting cHsrpConfigTimeout
         	**type**\: list of  		 :py:class:`CHsrpGrpEntry <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.CISCOHSRPMIB.CHsrpGrpTable.CHsrpGrpEntry>`
+        
+        	**config**\: False
         
         
 
@@ -251,12 +260,16 @@ class CISCOHSRPMIB(Entity):
             
             	**refers to**\:  :py:class:`ifindex <ydk.models.cisco_ios_xe.IF_MIB.IFMIB.IfTable.IfEntry>`
             
+            	**config**\: False
+            
             .. attribute:: chsrpgrpnumber  (key)
             
             	This object along with the ifIndex of a particular interface uniquely identifies an HSRP group.  Group numbers 0,1 and 2 are the only valid group numbers for TokenRing interfaces. For other media types, numbers range from 0 to 255. Each interface has its own set of group numbers. There's no relationship between the groups configured on different interfaces. Using a group number on one interface doesn't preclude using the same group number on a different interface. For example, there can be a group 1 on an Ethernet and a group 1 on Token Ring. More details can be found from RFC 2281
             	**type**\: int
             
             	**range:** 0..255
+            
+            	**config**\: False
             
             .. attribute:: chsrpgrpauth
             
@@ -265,6 +278,8 @@ class CISCOHSRPMIB(Entity):
             
             	**length:** 0..8
             
+            	**config**\: False
+            
             .. attribute:: chsrpgrppriority
             
             	The cHsrpGrpPriority helps to select the active and the standby routers. The router with the highest priority is selected as the active router. In the priority range of 0 to 255, 0 is the lowest priority and 255 is the highest priority.  If two (or more) routers in a group have the same priority, the one with the highest ip address of the interface is the active router. When the active router fails to send a Hello message within a configurable period of time, the standby router with the highest priority becomes the active router.  A router with highest priority will only attempt to overthrow a lower priority active router if it is configured to preempt.  But, if there is more than one router which is not active, the highest priority non\-active router becomes the standby router
@@ -272,10 +287,14 @@ class CISCOHSRPMIB(Entity):
             
             	**range:** 0..255
             
+            	**config**\: False
+            
             .. attribute:: chsrpgrppreempt
             
             	This object, if TRUE, indicates that the current router should attempt to overthrow a lower priority active router and attempt to become the active router. If this object is FALSE, the router will become the active router only if there is no such router (or if an active router fails)
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: chsrpgrppreemptdelay
             
@@ -284,6 +303,8 @@ class CISCOHSRPMIB(Entity):
             
             	**range:** 0..3600
             
+            	**config**\: False
+            
             	**units**\: seconds
             
             .. attribute:: chsrpgrpuseconfiguredtimers
@@ -291,12 +312,16 @@ class CISCOHSRPMIB(Entity):
             	HSRP routers learn a group's Hellotime or Holdtime from hello messages.  The Hellotime is used to determine the frequency of generating hello messages when this router becomes the active or standby router. The Holdtime is the interval between the receipt of a Hello message and the presumption that the sending router has failed.  If this object is TRUE, the cHsrpGrpConfiguredHelloTime and cHsrpGrpConfiguredHoldTime will be used. If it is FALSE, the Hellotime and Holdtime values are learned
             	**type**\: bool
             
+            	**config**\: False
+            
             .. attribute:: chsrpgrpconfiguredhellotime
             
             	If cHsrpGrpUseConfiguredTimers is true, cHsrpGrpConfiguredHelloTime is used when this router is an active router. Otherwise, the Hellotime learned from the current active router is used. All routers on a particular LAN segment must use the same Hellotime
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -307,6 +332,8 @@ class CISCOHSRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: chsrpgrplearnedhellotime
@@ -315,6 +342,8 @@ class CISCOHSRPMIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             	**units**\: milliseconds
             
@@ -325,6 +354,8 @@ class CISCOHSRPMIB(Entity):
             
             	**range:** 0..4294967295
             
+            	**config**\: False
+            
             	**units**\: milliseconds
             
             .. attribute:: chsrpgrpvirtualipaddr
@@ -334,10 +365,14 @@ class CISCOHSRPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: chsrpgrpuseconfigvirtualipaddr
             
             	If this object is TRUE, cHsrpGrpVirtualIpAddr was a configured one. Otherwise, it indicates that  cHsrpGrpVirtualIpAddr was a learned one
             	**type**\: bool
+            
+            	**config**\: False
             
             .. attribute:: chsrpgrpactiverouter
             
@@ -346,6 +381,8 @@ class CISCOHSRPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: chsrpgrpstandbyrouter
             
             	Ip Address of the currently standby router for this group
@@ -353,10 +390,14 @@ class CISCOHSRPMIB(Entity):
             
             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
             
+            	**config**\: False
+            
             .. attribute:: chsrpgrpstandbystate
             
             	The current HSRP state of this group on this interface
             	**type**\:  :py:class:`HsrpState <ydk.models.cisco_ios_xe.CISCO_HSRP_MIB.HsrpState>`
+            
+            	**config**\: False
             
             .. attribute:: chsrpgrpvirtualmacaddr
             
@@ -365,15 +406,21 @@ class CISCOHSRPMIB(Entity):
             
             	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
             
+            	**config**\: False
+            
             .. attribute:: chsrpgrpentryrowstatus
             
             	The control that allows modification, creation, and deletion of entries.  For detailed rules see the DESCRIPTION for cHsrpGrpEntry
             	**type**\:  :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
+            	**config**\: False
+            
             .. attribute:: chsrpgrpipnone
             
             	This object specifies the disable HSRP IPv4 virtual IP address
             	**type**\: bool
+            
+            	**config**\: False
             
             
 
@@ -438,7 +485,11 @@ class CISCOHSRPMIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOHSRPMIB.CHsrpGrpTable.CHsrpGrpEntry, [u'ifindex', u'chsrpgrpnumber', u'chsrpgrpauth', u'chsrpgrppriority', u'chsrpgrppreempt', u'chsrpgrppreemptdelay', u'chsrpgrpuseconfiguredtimers', u'chsrpgrpconfiguredhellotime', u'chsrpgrpconfiguredholdtime', u'chsrpgrplearnedhellotime', u'chsrpgrplearnedholdtime', u'chsrpgrpvirtualipaddr', u'chsrpgrpuseconfigvirtualipaddr', u'chsrpgrpactiverouter', u'chsrpgrpstandbyrouter', u'chsrpgrpstandbystate', u'chsrpgrpvirtualmacaddr', u'chsrpgrpentryrowstatus', u'chsrpgrpipnone'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = CISCOHSRPMIB()
         return self._top_entity
+
+
 

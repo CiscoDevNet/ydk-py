@@ -26,20 +26,28 @@ class SNMPv2MIB(Entity):
     	
     	**type**\:  :py:class:`System <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.System>`
     
+    	**config**\: False
+    
     .. attribute:: snmp
     
     	
     	**type**\:  :py:class:`Snmp <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.Snmp>`
+    
+    	**config**\: False
     
     .. attribute:: snmpset
     
     	
     	**type**\:  :py:class:`SnmpSet <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.SnmpSet>`
     
+    	**config**\: False
+    
     .. attribute:: sysortable
     
     	The (conceptual) table listing the capabilities of the local SNMP application acting as a command responder with respect to various MIB modules. SNMP entities having dynamically\-configurable support of MIB modules will have a dynamically\-varying number of conceptual rows
     	**type**\:  :py:class:`SysORTable <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.SysORTable>`
+    
+    	**config**\: False
     
     
 
@@ -93,12 +101,16 @@ class SNMPv2MIB(Entity):
         
         	**length:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: sysobjectid
         
         	The vendor's authoritative identification of the network management subsystem contained in the entity. This value is allocated within the SMI enterprises subtree (1.3.6.1.4.1) and provides an easy and unambiguous means for determining `what kind of box' is being managed.  For example, if vendor `Flintstones, Inc.' was assigned the subtree 1.3.6.1.4.1.424242, it could assign the identifier 1.3.6.1.4.1.424242.1.1 to its `Fred Router'
         	**type**\: str
         
         	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+        
+        	**config**\: False
         
         .. attribute:: sysuptime
         
@@ -107,12 +119,16 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: syscontact
         
         	The textual identification of the contact person for this managed node, together with information on how to contact this person.  If no contact information is known, the value is the zero\-length string
         	**type**\: str
         
         	**length:** 0..255
+        
+        	**config**\: False
         
         .. attribute:: sysname
         
@@ -121,12 +137,16 @@ class SNMPv2MIB(Entity):
         
         	**length:** 0..255
         
+        	**config**\: False
+        
         .. attribute:: syslocation
         
         	The physical location of this node (e.g., 'telephone closet, 3rd floor').  If the location is unknown, the value is the zero\-length string
         	**type**\: str
         
         	**length:** 0..255
+        
+        	**config**\: False
         
         .. attribute:: sysservices
         
@@ -135,12 +155,16 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..127
         
+        	**config**\: False
+        
         .. attribute:: sysorlastchange
         
         	The value of sysUpTime at the time of the most recent change in state or value of any instance of sysORID
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -184,6 +208,7 @@ class SNMPv2MIB(Entity):
             self._perform_setattr(SNMPv2MIB.System, [u'sysdescr', u'sysobjectid', u'sysuptime', u'syscontact', u'sysname', u'syslocation', u'sysservices', u'sysorlastchange'], name, value)
 
 
+
     class Snmp(Entity):
         """
         
@@ -195,12 +220,16 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: snmpoutpkts
         
         	The total number of SNMP Messages which were passed from the SNMP protocol entity to the transport service
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -211,12 +240,16 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: snmpinbadcommunitynames
         
         	The total number of community\-based SNMP messages (for example,  SNMPv1) delivered to the SNMP entity which used an SNMP community name not known to said entity. Also, implementations which authenticate community\-based SNMP messages using check(s) in addition to matching the community name (for example, by also checking whether the message originated from a transport address allowed to use a specified community name) MAY include in this value the number of messages which failed the additional check(s).  It is strongly RECOMMENDED that the documentation for any security model which is used to authenticate community\-based SNMP messages specify the precise conditions that contribute to this value
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         .. attribute:: snmpinbadcommunityuses
         
@@ -225,6 +258,8 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: snmpinasnparseerrs
         
         	The total number of ASN.1 or BER errors encountered by the SNMP entity when decoding received SNMP messages
@@ -232,12 +267,16 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: snmpintoobigs
         
         	The total number of SNMP PDUs which were delivered to the SNMP protocol entity and for which the value of the error\-status field was `tooBig'
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -248,6 +287,8 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: snmpinbadvalues
@@ -256,6 +297,8 @@ class SNMPv2MIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -266,6 +309,8 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: snmpingenerrs
@@ -274,6 +319,8 @@ class SNMPv2MIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -284,6 +331,8 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: snmpintotalsetvars
@@ -292,6 +341,8 @@ class SNMPv2MIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -302,6 +353,8 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: snmpingetnexts
@@ -310,6 +363,8 @@ class SNMPv2MIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -320,6 +375,8 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: snmpingetresponses
@@ -328,6 +385,8 @@ class SNMPv2MIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -338,6 +397,8 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: snmpouttoobigs
@@ -346,6 +407,8 @@ class SNMPv2MIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -356,6 +419,8 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: snmpoutbadvalues
@@ -364,6 +429,8 @@ class SNMPv2MIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -374,6 +441,8 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: snmpoutgetrequests
@@ -382,6 +451,8 @@ class SNMPv2MIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -392,6 +463,8 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: snmpoutsetrequests
@@ -400,6 +473,8 @@ class SNMPv2MIB(Entity):
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         	**status**\: obsolete
         
@@ -410,6 +485,8 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: snmpouttraps
@@ -419,12 +496,16 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         	**status**\: obsolete
         
         .. attribute:: snmpenableauthentraps
         
         	Indicates whether the SNMP entity is permitted to generate authenticationFailure traps.  The value of this object overrides any configuration information; as such, it provides a means whereby all authenticationFailure traps may be disabled.  Note that it is strongly recommended that this object be stored in non\-volatile memory so that it remains constant across re\-initializations of the network management system
         	**type**\:  :py:class:`SnmpEnableAuthenTraps <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.Snmp.SnmpEnableAuthenTraps>`
+        
+        	**config**\: False
         
         .. attribute:: snmpsilentdrops
         
@@ -433,12 +514,16 @@ class SNMPv2MIB(Entity):
         
         	**range:** 0..4294967295
         
+        	**config**\: False
+        
         .. attribute:: snmpproxydrops
         
         	The total number of Confirmed Class PDUs (such as GetRequest\-PDUs, GetNextRequest\-PDUs, GetBulkRequest\-PDUs, SetRequest\-PDUs, and InformRequest\-PDUs) delivered to the SNMP entity which were silently dropped because the transmission of the (possibly translated) message to a proxy target failed in a manner (other than a time\-out) such that no Response Class PDU (such as a Response\-PDU) could be returned
         	**type**\: int
         
         	**range:** 0..4294967295
+        
+        	**config**\: False
         
         
 
@@ -559,6 +644,7 @@ class SNMPv2MIB(Entity):
 
 
 
+
     class SnmpSet(Entity):
         """
         
@@ -569,6 +655,8 @@ class SNMPv2MIB(Entity):
         	**type**\: int
         
         	**range:** 0..2147483647
+        
+        	**config**\: False
         
         
 
@@ -598,6 +686,7 @@ class SNMPv2MIB(Entity):
             self._perform_setattr(SNMPv2MIB.SnmpSet, [u'snmpsetserialno'], name, value)
 
 
+
     class SysORTable(Entity):
         """
         The (conceptual) table listing the capabilities of
@@ -611,6 +700,8 @@ class SNMPv2MIB(Entity):
         
         	An entry (conceptual row) in the sysORTable
         	**type**\: list of  		 :py:class:`SysOREntry <ydk.models.cisco_ios_xe.SNMPv2_MIB.SNMPv2MIB.SysORTable.SysOREntry>`
+        
+        	**config**\: False
         
         
 
@@ -650,6 +741,8 @@ class SNMPv2MIB(Entity):
             
             	**range:** 1..2147483647
             
+            	**config**\: False
+            
             .. attribute:: sysorid
             
             	An authoritative identification of a capabilities statement with respect to various MIB modules supported by the local SNMP application acting as a command responder
@@ -657,10 +750,14 @@ class SNMPv2MIB(Entity):
             
             	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
             
+            	**config**\: False
+            
             .. attribute:: sysordescr
             
             	A textual description of the capabilities identified by the corresponding instance of sysORID
             	**type**\: str
+            
+            	**config**\: False
             
             .. attribute:: sysoruptime
             
@@ -668,6 +765,8 @@ class SNMPv2MIB(Entity):
             	**type**\: int
             
             	**range:** 0..4294967295
+            
+            	**config**\: False
             
             
 
@@ -702,7 +801,11 @@ class SNMPv2MIB(Entity):
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPv2MIB.SysORTable.SysOREntry, [u'sysorindex', u'sysorid', u'sysordescr', u'sysoruptime'], name, value)
 
+
+
     def clone_ptr(self):
         self._top_entity = SNMPv2MIB()
         return self._top_entity
+
+
 
